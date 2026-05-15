@@ -2,7 +2,7 @@ import { buildBoss } from 'game/raids/builders';
 
 export const Salhadaar = buildBoss({
   id: 3179,
-  name: 'Fallen King Salhadaar',
+  name: '陨落之王萨哈达尔',
   timeline: {
     abilities: [
       // Void Convergence (activate orbs)

@@ -1,4 +1,4 @@
-import { maybeGetSpell, registerSpell } from 'common/SPELLS';
+import { maybeGetSpell, registerSpell, updateSpellName } from 'common/SPELLS';
 import Analyzer, { Options } from 'parser/core/Analyzer';
 import Events, { Ability, AnyEvent } from 'parser/core/Events';
 import { maybeGetTalent } from 'common/TALENTS/maybeGetTalent';
@@ -6,6 +6,8 @@ import { maybeGetTalent } from 'common/TALENTS/maybeGetTalent';
 /**
  * We automatically discover spell info from the combat log so we can avoid many
  * calls to resolve missing spell info.
+ * For CN fork: WCL's translate=true returns Chinese spell names for Chinese logs.
+ * We override hardcoded English names with WCL's translated names.
  */
 class SpellInfo extends Analyzer {
   constructor(options: Options) {
@@ -23,19 +25,19 @@ class SpellInfo extends Analyzer {
   }
 
   addSpellInfo(ability: Omit<Ability, 'type'>) {
-    // If the spell is already in the spellbook, we ignore it
-    if (maybeGetSpell(ability.guid) || !ability.name || !ability.abilityIcon) {
+    if (!ability.name || !ability.abilityIcon) {
       return;
     }
 
-    // If the spell is a talent, we want to use the talent version instead of whatever
-    // is logged by the game, because it can be misleading
     const talent = maybeGetTalent(ability.guid);
-    registerSpell(
-      ability.guid,
-      talent?.name ?? ability.name,
-      (talent?.icon ?? ability.abilityIcon).replace(/\.jpg$/, ''),
-    );
+    const name = talent?.name ?? ability.name;
+    const icon = (talent?.icon ?? ability.abilityIcon).replace(/\.jpg$/, '');
+
+    if (maybeGetSpell(ability.guid)) {
+      updateSpellName(ability.guid, name, icon);
+    } else {
+      registerSpell(ability.guid, name, icon);
+    }
   }
 }
 

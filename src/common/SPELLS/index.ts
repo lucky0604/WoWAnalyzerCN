@@ -92,3 +92,11 @@ export const registerSpell = (id: number, name: string, icon: string) => {
     icon,
   };
 };
+
+export const updateSpellName = (id: number, name: string, icon: string) => {
+  const spell = InternalSpellTable[id];
+  if (spell) {
+    spell.name = name;
+    spell.icon = icon;
+  }
+};

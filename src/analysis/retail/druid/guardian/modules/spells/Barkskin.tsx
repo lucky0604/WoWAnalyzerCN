@@ -3,6 +3,7 @@ import {
   buff,
   MajorDefensiveBuff,
 } from 'interface/guide/components/MajorDefensives/MajorDefensiveAnalyzer';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { Options } from 'parser/core/Module';
 import Events, { DamageEvent } from 'parser/core/Events';
@@ -45,13 +46,22 @@ export default class Barkskin extends MajorDefensiveBuff {
           <strong>
             <SpellLink spell={SPELLS.BARKSKIN} />
           </strong>{' '}
-          provides a modest damage reduction on a short cooldown. With{' '}
-          <SpellLink spell={TALENTS_DRUID.VERDANT_HEART_TALENT} />, it also increases all incoming
-          healing by 20%.
+          {t({
+            id: 'guardian.barkskin.description',
+            message: 'provides a modest damage reduction on a short cooldown. With',
+          })}{' '}
+          <SpellLink spell={TALENTS_DRUID.VERDANT_HEART_TALENT} />
+          {t({
+            id: 'guardian.barkskin.verdantHeart',
+            message: ', it also increases all incoming healing by 20%.',
+          })}
         </p>
         <p>
-          With its brief cooldown and long duration, you can use it pretty freely. Cover time of
-          moderate danger, like on pull or before a routine tankbuster.
+          {t({
+            id: 'guardian.barkskin.usage',
+            message:
+              'With its brief cooldown and long duration, you can use it pretty freely. Cover time of moderate danger, like on pull or before a routine tankbuster.',
+          })}
         </p>
       </>
     );

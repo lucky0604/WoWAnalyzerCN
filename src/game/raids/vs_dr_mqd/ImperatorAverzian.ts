@@ -4,7 +4,7 @@ import { buildBoss } from 'game/raids/builders';
 export const ImperatorAverzian = buildBoss({
   background,
   id: 3176,
-  name: 'Imperator Averzian',
+  name: '元首阿福扎恩',
   timeline: {
     abilities: [
       // Shadow's Advance (Summon Tic-Tac-Toe adds) - 2 versions

@@ -4,7 +4,7 @@ import { buildBoss } from 'game/raids/builders';
 export const VaelgorEzzorak = buildBoss({
   background,
   id: 3178,
-  name: 'Vaelgor & Ezzorak',
+  name: '威厄高尔和艾佐拉克',
   timeline: {
     abilities: [
       // Dread Breath

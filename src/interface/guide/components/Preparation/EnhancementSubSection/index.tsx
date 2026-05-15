@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide/index';
 import EnhancementBoxRow from 'interface/guide/components/Preparation/EnhancementSubSection/EnhancementBoxRow';
 import WeaponEnhancementChecker from 'parser/shared/modules/items/WeaponEnhancementChecker';
@@ -21,7 +22,12 @@ const EnchantmentSubSection = ({ recommendedWeaponEnhancements }: Props) => {
   const enhancementBoxRowEntires = [...weaponBoxRowEntries];
 
   return (
-    <SubSection title="Enhancements">
+    <SubSection
+      title={t({
+        id: 'guide.preparation.enhancements',
+        message: 'Enhancements',
+      })}
+    >
       <p>Enhancements are easy ways to improve your throughput.</p>
       <EnhancementBoxRow values={enhancementBoxRowEntires} />
     </SubSection>

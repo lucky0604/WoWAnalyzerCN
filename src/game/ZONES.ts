@@ -18,14 +18,14 @@ export interface Zone {
 const ZONES: Zone[] = [
   {
     id: 47,
-    name: 'Mythic+ Season 1',
+    name: '史诗钥石第 1 赛季',
     frozen: false,
     useBetaTooltips: false,
     encounters: Object.values(MythicPlusSeasonOne.bosses),
   },
   {
     id: 46,
-    name: 'Voidspire / Dreamrift / MQD',
+    name: '虚痕尖塔 / 梦境裂隙 / MQD',
     frozen: false,
     useBetaTooltips: false,
     encounters: Object.values(VSDRMQD.bosses),

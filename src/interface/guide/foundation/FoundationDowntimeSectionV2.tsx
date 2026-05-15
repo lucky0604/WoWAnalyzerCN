@@ -1,4 +1,6 @@
 import { Uptime } from 'parser/ui/UptimeBar';
+import { t } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 import {
   BadColor,
   OkColor,
@@ -108,8 +110,17 @@ export default function FoundationDowntimeSectionV2(): JSX.Element | null {
               </PerformanceStrong>
             </dt>
             <dd>
-              <TooltipElement content="The percentage of time that you spent casting, waiting for the Global Cooldown, or with no abilities off-cooldown.">
-                Ability Uptime
+              <TooltipElement
+                content={t({
+                  id: 'guide.foundation.downtime.abilityUptime.tooltip',
+                  message:
+                    'The percentage of time that you spent casting, waiting for the Global Cooldown, or with no abilities off-cooldown.',
+                })}
+              >
+                {t({
+                  id: 'guide.foundation.downtime.abilityUptime',
+                  message: 'Ability Uptime',
+                })}
               </TooltipElement>
             </dd>
             <ByRole>
@@ -122,8 +133,17 @@ export default function FoundationDowntimeSectionV2(): JSX.Element | null {
                       </PerformanceStrong>
                     </dt>
                     <dd>
-                      <TooltipElement content="The percentage of time that your basic melee swings were active, excluding time spent casting.">
-                        Melee Uptime
+                      <TooltipElement
+                        content={t({
+                          id: 'guide.foundation.downtime.meleeUptime.tooltip',
+                          message:
+                            'The percentage of time that your basic melee swings were active, excluding time spent casting.',
+                        })}
+                      >
+                        {t({
+                          id: 'guide.foundation.downtime.meleeUptime',
+                          message: 'Melee Uptime',
+                        })}
                       </TooltipElement>
                     </dd>
                   </>
@@ -137,8 +157,17 @@ export default function FoundationDowntimeSectionV2(): JSX.Element | null {
                     </PerformanceStrong>
                   </dt>
                   <dd>
-                    <TooltipElement content="The percentage of time that you spent actively healing. A low percentage with high ability uptime might mean that you are over-healing and should have some healers play DPS instead.">
-                      Healing Uptime
+                    <TooltipElement
+                      content={t({
+                        id: 'guide.foundation.downtime.healingUptime.tooltip',
+                        message:
+                          'The percentage of time that you spent actively healing. A low percentage with high ability uptime might mean that you are over-healing and should have some healers play DPS instead.',
+                      })}
+                    >
+                      {t({
+                        id: 'guide.foundation.downtime.healingUptime',
+                        message: 'Healing Uptime',
+                      })}
                     </TooltipElement>
                   </dd>
                 </>
@@ -152,8 +181,16 @@ export default function FoundationDowntimeSectionV2(): JSX.Element | null {
                       </PerformanceStrong>
                     </dt>
                     <dd>
-                      <TooltipElement content="The percentage of casts that you cancelled before finishing.">
-                        Cancelled Casts
+                      <TooltipElement
+                        content={t({
+                          id: 'guide.foundation.downtime.cancelledCasts.tooltip',
+                          message: 'The percentage of casts that you cancelled before finishing.',
+                        })}
+                      >
+                        {t({
+                          id: 'guide.foundation.downtime.cancelledCasts',
+                          message: 'Cancelled Casts',
+                        })}
                       </TooltipElement>
                     </dd>
                   </>
@@ -174,13 +211,13 @@ export default function FoundationDowntimeSectionV2(): JSX.Element | null {
               </Role.Caster>{' '}
               This diagram shows gaps in your uptime in{' '}
               <Highlight color={BadColor} textColor="white">
-                red
+                {t({ id: 'guide.foundation.downtime.color.red', message: 'red' })}
               </Highlight>
               <Role.Healer>
                 {' '}
                 and non-healing uptime in{' '}
                 <Highlight color={PerfectColor} textColor="black">
-                  blue
+                  {t({ id: 'guide.foundation.downtime.color.blue', message: 'blue' })}
                 </Highlight>
               </Role.Healer>
               .
@@ -262,8 +299,14 @@ function ComplexUptimeDisplay({
         ...segment,
         tooltip: (
           <>
-            Melee downtime from {formatDuration(segment.start - info.fightStart, 1)} to{' '}
-            {formatDuration(segment.end - info.fightStart, 1)}{' '}
+            {i18n._({
+              id: 'guide.foundation.downtime.meleeDowntimeRange',
+              message: 'Melee downtime from {start} to {end}',
+              values: {
+                start: formatDuration(segment.start - info.fightStart, 1),
+                end: formatDuration(segment.end - info.fightStart, 1),
+              },
+            })}{' '}
           </>
         ),
       })),
@@ -278,9 +321,15 @@ function ComplexUptimeDisplay({
         abilityId: undefined,
         tooltip: (
           <>
-            <SpellLink spell={gap.abilityId} /> cast started at{' '}
-            {formatDuration(gap.start - info.fightStart, 1)}, cancelled at {gap.capped ? '~' : ''}
-            {formatDuration(gap.end - info.fightStart, 1)}
+            <SpellLink spell={gap.abilityId} />{' '}
+            {i18n._({
+              id: 'guide.foundation.downtime.cancelRange',
+              message: 'cast started at {start}, cancelled at {end}',
+              values: {
+                start: formatDuration(gap.start - info.fightStart, 1),
+                end: `${gap.capped ? '~' : ''}${formatDuration(gap.end - info.fightStart, 1)}`,
+              },
+            })}
           </>
         ),
       })),
@@ -303,7 +352,10 @@ function ComplexUptimeDisplay({
                 fgColor={PerfectColor}
                 segments={nonHealingUptimeHistory.map((segment) => ({
                   ...segment,
-                  tooltip: 'Non-Healing uptime',
+                  tooltip: t({
+                    id: 'guide.foundation.downtime.nonHealingUptime',
+                    message: 'Non-Healing uptime',
+                  }),
                 }))}
                 info={info}
                 segmentProps={{ opacity: 0.9 }}
@@ -350,8 +402,11 @@ function ComplexUptimeDisplay({
                   fgColor={OkColor}
                   segments={globalMeleeGaps.map((segment) => ({
                     ...segment,
-                    tooltip:
-                      'All melee had downtime here, which may mean that no enemies were attackable.',
+                    tooltip: t({
+                      id: 'guide.foundation.downtime.allMeleeDowntime',
+                      message:
+                        'All melee had downtime here, which may mean that no enemies were attackable.',
+                    }),
                   }))}
                   info={info}
                 />
@@ -463,11 +518,14 @@ const PlayerAbilityTimeline = memo(({ info }: { info: Info }) => {
 
   const segments = useMemo(
     () =>
-      playerTimeline.map((segment) => ({
-        ...segment,
-        color: segment.channel ? 'hsl(44 60% 60%)' : '#666',
-        tooltip: `${segment.channel ? 'Cast' : 'GCD'} from ${formatDuration(segment.start - info.fightStart, 1)} to ${formatDuration(segment.end - info.fightStart, 1)}`,
-      })),
+      playerTimeline.map((segment) => {
+        const label = segment.channel ? 'Cast' : 'GCD';
+        return {
+          ...segment,
+          color: segment.channel ? 'hsl(44 60% 60%)' : '#666',
+          tooltip: `${label} from ${formatDuration(segment.start - info.fightStart, 1)} to ${formatDuration(segment.end - info.fightStart, 1)}`,
+        };
+      }),
     [playerTimeline, info.fightStart],
   );
 

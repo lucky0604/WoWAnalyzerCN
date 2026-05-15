@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide/index';
 import GemChecker from 'parser/shared/modules/items/GemChecker';
 import GemBoxRow from 'interface/guide/components/Preparation/GemSubSection/GemBoxRow';
@@ -15,7 +16,12 @@ const GemSubSection = ({ recommendedGems }: Props) => {
   }
 
   return (
-    <SubSection title="Gems">
+    <SubSection
+      title={t({
+        id: 'guide.preparation.gems',
+        message: 'Gems',
+      })}
+    >
       <p>
         <Trans id="interface.guide.preparation.gems.description">
           Gems can increase a variety of stats. This indicates gear where you are missing Gem

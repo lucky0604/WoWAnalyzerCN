@@ -4,7 +4,7 @@ import { buildBoss } from 'game/raids/builders';
 export const MidnightFalls = buildBoss({
   background,
   id: 3183,
-  name: 'Midnight Falls',
+  name: '至暗之夜降临',
   timeline: {
     abilities: [
       // glaive spawn

@@ -26,6 +26,7 @@ import * as difficulty from 'game/DIFFICULTIES';
 import HeaderStatBox, { StatBoxContainer } from './HeaderStatBox';
 import { level1, level2, colors, gaps, fontSize } from 'interface/design-system';
 import { formatDuration } from 'common/format';
+import getBossDisplayName from 'common/getBossDisplayName';
 import FilterButton from './FilterButton';
 import { Filter } from 'interface/report/hooks/useTimeEventFilter';
 import Select from 'interface/controls/Select';
@@ -379,8 +380,8 @@ function BossMiniBox({ boss, fight }: Pick<HeaderProps, 'boss' | 'fight'>): JSX.
   );
   return (
     <MiniBoxContainer data-testid="boss-difficulty-and-name">
-      <MiniBoxImage src={icon} alt={boss?.name ?? fight.name} />
-      <MiniBoxName>{boss?.name ?? fight.name}</MiniBoxName>
+      <MiniBoxImage src={icon} alt={boss?.name ?? getBossDisplayName(fight.boss, fight.name)} />
+      <MiniBoxName>{boss?.name ?? getBossDisplayName(fight.boss, fight.name)}</MiniBoxName>
       <MiniBoxSubtext>
         {difficulty.getLabel(fight.difficulty ?? 0)}{' '}
         {fight.kill ? `Kill - ${duration}` : `Wipe - ${duration}`}

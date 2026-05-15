@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { SubSection } from 'interface/guide';
 import Spell from 'common/SPELLS/Spell';
 import { SideBySidePanels } from 'interface/guide/components/GuideDivs';
@@ -15,7 +16,12 @@ interface Props {
 }
 const ConsumablesSubSection = ({ recommendedFlasks, recommendedFoods, expansion }: Props) => {
   return (
-    <SubSection title="Consumables">
+    <SubSection
+      title={t({
+        id: 'guide.preparation.consumables',
+        message: 'Consumables',
+      })}
+    >
       <p>Using consumables appropriately is an easy way to improve your throughput.</p>
       <SideBySidePanels>
         <FoodPanel recommendedFoods={recommendedFoods} expansion={expansion} />

@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import ResourceLink from 'interface/ResourceLink';
 import Explanation from '../components/Explanation';
 import { SubSection, useAnalyzer } from '../index';
@@ -26,7 +27,12 @@ export default function FoundationHealerManaSection(): JSX.Element | null {
   const healingEfficiencyTracker = useAnalyzer(HealingEfficiencyTracker);
 
   return (
-    <SubSection title="Spend Your Mana">
+    <SubSection
+      title={t({
+        id: 'guide.foundation.healerMana.spendMana',
+        message: 'Spend Your Mana',
+      })}
+    >
       <Explanation>
         <Para>
           As a <strong>Healer</strong>, <ResourceLink id={RESOURCE_TYPES.MANA.id} /> is your most
@@ -49,7 +55,12 @@ export default function FoundationHealerManaSection(): JSX.Element | null {
           spending more mana early in a fight.
         </AlertInfo>
       </Explanation>
-      <SubSection title="Check Your Mana Level">
+      <SubSection
+        title={t({
+          id: 'guide.foundation.healerMana.checkLevel',
+          message: 'Check Your Mana Level',
+        })}
+      >
         <Explanation>
           <Para>
             This chart shows your mana level over time, along with boss HP. There are a couple of
@@ -77,7 +88,12 @@ export default function FoundationHealerManaSection(): JSX.Element | null {
         />
       </SubSection>
       {healingEfficiencyTracker && (
-        <SubSection title="Use Efficient Spells">
+        <SubSection
+          title={t({
+            id: 'guide.foundation.healerMana.efficientSpells',
+            message: 'Use Efficient Spells',
+          })}
+        >
           <Explanation>
             This table shows the mana and time-efficiency of your spells.{' '}
             <HL>If you are running out of mana, try switching to more mana-efficient spells.</HL> If

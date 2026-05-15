@@ -4,7 +4,7 @@ import { buildBoss } from 'game/raids/builders';
 export const Chimaerus = buildBoss({
   background,
   id: 3306,
-  name: 'Chimaerus the Undreamt God',
+  name: '奇美鲁斯，未梦之神',
   timeline: {
     abilities: [
       // Alndust Upheaval (group soak)

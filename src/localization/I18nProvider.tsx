@@ -5,10 +5,26 @@ import { useWaSelector } from 'interface/utils/useWaSelector';
 import { ReactNode, useEffect, useState } from 'react';
 import { useHead } from '@unhead/react';
 
+// Per-spec Chinese translations. Structure mirrors src/analysis/retail/{class}/{spec}/
+const SPEC_TRANSLATIONS: Record<string, () => Promise<Record<string, string>>> = {
+  zh: () => import('./zh/druid/guardian/content.json').then((m) => m.default),
+};
+
 const loadCatalog = async (locale: string) => {
   const { messages } = await import(`./${locale}/messages.json?lingui`);
 
   i18n.load(locale, messages);
+
+  const loadSpec = SPEC_TRANSLATIONS[locale];
+  if (loadSpec) {
+    try {
+      const specMessages = await loadSpec();
+      i18n.load(locale, specMessages);
+    } catch {
+      // spec translations not available — skip
+    }
+  }
+
   i18n.activate(locale);
 };
 

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide/index';
 import EnchantChecker from 'parser/shared/modules/items/EnchantChecker';
 import EnchantmentBoxRow from 'interface/guide/components/Preparation/EnchantmentSubSection/EnchantmentBoxRow';
@@ -15,7 +16,12 @@ const EnchantmentSubSection = ({ recommendedEnchantments }: Props) => {
   }
 
   return (
-    <SubSection title="Enchants">
+    <SubSection
+      title={t({
+        id: 'guide.preparation.enchants',
+        message: 'Enchants',
+      })}
+    >
       <p>Enchantments are easy ways to improve your throughput.</p>
       <EnchantmentBoxRow
         values={enchantChecker.getEnchantmentBoxRowEntries(recommendedEnchantments)}

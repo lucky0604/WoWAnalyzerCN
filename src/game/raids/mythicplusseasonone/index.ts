@@ -15,42 +15,42 @@ export default {
   bosses: {
     MagistersTerrace: buildBoss({
       id: 12811,
-      name: "Magister's Terrace",
+      name: '魔导师平台',
       background: MagistersTerrace,
     }),
     MaisaraCaverns: buildBoss({
       id: 12874,
-      name: 'Maisara Caverns',
+      name: '迈萨拉洞窟',
       background: MaisaraCaverns,
     }),
     NexusPointXenas: buildBoss({
       id: 12915,
-      name: 'Nexus Point Xenas',
+      name: '节点希纳斯',
       background: NexusPointXenas,
     }),
     WindrunnerSpire: buildBoss({
       id: 12805,
-      name: 'Windrunner Spire',
+      name: '风行者之塔',
       background: WindrunnerSpire,
     }),
     AlgetharAcademy: buildBoss({
       id: 112526,
-      name: "Algeth'ar Academy",
+      name: '艾杰斯亚学院',
       background: AlgetharAcademy,
     }),
     SeatOfTheTriumvirate: buildBoss({
       id: 361753,
-      name: 'The Seat of the Triumvirate',
+      name: '执政团之座',
       background: SeatOfTheTriumvirate,
     }),
     Skyreach: buildBoss({
       id: 61209,
-      name: 'Skyreach',
+      name: '通天峰',
       background: Skyreach,
     }),
     PitOfSaron: buildBoss({
       id: 10658,
-      name: 'Pit of Saron',
+      name: '萨隆矿坑',
       background: PitOfSaron,
     }),
   },

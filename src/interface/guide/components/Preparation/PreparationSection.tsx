@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Section } from 'interface/guide';
 import Spell from 'common/SPELLS/Spell';
 import { Enchant } from 'common/ITEMS/Item';
@@ -24,7 +25,12 @@ const PreparationSection = ({
   expansion = RETAIL_EXPANSION,
   recommendedGems,
 }: Props) => (
-  <Section title="Preparation">
+  <Section
+    title={t({
+      id: 'guide.preparation.title',
+      message: 'Preparation',
+    })}
+  >
     <EnchantmentSubSection recommendedEnchantments={recommendedEnchantments} />
     {isRetailExpansion(expansion) && (
       <EnhancementSubSection recommendedWeaponEnhancements={recommendedWeaponEnhancements} />
