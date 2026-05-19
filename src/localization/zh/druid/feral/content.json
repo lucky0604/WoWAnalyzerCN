@@ -1,0 +1,17 @@
+{
+  "feral.resources.title": "资源使用",
+  "feral.energy.title": "能量",
+  "feral.energy.description": "你的主要资源是能量。通常，技能使用会受到能量限制，而不是时间限制。避免能量满溢——失去的能量恢复就是失去的DPS。高端装备加上比之前资料片更多的能量天赋，导致有时无法避免能量满溢，特别是在使用冷却技能期间。在这些时期，尽快使用技能以最大化DPS是很重要的。",
+  "feral.energy.wasted": "下面的图表显示了你在战斗中的能量情况。你在战斗中有 <0>{0}%</0> 的时间是能量满溢的。",
+  "feral.comboPoints.title": "连击点",
+  "feral.comboPoints.description": "你的大多数技能要么<0>积攒</0>要么<1>消耗</1>连击点。永远不要在满连击点时使用攒点技能，并且总是等待达到 {ACCEPTABLE_CPS} 连击点再使用消耗技能（除了你的起手 <2/>）。",
+  "feral.rotation.title": "核心循环",
+  "feral.rotation.description": "野性德的核心循环包括使用<0>攒点</0>技能获取连击点，然后使用强大的<1>消耗</1>技能来消耗连击点。保持目标身上的持续伤害效果，然后用你的直接伤害技能填充。参考专精指南获取<2>循环详情</2>。",
+  "feral.rotation.primarySpells": "正确使用 <0/>、<1/> 和 <2/> 是高单体伤害的最重要因素。<3>在优化下一部分的内容之前，先掌握这些技能。</3>",
+  "feral.advancedRotation.title": "高级循环",
+  "feral.advancedRotation.description": "天赋选择会为你的循环添加新按钮或改变技能顺序。正确使用它们将让你优化DPS。在优化这些之前，确保你已经掌握了核心循环。",
+  "feral.cooldowns.title": "冷却技能",
+  "feral.cooldowns.description": "野性德的冷却技能很强大，不应该保留太久。为了在战斗中最大化使用次数，你应该在冷却技能可用时尽快使用（只要它能对目标造成伤害）。尽可能频繁使用 <0/> 尤为重要。",
+  "feral.cooldownGraph.title": "冷却图表",
+  "feral.cooldownGraph.description": "- 此图表显示了你何时使用了冷却技能，以及你等了多久再次使用它们。灰色段表示技能可用，黄色段表示技能正在冷却。红色段突出显示了你本可以多使用一次冷却技能的时间。"
+}

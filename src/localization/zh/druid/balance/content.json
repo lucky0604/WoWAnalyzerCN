@@ -1,0 +1,18 @@
+{
+  "balance.core.title": "核心",
+  "balance.alert.apexTalents": "顶点天赋尚未实现。",
+  "balance.alwaysBeCasting.title": "保持施法",
+  "balance.alwaysBeCasting.description": "在整个战斗中连续施法是作为远程法术DPS实现良好表现最重要的一件事。",
+  "balance.alwaysBeCasting.tips": "你的法术之间应该完全没有延迟，开始施放错误的法术也比思考几秒钟然后施放正确的法术更好。你应该能够以最小的施法中断来处理战斗机制。一些战斗由于阶段转换等原因有不可避免的 downtime，所以在这些情况下 0% downtime 是不可能的——尽你所能就好。",
+  "balance.activeTime.label": "活跃时间：",
+  "balance.cancelledCasts.label": "取消施法：",
+  "balance.astralPower.title": "星界能量",
+  "balance.astralPower.description": "你的主要资源是 <0/>。你的大多数法术会产生星界能量，它可以用来施放 <1/> 或 <2/>。避免星界能量满溢！",
+  "balance.astralPower.wasted": "下面的图表显示了你在战斗中的星界能量情况。你浪费了 <0/> 的 <1/>。",
+  "balance.rotation.title": "循环",
+  "balance.rotation.description": "平衡德的核心循环包括根据情况施放正确的 <0/>，最大化 DOT 覆盖率，以及消耗星界能量以避免溢出。在满足这些优先级之后，用 <1/> 或 <2/> 填充空闲的 GCD，具体取决于蚀类型和目标数量。参考专精指南获取更多<3>循环详情</3>。",
+  "balance.cooldowns.title": "冷却技能",
+  "balance.cooldowns.description": "平衡德的冷却技能强度适中，和大多数DPS专精一样，不应该保留太久。为了在战斗中最大化使用次数，目标是在冷却技能可用时尽快使用（只要你能在其持续期间保持对目标活跃）。",
+  "balance.cooldownGraph.title": "冷却图表",
+  "balance.cooldownGraph.description": "- 此图表显示了你何时使用了冷却技能，以及你等了多久再次使用它们。灰色段表示技能可用，黄色段表示技能正在冷却。红色段突出显示了你本可以多使用一次冷却技能的时间。"
+}

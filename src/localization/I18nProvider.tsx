@@ -7,7 +7,15 @@ import { useHead } from '@unhead/react';
 
 // Per-spec Chinese translations. Structure mirrors src/analysis/retail/{class}/{spec}/
 const SPEC_TRANSLATIONS: Record<string, () => Promise<Record<string, string>>> = {
-  zh: () => import('./zh/druid/guardian/content.json').then((m) => m.default),
+  zh: async () => {
+    const [guardian, balance, feral, restoration] = await Promise.all([
+      import('./zh/druid/guardian/content.json'),
+      import('./zh/druid/balance/content.json'),
+      import('./zh/druid/feral/content.json'),
+      import('./zh/druid/restoration/content.json'),
+    ]);
+    return { ...guardian.default, ...balance.default, ...feral.default, ...restoration.default };
+  },
 };
 
 const loadCatalog = async (locale: string) => {

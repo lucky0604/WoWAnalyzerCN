@@ -1,6 +1,10 @@
 {
   "guardian.rage.description": "熊德的主要资源是 <0/>。它通过正常循环产生，可以消耗于防御（<1/> / <2/>）或进攻（<3/> / <4/>）。你应该在怒气溢出前消耗它，溢出的怒气等于浪费。<5/> 不受 GCD 影响——多余的怒气可以随时转化为额外的层数。",
   "guardian.rage.wasted": "下图展示了你在战斗中的怒气变化。你浪费了 <0/> 的 <1/>。",
+  "guardian.section.rage": "怒气",
+  "guardian.section.rotation": "循环",
+  "guardian.section.offensiveCooldowns": "进攻冷却",
+  "guardian.section.majorDefensives": "主要减伤",
   "guardian.rotation.basics": "熊德的伤害/怒气循环基础是卡 CD 使用 <0/> 和 <1/>，同时保持目标身上的 <2/>。用 <3/> 填充所有空闲 GCD。更多细节和优先级，请参考 <4>Wowhead 循环指南</4>。",
   "guardian.rotation.gcdCapped": "熊德是一个完全 GCD 受限的专精，你需要不断使用技能。活跃时间显示了你施放技能的百分比——尽量接近 100%。",
   "guardian.rotation.activeTime": "活跃时间:",

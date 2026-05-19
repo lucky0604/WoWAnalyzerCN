@@ -44,7 +44,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 // TODO move to own Rage class?
 function RageSection({ modules }: GuideProps<typeof CombatLogParser>): JSX.Element {
   return (
-    <Section title="Rage">
+    <Section title={t({ id: 'guardian.section.rage', message: 'Rage' })}>
       <p>
         <Trans id="guardian.rage.description">
           Guardian's primary resource is <ResourceLink id={RESOURCE_TYPES.RAGE.id} />. It's
@@ -78,7 +78,7 @@ function RageSection({ modules }: GuideProps<typeof CombatLogParser>): JSX.Eleme
 
 function RotationSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Rotation">
+    <Section title={t({ id: 'guardian.section.rotation', message: 'Rotation' })}>
       <p>
         <Trans id="guardian.rotation.basics">
           The basics of Guardian's damage / rage-building rotation is to use{' '}
@@ -112,19 +112,6 @@ function RotationSection({ modules, events, info }: GuideProps<typeof CombatLogP
         </strong>
       </p>
       <p>
-        Guardian is absolutely a GCD-capped spec and you should be constantly using abilities.
-        Active time shows the percentage of time you were spamming abilities - get as close to 100%
-        as you can.
-      </p>
-      <p>
-        <strong>
-          Active Time:{' '}
-          <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
-            {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
-          </PerformanceStrong>{' '}
-        </strong>
-      </p>
-      <p>
         <ActiveTimeGraph
           activeTimeSegments={modules.alwaysBeCasting.activeTimeSegments}
           fightStart={info.fightStart}
@@ -144,7 +131,9 @@ function OffensiveCooldownsSection({
   info,
 }: GuideProps<typeof CombatLogParser>): JSX.Element | null {
   return (
-    <Section title="Offensive Cooldowns">
+    <Section
+      title={t({ id: 'guardian.section.offensiveCooldowns', message: 'Offensive Cooldowns' })}
+    >
       <Explanation>
         {t({
           id: 'guardian.offensiveCooldowns.description',
@@ -174,7 +163,7 @@ function OffensiveCooldownsSection({
 function MajorDefensivesSection(): JSX.Element | null {
   const analyzers = useAnalyzers([Barkskin, SurvivalInstincts]);
   return (
-    <Section title="Major Defensives">
+    <Section title={t({ id: 'guardian.section.majorDefensives', message: 'Major Defensives' })}>
       <Explanation>
         <p>
           {t({
