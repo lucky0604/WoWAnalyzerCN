@@ -1,4 +1,5 @@
 import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import CombatLogParser from 'analysis/retail/hunter/survival/CombatLogParser';
 import {
   RESOURCES_HUNTER_AVERAGE_THRESHOLD,
@@ -29,36 +30,52 @@ export default function ResourceUseSection(modules: ModulesOf<typeof CombatLogPa
         })}
       >
         <p>
-          With proper <SpellLink spell={TALENTS.TIP_OF_THE_SPEAR_TALENT} /> management, you should
-          avoid most issues with focus and waste will be minimal to non-existant. It will
-          occasionally be impossible to avoid capping <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
-          {'. '}
+          <Trans id="guide.hunter.survival.sections.resources.focus.summary">
+            With proper <SpellLink spell={TALENTS.TIP_OF_THE_SPEAR_TALENT} /> management, you should
+            avoid most issues with focus and waste will be minimal to non-existant. It will
+            occasionally be impossible to avoid capping{' '}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />.
+          </Trans>
         </p>
-        The chart below shows your <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> over the course of
-        the encounter. You wasted{' '}
-        <PerformanceStrongWithTooltip
-          performance={modules.focusTracker.percentAtCapPerformance}
-          tooltip={
-            <>
-              <p>
-                <PerformanceMark perf={QualitativePerformance.Perfect} /> Perfect usage &lt;={' '}
-                {formatPercentage(RESOURCES_HUNTER_MINOR_THRESHOLD, 0)}%
-              </p>
-              <p>
-                <PerformanceMark perf={QualitativePerformance.Good} /> Good usage &lt;={' '}
-                {formatPercentage(RESOURCES_HUNTER_AVERAGE_THRESHOLD, 0)}%
-              </p>
-              <p>
-                <PerformanceMark perf={QualitativePerformance.Ok} /> OK usage &lt;={' '}
-                {formatPercentage(RESOURCES_HUNTER_MAJOR_THRESHOLD, 0)}%
-              </p>
-            </>
-          }
-        >
-          {formatNumber(modules.focusTracker.wasted)} (
-          {formatPercentage(modules.focusTracker.percentAtCap, 1)}%)
-        </PerformanceStrongWithTooltip>{' '}
-        <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />.{modules.focusGraph.plot}
+        <p>
+          <Trans id="guide.hunter.survival.sections.resources.focus.wasted">
+            The chart below shows your <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> over the course
+            of the encounter. You wasted{' '}
+          </Trans>
+          <PerformanceStrongWithTooltip
+            performance={modules.focusTracker.percentAtCapPerformance}
+            tooltip={
+              <>
+                <p>
+                  <PerformanceMark perf={QualitativePerformance.Perfect} />{' '}
+                  <Trans id="guide.hunter.survival.sections.resources.focus.tooltip.perfect">
+                    Perfect usage &lt;={''}
+                  </Trans>{' '}
+                  {formatPercentage(RESOURCES_HUNTER_MINOR_THRESHOLD, 0)}%
+                </p>
+                <p>
+                  <PerformanceMark perf={QualitativePerformance.Good} />{' '}
+                  <Trans id="guide.hunter.survival.sections.resources.focus.tooltip.good">
+                    Good usage &lt;={''}
+                  </Trans>{' '}
+                  {formatPercentage(RESOURCES_HUNTER_AVERAGE_THRESHOLD, 0)}%
+                </p>
+                <p>
+                  <PerformanceMark perf={QualitativePerformance.Ok} />{' '}
+                  <Trans id="guide.hunter.survival.sections.resources.focus.tooltip.ok">
+                    OK usage &lt;={''}
+                  </Trans>{' '}
+                  {formatPercentage(RESOURCES_HUNTER_MAJOR_THRESHOLD, 0)}%
+                </p>
+              </>
+            }
+          >
+            {formatNumber(modules.focusTracker.wasted)} (
+            {formatPercentage(modules.focusTracker.percentAtCap, 1)}%)
+          </PerformanceStrongWithTooltip>{' '}
+          <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />.
+        </p>
+        {modules.focusGraph.plot}
       </SubSection>
     </Section>
   );

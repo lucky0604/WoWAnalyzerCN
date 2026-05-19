@@ -7,6 +7,8 @@ import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/rogue';
 import { RoundedPanel, SideBySidePanels } from 'interface/guide/components/GuideDivs';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import CombatLogParser from './CombatLogParser';
 import CooldownGraphSubsection from './guide/CooldownGraphSubsection';
 
@@ -28,11 +30,23 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
   const energyWasted = modules.energyTracker.wasted;
 
   return (
-    <Section title="Resource Use">
-      <SubSection title="Energy">
+    <Section
+      title={t({
+        id: 'guide.rogue.subtlety.sections.resources.title',
+        message: 'Resource Use',
+      })}
+    >
+      <SubSection
+        title={t({
+          id: 'guide.rogue.subtlety.sections.resources.energy.title',
+          message: 'Energy',
+        })}
+      >
         <p>
-          Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Avoid energy
-          capping, as it results in lost DPS.
+          <Trans id="guide.rogue.subtlety.sections.resources.energy.summary">
+            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Avoid energy
+            capping, as it results in lost DPS.
+          </Trans>
         </p>
         <EnergyCapWaste
           percentAtCap={percentAtCap}
@@ -43,10 +57,17 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         />
         {modules.energyGraph.plot}
       </SubSection>
-      <SubSection title="Combo Points">
+      <SubSection
+        title={t({
+          id: 'guide.rogue.subtlety.sections.resources.comboPoints.title',
+          message: 'Combo Points',
+        })}
+      >
         <p>
-          Subtlety Rogue builds and spends <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
-          strategically. Ensure you never waste combo points.
+          <Trans id="guide.rogue.subtlety.sections.resources.comboPoints.summary">
+            Subtlety Rogue builds and spends <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
+            strategically. Ensure you never waste combo points.
+          </Trans>
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>
@@ -59,11 +80,18 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
 
 function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Core Rotation">
+    <Section
+      title={t({
+        id: 'guide.rogue.subtlety.sections.coreRotation.title',
+        message: 'Core Rotation',
+      })}
+    >
       <p>
-        Subtlety’s core rotation involves generating combo points with builders and spending them on
-        finishers. Cooldowns like <SpellLink spell={TALENTS.SHADOW_BLADES_TALENT} /> and{' '}
-        <SpellLink spell={SPELLS.SHADOW_DANCE} /> should be optimized.
+        <Trans id="guide.rogue.subtlety.sections.coreRotation.summary">
+          Subtlety’s core rotation involves generating combo points with builders and spending them
+          on finishers. Cooldowns like <SpellLink spell={TALENTS.SHADOW_BLADES_TALENT} /> and{' '}
+          <SpellLink spell={SPELLS.SHADOW_DANCE} /> should be optimized.
+        </Trans>
       </p>
       <HideExplanationsToggle id="hide-explanations-rotation" />
       {modules.shadowDanceGuide.guideSubsection}
@@ -74,8 +102,17 @@ function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParse
 
 function CooldownSection({ info, modules }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Cooldowns">
-      <p>Subtlety Rogue’s cooldowns should be used efficiently to maximize burst damage.</p>
+    <Section
+      title={t({
+        id: 'guide.rogue.subtlety.sections.cooldowns.title',
+        message: 'Cooldowns',
+      })}
+    >
+      <p>
+        <Trans id="guide.rogue.subtlety.sections.cooldowns.summary">
+          Subtlety Rogue’s cooldowns should be used efficiently to maximize burst damage.
+        </Trans>
+      </p>
       <HideExplanationsToggle id="hide-explanations-rotation" />
       <CooldownGraphSubsection />
     </Section>

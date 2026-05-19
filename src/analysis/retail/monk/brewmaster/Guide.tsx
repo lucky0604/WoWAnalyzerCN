@@ -1,4 +1,6 @@
 import { useMemo, type JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { formatDurationMinSec } from 'common/format';
 import { SpellLink, TooltipElement } from 'interface';
@@ -37,46 +39,74 @@ import styles from './Guide.module.scss';
 export default function Guide({ info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section title="Core Skills">
+      <Section title={t({ id: 'monk.brewmaster.section.coreSkills', message: 'Core Skills' })}>
         <FoundationDowntimeSection />
       </Section>
-      <Section title="Stagger Management">
+      <Section
+        title={t({
+          id: 'monk.brewmaster.section.staggerManagement',
+          message: 'Stagger Management',
+        })}
+      >
         <p>
-          Brewmaster's core defensive loop uses <SpellLink spell={SPELLS.STAGGER} /> plus{' '}
-          <SpellLink spell={SPELLS.SHUFFLE} /> to convert 60-70% of burst damage into a much less
-          dangerous damage-over-time effect (the <em>Stagger pool</em>). We have a variety of ways
-          to reduce the damage of this DoT&mdash;the most important of which is{' '}
-          <SpellLink spell={talents.PURIFYING_BREW_TALENT} />, which reduces the remaining DoT
-          damage by 50% or more.
+          <Trans id="monk.brewmaster.staggerManagement.description">
+            Brewmaster's core defensive loop uses <SpellLink spell={SPELLS.STAGGER} /> plus{' '}
+            <SpellLink spell={SPELLS.SHUFFLE} /> to convert 60-70% of burst damage into a much less
+            dangerous damage-over-time effect (the <em>Stagger pool</em>). We have a variety of ways
+            to reduce the damage of this DoT&mdash;the most important of which is{' '}
+            <SpellLink spell={talents.PURIFYING_BREW_TALENT} />, which reduces the remaining DoT
+            damage by 50% or more.
+          </Trans>
         </p>
         <StaggerPoolSection />
         <RotationTipBoxRow>
           <ElevatedPurifyTipBox />
         </RotationTipBoxRow>
       </Section>
-      <Section title="Rotation & Cooldowns">
-        <SubSection title="Rotation">
+      <Section
+        title={t({
+          id: 'monk.brewmaster.section.rotationAndCooldowns',
+          message: 'Rotation & Cooldowns',
+        })}
+      >
+        <SubSection title={t({ id: 'monk.brewmaster.subsection.rotation', message: 'Rotation' })}>
           <AplChoiceDescription />
           <RotationTipBoxRow>
-            <CastEfficiencyTipBox title={'Rotational Abilities'} spells={ROTATIONAL_SPELLS} />
-            <CastEfficiencyTipBox title={'Short-Cooldown Brews'} spells={ROTATIONAL_BREWS} />
+            <CastEfficiencyTipBox
+              title={t({
+                id: 'monk.brewmaster.tipBox.rotationalSpells',
+                message: 'Rotational Abilities',
+              })}
+              spells={ROTATIONAL_SPELLS}
+            />
+            <CastEfficiencyTipBox
+              title={t({
+                id: 'monk.brewmaster.tipBox.shortCooldownBrews',
+                message: 'Short-Cooldown Brews',
+              })}
+              spells={ROTATIONAL_BREWS}
+            />
             <BlackoutComboTipBox />
           </RotationTipBoxRow>
         </SubSection>
-        <SubSection title="Cooldowns">
+        <SubSection title={t({ id: 'monk.brewmaster.subsection.cooldowns', message: 'Cooldowns' })}>
           <Explanation>
             <p>
-              Cooldowns like <SpellLink spell={spells.INVOKE_NIUZAO_THE_BLACK_OX_TALENT} /> and{' '}
-              <SpellLink spell={talents.EXPLODING_KEG_TALENT} /> are a major contributor to your
-              overall damage. As a tank, they are also key to establishing threat on pull and when
-              new enemies spawn or are pulled.
+              <Trans id="monk.brewmaster.cooldowns.description1">
+                Cooldowns like <SpellLink spell={spells.INVOKE_NIUZAO_THE_BLACK_OX_TALENT} /> and{' '}
+                <SpellLink spell={talents.EXPLODING_KEG_TALENT} /> are a major contributor to your
+                overall damage. As a tank, they are also key to establishing threat on pull and when
+                new enemies spawn or are pulled.
+              </Trans>
             </p>
             <p>
-              It is generally correct to hold your cooldowns by a small amount in order to line up
-              with fight mechanics, so they aren't a part of the overall rotation listed in the
-              previous section. However, holding them too long can hurt your damage
-              significantly&mdash;especially if you outright skip a cast (shown in{' '}
-              <Highlight color="#834c4a">red</Highlight>).
+              <Trans id="monk.brewmaster.cooldowns.description2">
+                It is generally correct to hold your cooldowns by a small amount in order to line up
+                with fight mechanics, so they aren't a part of the overall rotation listed in the
+                previous section. However, holding them too long can hurt your damage
+                significantly&mdash;especially if you outright skip a cast (shown in{' '}
+                <Highlight color="#834c4a">red</Highlight>).
+              </Trans>
             </p>
           </Explanation>
           {info.combatant.hasTalent(talents.INVOKE_NIUZAO_THE_BLACK_OX_TALENT) && (
@@ -120,22 +150,34 @@ function MasterOfHarmonySection(): JSX.Element | null {
   }
 
   return (
-    <Section title="Master of Harmony">
+    <Section
+      title={t({ id: 'monk.brewmaster.section.masterOfHarmony', message: 'Master of Harmony' })}
+    >
       <SpellUsageSubSection
         explanation={
           <>
             <p>
-              <SpellLink spell={talents.ASPECT_OF_HARMONY_TALENT} /> causes you to accumulate{' '}
-              <strong>Vitality</strong> by doing damage. <strong>Vitality</strong> is spent by using{' '}
-              <SpellLink spell={aoh.activeSpender} /> <em>and then</em> doing damage (or healing).
+              <Trans id="monk.brewmaster.masterOfHarmony.description1">
+                <SpellLink spell={talents.ASPECT_OF_HARMONY_TALENT} /> causes you to accumulate{' '}
+                <strong>Vitality</strong> by doing damage. <strong>Vitality</strong> is spent by
+                using <SpellLink spell={aoh.activeSpender} /> <em>and then</em> doing damage (or
+                healing).
+              </Trans>
             </p>
             <p>
-              This means it is important to use <SpellLink spell={aoh.activeSpender} /> periodically{' '}
-              <em>even if you aren't taking much damage</em> in order to spend the Vitality before
-              you reach the{' '}
-              <TooltipElement content={'Vitality is capped at 100% of your maximum HP.'}>
-                cap.
-              </TooltipElement>
+              <Trans id="monk.brewmaster.masterOfHarmony.description2">
+                This means it is important to use <SpellLink spell={aoh.activeSpender} />{' '}
+                periodically <em>even if you aren't taking much damage</em> in order to spend the
+                Vitality before you reach the{' '}
+                <TooltipElement
+                  content={t({
+                    id: 'monk.brewmaster.masterOfHarmony.vitalityCap',
+                    message: 'Vitality is capped at 100% of your maximum HP.',
+                  })}
+                >
+                  cap.
+                </TooltipElement>
+              </Trans>
             </p>
           </>
         }
@@ -143,15 +185,19 @@ function MasterOfHarmonySection(): JSX.Element | null {
         noCastsTexts={{
           noCastsOverride: (
             <>
-              You did not cast <SpellLink spell={aoh.activeSpender} />. This means you gained almost
-              nothing from your Hero Tree!
+              <Trans id="monk.brewmaster.masterOfHarmony.noCasts">
+                You did not cast <SpellLink spell={aoh.activeSpender} />. This means you gained
+                almost nothing from your Hero Tree!
+              </Trans>
             </>
           ),
         }}
-        title="Aspect of Harmony"
-        castBreakdownSmallText={
-          '- These boxes represent each time you spent Vitality, colored by how good the usage was.'
-        }
+        title={t({ id: 'monk.brewmaster.masterOfHarmony.title', message: 'Aspect of Harmony' })}
+        castBreakdownSmallText={t({
+          id: 'monk.brewmaster.masterOfHarmony.breakdownText',
+          message:
+            '- These boxes represent each time you spent Vitality, colored by how good the usage was.',
+        })}
       />
     </Section>
   );
@@ -174,7 +220,7 @@ function BlackoutComboTipBox() {
 
     data.push({
       spell: OTHER_SPECIAL_ID,
-      type: 'Other',
+      type: defineMessage({ id: 'monk.brewmaster.blackoutCombo.other', message: 'Other' }),
       amount: blackoutCombo.blackoutComboBuffs - blackoutCombo.blackoutComboConsumed,
       casts: null,
     });
@@ -192,11 +238,13 @@ function BlackoutComboTipBox() {
         <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} />
       </header>
       <p>
-        <SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink> should be spent on{' '}
-        <SpellLink spell={SPELLS.TIGER_PALM} /> in virtually all situations. The main exception is
-        during <SpellLink spell={talents.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink> as{' '}
-        <SpellLink spell={talents.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>, where you may ignore{' '}
-        <SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink> entirely.
+        <Trans id="monk.brewmaster.blackoutCombo.description">
+          <SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink> should be spent on{' '}
+          <SpellLink spell={SPELLS.TIGER_PALM} /> in virtually all situations. The main exception is
+          during <SpellLink spell={talents.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink> as{' '}
+          <SpellLink spell={talents.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>, where you may
+          ignore <SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink> entirely.
+        </Trans>
       </p>
       <div>
         <Table
@@ -208,16 +256,23 @@ function BlackoutComboTipBox() {
             spellName: spellName.withLabels({
               [OTHER_SPECIAL_ID]: (
                 <TooltipElement
-                  content={
-                    'Combo buffs that were either overwritten or expired without being consumed.'
-                  }
+                  content={t({
+                    id: 'monk.brewmaster.blackoutCombo.wastedDescription',
+                    message:
+                      'Combo buffs that were either overwritten or expired without being consumed.',
+                  })}
                 >
-                  Wasted
+                  {t({ id: 'monk.brewmaster.blackoutCombo.wasted', message: 'Wasted' })}
                 </TooltipElement>
               ),
             }),
-            amountBar: amountBar('Combos'),
-            casts: literalNumberColumn('Casts', 'casts'),
+            amountBar: amountBar(
+              t({ id: 'monk.brewmaster.blackoutCombo.combos', message: 'Combos' }),
+            ),
+            casts: literalNumberColumn(
+              t({ id: 'monk.brewmaster.blackoutCombo.casts', message: 'Casts' }),
+              'casts',
+            ),
           }}
           data={data}
         />
@@ -240,7 +295,7 @@ const ROTATIONAL_BREWS = [
 ];
 
 const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = {
-  label: 'Cast Efficiency',
+  label: defineMessage({ id: 'monk.brewmaster.castEfficiency.label', message: 'Cast Efficiency' }),
   expand: true,
   render({ casts, maxCasts }) {
     return (
@@ -252,7 +307,7 @@ const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = {
 };
 
 const elevatedCdrColumn: Column<{ elevatedCdrMs: number }> = {
-  label: 'Elevated CDR',
+  label: defineMessage({ id: 'monk.brewmaster.elevatedCdr.label', message: 'Elevated CDR' }),
   render({ elevatedCdrMs }) {
     return formatDurationMinSec(elevatedCdrMs / 1000);
   },
@@ -302,10 +357,23 @@ function CastEfficiencyTipBox({
           columns={{
             spellName,
             castEfficiencyColumn,
-            casts: literalNumberColumn('Casts', 'casts'),
-            maxCasts: literalNumberColumn('Max Casts', 'maxCasts'),
+            casts: literalNumberColumn(
+              t({ id: 'monk.brewmaster.castEfficiency.casts', message: 'Casts' }),
+              'casts',
+            ),
+            maxCasts: literalNumberColumn(
+              t({ id: 'monk.brewmaster.castEfficiency.maxCasts', message: 'Max Casts' }),
+              'maxCasts',
+            ),
             cpm: literalNumberColumn(
-              <TooltipElement content={'Casts per Minute'}>CPM</TooltipElement>,
+              <TooltipElement
+                content={t({
+                  id: 'monk.brewmaster.castEfficiency.cpmTooltip',
+                  message: 'Casts per Minute',
+                })}
+              >
+                CPM
+              </TooltipElement>,
               'cpm',
               false,
             ),
@@ -348,11 +416,15 @@ function ElevatedPurifyTipBox() {
 
   return (
     <div className={styles.rotationTipBox}>
-      <header>Elevated Purifying Brew</header>
+      <header>
+        {t({ id: 'monk.brewmaster.elevatedPurify.title', message: 'Elevated Purifying Brew' })}
+      </header>
       <p>
-        This compares <SpellLink spell={spells.PURIFYING_BREW_TALENT} /> casts during{' '}
-        <SpellLink spell={SPELLS.ELEVATED_STAGGER_BUFF} /> against your total casts, so you can see
-        how many casts gained the extra High Tolerance value.
+        <Trans id="monk.brewmaster.elevatedPurify.description">
+          This compares <SpellLink spell={spells.PURIFYING_BREW_TALENT} /> casts during{' '}
+          <SpellLink spell={SPELLS.ELEVATED_STAGGER_BUFF} /> against your total casts, so you can
+          see how many casts gained the extra High Tolerance value.
+        </Trans>
       </p>
       <div>
         <Table
@@ -360,10 +432,19 @@ function ElevatedPurifyTipBox() {
           columns={{
             spellName,
             castEfficiencyColumn,
-            casts: literalNumberColumn('Casts', 'casts'),
-            elevatedCasts: literalNumberColumn('Elevated Casts', 'elevatedCasts'),
+            casts: literalNumberColumn(
+              t({ id: 'monk.brewmaster.elevatedPurify.casts', message: 'Casts' }),
+              'casts',
+            ),
+            elevatedCasts: literalNumberColumn(
+              t({ id: 'monk.brewmaster.elevatedPurify.elevatedCasts', message: 'Elevated Casts' }),
+              'elevatedCasts',
+            ),
             elevatedCdrColumn,
-            maxCasts: literalNumberColumn('Max Casts', 'maxCasts'),
+            maxCasts: literalNumberColumn(
+              t({ id: 'monk.brewmaster.elevatedPurify.maxCasts', message: 'Max Casts' }),
+              'maxCasts',
+            ),
           }}
           data={data}
         />

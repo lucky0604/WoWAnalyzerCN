@@ -1,4 +1,5 @@
 import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import CombatLogParser from 'analysis/retail/hunter/beastmastery/CombatLogParser';
 import {
   RESOURCES_HUNTER_AVERAGE_THRESHOLD,
@@ -27,34 +28,51 @@ export default function ResourceUseSection(modules: ModulesOf<typeof CombatLogPa
         })}
       >
         <p>
-          Your primary resource is <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />. Typically, ability
-          use will be limited by <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />, not time. Avoid
-          capping <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> - lost{' '}
-          <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> regeneration is lost DPS. It will
-          occasionally be impossible to avoid capping <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />{' '}
-          - like while handling mechanics or during intermission phases.
+          <Trans id="guide.hunter.beastmastery.sections.resources.focus.summary">
+            Your primary resource is <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />. Typically,
+            ability use will be limited by <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />, not time.
+            Avoid capping <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> - lost{' '}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> regeneration is lost DPS. It will
+            occasionally be impossible to avoid capping{' '}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> - like while handling mechanics or during
+            intermission phases.
+          </Trans>
         </p>
-        The chart below shows your <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> over the course of
-        the encounter. You wasted{' '}
-        <PerformanceStrongWithTooltip
-          performance={modules.focusTracker.percentAtCapPerformance}
-          tooltip={
-            <>
-              <PerformanceMark perf={QualitativePerformance.Perfect} /> Perfect usage &lt;={' '}
-              {formatPercentage(RESOURCES_HUNTER_MINOR_THRESHOLD, 0)}%
-              <p />
-              <PerformanceMark perf={QualitativePerformance.Good} /> Good usage &lt;={' '}
-              {formatPercentage(RESOURCES_HUNTER_AVERAGE_THRESHOLD, 0)}%
-              <p />
-              <PerformanceMark perf={QualitativePerformance.Ok} /> OK usage &lt;={' '}
-              {formatPercentage(RESOURCES_HUNTER_MAJOR_THRESHOLD, 0)}%{' '}
-            </>
-          }
-        >
-          {formatNumber(modules.focusTracker.wasted)} (
-          {formatPercentage(modules.focusTracker.percentAtCap, 1)}%)
-        </PerformanceStrongWithTooltip>{' '}
-        <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />.{modules.focusGraph.plot}
+        <p>
+          <Trans id="guide.hunter.beastmastery.sections.resources.focus.wasted">
+            The chart below shows your <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> over the course
+            of the encounter. You wasted{' '}
+          </Trans>
+          <PerformanceStrongWithTooltip
+            performance={modules.focusTracker.percentAtCapPerformance}
+            tooltip={
+              <>
+                <PerformanceMark perf={QualitativePerformance.Perfect} />{' '}
+                <Trans id="guide.hunter.beastmastery.sections.resources.focus.tooltip.perfect">
+                  Perfect usage &lt;={''}
+                </Trans>{' '}
+                {formatPercentage(RESOURCES_HUNTER_MINOR_THRESHOLD, 0)}%
+                <p />
+                <PerformanceMark perf={QualitativePerformance.Good} />{' '}
+                <Trans id="guide.hunter.beastmastery.sections.resources.focus.tooltip.good">
+                  Good usage &lt;={''}
+                </Trans>{' '}
+                {formatPercentage(RESOURCES_HUNTER_AVERAGE_THRESHOLD, 0)}%
+                <p />
+                <PerformanceMark perf={QualitativePerformance.Ok} />{' '}
+                <Trans id="guide.hunter.beastmastery.sections.resources.focus.tooltip.ok">
+                  OK usage &lt;={''}
+                </Trans>{' '}
+                {formatPercentage(RESOURCES_HUNTER_MAJOR_THRESHOLD, 0)}%{' '}
+              </>
+            }
+          >
+            {formatNumber(modules.focusTracker.wasted)} (
+            {formatPercentage(modules.focusTracker.percentAtCap, 1)}%)
+          </PerformanceStrongWithTooltip>{' '}
+          <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />.
+        </p>
+        {modules.focusGraph.plot}
       </SubSection>
     </Section>
   );

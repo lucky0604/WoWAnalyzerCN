@@ -8,6 +8,7 @@ import CooldownGraphSubsection, {
 import { GuideProps, Section } from 'interface/guide';
 import DeathStrikeSection from '../spells/DeathStrike/DeathStrikeSection';
 import { FoundationDowntimeSection } from 'interface/guide/foundation/FoundationDowntimeSection';
+import { t } from '@lingui/core/macro';
 
 export default function BloodGuide(props: GuideProps<typeof CombatLogParser>): JSX.Element {
   const cooldowns: Cooldown[] = [
@@ -19,14 +20,29 @@ export default function BloodGuide(props: GuideProps<typeof CombatLogParser>): J
 
   return (
     <>
-      <Section title="Core Skills">
+      <Section
+        title={t({
+          id: 'guide.deathknight.blood.sections.coreSkills.title',
+          message: 'Core Skills',
+        })}
+      >
         <FoundationDowntimeSection />
       </Section>
-      <Section title="Death Strike">
+      <Section
+        title={t({
+          id: 'guide.deathknight.blood.sections.deathStrike.title',
+          message: 'Death Strike',
+        })}
+      >
         <DeathStrikeSection />
         {props.modules.deathStrikeTiming.guideSubsection}
       </Section>
-      <Section title="Cooldowns">
+      <Section
+        title={t({
+          id: 'guide.deathknight.blood.sections.cooldowns.title',
+          message: 'Cooldowns',
+        })}
+      >
         <CooldownGraphSubsection cooldowns={cooldowns} />
       </Section>
       <PreparationSection />

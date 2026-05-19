@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { TALENTS_PRIEST } from 'common/TALENTS';
 import { GuideProps, Section } from 'interface/guide';
 import type CombatLogParser from './CombatLogParser';
@@ -16,7 +17,9 @@ export default function Guide({
 }: GuideProps<typeof CombatLogParser>): JSX.Element {
   return (
     <>
-      <Section title="Short cooldowns">
+      <Section
+        title={t({ id: 'priest.discipline.section.shortCooldowns', message: 'Short cooldowns' })}
+      >
         {modules.penance.guideSubsection}
         {modules.masterTheDarkness.guideSubsection}
         {info.combatant.hasTalent(TALENTS_PRIEST.POWER_WORD_RADIANCE_TALENT) &&
@@ -24,7 +27,9 @@ export default function Guide({
         {info.combatant.hasTalent(TALENTS_PRIEST.BINDING_HEALS_TALENT) &&
           modules.selfAtonementAnalyzer.guideSubsection}
       </Section>
-      <Section title="DoTs">{modules.dotUptimes.guideSubsection}</Section>
+      <Section title={t({ id: 'priest.discipline.section.dots', message: 'DoTs' })}>
+        {modules.dotUptimes.guideSubsection}
+      </Section>
       <DefensivesGuide analyzers={[DesperatePrayer, Fade]} />
       <PreparationSection />
     </>

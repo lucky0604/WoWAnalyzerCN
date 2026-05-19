@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { GuideProps, Section } from 'interface/guide';
 import CombatLogParser from './CombatLogParser';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
@@ -12,18 +13,27 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
   return (
     <>
       {/* Core Section */}
-      <Section title="Core">
-        <Section title="DoT Uptime">{modules.immolateUptime.guideSubsection}</Section>
+      <Section title={t({ id: 'warlock.destruction.section.core', message: 'Core' })}>
+        <Section title={t({ id: 'warlock.destruction.section.dotUptime', message: 'DoT Uptime' })}>
+          {modules.immolateUptime.guideSubsection}
+        </Section>
 
-        <Section title="Cooldown Usage">
+        <Section
+          title={t({ id: 'warlock.destruction.section.cooldownUsage', message: 'Cooldown Usage' })}
+        >
           <CooldownSubsection />
         </Section>
       </Section>
 
       {/* Rotation Section */}
-      <Section title="Rotation">
+      <Section title={t({ id: 'warlock.destruction.section.rotation', message: 'Rotation' })}>
         {modules.backdraft?.active && (
-          <Section title="Backdraft Usage">
+          <Section
+            title={t({
+              id: 'warlock.destruction.section.backdraftUsage',
+              message: 'Backdraft Usage',
+            })}
+          >
             <BackdraftGuide
               analyzer={modules.backdraft}
               fightStart={info.fightStart}
@@ -33,7 +43,9 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         )}
 
         {modules.havocAnalyzer?.active && (
-          <Section title="Havoc Usage">
+          <Section
+            title={t({ id: 'warlock.destruction.section.havocUsage', message: 'Havoc Usage' })}
+          >
             <HavocGuide
               havocAnalyzer={modules.havocAnalyzer}
               formatTimestamp={modules.havocAnalyzer.getFormatTimestamp()}
@@ -43,8 +55,13 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       </Section>
 
       {/* Defensives Section */}
-      <Section title="Defensives">
-        <Section title="Healthstone Tracker">
+      <Section title={t({ id: 'warlock.destruction.section.defensives', message: 'Defensives' })}>
+        <Section
+          title={t({
+            id: 'warlock.destruction.section.healthstoneTracker',
+            message: 'Healthstone Tracker',
+          })}
+        >
           {modules.demonicHealthstone?.active && (
             <DemonicHealthstoneGuide
               analyzer={modules.demonicHealthstone}
@@ -58,12 +75,14 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       </Section>
 
       {/* Resource Usage Section */}
-      <Section title="Resource Usage">
+      <Section
+        title={t({ id: 'warlock.destruction.section.resourceUsage', message: 'Resource Usage' })}
+      >
         <ResourceUsage modules={modules} events={events} info={info} />
       </Section>
 
       {/* Preparation Section */}
-      <Section title="Preparation">
+      <Section title={t({ id: 'warlock.destruction.section.preparation', message: 'Preparation' })}>
         <PreparationSection />
       </Section>
     </>

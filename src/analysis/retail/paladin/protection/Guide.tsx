@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section, SubSection, useInfo } from 'interface/guide';
 import { AlertWarning, ResourceLink, SpellLink } from 'interface';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
@@ -19,17 +21,19 @@ import talents from 'common/TALENTS/paladin';
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section title="Core Skills">
+      <Section title={t({ id: 'paladin.protection.section.coreSkills', message: 'Core Skills' })}>
         <FoundationDowntimeSection />
         <FoundationCooldownSection />
       </Section>
       <ResourceUsageSection modules={modules} events={events} info={info} />
-      <Section title="Rotation">
+      <Section title={t({ id: 'paladin.protection.section.rotation', message: 'Rotation' })}>
         {!info.combatant.hasTalent(talents.LIGHTS_GUIDANCE_TALENT) && (
           <AlertWarning>
-            Rotational analysis for{' '}
-            <SpellLink spell={talents.HOLY_ARMAMENTS_TALENT}>Lightsmith</SpellLink> is not
-            implemented at this time.
+            <Trans id="paladin.protection.rotation.lightsmithNotImplemented">
+              Rotational analysis for{' '}
+              <SpellLink spell={talents.HOLY_ARMAMENTS_TALENT}>Lightsmith</SpellLink> is not
+              implemented at this time.
+            </Trans>
           </AlertWarning>
         )}
         <AplSectionData checker={check} apl={apl} />
@@ -57,35 +61,46 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
   const holyPowerWasted = modules.holyPowerTracker.wasted;
 
   return (
-    <Section title="Resource Use">
-      <SubSection title="Holy Power">
+    <Section title={t({ id: 'paladin.protection.section.resourceUse', message: 'Resource Use' })}>
+      <SubSection
+        title={t({ id: 'paladin.protection.subsection.holyPower', message: 'Holy Power' })}
+      >
         <p>
-          Most of your rotational abilities either <strong>build</strong> or <strong>spend</strong>{' '}
-          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />. Never use a builder at max{' '}
-          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> or when doing so will cause you to
-          overcap on <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
+          <Trans id="paladin.protection.holyPower.description">
+            Most of your rotational abilities either <strong>build</strong> or{' '}
+            <strong>spend</strong> <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />. Never use a
+            builder at max <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> or when doing so will
+            cause you to overcap on <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
+          </Trans>
         </p>
         <SideBySidePanels>
           <RoundedPanel>
             <strong>
-              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Waste
+              <Trans id="paladin.protection.holyPower.wasteTitle">
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Waste
+              </Trans>
             </strong>
             <p>
-              You wasted{' '}
-              <PerformancePercentage
-                performance={percentAtHolyPowerCapPerformance}
-                perfectPercentage={PERFECT_HOLY_POWER_CAP}
-                goodPercentage={GOOD_HOLY_POWER_CAP}
-                okPercentage={OK_HOLY_POWER_CAP}
-                percentage={percentAtHolyPowerCap}
-                flatAmount={holyPowerWasted}
-              />{' '}
-              of your <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
+              <Trans id="paladin.protection.holyPower.wasted">
+                You wasted{' '}
+                <PerformancePercentage
+                  performance={percentAtHolyPowerCapPerformance}
+                  perfectPercentage={PERFECT_HOLY_POWER_CAP}
+                  perfectPercentage={PERFECT_HOLY_POWER_CAP}
+                  goodPercentage={GOOD_HOLY_POWER_CAP}
+                  okPercentage={OK_HOLY_POWER_CAP}
+                  percentage={percentAtHolyPowerCap}
+                  flatAmount={holyPowerWasted}
+                />{' '}
+                of your <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
+              </Trans>
             </p>
           </RoundedPanel>
           <RoundedPanel>
             <strong>
-              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Builder Effectiveness
+              <Trans id="paladin.protection.holyPower.builderEffectiveness">
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Builder Effectiveness
+              </Trans>
             </strong>
             {modules.builderUse.chart}
           </RoundedPanel>
@@ -102,7 +117,12 @@ function MitigationSection() {
   }
 
   return (
-    <Section title="Defensive Cooldowns">
+    <Section
+      title={t({
+        id: 'paladin.protection.section.defensiveCooldowns',
+        message: 'Defensive Cooldowns',
+      })}
+    >
       <MajorDefensives />
     </Section>
   );
@@ -115,7 +135,9 @@ function ActiveMitigationSection() {
   }
 
   return (
-    <Section title="Active Mitigation">
+    <Section
+      title={t({ id: 'paladin.protection.section.activeMitigation', message: 'Active Mitigation' })}
+    >
       <ActiveMitgation />
     </Section>
   );

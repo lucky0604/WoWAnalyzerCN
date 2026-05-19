@@ -8,6 +8,8 @@ import SPELLS from 'common/SPELLS/evoker';
 import PerformanceStrong from 'interface/PerformanceStrong';
 import { formatPercentage } from 'common/format';
 import ActiveTimeGraph from 'parser/ui/ActiveTimeGraph';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export function CoreSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   const percentAtCap = modules.essenceTracker.percentAtCap;
@@ -27,49 +29,74 @@ export function CoreSection({ modules, events, info }: GuideProps<typeof CombatL
           : QualitativePerformance.Fail;
 
   return (
-    <Section title="Core">
-      <SubSection title="Essence Graph">
+    <Section
+      title={t({
+        id: 'guide.evoker.devastation.sections.core.title',
+        message: 'Core',
+      })}
+    >
+      <SubSection
+        title={t({
+          id: 'guide.evoker.devastation.sections.core.essenceGraph.title',
+          message: 'Essence Graph',
+        })}
+      >
         <p>
-          Your primary resource is <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />. You should avoid
-          overcapping <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> - lost{' '}
-          <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> generation is lost DPS. Sometimes it will
-          be impossible to avoid overcapping <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> - due
-          to handling mechanics, high rolling <SpellLink spell={SPELLS.ESSENCE_BURST_DEV_BUFF} />{' '}
-          procs or during intermission phases.
+          <Trans id="guide.evoker.devastation.sections.core.essenceGraph.summary">
+            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />. You should
+            avoid overcapping <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> - lost{' '}
+            <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> generation is lost DPS. Sometimes it
+            will be impossible to avoid overcapping <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{' '}
+            - due to handling mechanics, high rolling{' '}
+            <SpellLink spell={SPELLS.ESSENCE_BURST_DEV_BUFF} /> procs or during intermission phases.
+          </Trans>
         </p>
         <p>
-          The chart below shows your <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> over the course
-          of the encounter. You wasted{' '}
-          <PerformancePercentage
-            performance={percentAtCapPerformance}
-            perfectPercentage={perfectTimeAtEssenceCap}
-            goodPercentage={goodTimeAtEssenceCap}
-            okPercentage={okTimeAtEssenceCap}
-            percentage={percentAtCap}
-            flatAmount={essenceWasted}
-          />{' '}
-          of your <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />.
+          <Trans id="guide.evoker.devastation.sections.core.essenceGraph.wasted">
+            The chart below shows your <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> over the
+            course of the encounter. You wasted{' '}
+            <PerformancePercentage
+              performance={percentAtCapPerformance}
+              perfectPercentage={perfectTimeAtEssenceCap}
+              goodPercentage={goodTimeAtEssenceCap}
+              okPercentage={okTimeAtEssenceCap}
+              percentage={percentAtCap}
+              flatAmount={essenceWasted}
+            />{' '}
+            of your <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />.
+          </Trans>
         </p>
         {modules.essenceGraph.plot}
       </SubSection>
-      <SubSection title="Always be Casting">
+      <SubSection
+        title={t({
+          id: 'guide.evoker.devastation.sections.core.alwaysBeCasting.title',
+          message: 'Always be Casting',
+        })}
+      >
         <p>
-          <em>
-            <b>
-              Continuously chaining casts throughout an encounter is the single most important thing
-              for achieving good DPS as a caster.
-            </b>
-          </em>
+          <Trans id="guide.evoker.devastation.sections.core.alwaysBeCasting.summary">
+            <em>
+              <b>
+                Continuously chaining casts throughout an encounter is the single most important
+                thing for achieving good DPS as a caster.
+              </b>
+            </em>
+          </Trans>
         </p>
         <p>
-          There should be no delay at all between your spell casts, it's better to start casting the
-          wrong spell than to think for a few seconds and then cast the right spell. You should be
-          able to handle a fight's mechanics with the minimum possible interruption to your casting.
-          Some fights have unavoidable downtime due to phase transitions and the like, so in these
-          cases 0% downtime will not be possible - do the best you can.
+          <Trans id="guide.evoker.devastation.sections.core.alwaysBeCasting.summary2">
+            There should be no delay at all between your spell casts, it's better to start casting
+            the wrong spell than to think for a few seconds and then cast the right spell. You
+            should be able to handle a fight's mechanics with the minimum possible interruption to
+            your casting. Some fights have unavoidable downtime due to phase transitions and the
+            like, so in these cases 0% downtime will not be possible - do the best you can.
+          </Trans>
         </p>
         <p>
-          Active Time:{' '}
+          <Trans id="guide.evoker.devastation.sections.core.alwaysBeCasting.value">
+            Active Time:{' '}
+          </Trans>
           <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
             {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
           </PerformanceStrong>{' '}

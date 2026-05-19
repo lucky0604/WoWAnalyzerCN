@@ -6,27 +6,45 @@ import CombatLogParser from '../CombatLogParser';
 import SpellLink from 'interface/SpellLink';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Core">
-      <SubSection title="Active Time">
+    <Section
+      title={t({
+        id: 'guide.demonhunter.devourer.sections.core.title',
+        message: 'Core',
+      })}
+    >
+      <SubSection
+        title={t({
+          id: 'guide.demonhunter.devourer.sections.core.activeTime.title',
+          message: 'Active Time',
+        })}
+      >
         <p>
-          <b>
-            Continuously casting throughout an encounter is the single most important thing for
-            achieving good DPS.
-          </b>
-          <div>
-            Some fights have unavoidable downtime due to phase transitions and the like, so in these
-            cases 0% downtime will not be possible - do the best you can.
-          </div>
+          <Trans id="guide.demonhunter.devourer.sections.core.activeTime.summary">
+            <b>
+              Continuously casting throughout an encounter is the single most important thing for
+              achieving good DPS.
+            </b>
+            <div>
+              Some fights have unavoidable downtime due to phase transitions and the like, so in
+              these cases 0% downtime will not be possible - do the best you can.
+            </div>
+          </Trans>
         </p>
         <p>
-          Remember that you always have access to either <SpellLink spell={SPELLS.CONSUME} /> or{' '}
-          <SpellLink spell={SPELLS.DEVOUR} /> and that they can be cast while moving.
+          <Trans id="guide.demonhunter.devourer.sections.core.activeTime.fillers">
+            Remember that you always have access to either <SpellLink spell={SPELLS.CONSUME} /> or{' '}
+            <SpellLink spell={SPELLS.DEVOUR} /> and that they can be cast while moving.
+          </Trans>
         </p>
         <p>
-          Active Time:{' '}
+          <Trans id="guide.demonhunter.devourer.sections.core.activeTime.value">
+            Active Time:{' '}
+          </Trans>
           <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
             {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
           </PerformanceStrong>{' '}
