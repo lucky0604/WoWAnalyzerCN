@@ -1,0 +1,8 @@
+{
+  "paladin.holy.section.core": "核心",
+  "paladin.holy.section.healingCooldowns": "治疗冷却",
+  "paladin.holy.subsection.holyPower": "神圣能量",
+  "paladin.holy.holyPower.description": "由于 <0/> 消耗技能影响巨大，最小化浪费应是优先事项。在决定使用哪个 <0/> 消耗技能时，<1/> 通常是最可靠的选择。根据经验法则，如果施放 <1/> 不会导致明显的过量治疗，通常是最佳选择。这是因为 <2/> 往往会过量治疗并随机选择队友，使其效果较差。",
+  "paladin.holy.holyPower.usage": "使用 <0/> 时，尽量避免以信标队友为目标，除非他们即将死亡。如果不需要治疗，不要犹豫使用 <1/> 来避免 <0/> 溢出。",
+  "paladin.holy.holyPower.wasted": "你浪费了 <0/> 点 <1/>。"
+}

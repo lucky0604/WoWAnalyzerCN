@@ -1,0 +1,12 @@
+{
+  "warlock.destruction.section.core": "核心",
+  "warlock.destruction.section.dotUptime": "持续伤害覆盖率",
+  "warlock.destruction.section.cooldownUsage": "冷却技能使用",
+  "warlock.destruction.section.rotation": "输出循环",
+  "warlock.destruction.section.backdraftUsage": "回火使用",
+  "warlock.destruction.section.havocUsage": "浩劫使用",
+  "warlock.destruction.section.defensives": "防御技能",
+  "warlock.destruction.section.healthstoneTracker": "治疗石追踪",
+  "warlock.destruction.section.resourceUsage": "资源使用",
+  "warlock.destruction.section.preparation": "准备"
+}

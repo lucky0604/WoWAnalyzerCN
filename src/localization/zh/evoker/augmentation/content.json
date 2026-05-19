@@ -1,0 +1,21 @@
+{
+  "guide.evoker.augmentation.sections.preface.title": "前言",
+  "guide.evoker.augmentation.sections.preface.1": "你好，欢迎使用增强唤魔师专精的分析工具！所有的理论都来自官方的<0>唤魔师 Discord</0>。",
+  "guide.evoker.augmentation.sections.preface.2": "要了解更多关于该专精的深入信息，你应该查看这些指南：<0>Wowhead</0>，<1>Icy-Veins</1>",
+  "guide.evoker.augmentation.sections.preface.3": "如果你有任何建议、纠正、投诉或想要提供帮助，我们很乐意在唤魔师 Discord 的 <code>#augmentation</code> 中进行交谈。",
+  "guide.evoker.augmentation.sections.coreRotation.title": "核心循环",
+  "guide.evoker.augmentation.sections.coreRotation.summary": "增强唤魔师的核心循环围绕着正确维持你的buff：<0/>、<1/>、<2/>和<3/>。同时在冷却时使用你的强化技能：<4/>和<5/>，并在<6/>上消耗精华；使用<7/>来填补空白。",
+  "guide.evoker.augmentation.sections.coreRotation.mainCD": "你的主要冷却技能，<0/>，应该在敌人能够存活其完整持续时间时使用，优先考虑高伤害阶段。",
+  "guide.evoker.augmentation.sections.coreRotation.buffGraph.title": "Buff图表",
+  "guide.evoker.augmentation.sections.coreRotation.buffGraph.summary": "此图表显示了你在战斗中的<0/>和<1/>的覆盖率，以及你有多少个<2/>buff处于激活状态。使用此来确保你正确维持了你的buff。",
+  "guide.evoker.augmentation.sections.coreRotation.blisteringScales.title": "炽烈鳞片",
+  "guide.evoker.augmentation.sections.coreRotation.blisteringScales.summary": "<0/>为你的目标提供你20%的护甲。这应该在当前正在坦克的玩家身上保持。",
+  "guide.evoker.augmentation.sections.coreRotation.essenceGraph.title": "精华图表",
+  "guide.evoker.augmentation.sections.coreRotation.essenceGraph.summary": "你的主要资源是<0/>。你应该避免溢出<0/>-失去的<0/>产生就是失去的DPS。有时避免溢出<0/>是不可能的-由于处理机制、高触发的<1/>触发或在中场阶段。",
+  "guide.evoker.augmentation.sections.coreRotation.essenceGraph.wasted": "下面的图表显示了你在战斗中的<0/>。你浪费了<1/>的你的<0/>。",
+  "guide.evoker.augmentation.sections.coreRotation.alwaysBeCasting.title": "持续施法",
+  "guide.evoker.augmentation.sections.coreRotation.alwaysBeCasting.summary": "<em><b>在整个战斗中连续施法是作为一个施法者获得好DPS的最重要的一件事。</b></em>",
+  "guide.evoker.augmentation.sections.coreRotation.alwaysBeCasting.summary2": "你的技能施法之间应该没有任何延迟，开始施放错误的技能比思考几秒钟然后施放正确的技能要好。你应该能够用最小的施法中断来处理战斗的机制。有些战斗由于阶段转换等原因有不可避免的空转，所以在这些情况下0%的空转是不可能的-尽你所能做到最好。",
+  "guide.evoker.augmentation.sections.cooldowns.title": "冷却技能",
+  "guide.evoker.augmentation.sections.cooldowns.summary": "<strong>冷却图表</strong> -此图表显示了你何时使用了你的冷却技能，以及你等待多久再次使用它们。灰色段表示该技能可用，黄色段表示该技能正在冷却。红色段高亮显示了你可以多放一次冷却技能的时间。"
+}

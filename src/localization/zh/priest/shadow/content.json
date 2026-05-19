@@ -1,0 +1,11 @@
+{
+  "priest.shadow.section.core": "核心",
+  "priest.shadow.section.insanity": "狂乱",
+  "priest.shadow.section.dots": "持续伤害",
+  "priest.shadow.section.activeTime": "活跃时间",
+  "priest.shadow.section.cooldowns": "冷却",
+  "priest.shadow.section.coreSpells": "核心技能",
+  "priest.shadow.section.shortCooldowns": "短冷却",
+  "priest.shadow.section.majorCooldowns": "主要冷却",
+  "priest.shadow.section.procUsage": "触发使用"
+}

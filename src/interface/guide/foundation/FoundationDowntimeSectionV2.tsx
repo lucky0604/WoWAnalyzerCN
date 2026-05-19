@@ -523,7 +523,15 @@ const PlayerAbilityTimeline = memo(({ info }: { info: Info }) => {
         return {
           ...segment,
           color: segment.channel ? 'hsl(44 60% 60%)' : '#666',
-          tooltip: `${label} from ${formatDuration(segment.start - info.fightStart, 1)} to ${formatDuration(segment.end - info.fightStart, 1)}`,
+          tooltip: i18n._({
+            id: 'guide.foundation.downtime.timeline.playerAbility.tooltip',
+            message: '{label} from {start} to {end}',
+            values: {
+              label,
+              start: formatDuration(segment.start - info.fightStart, 1),
+              end: formatDuration(segment.end - info.fightStart, 1),
+            },
+          }),
         };
       }),
     [playerTimeline, info.fightStart],

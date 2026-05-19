@@ -1,0 +1,11 @@
+{
+  "mage.frost.subSection.activeTime": "活跃时间",
+  "mage.frost.activeTime.title": "在整个战斗中持续施法是作为一名施法者获得良好 DPS 最重要的事情。",
+  "mage.frost.activeTime.description1": "作为法师，我们有微光天赋（如果有的话）在处理需要移动的机制时继续施法。",
+  "mage.frost.activeTime.description2": "有些战斗有不可避免的停机时间，所以在这些情况下 0% 的停机时间是不可能的。在有长时间停机的战斗中，你可以将你的活跃时间与一些顶级日志进行比较，看看你是否可以改进。",
+  "mage.frost.activeTime.label": "活跃时间:",
+  "mage.frost.cancelledCasts.label": "取消施法:",
+  "mage.frost.section.core": "核心",
+  "mage.frost.section.procs": "触发",
+  "mage.frost.section.cooldowns": "冷却技能"
+}

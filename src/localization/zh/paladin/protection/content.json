@@ -1,0 +1,13 @@
+{
+  "paladin.protection.section.coreSkills": "核心技能",
+  "paladin.protection.section.rotation": "循环",
+  "paladin.protection.rotation.lightsmithNotImplemented": "光铸师的循环分析尚未实现。",
+  "paladin.protection.section.resourceUse": "资源使用",
+  "paladin.protection.subsection.holyPower": "神圣能量",
+  "paladin.protection.holyPower.description": "你大部分的循环技能要么是 <strong>积累</strong> 要么是 <strong>消耗</strong> <0/>。绝不要在 <0/> 已满时使用积累技能，或这样做会导致 <0/> 溢出。",
+  "paladin.protection.holyPower.wasteTitle": "<0/> 浪费",
+  "paladin.protection.holyPower.wasted": "你浪费了 <0/> 的 <1/>。",
+  "paladin.protection.holyPower.builderEffectiveness": "<0/> 积累技能效率",
+  "paladin.protection.section.defensiveCooldowns": "防御冷却",
+  "paladin.protection.section.activeMitigation": "主动减伤"
+}

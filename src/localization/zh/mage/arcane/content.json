@@ -1,0 +1,17 @@
+{
+  "mage.arcane.subSection.activeTime": "活跃时间",
+  "mage.arcane.activeTime.description": "任何你没有施法的时间都是损失的伤害。法师有很多减少停机时间的方法，比如使用闪现更快到达目的地继续施法，或者在移动时使用滑流天赋施放或引导奥术飞弹或唤醒；即使是唯一目标受到 99% 伤害减免的阶段也是寻找节能施法触发的机会。虽然有些战斗有强制停机时间，WoWAnalyzer 不会计算这些，但你能做的任何减少停机时间的事情都会帮助你的伤害。此外，为了更好地了解你的停机时间，我们建议将你的停机时间与同一战斗中大致相同击杀时间的表现更好的奥法进行比较。如果你比他们有更少的停机时间，那么也许你可以做些改进。",
+  "mage.arcane.activeTime.label": "活跃时间:",
+  "mage.arcane.cancelledCasts.label": "取消施法:",
+  "mage.arcane.section.preface": "前言与免责声明",
+  "mage.arcane.preface.description1": "本指南中的分析与 Porom 和 Altered Time 法师 Discord 的其他工作人员合作提供。在查看这些信息时，请记住 WoWAnalyzer 仅限于你的战斗日志中的信息。因此，我们无法知道你是否因为战斗或策略需要而故意做了非最优的事情（例如强制停机时间或为爆发阶段保留技能）。因此，我们建议将你的分析与同一 BOSS 的前 100 个日志进行比较。",
+  "mage.arcane.preface.description2": "如需在提升游戏玩法方面的额外帮助，或想让他人更深入查看你的战斗日志，请访问 Altered Time Discord服务器。",
+  "mage.arcane.preface.description3": "如果你注意到分析中有任何问题或错误，或者你想要添加额外的分析内容，请在 Altered Time Discord服务器中 ping @Sharrq。",
+  "mage.arcane.section.core": "核心",
+  "mage.arcane.section.burnPhase": "爆发阶段",
+  "mage.arcane.burnPhase.description": "你整体伤害的最大贡献来自你的主要和次要爆发阶段。这些爆发阶段大约每 45 秒发生一次，在主要爆发和次要爆发之间交替，通常围绕着尽可能将更多伤害叠加到你的大法师之触上来进行。为此，你会叠加其他增益，比如奥术节奏，来让你的其他伤害技能，比如奥术冲击和奥术飞弹（带节能施法），造成更高伤害。因此，你要确保在大法师之触期间尽可能多地施法，并提前为该窗口做好准备。",
+  "mage.arcane.section.rotationalAbilities": "循环技能",
+  "mage.arcane.rotationalAbilities.description": "奥术法师通常围绕你的主要和次要爆发阶段，但你的其他循环技能也会对你的伤害做出贡献，并且在大多数情况下，帮助你为爆发阶段做好准备，以便你能充分利用它们。",
+  "mage.arcane.section.cooldowns": "冷却技能",
+  "mage.arcane.cooldowns.description": "与大多数伤害专精一样，正确利用你的伤害冷却技能会在提升你的整体伤害方面发挥重要作用，特别是奥术涌动。"
+}

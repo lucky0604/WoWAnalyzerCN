@@ -1,0 +1,17 @@
+{
+  "warrior.fury.section.preface": "前言与免责声明",
+  "warrior.fury.preface.description1": "在查看这些信息时，请记住 WoWAnalyzer 仅限于你战斗日志中的信息。因此，我们无法知道你是否因为战斗或策略需要而故意做了非最优的事情（例如强制的停手或为爆发阶段保留技能）。正因为如此，我们建议将你的分析与同一BOSS的前100个日志进行比较。",
+  "warrior.fury.preface.description2": "如需在提升游戏玩法方面的额外帮助，或想让他人更深入查看你的战斗日志，请访问 Skyhold Discord服务器。",
+  "warrior.fury.preface.description3": "如果你注意到分析中有任何问题或错误，或者你希望添加额外的分析内容，请在 Skyhold Discord服务器中ping @Bigbowwl（请不要私信我）。",
+  "warrior.fury.section.alwaysBeCasting": "始终保持施法",
+  "warrior.fury.section.cooldowns": "冷却技能",
+  "warrior.fury.section.rotation": "输出循环",
+  "warrior.fury.rotation.description1": "这个单体目标输出循环分析器基于多种来源，包括 Wowhead和 Maxroll上的指南（感谢 Archimtiros和 Revvez撰写这些指南）。",
+  "warrior.fury.rotation.description2": "这应该作为与其他日志比较时的改进参考点。它没有涵盖 Simulationcraft/Raidbots使用的完整优先级（非常像书面指南），因为列表会太长太复杂而无法遵循。",
+  "warrior.fury.rotation.potentialInaccuracy": "潜在不准确领域：",
+  "warrior.fury.rotation.inaccuracy1": "为即将到来的小怪刷新或伤害增幅保留技能",
+  "warrior.fury.rotation.inaccuracy2": "多个目标",
+  "warrior.fury.rotation.inaccuracy3": "移动或停手期",
+  "warrior.fury.rotation.note": "注意：",
+  "warrior.fury.rotation.noteDescription": "下面的优先级列表不包括"
+}

@@ -1,0 +1,19 @@
+{
+  "mage.fire.subSection.activeTime": "活跃时间",
+  "mage.fire.activeTime.description": "任何你没有施法的时间都是损失的伤害。你应该总是提前规划你的移动来减少停机时间，但也可以依靠技能，比如如果你有微光天赋就用微光，否则用闪现来更快移动，或者用灼烧天赋在移动时继续施法。虽然有些战斗有强制停机时间，WoWAnalyzer 不会计算这些，但你能做的任何减少停机时间的事情都会帮助你的伤害；即使是对一个受到 99% 伤害减免的目标施法也是寻找触发的机会。此外，为了更好地了解你的停机时间，我们建议将你的停机时间与同一战斗中大致相同击杀时间的表现更好的火法进行比较。如果你比他们有更少的停机时间，那么也许你可以做些改进。",
+  "mage.fire.activeTime.label": "活跃时间:",
+  "mage.fire.cancelledCasts.label": "取消施法:",
+  "mage.fire.section.preface": "前言与免责声明",
+  "mage.fire.preface.description1": "本指南中的分析与 Degenhours 和 Altered Time 法师 Discord 的其他工作人员合作提供。在查看这些信息时，请记住 WoWAnalyzer 仅限于你的战斗日志中的信息。因此，我们无法知道你是否因为战斗或策略需要而故意做了非最优的事情（例如强制停机时间或为爆发阶段保留技能）。因此，我们建议将你的分析与同一 BOSS 的前 100 个日志进行比较。",
+  "mage.fire.preface.description2": "如需在提升游戏玩法方面的额外帮助，或想让他人更深入查看你的战斗日志，请访问 Altered Time Discord服务器。",
+  "mage.fire.preface.description3": "如果你注意到分析中有任何问题或错误，或者你想要添加额外的分析内容，请在 Altered Time Discord服务器中 ping @Sharrq。",
+  "mage.fire.section.core": "核心",
+  "mage.fire.section.heatingUpAndHotStreak": "加热与炎爆",
+  "mage.fire.heatingUpAndHotStreak.description": "作为一名火法，你的绝大多数循环围绕着产生、管理和使用你的加热与炎爆触发。无论燃烧是否激活，学习正确使用你的触发会在提高你的伤害方面发挥重要作用。",
+  "mage.fire.section.buffsAndProcs": "增益与触发",
+  "mage.fire.buffsAndProcs.description": "火法有几个增益和触发需要正确管理，以便充分利用它们并最大化你的伤害。炎爆和加热是你最重要的触发，但其他如热闪等也会以其他方式增加你的伤害，这在最大化你的整体伤害和爆发伤害方面发挥着重要作用。",
+  "mage.fire.section.cooldowns": "冷却技能",
+  "mage.fire.cooldowns.description": "与大多数伤害专精一样，正确利用你的伤害冷却技能会在提升你的整体伤害方面发挥重要作用，特别是燃烧。",
+  "mage.fire.section.talents": "天赋",
+  "mage.fire.subSection.castEfficiency": "施放效率"
+}

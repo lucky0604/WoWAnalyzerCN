@@ -1,0 +1,14 @@
+{
+  "guide.deathknight.frost.sections.resources.title": "资源使用",
+  "guide.deathknight.frost.sections.resources.runes.title": "符文",
+  "guide.deathknight.frost.sections.resources.runes.summary": "符文是死亡骑士的主要资源。与循环技能有冷却不同，你会被符文的流动所阻止，无法连续释放最强的技能。你最多可以有三个符文同时恢复。你应该在有4个或更多符文时消耗符文，以确保不会浪费任何符文。这个图表显示了战斗中你可用的符文情况。",
+  "guide.deathknight.frost.sections.resources.runicPower.title": "符文能量",
+  "guide.deathknight.frost.sections.resources.runicPower.summary": "符文能量是死亡骑士的攒/花资源。对于冰霜死亡骑士，它通过<0/>与符文相连。消耗符文会给予符文能量，而消耗符文能量可以恢复符文。这使得不浪费符文能量很重要，这样你可以最大化消耗技能的施放次数，并获得更多符文技能的施放。但是，由于符文消耗技能的优先级高于符文能量消耗技能，如果你正在用GCD施放符文消耗技能，浪费一些符文能量是可以的。",
+  "guide.deathknight.frost.sections.resources.cooldowns.title": "资源冷却",
+  "guide.deathknight.frost.sections.resources.cooldowns.summary": "在玩<0/>时，充分利用资源冷却对于这个构建的良好表现至关重要。你应该尽可能频繁地使用资源冷却，以最大化你可以投入到一次<0/>施法中的资源量，同时不浪费任何获得的资源。",
+  "guide.deathknight.frost.sections.procs.title": "触发使用",
+  "guide.deathknight.frost.sections.procs.killingMachine.title": "杀戮机器",
+  "guide.deathknight.frost.sections.procs.rime.title": "凛冬",
+  "guide.deathknight.frost.sections.cooldowns.title": "冷却技能",
+  "guide.deathknight.frost.sections.cooldowns.graphSummary": "<0>冷却图表</0> - 这个图表显示了你何时使用冷却技能，以及你等待了多久才再次使用它们。灰色段表示该技能可用，黄色段表示该技能正在冷却。红色段高亮显示你本可以多放一次冷却技能的时间。"
+}

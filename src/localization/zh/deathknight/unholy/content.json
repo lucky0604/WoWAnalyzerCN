@@ -1,0 +1,17 @@
+{
+  "guide.deathknight.unholy.sections.intro.title": "介绍",
+  "guide.deathknight.unholy.sections.intro.1": "你好，欢迎使用邪恶死亡骑士专精的分析工具！所有信息都来自<0>Wowhead</0>和<1>Icy Veins</1>上的最新职业指南",
+  "guide.deathknight.unholy.sections.intro.2": "邪恶专精的核心是传播疾病、管理你的亡灵大军，以及同步你的冷却技能以释放毁灭性的爆发窗口。本工具帮助识别在循环、buff覆盖率、冷却技能使用以及整体执行方面的改进空间。",
+  "guide.deathknight.unholy.sections.intro.3": "这里的分析基于一般准则，并不总是考虑特定的战斗机制或边缘情况。要获得最准确的基准测试，请使用<0>Warcraft Logs</0>将你的表现与同一场战斗中的其他顶级邪恶死亡骑士进行比较。",
+  "guide.deathknight.unholy.sections.intro.4": "如果你有任何问题、反馈或建议，请随时在<0>Acherus Discord</0>中联系我们。",
+  "guide.deathknight.unholy.sections.activeTime.title": "活跃时间",
+  "guide.deathknight.unholy.sections.cooldownTracking.title": "冷却技能追踪",
+  "guide.deathknight.unholy.sections.resourceUse.title": "资源使用",
+  "guide.deathknight.unholy.sections.resourceUse.runes.title": "符文",
+  "guide.deathknight.unholy.sections.resourceUse.runes.summary1": "符文是邪恶专精的核心资源，用于施放关键技能。最多可以同时恢复三个符文，高效管理它们对于保持平滑的循环至关重要。当你有4个或更多符文时，你就是在溢出并浪费恢复时间。另一方面，没有可用的符文可能意味着在重要的爆发窗口期间资源匮乏。",
+  "guide.deathknight.unholy.sections.resourceUse.runes.summary2": "这个图表显示了你在整个战斗中的符文可用性。频繁达到5-6的峰值可能表示溢出，而长期接近0则可能表示资源匮乏或与冷却技能的对齐不佳。",
+  "guide.deathknight.unholy.sections.resourceUse.runicPower.title": "符文能量",
+  "guide.deathknight.unholy.sections.resourceUse.runicPower.summary1": "符文能量是你的次要资源，通过使用技能消耗符文来产生。你消耗它的主要方式是通过<0/>（或在AoE情况下使用<1/>），这有助于保持压力并为你的符文腐蚀被动提供能量——提高符文恢复速度。",
+  "guide.deathknight.unholy.sections.resourceUse.runicPower.summary2": "为了获得最佳效率，请避免符文能量溢出。你应该定期消耗它以保持符文恢复流动。短暂的峰值是正常的，但长期保持在接近满值通常意味着错过了死亡缠绕或低效的GCD使用。",
+  "guide.deathknight.unholy.sections.resourceUse.runicPower.summary3": "这个图表显示了你随时间变化的符文能量。请注意平坦的峰值，这是浪费和优化资源流动的机会的迹象。"
+}
