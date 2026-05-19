@@ -1,0 +1,7 @@
+{
+  "shaman.enhancement.section.preface": "前言与免责声明",
+  "shaman.enhancement.preface.analysis": "本指南的分析由 <Contributor {...Seriousnes} /> 与 Earthshrine 萨满 Discord 的成员和工作人员合作提供。在查看这些信息时，请记住 WoWAnalyzer 仅能访问战斗日志中存在的信息。因此，我们无法知道你是否是因为战斗或战术需要而故意做一些次优的操作（如强制空窗或为爆发阶段保留冷却技能）。因此，我们建议将你的分析与同一位首领的前 100 名日志进行比较。",
+  "shaman.enhancement.preface.assistance": "如需额外的游戏玩法改进帮助，或想让别人更深入地查看你的战斗日志，请访问 Earthshrine Discord。",
+  "shaman.enhancement.preface.issues": "如果你注意到此分析中有任何问题或错误，或者想要添加额外的分析，请在 Earthshrine Discord 中 ping <code>@Seriousnes</code>。",
+  "shaman.enhancement.section.alwaysBeCasting": "保持施法"
+}

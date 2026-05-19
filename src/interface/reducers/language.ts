@@ -9,7 +9,7 @@ const cookieOptions = {
 };
 type LanguageState = string;
 
-const initialState: LanguageState = cookies.get(COOKIE_NAME) || 'en';
+const initialState: LanguageState = cookies.get(COOKIE_NAME) || 'zh';
 
 const languageSlice = createSlice({
   name: 'language',

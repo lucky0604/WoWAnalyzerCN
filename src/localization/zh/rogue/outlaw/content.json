@@ -1,0 +1,16 @@
+{
+  "guide.rogue.outlaw.sections.coreSkills.title": "核心技能",
+  "guide.rogue.outlaw.sections.resources.title": "资源使用",
+  "guide.rogue.outlaw.sections.resources.energy.title": "能量",
+  "guide.rogue.outlaw.sections.resources.energy.summary": "你的主要资源是<0/>。通常，技能使用会被<0/>限制，而不是时间。避免溢出<0/> - 失去的<0/>恢复就是失去的DPS。有时候难免会溢出<0/> - 比如处理机制或阶段转换时。",
+  "guide.rogue.outlaw.sections.resources.comboPoints.title": "连击点",
+  "guide.rogue.outlaw.sections.resources.comboPoints.summary": "你的大部分技能要么<0>攒</0>要么<0>花</0><1/>。绝不要在<strong>6或7</strong>连击点时用攒点技能。<strong>消耗</strong>技能通常应该在<strong>6或更多</strong>连击点时使用，但如果<2/>{info.combatant.hasTalent(TALENTS.HIDDEN_OPPORTUNITY_TALENT) && (<>，<3/>或<4/></>)}{' '}激活，则在<strong>5或更多</strong>时使用。",
+  "guide.rogue.outlaw.sections.coreRotation.title": "核心循环",
+  "guide.rogue.outlaw.sections.apl.title": "行动优先级列表",
+  "guide.rogue.outlaw.sections.apl.summary": "狂徒有一个快节奏的循环，会不断对buff和触发做出反应。该专精没有爆发，但以稳定的输出来弥补。应该被视为一个链式优先级列表：<0><1>冷却技能，根据下方的优先级。</1><1>终结技，根据下方的优先级。</1><1>攒点技能，根据下方的优先级。</1></0>",
+  "guide.rogue.outlaw.sections.apl.simcReference": "这个行动优先级列表（APL）是simc APL的简化版，你可以在<0>这里</0>找到。",
+  "guide.rogue.outlaw.sections.apl.disclaimer": "<0>免责声明：</0>（目前不支持的技能/天赋）<1><2><3/></2><2><4/></2></1>",
+  "guide.rogue.outlaw.sections.apl.accuracyNote": "你可以用这里的准确率作为参考点来与其他日志比较。",
+  "guide.rogue.outlaw.sections.cooldowns.title": "冷却技能",
+  "guide.rogue.outlaw.sections.cooldowns.summary": "<0>冷却图表</0> - 这个图表可视化了你的冷却技能使用情况，并高亮显示可以优化的地方。<1><2><0>灰色段</0>表示可用。</2><2><0>黄色段</0>表示冷却时间。</2><2><0>红色段</0>高亮显示可以多放一个冷却技能的地方。</2></1>"
+}

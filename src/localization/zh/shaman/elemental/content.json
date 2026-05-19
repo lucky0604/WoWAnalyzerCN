@@ -1,0 +1,8 @@
+{
+  "shaman.elemental.section.preface": "前言",
+  "shaman.elemental.preface.welcome": "欢迎来到元素萨满的 WoWAnalyzer 页面。本页面的信息主要关于如何提高你的 DPS，但你绝不能为此冒生命危险。首先确保正确执行适当的机制，然后再专注于 DPS。",
+  "shaman.elemental.preface.guidelines": "这里显示的表现是 <strong className=\"ok-mark\">指导方针</strong>，会因战斗和尝试而异。你应该将这里的信息作为自己分析的基础。",
+  "shaman.elemental.preface.questions": "如果你对专精、循环或本指南有任何问题，可以在 Earthshrine Discord 服务器的 <code>#elemental</code> 频道找到我们。",
+  "shaman.elemental.section.resourceUsage": "资源使用",
+  "shaman.elemental.section.guide": "指南"
+}

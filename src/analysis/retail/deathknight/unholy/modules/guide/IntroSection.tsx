@@ -1,28 +1,43 @@
 import { Section } from 'interface/guide';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export function IntroSection() {
   return (
-    <Section title="Introduction">
+    <Section
+      title={t({
+        id: 'guide.deathknight.unholy.sections.intro.title',
+        message: 'Introduction',
+      })}
+    >
       <p>
-        Hello and welcome to the analyzer for the Unholy Death Knight specialization! All
-        information is sourced from the latest class guides on{' '}
-        <a href="https://www.wowhead.com/unholy-death-knight-guide">Wowhead</a> and{' '}
-        <a href="https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-guide">Icy Veins</a>
+        <Trans id="guide.deathknight.unholy.sections.intro.1">
+          Hello and welcome to the analyzer for the Unholy Death Knight specialization! All
+          information is sourced from the latest class guides on{' '}
+          <a href="https://www.wowhead.com/unholy-death-knight-guide">Wowhead</a> and{' '}
+          <a href="https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-guide">Icy Veins</a>
+        </Trans>
       </p>
       <p>
-        Unholy is all about spreading diseases, managing your undead army, and syncing your
-        cooldowns to deliver devastating burst windows. This tool helps identify room for
-        improvement in rotation, buff uptime, cooldown usage, and overall execution.
+        <Trans id="guide.deathknight.unholy.sections.intro.2">
+          Unholy is all about spreading diseases, managing your undead army, and syncing your
+          cooldowns to deliver devastating burst windows. This tool helps identify room for
+          improvement in rotation, buff uptime, cooldown usage, and overall execution.
+        </Trans>
       </p>
       <p>
-        The analysis here is based on general guidelines and doesn’t always account for specific
-        fight mechanics or edge cases. For the most accurate benchmarking, compare your performance
-        to other top Unholy Death Knights in the same encounter using{' '}
-        <a href="https://www.warcraftlogs.com">Warcraft Logs</a>.
+        <Trans id="guide.deathknight.unholy.sections.intro.3">
+          The analysis here is based on general guidelines and doesn’t always account for specific
+          fight mechanics or edge cases. For the most accurate benchmarking, compare your
+          performance to other top Unholy Death Knights in the same encounter using{' '}
+          <a href="https://www.warcraftlogs.com">Warcraft Logs</a>.
+        </Trans>
       </p>
       <p>
-        If you have any questions, feedback, or suggestions, feel free to reach out in the{' '}
-        <a href="https://discord.gg/acherus">Acherus Discord</a>.
+        <Trans id="guide.deathknight.unholy.sections.intro.4">
+          If you have any questions, feedback, or suggestions, feel free to reach out in the{' '}
+          <a href="https://discord.gg/acherus">Acherus Discord</a>.
+        </Trans>
       </p>
     </Section>
   );

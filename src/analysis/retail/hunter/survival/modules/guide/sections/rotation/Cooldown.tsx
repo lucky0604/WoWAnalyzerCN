@@ -9,6 +9,9 @@ import { SpellLink } from 'interface';
 import TALENTS from 'common/TALENTS/hunter';
 import SPELLS from 'common/SPELLS/hunter';
 import TakedownSection from '../../../talents/Takedown/TakedownSection';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
+
 export default function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   const castEfficiency = useAnalyzer(CastEfficiency);
   if (!info || !castEfficiency) {
@@ -16,16 +19,31 @@ export default function CooldownSection({ modules, info }: GuideProps<typeof Com
   }
 
   return (
-    <Section title="Cooldowns">
+    <Section
+      title={t({
+        id: 'guide.hunter.survival.sections.cooldowns.title',
+        message: 'Cooldowns',
+      })}
+    >
       <p>
-        These cooldowns are essential for maximizing your damage output.
-        <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />.
+        <Trans id="guide.hunter.survival.sections.cooldowns.summary">
+          These cooldowns are essential for maximizing your damage output.
+          <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />.
+        </Trans>
       </p>
       <div>
-        Legend
+        <Trans id="guide.hunter.survival.sections.cooldowns.legend">Legend</Trans>
         <ul>
-          <li>Gray - Spell was available</li>
-          <li>Yellow - Spell was on cooldown</li>
+          <li>
+            <Trans id="guide.hunter.survival.sections.cooldowns.legend.available">
+              Gray - Spell was available
+            </Trans>
+          </li>
+          <li>
+            <Trans id="guide.hunter.survival.sections.cooldowns.legend.onCooldown">
+              Yellow - Spell was on cooldown
+            </Trans>
+          </li>
         </ul>
       </div>
       <CastEfficiencyBar

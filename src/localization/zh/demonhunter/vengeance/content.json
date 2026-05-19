@@ -1,0 +1,16 @@
+{
+  "guide.demonhunter.vengeance.sections.core.title": "核心",
+  "guide.demonhunter.vengeance.sections.core.fury.title": "怒气",
+  "guide.demonhunter.vengeance.sections.core.fury.summary": "复仇的主要资源是<0/>。你应该避免溢出<0/>-失去的<0/>产生就是失去的DPS。",
+  "guide.demonhunter.vengeance.sections.core.soulFragments.title": "灵魂碎片",
+  "guide.demonhunter.vengeance.sections.core.soulFragments.summary": "你的大多数技能要么<strong>产生</strong>要么<strong>消耗</strong>灵魂碎片。永远不要在满<0/>时使用产生技能，或者这样做会导致你溢出<0/>。",
+  "guide.demonhunter.vengeance.sections.core.soulFragments.chart": "下面的图表显示你在整个战斗中的<0/>。",
+  "guide.demonhunter.vengeance.sections.core.activeTime.title": "活跃时间",
+  "guide.demonhunter.vengeance.sections.core.activeTime.summary": "<b>在整个战斗中持续施法是获得好DPS最重要的一件事。</b><br/>有些战斗由于阶段转换等原因有不可避免的空转，所以在这些情况下0%空转是不可能的-尽你所能做到最好。",
+  "guide.demonhunter.vengeance.sections.core.activeTime.value": "活跃时间：",
+  "guide.demonhunter.vengeance.sections.mitigation.title": "防御冷却技能和减伤",
+  "guide.demonhunter.vengeance.sections.rotation.title": "循环",
+  "guide.demonhunter.vengeance.sections.rotation.summary": "复仇的核心循环包括<strong>产生</strong>然后<strong>消耗</strong><0/>和<1/>，它们会在被吸收前的5秒内治疗承受伤害的6%。",
+  "guide.demonhunter.vengeance.sections.cooldowns.title": "冷却技能",
+  "guide.demonhunter.vengeance.sections.cooldowns.summary": "复仇有多个冷却技能，可以用来提高生存能力或造成大量伤害。为了在战斗中最大化使用次数，你应该在冷却一好就用（只要能打到目标）如果你不需要用它来应对即将到来的机制。尽可能频繁地使用<0/>尤为重要。"
+}

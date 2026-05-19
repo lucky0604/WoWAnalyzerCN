@@ -1,4 +1,5 @@
 import { useMemo, type JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { SubSection, useInfo } from '../index';
 import SPELL_CATEGORY from 'parser/core/SPELL_CATEGORY';
 import { maybeGetTalentOrSpell } from 'common/maybeGetTalentOrSpell';
@@ -41,17 +42,28 @@ export function FoundationCooldownSection({
   }
 
   return (
-    <SubSection title="Use Your Cooldowns">
+    <SubSection title={t({ id: 'guide.foundation.cooldowns', message: 'Use Your Cooldowns' })}>
       <Explanation>
         <Para>
           Perfect cooldown usage is a combination of in-depth fight knowledge and player skill.
           However, 90% of the time you can get 90% of those results by{' '}
-          <strong>making sure to use every cooldown available to you.</strong>
+          <strong>
+            {t({
+              id: 'guide.foundation.cooldowns.keyPoint',
+              message: 'making sure to use every cooldown available to you.',
+            })}
+          </strong>
         </Para>
         <Para>
-          The key idea is to <HL>use your cooldowns as many times as you can.</HL> For example, you
-          can use a 2-minute cooldown <em>at most</em> 3 times in a 2m 30s boss fight. As long as
-          you hit all 3 uses, it is okay to delay it for a better time.
+          The key idea is to{' '}
+          <HL>
+            {t({
+              id: 'guide.foundation.cooldowns.maximizeUsage',
+              message: 'use your cooldowns as many times as you can.',
+            })}
+          </HL>{' '}
+          For example, you can use a 2-minute cooldown <em>at most</em> 3 times in a 2m 30s boss
+          fight. As long as you hit all 3 uses, it is okay to delay it for a better time.
         </Para>
       </Explanation>
       <Para>

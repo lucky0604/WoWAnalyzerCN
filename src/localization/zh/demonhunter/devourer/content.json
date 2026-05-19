@@ -1,0 +1,11 @@
+{
+  "guide.demonhunter.devourer.sections.disclaimer.title": "免责声明",
+  "guide.demonhunter.devourer.sections.disclaimer.summary": "由于当前<0/>、<1/>和<2/>日志的bug，相关分析无法工作，应该被忽略。因为这些是该专精游戏玩法的核心，这代表了这个页面的重要部分。",
+  "guide.demonhunter.devourer.sections.core.title": "核心",
+  "guide.demonhunter.devourer.sections.core.activeTime.title": "活跃时间",
+  "guide.demonhunter.devourer.sections.core.activeTime.summary": "<b>在整个战斗中持续施法是获得好DPS最重要的一件事。</b><div>有些战斗由于阶段转换等原因有不可避免的空转，所以在这些情况下0%空转是不可能的-尽你所能做到最好。</div>",
+  "guide.demonhunter.devourer.sections.core.activeTime.fillers": "记住你总是可以使用<0/>或<1/>，并且它们可以在移动时施放。",
+  "guide.demonhunter.devourer.sections.core.activeTime.value": "活跃时间：",
+  "guide.demonhunter.devourer.sections.procs.title": "触发",
+  "guide.demonhunter.devourer.sections.cooldowns.title": "冷却技能"
+}

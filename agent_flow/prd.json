@@ -1,0 +1,189 @@
+{
+  "project": "WoWAnalyzerCN",
+  "branchName": "ralph/cn-name-mapping",
+  "description": "中英文名称映射 — 从 wcl-mp-client 导入 Boss/Zone/Dungeon 中文名映射数据，替换硬编码英文名称，使 WCL API 返回的动态数据显示为中文。11 个 Story，依赖链: 001→002→004→008→009; 003→004; 005/006/007 独立并行。",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "创建 bossNames.ts — Zone 46 (VS/DR/MQD) Boss 映射",
+      "description": "As a 开发者, I need 先建最小可行样板 so that 后续可增量追加数据。从 zones.ts 仅提取 Zone 46 的 encounter 条目（~10条），创建 bossNames.ts 骨架。",
+      "acceptanceCriteria": [
+        "读取 ~/Documents/Code/rpglogs/wcl-mp-client/src/assets/datas/zones.ts 前 120 行（Zone 46 块）",
+        "创建 src/common/CN_MAPPING/bossNames.ts",
+        "导出 BOSS_CN_NAMES: Record<number, string>，包含 Zone 46 全部 encounter: 3176→'元首阿福扎恩', 3177→'弗拉希乌斯', 3178→'威厄高尔和艾佐拉克', 3179→'陨落之王萨哈达尔', 3180→'光盲先锋军', 3181→'宇宙之冕', 3182→'贝洛朗，奥的子嗣', 3183→'至暗之夜降临', 3306→'奇美鲁斯，未梦之神'",
+        "文件格式: export const BOSS_CN_NAMES: Record<number, string> = { ... }",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "只需读 zones.ts 前 120 行（zone 46 块结束于第 86 行左右）。建立文件骨架后，US-002 会追加更多数据。"
+    },
+    {
+      "id": "US-002",
+      "title": "追加 bossNames.ts — Zone 47 (M+ S1) + 剩余所有 Zone",
+      "description": "As a 开发者, I need 完整的 boss ID 映射覆盖所有已知 zone so that 中文查找不会遗漏任何 boss。在 US-001 创建的文件基础上追加数据。",
+      "acceptanceCriteria": [
+        "读取 ~/Documents/Code/rpglogs/wcl-mp-client/src/assets/datas/zones.ts，使用 grep 搜索 'name: \\'' 模式提取所有 encounter 条目",
+        "读取现有 src/common/CN_MAPPING/bossNames.ts，在 BOSS_CN_NAMES 对象末尾追加新条目",
+        "Zone 47 条目必须包含: 12811→'魔导师平台', 12874→'迈萨拉洞窟', 12915→'节点希纳斯', 12805→'风行者之塔', 112526→'艾杰斯亚学院', 361753→'执政团之座', 61209→'通天峰', 10658→'萨隆之渊'",
+        "追加后 BOSS_CN_NAMES 条目数 ≥ 50",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": "使用 grep 而非读取全部 3535 行（避免上下文溢出）。读取 bossNames.ts → 末尾追加 → 写回。依赖 US-001 的文件存在。"
+    },
+    {
+      "id": "US-003",
+      "title": "创建 zoneNames.ts + dungeonNames.ts — Zone/Dungeon 映射",
+      "description": "As a 开发者, I need zone ID 和 dungeon slug 到中文名的映射 so that report title 和导航栏能显示中文。",
+      "acceptanceCriteria": [
+        "创建 src/common/CN_MAPPING/zoneNames.ts，导出 ZONE_CN_NAMES: Record<number, string>",
+        "zoneNames 条目至少: 46→'虚痕尖塔 / 梦境裂隙 / MQD', 47→'史诗钥石第 1 赛季', 44→'法力熔炉：欧米伽'。其他 zone 从 zones.ts 的 zone.id→zone.name 提取",
+        "创建 src/common/CN_MAPPING/dungeonNames.ts，导出 DUNGEON_CN_NAMES: Record<string, string>",
+        "dungeonNames 条目: seat-of-the-triumvirate→'执政团之座', pit-of-saron→'萨隆矿坑', magisters-terrace→'魔导师平台', maisara-caverns→'迈萨拉洞窟', nexuspoint-xenas→'节点希纳斯', windrunner-spire→'风行者之塔', skyreach→'通天峰', algethar-academy→'艾杰斯亚学院'",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": "独立于 US-001/002。数据来源: zones.ts（zone ID→name）和 wcl-mp-client/src/pkgRoutes/constants/dungeonNames.ts。优先执行以尽早提供数据给 US-004。"
+    },
+    {
+      "id": "US-004",
+      "title": "创建 CN_MAPPING/index.ts — 统一查找接口",
+      "description": "As a 开发者, I want getBossCnName/getZoneCnName/getDungeonCnName 三个查找函数 so that 后续 Story 可以直接 import 使用。",
+      "acceptanceCriteria": [
+        "创建 src/common/CN_MAPPING/index.ts",
+        "导出 getBossCnName(id: number): string | null — 从 BOSS_CN_NAMES 查找，未命中返回 null",
+        "导出 getZoneCnName(id: number): string | null — 从 ZONE_CN_NAMES 查找，未命中返回 null",
+        "导出 getDungeonCnName(slug: string): string | null — 从 DUNGEON_CN_NAMES 查找，未命中返回 null",
+        "三个函数均不抛异常，未命中时返回 null",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": "依赖 US-001,002,003 的数据文件存在。只需 import 三个数据文件并实现单行查找函数。"
+    },
+    {
+      "id": "US-005",
+      "title": "替换 vs_dr_mqd Boss 名称 — 9 个文件 name→CN",
+      "description": "As a 中国用户, I want 虚痕尖塔/梦境裂隙/MQD 副本的 Boss 名显示中文 so that 分析结果页可读。",
+      "acceptanceCriteria": [
+        "Beloren.ts: name 从 \"Belo'ren, Child of Al'ar\" 改为 '贝洛朗，奥的子嗣'",
+        "Chimaerus.ts: name 从 'Chimaerus' 改为 '奇美鲁斯，未梦之神'",
+        "CrownOfTheCosmos.ts: name 从 'Crown of the Cosmos' 改为 '宇宙之冕'",
+        "ImperatorAverzian.ts: name 从 'Imperator Averzian' 改为 '元首阿福扎恩'",
+        "LightblindedVanguard.ts: name 从 'Lightblinded Vanguard' 改为 '光盲先锋军'",
+        "MidnightFalls.ts: name 从 'Midnight Falls' 改为 '至暗之夜降临'",
+        "Salhadaar.ts: name 从 'Salhadaar' 改为 '陨落之王萨哈达尔'",
+        "VaelgorEzzorak.ts: name 从 'Vaelgor & Ezzorak' 改为 '威厄高尔和艾佐拉克'",
+        "Vorasius.ts: name 从 'Vorasius' 改为 '弗拉希乌斯'",
+        "Typecheck passes"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": "文件路径前缀: src/game/raids/vs_dr_mqd/。仅修改 buildBoss({ name: ... }) 中的 name 值。独立于 CN_MAPPING 模块，尽早执行（priority 5）。"
+    },
+    {
+      "id": "US-006",
+      "title": "替换 mythicplusseasonone Boss/地城名称 — 8 个 name→CN",
+      "description": "As a 中国用户, I want 史诗钥石第 1 赛季的地城名显示中文 so that 战斗列表可读。",
+      "acceptanceCriteria": [
+        "读取 src/game/raids/mythicplusseasonone/index.ts（57 行）",
+        "MagistersTerrace name: '魔导师平台'",
+        "MaisaraCaverns name: '迈萨拉洞窟'",
+        "NexusPointXenas name: '节点希纳斯'",
+        "WindrunnerSpire name: '风行者之塔'",
+        "AlgetharAcademy name: '艾杰斯亚学院'",
+        "SeatOfTheTriumvirate name: '执政团之座'",
+        "Skyreach name: '通天峰'",
+        "PitOfSaron name: '萨隆矿坑'",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": "单文件 57 行，8 处 name 替换。独立于 CN_MAPPING 模块。"
+    },
+    {
+      "id": "US-007",
+      "title": "替换 mop_msv_hof_toes + throne_of_thunder Boss 名称中文化",
+      "description": "As a 中国用户, I want 经典副本（魔古山宝库/恐惧之心/永春台/雷电王座）的 Boss 名显示中文 so that 经典版本分析页面也可读。",
+      "acceptanceCriteria": [
+        "读取 src/game/raids/mop_msv_hof_toes/ 下所有 boss 文件（排除 index.ts）",
+        "每个 boss 文件的 buildBoss({ name: ... }) 中 name 更新为中文",
+        "读取 src/game/raids/throne_of_thunder/ 下所有 boss 文件（排除 index.ts）",
+        "每个 boss 文件的 buildBoss({ name: ... }) 中 name 更新为中文",
+        "中文名从 ~/Documents/Code/rpglogs/wcl-mp-client/src/assets/datas/zones.ts 中按 zone ID 和 encounter ID 查找",
+        "读取 src/game/ZONES.ts，确认 zone 46 name 为 '虚痕尖塔 / 梦境裂隙 / MQD'，zone 47 name 为 '史诗钥石第 1 赛季'",
+        "Typecheck passes"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": "约 31 个文件（mop 17 + tot 14）。需先查 zones.ts 获取每个 boss 的中文名（按 encounter ID 匹配）。文件多但每文件仅改 1 行。"
+    },
+    {
+      "id": "US-008",
+      "title": "创建 getBossDisplayName + 更新 getBossName/getFightName",
+      "description": "As a 开发者, I want 三层 fallback 的显示名查找函数注入到战斗名生成函数 so that 所有通过 getBossName 展示的名称自动变为中文。",
+      "acceptanceCriteria": [
+        "创建 src/common/getBossDisplayName.ts",
+        "导出 getBossDisplayName(fightBossId: number, fallbackName: string): string",
+        "三层查找: findByBossId(fightBossId)?.name → getBossCnName(fightBossId) → fallbackName",
+        "读取 src/common/getBossName.ts（15 行）",
+        "getBossName.ts 中 fight.name 替换为 getBossDisplayName(fight.boss, fight.name)",
+        "保留 withDifficulty 参数逻辑不变",
+        "读取 src/common/getFightName.ts（34 行），确认无需额外修改（通过 getBossName 自动继承中文）",
+        "Typecheck passes"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": "依赖 US-004（getBossCnName 和 findByBossId 可用）。getBossDisplayName 需 import { findByBossId } from 'game/raids' 和 import { getBossCnName } from 'common/CN_MAPPING'。"
+    },
+    {
+      "id": "US-009",
+      "title": "更新 Header + NavigationBar — 展示层注入 CN 查找",
+      "description": "As a 中国用户, I want 结果页头部 Boss 名和导航栏 report title 显示中文 so that 用户看到的每个角落都是中文。",
+      "acceptanceCriteria": [
+        "读取 src/interface/report/Results/Header/index.tsx（390 行），定位 BossMiniBox 组件（line 367-390）",
+        "BossMiniBox 的 MiniBoxName 中，当 boss 为 null 时，fallback 从 fight.name 改为 getBossDisplayName(fight.boss, fight.name)",
+        "boss 不为 null 时 boss?.name 已为中文（US-005/006/007 已更新），无需额外处理",
+        "读取 src/interface/NavigationBar.tsx（103 行），定位 report.title 展示逻辑",
+        "使用 getZoneCnName(report.zone) 辅助映射 report.title 中的 zone 名",
+        "仅替换可识别的 zone 名部分，保留 title 其余字符串",
+        "Typecheck passes"
+      ],
+      "priority": 9,
+      "passes": false,
+      "notes": "依赖 US-008（getBossDisplayName 存在）。Header 文件 390 行，仅修改 line 383 附近的 fallback 逻辑。NavigationBar 读取后找 title 渲染位置。"
+    },
+    {
+      "id": "US-010",
+      "title": "单元测试 — CN_MAPPING 和 getBossDisplayName 覆盖率",
+      "description": "As a 开发者, I want 映射查找函数有测试覆盖 so that 数据准确性和三层 fallback 行为得到保证。",
+      "acceptanceCriteria": [
+        "创建 src/common/CN_MAPPING/__tests__/bossNames.test.ts: 测试 getBossCnName(3176) 返回 '元首阿福扎恩'、getBossCnName(12811) 返回 '魔导师平台'、getBossCnName(99999) 返回 null",
+        "创建 src/common/CN_MAPPING/__tests__/zoneNames.test.ts: 测试 getZoneCnName(46) 返回中文、getZoneCnName(47) 返回中文、getZoneCnName(999) 返回 null",
+        "创建 src/common/__tests__/getBossDisplayName.test.ts: 测试三层优先级 — (1) boss ID 在 game/raids 中时返回硬编码中文名，(2) boss ID 仅在 CN_MAPPING 时返回映射中文名，(3) boss ID 完全未知时返回 fallbackName",
+        "运行 pnpm test 确认测试通过"
+      ],
+      "priority": 10,
+      "passes": false,
+      "notes": "依赖 US-001~009 全部完成（被测试的函数和数据必须存在）。测试文件使用 vitest。"
+    },
+    {
+      "id": "US-011",
+      "title": "质量门禁 — typecheck + lint + 浏览器验证",
+      "description": "As a 开发者, I want 所有质量门禁通过且浏览器端确认中文显示正确 so that 代码可安全合并。",
+      "acceptanceCriteria": [
+        "运行 pnpm typecheck，确认零错误（零容忍）",
+        "运行 pnpm lint，确认零错误（零容忍）",
+        "Verify in browser using dev-browser skill: 启动 dev server，加载一份中文 WCL report，确认战斗选择列表（FightSelection）中每个 fight 显示中文 Boss 名",
+        "浏览器验证: 进入任意战斗分析页，确认结果页头部 BossMiniBox 显示中文 Boss 名",
+        "浏览器验证: NavigationBar 中 report.title 包含中文 zone 名"
+      ],
+      "priority": 11,
+      "passes": false,
+      "notes": "依赖 US-001~010 全部完成。浏览器验证使用 dev-browser skill，需要一份可用的中文 WCL report code。"
+    }
+  ]
+}

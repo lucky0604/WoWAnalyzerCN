@@ -4,7 +4,7 @@ import { buildBoss } from 'game/raids/builders';
 export const LightblindedVanguard = buildBoss({
   background,
   id: 3180,
-  name: 'Lightblinded Vanguard',
+  name: '光盲先锋军',
   timeline: {
     abilities: [
       // Aura of Devotion

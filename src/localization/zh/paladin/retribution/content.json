@@ -1,0 +1,16 @@
+{
+  "paladin.retribution.section.core": "核心",
+  "paladin.retribution.core.explanation": "说明",
+  "paladin.retribution.core.downtime": "虽然惩戒专精有一些自然的空窗，但由于 <0/> 和 <1/> 等天赋，你需要尽可能保持自动攻击。未能保持良好的近战站位可能会导致较低的技能覆盖率，因为 <2/> 产生减少。",
+  "paladin.retribution.subsection.holyPower": "神圣能量",
+  "paladin.retribution.holyPower.description": "你大部分的循环技能要么是 <strong>积累</strong> 要么是 <strong>消耗</strong> <0/>。绝不要在 <0/> 已满时使用积累技能，或这样做会导致 <0/> 溢出。",
+  "paladin.retribution.holyPower.wasteTitle": "<0/> 浪费",
+  "paladin.retribution.holyPower.wasted": "你浪费了 <0/> 的 <1/>。",
+  "paladin.retribution.holyPower.crusadingStrikes": "由于你选择了 <0/>，你需要特别小心地安排积累 <1/> 的技能，以免溢出。",
+  "paladin.retribution.holyPower.divineToll": "部分浪费可能归因于 <0/> 的审判。",
+  "paladin.retribution.holyPower.divineResonance": "部分浪费可能归因于 <0/> 的免费审判。",
+  "paladin.retribution.holyPower.builderEffectiveness": "<0/> 积累技能效率",
+  "paladin.retribution.subsection.buffsDebuffs": "增益和减益",
+  "paladin.retribution.section.cooldowns": "冷却",
+  "paladin.retribution.cooldowns.description": "惩戒的冷却技能相当强力，但不应长时间保留。为了最大化战斗中的使用次数，你应该在冷却可用时尽快使用（只要能对目标造成伤害）。"
+}

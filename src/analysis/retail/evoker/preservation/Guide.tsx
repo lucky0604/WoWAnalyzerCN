@@ -3,6 +3,8 @@ import { GuideProps, Section } from 'interface/guide';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
 import CombatLogParser from '../preservation/CombatLogParser';
 import styled from '@emotion/styled';
+import { t } from '@lingui/core/macro';
+
 /** Common 'rule line' point for the explanation/data in Core Spells section */
 export const GUIDE_CORE_EXPLANATION_PERCENT = 40;
 
@@ -22,7 +24,12 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
     */
   return (
     <>
-      <Section title="Core Spells and Buffs">
+      <Section
+        title={t({
+          id: 'guide.evoker.preservation.sections.coreSpells.title',
+          message: 'Core Spells and Buffs',
+        })}
+      >
         {modules.merithrasBlessing.guideSubsection}
         {modules.dreamBreath.guideSubsection}
         {modules.essenceBurst.guideSubsection}
@@ -30,7 +37,12 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           modules.resonatingSphere.guideSubsection}
         {modules.emeraldBlossom.guideSubsection}
       </Section>
-      <Section title="Healing cooldowns">
+      <Section
+        title={t({
+          id: 'guide.evoker.preservation.sections.healingCooldowns.title',
+          message: 'Healing Cooldowns',
+        })}
+      >
         {info.combatant.hasTalent(TALENTS_EVOKER.DREAM_FLIGHT_TALENT) &&
           modules.dreamFlight.guideSubsection}
       </Section>

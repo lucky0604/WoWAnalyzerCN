@@ -4,7 +4,7 @@ import { buildBoss } from 'game/raids/builders';
 export const Vorasius = buildBoss({
   background,
   id: 3177,
-  name: 'Vorasius',
+  name: '弗拉希乌斯',
   timeline: {
     abilities: [
       // Primordial Roar

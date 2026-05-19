@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Section, GuideProps, SubSection } from 'interface/guide';
 import CombatLogParser from './CombatLogParser';
 import Explanation from 'interface/guide/components/Explanation';
@@ -14,28 +16,34 @@ export const GUIDE_CORE_EXPLANATION_PERCENT = 50;
 
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   const alwaysBeCastingSubsection = (
-    <SubSection title="Active Time">
+    <SubSection title={t({ id: 'mage.frost.subSection.activeTime', message: 'Active Time' })}>
       <Explanation>
         <b>
-          Continuously casting throughout an encounter is the single most important thing for
-          achieving good DPS as a caster.
+          <Trans id="mage.frost.activeTime.title">
+            Continuously casting throughout an encounter is the single most important thing for
+            achieving good DPS as a caster.
+          </Trans>
         </b>
         <p>
-          As mages we have or <SpellLink spell={TALENTS.SHIMMER_TALENT} /> to continue casting while
-          dealing with mechanics that require movement.
+          <Trans id="mage.frost.activeTime.description1">
+            As mages we have or <SpellLink spell={TALENTS.SHIMMER_TALENT} /> to continue casting
+            while dealing with mechanics that require movement.
+          </Trans>
         </p>
         <p>
-          Some fights have unavoidable downtime, so in these cases 0% downtime will not be possible.
-          In encounters with long downtime you can compare your Active Time with some of the top
-          logs to see if you can improve.
+          <Trans id="mage.frost.activeTime.description2">
+            Some fights have unavoidable downtime, so in these cases 0% downtime will not be
+            possible. In encounters with long downtime you can compare your Active Time with some of
+            the top logs to see if you can improve.
+          </Trans>
         </p>
       </Explanation>
       <p>
-        Active Time:{' '}
+        <Trans id="mage.frost.activeTime.label">Active Time:</Trans>{' '}
         <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
           {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
         </PerformanceStrong>{' '}
-        Cancelled Casts:{' '}
+        <Trans id="mage.frost.cancelledCasts.label">Cancelled Casts:</Trans>{' '}
         <PerformanceStrong performance={modules.cancelledCasts.CancelledPerformance}>
           {formatPercentage(modules.cancelledCasts.cancelledPercentage, 1)}%
         </PerformanceStrong>{' '}
@@ -50,20 +58,20 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 
   return (
     <>
-      <Section title="Core">
+      <Section title={t({ id: 'mage.frost.section.core', message: 'Core' })}>
         <HideExplanationsToggle id="hide-explanations-core" />
         {alwaysBeCastingSubsection}
         {modules.iceLance.guideSubsection}
         {modules.flurry.guideSubsection}
       </Section>
-      <Section title="Procs">
+      <Section title={t({ id: 'mage.frost.section.procs', message: 'Procs' })}>
         <HideExplanationsToggle id="hide-explanations-procs" />
         {info.combatant.hasTalent(TALENTS.BRAIN_FREEZE_TALENT) &&
           modules.brainFreeze.guideSubsection}
         {info.combatant.hasTalent(TALENTS.FINGERS_OF_FROST_TALENT) &&
           modules.fingersOfFrost.guideSubsection}
       </Section>
-      <Section title="Cooldowns">
+      <Section title={t({ id: 'mage.frost.section.cooldowns', message: 'Cooldowns' })}>
         <HideExplanationsToggle id="hide-explanations-cooldowns" />
         {info.combatant.hasTalent(TALENTS.RAY_OF_FROST_TALENT) &&
           modules.rayOfFrost.guideSubsection}

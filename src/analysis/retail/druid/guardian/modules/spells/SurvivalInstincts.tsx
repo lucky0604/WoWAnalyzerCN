@@ -3,6 +3,7 @@ import {
   buff,
   MajorDefensiveBuff,
 } from 'interface/guide/components/MajorDefensives/MajorDefensiveAnalyzer';
+import { t } from '@lingui/core/macro';
 import { Options } from 'parser/core/Module';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { ReactNode } from 'react';
@@ -45,11 +46,17 @@ export default class SurvivalInstincts extends MajorDefensiveBuff {
           <strong>
             <SpellLink spell={SPELLS.SURVIVAL_INSTINCTS} />
           </strong>{' '}
-          provides a brief but very powerful damage reduction.
+          {t({
+            id: 'guardian.survivalInstincts.description',
+            message: 'provides a brief but very powerful damage reduction.',
+          })}
         </p>
         <p>
-          More than your other cooldowns, <SpellLink spell={SPELLS.SURVIVAL_INSTINCTS} /> can be
-          held for times of extreme danger.
+          {t({
+            id: 'guardian.survivalInstincts.usage',
+            message:
+              'More than your other cooldowns, Survival Instincts can be held for times of extreme danger.',
+          })}
         </p>
       </>
     );

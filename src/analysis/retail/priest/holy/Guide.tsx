@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section, SubSection } from 'interface/guide';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 
@@ -20,14 +22,16 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       {/* Can have three sections, one for each holy words cast effectiveness */}
       {/* A third section for going over wasted CDR */}
       {/* </Section> */}
-      <Section title="Core Spells">
+      <Section title={t({ id: 'priest.holy.section.coreSpells', message: 'Core Spells' })}>
         {/* This section should cover effective usage of Holy's core spells */}
         {modules.Lightweaver.guideSubsection}
         {modules.prayerOfHealing.guideSubsection}
         {modules.prayerOfMending.guideSubsection}
         {modules.Halo.guideSubsectionHoly}
       </Section>
-      <Section title="Healing Cooldowns">
+      <Section
+        title={t({ id: 'priest.holy.section.healingCooldowns', message: 'Healing Cooldowns' })}
+      >
         <CooldownGraphSubsection modules={modules} events={events} info={info} />
       </Section>
       <DefensivesGuide analyzers={[DesperatePrayer, Fade]} />
@@ -39,10 +43,13 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 function CooldownGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
-      you waited to use them again. Grey segments show when the spell was available, yellow segments
-      show when the spell was cooling down. Red segments highlight times when you could have fit a
-      whole extra use of the cooldown.
+      <strong>{t({ id: 'priest.holy.cooldownGraph.title', message: 'Cooldown Graph' })}</strong>
+      <Trans id="priest.holy.cooldownGraph.description">
+        - this graph shows when you used your cooldowns and how long you waited to use them again.
+        Grey segments show when the spell was available, yellow segments show when the spell was
+        cooling down. Red segments highlight times when you could have fit a whole extra use of the
+        cooldown.
+      </Trans>
       {info.combatant.hasTalent(TALENTS_PRIEST.DIVINE_HYMN_TALENT) && (
         <CastEfficiencyBar
           spell={TALENTS_PRIEST.DIVINE_HYMN_TALENT}

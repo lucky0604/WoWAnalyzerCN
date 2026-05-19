@@ -1,0 +1,23 @@
+{
+  "guide.demonhunter.havoc.sections.core.title": "核心",
+  "guide.demonhunter.havoc.sections.core.fury.title": "怒气",
+  "guide.demonhunter.havoc.sections.core.fury.summary": "浩劫的主要资源是<0/>。你应该避免溢出<0/>-失去的<0/>产生就是失去的DPS。",
+  "guide.demonhunter.havoc.sections.core.activeTime.title": "活跃时间",
+  "guide.demonhunter.havoc.sections.core.activeTime.summary": "<b>在整个战斗中持续施法是获得好DPS最重要的一件事。</b><br/>有些战斗由于阶段转换等原因有不可避免的空转，所以在这些情况下0%空转是不可能的-尽你所能做到最好。",
+  "guide.demonhunter.havoc.sections.core.activeTime.value": "活跃时间：",
+  "guide.demonhunter.havoc.sections.cooldowns.title": "冷却技能",
+  "guide.demonhunter.havoc.sections.cooldowns.essenceBreak.soon": "<0/>的每次施法分解即将推出！",
+  "guide.demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon": "<0/>的每次施法分解即将推出！",
+  "guide.demonhunter.havoc.sections.rotation.title": "循环",
+  "guide.demonhunter.havoc.sections.rotation.summary": "浩劫没有一个固定的循环。你的优先级会随着你的天赋选择而改变，不同的build倾向于不同的爆发窗口、buff保持和冷却技能搭配。",
+  "guide.demonhunter.havoc.sections.rotation.essenceBreak.soon": "<0/>的每次施法分解即将推出！",
+  "guide.demonhunter.havoc.sections.defensives.title": "减伤",
+  "guide.demonhunter.havoc.sections.defensives.blur.summary": "<0/>是浩劫主要的个人减伤。用好它能帮助你更可靠地度过危险时刻，减少对你的治疗的可避免压力。",
+  "guide.demonhunter.havoc.sections.defensives.blur.timing": "由于Blur的冷却相对较短，它通常应该被主动用于有意义的即将到来的伤害，而不是等太久等待完美的紧急情况。",
+  "guide.demonhunter.havoc.sections.defensives.blur.questions": "在回顾你的Blur使用时，关注两个问题：",
+  "guide.demonhunter.havoc.sections.defensives.blur.question1": "Blur是否覆盖了危险的峰值或其他高压伤害窗口？",
+  "guide.demonhunter.havoc.sections.defensives.blur.question1.explanation": "在下面的伤害图表中，用<0>绿色</0>高亮的峰值被Blur覆盖了。",
+  "guide.demonhunter.havoc.sections.defensives.blur.question2": "在整个战斗中Blur使用得是否足够频繁，或者被搁置得太久导致失去价值？",
+  "guide.demonhunter.havoc.sections.defensives.blur.question2.explanation": "下面的冷却时间线显示施法是否在威胁性伤害周围定时，以及长间隙是否可能让你失去额外使用机会。",
+  "guide.demonhunter.havoc.sections.defensives.damageTaken.title": "承受伤害"
+}

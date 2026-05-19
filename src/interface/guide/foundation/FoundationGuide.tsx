@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { useExpansionContext } from 'interface/report/ExpansionContext';
 import { FoundationDowntimeSection } from './FoundationDowntimeSection';
 import { FoundationCooldownSection } from './FoundationCooldownSection';
@@ -11,7 +12,7 @@ export default function FoundationGuide(): JSX.Element {
   const { expansion } = useExpansionContext();
   return (
     <>
-      <Section title="Core Skills">
+      <Section title={t({ id: 'guide.foundation.coreSkills', message: 'Core Skills' })}>
         <FoundationDowntimeSection />
         <FoundationCooldownSection />
         <ByRole>

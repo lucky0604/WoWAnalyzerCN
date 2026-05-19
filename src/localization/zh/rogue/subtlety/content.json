@@ -1,0 +1,11 @@
+{
+  "guide.rogue.subtlety.sections.resources.title": "资源使用",
+  "guide.rogue.subtlety.sections.resources.energy.title": "能量",
+  "guide.rogue.subtlety.sections.resources.energy.summary": "你的主要资源是<0/>。避免能量溢出，这会导致失去DPS。",
+  "guide.rogue.subtlety.sections.resources.comboPoints.title": "连击点",
+  "guide.rogue.subtlety.sections.resources.comboPoints.summary": "敏锐贼策略性地攒和花<0/>。确保你从不浪费连击点。",
+  "guide.rogue.subtlety.sections.coreRotation.title": "核心循环",
+  "guide.rogue.subtlety.sections.coreRotation.summary": "敏锐的核心循环是用攒点技能生成连击点，然后用终结技消耗。<0/>和<1/>这样的冷却技能应该被优化使用。",
+  "guide.rogue.subtlety.sections.cooldowns.title": "冷却技能",
+  "guide.rogue.subtlety.sections.cooldowns.summary": "敏锐贼的冷却技能应该被高效使用以最大化爆发伤害。"
+}
