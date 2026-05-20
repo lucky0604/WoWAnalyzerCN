@@ -63,13 +63,8 @@ export function Component() {
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         <Trans id="interface.aboutPage.howToUse">
-          Wondering how to use WoWAnalyzer? See the{' '}
-          <a href="https://www.wowhead.com/how-to-use-wowanalyzer">
-            <img src="/img/wowhead-tiny.png" style={{ height: '1em' }} alt="Wowhead" /> Wowhead
-            guide
-          </a>
-          . If you want to see an example report, click on your spec in the{' '}
-          <Link to="/specs">Specializations</Link> list.
+          Wondering how to use WoWAnalyzer? See the Wowhead guide. If you want to see an example
+          report, click on your spec in the <Link to="/specs">Specializations</Link> list.
         </Trans>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />

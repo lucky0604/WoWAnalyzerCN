@@ -21,7 +21,7 @@ const PlayerGearHeader = ({ player, averageIlvl }: Props) => (
       {player.race && player.race.name} {player.player.type}
     </div>
     <div>
-      <b>Average ilvl:</b> {Math.round(averageIlvl)}
+      <b>平均装等:</b> {Math.round(averageIlvl)}
     </div>
   </div>
 );

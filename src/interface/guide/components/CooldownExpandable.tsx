@@ -104,10 +104,10 @@ const CooldownExpandable = ({
           <EmbeddedTimeline range={range} {...(typeof timeline === 'boolean' ? {} : timeline)} />
         )}
         {checklistItems && checklistItems.length !== 0 && (
-          <CooldownExpandableDataList items={checklistItems} title="Checklist" />
+          <CooldownExpandableDataList items={checklistItems} title="检查清单" />
         )}
         {detailItems && detailItems.length !== 0 && (
-          <CooldownExpandableDataList items={detailItems} title="Details" />
+          <CooldownExpandableDataList items={detailItems} title="详情" />
         )}
         {range && table && (
           <div style={{ marginTop: gaps.large }}>

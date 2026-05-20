@@ -22,7 +22,7 @@ const EnchantmentSubSection = ({ recommendedEnchantments }: Props) => {
         message: 'Enchants',
       })}
     >
-      <p>Enchantments are easy ways to improve your throughput.</p>
+      <p>附魔是提升你输出的简单方式。</p>
       <EnchantmentBoxRow
         values={enchantChecker.getEnchantmentBoxRowEntries(recommendedEnchantments)}
       />

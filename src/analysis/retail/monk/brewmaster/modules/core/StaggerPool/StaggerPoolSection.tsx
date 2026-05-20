@@ -1,5 +1,6 @@
 import { SubSection, useAnalyzer, useAnalyzers } from 'interface/guide';
 import { JSX, useMemo } from 'react';
+import { Trans } from '@lingui/react/macro';
 import StaggerPoolGraph from '../../features/StaggerPoolGraph';
 import StaggerPool from '../StaggerPool';
 import Table from 'interface/Table/Table';
@@ -73,36 +74,46 @@ export default function StaggerPoolSection(): JSX.Element | null {
   return (
     <>
       <AlertInfo>
-        <SpellLink spell={spells.STAGGER_TALENT} /> tracking has received a major overhaul in
-        Midnight to handle all of the new talents that purify or prevent Stagger. If you see errors,
-        please contact <code>@emallson</code> on Discord.
+        <Trans id="monk.brewmaster.stagger.overhaul">
+          <SpellLink spell={spells.STAGGER_TALENT} /> tracking has received a major overhaul in
+          Midnight to handle all of the new talents that purify or prevent Stagger. If you see errors,
+          please contact <code>@emallson</code> on Discord.
+        </Trans>
       </AlertInfo>
       {(tranquilSpirit?.missedClearsPerMinute ?? 0) >= 1 && (
         <AlertWarning>
-          <SpellLink spell={spells.TRANQUIL_SPIRIT_TALENT} /> is missing a high number of{' '}
-          <SpellLink spell={spells.STAGGER_TALENT} /> clearing events (
-          {tranquilSpirit!.missedClearsPerMinute.toFixed(1)} per minute). Please report this log to{' '}
-          <code>@emallson</code> on Discord for investigation.
+          <Trans id="monk.brewmaster.stagger.tranquil_spirit_missing">
+            <SpellLink spell={spells.TRANQUIL_SPIRIT_TALENT} /> is missing a high number of{' '}
+            <SpellLink spell={spells.STAGGER_TALENT} /> clearing events (
+            {tranquilSpirit!.missedClearsPerMinute.toFixed(1)} per minute). Please report this log to{' '}
+            <code>@emallson</code> on Discord for investigation.
+          </Trans>
         </AlertWarning>
       )}
       <SubSection title={<SpellLink spell={spells.STAGGER_TALENT} />}>
         <SummaryDL>
           <dt>
-            Total Damage Absorbed by <SpellLink spell={spells.STAGGER_TALENT} />
+            <Trans id="monk.brewmaster.stagger.total_absorbed">
+              Total Damage Absorbed by <SpellLink spell={spells.STAGGER_TALENT} />
+            </Trans>
           </dt>
           <dd>{formatNumber(totalAbsorb)}</dd>
           <dt>
-            Total Damage Taken from <SpellLink spell={spells.STAGGER_TALENT} /> (DoT)
+            <Trans id="monk.brewmaster.stagger.total_tick">
+              Total Damage Taken from <SpellLink spell={spells.STAGGER_TALENT} /> (DoT)
+            </Trans>
           </dt>
           <dd>{formatNumber(stagger.totalTickDamageTaken)}</dd>
           <dt>
-            Total Damage Purified&nbsp;
+            <Trans id="monk.brewmaster.stagger.total_purified">
+              Total Damage Purified&nbsp;
+            </Trans>
             <Tooltip
               content={
-                <>
+                <Trans id="monk.brewmaster.stagger.purified_tooltip">
                   This may not exactly match the table below due to immunities or the fast Stagger
                   drain that occurs after several seconds without incoming damage taken.
-                </>
+                </Trans>
               }
             >
               <span>
@@ -113,17 +124,19 @@ export default function StaggerPoolSection(): JSX.Element | null {
           <dd>{formatNumber(totalAbsorb - stagger.totalTickDamageTaken)} </dd>
         </SummaryDL>
         <Explanation>
-          This chart shows the amount of damage in the <SpellLink spell={spells.STAGGER_TALENT} />{' '}
-          pool over time, with <SpellLink spell={spells.PURIFYING_BREW_TALENT} /> casts highlighted.
+          <Trans id="monk.brewmaster.stagger.chart_explanation">
+            This chart shows the amount of damage in the <SpellLink spell={spells.STAGGER_TALENT} />{' '}
+            pool over time, with <SpellLink spell={spells.PURIFYING_BREW_TALENT} /> casts highlighted.
+          </Trans>
           {graph?.deps.ht.active == true && (
-            <>
+            <Trans id="monk.brewmaster.stagger.chart_green">
               {' '}
               in{' '}
               <Highlight color="#00ff96" textColor="black">
                 green
               </Highlight>{' '}
               if cast while <SpellLink spell={SPELLS.ELEVATED_STAGGER_BUFF} /> is active
-            </>
+            </Trans>
           )}
           .
         </Explanation>
@@ -132,12 +145,16 @@ export default function StaggerPoolSection(): JSX.Element | null {
           <div>
             <header>
               <strong>
-                Damage Added to <SpellLink spell={spells.STAGGER_TALENT} />
+                <Trans id="monk.brewmaster.stagger.added">
+                  Damage Added to <SpellLink spell={spells.STAGGER_TALENT} />
+                </Trans>
               </strong>
               <Explanation>
-                Part of damage taken from every hit is absorbed by{' '}
-                <SpellLink spell={spells.STAGGER_TALENT} />. This table shows the amount added by
-                incoming damage sources.
+                <Trans id="monk.brewmaster.stagger.added_explanation">
+                  Part of damage taken from every hit is absorbed by{' '}
+                  <SpellLink spell={spells.STAGGER_TALENT} />. This table shows the amount added by
+                  incoming damage sources.
+                </Trans>
               </Explanation>
             </header>
             <StaggerTakenTable />
@@ -145,13 +162,17 @@ export default function StaggerPoolSection(): JSX.Element | null {
           <div>
             <header>
               <strong>
-                Damage Removed from <SpellLink spell={spells.STAGGER_TALENT} />
+                <Trans id="monk.brewmaster.stagger.removed">
+                  Damage Removed from <SpellLink spell={spells.STAGGER_TALENT} />
+                </Trans>
               </strong>
               <Explanation>
-                Damage can be removed from the <SpellLink spell={spells.STAGGER_TALENT} />{' '}
-                <em>pool</em> before the <SpellLink spell={spells.STAGGER_TALENT} /> DoT deals it as
-                damage. This table shows the amount removed by different effects (including the
-                DoT).
+                <Trans id="monk.brewmaster.stagger.removed_explanation">
+                  Damage can be removed from the <SpellLink spell={spells.STAGGER_TALENT} />{' '}
+                  <em>pool</em> before the <SpellLink spell={spells.STAGGER_TALENT} /> DoT deals it as
+                  damage. This table shows the amount removed by different effects (including the
+                  DoT).
+                </Trans>
               </Explanation>
             </header>
             <StaggerPurifiedTable />
@@ -164,14 +185,14 @@ export default function StaggerPoolSection(): JSX.Element | null {
 
 const commonTableColumns = {
   staggerSpellName: spellName.withLabels({
-    [spells.STAGGER_TALENT.id]: <>Stagger (DoT)</>,
+    [spells.STAGGER_TALENT.id]: <Trans id="monk.brewmaster.stagger.dot">Stagger (DoT)</Trans>,
   }),
-  amountBar: amountBar('Damage'),
+  amountBar: amountBar(defineMessage({ id: 'monk.brewmaster.stagger.damage', message: 'Damage' })),
 };
 
 const damageTakenColumns = {
   ...commonTableColumns,
-  hits: literalNumberColumn('Hits', 'hits'),
+  hits: literalNumberColumn(defineMessage({ id: 'monk.brewmaster.stagger.hits', message: 'Hits' }), 'hits'),
 };
 
 const MAX_DATA_ROWS = 5;
@@ -204,7 +225,7 @@ function StaggerTakenTable(): JSX.Element | null {
         ...rows.slice(0, MAX_DATA_ROWS),
         {
           spell: OTHER_SPECIAL_ID,
-          type: 'Other',
+          type: defineMessage({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
           amount: rows.slice(MAX_DATA_ROWS).reduce((total, row) => row.amount + total, 0),
           hits: rows.slice(MAX_DATA_ROWS).reduce((total, row) => (row.hits ?? 0) + total, 0),
         },
@@ -233,7 +254,7 @@ const PURIFICATION_SOURCES = [
 
 const purificationColumns = {
   ...commonTableColumns,
-  triggers: literalNumberColumn('Triggers', 'count'),
+  triggers: literalNumberColumn(defineMessage({ id: 'monk.brewmaster.stagger.triggers', message: 'Triggers' }), 'count'),
 };
 
 function StaggerPurifiedTable(): JSX.Element | null {
@@ -264,13 +285,13 @@ function StaggerPurifiedTable(): JSX.Element | null {
 
     rows.push({
       spell: OTHER_SPECIAL_ID,
-      type: 'Other',
+      type: defineMessage({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
       amount: totalStaggerAbsorbed - totalDoT - totalKnown,
     });
 
     rows.push({
       spell: spells.STAGGER_TALENT.id,
-      type: 'Other',
+      type: defineMessage({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
       amount: totalDoT,
     });
 

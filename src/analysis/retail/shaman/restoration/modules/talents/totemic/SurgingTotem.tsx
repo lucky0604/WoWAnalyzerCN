@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_SHAMAN } from 'common/TALENTS/shaman';
@@ -192,36 +193,50 @@ class SurgingTotem extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.SURGING_TOTEM} />
-          </b>{' '}
-          is central to your gameplay as a Totemic Shaman. It should be active at all times as it
-          casts a longer and more potent version of{' '}
-          <SpellLink spell={SPELLS.HEALING_RAIN_TOTEMIC} />. You can{' '}
-          {!this.selectedCombatant.hasTalent(TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT) ? (
-            <>talent into </>
+          {this.selectedCombatant.hasTalent(TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT) ? (
+            <Trans id="shaman.restoration.st.explanation1">
+              <b>
+                <SpellLink spell={SPELLS.SURGING_TOTEM} />
+              </b>{' '}
+              is central to your gameplay as a Totemic Shaman. It should be active at all times as it
+              casts a longer and more potent version of{' '}
+              <SpellLink spell={SPELLS.HEALING_RAIN_TOTEMIC} />. You can use{' '}
+              <SpellLink spell={TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT} /> to reposition it every 10
+              seconds.
+            </Trans>
           ) : (
-            <>use </>
+            <Trans id="shaman.restoration.st.explanation1_no_talent">
+              <b>
+                <SpellLink spell={SPELLS.SURGING_TOTEM} />
+              </b>{' '}
+              is central to your gameplay as a Totemic Shaman. It should be active at all times as it
+              casts a longer and more potent version of{' '}
+              <SpellLink spell={SPELLS.HEALING_RAIN_TOTEMIC} />. You can talent into{' '}
+              <SpellLink spell={TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT} /> to reposition it every 10
+              seconds.
+            </Trans>
           )}
-          <SpellLink spell={TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT} /> to reposition it every 10
-          seconds.
         </p>
         <p>
-          It can be augmented to do more healing through{' '}
-          <SpellLink spell={TALENTS.OVERFLOWING_SHORES_TALENT} /> and more damage through{' '}
-          <SpellLink spell={TALENTS.ACID_RAIN_TALENT} />. Aside from being strong throughput, this
-          spell also buffs <SpellLink spell={SPELLS.HEALING_WAVE} />,{' '}
-          <SpellLink spell={SPELLS.HEALING_SURGE} /> and{' '}
-          <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> through{' '}
-          <SpellLink spell={TALENTS.DELUGE_TALENT} />.
+          <Trans id="shaman.restoration.st.explanation2">
+            It can be augmented to do more healing through{' '}
+            <SpellLink spell={TALENTS.OVERFLOWING_SHORES_TALENT} /> and more damage through{' '}
+            <SpellLink spell={TALENTS.ACID_RAIN_TALENT} />. Aside from being strong throughput, this
+            spell also buffs <SpellLink spell={SPELLS.HEALING_WAVE} />,{' '}
+            <SpellLink spell={SPELLS.HEALING_SURGE} /> and{' '}
+            <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> through{' '}
+            <SpellLink spell={TALENTS.DELUGE_TALENT} />.
+          </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_SHAMAN.WHIRLING_ELEMENTS_TALENT) && (
           <p>
-            Through <SpellLink spell={TALENTS_SHAMAN.WHIRLING_ELEMENTS_TALENT} />, every cast
-            produces three motes, each offering a powerful buff :{' '}
-            <SpellLink spell={SPELLS.WHIRLING_AIR} />, <SpellLink spell={SPELLS.WHIRLING_EARTH} />{' '}
-            and <SpellLink spell={SPELLS.WHIRLING_WATER} />. You should always try and consume these
-            buffs.
+            <Trans id="shaman.restoration.st.explanation3">
+              Through <SpellLink spell={TALENTS_SHAMAN.WHIRLING_ELEMENTS_TALENT} />, every cast
+              produces three motes, each offering a powerful buff :{' '}
+              <SpellLink spell={SPELLS.WHIRLING_AIR} />, <SpellLink spell={SPELLS.WHIRLING_EARTH} />{' '}
+              and <SpellLink spell={SPELLS.WHIRLING_WATER} />. You should always try and consume these
+              buffs.
+            </Trans>
           </p>
         )}
       </>
@@ -232,7 +247,9 @@ class SurgingTotem extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={SPELLS.SURGING_TOTEM} /> cast efficiency
+            <Trans id="shaman.restoration.st.efficiency">
+              <SpellLink spell={SPELLS.SURGING_TOTEM} /> cast efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
@@ -290,24 +307,26 @@ class SurgingTotem extends Analyzer {
     return (
       <>
         <div>
-          Over the course of the fight, you cast <strong>{this.SurgingTotemCasts.length}</strong>{' '}
-          <SpellLink spell={TALENTS.SURGING_TOTEM_TALENT} /> and consumed{' '}
-          <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_AIR.id]}</strong>{' '}
-          <SpellLink spell={SPELLS.WHIRLING_AIR} />,{' '}
-          <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_EARTH.id]}</strong>{' '}
-          <SpellLink spell={SPELLS.WHIRLING_EARTH} />, and{' '}
-          <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_WATER.id]}</strong>{' '}
-          <SpellLink spell={SPELLS.WHIRLING_WATER} />. The following breakdown represents your usage
-          of the elemental motes.
+          <Trans id="shaman.restoration.st.casts_breakdown">
+            Over the course of the fight, you cast <strong>{this.SurgingTotemCasts.length}</strong>{' '}
+            <SpellLink spell={TALENTS.SURGING_TOTEM_TALENT} /> and consumed{' '}
+            <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_AIR.id]}</strong>{' '}
+            <SpellLink spell={SPELLS.WHIRLING_AIR} />,{' '}
+            <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_EARTH.id]}</strong>{' '}
+            <SpellLink spell={SPELLS.WHIRLING_EARTH} />, and{' '}
+            <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_WATER.id]}</strong>{' '}
+            <SpellLink spell={SPELLS.WHIRLING_WATER} />. The following breakdown represents your usage
+            of the elemental motes.
+          </Trans>
         </div>
 
         <CastSummaryAndBreakdown
           spell={SPELLS.SURGING_TOTEM}
           castEntries={this.castEntries}
-          perfectExtraExplanation="all 3 motes consumed"
-          goodExtraExplanation="2 motes consumed"
-          okExtraExplanation="1 mote consumed"
-          badExtraExplanation="all motes wasted"
+          perfectExtraExplanation={t({ id: 'shaman.restoration.st.motes_consumed', message: 'all 3 motes consumed' })}
+          goodExtraExplanation={t({ id: 'shaman.restoration.st.motes_consumed_2', message: '2 motes consumed' })}
+          okExtraExplanation={t({ id: 'shaman.restoration.st.motes_consumed_1', message: '1 mote consumed' })}
+          badExtraExplanation={t({ id: 'shaman.restoration.st.motes_wasted', message: 'all motes wasted' })}
         />
       </>
     );
@@ -342,20 +361,30 @@ class SurgingTotem extends Analyzer {
           </div>
           {!SurgingTotemCast.WhirlingAir && (
             <div>
-              <SpellLink spell={SPELLS.WHIRLING_AIR} /> not consumed.
+              <Trans id="shaman.restoration.st.mote_not_consumed">
+                <SpellLink spell={SPELLS.WHIRLING_AIR} /> not consumed.
+              </Trans>
             </div>
           )}
           {!SurgingTotemCast.WhirlingEarth && (
             <div>
-              <SpellLink spell={SPELLS.WHIRLING_EARTH} /> not consumed.
+              <Trans id="shaman.restoration.st.mote_not_consumed">
+                <SpellLink spell={SPELLS.WHIRLING_EARTH} /> not consumed.
+              </Trans>
             </div>
           )}
           {!SurgingTotemCast.WhirlingWater && (
             <div>
-              <SpellLink spell={SPELLS.WHIRLING_WATER} /> not consumed.
+              <Trans id="shaman.restoration.st.mote_not_consumed">
+                <SpellLink spell={SPELLS.WHIRLING_WATER} /> not consumed.
+              </Trans>
             </div>
           )}
-          {value === QualitativePerformance.Perfect && <div>All motes consumed ✅</div>}
+          {value === QualitativePerformance.Perfect && (
+            <div>
+              <Trans id="shaman.restoration.st.all_consumed">All motes consumed ✅</Trans>
+            </div>
+          )}
         </>
       );
 

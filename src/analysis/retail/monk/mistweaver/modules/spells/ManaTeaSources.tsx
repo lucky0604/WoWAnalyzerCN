@@ -2,6 +2,7 @@ import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ApplyBuffEvent, ApplyBuffStackEvent, RefreshBuffEvent } from 'parser/core/Events';
 import DonutChart from 'parser/ui/DonutChart';
@@ -108,27 +109,41 @@ class ManaTeaSources extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(1)}
         category={STATISTIC_CATEGORY.THEORYCRAFT}
         tooltip={
-          <>
-            <div>
-              <SpellLink spell={TALENTS_MONK.LIFECYCLES_TALENT} /> stack efficiency:{' '}
-              {formatPercentage(this.lifecyclesEfficiency)}%
-            </div>
-            <div>
-              <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} /> natural stack efficiency:{' '}
-              {formatPercentage(this.mtEfficiency)}%
-            </div>
-          </>
+          (() => {
+            const lcPct = formatPercentage(this.lifecyclesEfficiency);
+            const mtPct = formatPercentage(this.mtEfficiency);
+            return (
+              <>
+                <div>
+                  <Trans id="monk.mistweaver.mana_tea_sources.lifecycles_efficiency">
+                    <SpellLink spell={TALENTS_MONK.LIFECYCLES_TALENT} /> stack efficiency:{' '}
+                    {lcPct}%
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.mana_tea_sources.mt_efficiency">
+                    <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} /> natural stack efficiency:{' '}
+                    {mtPct}%
+                  </Trans>
+                </div>
+              </>
+            );
+          })()
         }
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink> unwasted stacks breakdown
+            <Trans id="monk.mistweaver.mana_tea_sources.unwasted_breakdown">
+              <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink> unwasted stacks breakdown
+            </Trans>
           </label>
           {this.renderChart(false /* wasted */)}
         </div>
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink> wasted stacks breakdown
+            <Trans id="monk.mistweaver.mana_tea_sources.wasted_breakdown">
+              <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink> wasted stacks breakdown
+            </Trans>
           </label>
           {this.renderChart(true /* wasted */)}
         </div>

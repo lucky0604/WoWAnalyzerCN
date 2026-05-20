@@ -30,7 +30,7 @@ const Overview = ({ guide: GuideComponent }: Props) => {
     </div>
   ) : (
     <div className="container" style={{ display: 'grid', gridTemplateColumns: '100%' }}>
-      There is no frontmatter configured for this spec.
+      该专精暂无分析指南。
     </div>
   );
 };

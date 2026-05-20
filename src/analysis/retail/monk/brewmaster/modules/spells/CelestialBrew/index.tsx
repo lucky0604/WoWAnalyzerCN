@@ -24,6 +24,8 @@ import { damageEvent } from './normalizer';
 import Spell from 'common/SPELLS/Spell';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import SPELLS from '../../../spell-list_Monk_Brewmaster.retail';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const WASTED_THRESHOLD = 0.25;
 const GOOD_THRESHOLD = 0.5;
@@ -100,14 +102,16 @@ class CelestialBrew extends MajorDefensiveBuff {
     return (
       <div>
         <p>
-          <SpellLink spell={this.displaySpell} /> provides a low-cooldown shield for a large percent
-          of your health bar.{' '}
-          <CountsAsBrew
-            baseCooldown={SPELLS.CELESTIAL_BREW_TALENT.cooldown.duration / 1000}
-            lightBrewing={this.selectedCombatant.hasTalent(talents.LIGHT_BREWING_TALENT)}
-          />{' '}
-          To use it effectively, you need to balance two goals: using it to{' '}
-          <em>cover major damage events</em>, and using it <em>often</em>.
+          <Trans id="monk.brewmaster.celestial_brew.desc">
+            <SpellLink spell={this.displaySpell} /> provides a low-cooldown shield for a large percent
+            of your health bar.{' '}
+            <CountsAsBrew
+              baseCooldown={SPELLS.CELESTIAL_BREW_TALENT.cooldown.duration / 1000}
+              lightBrewing={this.selectedCombatant.hasTalent(talents.LIGHT_BREWING_TALENT)}
+            />{' '}
+            To use it effectively, you need to balance two goals: using it to{' '}
+            <em>cover major damage events</em>, and using it <em>often</em>.
+          </Trans>
         </p>
       </div>
     );
@@ -124,16 +128,22 @@ class CelestialBrew extends MajorDefensiveBuff {
         position={STATISTIC_ORDER.OPTIONAL()}
         size="flexible"
         tooltip={
-          <>
-            Does not include <strong>{formatNumber(wastedAbsorb)} wasted absorb</strong> (avg:{' '}
-            <strong>{formatNumber(wastedAbsorb / this._absorbs.length)}</strong>).
-          </>
+          (() => {
+            const wasted = formatNumber(wastedAbsorb);
+            const avgWasted = formatNumber(wastedAbsorb / this._absorbs.length);
+            return (
+              <Trans id="monk.brewmaster.celestial_brew.statistic_tooltip">
+                Does not include <strong>{wasted} wasted absorb</strong> (avg:{' '}
+                <strong>{avgWasted}</strong>).
+              </Trans>
+            );
+          })()
         }
       >
         <BoringValue
           label={
             <>
-              <SpellIcon spell={this.displaySpell} /> Avg. Absorb per Celestial Brew
+              <SpellIcon spell={this.displaySpell} /> {t({ id: 'monk.brewmaster.celestial_brew.avg_absorb_label', message: 'Avg. Absorb per Celestial Brew' })}
             </>
           }
         >
@@ -144,7 +154,7 @@ class CelestialBrew extends MajorDefensiveBuff {
   }
 
   maxMitigationDescription(): ReactNode {
-    return <>Shield Size</>;
+    return <>{t({ id: 'monk.brewmaster.celestial_brew.shield_size', message: 'Shield Size' })}</>;
   }
 
   private updateMaxAbsorb(event: ApplyBuffEvent) {
@@ -210,17 +220,28 @@ class CelestialBrew extends MajorDefensiveBuff {
     if (absorb.wastedAmount / absorb.maxAmount > 1 - WASTED_THRESHOLD) {
       return {
         perf: QualitativePerformance.Ok,
-        explanation: `Shield expired with at least ${formatPercentage(WASTED_THRESHOLD)}% remaining`,
+        explanation: defineMessage({
+          id: 'monk.brewmaster.celestial_brew.perf.expired',
+          message: `Shield expired with at least {pct}% remaining`,
+          pct: formatPercentage(WASTED_THRESHOLD),
+        } as unknown),
       };
     } else if (absorb.wastedAmount / absorb.maxAmount > 1 - GOOD_THRESHOLD) {
       return {
         perf: QualitativePerformance.Good,
-        explanation: `At least ${formatPercentage(GOOD_THRESHOLD)} of the shield was consumed`,
+        explanation: defineMessage({
+          id: 'monk.brewmaster.celestial_brew.perf.consumed_part',
+          message: `At least {pct} of the shield was consumed`,
+          pct: formatPercentage(GOOD_THRESHOLD),
+        } as unknown),
       };
     } else if (absorb.wastedAmount === 0) {
       return {
         perf: QualitativePerformance.Perfect,
-        explanation: `The entire shield was consumed`,
+        explanation: defineMessage({
+          id: 'monk.brewmaster.celestial_brew.perf.consumed_all',
+          message: 'The entire shield was consumed',
+        }),
       };
     }
 

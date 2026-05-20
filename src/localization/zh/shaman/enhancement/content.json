@@ -3,5 +3,13 @@
   "shaman.enhancement.preface.analysis": "本指南的分析由 <Contributor {...Seriousnes} /> 与 Earthshrine 萨满 Discord 的成员和工作人员合作提供。在查看这些信息时，请记住 WoWAnalyzer 仅能访问战斗日志中存在的信息。因此，我们无法知道你是否是因为战斗或战术需要而故意做一些次优的操作（如强制空窗或为爆发阶段保留冷却技能）。因此，我们建议将你的分析与同一位首领的前 100 名日志进行比较。",
   "shaman.enhancement.preface.assistance": "如需额外的游戏玩法改进帮助，或想让别人更深入地查看你的战斗日志，请访问 Earthshrine Discord。",
   "shaman.enhancement.preface.issues": "如果你注意到此分析中有任何问题或错误，或者想要添加额外的分析，请在 Earthshrine Discord 中 ping <code>@Seriousnes</code>。",
-  "shaman.enhancement.section.alwaysBeCasting": "保持施法"
+  "shaman.enhancement.section.alwaysBeCasting": "保持施法",
+  "shaman.enhancement.config.beta_warning": "分析功能是针对 Beta 测试中 80 级《地心之战》角色开发的。目前增强萨满分析器仍处于开发阶段，仅具备非常基础的功能。",
+  "shaman.enhancement.config.feedback": "嗨，你好！感谢使用增强萨满分析器。如果你有任何反馈或建议，请随时通过 Discord（seriousnes）联系 Seriousnes，或在 GitHub 仓库中提交 Issue。",
+  "shaman.enhancement.cooldowns.core_title": "核心技能",
+  "shaman.enhancement.cooldowns.cooldowns_title": "冷却技能",
+  "shaman.enhancement.cooldowns.description": "<strong>冷却技能</strong> - 此图表显示你何时使用了主要冷却技能以及等待了多久才再次使用。除非是为了特定的团队机制而留爆发，否则尽量卡 CD 使用这些技能。",
+  "shaman.enhancement.resources.title": "资源",
+  "shaman.enhancement.resources.maelstrom_title": "漩涡武器",
+  "shaman.enhancement.resources.maelstrom_description": "增强萨满的核心资源是 <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />。下方图表展示了你在整个战斗过程中 <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> 的数量变化。"
 }

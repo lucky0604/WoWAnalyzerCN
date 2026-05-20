@@ -63,10 +63,10 @@ interface CastDetailProps {
 }
 
 const PERF_LEVELS = [
-  { perf: QualitativePerformance.Perfect, label: 'Perfect' },
-  { perf: QualitativePerformance.Good, label: 'Good' },
-  { perf: QualitativePerformance.Ok, label: 'Ok' },
-  { perf: QualitativePerformance.Fail, label: 'Bad' },
+  { perf: QualitativePerformance.Perfect, label: '完美' },
+  { perf: QualitativePerformance.Good, label: '良好' },
+  { perf: QualitativePerformance.Ok, label: '一般' },
+  { perf: QualitativePerformance.Fail, label: '较差' },
 ] as const;
 
 /**
@@ -184,7 +184,7 @@ export default function CastDetail({ title, casts, description }: CastDetailProp
         );
         if (disabled) return badge;
         return (
-          <Tooltip key={label} content={`${label} casts — ${count} / ${totalCasts}`}>
+          <Tooltip key={label} content={`${label}施法 — ${count} / ${totalCasts}`}>
             {badge}
           </Tooltip>
         );
@@ -202,15 +202,15 @@ export default function CastDetail({ title, casts, description }: CastDetailProp
     <GuideDataWrapper
       bare
       title={title}
-      subtitle="Cast Details"
+      subtitle="施法详情"
       stats={statsContent}
-      statsHelperText="Click a filter to show only those casts"
+      statsHelperText="点击筛选器以仅显示对应的施法"
       helperText={headerDescription}
     >
       {filteredCount === 0 ? (
         <NoResultsMessage>
-          <NoResultsTitle>No casts match the current filter</NoResultsTitle>
-          <NoResultsHint>Click the performance badges above to toggle filters</NoResultsHint>
+          <NoResultsTitle>没有施法匹配当前筛选条件</NoResultsTitle>
+          <NoResultsHint>点击上方的表现标签来切换筛选</NoResultsHint>
         </NoResultsMessage>
       ) : (
         <CardContainer
@@ -225,7 +225,7 @@ export default function CastDetail({ title, casts, description }: CastDetailProp
                 const index = casts.indexOf(cast) + 1;
                 const content = cast.tooltip
                   ? cast.tooltip
-                  : `Cast #${index} · ${cast.timestamp} · ${cast.performance}`;
+                  : `施法 #${index} · ${cast.timestamp} · ${cast.performance}`;
                 return (
                   <Tooltip key={idx} content={content}>
                     <TimelineRect
@@ -246,16 +246,16 @@ export default function CastDetail({ title, casts, description }: CastDetailProp
               <HeaderNavBtn onClick={handlePrevious} disabled={validIndex === 0}>
                 <span className="nav-chevron">&#8249;</span>
                 <span className="nav-divider" />
-                <span className="nav-label">Prev</span>
+                <span className="nav-label">上一个</span>
               </HeaderNavBtn>
               <CastMeta>
                 <HeaderPerfBadge color={castColor}>{currentCast!.performance}</HeaderPerfBadge>
                 <CastLabel>
-                  Cast {originalIndex + 1} / {filteredCount} · {currentCast!.timestamp}
+                  施法 {originalIndex + 1} / {filteredCount} · {currentCast!.timestamp}
                 </CastLabel>
               </CastMeta>
               <HeaderNavBtn onClick={handleNext} disabled={validIndex === filteredCount - 1}>
-                <span className="nav-label">Next</span>
+                <span className="nav-label">下一个</span>
                 <span className="nav-divider" />
                 <span className="nav-chevron">&#8250;</span>
               </HeaderNavBtn>

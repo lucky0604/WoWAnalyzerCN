@@ -1,6 +1,7 @@
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, RemoveBuffEvent, RemoveBuffStackEvent } from 'parser/core/Events';
 import { ThresholdStyle } from 'parser/core/ParseResults';
@@ -13,14 +14,19 @@ import { TALENTS_MONK } from 'common/TALENTS';
 import { BLACKOUT_KICK_COOLDOWN_REDUCTION_MS } from '../../constants';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 
-function oxfordCommaJoin(list: JSX.Element[], joiner = 'and'): JSX.Element {
+function oxfordCommaJoin(
+  list: JSX.Element[],
+  joiner = defineMessage({ id: 'monk.windwalker.blackout_kick.and', message: 'and' }),
+  comma = defineMessage({ id: 'monk.windwalker.blackout_kick.comma', message: ', ' }),
+  oxfordComma = defineMessage({ id: 'monk.windwalker.blackout_kick.oxford_comma', message: ', ' }),
+): JSX.Element {
   switch (list.length) {
     case 1:
       return list[0];
     case 2:
       return (
         <>
-          {list[0]} and {list[1]}
+          {list[0]} {joiner} {list[1]}
         </>
       );
     default:
@@ -28,10 +34,10 @@ function oxfordCommaJoin(list: JSX.Element[], joiner = 'and'): JSX.Element {
         <>
           {list.slice(0, -1).reduce((acc, item) => (
             <>
-              {acc}, {item}
+              {acc}{comma}{item}
             </>
           ))}
-          , {joiner} {list[list.length - 1]}
+          {oxfordComma}{joiner} {list[list.length - 1]}
         </>
       );
   }
@@ -124,10 +130,10 @@ class BlackoutKick extends Analyzer {
       ));
       addInefficientCastReason(
         event,
-        <>
+        <Trans id="monk.windwalker.blackout_kick.inefficient_cast">
           You cast this <SpellLink spell={SPELLS.BLACKOUT_KICK} /> while {oxfordCommaJoin(linkList)}{' '}
           was available.
-        </>,
+        </Trans>,
       );
     }
 
@@ -173,7 +179,9 @@ class BlackoutKick extends Analyzer {
               }}
             />{' '}
             {(this.effectiveRisingSunKickReductionMs / 1000).toFixed(1)}{' '}
-            <small>Seconds reduced</small>
+            <small>
+              <Trans id="monk.windwalker.blackout_kick.seconds_reduced">Seconds reduced</Trans>
+            </small>
           </p>
           <p>
             <SpellIcon
@@ -184,7 +192,9 @@ class BlackoutKick extends Analyzer {
               }}
             />{' '}
             {(this.effectiveFistsOfFuryReductionMs / 1000).toFixed(1)}{' '}
-            <small>Seconds reduced</small>
+            <small>
+              <Trans id="monk.windwalker.blackout_kick.seconds_reduced">Seconds reduced</Trans>
+            </small>
           </p>
         </BoringSpellValueText>
       </Statistic>

@@ -105,19 +105,17 @@ const DefaultDescription = ({ spec, supportLevel }: Config) => {
     supportLevel === SupportLevel.Foundation ? (
       <>
         <p>
-          {specTitle} has <FoundationSupportBadge /> including:
+          {specTitle} 具有 <FoundationSupportBadge />，包括：
         </p>
         <ul>
-          <li>Analysis for overall ability usage and uptime (Always Be Casting!)</li>
-          <li>Accurate cooldown tracking for all class and spec abilities</li>
+          <li>技能使用和覆盖率的综合分析（始终保持施法！）</li>
+          <li>所有职业和专精技能的精确冷却追踪</li>
         </ul>
         <p>
-          However, it does not have a dedicated maintainer providing detailed rotational analysis,
-          statistics, or other features.
+          然而，该分析器没有专门的维护者提供详细的循环分析、统计数据或其他功能。
         </p>
         <p>
-          If you believe there is an error in ability or cooldown tracking, please let us know on{' '}
-          <SmallDiscordButton />
+          如果你认为存在技能或冷却追踪方面的错误，请通过 <SmallDiscordButton /> 告知我们。
         </p>
       </>
     ) : (
@@ -132,11 +130,11 @@ const DefaultDescription = ({ spec, supportLevel }: Config) => {
     <div>
       {supportDesc}
       <AlertInfo>
-        Interested in contributing to {specTitle} analysis? Check out our{' '}
+        有兴趣为 {specTitle} 分析做出贡献？请查看我们的{' '}
         <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/wiki#getting-started">
-          getting started guide
-        </a>{' '}
-        or visit our <SmallDiscordButton /> to help out!
+          入门指南
+        </a>
+        ，或访问 <SmallDiscordButton /> 参与帮助！
       </AlertInfo>
     </div>
   );

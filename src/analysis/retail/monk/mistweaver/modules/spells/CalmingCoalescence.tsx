@@ -13,6 +13,7 @@ import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import Statistic from 'parser/ui/Statistic';
+import { Trans } from '@lingui/react/macro';
 import { CALMING_COALESCENCE_INCREASE } from '../../constants';
 
 class CalmingCoalescence extends Analyzer {
@@ -78,9 +79,18 @@ class CalmingCoalescence extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <ul>
-            <li>Total wasted Shield: {formatNumber(this.wasted)}</li>
-          </ul>
+          (() => {
+            const wasted = formatNumber(this.wasted);
+            return (
+              <ul>
+                <li>
+                  <Trans id="monk.mistweaver.calming_coalescence.wasted_shield">
+                    Total wasted Shield: {wasted}
+                  </Trans>
+                </li>
+              </ul>
+            );
+          })()
         }
       >
         <BoringSpellValueText spell={TALENTS_MONK.CALMING_COALESCENCE_TALENT}>

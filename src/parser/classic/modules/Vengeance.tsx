@@ -156,7 +156,7 @@ export default class Vengeance extends Analyzer {
         <Explanation>
           To learn how to safely (or not) optimize <SpellLink spell={SPELLS.VENGEANCE_BUFF} /> on an
           encounter-by-encounter basis, you should check your{' '}
-          <a href="https://www.wowhead.com/discord-servers">Community Discord</a>.
+          Community Discord.
         </Explanation>
         <StatList>
           <dt>Average Attack Power:</dt>

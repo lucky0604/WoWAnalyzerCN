@@ -35,17 +35,17 @@ const AugmentRunePanel = () => {
     <PerformanceRoundedPanel performance={performance}>
       <PanelHeader className="flex">
         <div className="flex-main">
-          <strong>Augment Rune Used</strong>
+          <strong>增强符文使用</strong>
         </div>
       </PanelHeader>
       {performance === QualitativePerformance.Good && (
-        <p>You had an Augment Rune active for during the fight{showCurrentAugmentRune}</p>
+        <p>你在整场战斗中激活了增强符文{showCurrentAugmentRune}</p>
       )}
       {performance === QualitativePerformance.Ok && (
-        <p>You did not have an Augment Rune active for the entire fight.{showCurrentAugmentRune}</p>
+        <p>你没有在整场战斗中保持增强符文激活。{showCurrentAugmentRune}</p>
       )}
       {performance === QualitativePerformance.Fail && (
-        <p>You did not have an Augment Rune active during the fight{showCurrentAugmentRune}</p>
+        <p>你在战斗中未激活增强符文{showCurrentAugmentRune}</p>
       )}
     </PerformanceRoundedPanel>
   );

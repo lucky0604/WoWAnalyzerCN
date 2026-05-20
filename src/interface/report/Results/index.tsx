@@ -25,8 +25,6 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import { CombatLogParserProvider } from 'interface/report/CombatLogParserContext';
 import { LoadingStatus, ResultsContext } from 'interface/report/Results/ResultsContext';
 import ParseResults from 'parser/core/ParseResults';
-import Expansion from 'game/Expansion';
-import { reset, setBaseUrl } from 'interface/reducers/tooltips';
 
 import './Results.scss';
 import BOSS_PHASES_STATE from '../BOSS_PHASES_STATE';
@@ -36,7 +34,6 @@ import DegradedExperience from './DegradedExperience';
 import Header from './Header';
 import ItemWarning from './ItemWarning';
 import ScrollToTop from './ScrollToTop';
-import ZONES from 'game/ZONES';
 import { useLingui } from '@lingui/react';
 import { appendReportHistory } from 'interface/reducers/reportHistory';
 import FoundationSupportBadge from 'interface/guide/foundation/FoundationSupportBadge';
@@ -143,35 +140,6 @@ const Results = (props: PassedProps) => {
       generateResults();
     }
   }, [generateResults, isLoading]);
-
-  // on game version change
-  useEffect(() => {
-    const zone = ZONES.find((zone) => zone.id === props.report.zone);
-
-    switch (wclGameVersionToExpansion(props.report.gameVersion)) {
-      case Expansion.MistsOfPandaria:
-        dispatch(setBaseUrl('https://www.wowhead.com/mop-classic/'));
-        break;
-      case Expansion.Cataclysm:
-        dispatch(setBaseUrl('https://www.wowhead.com/cata/'));
-        break;
-      case Expansion.WrathOfTheLichKing:
-        dispatch(setBaseUrl('https://www.wowhead.com/wotlk/'));
-        break;
-      case Expansion.TheBurningCrusade:
-        dispatch(setBaseUrl('https://tbc.wowhead.com/'));
-        break;
-      default:
-        if (zone?.useBetaTooltips) {
-          dispatch(setBaseUrl('https://wowhead.com/beta/'));
-        } else if (zone?.usePtrTooltips) {
-          dispatch(setBaseUrl('https://wowhead.com/ptr/'));
-        } else {
-          dispatch(reset());
-        }
-        break;
-    }
-  }, [dispatch, props.report.gameVersion, props.report.zone]);
 
   // on tab change
   useEffect(() => {
@@ -349,7 +317,7 @@ const SupportProvidedBy = ({
         ? contributors.map((contributor) => (
             <Contributor key={contributor.nickname} {...contributor} />
           ))
-        : 'CURRENTLY UNMAINTAINED'}
+        : '目前无人维护'}
     </ReadableListing>
   );
 

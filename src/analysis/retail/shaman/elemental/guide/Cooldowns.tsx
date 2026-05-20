@@ -1,4 +1,5 @@
 import { GuideProps, SubSection, useAnalyzer, useInfo } from 'interface/guide';
+import { t } from '@lingui/core/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import TALENTS from 'common/TALENTS/shaman';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
@@ -40,7 +41,7 @@ const CooldownGraphSubsection = ({ checklist }: Props) => {
   }
 
   return (
-    <SubSection title="Cooldown Graphs">
+    <SubSection title={t({ id: 'shaman.elemental.cooldowngraphs.title', message: 'Cooldown Graphs' })}>
       {checklist
         .filter((cooldown) => cooldown.isActive && cooldown.isActive(info.combatant))
         .map((cooldown) => (

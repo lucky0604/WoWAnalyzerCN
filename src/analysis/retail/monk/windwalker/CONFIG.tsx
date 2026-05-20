@@ -2,6 +2,7 @@ import { Durpn } from 'CONTRIBUTORS';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
+import { Trans } from '@lingui/react/macro';
 
 import CHANGELOG from './CHANGELOG';
 
@@ -17,22 +18,26 @@ const config: Config = {
   description: (
     <>
       <p>
-        Hello! We have been working hard to make the Windwalker analyzer good, but there is always
-        stuff to add or improve. We hope that the suggestions and statistics will be helpful in
-        improving your overall performance. It takes time to learn the Windwalker resource and
-        cooldown management, so be patient with yourself while getting used to it.
+        <Trans id="monk.windwalker.config.desc1">
+          Hello! We have been working hard to make the Windwalker analyzer good, but there is always
+          stuff to add or improve. We hope that the suggestions and statistics will be helpful in
+          improving your overall performance. It takes time to learn the Windwalker resource and
+          cooldown management, so be patient with yourself while getting used to it.
+        </Trans>
       </p>
       <p>
-        If you have any questions about the analyzer or Windwalker monks in general, join us in the{' '}
-        <a href="https://discord.gg/0dkfBMAxzTkWj21F" target="_blank" rel="noopener noreferrer">
-          Peak of Serenity discord server
-        </a>{' '}
-        and talk to us. You can reach me there as Juko8. Make sure to also check out our resources
-        on the{' '}
-        <a href="https://peakofserenity.com/windwalker/" target="_blank" rel="noopener noreferrer">
-          Peak of Serenity website
-        </a>{' '}
-        as well, it has pretty much everything you need to know.
+        <Trans id="monk.windwalker.config.desc2">
+          If you have any questions about the analyzer or Windwalker monks in general, join us in the{' '}
+          <a href="https://discord.gg/0dkfBMAxzTkWj21F" target="_blank" rel="noopener noreferrer">
+            Peak of Serenity discord server
+          </a>{' '}
+          and talk to us. You can reach me there as Juko8. Make sure to also check out our resources
+          on the{' '}
+          <a href="https://peakofserenity.com/windwalker/" target="_blank" rel="noopener noreferrer">
+            Peak of Serenity website
+          </a>{' '}
+          as well, it has pretty much everything you need to know.
+        </Trans>
       </p>
     </>
   ),

@@ -8,6 +8,8 @@ import StatTracker from 'parser/shared/modules/StatTracker';
 import BoringValue from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import { GIFT_OF_THE_OX_SPELLS } from '../../constants';
 import { ExpelOxOrbs } from '../../normalizers/ExpelHarm';
@@ -83,18 +85,26 @@ export default class GiftOfTheOx extends Analyzer {
         size="flexible"
         position={STATISTIC_ORDER.OPTIONAL()}
         tooltip={
-          <>
-            You generated {formatNumber(this.orbsGenerated)} healing spheres and consumed{' '}
-            {formatNumber(this.orbsConsumed)} of them, healing for{' '}
-            <b>{formatNumber(this.totalHealing)}</b>. {formatNumber(this.expelHarmOrbsConsumed)} of
-            these were consumed with Expel Harm over {formatNumber(this.expelHarmCasts)} casts.
-          </>
+          (() => {
+            const generated = formatNumber(this.orbsGenerated);
+            const consumed = formatNumber(this.orbsConsumed);
+            const healing = formatNumber(this.totalHealing);
+            const expelHarmConsumed = formatNumber(this.expelHarmOrbsConsumed);
+            const expelHarmCasts = formatNumber(this.expelHarmCasts);
+            return (
+              <Trans id="monk.brewmaster.gotox.tooltip">
+                You generated {generated} healing spheres and consumed {consumed} of them, healing for{' '}
+                <b>{healing}</b>. {expelHarmConsumed} of these were consumed with Expel Harm over{' '}
+                {expelHarmCasts} casts.
+              </Trans>
+            );
+          })()
         }
       >
         <BoringValue
           label={
             <>
-              <SpellIcon spell={GIFT_OF_THE_OX_SPELLS[0]} /> Gift of the Ox Healing
+              <SpellIcon spell={GIFT_OF_THE_OX_SPELLS[0]} /> {t({ id: 'monk.brewmaster.gotox.label', message: 'Gift of the Ox Healing' })}
             </>
           }
         >

@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -18,13 +19,15 @@ class ChiBurst extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} />
-        </b>{' '}
-        is a filler spell that is also very good at resetting{' '}
-        <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} />.{' '}
-        <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} /> ideally should be used when anything
-        else would break mastery, or when movement is required.
+        <Trans id="monk.windwalker.chiburst.explanation">
+          <b>
+            <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} />
+          </b>{' '}
+          is a filler spell that is also very good at resetting{' '}
+          <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} />.{' '}
+          <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} /> ideally should be used when anything
+          else would break mastery, or when movement is required.
+        </Trans>
       </p>
     );
 
@@ -32,7 +35,9 @@ class ChiBurst extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} /> cast efficiency
+            <Trans id="monk.windwalker.chiburst.cast_efficiency">
+              <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>

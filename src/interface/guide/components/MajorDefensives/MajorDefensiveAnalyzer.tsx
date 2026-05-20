@@ -368,7 +368,7 @@ export default class MajorDefensive<
     if (this.firstSeenMaxHp / 4 > mit.amount) {
       return {
         perf: QualitativePerformance.Ok,
-        explanation: 'Usage mitigated less than 25% of your HP',
+        explanation: '使用时减伤量低于你生命值的25%',
       };
     }
 
@@ -384,7 +384,7 @@ export default class MajorDefensive<
   }
 
   maxMitigationDescription(): ReactNode {
-    return <>Max Mitigation</>;
+    return <>最大减伤</>;
   }
 
   /**
@@ -400,12 +400,12 @@ export default class MajorDefensive<
         tooltip: (
           <>
             <PerformanceUsageRow>
-              <PerformanceMark perf={perf} /> {explanation ?? 'Good Usage'}
+              <PerformanceMark perf={perf} /> {explanation ?? '良好使用'}
             </PerformanceUsageRow>
             <div>
               <MitigationRowContainer>
-                <strong>Time</strong>
-                <strong>Mit.</strong>
+                <strong>时间</strong>
+                <strong>减伤</strong>
               </MitigationRowContainer>
               <MitigationRow
                 mitigation={mit}

@@ -11,7 +11,7 @@ export const GeneralConfiguration = ({
   return (
     <>
       <div className={styles['general-config-header']}>
-        <h4>General</h4>
+        <h4>通用</h4>
       </div>
 
       <div className={styles['general-config-list']}>
@@ -21,7 +21,7 @@ export const GeneralConfiguration = ({
             checked={isMovementVisible}
             onChange={(e) => toggleMovementVisibility(e.target.checked)}
           />
-          Show movement overlay on timeline
+          在时间轴上显示移动覆盖层
         </label>
       </div>
     </>

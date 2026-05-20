@@ -1,4 +1,5 @@
 import TALENTS from 'common/TALENTS/shaman';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing, calculateOverhealing } from 'parser/core/EventCalculateLib';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -68,12 +69,16 @@ class Torrent extends Analyzer {
         tooltip={
           <div>
             <div>
-              <strong>{formatNumber(this.healing)}</strong> bonus healing (
-              {formatNumber(this.overHealing)} overhealing)
+              <Trans id="shaman.restoration.torrent.bonus">
+                <strong>{formatNumber(this.healing)}</strong> bonus healing (
+                {formatNumber(this.overHealing)} overhealing)
+              </Trans>
             </div>
             <div>
-              <strong>{formatNumber(this.critIncrease)}</strong> estimated bonus healing from the
-              increased critical strike chance. This is not included in the HPS value below.
+              <Trans id="shaman.restoration.torrent.crit">
+                <strong>{formatNumber(this.critIncrease)}</strong> estimated bonus healing from the
+                increased critical strike chance. This is not included in the HPS value below.
+              </Trans>
             </div>
           </div>
         }

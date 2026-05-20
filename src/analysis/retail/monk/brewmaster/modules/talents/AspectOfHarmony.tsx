@@ -3,6 +3,7 @@ import talents from 'common/TALENTS/monk';
 import { formatDuration, formatNumber } from 'common/format';
 import SpellLink from 'interface/SpellLink';
 import { BadColor, GoodColor } from 'interface/guide';
+import { Trans } from '@lingui/react/macro';
 
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import EventLinkNormalizer from 'parser/core/EventLinkNormalizer';
@@ -194,12 +195,12 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                 }),
                 summary:
                   spend.estimatedVitality > spend.maxHp ? (
-                    <>Overcapped Vitality</>
+                    <Trans id="monk.brewmaster.aoh.cap.summary.overcapped">Overcapped Vitality</Trans>
                   ) : (
-                    <>Did Not Overcap Vitality</>
+                    <Trans id="monk.brewmaster.aoh.cap.summary.not_overcapped">Did Not Overcap Vitality</Trans>
                   ),
                 details: (
-                  <>
+                  <Trans id="monk.brewmaster.aoh.cap.details">
                     You generated an estimated {formatNumber(spend.estimatedVitality)} Vitality to
                     spend with <SpellLink spell={this.activeSpender} />, which is{' '}
                     {spend.estimatedVitality > spend.maxHp ? (
@@ -209,7 +210,7 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                     )}{' '}
                     your max HP of {formatNumber(spend.maxHp)}. Damage/Healing from{' '}
                     <SpellLink spell={SPELLS.ASPECT_OF_HARMONY_DOT} /> is capped by your max HP.
-                  </>
+                  </Trans>
                 ),
               },
             )
@@ -227,23 +228,23 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                       ? QualitativePerformance.Ok
                       : QualitativePerformance.Fail,
                 summary: (
-                  <>
+                  <Trans id="monk.brewmaster.aoh.missing.summary">
                     {formatNumber(spend.missingDamage)} damage lost due to enemies dying or becoming
                     immune
-                  </>
+                  </Trans>
                 ),
                 details: (
-                  <>
+                  <Trans id="monk.brewmaster.aoh.missing.details">
                     You lost {formatNumber(spend.missingDamage)} damage from targets dying or
                     becoming immune. The <SpellLink spell={SPELLS.ASPECT_OF_HARMONY_DOT} /> DoT does
                     not redistribute damage when enemies die.{' '}
                     {chained && (
-                      <>
+                      <Trans id="monk.brewmaster.aoh.missing.chained">
                         This use was <em>chained</em> from a previous usage so the amount lost may
                         be incorrect.
-                      </>
+                      </Trans>
                     )}
-                  </>
+                  </Trans>
                 ),
               },
             )

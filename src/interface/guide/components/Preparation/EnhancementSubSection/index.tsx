@@ -28,7 +28,7 @@ const EnchantmentSubSection = ({ recommendedWeaponEnhancements }: Props) => {
         message: 'Enhancements',
       })}
     >
-      <p>Enhancements are easy ways to improve your throughput.</p>
+      <p>强化是提升你输出的简单方式。</p>
       <EnhancementBoxRow values={enhancementBoxRowEntires} />
     </SubSection>
   );

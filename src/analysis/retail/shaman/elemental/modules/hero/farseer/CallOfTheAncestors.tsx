@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import Events, {
   AnyEvent,
@@ -231,23 +233,29 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
     return (
       <>
         <p>
-          While active, <SpellLink spell={TALENTS.CALL_OF_THE_ANCESTORS_TALENT} /> will cast a{' '}
-          <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_LAVA_BURST} /> for every single target
-          spell, or <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> AoE spell you cast (e.g.{' '}
-          <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> or{' '}
-          <SpellLink spell={TALENTS.EARTHQUAKE_1_ELEMENTAL_TALENT} />)
+          <Trans id="shaman.elemental.ancestors.explanation1">
+            While active, <SpellLink spell={TALENTS.CALL_OF_THE_ANCESTORS_TALENT} /> will cast a{' '}
+            <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_LAVA_BURST} /> for every single target
+            spell, or <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> AoE spell you cast (e.g.{' '}
+            <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> or{' '}
+            <SpellLink spell={TALENTS.EARTHQUAKE_1_ELEMENTAL_TALENT} />)
+          </Trans>
         </p>
         <p>
-          When an ancestor expires, they cast a{' '}
-          <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_ELEMENTAL_BLAST} />.
+          <Trans id="shaman.elemental.ancestors.explanation2">
+            When an ancestor expires, they cast a{' '}
+            <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_ELEMENTAL_BLAST} />.
+          </Trans>
         </p>
         <p>
-          To get the most out of each ancestor, you want to maximise the number of high-value
-          spells. Focus on your regular rotation, while minimising the number of non-damaging
-          spells, and using instant cast spells during forced movement, such as{' '}
-          <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> with{' '}
-          <SpellLink spell={SPELLS.LAVA_SURGE} />, <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} />,
-          or even refreshing <SpellLink spell={SPELLS.FLAME_SHOCK} />
+          <Trans id="shaman.elemental.ancestors.explanation3">
+            To get the most out of each ancestor, you want to maximise the number of high-value
+            spells. Focus on your regular rotation, while minimising the number of non-damaging
+            spells, and using instant cast spells during forced movement, such as{' '}
+            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> with{' '}
+            <SpellLink spell={SPELLS.LAVA_SURGE} />, <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} />,
+            or even refreshing <SpellLink spell={SPELLS.FLAME_SHOCK} />
+          </Trans>
         </p>
       </>
     );
@@ -298,7 +306,7 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
 
     return {
       check: 'invocation',
-      details: <div>Source: {source}</div>,
+      details: <div>{t({ id: 'shaman.elemental.ancestors.source', message: 'Source: ' })}{source}</div>,
       summary: source,
       performance: QualitativePerformance.Perfect,
       timestamp: cast.event.timestamp,
@@ -306,17 +314,18 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
   }
 
   private explainAlwaysBeCasting(cast: CallAncestor): ChecklistUsageInfo {
+    const activeTimeLabel = defineMessage({ id: 'shaman.elemental.ancestors.active_time', message: 'active time' });
     return {
       check: 'always-be-casting',
       timestamp: cast.event.timestamp,
-      summary: <>{formatPercentage(cast.activeTime)}% active time</>,
+      summary: <>{formatPercentage(cast.activeTime)}% {activeTimeLabel}</>,
       details: (
         <>
           <p>
             <strong>
               <UptimeIcon /> {formatPercentage(cast.activeTime)}%
             </strong>{' '}
-            active time
+            {activeTimeLabel}
           </p>
         </>
       ),
@@ -367,7 +376,11 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
               return (
                 <div key={`ancestor-${id}`}>
                   <li>
-                    <span>Ancestor {index + 1}</span>
+                    <span>
+                      <Trans id="shaman.elemental.ancestors.ancestor">
+                        Ancestor {index + 1}
+                      </Trans>
+                    </span>
                     <ul>
                       {[...spells.entries()].map(([spellId, damage]) => {
                         return (
@@ -384,7 +397,11 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
           </ul>
         </>
       ),
-      summary: <>Total ancestor damage: {formatNumber(totalDamage)}</>,
+      summary: (
+        <Trans id="shaman.elemental.ancestors.total_damage">
+          Total ancestor damage: {formatNumber(totalDamage)}
+        </Trans>
+      ),
       performance: QualitativePerformance.Perfect,
       timestamp: cast.event.timestamp,
     };
@@ -394,7 +411,7 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
     const timelineChecklist = {
       performance: QualitativePerformance.Perfect,
       summary: null,
-      details: <span>Spell order: See below</span>,
+      details: <span>{t({ id: 'shaman.elemental.ancestors.spell_order', message: 'Spell order: See below' })}</span>,
       check: 'farseer-timeline',
       timestamp: cast.event.timestamp,
     };

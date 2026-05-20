@@ -29,7 +29,7 @@ const MissingCastBoxEntry = {
   value: QualitativePerformance.Fail,
   tooltip: (
     <PerformanceUsageRow>
-      <PerformanceMark perf={QualitativePerformance.Fail} /> Potential cast went unused
+      <PerformanceMark perf={QualitativePerformance.Fail} /> 潜在施法未使用
     </PerformanceUsageRow>
   ),
 };
@@ -38,8 +38,7 @@ const PossibleMissingCastBoxEntry = {
   value: QualitativePerformance.Ok,
   tooltip: (
     <PerformanceUsageRow>
-      <PerformanceMark perf={QualitativePerformance.Ok} /> Potential cast went unused, but may have
-      been intentionally saved to handle a mechanic.
+      <PerformanceMark perf={QualitativePerformance.Ok} /> 潜在施法未使用，但可能是有意保留以应对机制。
     </PerformanceUsageRow>
   ),
 };
@@ -116,7 +115,7 @@ const CooldownDetails = <Apply extends EventType, Remove extends EventType>({
   if (!mit) {
     return (
       <CooldownDetailsContainer>
-        <NoData>Click on a box in the cast breakdown to view details.</NoData>
+        <NoData>点击施法分析中的方块查看详情。</NoData>
       </CooldownDetailsContainer>
     );
   }
@@ -141,13 +140,13 @@ const BreakdownByTalent = <Apply extends EventType, Remove extends EventType>({
     <table>
       <tbody>
         <tr>
-          <td>Total Mitigated</td>
+          <td>总减伤量</td>
           <NumericColumn>{formatNumber(mit.amount)}</NumericColumn>
           <td>
             <SmallPassFailBar
               pass={mit.amount}
               total={analyzer.firstSeenMaxHp}
-              passTooltip="Amount of damage mitigated, relative to your maximum health"
+              passTooltip="减伤量相对于你最大生命值的比例"
             />
           </td>
         </tr>
@@ -166,7 +165,7 @@ const BreakdownByTalent = <Apply extends EventType, Remove extends EventType>({
         )}
         <tr>
           <td colSpan={3}>
-            <strong>Mitigation by Talent</strong>
+            <strong>按天赋减伤</strong>
           </td>
         </tr>
         {segments.map((seg, ix) => (
@@ -240,7 +239,7 @@ export const BreakdownByDamageSource = <Apply extends EventType, Remove extends 
       <tbody>
         <tr>
           <td colSpan={3}>
-            <strong>Mitigation by Damage Source</strong>
+            <strong>按伤害来源减伤</strong>
           </td>
         </tr>
         {damageTakenRows.map(([spellId, events], ix) => {
@@ -331,22 +330,21 @@ const CooldownUsage = <Apply extends EventType, Remove extends EventType>({
         <Explanation>{analyzer.description()}</Explanation>
         <CooldownUsageDetailsContainer>
           <div>
-            <strong>Cast Breakdown</strong>{' '}
+            <strong>施法分析</strong>{' '}
             <small>
-              - These boxes represent each cast, colored by how much damage was mitigated. Missed
-              casts are also shown in{' '}
-              <TooltipElement content="Used for casts that may have been skipped in order to cover major damage events.">
+              - 这些方块代表每次施放，颜色表示减伤量。未使用的施放也会以{' '}
+              <TooltipElement content="用于可能为应对主要伤害事件而跳过的施放。">
                 <Highlight color={OkColor} textColor="black">
-                  yellow
+                  黄色
                 </Highlight>
               </TooltipElement>{' '}
-              or{' '}
-              <TooltipElement content="Used for casts that could have been used without impacting your other usage.">
+              或{' '}
+              <TooltipElement content="用于本可使用且不影响其他用法的施放。">
                 <Highlight color={BadColor} textColor="white">
-                  red
+                  红色
                 </Highlight>
               </TooltipElement>
-              .
+              显示。
             </small>
           </div>
           <PerformanceBoxRow

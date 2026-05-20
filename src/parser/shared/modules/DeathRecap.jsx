@@ -80,7 +80,7 @@ class DeathRecap extends PureComponent {
         <div className="pad" style={{ marginBottom: 15 }}>
           <div className="row">
             <div className="col-md-8">
-              <div>Filter events based on min amount (percentage of players health):</div>
+              <div>按最小数值筛选事件（玩家生命值的百分比）：</div>
               <Slider
                 {...sliderProps}
                 defaultValue={this.state.amountThreshold}
@@ -92,7 +92,7 @@ class DeathRecap extends PureComponent {
               />
             </div>
             <div className="col-md-4">
-              <Tooltip content="Open the deaths on Warcraft Logs">
+              <Tooltip content="在 Warcraft Logs 上查看死亡记录">
                 <a
                   href={`https://www.warcraftlogs.com/reports/${this.props.report.report.code}#fight=${this.props.report.fight.id}&type=deaths&source=${this.props.report.player.id}`}
                   target="_blank"
@@ -113,11 +113,11 @@ class DeathRecap extends PureComponent {
                 onClick={() => this.handleClick(i)}
                 style={{ padding: '10px 20px', cursor: 'pointer', display: 'inline-block' }}
               >
-                Death #{i + 1}
+                死亡 #{i + 1}
               </h2>
-              <TooltipElement content="Filter events to the time between either the start of combat or your last death (whichever happened more recently) and this death.">
+              <TooltipElement content="筛选此时间段内的事件：从战斗开始或你上一次死亡（以较晚者为准）到此次死亡。">
                 <a href="#" onClick={() => this.filterDeath(death, i)}>
-                  Filter to prior events
+                  筛选之前的事件
                 </a>
               </TooltipElement>
             </div>
@@ -127,12 +127,12 @@ class DeathRecap extends PureComponent {
             >
               <thead>
                 <tr>
-                  <th>Time</th>
-                  <th>Ability</th>
-                  <th>HP</th>
-                  <th>Amount</th>
-                  <th>Defensive Buffs/Debuffs</th>
-                  <th>Personals available</th>
+                  <th>时间</th>
+                  <th>技能</th>
+                  <th>生命值</th>
+                  <th>数值</th>
+                  <th>减伤增益/减益</th>
+                  <th>可用个人减伤</th>
                 </tr>
               </thead>
               <tbody>
@@ -176,13 +176,13 @@ class DeathRecap extends PureComponent {
                           content={
                             <>
                               {event.sourceID === event.targetID
-                                ? `You healed yourself for ${formatNumber(event.amount)}`
-                                : `${sourceName} healed you for ${formatNumber(event.amount)}`}
+                                ? `你为自己治疗了 ${formatNumber(event.amount)}`
+                                : `${sourceName} 为你治疗了 ${formatNumber(event.amount)}`}
                               {event.absorbed > 0
-                                ? `, ${formatNumber(event.absorbed)} of that healing was absorbed`
+                                ? `，其中 ${formatNumber(event.absorbed)} 被吸收`
                                 : ''}
                               {event.overheal > 0
-                                ? ` and overhealed for ${formatNumber(event.overheal)}`
+                                ? `，过量治疗了 ${formatNumber(event.overheal)}`
                                 : ''}
                             </>
                           }
@@ -204,16 +204,16 @@ class DeathRecap extends PureComponent {
                           content={
                             <>
                               {event.sourceID === event.targetID
-                                ? `You damaged yourself for ${formatNumber(event.amount)}`
-                                : `${sourceName} damaged you for a total of ${formatNumber(
+                                ? `你对自己造成了 ${formatNumber(event.amount)} 伤害`
+                                : `${sourceName} 总共对你造成了 ${formatNumber(
                                     event.amount + (event.absorbed || 0),
-                                  )}`}
+                                  )} 伤害`}
                               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                               <br />
                               {event.absorbed > 0 ? (
                                 <>
-                                  {formatNumber(event.absorbed)} of this damage was absorbed and you
-                                  took {formatNumber(event.amount)} damage
+                                  {formatNumber(event.absorbed)} 被吸收，你受到了{' '}
+                                  {formatNumber(event.amount)} 伤害
                                   {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                                   <br />
                                 </>
@@ -230,7 +230,7 @@ class DeathRecap extends PureComponent {
                       );
                     } else if (event.type === EventType.Instakill) {
                       percent = 0;
-                      output = '1-Shot';
+                      output = '秒杀';
                     }
 
                     if (event.overkill || event.hitPoints === 0) {
@@ -244,7 +244,7 @@ class DeathRecap extends PureComponent {
                         </td>
                         <td style={{ width: '20%' }}>
                           <SpellLink spell={event.ability.guid} icon={false}>
-                            <Icon icon={event.ability.abilityIcon} /> {event.ability.name}
+                            <Icon icon={event.ability.abilityIcon} />
                           </SpellLink>
                         </td>
                         <td style={{ width: '20%' }}>
@@ -304,7 +304,7 @@ class DeathRecap extends PureComponent {
                   })}
                 <tr>
                   <td />
-                  <td colSpan="6">You died</td>
+                  <td colSpan="6">你死了</td>
                 </tr>
               </tbody>
             </table>

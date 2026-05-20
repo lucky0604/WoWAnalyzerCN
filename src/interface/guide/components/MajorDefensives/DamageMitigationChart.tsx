@@ -161,7 +161,7 @@ export const DamageMitigationChart = memo(
             },
             y: {
               field: 'amount',
-              title: 'Damage Taken per Second',
+              title: '每秒承受伤害',
               type: 'quantitative',
               axis: { format: '~s', grid: false },
               scale: { zero: true, domain: { unionWith: [0, maxHp * (yScale || 1)] } },

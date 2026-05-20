@@ -1,4 +1,6 @@
 import { formatDurationMillisMinSec } from 'common/format';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS/shaman';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -433,15 +435,15 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: `${cast.spendersCast}/${maxSpenders}`,
-      label: 'Spenders',
+      label: defineMessage({ id: 'shaman.elemental.ascendance.spenders', message: 'Spenders' }),
       tooltip: (
-        <>
+        <Trans id="shaman.elemental.ascendance.spenders_tooltip">
           You cast <strong>{cast.spendersCast}</strong> out of a maximum of{' '}
           <strong>{maxSpenders}</strong> <SpellLink spell={this.spender.spell} /> casts this window,
           based on starting <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />, net{' '}
           <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> gained during Ascendance, and any gain
           that happened too late to convert into another spender.
-        </>
+        </Trans>
       ),
       performance: evaluateQualitativePerformanceByThreshold({
         actual: missedSpenders,
@@ -459,7 +461,7 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: formatDurationMillisMinSec(downtime, 1),
-      label: 'Downtime',
+      label: defineMessage({ id: 'shaman.elemental.ascendance.downtime', message: 'Downtime' }),
       performance: evaluateQualitativePerformanceByThreshold({
         actual: downtime,
         isLessThan: {
@@ -519,10 +521,12 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: `${nonOverloadSpellCount}`,
-      label: 'Non-Overload Spells',
+      label: defineMessage({ id: 'shaman.elemental.ascendance.non_overload', message: 'Non-Overload Spells' }),
       tooltip: (
         <>
-          Spells cast that cannot trigger <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />:
+          <Trans id="shaman.elemental.ascendance.non_overload_tooltip">
+            Spells cast that cannot trigger <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />:
+          </Trans>
           {nonOverloadSpellBreakdown.length > 0 ? (
             <ul>
               {nonOverloadSpellBreakdown.map((spell) => (
@@ -563,12 +567,12 @@ class Ascendance extends Analyzer.withDependencies({
           <>
             <strong>
               {event.type === EventType.BeginChannel || event.type === EventType.BeginCast
-                ? 'Started'
-                : 'Cast'}
+                ? t({ id: 'shaman.elemental.ascendance.started', message: 'Started' })
+                : t({ id: 'shaman.elemental.ascendance.cast', message: 'Cast' })}
             </strong>{' '}
             <SpellLink spell={ability.guid} />
             <div>@ {this.owner.formatTimestamp(event.timestamp)}</div>
-            {isCancelled ? <div>Cast never finished.</div> : null}
+            {isCancelled ? <div><Trans id="shaman.elemental.ascendance.not_finished">Cast never finished.</Trans></div> : null}
           </>
         ),
       };
@@ -600,7 +604,7 @@ class Ascendance extends Analyzer.withDependencies({
           ...scoredStats,
           {
             value: `${cast.endingMaelstrom}`,
-            label: 'Ending Maelstrom',
+            label: defineMessage({ id: 'shaman.elemental.ascendance.ending_maelstrom', message: 'Ending Maelstrom' }),
             performance: spendersStat.performance,
           },
         ],
@@ -608,7 +612,7 @@ class Ascendance extends Analyzer.withDependencies({
         additionalContent:
           sequence.length > 0
             ? {
-                title: 'Cast Sequence',
+                title: defineMessage({ id: 'shaman.elemental.ascendance.cast_sequence', message: 'Cast Sequence' }),
                 content: <SpellSequence casts={sequence} iconSize={36} />,
               }
             : undefined,
@@ -625,21 +629,27 @@ class Ascendance extends Analyzer.withDependencies({
       <>
         <ol>
           <li>
-            <strong>Uptime</strong>: You want to maximize the number of casts inside each{' '}
-            <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} /> window. Pairing it with{' '}
-            <SpellLink spell={TALENTS.SPIRITWALKERS_GRACE_TALENT} /> can help preserve uptime while
-            moving.
+            <Trans id="shaman.elemental.ascendance.uptime">
+              <strong>Uptime</strong>: You want to maximize the number of casts inside each{' '}
+              <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} /> window. Pairing it with{' '}
+              <SpellLink spell={TALENTS.SPIRITWALKERS_GRACE_TALENT} /> can help preserve uptime while
+              moving.
+            </Trans>
           </li>
           <li>
-            Try to avoid spending globals on spells that do not contribute much during{' '}
-            <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />, such as{' '}
-            <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} /> or{' '}
-            <SpellLink spell={SPELLS.FLAME_SHOCK} /> refreshes.
+            <Trans id="shaman.elemental.ascendance.avoid">
+              Try to avoid spending globals on spells that do not contribute much during{' '}
+              <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />, such as{' '}
+              <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} /> or{' '}
+              <SpellLink spell={SPELLS.FLAME_SHOCK} /> refreshes.
+            </Trans>
           </li>
           <li>
-            If possible, cast <SpellLink spell={TALENTS.STORMKEEPER_TALENT} /> before{' '}
-            <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} /> so the window is not spent on
-            setup.
+            <Trans id="shaman.elemental.ascendance.stormkeeper">
+              If possible, cast <SpellLink spell={TALENTS.STORMKEEPER_TALENT} /> before{' '}
+              <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} /> so the window is not spent on
+              setup.
+            </Trans>
           </li>
         </ol>
       </>
@@ -651,7 +661,7 @@ class Ascendance extends Analyzer.withDependencies({
         explanation={explanation}
         explanationPercent={30}
       >
-        <CastDetail title="Ascendance Windows" casts={this.buildPerCastData()} />
+        <CastDetail title={t({ id: 'shaman.elemental.ascendance.title', message: 'Ascendance Windows' })} casts={this.buildPerCastData()} />
       </GuideSection>
     );
   }

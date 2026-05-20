@@ -24,6 +24,7 @@ import { BoxRowEntry, PerformanceBoxRow } from 'interface/guide/components/Perfo
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { Arrow } from 'interface/icons';
 import { Talent } from 'common/TALENTS/types';
+import { Trans } from '@lingui/react/macro';
 
 const debug = false;
 
@@ -132,24 +133,24 @@ class ThunderFocusTea extends Analyzer {
     if (this.isCorrect(event, false /* isOk */)) {
       value = QualitativePerformance.Good;
       tooltip = (
-        <>
+        <Trans id="monk.mistweaver.tft.correct_cast">
           Correct cast: buffed <SpellLink spell={spellId} />
-        </>
+        </Trans>
       );
       this.correctCasts += 1;
     } else if (this.isCorrect(event, true /* isOk */)) {
       value = QualitativePerformance.Ok;
       tooltip = (
-        <>
+        <Trans id="monk.mistweaver.tft.ok_cast">
           Ok cast: buffed <SpellLink spell={spellId} />
-        </>
+        </Trans>
       );
     } else {
       value = QualitativePerformance.Fail;
       tooltip = (
-        <>
+        <Trans id="monk.mistweaver.tft.incorrect_cast">
           Incorrect cast: buffed <SpellLink spell={spellId} />
-        </>
+        </Trans>
       );
     }
     this.castEntries.push({ value, tooltip });
@@ -159,19 +160,19 @@ class ThunderFocusTea extends Analyzer {
     const items = [
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: 'Renewing Mist',
+        label: defineMessage({ id: 'monk.mistweaver.tft.renewing_mist', message: 'Renewing Mist' }),
         spellId: SPELLS.RENEWING_MIST_CAST.id,
         value: this.castsTftRem,
       },
       {
         color: SPELL_COLORS.ENVELOPING_MIST,
-        label: 'Enveloping Mists',
+        label: defineMessage({ id: 'monk.mistweaver.tft.enveloping_mists', message: 'Enveloping Mists' }),
         spellId: TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
         value: this.castsTftEnm,
       },
       {
         color: SPELL_COLORS.RISING_SUN_KICK,
-        label: 'Rising Sun Kick',
+        label: defineMessage({ id: 'monk.mistweaver.tft.rising_sun_kick', message: 'Rising Sun Kick' }),
         spellId: this.currentRskTalent.id,
         value: this.castsTftRsk,
       },
@@ -184,30 +185,36 @@ class ThunderFocusTea extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />
-          </b>{' '}
-          is an important spell used to empower other abilities. It should be used on cooldown at
-          all times and the spell that you use it on depends on your talent selection, in general
-          try to adhere to the following priority list
+          <Trans id="monk.mistweaver.tft.explanation">
+            <b>
+              <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />
+            </b>{' '}
+            is an important spell used to empower other abilities. It should be used on cooldown at
+            all times and the spell that you use it on depends on your talent selection, in general
+            try to adhere to the following priority list
+          </Trans>
         </p>
         <ol>
           <li>
-            <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} /> talented <Arrow />{' '}
-            use on <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> (
-            <span style={{ color: 'green' }}>best</span>) or{' '}
-            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> (
-            <span style={{ color: 'yellow' }}>ok</span>)
+            <Trans id="monk.mistweaver.tft.priority_chiji">
+              <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} /> talented <Arrow />{' '}
+              use on <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> (
+              <span style={{ color: 'green' }}>best</span>) or{' '}
+              <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> (
+              <span style={{ color: 'yellow' }}>ok</span>)
+            </Trans>
           </li>
           <li>
-            {' '}
-            <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} /> talented{' '}
-            <Arrow /> use on <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> (
-            <span style={{ color: 'green' }}>best</span>) or{' '}
-            <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> (
-            <span style={{ color: 'yellow' }}>ok</span>) or{' '}
-            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> (
-            <span style={{ color: 'yellow' }}>ok</span>)
+            <Trans id="monk.mistweaver.tft.priority_yulon">
+              {' '}
+              <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} /> talented{' '}
+              <Arrow /> use on <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> (
+              <span style={{ color: 'green' }}>best</span>) or{' '}
+              <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> (
+              <span style={{ color: 'yellow' }}>ok</span>) or{' '}
+              <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> (
+              <span style={{ color: 'yellow' }}>ok</span>)
+            </Trans>
           </li>
         </ol>
       </>
@@ -216,16 +223,22 @@ class ThunderFocusTea extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> cast efficiency
+            <Trans id="monk.mistweaver.tft.efficiency">
+              <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           <div>
             {this.subStatistic()}
             <p>
-              <strong>Casts </strong>
+              <strong>
+                <Trans id="monk.mistweaver.tft.casts_label">Casts </Trans>
+              </strong>
               <small>
-                - Green indicates a correct{' '}
-                <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> cast, while red
-                indicates an incorrect cast.
+                <Trans id="monk.mistweaver.tft.casts_desc">
+                  - Green indicates a correct{' '}
+                  <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> cast, while red
+                  indicates an incorrect cast.
+                </Trans>
               </small>
             </p>
             <PerformanceBoxRow values={this.castEntries} />
@@ -257,7 +270,9 @@ class ThunderFocusTea extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> usage
+            <Trans id="monk.mistweaver.tft.usage">
+              <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> usage
+            </Trans>
           </label>
           {this.renderCastRatioChart()}
         </div>

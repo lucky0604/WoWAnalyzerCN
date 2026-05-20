@@ -5,6 +5,7 @@ import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import SpellLink from 'interface/SpellLink';
 import Combatant from 'parser/core/Combatant';
 import { EventType } from 'parser/core/Events';
+import { Trans } from '@lingui/react/macro';
 import { Apl, Condition, Rule, build, tenseAlt } from 'parser/shared/metrics/apl';
 import {
   and,
@@ -48,7 +49,9 @@ function lastMasterySpellCast(spell: Spell): Condition<boolean> {
     validate: (state) => state,
     describe: () => (
       <>
-        your last mastery-relevant cast was <SpellLink spell={spell.id} />
+        <Trans id="monk.windwalker.apl.last_mastery_cast">
+          your last mastery-relevant cast was <SpellLink spell={spell.id} />
+        </Trans>
       </>
     ),
   };
@@ -166,9 +169,11 @@ export const whirlingDragonPunchReady = describe(
   buffPresent(SPELLS.WHIRLING_DRAGON_PUNCH_USABLE),
   (tense) => (
     <>
-      <SpellLink spell={TALENTS.RISING_SUN_KICK_TALENT} /> and{' '}
-      <SpellLink spell={TALENTS.FISTS_OF_FURY_TALENT} /> {tenseAlt(tense, 'are', 'were')} on
-      cooldown.
+      <Trans id="monk.windwalker.apl.wdp_ready">
+        <SpellLink spell={TALENTS.RISING_SUN_KICK_TALENT} /> and{' '}
+        <SpellLink spell={TALENTS.FISTS_OF_FURY_TALENT} /> {tenseAlt(tense, 'are', 'were')} on
+        cooldown.
+      </Trans>
     </>
   ),
 );
@@ -188,7 +193,11 @@ export const danceOfChiJiExpiring = and(
  * generating missed-use violations.
  */
 export const optionalTouchOfDeath = optionalRule(
-  describe(hasResource(RESOURCE_TYPES.ENERGY, { atLeast: 0 }), () => <>available</>),
+  describe(hasResource(RESOURCE_TYPES.ENERGY, { atLeast: 0 }), () => (
+    <>
+      <Trans id="monk.windwalker.apl.available">available</Trans>
+    </>
+  )),
   undefined,
   '',
 );

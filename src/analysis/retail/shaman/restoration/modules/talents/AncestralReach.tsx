@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import ChainHealNormalizer from '../../normalizers/ChainHealNormalizer';
 import talents from 'common/TALENTS/shaman';
 import UnleashLife from './UnleashLife';
@@ -129,15 +131,21 @@ class AncestralReach extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <strong>{formatNumber(this.totalHealing)}</strong> total healing
+            <Trans id="shaman.restoration.ar.total_tooltip">
+              <strong>{formatNumber(this.totalHealing)}</strong> total healing
+            </Trans>
             <ul>
               <li>
-                <strong>{formatNumber(this.healing)}</strong> healing from extra jumps (
-                {this.extraJumps})
+                <Trans id="shaman.restoration.ar.jumps">
+                  <strong>{formatNumber(this.healing)}</strong> healing from extra jumps (
+                  {this.extraJumps})
+                </Trans>
               </li>
               <li>
-                <strong>{formatNumber(this.bonusHealing)}</strong> extra healing from the{' '}
-                {formatPercentage(ANCESTRAL_REACH_INCREASE)}% increase
+                <Trans id="shaman.restoration.ar.bonus">
+                  <strong>{formatNumber(this.bonusHealing)}</strong> extra healing from the{' '}
+                  {formatPercentage(ANCESTRAL_REACH_INCREASE)}% increase
+                </Trans>
               </li>
             </ul>
           </>
@@ -147,7 +155,7 @@ class AncestralReach extends Analyzer {
           <ItemHealingDone amount={this.totalHealing} />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {this.buffIcon} {this.missedJumps} <small> missed jumps</small>
+          {this.buffIcon} {this.missedJumps} <small>{t({ id: 'shaman.restoration.missed_jumps', message: ' missed jumps' })}</small>
         </TalentSpellText>
       </Statistic>
     );

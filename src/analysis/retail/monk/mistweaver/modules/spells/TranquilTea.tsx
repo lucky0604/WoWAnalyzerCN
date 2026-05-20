@@ -1,6 +1,7 @@
 import { formatNumber, formatPercentage } from 'common/format';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, TooltipElement } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import Statistic from 'parser/ui/Statistic';
@@ -91,10 +92,24 @@ class TranquilTea extends Analyzer.withDependencies({
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            <div>Total healing from extra clouds: {formatNumber(this.totalHealing)}</div>
-            <div>Wasted clouds from overdrinking: {this.wastedClouds}</div>
-          </>
+          (() => {
+            const total = formatNumber(this.totalHealing);
+            const wasted = this.wastedClouds;
+            return (
+              <>
+                <div>
+                  <Trans id="monk.mistweaver.tranquil_tea.total_healing">
+                    Total healing from extra clouds: {total}
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.tranquil_tea.wasted">
+                    Wasted clouds from overdrinking: {wasted}
+                  </Trans>
+                </div>
+              </>
+            );
+          })()
         }
       >
         <TalentSpellText talent={TALENTS_MONK.TRANQUIL_TEA_TALENT}>
@@ -102,13 +117,20 @@ class TranquilTea extends Analyzer.withDependencies({
           <div>
             <TooltipElement
               content={
-                <>
-                  {(this.totalExtraClouds / this.totalSGCasts || 0).toFixed(1)}{' '}
-                  <small>average extra clouds per cast</small>
-                </>
+                (() => {
+                  const avg = (this.totalExtraClouds / this.totalSGCasts || 0).toFixed(1);
+                  return (
+                    <Trans id="monk.mistweaver.tranquil_tea.avg_extra">
+                      {avg} <small>average extra clouds per cast</small>
+                    </Trans>
+                  );
+                })()
               }
             >
-              {this.totalExtraClouds} <small>extra clouds</small>
+              {this.totalExtraClouds}{' '}
+              <small>
+                <Trans id="monk.mistweaver.tranquil_tea.extra_clouds">extra clouds</Trans>
+              </small>
             </TooltipElement>
           </div>
         </TalentSpellText>

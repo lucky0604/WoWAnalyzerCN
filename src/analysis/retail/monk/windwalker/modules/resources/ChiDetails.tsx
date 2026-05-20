@@ -1,6 +1,7 @@
 // Heavily inspired by resource breakdown in Feral and Retribution
 
-import { defineMessage } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { Panel } from 'interface';
@@ -17,6 +18,8 @@ class ChiDetails extends Analyzer {
   static dependencies = {
     chiTracker: ChiTracker,
   };
+
+  protected chiTracker!: ChiTracker;
 
   get chiWasted() {
     return this.chiTracker.wasted;
@@ -42,15 +45,22 @@ class ChiDetails extends Analyzer {
     };
   }
 
-  suggestions(when) {
-    when(this.suggestionThresholds).addSuggestion((suggest, actual, recommended) =>
-      suggest('You are wasting Chi. Try to use it and not let it cap and go to waste')
+  suggestions(when: unknown) {
+    when(this.suggestionThresholds).addSuggestion((suggest: unknown, actual: unknown, recommended: unknown) =>
+      suggest(
+        defineMessage({
+          id: 'monk.windwalker.chi_details.suggest',
+          message: 'You are wasting Chi. Try to use it and not let it cap and go to waste',
+        }),
+      )
         .icon('creatureportrait_bubble')
         .actual(
           defineMessage({
             id: 'monk.windwalker.suggestions.chi.wastedPerMinute',
             message: `${this.chiWasted} Chi wasted (${actual.toFixed(2)} per minute)`,
-          }),
+            wasted: this.chiWasted,
+            perMinute: actual.toFixed(2),
+          } as unknown),
         )
         .recommended(`${recommended} Chi wasted is recommended`),
     );
@@ -61,13 +71,17 @@ class ChiDetails extends Analyzer {
       <Statistic
         size="small"
         position={STATISTIC_ORDER.CORE(1)}
-        tooltip={<>{formatPercentage(this.chiWastedPercent)}% wasted</>}
+        tooltip={
+          <Trans id="monk.windwalker.chi_details.wasted">
+            {formatPercentage(this.chiWastedPercent)}% wasted
+          </Trans>
+        }
         drilldown="../chi"
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.CHI}
           value={this.chiWasted}
-          label="Wasted Chi"
+          label={t({ id: 'monk.windwalker.chi_details.label', message: 'Wasted Chi' })}
         />
       </Statistic>
     );
@@ -75,11 +89,14 @@ class ChiDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Chi',
+      title: defineMessage({ id: 'monk.windwalker.chi_details.tab', message: 'Chi' }),
       url: 'chi',
       render: () => (
         <Panel>
-          <ResourceBreakdown tracker={this.chiTracker} resourceName="Chi" showSpenders />
+          <ResourceBreakdown
+            tracker={this.chiTracker}
+            showSpenders
+          />
         </Panel>
       ),
     };

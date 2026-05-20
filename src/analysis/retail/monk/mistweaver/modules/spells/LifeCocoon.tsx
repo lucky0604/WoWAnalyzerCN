@@ -12,6 +12,7 @@ import { TALENTS_MONK } from 'common/TALENTS';
 import { LIFE_COCOON_HEALING_BOOST } from '../../constants';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
@@ -92,14 +93,14 @@ class LifeCocoon extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(70)}
         category={STATISTIC_CATEGORY.THEORYCRAFT}
         size="flexible"
-        tooltip={<>Life Cocoon boosts HoTs from other players as wells as your own.</>}
+        tooltip={<Trans id="monk.mistweaver.life_cocoon.tooltip">Life Cocoon boosts HoTs from other players as wells as your own.</Trans>}
       >
         <TalentSpellText talent={TALENTS_MONK.LIFE_COCOON_TALENT}>
           <div>
             <ItemHealingDone amount={this.healing} />
           </div>
           <div>
-            <small>Increased HoT Healing</small>
+            <small><Trans id="monk.mistweaver.life_cocoon.label">Increased HoT Healing</Trans></small>
           </div>
         </TalentSpellText>
       </Statistic>

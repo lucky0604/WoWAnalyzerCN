@@ -44,21 +44,21 @@ const FoodPanel = ({ recommendedFoods, expansion }: Props) => {
     <PerformanceRoundedPanel performance={performance}>
       <PanelHeader className="flex">
         <div className="flex-main">
-          <strong>Current Food Buff</strong>
+          <strong>当前食物增益</strong>
         </div>
         <div className="flex-sub">
           <Soup />
         </div>
       </PanelHeader>
       {performance === QualitativePerformance.Perfect && (
-        <p>You had the best food active when starting the fight{showCurrentFoodBuff}</p>
+        <p>开战时你激活了最佳食物{showCurrentFoodBuff}</p>
       )}
       {performance === QualitativePerformance.Good && (
         <>
-          <p>You had high quality food active when starting the fight{showCurrentFoodBuff}</p>
+          <p>开战时你激活了高品质食物{showCurrentFoodBuff}</p>
           {recommendedFoods && (
             <Recommendations
-              header={<strong>Recommended Food Buff(s)</strong>}
+              header={<strong>推荐食物增益</strong>}
               recommendations={recommendedFoods}
             />
           )}
@@ -66,10 +66,10 @@ const FoodPanel = ({ recommendedFoods, expansion }: Props) => {
       )}
       {performance === QualitativePerformance.Ok && (
         <>
-          <p>You did not have the best food active when starting the fight{showCurrentFoodBuff}</p>
+          <p>开战时你没有激活最佳食物{showCurrentFoodBuff}</p>
           {recommendedFoods && (
             <Recommendations
-              header={<strong>Recommended Food Buff(s)</strong>}
+              header={<strong>推荐食物增益</strong>}
               recommendations={recommendedFoods}
             />
           )}
@@ -77,10 +77,10 @@ const FoodPanel = ({ recommendedFoods, expansion }: Props) => {
       )}
       {performance === QualitativePerformance.Fail && (
         <>
-          <p>You did not have any food active when starting the fight.</p>
+          <p>开战时你没有激活任何食物。</p>
           {recommendedFoods && (
             <Recommendations
-              header={<strong>Recommended Food Buff(s)</strong>}
+              header={<strong>推荐食物增益</strong>}
               recommendations={recommendedFoods}
             />
           )}

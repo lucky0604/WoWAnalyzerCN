@@ -1,5 +1,7 @@
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
   ApplyDebuffEvent,
@@ -171,19 +173,19 @@ class MoTCGraph extends Analyzer {
           {
             field: 'motcCount',
             type: 'quantitative' as const,
-            title: 'Mark of the Crane Count',
+            title: defineMessage({ id: 'monk.windwalker.motc_graph.motc_count', message: 'Mark of the Crane Count' }),
             format: '.3~s',
           },
           {
             field: 'bdbCount',
             type: 'quantitative' as const,
-            title: 'Bonedust Brew Debuffs',
+            title: defineMessage({ id: 'monk.windwalker.motc_graph.bdb_count', message: 'Bonedust Brew Debuffs' }),
             format: '.3~s',
           },
           {
             field: 'motcAverage',
             type: 'quantitative' as const,
-            title: 'Mark of the Crane Average',
+            title: defineMessage({ id: 'monk.windwalker.motc_graph.motc_average', message: 'Mark of the Crane Average' }),
             format: '.3~s',
           },
         ],
@@ -337,16 +339,16 @@ class MoTCGraph extends Analyzer {
   statistic() {
     return (
       <Panel
-        title="Mark of The Crane"
+        title={t({ id: 'monk.windwalker.motc_graph.title', message: 'Mark of The Crane' })}
         position={100}
         explanation={
-          <>
+          <Trans id="monk.windwalker.motc_graph.explanation">
             <SpellLink spell={SPELLS.MARK_OF_THE_CRANE} /> greatly increased the damage{' '}
             <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> does. This means you want to cast it at
             high stacks. Magenta dots are regular <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />{' '}
             casts while Orange triangles are <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />{' '}
             empowered by <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />.
-          </>
+          </Trans>
         }
       >
         {this.plot}

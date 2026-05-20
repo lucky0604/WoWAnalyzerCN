@@ -1,5 +1,6 @@
 import { useMemo, type JSX } from 'react';
 import styled from '@emotion/styled';
+import { i18n } from '@lingui/core';
 import * as MAGIC_SCHOOLS from 'game/MAGIC_SCHOOLS';
 import SpellLink from 'interface/SpellLink';
 import Tooltip from 'interface/Tooltip';
@@ -8,6 +9,7 @@ import { AbilityEvent, DamageEvent, SourcedEvent } from 'parser/core/Events';
 import Enemies, { encodeTargetString } from 'parser/shared/modules/Enemies';
 import { qualitativePerformanceToColor, useAnalyzer, useInfo } from '../index';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { maybeGetTalentOrSpell } from 'common/maybeGetTalentOrSpell';
 
 export interface TrackedHit {
   /** How good a job the player did of mitigating the tracked hit */
@@ -126,12 +128,17 @@ export function DamageSourceLink({
   // this prevents unneeded re-renders of child components due to object identity differences
   const style = useMemo(() => ({ ...damageSourceStyle, color }), [color]);
   const { npc: npcTooltip } = useTooltip();
+  const spell = maybeGetTalentOrSpell(ability.guid);
 
   if (showSourceName) {
     const enemy = enemies?.getSourceEntity(event);
+    let displayName = spell?.name ?? ability.name;
+    if (i18n.locale === 'zh' && displayName === 'Melee') {
+      displayName = '普通攻击';
+    }
     return (
       <a href={npcTooltip(enemy?.guid ?? 0)} style={style}>
-        {enemy?.name ?? 'Unknown'} ({ability.name})
+        {enemy?.name ?? '未知'} ({displayName})
       </a>
     );
   } else {

@@ -90,7 +90,7 @@ function HealingStat() {
   return (
     <StatBoxStat>
       <dt>
-        <img src="/img/healing.png" /> HPS
+        <img src="/img/healing.png" /> 每秒治疗
       </dt>
       <dd>{formatNumber(combatLogParser.getModule(HealingDone).total.effective / duration)}</dd>
     </StatBoxStat>
@@ -108,7 +108,7 @@ function DamageStat() {
   return (
     <StatBoxStat>
       <dt>
-        <DamageIcon /> DPS
+        <DamageIcon /> 每秒伤害
       </dt>
       <dd>{formatNumber(combatLogParser.getModule(DamageDone).total.effective / duration)}</dd>
     </StatBoxStat>
@@ -126,7 +126,7 @@ function BossDamageStat() {
   return (
     <StatBoxStat>
       <dt>
-        <DamageIcon /> Boss DPS
+        <DamageIcon /> Boss 每秒伤害
       </dt>
       <dd>{formatNumber(combatLogParser.getModule(DamageDone).totalBoss.effective / duration)}</dd>
     </StatBoxStat>

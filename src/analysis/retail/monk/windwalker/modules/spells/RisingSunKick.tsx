@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -18,11 +19,13 @@ class RisingSunKick extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} />
-        </b>{' '}
-        is one of your primary dps skills and should be used immediately in most cases, as dictated
-        by the APL.
+        <Trans id="monk.windwalker.rising_sun_kick.explanation">
+          <b>
+            <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} />
+          </b>{' '}
+          is one of your primary dps skills and should be used immediately in most cases, as dictated
+          by the APL.
+        </Trans>
       </p>
     );
 
@@ -30,7 +33,9 @@ class RisingSunKick extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} /> cast efficiency
+            <Trans id="monk.windwalker.rising_sun_kick.cast_efficiency">
+              <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>

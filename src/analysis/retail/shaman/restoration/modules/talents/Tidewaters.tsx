@@ -1,4 +1,6 @@
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import TALENTS_SHAMAN from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
@@ -60,12 +62,18 @@ export default class Tidewaters extends Analyzer {
           <>
             <ul>
               <li>
-                You cast {this.healingRainCasts}{' '}
-                <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} /> over the course of the
-                fight, that healed {this.tidewatersHealingEvents} targets under{' '}
-                <SpellLink spell={TALENTS_SHAMAN.RIPTIDE_TALENT} />.
+                <Trans id="shaman.restoration.tidewaters.casts_tooltip">
+                  You cast {this.healingRainCasts}{' '}
+                  <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} /> over the course of the
+                  fight, that healed {this.tidewatersHealingEvents} targets under{' '}
+                  <SpellLink spell={TALENTS_SHAMAN.RIPTIDE_TALENT} />.
+                </Trans>
               </li>
-              <li>This talent overhealed for {this.tidewatersOverhealPercent} %</li>
+              <li>
+                <Trans id="shaman.restoration.tidewaters.overheal">
+                  This talent overhealed for {this.tidewatersOverhealPercent} %
+                </Trans>
+              </li>
             </ul>
           </>
         }
@@ -78,7 +86,7 @@ export default class Tidewaters extends Analyzer {
             {this.healingRainCasts > 0 && (
               <>
                 {(this.tidewatersHealingEvents / this.healingRainCasts).toFixed(2)}{' '}
-                <small>average targets</small>
+                <small>{t({ id: 'shaman.restoration.tidewaters.avg_targets', message: 'average targets' })}</small>
               </>
             )}
           </div>

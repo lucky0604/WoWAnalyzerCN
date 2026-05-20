@@ -2,6 +2,7 @@ import { formatPercentage, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing, calculateOverhealing } from 'parser/core/EventCalculateLib';
 import Events, { CastEvent } from 'parser/core/Events';
@@ -54,16 +55,26 @@ class InvigoratingMists extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            <div>
-              Effective <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} /> healing:{' '}
-              {formatNumber(this.healing)}
-            </div>
-            <div>
-              Overhealing: {formatNumber(this.overhealing)} (
-              {formatPercentage(this.overhealing / (this.healing + this.overhealing))}%)
-            </div>
-          </>
+          (() => {
+            const healing = formatNumber(this.healing);
+            const overhealing = formatNumber(this.overhealing);
+            const pct = formatPercentage(this.overhealing / (this.healing + this.overhealing));
+            return (
+              <>
+                <div>
+                  <Trans id="monk.mistweaver.invigorating_mists.effective_healing">
+                    Effective <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} /> healing:{' '}
+                    {healing}
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.invigorating_mists.overhealing">
+                    Overhealing: {overhealing} ({pct}%)
+                  </Trans>
+                </div>
+              </>
+            );
+          })()
         }
       >
         <TalentSpellText talent={TALENTS_MONK.INVIGORATING_MISTS_TALENT}>

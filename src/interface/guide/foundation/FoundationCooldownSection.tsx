@@ -45,35 +45,31 @@ export function FoundationCooldownSection({
     <SubSection title={t({ id: 'guide.foundation.cooldowns', message: 'Use Your Cooldowns' })}>
       <Explanation>
         <Para>
-          Perfect cooldown usage is a combination of in-depth fight knowledge and player skill.
-          However, 90% of the time you can get 90% of those results by{' '}
+          完美的冷却使用是深入的了解战斗机制和玩家技术的结合。然而，90%的情况下，你只需做到以下几点就能获得90%的效果：{' '}
           <strong>
             {t({
               id: 'guide.foundation.cooldowns.keyPoint',
-              message: 'making sure to use every cooldown available to you.',
+              message: '确保使用所有可用的冷却技能。',
             })}
           </strong>
         </Para>
         <Para>
-          The key idea is to{' '}
+          关键在于{' '}
           <HL>
             {t({
               id: 'guide.foundation.cooldowns.maximizeUsage',
-              message: 'use your cooldowns as many times as you can.',
+              message: '尽可能多地使用你的冷却技能。',
             })}
-          </HL>{' '}
-          For example, you can use a 2-minute cooldown <em>at most</em> 3 times in a 2m 30s boss
-          fight. As long as you hit all 3 uses, it is okay to delay it for a better time.
+          </HL>
+          。例如，你可以在6分钟的战斗中最多使用3次2分钟冷却的技能。只要你用完了全部3次，稍微延迟使用以等待更好的时机也是可以的。
         </Para>
       </Explanation>
       <Para>
         <CooldownGraphSubsection cooldowns={cooldowns} />
       </Para>
       <AlertInfo>
-        Getting the most out of your cooldowns requires up-to-date knowledge of your spec and the
-        boss fights. We highly recommend finding a community for your class like the{' '}
-        <a href="https://www.wowhead.com/discord-servers">Community Discords</a> to get more
-        information about improving your cooldown use!
+        要最大化利用你的冷却技能，需要掌握专精和首领战的最新知识。我们强烈建议你加入职业社区，例如职业
+        Discord 社区服务器，以获取更多关于改善冷却技能使用的信息！
       </AlertInfo>
     </SubSection>
   );

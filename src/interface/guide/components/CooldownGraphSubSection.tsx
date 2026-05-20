@@ -67,10 +67,8 @@ const CooldownGraphSubsection = ({
 
   description = description ?? (
     <>
-      <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
-      you waited to use them again. Grey segments show when the spell was available, yellow segments
-      show when the spell was cooling down. Red segments highlight times when you could have fit a
-      whole extra use of the cooldown.
+      <strong>冷却图表</strong>
+      — 此图显示你何时使用了冷却技能以及再次使用前的等待时间。灰色段表示技能可用，黄色段表示技能冷却中。红色段高亮表示你本可以完整多使用一次该冷却的时间段。
     </>
   );
 

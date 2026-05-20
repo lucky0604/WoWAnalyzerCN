@@ -1,4 +1,5 @@
 import SPELLS from 'common/SPELLS';
+import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ApplyBuffEvent, RemoveBuffEvent } from 'parser/core/Events';
@@ -88,19 +89,19 @@ class ElementalBlast extends Analyzer {
     const items = [
       {
         color: '#9256ff',
-        label: <>Mastery</>,
+        label: <Trans id="shaman.elemental.eb.mastery">Mastery</Trans>,
         spellId: SPELLS.ELEMENTAL_BLAST_MASTERY.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_MASTERY.id],
       },
       {
         color: '#0ed59b',
-        label: <>Haste</>,
+        label: <Trans id="shaman.elemental.eb.haste">Haste</Trans>,
         spellId: SPELLS.ELEMENTAL_BLAST_HASTE.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_HASTE.id],
       },
       {
         color: '#e01c1c',
-        label: <>Crit</>,
+        label: <Trans id="shaman.elemental.eb.crit">Crit</Trans>,
         spellId: SPELLS.ELEMENTAL_BLAST_CRIT.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_CRIT.id],
       },
@@ -113,7 +114,9 @@ class ElementalBlast extends Analyzer {
       <Statistic position={STATISTIC_ORDER.OPTIONAL()} category={STATISTIC_CATEGORY.TALENTS}>
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS.ELEMENTAL_BLAST_TALENT} /> stat distribution
+            <Trans id="shaman.elemental.eb.distribution">
+              <SpellLink spell={TALENTS.ELEMENTAL_BLAST_TALENT} /> stat distribution
+            </Trans>
           </label>
           {this.elementalBlastDonut()}
         </div>

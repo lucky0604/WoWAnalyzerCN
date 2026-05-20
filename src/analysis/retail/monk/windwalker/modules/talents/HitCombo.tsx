@@ -1,6 +1,8 @@
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import UptimeIcon from 'interface/icons/Uptime';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
 import Events, { DamageEvent } from 'parser/core/Events';
@@ -70,20 +72,38 @@ class HitCombo extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <div>Total damage increase: {formatNumber(this.totalDamage)}</div>
-            <div>Uptime is weighted so less stacks count less towards 100% uptime</div>
+            <div>
+              <Trans id="monk.windwalker.hitcombo.total_dmg_inc">
+                Total damage increase: {formatNumber(this.totalDamage)}
+              </Trans>
+            </div>
+            <div>
+              <Trans id="monk.windwalker.hitcombo.uptime_weighted">
+                Uptime is weighted so less stacks count less towards 100% uptime
+              </Trans>
+            </div>
           </>
         }
       >
         <BoringSpellValueText spell={TALENTS_MONK.HIT_COMBO_TALENT}>
           <div>
-            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>Weighted uptime</small>
+            <UptimeIcon /> {formatPercentage(this.uptime)}%{' '}
+            <small>
+              <Trans id="monk.windwalker.hitcombo.weighted_uptime">Weighted uptime</Trans>
+            </small>
           </div>
           <div>
-            <img src="/img/sword.png" alt="Damage" className="icon" /> {formatNumber(this.dps)} DPS{' '}
+            <img
+              src="/img/sword.png"
+              alt={t({ id: 'monk.windwalker.hitcombo.weighted_uptime', message: 'Damage' })}
+              className="icon"
+            />{' '}
+            {formatNumber(this.dps)} DPS{' '}
             <small>
-              {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.totalDamage))} % of
-              total
+              <Trans id="monk.windwalker.hitcombo.pct_total">
+                {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.totalDamage))} % of
+                total
+              </Trans>
             </small>
           </div>
         </BoringSpellValueText>

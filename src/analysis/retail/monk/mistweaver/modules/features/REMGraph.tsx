@@ -8,6 +8,8 @@ import Panel from 'parser/ui/Panel';
 import { VisualizationSpec } from 'react-vega';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { getCurrentRSKTalent, SPELL_COLORS } from '../../constants';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 interface SpellTracker {
   timestamp: number;
@@ -99,7 +101,7 @@ class REMGraph extends Analyzer {
       scale: {
         nice: false,
       },
-      title: 'Time',
+      title: defineMessage({ id: 'monk.mistweaver.rem_graph.time', message: 'Time' }),
     };
 
     const spec: VisualizationSpec = {
@@ -230,7 +232,7 @@ class REMGraph extends Analyzer {
             y: {
               field: 'remCount',
               type: 'quantitative' as const,
-              title: 'Count',
+              title: defineMessage({ id: 'monk.mistweaver.rem_graph.count', message: 'Count' }),
             },
             color: { datum: 'Rising Sun Kick', value: SPELL_COLORS.RISING_SUN_KICK },
           },
@@ -278,10 +280,10 @@ class REMGraph extends Analyzer {
   statistic() {
     return (
       <Panel
-        title="Renewing Mist Graph"
+        title={t({ id: 'monk.mistweaver.rem_graph.title', message: 'Renewing Mist Graph' })}
         position={99}
         explanation={
-          <>
+          <Trans id="monk.mistweaver.rem_graph.explanation">
             <SpellLink spell={SPELLS.VIVIFY} /> also heals any targets that have{' '}
             <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />. This means casting{' '}
             <SpellLink spell={SPELLS.VIVIFY} /> while having high amounts of{' '}
@@ -290,7 +292,7 @@ class REMGraph extends Analyzer {
             consuming a <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} /> buff is
             orange. Red triangles indicate <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} />{' '}
             casts.
-          </>
+          </Trans>
         }
       >
         {this.plot}

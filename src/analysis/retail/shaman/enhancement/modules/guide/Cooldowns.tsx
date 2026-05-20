@@ -1,4 +1,6 @@
 import { GuideProps, Section, SubSection, useAnalyzer, useInfo } from 'interface/guide';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS/shaman';
@@ -37,17 +39,19 @@ const COOLDOWNS: Cooldown[] = [
 
 function Cooldowns({ info, modules, events }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Core">
+    <Section title={t({ id: 'shaman.enhancement.cooldowns.core_title', message: 'Core' })}>
       {modules.hotHand.guideSubsection}
       {modules.doomWinds.guideSubsection}
       {modules.primordialStorm.guideSubsection}
       {modules.elementalTempo.guideSubsection}
       {modules.stormUnleashed.guideSubsection}
-      <SubSection title="Cooldowns">
+      <SubSection title={t({ id: 'shaman.enhancement.cooldowns.cooldowns_title', message: 'Cooldowns' })}>
         <p>
-          <strong>Cooldowns</strong> - this graph shows when you used your major cooldowns and how
-          long you waited to use them again. Unless you're holding these for specific raid events,
-          try to use these on as soon as they become available.
+          <Trans id="shaman.enhancement.cooldowns.description">
+            <strong>Cooldowns</strong> - this graph shows when you used your major cooldowns and how
+            long you waited to use them again. Unless you're holding these for specific raid events,
+            try to use these on as soon as they become available.
+          </Trans>
         </p>
         <CooldownGraphSubsection checklist={COOLDOWNS} />
       </SubSection>

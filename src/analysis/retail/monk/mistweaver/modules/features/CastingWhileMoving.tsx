@@ -13,6 +13,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import DistanceMoved from 'parser/shared/modules/DistanceMoved';
 
@@ -94,23 +95,40 @@ class CastingWhileMoving extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.GENERAL}
         tooltip={
-          <>
-            <div>
-              <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />: {formatNumber(soomMovement)}{' '}
-              yards
-            </div>
-            <div>
-              <SpellLink spell={SPELLS.CRACKLING_JADE_LIGHTNING} />: {formatNumber(cjlMovement)}{' '}
-              yards
-            </div>
-          </>
+          (() => {
+            const soom = formatNumber(soomMovement);
+            const cjl = formatNumber(cjlMovement);
+            return (
+              <>
+                <div>
+                  <Trans id="monk.mistweaver.casting_while_moving.soom">
+                    <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />: {soom} yards
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.casting_while_moving.cjl">
+                    <SpellLink spell={SPELLS.CRACKLING_JADE_LIGHTNING} />: {cjl} yards
+                  </Trans>
+                </div>
+              </>
+            );
+          })()
         }
       >
         <div className={`pad boring-text`}>
-          <label>Casting while moving</label>
+          <label>
+            <Trans id="monk.mistweaver.casting_while_moving.label">Casting while moving</Trans>
+          </label>
           <div className="value">
-            ≈ {formatNumber(totalMovement)} yards{' '}
-            <small>{formatPercentage(percentOfTotal)}% of total</small>
+            {(() => {
+              const yards = formatNumber(totalMovement);
+              const pct = formatPercentage(percentOfTotal);
+              return (
+                <Trans id="monk.mistweaver.casting_while_moving.value">
+                  ≈ {yards} yards <small>{pct}% of total</small>
+                </Trans>
+              );
+            })()}
           </div>
         </div>
       </Statistic>

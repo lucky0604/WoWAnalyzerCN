@@ -20,10 +20,10 @@ export const HideExplanationsToggle = ({
           id={id}
           enabled={hideExplanations}
           setEnabled={setHideExplanations}
-          label={label ?? 'Hide Explanations'}
+          label={label ?? '隐藏说明'}
           tooltipContent={
             tooltipContent ??
-            "Enabling this feature will hide explanations throughout the Guide. Don't worry, you can always bring them back."
+            '启用此功能将在指南中隐藏说明。不用担心，你可以随时重新显示。'
           }
         />
       </div>

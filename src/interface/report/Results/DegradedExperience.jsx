@@ -65,26 +65,24 @@ class DegradedExperience extends Component {
     return (
       <div className="container">
         <AlertDanger style={{ marginBottom: 30 }}>
-          <h2>Degraded experience</h2>
+          <h2>分析体验受损</h2>
           <span style={{ color: 'white' }}>{toTitleCase(this.firstError)}</span>{' '}
           {this.disabledModuleCount > 1 && (
             <>
-              and {this.disabledModuleCount - 1} other module
-              {this.disabledModuleCount > 2 && 's'}{' '}
+              及其他 {this.disabledModuleCount - 1} 个模块{' '}
             </>
           )}
-          encountered an error and had to be disabled.{' '}
+          遇到错误并已被禁用。{' '}
           {this.disabledDependencyCount > 1 && (
             <>
-              As a consequence{' '}
-              <span style={{ color: 'white' }}>{this.disabledDependencyCount}</span> other modules
-              had to be disabled as they depend on these modules.
+              因此另有{' '}
+              <span style={{ color: 'white' }}>{this.disabledDependencyCount}</span> 个依赖模块也被禁用。
             </>
           )}{' '}
-          Results may be incomplete. Please report this issue to us on{' '}
-          <a href="https://wowanalyzer.com/discord">Discord</a> so we can fix it!{' '}
+          分析结果可能不完整。请在{' '}
+          <a href="https://wowanalyzer.com/discord">Discord</a> 上向我们反馈此问题！{' '}
           <a href="#" onClick={this.toggleDetails}>
-            {this.state.expanded ? 'Less information' : 'More information'}
+            {this.state.expanded ? '收起详情' : '查看详情'}
           </a>
           {this.state.expanded && (
             <>
@@ -97,7 +95,7 @@ class DegradedExperience extends Component {
                 .map((state) => (
                   <div key={state}>
                     {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-                    The following modules have been disabled due to errors during {state}:<br />
+                    以下模块因在 {state} 阶段出错而被禁用：<br />
                     <div style={{ color: 'white' }}>
                       {disabledModules[state]
                         .sort((a, b) => a.key.localeCompare(b.key))

@@ -22,6 +22,8 @@ import { Section, SubSection } from 'interface/guide';
 import { CSSProperties } from 'react';
 import '../../ui/RisingMist.scss';
 import { Talent } from 'common/TALENTS/types';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const debug = false;
 
@@ -353,20 +355,20 @@ class RisingMist extends Analyzer {
 
   getAverageDuration(hotHistory: Tracker[]) {
     const duration = hotHistory.reduce((sum, hot) => sum + this.getDuration(hot), 0);
-    return ' - Average Duration: ' + formatDuration(duration / hotHistory.length) + ' seconds';
+    return ' - ' + defineMessage({ id: 'monk.mistweaver.rising_mist.average', message: 'Average' }) + ': ' + formatDuration(duration / hotHistory.length);
   }
 
   getSource(hot: Tracker) {
     if (this.hotTracker.fromDancingMists(hot)) {
-      return 'Dancing Mist';
+      return defineMessage({ id: 'monk.mistweaver.rising_mist.dancing_mist', message: 'Dancing Mist' });
     } else if (this.hotTracker.fromHardcast(hot)) {
-      return 'Hardcast';
+      return defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' });
     } else if (this.hotTracker.fromRapidDiffusion(hot)) {
-      return 'Rapid Diffusion';
+      return defineMessage({ id: 'monk.mistweaver.rising_mist.rapid_diffusion', message: 'Rapid Diffusion' });
     } else if (this.hotTracker.fromMistyPeaks(hot)) {
-      return 'Misty Peaks';
+      return defineMessage({ id: 'monk.mistweaver.rising_mist.misty_peaks', message: 'Misty Peaks' });
     } else if (this.hotTracker.fromMistsOfLife(hot)) {
-      return 'Mists of Life';
+      return defineMessage({ id: 'monk.mistweaver.rising_mist.mists_of_life', message: 'Mists of Life' });
     }
   }
 
@@ -455,11 +457,13 @@ class RisingMist extends Analyzer {
                 hotHistory,
               ),
             ) +
-            ' Average)'
+            ' ' + t({ id: 'monk.mistweaver.rising_mist.average', message: 'Average' }) + ')'
           }
         >
           <SubSection>
-            <div style={liDivTitle}>HoT and Source</div>
+            <div style={liDivTitle}>
+              <Trans id="monk.mistweaver.rising_mist.hot_and_source">HoT and Source</Trans>
+            </div>
 
             <div
               style={{
@@ -470,7 +474,9 @@ class RisingMist extends Analyzer {
                 width: '45%',
               }}
             >
-              Duration and Percent Extended
+              <Trans id="monk.mistweaver.rising_mist.duration_extended">
+                Duration and Percent Extended
+              </Trans>
             </div>
           </SubSection>
           <ul className="list">
@@ -522,7 +528,11 @@ class RisingMist extends Analyzer {
       ATTRIBUTION_STRINGS.HARDCAST_RENEWING_MIST,
       true,
     );
-    const rementries = this.hotTable(SPELLS.RENEWING_MIST_HEAL.id, remHardcastHistory, 'Hardcast');
+    const rementries = this.hotTable(
+      SPELLS.RENEWING_MIST_HEAL.id,
+      remHardcastHistory,
+      defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+    );
     const rdRemHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       SPELLS.RENEWING_MIST_HEAL.id,
       ATTRIBUTION_STRINGS.RAPID_DIFFUSION_RENEWING_MIST,
@@ -531,14 +541,18 @@ class RisingMist extends Analyzer {
     const rdRemEntries = this.hotTable(
       SPELLS.RENEWING_MIST_HEAL.id,
       rdRemHistory,
-      'Rapid Diffusion',
+      defineMessage({ id: 'monk.mistweaver.rising_mist.rapid_diffusion', message: 'Rapid Diffusion' }),
     );
     const dmRemHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       SPELLS.RENEWING_MIST_HEAL.id,
       ATTRIBUTION_STRINGS.DANCING_MIST_RENEWING_MIST,
       false,
     );
-    const dmRemEntries = this.hotTable(SPELLS.RENEWING_MIST_HEAL.id, dmRemHistory, 'Dancing Mist');
+    const dmRemEntries = this.hotTable(
+      SPELLS.RENEWING_MIST_HEAL.id,
+      dmRemHistory,
+      defineMessage({ id: 'monk.mistweaver.rising_mist.dancing_mist', message: 'Dancing Mist' }),
+    );
     const mistyPeaksHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
       ATTRIBUTION_STRINGS.MISTY_PEAKS_ENVELOPING_MIST,
@@ -547,7 +561,7 @@ class RisingMist extends Analyzer {
     const mistyPeaksentries = this.hotTable(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
       mistyPeaksHistory,
-      'Misty Peaks',
+      defineMessage({ id: 'monk.mistweaver.rising_mist.misty_peaks', message: 'Misty Peaks' }),
     );
     const envHardcastHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
@@ -557,7 +571,7 @@ class RisingMist extends Analyzer {
     const envEntries = this.hotTable(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
       envHardcastHistory,
-      'Hardcast',
+      defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
     );
 
     return [rementries, rdRemEntries, dmRemEntries, envEntries, mistyPeaksentries];
@@ -565,15 +579,18 @@ class RisingMist extends Analyzer {
 
   tab() {
     return {
-      title: 'Rising Mist',
+      title: defineMessage({ id: 'monk.mistweaver.rising_mist.tab_title', message: 'Rising Mist' }),
       url: 'rising-mist',
       render: () => (
         <Panel
-          title="Rising Mist Extension"
-          explanation="Listing of each applied hots' total duration after extension. *Keep in mind that there is latency time between Renewing Mist bounces which can give the appearance of hots lasting longer than 100% of max duration limit of Rising Mist*"
+          title={t({ id: 'monk.mistweaver.rising_mist.panel_title', message: 'Rising Mist Extension' })}
+          explanation={t({
+            id: 'monk.mistweaver.rising_mist.panel_explanation',
+            message: "Listing of each applied hots' total duration after extension. *Keep in mind that there is latency time between Renewing Mist bounces which can give the appearance of hots lasting longer than 100% of max duration limit of Rising Mist*",
+          })}
           className={'rising-mist-tab'}
         >
-          <Section title="Click to expand/collapse each section for each hot by source application">
+          <Section title={t({ id: 'monk.mistweaver.rising_mist.click_to_expand', message: 'Click to expand/collapse each section for each hot by source application' })}>
             {this.entries()}
           </Section>
         </Panel>

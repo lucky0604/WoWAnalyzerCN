@@ -36,7 +36,7 @@ const ValueData = styled.td`
 export function AplSummary({ apl, results }: { apl: Apl; results: CheckResult }) {
   return (
     <>
-      <AplSubsectionHeader>Priority List</AplSubsectionHeader>
+      <AplSubsectionHeader>优先级列表</AplSubsectionHeader>
       <AplRules apl={apl} results={results} />
     </>
   );
@@ -57,11 +57,11 @@ function AplSummaryColumn({
   return (
     <div>
       <TopSection apl={apl} results={results} />
-      <AplSubsectionHeader>Details</AplSubsectionHeader>
+      <AplSubsectionHeader>详情</AplSubsectionHeader>
       <AplSummaryTable>
         <tbody>
           <tr>
-            <td>Accuracy</td>
+            <td>准确率</td>
             <ValueData>
               {formatPercentage(
                 results.successes.length / (results.successes.length + results.violations.length),
@@ -73,13 +73,13 @@ function AplSummaryColumn({
               <PassFailBar
                 pass={results.successes.length}
                 total={results.successes.length + results.violations.length}
-                passTooltip={`Correct Uses: ${results.successes.length}`}
-                failTooltip={`Incorrect Uses: ${results.violations.length}`}
+                passTooltip={`正确使用: ${results.successes.length}`}
+                failTooltip={`错误使用: ${results.violations.length}`}
               />
             </td>
           </tr>
           <tr>
-            <td>Total Abilities Used</td>
+            <td>总技能使用次数</td>
             <ValueData>{results.successes.length + results.violations.length}</ValueData>
             <td />
           </tr>
@@ -147,7 +147,7 @@ export function AplSectionData({
       <AplLayout>
         <AplSummaryColumn apl={apl} results={result} topSection={Summary} />
         <AplViolationContainer>
-          <AplSubsectionHeader>Most Common Problems</AplSubsectionHeader>
+          <AplSubsectionHeader>最常见问题</AplSubsectionHeader>
           <AplViolationExplanations
             apl={apl}
             result={result}

@@ -13,6 +13,7 @@ import Combatants from 'parser/shared/modules/Combatants';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import { SpellLink, TooltipElement } from 'interface';
 import { formatNumber } from 'common/format';
+import { Trans } from '@lingui/react/macro';
 
 class JadefireStomp extends Analyzer {
   static dependencies = {
@@ -113,24 +114,61 @@ class JadefireStomp extends Analyzer {
             {this.specIsMW && (
               <ul>
                 <li>
-                  {formatNumber(this.healing)}{' '}
-                  <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} /> healing (
-                  {formatNumber(this.overhealing)} overheal){' '}
+                  {(() => {
+                    const healing = formatNumber(this.healing);
+                    const overheal = formatNumber(this.overhealing);
+                    return (
+                      <Trans id="monk.shared.jfs.healing">
+                        {healing}{' '}
+                        <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} /> healing (
+                        {overheal} overheal){' '}
+                      </Trans>
+                    );
+                  })()}
                 </li>
                 <li>
-                  {formatNumber(this.gomHealing)} <SpellLink spell={SPELLS.GUSTS_OF_MISTS} />{' '}
-                  healing ({formatNumber(this.gomOverhealing)} overheal)
+                  {(() => {
+                    const healing = formatNumber(this.gomHealing);
+                    const overheal = formatNumber(this.gomOverhealing);
+                    return (
+                      <Trans id="monk.shared.jfs.gom_healing">
+                        {healing} <SpellLink spell={SPELLS.GUSTS_OF_MISTS} />{' '}
+                        healing ({overheal} overheal)
+                      </Trans>
+                    );
+                  })()}
                 </li>
                 <li>
-                  {this.resets} <small>resets</small>{' '}
+                  {(() => {
+                    const resets = this.resets;
+                    return (
+                      <Trans id="monk.shared.jfs.resets">
+                        {resets} <small>resets</small>{' '}
+                      </Trans>
+                    );
+                  })()}
                 </li>
                 <li>
-                  {(this.targetsDamaged / this.jfsCasts).toFixed(2)}{' '}
-                  <small>Foes Hit per cast</small>
+                  {(() => {
+                    const ratio = (this.targetsDamaged / this.jfsCasts).toFixed(2);
+                    return (
+                      <Trans id="monk.shared.jfs.foes_hit">
+                        {ratio}{' '}
+                        <small>Foes Hit per cast</small>
+                      </Trans>
+                    );
+                  })()}
                 </li>
                 <li>
-                  {(this.targetsHealed / this.jfsCasts).toFixed(2)}{' '}
-                  <small>Allies Hit per cast</small>
+                  {(() => {
+                    const ratio = (this.targetsHealed / this.jfsCasts).toFixed(2);
+                    return (
+                      <Trans id="monk.shared.jfs.allies_hit">
+                        {ratio}{' '}
+                        <small>Allies Hit per cast</small>
+                      </Trans>
+                    );
+                  })()}
                 </li>
               </ul>
             )}
@@ -145,25 +183,58 @@ class JadefireStomp extends Analyzer {
               </div>
               <TooltipElement
                 content={
-                  <>
-                    {formatNumber(this.rawHealingPerCast)} <small>raw healing per cast</small>
-                  </>
+                  (() => {
+                    const amount = formatNumber(this.rawHealingPerCast);
+                    return (
+                      <Trans id="monk.shared.jfs.raw_healing_per_cast">
+                        {amount} <small>raw healing per cast</small>
+                      </Trans>
+                    );
+                  })()
                 }
               >
-                {formatNumber(this.averageHealingPerCast)} <small>healing per cast</small>
+                {(() => {
+                  const amount = formatNumber(this.averageHealingPerCast);
+                  return (
+                    <Trans id="monk.shared.jfs.healing_per_cast">
+                      {amount} <small>healing per cast</small>
+                    </Trans>
+                  );
+                })()}
               </TooltipElement>
             </>
           ) : (
             <>
               <div>
-                {this.resets} <small>resets</small>
+                {(() => {
+                  const resets = this.resets;
+                  return (
+                    <Trans id="monk.shared.jfs.resets">
+                      {resets} <small>resets</small>
+                    </Trans>
+                  );
+                })()}
               </div>
               <div>
-                {(this.targetsDamaged / this.jfsCasts).toFixed(2)}{' '}
-                <small>Foes Hit per cast</small>{' '}
+                {(() => {
+                  const ratio = (this.targetsDamaged / this.jfsCasts).toFixed(2);
+                  return (
+                    <Trans id="monk.shared.jfs.foes_hit">
+                      {ratio}{' '}
+                      <small>Foes Hit per cast</small>{' '}
+                    </Trans>
+                  );
+                })()}
               </div>
               <div>
-                {(this.targetsHealed / this.jfsCasts).toFixed(2)} <small>Allies Hit per cast</small>
+                {(() => {
+                  const ratio = (this.targetsHealed / this.jfsCasts).toFixed(2);
+                  return (
+                    <Trans id="monk.shared.jfs.allies_hit">
+                      {ratio} <small>Allies Hit per cast</small>
+                    </Trans>
+                  );
+                })()}
               </div>
             </>
           )}

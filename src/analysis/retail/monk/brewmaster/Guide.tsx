@@ -294,26 +294,6 @@ const ROTATIONAL_BREWS = [
   talents.BLACK_OX_BREW_TALENT,
 ];
 
-const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = {
-  label: defineMessage({ id: 'monk.brewmaster.castEfficiency.label', message: 'Cast Efficiency' }),
-  expand: true,
-  render({ casts, maxCasts }) {
-    return (
-      <div className={styles.castEfficiencyColumn}>
-        <PassFailBar pass={casts} total={maxCasts} />
-      </div>
-    );
-  },
-};
-
-const elevatedCdrColumn: Column<{ elevatedCdrMs: number }> = {
-  label: defineMessage({ id: 'monk.brewmaster.elevatedCdr.label', message: 'Elevated CDR' }),
-  render({ elevatedCdrMs }) {
-    return formatDurationMinSec(elevatedCdrMs / 1000);
-  },
-  align: 'right',
-};
-
 function CastEfficiencyTipBox({
   spells,
   title,
@@ -343,6 +323,21 @@ function CastEfficiencyTipBox({
       });
   }, [spells, castEfficiency]);
 
+  const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = useMemo(
+    () => ({
+      label: defineMessage({ id: 'monk.brewmaster.castEfficiency.label', message: 'Cast Efficiency' }),
+      expand: true,
+      render({ casts, maxCasts }) {
+        return (
+          <div className={styles.castEfficiencyColumn}>
+            <PassFailBar pass={casts} total={maxCasts} />
+          </div>
+        );
+      },
+    }),
+    [],
+  );
+
   if (!castEfficiency) {
     return null;
   }
@@ -366,16 +361,8 @@ function CastEfficiencyTipBox({
               'maxCasts',
             ),
             cpm: literalNumberColumn(
-              <TooltipElement
-                content={t({
-                  id: 'monk.brewmaster.castEfficiency.cpmTooltip',
-                  message: 'Casts per Minute',
-                })}
-              >
-                CPM
-              </TooltipElement>,
+              t({ id: 'monk.brewmaster.castEfficiency.cpm', message: 'CPM' }),
               'cpm',
-              false,
             ),
           }}
           data={data}
@@ -409,6 +396,32 @@ function ElevatedPurifyTipBox() {
       },
     ];
   }, [castEfficiency, highTolerance]);
+
+  const elevatedCdrColumn: Column<{ elevatedCdrMs: number }> = useMemo(
+    () => ({
+      label: defineMessage({ id: 'monk.brewmaster.elevatedCdr.label', message: 'Elevated CDR' }),
+      render({ elevatedCdrMs }) {
+        return formatDurationMinSec(elevatedCdrMs / 1000);
+      },
+      align: 'right',
+    }),
+    [],
+  );
+
+  const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = useMemo(
+    () => ({
+      label: defineMessage({ id: 'monk.brewmaster.castEfficiency.label', message: 'Cast Efficiency' }),
+      expand: true,
+      render({ casts, maxCasts }) {
+        return (
+          <div className={styles.castEfficiencyColumn}>
+            <PassFailBar pass={casts} total={maxCasts} />
+          </div>
+        );
+      },
+    }),
+    [],
+  );
 
   if (!castEfficiency || !highTolerance?.active) {
     return null;

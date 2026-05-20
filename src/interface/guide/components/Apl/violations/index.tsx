@@ -87,11 +87,11 @@ function AplViolationExplanation<T = unknown>({
       <div>
         {children}
         <ClaimCountDescription>
-          <small>{formatPercentage(claimData.claims.size / totalViolations, 0)}% of mistakes</small>{' '}
+          <small>{formatPercentage(claimData.claims.size / totalViolations, 0)}% 的错误</small>{' '}
           <ClaimCountBar pass={claimData.claims.size} total={totalViolations} />
         </ClaimCountDescription>
       </div>
-      <ShowMeButton onClick={() => setSelection?.({ describer, claimData })}>Show Me!</ShowMeButton>
+      <ShowMeButton onClick={() => setSelection?.({ describer, claimData })}>查看详情!</ShowMeButton>
     </EmbedContainer>
   );
 }
@@ -188,7 +188,7 @@ export function AplViolationExplanations({
   }
 
   if (appliedClaims.length === 0) {
-    return <NoProblem>No major problems found.</NoProblem>;
+    return <NoProblem>未发现重大问题。</NoProblem>;
   }
 
   return (
@@ -286,7 +286,7 @@ export default function ViolationProblemList<T = unknown>({
         info={info}
         renderer={renderer}
         problems={problems}
-        label="Example"
+        label="示例"
       />
     </AplViolationTimelineContainer>
   );

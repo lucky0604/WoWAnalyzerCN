@@ -19,9 +19,19 @@ const ResourceLink = ({ icon = true, ...props }: Props) => {
     throw new Error(`Unknown spell: ${id}`);
   }
 
+  const url = resourceTooltip(id);
+
+  if (!url) {
+    return (
+      <span className={category} {...other}>
+        {icon && <ResourceIcon id={id} noLink />} {children || RESOURCE_TYPES[id].name}
+      </span>
+    );
+  }
+
   return (
     <a
-      href={resourceTooltip(id)}
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
       className={category}

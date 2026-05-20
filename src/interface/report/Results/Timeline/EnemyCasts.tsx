@@ -23,6 +23,7 @@ import { EnemyInfo } from 'parser/core/Enemy';
 import { PetInfo } from 'parser/core/Pet';
 import { PlayerInfo } from 'parser/core/Player';
 import { encodeEventSourceString } from 'parser/shared/modules/Enemies';
+import { maybeGetTalentOrSpell } from 'common/maybeGetTalentOrSpell';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   start: number;
@@ -71,9 +72,11 @@ const RenderIcon = (
       {children}
     </SpellLink>
   );
+  const spell = maybeGetTalentOrSpell(event.ability.guid);
+  const spellName = spell?.name ?? event.ability.name;
   const spellIcon = (
     <>
-      <Icon icon={event.ability.abilityIcon.replace('.jpg', '')} alt={event.ability.name} />
+      <Icon icon={event.ability.abilityIcon.replace('.jpg', '')} alt={spellName} />
       {!event.matchedCast && event.type === 'begincast' ? (
         <div className={`time-indicator ${className}`}></div>
       ) : (
@@ -204,7 +207,7 @@ const EnemySpellControlBlock = ({
     >
       <EnemySpellTypeToggle
         id="enemy-casts-toggle"
-        label={<>Show Enemy Ability Timeline</>}
+        label={<>显示敌方技能时间轴</>}
         toggleCallBack={toggleAll}
         checked={shouldRenderNPCSpells}
       />
@@ -213,11 +216,11 @@ const EnemySpellControlBlock = ({
           id="stopped-spells-toggle"
           label={
             <>
-              Show{' '}
+              显示被{' '}
               <SpellLink style={{ pointerEvents: 'none' }} spell={SPELLS.KICK}>
-                Stopped
+                打断
               </SpellLink>{' '}
-              Abilities
+              的技能
             </>
           }
           toggleCallBack={toggleStopped}

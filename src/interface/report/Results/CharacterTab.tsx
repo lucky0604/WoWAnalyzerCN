@@ -36,7 +36,7 @@ const CharacterTab = (props: Props) => {
             <>
               <div className="row">
                 <div className="col-md-12">
-                  <h2>Other pages</h2>
+                  <h2>其他页面</h2>
                 </div>
               </div>
               <div className="row">
@@ -45,8 +45,7 @@ const CharacterTab = (props: Props) => {
                   {combatant.characterProfile ? (
                     <>
                       <Link to={makeCharacterUrl(combatant)}>
-                        <WoWAnalyzerIcon mainColor="#FAB700" arrowColor="transparent" /> Character
-                        parses
+                        <WoWAnalyzerIcon mainColor="#FAB700" arrowColor="transparent" /> 角色分析记录
                       </Link>
                       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                       <br />
@@ -57,7 +56,7 @@ const CharacterTab = (props: Props) => {
                       </a>
                     </>
                   ) : (
-                    <small>Unavailable because your character could not be found.</small>
+                    <small>无法找到你的角色信息，此功能不可用。</small>
                   )}
                 </div>
               </div>

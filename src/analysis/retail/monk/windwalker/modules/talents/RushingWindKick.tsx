@@ -3,6 +3,8 @@ import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import GuideSection from 'interface/guide/components/GuideSection';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
@@ -155,7 +157,7 @@ class RushingWindKick extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: 'Proc was not consumed',
+        summary: defineMessage({ id: 'monk.windwalker.rwk.classify.not_consumed', message: 'Proc was not consumed' }),
       };
     }
 
@@ -170,20 +172,29 @@ class RushingWindKick extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: 'Rushing Wind Kick was consumed the first time the APL expected it',
+        summary: defineMessage({
+          id: 'monk.windwalker.rwk.classify.first_top',
+          message: 'Rushing Wind Kick was consumed the first time the APL expected it',
+        }),
       };
     }
 
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.RUSHING_WIND_KICK_CAST.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: 'Rushing Wind Kick was consumed in an acceptable APL spot',
+        summary: defineMessage({
+          id: 'monk.windwalker.rwk.classify.acceptable',
+          message: 'Rushing Wind Kick was consumed in an acceptable APL spot',
+        }),
       };
     }
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: 'Rushing Wind Kick was consumed, even though the APL did not prefer it yet',
+      summary: defineMessage({
+        id: 'monk.windwalker.rwk.classify.not_preferred',
+        message: 'Rushing Wind Kick was consumed, even though the APL did not prefer it yet',
+      }),
     };
   }
 
@@ -191,7 +202,10 @@ class RushingWindKick extends Analyzer {
     return (
       <Statistic position={STATISTIC_ORDER.CORE(12)} size="flexible">
         <BoringSpellValueText spell={TALENTS_MONK.RUSHING_WIND_KICK_WINDWALKER_TALENT}>
-          {formatPercentage(this.usedProcs, 0)}% <small>Proc utilization</small>
+          {formatPercentage(this.usedProcs, 0)}%{' '}
+          <small>
+            <Trans id="monk.windwalker.rwk.proc_utilization">Proc utilization</Trans>
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );
@@ -201,15 +215,19 @@ class RushingWindKick extends Analyzer {
     const explanation = (
       <>
         <p>
-          The <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_WINDWALKER_TALENT} /> talent gives
-          consumed <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks a 60% chance to make your
-          next cast of <SpellLink spell={SPELLS.RUSHING_WIND_KICK_CAST} /> available.
+          <Trans id="monk.windwalker.rwk.explanation1">
+            The <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_WINDWALKER_TALENT} /> talent gives
+            consumed <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks a 60% chance to make your
+            next cast of <SpellLink spell={SPELLS.RUSHING_WIND_KICK_CAST} /> available.
+          </Trans>
         </p>
         <p>
-          Follow the suggested APL and use this proc before another consumed{' '}
-          <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> could replace it or before it expires.
-          Holding briefly is fine, but this is still a proc you want converted cleanly inside the
-          normal rotation.
+          <Trans id="monk.windwalker.rwk.explanation2">
+            Follow the suggested APL and use this proc before another consumed{' '}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> could replace it or before it expires.
+            Holding briefly is fine, but this is still a proc you want converted cleanly inside the
+            normal rotation.
+          </Trans>
         </p>
       </>
     );
@@ -217,12 +235,12 @@ class RushingWindKick extends Analyzer {
     return (
       <GuideSection
         spell={SPELLS.RUSHING_WIND_KICK_CAST}
-        title="Rushing Wind Kick"
+        title={t({ id: 'monk.windwalker.rwk.title', message: 'Rushing Wind Kick' })}
         explanation={explanation}
         explanationPercent={34}
       >
         <AplProcWindowDetail
-          title="Rushing Wind Kick"
+          title={t({ id: 'monk.windwalker.rwk.title', message: 'Rushing Wind Kick' })}
           windows={this.getWindows()}
           actionSpell={SPELLS.RUSHING_WIND_KICK_CAST}
           formatTimestamp={(timestamp) => this.owner.formatTimestamp(timestamp)}

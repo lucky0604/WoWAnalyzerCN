@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 import SpellUsable from 'analysis/retail/monk/windwalker/modules/core/SpellUsable';
 import { SpellLink } from 'interface';
 import Analyzer, { Options } from 'parser/core/Analyzer';
@@ -24,10 +25,12 @@ class InvokeXuen extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS_MONK.INVOKE_XUEN_THE_WHITE_TIGER_TALENT} />
-        </b>{' '}
-        is one of your strongest cooldowns.
+        <Trans id="monk.windwalker.invoke_xuen.explanation">
+          <b>
+            <SpellLink spell={TALENTS_MONK.INVOKE_XUEN_THE_WHITE_TIGER_TALENT} />
+          </b>{' '}
+          is one of your strongest cooldowns.
+        </Trans>
       </p>
     );
 
@@ -35,7 +38,9 @@ class InvokeXuen extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.INVOKE_XUEN_THE_WHITE_TIGER_TALENT} /> cast efficiency
+            <Trans id="monk.windwalker.invoke_xuen.cast_efficiency">
+              <SpellLink spell={TALENTS_MONK.INVOKE_XUEN_THE_WHITE_TIGER_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>

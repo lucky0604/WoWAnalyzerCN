@@ -60,20 +60,20 @@ export const AuraConfiguration = ({
   return (
     <>
       <div className={styles['aura-config-header']}>
-        <h4>Buffs</h4>
+        <h4>增益</h4>
         <div className={styles['aura-config-controls']}>
           <button type="button" className="btn btn-sm btn-default" onClick={() => toggleAll(true)}>
-            Show All
+            全部显示
           </button>
           <button type="button" className="btn btn-sm btn-default" onClick={() => toggleAll(false)}>
-            Hide All
+            全部隐藏
           </button>
         </div>
       </div>
 
       <div className={styles['aura-config-list']}>
         {displayableAuras.length === 0 ? (
-          <div className="aura-config-empty">No timeline auras available</div>
+          <div className="aura-config-empty">暂无可显示的时间轴光环</div>
         ) : (
           displayableAuras
             .map((spellId) => maybeGetTalentOrSpell(spellId)!)

@@ -28,7 +28,7 @@ interface CastOverviewProps {
 export default function CastOverview({ spell, stats, additionalContent }: CastOverviewProps) {
   return (
     <div style={{ marginBottom: '18px' }}>
-      <GuideDataWrapper bare title={`${spell.name} Overview`}>
+      <GuideDataWrapper bare title={`${spell.name} 总览`}>
         <StatsGrid>
           {stats.map((stat, index) => {
             const color = stat.performance

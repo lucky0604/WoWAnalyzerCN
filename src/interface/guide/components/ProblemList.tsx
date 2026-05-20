@@ -100,7 +100,7 @@ export function NoProblem({ children }: React.PropsWithChildren<object>) {
     <div className="problem-list-container no-problems">
       <span>
         <i className="glyphicon glyphicon-ok" />
-        {children ?? <>No problems found.</>}
+        {children ?? <>未发现问题。</>}
       </span>
     </div>
   );
@@ -235,7 +235,7 @@ export default function ProblemList<T>({
     <div className="problem-list-container">
       <header>
         <span>
-          {label ?? 'Problem Point'} {problemIndex + 1} of {sortedProblems.length}
+          {label ?? '问题点'} {problemIndex + 1} / {sortedProblems.length}
         </span>
         <div className="btn-group">
           <button

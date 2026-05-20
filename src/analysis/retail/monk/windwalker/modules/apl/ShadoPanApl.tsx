@@ -4,6 +4,7 @@ import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import SpellLink from 'interface/SpellLink';
 import Combatant from 'parser/core/Combatant';
 import { Apl } from 'parser/shared/metrics/apl';
+import { Trans } from '@lingui/react/macro';
 import {
   and,
   buffPresent,
@@ -44,8 +45,10 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         ),
         () => (
           <>
-            you have less than 4 <SpellLink spell={RESOURCE_TYPES.CHI} />, fewer than 2 stacks of{' '}
-            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />, and are about to cap energy
+            <Trans id="monk.windwalker.apl.tiger_palm_cap">
+              you have less than 4 <SpellLink spell={RESOURCE_TYPES.CHI} />, fewer than 2 stacks of{' '}
+              <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />, and are about to cap energy
+            </Trans>
           </>
         ),
       ),
@@ -62,8 +65,10 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         and(danceOfChiJiExpiring, notAtTwoBlackoutKickStacks, notInZenithWithObsidianSpiral),
         () => (
           <>
-            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> has less than 4 seconds remaining, and
-            you have fewer than 2 stacks of <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            <Trans id="monk.windwalker.apl.sck_dance">
+              <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> has less than 4 seconds remaining, and
+              you have fewer than 2 stacks of <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            </Trans>
           </>
         ),
       ),
@@ -95,7 +100,13 @@ export default function shadoPanApl(combatant: Combatant): Apl {
             notInZenithWithObsidianSpiral,
           ),
         ),
-        () => <>a higher-priority chi spender is ready, and you do not have enough chi for it</>,
+        () => (
+          <>
+            <Trans id="monk.windwalker.apl.higher_priority_ready">
+              a higher-priority chi spender is ready, and you do not have enough chi for it
+            </Trans>
+          </>
+        ),
       ),
     },
     {
@@ -104,8 +115,10 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         or(buffPresent(SPELLS.COMBO_BREAKER_BUFF), buffPresent(TALENTS.ZENITH_TALENT)),
         () => (
           <>
-            you have <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> or{' '}
-            <SpellLink spell={TALENTS.ZENITH_TALENT} /> is active
+            <Trans id="monk.windwalker.apl.has_cb_or_zenith">
+              you have <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> or{' '}
+              <SpellLink spell={TALENTS.ZENITH_TALENT} /> is active
+            </Trans>
           </>
         ),
       ),
@@ -116,8 +129,10 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         and(buffPresent(TALENTS.ZENITH_TALENT), hasResource(RESOURCE_TYPES.CHI, { atLeast: 4 })),
         () => (
           <>
-            <SpellLink spell={TALENTS.ZENITH_TALENT} /> is active and you have more than 3{' '}
-            <SpellLink spell={RESOURCE_TYPES.CHI} />
+            <Trans id="monk.windwalker.apl.zenith_sck">
+              <SpellLink spell={TALENTS.ZENITH_TALENT} /> is active and you have more than 3{' '}
+              <SpellLink spell={RESOURCE_TYPES.CHI} />
+            </Trans>
           </>
         ),
       ),

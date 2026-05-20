@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 import { default as HotJS } from 'analysis/retail/monk/shared/hero/ConduitOfTheCelestials/talents/HeartOfTheJadeSerpent';
 import spells from 'common/SPELLS/monk';
 import { TALENTS_MONK } from 'common/TALENTS';
@@ -101,19 +102,25 @@ class HeartOfTheJadeSerpent extends HotJS {
       <>
         {this.currentFof === 0 && (
           <div>
-            <SpellLink spell={spells.FISTS_OF_FURY_CAST} /> was not used during the window
+            <Trans id="monk.windwalker.hotjs.not_used">
+              <SpellLink spell={spells.FISTS_OF_FURY_CAST} /> was not used during the window
+            </Trans>
           </div>
         )}
         {this.currentSotwl !== 0 && (
           <div>
-            <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> should not be used
-            within the window
+            <Trans id="monk.windwalker.hotjs.should_not_use_sotwl">
+              <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> should not be used
+              within the window
+            </Trans>
           </div>
         )}
         {this.currentUnityWithin !== 0 && (
           <div>
-            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> should not be used within the
-            window
+            <Trans id="monk.windwalker.hotjs.should_not_use_unity">
+              <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> should not be used within the
+              window
+            </Trans>
           </div>
         )}
       </>
@@ -147,25 +154,31 @@ class HeartOfTheJadeSerpent extends HotJS {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />
-          </strong>{' '}
-          massively reduces the cooldowns of your major abilities, and as such at least one{' '}
-          <SpellLink spell={spells.FISTS_OF_FURY_CAST} /> should be cast in each buff window.
+          <Trans id="monk.windwalker.hotjs.explanation1">
+            <strong>
+              <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />
+            </strong>{' '}
+            massively reduces the cooldowns of your major abilities, and as such at least one{' '}
+            <SpellLink spell={spells.FISTS_OF_FURY_CAST} /> should be cast in each buff window.
+          </Trans>
         </p>
         <p>
-          This buff is actived whenever{' '}
-          <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> or{' '}
-          <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> (as part of{' '}
-          <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} />) are cast. To avoid
-          clipping the window short, casting either of them while{' '}
-          <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> is active should be
-          avoided.
+          <Trans id="monk.windwalker.hotjs.explanation2">
+            This buff is actived whenever{' '}
+            <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> or{' '}
+            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> (as part of{' '}
+            <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} />) are cast. To avoid
+            clipping the window short, casting either of them while{' '}
+            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> is active should be
+            avoided.
+          </Trans>
         </p>
         <p>
-          While active, muliple major abilities have massively hastened cooldowns. These can easily
-          reset atleast once during the duration with high enough haste, or with help from{' '}
-          <SpellLink spell={spells.BLACKOUT_KICK} />.
+          <Trans id="monk.windwalker.hotjs.explanation3">
+            While active, muliple major abilities have massively hastened cooldowns. These can easily
+            reset atleast once during the duration with high enough haste, or with help from{' '}
+            <SpellLink spell={spells.BLACKOUT_KICK} />.
+          </Trans>
         </p>
       </>
     );
@@ -174,16 +187,22 @@ class HeartOfTheJadeSerpent extends HotJS {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> utilization
+            <Trans id="monk.windwalker.hotjs.utilization">
+              <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> utilization
+            </Trans>
           </strong>
           <div>
-            <strong>Buff Windows </strong>
+            <strong>
+              <Trans id="monk.windwalker.hotjs.buff_windows">Buff Windows</Trans>{' '}
+            </strong>
             <small>
-              - Blue indicates a perfect cast (
-              <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> was cast atleast one time, and
-              neither <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> nor{' '}
-              <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> were cast), yellow indicates
-              one mistake, while red indicates multiple mistakes.
+              <Trans id="monk.windwalker.hotjs.blue_perfect">
+                - Blue indicates a perfect cast (
+                <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> was cast atleast one time, and
+                neither <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> nor{' '}
+                <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> were cast), yellow indicates
+                one mistake, while red indicates multiple mistakes.
+              </Trans>
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>

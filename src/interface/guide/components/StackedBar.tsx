@@ -60,8 +60,8 @@ export default function StackedBar({
   const defaultTooltipFormatter = (segment: StackedBarSegment, percent: number) => (
     <div>
       <strong>{segment.label}</strong>
-      <div>Value: {segment.value.toFixed(0)}</div>
-      <div>Percentage: {percent.toFixed(1)}%</div>
+      <div>数值: {segment.value.toFixed(0)}</div>
+      <div>百分比: {percent.toFixed(1)}%</div>
     </div>
   );
 

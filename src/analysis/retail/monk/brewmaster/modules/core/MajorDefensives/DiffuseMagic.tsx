@@ -13,6 +13,7 @@ import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent } from 'parser/core/Events';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
+import { Trans } from '@lingui/react/macro';
 
 export class DiffuseMagic extends MajorDefensiveBuff {
   constructor(options: Options) {
@@ -43,7 +44,7 @@ export class DiffuseMagic extends MajorDefensiveBuff {
 
   description(): ReactNode {
     return (
-      <>
+      <Trans id="monk.brewmaster.diffuse_magic.desc">
         <p>
           <SpellLink spell={talents.DIFFUSE_MAGIC_TALENT} /> is a strong defensive against{' '}
           <em>Magic damage</em>, but useless against Physical. This makes it a niche spell that is
@@ -53,7 +54,7 @@ export class DiffuseMagic extends MajorDefensiveBuff {
           It also has the ability to transfer some debuffs on you to their caster, but most boss
           abilities are immune.
         </p>
-      </>
+      </Trans>
     );
   }
 

@@ -38,6 +38,8 @@ import SpellLink from 'interface/SpellLink';
 import { PerformanceMark } from 'interface/guide';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { Talent } from 'common/TALENTS/types';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export interface CastInfo {
   cancelled: boolean;
@@ -229,13 +231,13 @@ class CelestialConduit extends Analyzer {
       ? QualitativePerformance.Fail
       : QualitativePerformance.Good;
     const cancelledItem: CooldownExpandableItem = {
-      label: <>Fully channeled cast</>,
+      label: <Trans id="monk.shared.cc.fully_channeled">Fully channeled cast</Trans>,
       result: (
         <>
           <PerformanceMark perf={cancelPerf} />
         </>
       ),
-      details: <>{castInfo.cancelled ? 'No' : 'Yes'}</>,
+      details: <>{castInfo.cancelled ? t({ id: 'monk.shared.no', message: 'No' }) : t({ id: 'monk.shared.yes', message: 'Yes' })}</>,
     };
     const cooldownPerfs: QualitativePerformance[] = [];
     const cooldownItems: CooldownExpandableItem[] = [];
@@ -249,17 +251,17 @@ class CelestialConduit extends Analyzer {
       cooldownPerfs.push(perf);
       cooldownItems.push({
         label: (
-          <>
+          <Trans id="monk.shared.cc.cooldown_on_cast">
             <SpellLink spell={spellId} /> on cooldown when casting{' '}
             <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />
-          </>
+          </Trans>
         ),
         result: (
           <>
             <PerformanceMark perf={perf} />
           </>
         ),
-        details: <>{cooldown === 0 ? 'No' : 'Yes'}</>,
+        details: <>{cooldown === 0 ? t({ id: 'monk.shared.no', message: 'No' }) : t({ id: 'monk.shared.yes', message: 'Yes' })}</>,
       });
     });
     const avgTargetsHit =
@@ -271,7 +273,7 @@ class CelestialConduit extends Analyzer {
 
     const targetHitPerf = this.getTargetsHitPerf(avgTargetsHit);
     const targetsHitItem: CooldownExpandableItem = {
-      label: <>Average targets hit per pulse</>,
+      label: <Trans id="monk.shared.cc.avg_targets_hit">Average targets hit per pulse</Trans>,
       result: (
         <>
           <PerformanceMark perf={targetHitPerf} />
@@ -314,20 +316,26 @@ class CelestialConduit extends Analyzer {
           </strong>
         </p>
         <p>
-          Before casting <SpellLink spell={currentSpell} />, make sure that all spells reduced by{' '}
-          <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> are on cooldown so
-          that the extra CDR granted when casting{' '}
-          <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> is not wasted. Additionally, make
-          sure to never cancel the spell and to hit at least 5 targets in order to get the maximum
-          healing/damage buff (up to 30%).
+          <Trans id="monk.shared.cc.explanation">
+            Before casting <SpellLink spell={currentSpell} />, make sure that all spells reduced by{' '}
+            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> are on cooldown so
+            that the extra CDR granted when casting{' '}
+            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> is not wasted. Additionally, make
+            sure to never cancel the spell and to hit at least 5 targets in order to get the maximum
+            healing/damage buff (up to 30%).
+          </Trans>
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="monk.shared.cc.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="monk.shared.cc.click_to_expand"> - click to expand</Trans>
+        </small>
         {this.castInfoList.map((cast, ix) => {
           const header = (
             <>
@@ -359,9 +367,36 @@ class CelestialConduit extends Analyzer {
         position={STATISTIC_ORDER.CORE(0)}
         tooltip={
           <ul>
-            <li>Casts cancelled early: {this.cancelledCasts}</li>
-            <li>Average healing increase: {formatPercentage(this.avgHealIncrease)}%</li>
-            <li>Average damage increase: {formatPercentage(this.avgDmgIncrease)}%</li>
+            <li>
+              {(() => {
+                const count = this.cancelledCasts;
+                return (
+                  <Trans id="monk.shared.cc.cancelled_casts">
+                    Casts cancelled early: {count}
+                  </Trans>
+                );
+              })()}
+            </li>
+            <li>
+              {(() => {
+                const amount = formatPercentage(this.avgHealIncrease);
+                return (
+                  <Trans id="monk.shared.cc.avg_heal_increase">
+                    Average healing increase: {amount}%
+                  </Trans>
+                );
+              })()}
+            </li>
+            <li>
+              {(() => {
+                const amount = formatPercentage(this.avgDmgIncrease);
+                return (
+                  <Trans id="monk.shared.cc.avg_dmg_increase">
+                    Average damage increase: {amount}%
+                  </Trans>
+                );
+              })()}
+            </li>
           </ul>
         }
       >

@@ -1,4 +1,5 @@
 import { formatPercentage } from 'common/format';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/monk';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -98,7 +99,10 @@ class JadeIgnition extends Analyzer {
             <ItemDamageDone amount={this.damageDone} />
           </div>
           <div>
-            {formatPercentage(this.stackUsage, 0)}% <small>Stacks used</small>
+            {formatPercentage(this.stackUsage, 0)}%{' '}
+            <small>
+              <Trans id="monk.windwalker.jade_ignition.stacks_used">Stacks used</Trans>
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

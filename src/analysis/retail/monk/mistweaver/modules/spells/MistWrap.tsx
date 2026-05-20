@@ -1,6 +1,7 @@
 import { formatNumber, formatPercentage } from 'common/format';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -126,14 +127,31 @@ class MistWrap extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            <div>Effective HoT Healing: {formatNumber(this.effectiveHealing)}</div>
-            <div>HoT Overhealing: {formatNumber(this.overHealing)}</div>
-            <div>
-              Bonus Healing from extra <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
-              duration: {formatNumber(this.envMistHealingBoost)}
-            </div>
-          </>
+          (() => {
+            const healing = formatNumber(this.effectiveHealing);
+            const overhealing = formatNumber(this.overHealing);
+            const bonus = formatNumber(this.envMistHealingBoost);
+            return (
+              <>
+                <div>
+                  <Trans id="monk.mistweaver.mist_wrap.effective_healing">
+                    Effective HoT Healing: {healing}
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.mist_wrap.overhealing">
+                    HoT Overhealing: {overhealing}
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.mist_wrap.bonus_healing">
+                    Bonus Healing from extra <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
+                    duration: {bonus}
+                  </Trans>
+                </div>
+              </>
+            );
+          })()
         }
       >
         <TalentSpellText talent={TALENTS_MONK.MIST_WRAP_TALENT}>

@@ -202,31 +202,31 @@ export default function FoundationDowntimeSectionV2(): JSX.Element | null {
         <div>
           <Para>
             <ByRole>
-              The foundation of good play in <em>WoW</em> is having good <HL>uptime.</HL>{' '}
+              在<em>魔兽世界</em>中，良好操作的基础是保持较高的<HL>活跃时间。</HL>{' '}
               <Role.Melee>
-                There should be no gaps between the end of one <GCD /> and the start of the next.
+                一次<GCD />结束与下一次开始之间不应有空档。
               </Role.Melee>
               <Role.Caster>
-                There should be no gaps between the end of one spell cast and the start of the next.
+                一次施法结束与下一次施法开始之间不应有空档。
               </Role.Caster>{' '}
-              This diagram shows gaps in your uptime in{' '}
+              此图表以{' '}
               <Highlight color={BadColor} textColor="white">
-                {t({ id: 'guide.foundation.downtime.color.red', message: 'red' })}
+                {t({ id: 'guide.foundation.downtime.color.red', message: '红色' })}
               </Highlight>
+              显示你活跃时间中的空档
               <Role.Healer>
-                {' '}
-                and non-healing uptime in{' '}
+                ，并以{' '}
                 <Highlight color={PerfectColor} textColor="black">
-                  {t({ id: 'guide.foundation.downtime.color.blue', message: 'blue' })}
+                  {t({ id: 'guide.foundation.downtime.color.blue', message: '蓝色' })}
                 </Highlight>
+                显示非治疗活跃时间
               </Role.Healer>
-              .
+              。
             </ByRole>
           </Para>
           <Para>
-            With practice, you will be able to maintain uptime <em>and</em> pick the right abilities
-            for each moment, but remember that{' '}
-            <strong>doing something is better than doing nothing</strong>.
+            通过练习，你将能够在保持活跃时间的同时为每个时刻选择正确的技能，但请记住，
+            <strong>做点什么总比什么都不做好</strong>。
           </Para>
         </div>
       </div>
@@ -519,7 +519,7 @@ const PlayerAbilityTimeline = memo(({ info }: { info: Info }) => {
   const segments = useMemo(
     () =>
       playerTimeline.map((segment) => {
-        const label = segment.channel ? 'Cast' : 'GCD';
+        const label = segment.channel ? '施法' : '公共CD';
         return {
           ...segment,
           color: segment.channel ? 'hsl(44 60% 60%)' : '#666',
@@ -699,11 +699,11 @@ const GCD = () => (
   <TooltipElement
     content={
       <>
-        Most abilities share a <em>Global Cooldown</em> of <strong>1.5s</strong>, reduced by Haste.
-        Specs using energy usually have a fixed <strong>1s</strong> GCD instead.
+        大多数技能共享<strong>1.5秒</strong>的<em>公共冷却时间</em>，受急速影响而缩短。使用能量的专精通常固定为
+        <strong>1秒</strong>公共CD。
       </>
     }
   >
-    GCD
+    公共CD
   </TooltipElement>
 );

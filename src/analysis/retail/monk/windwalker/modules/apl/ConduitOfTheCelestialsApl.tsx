@@ -4,6 +4,7 @@ import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import SpellLink from 'interface/SpellLink';
 import Combatant from 'parser/core/Combatant';
 import { Apl } from 'parser/shared/metrics/apl';
+import { Trans } from '@lingui/react/macro';
 import {
   and,
   buffMissing,
@@ -50,8 +51,10 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
       spell: TALENTS.FISTS_OF_FURY_TALENT,
       condition: describe(activeHotJSRemaining({ atMost: 1000 }), () => (
         <>
-          <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} /> has less than 1 second
-          remaining
+          <Trans id="monk.windwalker.apl.hotjs_remaining">
+            <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} /> has less than 1 second
+            remaining
+          </Trans>
         </>
       )),
     },
@@ -63,7 +66,9 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
       spell: TALENTS.CELESTIAL_CONDUIT_WINDWALKER_TALENT,
       condition: describe(and(activeHotJSMissing(), celestialConduitCastable), () => (
         <>
-          no <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} /> is active
+          <Trans id="monk.windwalker.apl.no_hotjs">
+            no <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} /> is active
+          </Trans>
         </>
       )),
     },
@@ -82,8 +87,10 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
         ),
         () => (
           <>
-            you have less than 4 <SpellLink spell={RESOURCE_TYPES.CHI} />, fewer than 2 stacks of{' '}
-            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />, and are about to cap energy
+            <Trans id="monk.windwalker.apl.tiger_palm_cap">
+              you have less than 4 <SpellLink spell={RESOURCE_TYPES.CHI} />, fewer than 2 stacks of{' '}
+              <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />, and are about to cap energy
+            </Trans>
           </>
         ),
       ),
@@ -100,8 +107,10 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
         and(danceOfChiJiExpiring, notAtTwoBlackoutKickStacks, notInZenithWithObsidianSpiral),
         () => (
           <>
-            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> has less than 4 seconds remaining, and
-            you have fewer than 2 stacks of <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            <Trans id="monk.windwalker.apl.sck_dance">
+              <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> has less than 4 seconds remaining, and
+              you have fewer than 2 stacks of <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            </Trans>
           </>
         ),
       ),
@@ -132,14 +141,22 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
             hasResource(RESOURCE_TYPES.CHI, { atMost: 1 }),
           ),
         ),
-        () => <>a higher-priority chi spender is ready, and you do not have enough chi for it</>,
+        () => (
+          <>
+            <Trans id="monk.windwalker.apl.higher_priority_ready">
+              a higher-priority chi spender is ready, and you do not have enough chi for it
+            </Trans>
+          </>
+        ),
       ),
     },
     {
       spell: SPELLS.BLACKOUT_KICK,
       condition: describe(buffPresent(SPELLS.COMBO_BREAKER_BUFF), () => (
         <>
-          you have <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+          <Trans id="monk.windwalker.apl.has_combo_breaker">
+            you have <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+          </Trans>
         </>
       )),
     },

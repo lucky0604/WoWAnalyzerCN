@@ -46,21 +46,21 @@ const FlaskPanel = ({ recommendedFlasks, expansion }: Props) => {
     <PerformanceRoundedPanel performance={performance}>
       <PanelHeader className="flex">
         <div className="flex-main">
-          <strong>Flask Buff</strong>
+          <strong>药剂增益</strong>
         </div>
         <div className="flex-sub">
           <Flask />
         </div>
       </PanelHeader>
       {performance === QualitativePerformance.Perfect && (
-        <p>You had the best flask active when starting the fight{showCurrentFlaskBuff}</p>
+        <p>开战时你激活了最佳药剂{showCurrentFlaskBuff}</p>
       )}
       {performance === QualitativePerformance.Good && (
         <>
-          <p>You had a high quality flask active when starting the fight{showCurrentFlaskBuff}</p>
+          <p>开战时你激活了高品质药剂{showCurrentFlaskBuff}</p>
           {recommendedFlasks && (
             <Recommendations
-              header={<strong>Recommended Flask(s)</strong>}
+              header={<strong>推荐药剂</strong>}
               recommendations={recommendedFlasks}
             />
           )}
@@ -69,11 +69,11 @@ const FlaskPanel = ({ recommendedFlasks, expansion }: Props) => {
       {performance === QualitativePerformance.Ok && (
         <>
           <p>
-            You did not have the best flask active when starting the fight{showCurrentFlaskBuff}
+            开战时你没有激活最佳药剂{showCurrentFlaskBuff}
           </p>
           {recommendedFlasks && (
             <Recommendations
-              header={<strong>Recommended Flask(s)</strong>}
+              header={<strong>推荐药剂</strong>}
               recommendations={recommendedFlasks}
             />
           )}
@@ -81,10 +81,10 @@ const FlaskPanel = ({ recommendedFlasks, expansion }: Props) => {
       )}
       {performance === QualitativePerformance.Fail && (
         <>
-          <p>You did not have any flask active when starting the fight.</p>
+          <p>开战时你没有激活任何药剂。</p>
           {recommendedFlasks && (
             <Recommendations
-              header={<strong>Recommended Flask(s)</strong>}
+              header={<strong>推荐药剂</strong>}
               recommendations={recommendedFlasks}
             />
           )}

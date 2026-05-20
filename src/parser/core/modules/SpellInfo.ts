@@ -1,3 +1,4 @@
+import { i18n } from '@lingui/core';
 import { maybeGetSpell, registerSpell, updateSpellName } from 'common/SPELLS';
 import Analyzer, { Options } from 'parser/core/Analyzer';
 import Events, { Ability, AnyEvent } from 'parser/core/Events';
@@ -25,13 +26,21 @@ class SpellInfo extends Analyzer {
   }
 
   addSpellInfo(ability: Omit<Ability, 'type'>) {
-    if (!ability.name || !ability.abilityIcon) {
+    if (!ability.name) {
       return;
     }
 
     const talent = maybeGetTalent(ability.guid);
-    const name = talent?.name ?? ability.name;
-    const icon = (talent?.icon ?? ability.abilityIcon).replace(/\.jpg$/, '');
+    let name = ability.name;
+    if (i18n.locale === 'zh' && name === 'Melee') {
+      name = '普通攻击';
+    }
+
+    const icon = (talent?.icon ?? ability.abilityIcon ?? 'inv_misc_questionmark').replace(/\.jpg$/, '');
+
+    if (talent) {
+      talent.name = name;
+    }
 
     if (maybeGetSpell(ability.guid)) {
       updateSpellName(ability.guid, name, icon);

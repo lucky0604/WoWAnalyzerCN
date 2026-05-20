@@ -39,10 +39,10 @@ interface CastSummaryProps {
 
 /** Performance level definitions — order determines display order in the badge grid */
 const PERF_LEVELS = [
-  { perf: QualitativePerformance.Perfect, label: 'Perfect' },
-  { perf: QualitativePerformance.Good, label: 'Good' },
-  { perf: QualitativePerformance.Ok, label: 'Ok' },
-  { perf: QualitativePerformance.Fail, label: 'Bad' },
+  { perf: QualitativePerformance.Perfect, label: '完美' },
+  { perf: QualitativePerformance.Good, label: '良好' },
+  { perf: QualitativePerformance.Ok, label: '一般' },
+  { perf: QualitativePerformance.Fail, label: '较差' },
 ] as const;
 
 /**
@@ -66,12 +66,10 @@ export default function CastSummary({
   if (!casts || casts.length === 0) {
     return (
       <div>
-        <strong>No {spell.name} casts recorded.</strong>
+        <strong>没有记录到 {spell.name} 的施法。</strong>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
-        <small>
-          Make sure you are using this spell if it is available to you and you are specced into it.
-        </small>
+        <small>请确保你在使用此技能（若该技能对你可用且你已点出相关天赋）。</small>
       </div>
     );
   }
@@ -132,8 +130,8 @@ export default function CastSummary({
   return (
     <GuideDataWrapper
       bare
-      title={`${spell.name} Casts`}
-      subtitle="Performance"
+      title={`${spell.name} 施法`}
+      subtitle="表现"
       stats={statsContent}
     >
       {showBreakdown ? (
@@ -142,10 +140,10 @@ export default function CastSummary({
             header={
               <BarContainer>
                 <GradiatedPerformanceBar
-                  perfect={{ count: perfect, label: 'Perfect casts' }}
-                  good={{ count: good, label: 'Good casts' }}
-                  ok={{ count: ok, label: 'Ok casts' }}
-                  bad={{ count: bad, label: 'Bad casts' }}
+                  perfect={{ count: perfect, label: '完美施法' }}
+                  good={{ count: good, label: '良好施法' }}
+                  ok={{ count: ok, label: '一般施法' }}
+                  bad={{ count: bad, label: '较差施法' }}
                 />
               </BarContainer>
             }
@@ -154,23 +152,23 @@ export default function CastSummary({
             inverseExpanded={() => setIsExpanded(!isExpanded)}
           >
             <BreakdownContainer>
-              <HelperText>Hover over the boxes below for more details</HelperText>
+              <HelperText>将鼠标悬停在下方方块上查看详情</HelperText>
               <BoxRowScaler widthPct={rectWidthPct}>
                 <PerformanceBoxRow values={castEntries} />
               </BoxRowScaler>
             </BreakdownContainer>
           </ControlledExpandable>
           <DisappearingHelperText style={{ height: isExpanded ? 0 : '1lh' }}>
-            Click the bar above for per-cast breakdown
+            点击上方条形图查看每次施法的详细分析
           </DisappearingHelperText>
         </>
       ) : (
         <BarContainer>
           <GradiatedPerformanceBar
-            perfect={{ count: perfect, label: 'Perfect casts' }}
-            good={{ count: good, label: 'Good casts' }}
-            ok={{ count: ok, label: 'Ok casts' }}
-            bad={{ count: bad, label: 'Bad casts' }}
+            perfect={{ count: perfect, label: '完美施法' }}
+            good={{ count: good, label: '良好施法' }}
+            ok={{ count: ok, label: '一般施法' }}
+            bad={{ count: bad, label: '较差施法' }}
           />
         </BarContainer>
       )}

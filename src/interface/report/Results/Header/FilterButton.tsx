@@ -77,16 +77,16 @@ export default function FilterButton(props: Props): JSX.Element | null {
 
   const filterLabel = useMemo(() => {
     if (props.selectedPhaseIndex >= 0) {
-      return `Filter: ${
-        phases.find((phase) => phase.value === props.selectedPhaseIndex)?.label ?? 'Unknown Phase'
+      return `筛选: ${
+        phases.find((phase) => phase.value === props.selectedPhaseIndex)?.label ?? '未知阶段'
       }`;
     }
     if (props.timeFilter) {
       const startTime = props.fight.start_time - props.fight.offset_time;
-      return `Filter: ${formatDuration(props.timeFilter.start - startTime, 2)} to ${formatDuration(props.timeFilter.end - startTime, 2)}`;
+      return `筛选: ${formatDuration(props.timeFilter.start - startTime, 2)} 至 ${formatDuration(props.timeFilter.end - startTime, 2)}`;
     }
 
-    return 'Filter';
+    return '筛选';
   }, [props.selectedPhaseIndex, props.timeFilter, phases, props.fight]);
 
   const { hasDungeonPulls, canGoPrev, canGoNext, goToPrevPull, goToNextPull } =
@@ -218,8 +218,8 @@ const FilterMenu = ({
   const hasPhases = phases.length > 0 || (fight.dungeonPulls && fight.dungeonPulls.length > 0);
   const [selectedMode, setSelectedMode] = useState<FilterMode>(hasPhases ? 'phase' : 'time');
 
-  const phaseLabel = fight?.dungeonPulls ? 'By Pull' : 'By Phase';
-  const allPhasesLabel = fight?.dungeonPulls ? 'Entire Dungeon' : 'All Phases';
+  const phaseLabel = fight?.dungeonPulls ? '按小怪波次' : '按阶段';
+  const allPhasesLabel = fight?.dungeonPulls ? '整个副本' : '所有阶段';
 
   const selectPhase = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
@@ -259,7 +259,7 @@ const FilterMenu = ({
               checked={selectedMode === 'time'}
               onChange={() => setSelectedMode('time')}
             />
-            By Time
+            按时间
           </FilterRadioButton>
         </FilterRadioGroup>
       )}
@@ -268,7 +268,7 @@ const FilterMenu = ({
           <Select onChange={selectPhase} value={selectedPhase}>
             {selectedPhase === SELECTION_CUSTOM_PHASE && (
               <option key="custom" value={SELECTION_CUSTOM_PHASE}>
-                Custom
+                自定义
               </option>
             )}
             <option key="all" value={SELECTION_ALL_PHASES}>
@@ -300,7 +300,7 @@ function usePhases() {
       let pullIndex = 0;
       return fight.dungeonPulls.map((pull, index) => ({
         value: index,
-        label: `${pull.boss > 0 ? `Boss ${++bossIndex}` : `Pull ${++pullIndex}`}: ${pull.name} (${formatDuration(pull.start_time - fight.start_time)} to ${formatDuration(pull.end_time - fight.start_time)})`,
+        label: `${pull.boss > 0 ? `Boss ${++bossIndex}` : `波次 ${++pullIndex}`}: ${pull.name} (${formatDuration(pull.start_time - fight.start_time)} 至 ${formatDuration(pull.end_time - fight.start_time)})`,
       }));
     }
 
@@ -324,7 +324,7 @@ interface PullNavBtnProps {
 
 function PrevPullButton({ disabled, onClick }: PullNavBtnProps): JSX.Element {
   return (
-    <PullNavBtn onClick={onClick} disabled={disabled} aria-label="Previous pull">
+    <PullNavBtn onClick={onClick} disabled={disabled} aria-label="上一波">
       <span className="glyphicon glyphicon-chevron-left" aria-hidden />
     </PullNavBtn>
   );
@@ -332,7 +332,7 @@ function PrevPullButton({ disabled, onClick }: PullNavBtnProps): JSX.Element {
 
 function NextPullButton({ disabled, onClick }: PullNavBtnProps): JSX.Element {
   return (
-    <PullNavBtn onClick={onClick} disabled={disabled} aria-label="Next pull">
+    <PullNavBtn onClick={onClick} disabled={disabled} aria-label="下一波">
       <span className="glyphicon glyphicon-chevron-right" aria-hidden />
     </PullNavBtn>
   );

@@ -87,11 +87,11 @@ const TimeFilter = (props: Props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <span>Start Time</span>
+        <span>开始时间</span>
         <TimeInput name="start" min={0} max={max} time={start} onChange={selectStart} />
       </div>
       <div>
-        <span>End Time</span>
+        <span>结束时间</span>
         <TimeInput name="end" min={0} max={max} time={end} onChange={selectEnd} />
       </div>
       <div style={{ display: 'flex', gap: '1rem' }}>

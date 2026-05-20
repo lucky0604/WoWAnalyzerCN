@@ -7,6 +7,7 @@ import Spell from 'common/SPELLS/Spell';
 import { useExpansionContext } from 'interface/report/ExpansionContext';
 import { getSpellId } from 'common/getSpellId';
 import { maybeGetTalentOrSpell } from 'common/maybeGetTalentOrSpell';
+import { i18n } from '@lingui/core';
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
 
@@ -22,10 +23,13 @@ const useSpellInfo = (spell: number | Spell | undefined) => {
   });
 
   useEffect(() => {
-    if (spellId && data) {
+    // Only cache SWR API data when the spell isn't already in the table.
+    // SpellInfo populates Chinese names from WCL translate=true during parsing;
+    // an unconditional write here would overwrite those with English API data.
+    if (spellId && data && !argumentAsSpell) {
       SPELLS[spellId] = data;
     }
-  }, [data, spellId]);
+  }, [data, spellId, argumentAsSpell]);
 
   if (error) {
     captureException(error);
@@ -33,7 +37,14 @@ const useSpellInfo = (spell: number | Spell | undefined) => {
     return argumentAsSpell;
   }
 
-  return argumentAsSpell ?? data;
+  const result = argumentAsSpell ?? data;
+  if (result && i18n.locale === 'zh') {
+    if (result.name === 'Melee') {
+      return { ...result, name: '普通攻击' };
+    }
+  }
+
+  return result;
 };
 
 export default useSpellInfo;

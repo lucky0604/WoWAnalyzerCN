@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS/monk';
 import { formatNumber } from 'common/format';
 import TALENTS_MONK from 'common/TALENTS/monk';
 import { SpellIcon, SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -228,25 +229,32 @@ class Zenith extends Analyzer.withDependencies({
 
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} />
-        </b>{' '}
-        resets <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} /> and for 15 seconds reduces
-        Chi costs by 1 while making <SpellLink spell={SPELLS.BLACKOUT_KICK} /> reduce the cooldown
-        of affected abilities by an additional 1 second. Casting{' '}
-        <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} /> grants 2 charges of{' '}
-        <SpellLink spell={TALENTS_MONK.ZENITH_STOMP_TALENT} />, and each cast generates 2 Chi.
+        <Trans id="monk.windwalker.zenith.explanation">
+          <b>
+            <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} />
+          </b>{' '}
+          resets <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} /> and for 15 seconds reduces
+          Chi costs by 1 while making <SpellLink spell={SPELLS.BLACKOUT_KICK} /> reduce the cooldown
+          of affected abilities by an additional 1 second. Casting{' '}
+          <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} /> grants 2 charges of{' '}
+          <SpellLink spell={TALENTS_MONK.ZENITH_STOMP_TALENT} />, and each cast generates 2 Chi.
+        </Trans>
       </p>
     );
 
     const chiLabel = this.hasObsidianSpiral
-      ? 'Chi generated with Obsidian Spiral'
-      : 'Chi that would have been generated with Obsidian Spiral';
+      ? defineMessage({ id: 'monk.windwalker.zenith.chi_label', message: 'Chi generated with Obsidian Spiral' })
+      : defineMessage({
+          id: 'monk.windwalker.zenith.chi_label_potential',
+          message: 'Chi that would have been generated with Obsidian Spiral',
+        });
     const data = (
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} /> cast efficiency
+            <Trans id="monk.windwalker.zenith.cast_efficiency">
+              <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           {this.guideSubStatistic()}
           <div style={styleObj}>
@@ -298,7 +306,9 @@ class Zenith extends Analyzer.withDependencies({
               }}
             />{' '}
             {formatNumber(this.blackoutKicksDuringZenith)}{' '}
-            <small>Blackout Kicks during Zenith</small>
+            <small>
+              <Trans id="monk.windwalker.zenith.bok_during">Blackout Kicks during Zenith</Trans>
+            </small>
           </div>
           <div>
             <SpellIcon
@@ -308,7 +318,10 @@ class Zenith extends Analyzer.withDependencies({
                 marginTop: '-1.em',
               }}
             />{' '}
-            {formatNumber(this.zenithStompsDuringZenith)} <small>Zenith Stomps during Zenith</small>
+            {formatNumber(this.zenithStompsDuringZenith)}{' '}
+            <small>
+              <Trans id="monk.windwalker.zenith.stomp_during">Zenith Stomps during Zenith</Trans>
+            </small>
           </div>
           <div>
             <SpellIcon
@@ -324,9 +337,13 @@ class Zenith extends Analyzer.withDependencies({
                 : this.obsidianSpiralChiGeneratedPotential,
             )}{' '}
             <small>
-              {this.hasObsidianSpiral
-                ? 'Chi generated during Zenith'
-                : 'Chi that would have been generated during Zenith (requires Obsidian Spiral)'}
+              {this.hasObsidianSpiral ? (
+                <Trans id="monk.windwalker.zenith.chi_gen">Chi generated during Zenith</Trans>
+              ) : (
+                <Trans id="monk.windwalker.zenith.chi_gen_potential">
+                  Chi that would have been generated during Zenith (requires Obsidian Spiral)
+                </Trans>
+              )}
             </small>
           </div>
         </BoringSpellValueText>

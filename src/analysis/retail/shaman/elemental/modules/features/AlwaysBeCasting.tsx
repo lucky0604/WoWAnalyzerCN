@@ -1,4 +1,6 @@
 import { Expandable } from 'interface';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { SectionHeader, SubSection } from 'interface/guide';
 import { ThresholdStyle } from 'parser/core/ParseResults';
 import CoreAlwaysBeCasting from 'parser/shared/modules/AlwaysBeCasting';
@@ -23,44 +25,52 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
     const abcSuggestionThreshold = this.suggestionThresholds;
 
     return (
-      <SubSection title="Always be casting">
+      <SubSection title={t({ id: 'shaman.elemental.abc.title', message: 'Always be casting' })}>
         <p>
-          As long as you have a target, there is <strong>always</strong> something you can cast as
-          an Elemental shaman. This means that you should try to be on global cooldown for as much
-          as you possibly can throughout the entire encounter. Any time you are not casting is time
-          that you are not doing damage.
+          <Trans id="shaman.elemental.abc.explanation">
+            As long as you have a target, there is <strong>always</strong> something you can cast as
+            an Elemental shaman. This means that you should try to be on global cooldown for as much
+            as you possibly can throughout the entire encounter. Any time you are not casting is time
+            that you are not doing damage.
+          </Trans>
         </p>
 
         <p>
-          A key factor to achieving high uptime as a caster is correct positioning and movement.
-          Throughout the fight, it is very important that you proactively anticipate where you need
-          to stand and/or move for mechanics. Doing this properly will minimize forced downtime of
-          having to move longer distances.
+          <Trans id="shaman.elemental.abc.positioning">
+            A key factor to achieving high uptime as a caster is correct positioning and movement.
+            Throughout the fight, it is very important that you proactively anticipate where you need
+            to stand and/or move for mechanics. Doing this properly will minimize forced downtime of
+            having to move longer distances.
+          </Trans>
         </p>
 
         <p>
-          You spent{' '}
-          <ThresholdPerformancePercentage
-            threshold={{
-              type: 'gte',
-              perfect: abcSuggestionThreshold.isLessThan.minor,
-              good: abcSuggestionThreshold.isLessThan.average,
-              ok: abcSuggestionThreshold.isLessThan.major,
-            }}
-            percentage={this.activeTimePercentage}
-          />{' '}
-          of the encounter in global cooldown.
+          <Trans id="shaman.elemental.abc.percent">
+            You spent{' '}
+            <ThresholdPerformancePercentage
+              threshold={{
+                type: 'gte',
+                perfect: abcSuggestionThreshold.isLessThan.minor,
+                good: abcSuggestionThreshold.isLessThan.average,
+                ok: abcSuggestionThreshold.isLessThan.major,
+              }}
+              percentage={this.activeTimePercentage}
+            />{' '}
+            of the encounter in global cooldown.
+          </Trans>
         </p>
 
         <small>
-          There will be some time where you cannot cast, for example during intermissions. You
-          should evaluate your performance based on fight specific mechanics.
+          <Trans id="shaman.elemental.abc.intermissions">
+            There will be some time where you cannot cast, for example during intermissions. You
+            should evaluate your performance based on fight specific mechanics.
+          </Trans>
         </small>
 
         <Expandable
           header={
             <SectionHeader>
-              <Statistics /> Active time timeline graph
+              <Statistics /> <Trans id="shaman.elemental.abc.graph">Active time timeline graph</Trans>
             </SectionHeader>
           }
           element="section"

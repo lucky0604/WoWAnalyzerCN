@@ -1,5 +1,6 @@
 import { ReactNode, type JSX } from 'react';
 import styled from '@emotion/styled';
+import { i18n } from '@lingui/core';
 import { useAnalyzer, useInfo } from 'interface/guide';
 import { formatDuration, formatNumber } from 'common/format';
 import { SpellLink, Tooltip } from 'interface';
@@ -101,13 +102,18 @@ function HitTimeline({ hits, showSourceName, unmitigatedContent }: HitTimelinePr
 
   const enemy = enemies.getSourceEntity(hits[0].event);
 
+  let abilityName = ability.name;
+  if (i18n.locale === 'zh' && abilityName === 'Melee') {
+    abilityName = '普通攻击';
+  }
+
   const link = showSourceName ? (
     <a href={npcTooltip(enemy?.guid ?? 0)} style={style}>
-      {enemy?.name ?? 'Unknown'} ({ability.name})
+      {enemy?.name ?? 'Unknown'} ({abilityName})
     </a>
   ) : (
     <SpellLink spell={abilityToSpell(ability)} style={style}>
-      {ability.name}
+      {abilityName}
     </SpellLink>
   );
 

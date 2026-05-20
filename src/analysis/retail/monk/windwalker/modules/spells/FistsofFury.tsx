@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -148,7 +149,14 @@ class FistsofFury extends Analyzer {
         position={STATISTIC_ORDER.CORE(4)}
         size="flexible"
         tooltip={
-          <>Fists of Fury ticks {this.expectedTicks} times over the duration of the channel.</>
+          (() => {
+            const expectedTicks = this.expectedTicks;
+            return (
+              <Trans id="monk.windwalker.fof.ticks_tooltip">
+                Fists of Fury ticks {expectedTicks} times over the duration of the channel.
+              </Trans>
+            );
+          })()
         }
         dropdown={
           <div className="pad">
@@ -157,7 +165,10 @@ class FistsofFury extends Analyzer {
         }
       >
         <BoringSpellValueText spell={SPELLS.FISTS_OF_FURY_CAST}>
-          {this.averageTicks.toFixed(2)} <small>Average ticks per cast</small>
+          {this.averageTicks.toFixed(2)}{' '}
+          <small>
+            <Trans id="monk.windwalker.fof.avg_ticks">Average ticks per cast</Trans>
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );
@@ -167,19 +178,23 @@ class FistsofFury extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} />
-          </b>{' '}
-          is one of your primary dps skills, and should be channeled to completion. It ticks{' '}
-          {BASE_FISTS_OF_FURY_TICKS} times over the duration of the channel.{' '}
-          <SpellLink spell={TALENTS_MONK.CRASHING_FISTS_TALENT} /> now increases its damage rather
-          than extending the channel.
+          <Trans id="monk.windwalker.fof.explanation1">
+            <b>
+              <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} />
+            </b>{' '}
+            is one of your primary dps skills, and should be channeled to completion. It ticks{' '}
+            {BASE_FISTS_OF_FURY_TICKS} times over the duration of the channel.{' '}
+            <SpellLink spell={TALENTS_MONK.CRASHING_FISTS_TALENT} /> now increases its damage rather
+            than extending the channel.
+          </Trans>
         </p>
         <p>
-          With <SpellLink spell={TALENTS_MONK.MOMENTUM_BOOST_TALENT} />, each tick of{' '}
-          <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> ramps the damage of the next tick.
-          That means the back half of the channel is worth significantly more than the front half,
-          so clipping it early is especially punishing.
+          <Trans id="monk.windwalker.fof.explanation2">
+            With <SpellLink spell={TALENTS_MONK.MOMENTUM_BOOST_TALENT} />, each tick of{' '}
+            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> ramps the damage of the next tick.
+            That means the back half of the channel is worth significantly more than the front half,
+            so clipping it early is especially punishing.
+          </Trans>
         </p>
       </>
     );
@@ -188,23 +203,31 @@ class FistsofFury extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> cast efficiency
+            <Trans id="monk.windwalker.fof.cast_efficiency">
+              <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           {this.guideSubStatistic()}
           <hr />
           <strong>
-            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> clip analysis
+            <Trans id="monk.windwalker.fof.clip_analysis">
+              <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> clip analysis
+            </Trans>
           </strong>
           <div style={{ display: 'flex' }}>
             <div style={{ flex: '1', marginRight: '4rem' }}>
-              {/* TODO: I broke something here, now shows NaN for 5-tick casts out of SER  */}
+              {/* TODO: I broke something here, now shows NaN for 5-tick casts out of SER */}
               <DonutChart items={this.donutChart(this.ticksHit)} />
             </div>
             <table className="table table-condensed" style={{ flex: 1 }}>
               <thead>
                 <tr>
-                  <th>Ability</th>
-                  <th>Times Clipped</th>
+                  <th>
+                    <Trans id="monk.windwalker.fof.ability">Ability</Trans>
+                  </th>
+                  <th>
+                    <Trans id="monk.windwalker.fof.times_clipped">Times Clipped</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>

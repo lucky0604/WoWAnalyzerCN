@@ -18,7 +18,7 @@ const PlayerInfoTalent = ({ talentEntry }: Props) => {
         <div className="talent-icon">
           <Icon icon={FALLBACK_ICON} style={{ width: '2em', height: '2em' }} />
         </div>
-        <div className="talent-name">Unknown Talent {talentEntry.id}</div>
+        <div className="talent-name">未知天赋 {talentEntry.id}</div>
         <div className="talent-level">{talentEntry.rank}</div>
       </div>
     );

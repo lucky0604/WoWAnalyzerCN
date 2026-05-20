@@ -7,6 +7,7 @@ import * as cnd from 'parser/shared/metrics/apl/conditions';
 import talents from 'common/TALENTS/monk';
 import { AnyEvent } from 'parser/core/Events';
 import { SpellLink, TooltipElement } from 'interface';
+import { Trans } from '@lingui/react/macro';
 
 const withCombo = cnd.buffPresent(SPELLS_COMMON.BLACKOUT_COMBO_BUFF);
 
@@ -27,7 +28,7 @@ const CHP_SETUP = {
     <>
       <TooltipElement
         content={
-          <>
+          <Trans id="monk.brewmaster.apl.charred_passions_tooltip">
             <p>
               Applying <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} /> before using{' '}
               <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} /> can be a damage gain, but if you
@@ -38,13 +39,15 @@ const CHP_SETUP = {
               You might run into this condition naturally when dealing with forced downtime, such as
               tank mechanics that require you to run away.
             </p>
-          </>
+          </Trans>
         }
       >
-        (Optional)
+        <Trans id="monk.brewmaster.apl.optional">(Optional)</Trans>
       </TooltipElement>{' '}
-      Apply <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} /> when it is missing before using{' '}
-      <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} />
+      <Trans id="monk.brewmaster.apl.apply_charred_passions">
+        Apply <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} /> when it is missing before using{' '}
+        <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} />
+      </Trans>
     </>
   ),
 };
@@ -57,13 +60,16 @@ const standardApl = build([
         cnd.hasTalent(talents.WISDOM_OF_THE_WALL_TALENT),
         cnd.buffPresent(SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT),
       ),
-      (tense) => (
-        <>
-          <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>{' '}
-          {tenseAlt(tense, 'is', 'was')} active (as{' '}
-          <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
-        </>
-      ),
+      (tenseVal) => {
+        const tense = tenseAlt(tenseVal, 'is', 'was');
+        return (
+          <Trans id="monk.brewmaster.apl.niusao_active">
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>{' '}
+            {tense} active (as{' '}
+            <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
+          </Trans>
+        );
+      },
     ),
   },
   {
@@ -73,13 +79,16 @@ const standardApl = build([
         cnd.hasTalent(talents.WISDOM_OF_THE_WALL_TALENT),
         cnd.buffPresent(SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT),
       ),
-      (tense) => (
-        <>
-          <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>{' '}
-          {tenseAlt(tense, 'is', 'was')} active (as{' '}
-          <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
-        </>
-      ),
+      (tenseVal) => {
+        const tense = tenseAlt(tenseVal, 'is', 'was');
+        return (
+          <Trans id="monk.brewmaster.apl.niusao_active">
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>{' '}
+            {tense} active (as{' '}
+            <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
+          </Trans>
+        );
+      },
     ),
   },
   CHP_SETUP,
@@ -97,10 +106,10 @@ const standardApl = build([
           cnd.spellCooldownRemaining(SPELLS.BLACKOUT_KICK, { atLeast: 2000 }),
         ),
         (tense) => (
-          <>
+          <Trans id="monk.brewmaster.apl.combo_filler">
             it {tenseAlt(tense, 'is', 'was')} a correct{' '}
             <SpellLink spell={SPELLS.BLACKOUT_COMBO_TALENT}>Combo</SpellLink> filler
-          </>
+          </Trans>
         ),
       ),
     ),
@@ -120,10 +129,10 @@ const standardApl = build([
       cnd.hasTalent(talents.FLURRY_STRIKES_TALENT),
     ),
     description: (
-      <>
+      <Trans id="monk.brewmaster.apl.cast_keg_smash_charges">
         Cast <SpellLink spell={SPELLS.KEG_SMASH_TALENT} /> at or near 2 charges (as{' '}
         <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
-      </>
+      </Trans>
     ),
   },
   SPELLS.BREATH_OF_FIRE_TALENT,

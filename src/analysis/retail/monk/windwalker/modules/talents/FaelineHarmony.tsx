@@ -1,4 +1,5 @@
 import { formatPercentage } from 'common/format';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
@@ -67,10 +68,15 @@ class FaelineHarmony extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            This shows the HPS and DPS provided by the {formatPercentage(amp_exposure)}% increase
-            from Faeline Harmony.
-          </>
+          (() => {
+            const pct = formatPercentage(amp_exposure);
+            return (
+              <Trans id="monk.windwalker.faeline_harmony.tooltip">
+                This shows the HPS and DPS provided by the {pct}% increase
+                from Faeline Harmony.
+              </Trans>
+            );
+          })()
         }
       >
         <BoringSpellValueText spell={SPELLS.FAELINE_HARMONY_DEBUFF}>

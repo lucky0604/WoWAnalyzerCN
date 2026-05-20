@@ -11,6 +11,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { formatPercentage } from 'common/format';
 import SpellLink from 'interface/SpellLink';
+import { Trans } from '@lingui/react/macro';
 
 class MistyCoalescence extends Analyzer {
   static dependencies = {
@@ -75,15 +76,24 @@ class MistyCoalescence extends Analyzer {
         position={STATISTIC_ORDER.CORE(21)}
         size="flexible"
         tooltip={
-          <>
-            {this.avgRems.toFixed(2)} average <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} />
-            (s) on a {this.combatants.playerCount} player group.
-          </>
+          (() => {
+            const avg = this.avgRems.toFixed(2);
+            const players = this.combatants.playerCount;
+            return (
+              <Trans id="monk.mistweaver.misty_coalescence.tooltip">
+                {avg} average <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} />
+                (s) on a {players} player group.
+              </Trans>
+            );
+          })()
         }
       >
         <TalentSpellText talent={TALENTS_MONK.MISTY_COALESCENCE_TALENT}>
           <div>
-            {formatPercentage(this.averageIncrease)}% <small> average increase</small>
+            {formatPercentage(this.averageIncrease)}%{' '}
+            <small>
+              <Trans id="monk.mistweaver.misty_coalescence.label"> average increase</Trans>
+            </small>
           </div>
           <div>
             <ItemHealingDone amount={this.healing} />

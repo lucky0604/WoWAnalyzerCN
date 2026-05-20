@@ -35,12 +35,12 @@ export const TimelineConfiguration = (props: TimelineConfigurationProps) => {
 
   return (
     <div className={styles['timeline-configuration']} ref={menuRef}>
-      <Tooltip content="Configure timeline">
+      <Tooltip content="配置时间轴">
         <button
           type="button"
           className={styles['timeline-configuration-button']}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Configure timeline"
+          aria-label="配置时间轴"
         >
           <CogIcon />
         </button>

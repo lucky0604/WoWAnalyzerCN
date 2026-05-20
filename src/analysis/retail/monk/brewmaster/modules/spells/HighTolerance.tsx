@@ -10,6 +10,8 @@ import { formatDurationMinSec } from 'common/format';
 import SpellLink from 'interface/SpellLink';
 import StateHistory, { EventHistory } from 'parser/core/StateHistory';
 import type SpellUsable from 'parser/shared/modules/SpellUsable';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const CDR_PER_RANK = 2000;
 
@@ -76,21 +78,34 @@ class HighTolerance extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            {formatDurationMinSec(this.wastedCdr / 1000)} CDR wasted. Note that{' '}
-            <strong>High Tolerance has a bug</strong> causing cooldown reduction to be applied
-            before consuming a charge.
-          </>
+          (() => {
+            const wasted = formatDurationMinSec(this.wastedCdr / 1000);
+            return (
+              <Trans id="monk.brewmaster.high_tolerance.tooltip">
+                {wasted} CDR wasted. Note that{' '}
+                <strong>High Tolerance has a bug</strong> causing cooldown reduction to be applied
+                before consuming a charge.
+              </Trans>
+            );
+          })()
         }
       >
         <BoringValue
           label={
             <>
-              <SpellLink spell={spells.HIGH_TOLERANCE_TALENT} /> Elevated Purifies
+              <SpellLink spell={spells.HIGH_TOLERANCE_TALENT} /> {t({ id: 'monk.brewmaster.high_tolerance.label', message: 'Elevated Purifies' })}
             </>
           }
         >
-          {this.elevatedPurifyCount} casts / {formatDurationMinSec(this.cdrAmount / 1000)} CDR
+          {(() => {
+            const casts = this.elevatedPurifyCount;
+            const cdr = formatDurationMinSec(this.cdrAmount / 1000);
+            return (
+              <Trans id="monk.brewmaster.high_tolerance.value">
+                {casts} casts / {cdr} CDR
+              </Trans>
+            );
+          })()}
         </BoringValue>
       </Statistic>
     );

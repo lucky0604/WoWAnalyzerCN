@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 import talents from 'common/TALENTS/shaman';
 import SpellLink from 'interface/SpellLink';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -16,28 +17,30 @@ class Riptide extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={talents.RIPTIDE_TALENT} />
-        </b>{' '}
-        is one of your core rotational abilities and primary sources of healing. It has numerous
-        throughput synergies with talents like <SpellLink spell={talents.UNDERCURRENT_TALENT} />,{' '}
-        <SpellLink spell={talents.ECHO_OF_THE_ELEMENTS_TALENT} />,
-        {this.selectedCombatant.hasTalent(talents.FLOW_OF_THE_TIDES_TALENT) && (
-          <>
-            <SpellLink spell={talents.FLOW_OF_THE_TIDES_TALENT} />,{' '}
-          </>
-        )}
-        {this.selectedCombatant.hasTalent(talents.PRIMAL_TIDE_CORE_TALENT) && (
-          <>
-            <SpellLink spell={talents.PRIMAL_TIDE_CORE_TALENT} />,{' '}
-          </>
-        )}
-        {this.selectedCombatant.hasTalent(talents.DEEPLY_ROOTED_ELEMENTS_TALENT) && (
-          <>
-            <SpellLink spell={talents.DEEPLY_ROOTED_ELEMENTS_TALENT} />,{' '}
-          </>
-        )}{' '}
-        etc.{' '}
+        <Trans id="shaman.restoration.riptide.explanation">
+          <b>
+            <SpellLink spell={talents.RIPTIDE_TALENT} />
+          </b>{' '}
+          is one of your core rotational abilities and primary sources of healing. It has numerous
+          throughput synergies with talents like <SpellLink spell={talents.UNDERCURRENT_TALENT} />,{' '}
+          <SpellLink spell={talents.ECHO_OF_THE_ELEMENTS_TALENT} />,
+          {this.selectedCombatant.hasTalent(talents.FLOW_OF_THE_TIDES_TALENT) && (
+            <>
+              <SpellLink spell={talents.FLOW_OF_THE_TIDES_TALENT} />,{' '}
+            </>
+          )}
+          {this.selectedCombatant.hasTalent(talents.PRIMAL_TIDE_CORE_TALENT) && (
+            <>
+              <SpellLink spell={talents.PRIMAL_TIDE_CORE_TALENT} />,{' '}
+            </>
+          )}
+          {this.selectedCombatant.hasTalent(talents.DEEPLY_ROOTED_ELEMENTS_TALENT) && (
+            <>
+              <SpellLink spell={talents.DEEPLY_ROOTED_ELEMENTS_TALENT} />,{' '}
+            </>
+          )}{' '}
+          etc.{' '}
+        </Trans>
       </p>
     );
 
@@ -45,7 +48,9 @@ class Riptide extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={talents.RIPTIDE_TALENT} /> cast efficiency
+            <Trans id="shaman.restoration.riptide.efficiency">
+              <SpellLink spell={talents.RIPTIDE_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}

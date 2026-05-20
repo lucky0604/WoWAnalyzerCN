@@ -1,6 +1,7 @@
 import SPELLS from 'common/SPELLS';
 import HIT_TYPES from 'game/HIT_TYPES';
 import { SpellIcon } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { ThresholdStyle } from 'parser/core/ParseResults';
@@ -144,7 +145,9 @@ class XuensBattlegear extends Analyzer {
               }}
             />{' '}
             {(this.effectiveFistsOfFuryReductionMs / 1000).toFixed(1)}{' '}
-            <small>Seconds reduced</small>
+            <small>
+              <Trans id="monk.windwalker.xuens_battlegear.seconds_reduced">Seconds reduced</Trans>
+            </small>
           </span>
         </BoringSpellValueText>
       </Statistic>

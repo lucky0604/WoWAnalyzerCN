@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -286,28 +287,35 @@ class UnleashLife extends Analyzer {
   private _tooltip(primary: TooltipData, secondary?: TooltipData) {
     return (
       <>
-        You used <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> on{' '}
-        <SpellLink spell={primary.spellId} />{' '}
-        <strong>{this.healingMap[primary.spellId].casts} </strong>time
-        {this.healingMap[primary.spellId].casts > 1 ? <>s</> : <></>}
+        <Trans id="shaman.restoration.ul.used">
+          You used <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> on{' '}
+          <SpellLink spell={primary.spellId} />{' '}
+          <strong>{this.healingMap[primary.spellId].casts} </strong>times
+        </Trans>
         <hr />
         <ul>
           {secondary && secondary.active && (
             <li>
-              <strong>{formatNumber(this.healingMap[primary.spellId].amount)}</strong> total healing
+              <Trans id="shaman.restoration.ul.total_healing">
+                <strong>{formatNumber(this.healingMap[primary.spellId].amount)}</strong> total healing
+              </Trans>
             </li>
           )}
           <li>
-            <strong>{formatNumber(primary.amount)} </strong> extra{' '}
-            <SpellLink spell={primary.spellId} /> healing
+            <Trans id="shaman.restoration.ul.extra_healing">
+              <strong>{formatNumber(primary.amount)} </strong> extra{' '}
+              <SpellLink spell={primary.spellId} /> healing
+            </Trans>
           </li>
           {primary && primary.extraHits && (
             <li>
-              <strong>{primary.extraHits}</strong> extra hits{' '}
+              <Trans id="shaman.restoration.ul.extra_hits">
+                <strong>{primary.extraHits}</strong> extra hits
+              </Trans>
               {primary.missedHits! > 0 ? (
-                <>
+                <Trans id="shaman.restoration.ul.missed">
                   , <strong>{primary.missedHits}</strong> missed
-                </>
+                </Trans>
               ) : (
                 <></>
               )}
@@ -315,25 +323,30 @@ class UnleashLife extends Analyzer {
           )}
           {secondary && secondary.active && (
             <li>
-              <strong>{formatNumber(secondary.amount)}</strong> extra{' '}
-              <SpellLink spell={secondary.spellId} /> healing
+              <Trans id="shaman.restoration.ul.extra_healing">
+                <strong>{formatNumber(secondary.amount)}</strong> extra{' '}
+                <SpellLink spell={secondary.spellId} /> healing
+              </Trans>
             </li>
           )}
           {secondary && secondary.active && secondary.extraHits && (
             <li>
-              <strong>{secondary.extraHits}</strong> extra hits{' '}
+              <Trans id="shaman.restoration.ul.extra_hits">
+                <strong>{secondary.extraHits}</strong> extra hits
+              </Trans>
               {secondary.missedHits! > 0 ? (
-                <>
+                <Trans id="shaman.restoration.ul.missed">
                   , <strong>{secondary.missedHits}</strong> missed
-                </>
+                </Trans>
               ) : (
                 <></>
               )}
             </li>
           )}
           <li>
-            <strong>{formatNumber(this._getAveragePerCast(primary.spellId))} </strong> healing per
-            use
+            <Trans id="shaman.restoration.ul.avg_healing">
+              <strong>{formatNumber(this._getAveragePerCast(primary.spellId))} </strong> healing per use
+            </Trans>
           </li>
         </ul>
       </>
@@ -419,12 +432,12 @@ class UnleashLife extends Analyzer {
           <ItemHealingDone amount={this.totalHealing} />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {this.buffIcon} {this.wastedBuffs} <small> wasted buffs</small>
+          {this.buffIcon} {this.wastedBuffs} <small> <Trans id="shaman.restoration.ul.wasted_buffs">wasted buffs</Trans></small>
         </TalentSpellText>
         <aside className="pad">
           <hr />
           <header>
-            <label>Breakdown of Unleash Life Healing</label>
+            <label><Trans id="shaman.restoration.ul.breakdown_title">Breakdown of Unleash Life Healing</Trans></label>
           </header>
           {this.unleashLifeCastRatioChart}
         </aside>
@@ -436,12 +449,14 @@ class UnleashLife extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
-        </b>{' '}
-        is a very efficient and potent heal on a short cooldown that also provides a buff that
-        improves your next <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />,{' '}
-        <SpellLink spell={SPELLS.HEALING_WAVE} />, or <SpellLink spell={TALENTS.RIPTIDE_TALENT} />.
+        <Trans id="shaman.restoration.ul.explanation">
+          <b>
+            <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+          </b>{' '}
+          is a very efficient and potent heal on a short cooldown that also provides a buff that
+          improves your next <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />,{' '}
+          <SpellLink spell={SPELLS.HEALING_WAVE} />, or <SpellLink spell={TALENTS.RIPTIDE_TALENT} />.
+        </Trans>
       </p>
     );
 
@@ -449,15 +464,19 @@ class UnleashLife extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> cast efficiency
+            <Trans id="shaman.restoration.ul.efficiency">
+              <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             {this.guideSubStatistic()} <br />
-            <strong>Casts </strong>
+            <strong>{t({ id: 'shaman.restoration.ul.casts_label', message: 'Casts ' })}</strong>
             <small>
-              - Green indicates a good use of the <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />{' '}
-              buff, Yellow indicates an ok use, and Red is an incorrect use or the buff expired.
+              <Trans id="shaman.restoration.ul.casts_desc">
+                - Green indicates a good use of the <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />{' '}
+                buff, Yellow indicates an ok use, and Red is an incorrect use or the buff expired.
+              </Trans>
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>
@@ -485,29 +504,28 @@ class UnleashLife extends Analyzer {
     if (this.goodSpells.includes(spellId)) {
       value = QualitativePerformance.Good;
       tooltip = (
-        <>
+        <Trans id="shaman.restoration.ul.correct">
           Correct cast: buffed <SpellLink spell={spellId} />
-        </>
+        </Trans>
       );
     } else if (this.okSpells.includes(spellId)) {
       value = QualitativePerformance.Ok;
       tooltip = (
-        <>
+        <Trans id="shaman.restoration.ul.ok">
           Ok cast: buffed <SpellLink spell={spellId} />
-        </>
+        </Trans>
       );
     } else {
       value = QualitativePerformance.Fail;
       tooltip = (
         <>
-          Incorrect cast:{' '}
+          <Trans id="shaman.restoration.ul.incorrect">Incorrect cast: </Trans>
           {spellId === -1 ? (
-            <>Unused Buff!</>
+            <Trans id="shaman.restoration.ul.unused">Unused Buff!</Trans>
           ) : (
-            <>
-              {' '}
+            <Trans id="shaman.restoration.ul.buffed_spell">
               buffed <SpellLink spell={spellId} />
-            </>
+            </Trans>
           )}
         </>
       );

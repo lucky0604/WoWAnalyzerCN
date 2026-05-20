@@ -99,7 +99,7 @@ export default function CastSequence<T>({
   }, [sequences.length]);
 
   if (!sequences || sequences.length === 0) {
-    return <div>No cast sequences to display</div>;
+    return <div>无施法序列可显示</div>;
   }
 
   const currentSequence = sequences[currentIndex];
@@ -117,7 +117,7 @@ export default function CastSequence<T>({
     }
   }
 
-  const subtitle = `Cast Sequence ${windowStart !== undefined ? `at ${castTimestamp(currentSequence.data)}` : ''}`;
+  const subtitle = `施法序列 ${windowStart !== undefined ? castTimestamp(currentSequence.data) : ''}`;
 
   const navContent = (
     <NavigationButtons>
@@ -125,7 +125,7 @@ export default function CastSequence<T>({
         type="button"
         onClick={handlePrevious}
         disabled={currentIndex === 0}
-        aria-label="Previous sequence"
+        aria-label="上一个序列"
       >
         ‹
       </CastSeqNavButton>
@@ -136,7 +136,7 @@ export default function CastSequence<T>({
         type="button"
         onClick={handleNext}
         disabled={currentIndex === sequences.length - 1}
-        aria-label="Next sequence"
+        aria-label="下一个序列"
       >
         ›
       </CastSeqNavButton>
@@ -150,7 +150,7 @@ export default function CastSequence<T>({
   ) : undefined;
 
   return (
-    <GuideDataWrapper title={`${spell.name} Cast Sequences`} subtitle={subtitle} stats={navContent}>
+    <GuideDataWrapper title={`${spell.name} 施法序列`} subtitle={subtitle} stats={navContent}>
       {inlineHelperText}
       <SectionContainer>
         <SpellSequence casts={currentSequence.casts} iconSize={iconSize} />

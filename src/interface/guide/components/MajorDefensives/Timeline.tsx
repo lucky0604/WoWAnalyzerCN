@@ -88,7 +88,7 @@ const BuffTooltip = ({
         <MitigationLabel mitigation={mitigation} />
       </div>
       <MitigationDataRow>
-        <div>Mitigated {formatNumber(mitigation.amount)} Damage</div>
+        <div>减伤了 {formatNumber(mitigation.amount)} 伤害</div>
         <TooltipSegments segments={segments} maxValue={maxValue} />
       </MitigationDataRow>
     </div>

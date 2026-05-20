@@ -120,28 +120,28 @@ class DamageTaken extends Analyzer {
     const magical = this.total.effective - physical;
     return (
       <>
-        <strong>Damage taken by type:</strong>
+        <strong>按类型承受伤害：</strong>
         <ul>
           <li>
-            <strong>Physical</strong>: {formatThousands(physical)} (
+            <strong>物理</strong>: {formatThousands(physical)} (
             {formatPercentage(physical / this.total.effective)}%)
           </li>
           <li>
-            <strong>Magic</strong>: {formatThousands(magical)} (
+            <strong>魔法</strong>: {formatThousands(magical)} (
             {formatPercentage(magical / this.total.effective)}%)
           </li>
         </ul>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
 
-        <strong>Damage taken by magic school:</strong>
+        <strong>按法术系承受伤害：</strong>
         <ul>
           {Object.keys(this._byMagicSchool)
             .map(Number)
             .filter((type) => this._byMagicSchool[type].effective !== 0)
             .map((type) => (
               <li key={type}>
-                <strong>{MAGIC_SCHOOLS.names[type] || 'Unknown'}</strong>:{' '}
+                <strong>{MAGIC_SCHOOLS.names[type] || '未知'}</strong>:{' '}
                 {formatThousands(this._byMagicSchool[type].effective)} (
                 {formatPercentage(this._byMagicSchool[type].effective / this.total.effective)}%)
               </li>
@@ -180,11 +180,11 @@ class DamageTaken extends Analyzer {
       >
         <div className="flex">
           <div className="flex-sub icon">
-            <img src="/img/shield.png" alt="Damage taken" />
+            <img src="/img/shield.png" alt="承受伤害" />
           </div>
           <Tooltip content={this.tooltip}>
             <div className="flex-sub value" style={{ width: 190 }}>
-              {formatThousands(perSecond)} DTPS
+              {formatThousands(perSecond)} 每秒承受伤害
             </div>
           </Tooltip>
           <div

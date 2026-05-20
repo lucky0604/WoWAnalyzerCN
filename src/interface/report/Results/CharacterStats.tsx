@@ -102,7 +102,7 @@ const CharacterStats = ({ statTracker }: Props) => {
 
     return percentage === null
       ? formatThousands(rating)
-      : `${formatPercentage(percentage)}% - ${formatThousands(rating)} rating`;
+      : `${formatPercentage(percentage)}% - ${formatThousands(rating)} 等级`;
   };
 
   const mainStats: STAT[] = [

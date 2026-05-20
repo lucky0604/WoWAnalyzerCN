@@ -5,7 +5,7 @@ interface TooltipsState {
 }
 
 const initialState: TooltipsState = {
-  baseUrl: 'https://wowhead.com/',
+  baseUrl: 'https://db.damijing.com/',
 };
 
 const tooltipsSlice = createSlice({

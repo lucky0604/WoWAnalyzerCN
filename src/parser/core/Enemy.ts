@@ -1,3 +1,5 @@
+import { i18n } from '@lingui/core';
+import { getMobCnName } from 'common/CN_MAPPING';
 import CombatLogParser from './CombatLogParser';
 import Entity from './Entity';
 import Unit from './Unit';
@@ -17,7 +19,11 @@ class Enemy extends Entity {
   readonly instanceID: number;
 
   override get name() {
-    return this.baseInfo.name;
+    const englishName = this.baseInfo.name;
+    if (i18n.locale === 'zh') {
+      return getMobCnName(englishName) ?? englishName;
+    }
+    return englishName;
   }
 
   /** Generally "NPC" */

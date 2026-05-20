@@ -2,6 +2,8 @@ import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { formatDuration, formatNumber } from 'common/format';
 import { SpellIcon } from 'interface';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
 import { ThresholdStyle } from 'parser/core/ParseResults';
@@ -15,8 +17,6 @@ interface MasteryCast {
   ability: number;
   timestamp: number;
 }
-
-const HIT_COMBO_STRING = ' and dropping the Hit Combo damage buff';
 
 class ComboStrikes extends Analyzer {
   _lastSpellUsed: number | null = null;
@@ -82,18 +82,34 @@ class ComboStrikes extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(2)}
         size="flexible"
-        tooltip={`This is the number of times you incorrectly cast the same spell twice in a row, missing out on the damage increase from your mastery${HIT_COMBO_STRING}.`}
+        tooltip={t({
+          id: 'monk.windwalker.combostrikes.tooltip',
+          message:
+            'This is the number of times you incorrectly cast the same spell twice in a row, missing out on the damage increase from your mastery{suffix}.',
+          suffix: this.hasHitCombo
+            ? t({
+                id: 'monk.windwalker.combostrikes.hit_combo_suffix',
+                message: ' and dropping the Hit Combo damage buff',
+              })
+            : '',
+        } as unknown)}
         dropdown={
           // only add a dropdown when there are any mastery breaks to show
           this.masteryDropEvents > 0 ? (
             <>
               <div>
-                <span style={{ padding: '1.3em' }}>Spell sequence when mastery dropped.</span>
+                <span style={{ padding: '1.3em' }}>
+                  <Trans id="monk.windwalker.combostrikes.sequence_title">
+                    Spell sequence when mastery dropped.
+                  </Trans>
+                </span>
               </div>
               <table className="table table-condensed">
                 <thead>
                   <tr>
-                    <th>Timestamp</th>
+                    <th>
+                      <Trans id="monk.windwalker.combostrikes.timestamp">Timestamp</Trans>
+                    </th>
                     <th>1</th>
                     <th>2</th>
                     <th>3</th>
@@ -129,7 +145,10 @@ class ComboStrikes extends Analyzer {
         }
       >
         <BoringSpellValueText spell={SPELLS.COMBO_STRIKES}>
-          {formatNumber(this.masteryDropEvents)} <small>Mastery benefit mistakes</small>
+          {formatNumber(this.masteryDropEvents)}{' '}
+          <small>
+            <Trans id="monk.windwalker.combostrikes.mistakes">Mastery benefit mistakes</Trans>
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );
@@ -138,7 +157,10 @@ class ComboStrikes extends Analyzer {
   get subStatistic() {
     return (
       <>
-        {formatNumber(this.masteryDropEvents)} <small>Mastery benefit mistakes</small>
+        {formatNumber(this.masteryDropEvents)}{' '}
+        <small>
+          <Trans id="monk.windwalker.combostrikes.mistakes">Mastery benefit mistakes</Trans>
+        </small>
       </>
     );
   }

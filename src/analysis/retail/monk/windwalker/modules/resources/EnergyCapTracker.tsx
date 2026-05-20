@@ -1,6 +1,8 @@
 import { formatDuration, formatPercentage } from 'common/format';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { Icon, Tooltip } from 'interface';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import RegenResourceCapTracker from 'parser/shared/modules/resources/resourcetracker/RegenResourceCapTracker';
 import StatisticBox, { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import { TALENTS_MONK } from 'common/TALENTS';
@@ -52,40 +54,63 @@ class EnergyCapTracker extends RegenResourceCapTracker {
     return (
       <StatisticBox
         position={STATISTIC_ORDER.CORE(8)}
-        icon={<Icon icon="spell_shadow_shadowworddominate" alt="Capped Energy" />}
+        icon={
+          <Icon
+            icon="spell_shadow_shadowworddominate"
+            alt={t({ id: 'monk.windwalker.energy_cap.capped_energy', message: 'Capped Energy' })}
+          />
+        }
         value={`${formatPercentage(this.cappedProportion)}%`}
-        label="Time with capped energy"
+        label={t({ id: 'monk.windwalker.energy_cap.label', message: 'Time with capped energy' })}
         tooltip={
           <>
             <p>
-              Although it can be beneficial to wait and let your energy pool ready to be used at the
-              right time, you should still avoid letting it reach the cap.
+              <Trans id="monk.windwalker.energy_cap.tooltip1">
+                Although it can be beneficial to wait and let your energy pool ready to be used at the
+                right time, you should still avoid letting it reach the cap.
+              </Trans>
             </p>
             <p>
-              You spent <b>{formatPercentage(this.cappedProportion)}%</b> of the fight at capped
-              energy, causing you to miss out on <b>{this.missedRegenPerMinute.toFixed(1)}</b>{' '}
-              energy per minute from regeneration.
+              <Trans id="monk.windwalker.energy_cap.tooltip2">
+                You spent <b>{formatPercentage(this.cappedProportion)}%</b> of the fight at capped
+                energy, causing you to miss out on <b>{this.missedRegenPerMinute.toFixed(1)}</b>{' '}
+                energy per minute from regeneration.
+              </Trans>
             </p>
           </>
         }
         footer={
           <div className="statistic-box-bar">
             <Tooltip
-              content={`Not at capped energy for ${formatDuration(
-                (this.owner.fightDuration - this.atCap) / 1000,
-              )}`}
+              content={t({
+                id: 'monk.windwalker.energy_cap.not_capped_for',
+                message: 'Not at capped energy for {duration}',
+                duration: formatDuration((this.owner.fightDuration - this.atCap) / 1000),
+              } as unknown)}
             >
               <div
                 className="stat-healing-bg"
                 style={{ width: `${(1 - this.cappedProportion) * 100}%` }}
               >
-                <img src="/img/sword.png" alt="Uncapped Energy" />
+                <img
+                  src="/img/sword.png"
+                  alt={t({ id: 'monk.windwalker.energy_cap.uncapped_energy', message: 'Uncapped Energy' })}
+                />
               </div>
             </Tooltip>
 
-            <Tooltip content={`At capped energy for ${formatDuration(this.atCap)}`}>
+            <Tooltip
+              content={t({
+                id: 'monk.windwalker.energy_cap.capped_for',
+                message: 'At capped energy for {duration}',
+                duration: formatDuration(this.atCap / 1000),
+              } as unknown)}
+            >
               <div className="remainder DeathKnight-bg">
-                <img src="/img/overhealing.png" alt="Capped Energy" />
+                <img
+                  src="/img/overhealing.png"
+                  alt={t({ id: 'monk.windwalker.energy_cap.capped_energy', message: 'Capped Energy' })}
+                />
               </div>
             </Tooltip>
           </div>

@@ -1,6 +1,7 @@
 import { TALENTS_MONK } from 'common/TALENTS';
 import { Options } from 'parser/core/Module';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { Trans } from '@lingui/react/macro';
 import {
   CastInfo,
   default as CommonCelestialConduit,
@@ -39,14 +40,20 @@ class CelestialConduit extends CommonCelestialConduit {
     return (
       <>
         <strong>
-          <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> utilization
+          <Trans id="monk.windwalker.celestial_conduit.utilization">
+            <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> utilization
+          </Trans>
         </strong>
         <div>
-          <strong>Clip Analysis </strong>
+          <strong>
+            <Trans id="monk.windwalker.celestial_conduit.clip_analysis">Clip Analysis</Trans>{' '}
+          </strong>
           <small>
-            - Blue indicates a perfect cast (
-            <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> was channeled to
-            completion)
+            <Trans id="monk.windwalker.celestial_conduit.blue_perfect">
+              - Blue indicates a perfect cast (
+              <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> was channeled to
+              completion)
+            </Trans>
           </small>
           <PerformanceBoxRow values={this.castEntries(this.castInfoList)} />
         </div>
@@ -57,10 +64,12 @@ class CelestialConduit extends CommonCelestialConduit {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> should be cast
-        towards the end of a <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />{' '}
-        window, so that the secondary cast of <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />{' '}
-        triggers a new window. The channel should always be fully completed when possible.
+        <Trans id="monk.windwalker.celestial_conduit.explanation">
+          <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> should be cast
+          towards the end of a <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />{' '}
+          window, so that the secondary cast of <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />{' '}
+          triggers a new window. The channel should always be fully completed when possible.
+        </Trans>
       </p>
     );
 

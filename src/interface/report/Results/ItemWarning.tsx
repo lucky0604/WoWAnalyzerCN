@@ -27,10 +27,9 @@ class ItemWarning extends Component<Props> {
     return (
       <div className="container">
         <AlertWarning style={{ marginBottom: 30 }}>
-          This module can have some inaccuracies caused by effects from items that cannot be tracked
-          in WoWAnalyzer, this may cause not all statistics to be accurate for this player. This is
+          由于部分物品效果无法在 WoWAnalyzer 中追踪，本模块可能存在一定误差，导致该玩家的部分统计数据不够准确。这与以下物品有关：
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-          due to the following items: <br />
+          <br />
           {this.badItems.map((item) => (
             <ItemLink key={item} id={item} />
           ))}

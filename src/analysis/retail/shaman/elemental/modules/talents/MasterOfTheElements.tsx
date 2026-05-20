@@ -1,4 +1,5 @@
 import TALENTS from 'common/TALENTS/shaman';
+import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, GetRelatedEvent } from 'parser/core/Events';
@@ -50,9 +51,9 @@ class MasterOfTheElements extends Analyzer {
       );
       addAdditionalCastInformation(
         event,
-        <>
+        <Trans id="shaman.elemental.mote.buffed">
           Cast was buffed by <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} />
-        </>,
+        </Trans>,
       );
     }
   }
@@ -68,8 +69,12 @@ class MasterOfTheElements extends Analyzer {
           <MasterOfTheElementsTable className="table table-condensed">
             <thead>
               <tr>
-                <th>Ability</th>
-                <th>Number of Buffed Casts</th>
+                <th>
+                  <Trans id="shaman.elemental.mote.ability">Ability</Trans>
+                </th>
+                <th>
+                  <Trans id="shaman.elemental.mote.casts">Number of Buffed Casts</Trans>
+                </th>
               </tr>
             </thead>
             <tbody>

@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, TooltipElement } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ApplyBuffEvent, CastEvent, HealEvent, RefreshBuffEvent } from 'parser/core/Events';
 import DonutChart from 'parser/ui/DonutChart';
@@ -453,25 +454,41 @@ class DancingMists extends Analyzer {
           </>
         }
         tooltip={
-          <>
-            <ul>
-              <li>
-                Bounces from overheal: <b>{this.bounceTicks}</b>
-              </li>
-              <li>
-                Overheal ticks that did not bounce: <b>{this.overhealTicks}</b>
-              </li>
-              <li>
-                Percentage of <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} /> overheal ticks that
-                could actually proc <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />:{' '}
-                <b>{formatPercentage(this.eligiblePercentageOfTicks)}%</b>
-              </li>
-              <li>
-                Actual <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} /> proc rate:{' '}
-                <b>{formatPercentage(this.dancingMistProcRate)}%</b>
-              </li>
-            </ul>
-          </>
+          (() => {
+            const bounce = this.bounceTicks;
+            const ticks = this.overhealTicks;
+            const pct = formatPercentage(this.eligiblePercentageOfTicks);
+            const rate = formatPercentage(this.dancingMistProcRate);
+            return (
+              <>
+                <ul>
+                  <li>
+                    <Trans id="monk.mistweaver.dancing_mists.bounces">
+                      Bounces from overheal: <b>{bounce}</b>
+                    </Trans>
+                  </li>
+                  <li>
+                    <Trans id="monk.mistweaver.dancing_mists.not_bounced">
+                      Overheal ticks that did not bounce: <b>{ticks}</b>
+                    </Trans>
+                  </li>
+                  <li>
+                    <Trans id="monk.mistweaver.dancing_mists.eligible">
+                      Percentage of <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} /> overheal ticks that
+                      could actually proc <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />:{' '}
+                      <b>{pct}%</b>
+                    </Trans>
+                  </li>
+                  <li>
+                    <Trans id="monk.mistweaver.dancing_mists.proc_rate">
+                      Actual <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} /> proc rate:{' '}
+                      <b>{rate}%</b>
+                    </Trans>
+                  </li>
+                </ul>
+              </>
+            );
+          })()
         }
         category={STATISTIC_CATEGORY.TALENTS}
         position={STATISTIC_ORDER.CORE(3)}
@@ -480,8 +497,10 @@ class DancingMists extends Analyzer {
           <TooltipElement
             content={
               <>
-                The number of additional <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-                procced on casts and bounces:
+                <Trans id="monk.mistweaver.dancing_mists.additional">
+                  The number of additional <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+                  procced on casts and bounces:
+                </Trans>
                 <hr />
                 <DonutChart items={this.sourceDataItems} />
               </>
@@ -489,7 +508,9 @@ class DancingMists extends Analyzer {
           >
             {this.dancingMistCount}{' '}
             <small>
-              duplicated <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+              <Trans id="monk.mistweaver.dancing_mists.duplicated">
+                duplicated <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+              </Trans>
             </small>
           </TooltipElement>
         }

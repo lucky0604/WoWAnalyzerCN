@@ -36,7 +36,7 @@ const PotionPanel = ({ expansion }: Props) => {
     <PerformanceRoundedPanel performance={performance}>
       <PanelHeader className="flex">
         <div className="flex-main">
-          <strong>Number of Potions Used</strong>
+          <strong>使用药水数量</strong>
         </div>
         <div className="flex-sub">
           <Potion />
@@ -44,24 +44,24 @@ const PotionPanel = ({ expansion }: Props) => {
       </PanelHeader>
       {performance !== QualitativePerformance.Fail && (
         <p>
-          You used the appropriate amount of potions ({potionsUsed}/{maxPotions}) during this fight!
-          Good work!
+          你在本场战斗中使用了合适数量的药水（{potionsUsed}/{maxPotions}）！
+          做得好！
         </p>
       )}
       {performance === QualitativePerformance.Fail && (
         <p>
-          You used {potionsUsed} combat {potionsUsed === 1 ? 'potion' : 'potions'} during this
-          encounter, but you could have used {maxPotions}. {suggestionMessage}
+          你在本场战斗中使用了 {potionsUsed} 瓶战斗药水，但本可以使用 {maxPotions} 瓶。
+          {suggestionMessage}
         </p>
       )}
       {weakPotionsUsed > 0 && (
         <>
           <PanelHeader>
-            <strong>Quality of Potions Used</strong>
+            <strong>使用药水品质</strong>
           </PanelHeader>
           <p>
-            You used {weakPotionsUsed} weak {weakPotionsUsed === 1 ? 'potion' : 'potions'}. Use{' '}
-            <ItemLink id={strongPotionId} /> for better results.
+            你使用了 {weakPotionsUsed} 瓶低品质药水。请使用{' '}
+            <ItemLink id={strongPotionId} /> 以获得更好效果。
           </p>
         </>
       )}

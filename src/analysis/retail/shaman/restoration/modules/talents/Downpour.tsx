@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import Events, { HealEvent } from 'parser/core/Events';
 import Statistic from 'parser/ui/Statistic';
@@ -75,11 +77,13 @@ class Downpour extends Analyzer {
             <ItemHealingDone amount={this.downpourHealing} />
           </div>
           <div>
-            {formatNumber(this.wastedDownpourCasts)}{' '}
-            <small>wasted procs ({formatPercentage(this.wastedDownpourCastsPercent)}%)</small>
+            <Trans id="shaman.restoration.downpour.wasted">
+              {formatNumber(this.wastedDownpourCasts)}{' '}
+              <small>wasted procs ({formatPercentage(this.wastedDownpourCastsPercent)}%)</small>
+            </Trans>
           </div>
           <div>
-            {formatNumber(this.averageTargetsHit)} <small>average targets</small>
+            {formatNumber(this.averageTargetsHit)} <small>{t({ id: 'shaman.restoration.downpour.avg_targets', message: 'average targets' })}</small>
           </div>
         </TalentSpellText>
       </Statistic>

@@ -1,4 +1,5 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import Combatants from 'parser/shared/modules/Combatants';
 import RiptideTracker from '../core/RiptideTracker';
 import talents from 'common/TALENTS/shaman';
@@ -71,20 +72,22 @@ class PrimalTideCore extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="shaman.restoration.ptc.tooltip">
             This is only showing the additional riptide healing gained from{' '}
             <SpellLink spell={talents.PRIMAL_TIDE_CORE_TALENT} />
-          </>
+          </Trans>
         }
       >
         <TalentSpellText talent={talents.PRIMAL_TIDE_CORE_TALENT}>
           <ItemHealingDone amount={this.ptcHealing} />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {this.ptcProcs}{' '}
-          <small>
-            additional <SpellLink spell={talents.RIPTIDE_TALENT} />
-          </small>
+          <Trans id="shaman.restoration.ptc.additional">
+            {this.ptcProcs}{' '}
+            <small>
+              additional <SpellLink spell={talents.RIPTIDE_TALENT} />
+            </small>
+          </Trans>
         </TalentSpellText>
       </Statistic>
     );

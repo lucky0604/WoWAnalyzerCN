@@ -1,4 +1,6 @@
 import { formatPercentage } from 'common/format';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Expandable, Icon, ResourceLink } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 import ResourceBreakdown from 'parser/shared/modules/resources/resourcetracker/ResourceBreakdown';
@@ -75,22 +77,30 @@ class MaelstromDetails extends Analyzer {
     };
 
     return (
-      <SubSection title="Maelstrom">
-        The gameplay loop of Elemental Shaman is centered around casting spells to generate{' '}
-        <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />, then spending it. Wasting any{' '}
-        <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> by overcapping will result in lost dps.
-        You overcapped{' '}
-        <ThresholdPerformancePercentage
-          threshold={performanceThreshold}
-          percentage={this.wastedPercent}
-          flatAmount={this.wasted}
-        />{' '}
-        <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> during this fight.
+      <SubSection title={t({ id: 'shaman.elemental.maelstrom.title', message: 'Maelstrom' })}>
+        <p>
+          <Trans id="shaman.elemental.maelstrom_details.explanation">
+            The gameplay loop of Elemental Shaman is centered around casting spells to generate{' '}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />, then spending it. Wasting any{' '}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> by overcapping will result in lost dps.
+          </Trans>
+        </p>
+        <p>
+          <Trans id="shaman.elemental.maelstrom_details.wasted">
+            You overcapped{' '}
+            <ThresholdPerformancePercentage
+              threshold={performanceThreshold}
+              percentage={this.wastedPercent}
+              flatAmount={this.wasted}
+            />{' '}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> during this fight.
+          </Trans>
+        </p>
         <div style={{ marginTop: '20px' }}>
           <Expandable
             header={
               <SectionHeader>
-                <Statistics /> Maelstrom timeline graph
+                <Statistics /> <Trans id="shaman.elemental.maelstrom_details.graph">Maelstrom timeline graph</Trans>
               </SectionHeader>
             }
             element="section"
@@ -109,10 +119,14 @@ class MaelstromDetails extends Analyzer {
         position={STATISTIC_ORDER.CORE(1)}
         icon={<Icon icon="spell_shadow_mindflay" />}
         value={`${formatPercentage(this.wastedPercent)} %`}
-        label="Overcapped Maelstrom"
-        tooltip={`${this.wasted} out of ${this.total} Maelstrom wasted.`}
+        label={t({ id: 'shaman.elemental.maelstrom_details.overcapped', message: 'Overcapped Maelstrom' })}
+        tooltip={
+          <Trans id="shaman.elemental.maelstrom_details.tooltip">
+            {this.wasted} out of {this.total} Maelstrom wasted.
+          </Trans>
+        }
       />,
-      <Panel key="Panel" title="Maelstrom usage" position={200} pad={false}>
+      <Panel key="Panel" title={t({ id: 'shaman.elemental.maelstrom_details.usage', message: 'Maelstrom usage' })} position={200} pad={false}>
         <ResourceBreakdown tracker={this.maelstromTracker} showSpenders />
       </Panel>,
     ];

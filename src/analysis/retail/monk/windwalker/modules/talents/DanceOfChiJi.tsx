@@ -2,6 +2,8 @@ import type { JSX } from 'react';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import GuideSection from 'interface/guide/components/GuideSection';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
@@ -199,7 +201,10 @@ class DANCE_OF_CHI_JI extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: 'Proc was not consumed',
+        summary: defineMessage({
+          id: 'monk.windwalker.docj.classify.not_consumed',
+          message: 'Proc was not consumed',
+        }),
       };
     }
 
@@ -214,20 +219,29 @@ class DANCE_OF_CHI_JI extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: 'Spinning Crane Kick was consumed the first time the APL expected it',
+        summary: defineMessage({
+          id: 'monk.windwalker.docj.classify.first_top',
+          message: 'Spinning Crane Kick was consumed the first time the APL expected it',
+        }),
       };
     }
 
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.SPINNING_CRANE_KICK.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: 'Dance of Chi-Ji was consumed in an acceptable APL spot',
+        summary: defineMessage({
+          id: 'monk.windwalker.docj.classify.acceptable',
+          message: 'Dance of Chi-Ji was consumed in an acceptable APL spot',
+        }),
       };
     }
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: 'Dance of Chi-Ji was consumed, even though the APL did not prefer it yet',
+      summary: defineMessage({
+        id: 'monk.windwalker.docj.classify.not_preferred',
+        message: 'Dance of Chi-Ji was consumed, even though the APL did not prefer it yet',
+      }),
     };
   }
 
@@ -238,21 +252,36 @@ class DANCE_OF_CHI_JI extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <div>Total damage increase: {formatNumber(this.damageGain)}</div>
             <div>
-              You used {this.consumedProcs} of {this.totalProcs} Dance of Chi-Ji procs.
+              <Trans id="monk.windwalker.docj.total_dmg_inc">
+                Total damage increase: {formatNumber(this.damageGain)}
+              </Trans>
             </div>
             <div>
-              {this.overcappedProcs} were overcapped and {this.expiredProcs} expired unused.
+              <Trans id="monk.windwalker.docj.procs_used">
+                You used {this.consumedProcs} of {this.totalProcs} Dance of Chi-Ji procs.
+              </Trans>
+            </div>
+            <div>
+              <Trans id="monk.windwalker.docj.procs_wasted">
+                {this.overcappedProcs} were overcapped and {this.expiredProcs} expired unused.
+              </Trans>
             </div>
           </>
         }
       >
         <BoringSpellValueText spell={TALENTS_MONK.DANCE_OF_CHI_JI_WINDWALKER_TALENT}>
-          <img src="/img/sword.png" alt="Damage" className="icon" /> {formatNumber(this.dps)} DPS{' '}
+          <img
+            src="/img/sword.png"
+            alt={t({ id: 'monk.windwalker.docj.title', message: 'Dance of Chi-Ji' })}
+            className="icon"
+          />{' '}
+          {formatNumber(this.dps)} DPS{' '}
           <small>
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.damageGain))} % of
-            total
+            <Trans id="monk.windwalker.docj.pct_total">
+              {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.damageGain))} % of
+              total
+            </Trans>
           </small>
         </BoringSpellValueText>
       </Statistic>
@@ -263,32 +292,38 @@ class DANCE_OF_CHI_JI extends Analyzer {
     const explanation = (
       <>
         <p>
-          The <SpellLink spell={TALENTS_MONK.DANCE_OF_CHI_JI_WINDWALKER_TALENT} /> talent gives your
-          Chi spenders a chance to grant a free cast of{' '}
-          <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> at roughly one proc per minute.
+          <Trans id="monk.windwalker.docj.explanation1">
+            The <SpellLink spell={TALENTS_MONK.DANCE_OF_CHI_JI_WINDWALKER_TALENT} /> talent gives your
+            Chi spenders a chance to grant a free cast of{' '}
+            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> at roughly one proc per minute.
+          </Trans>
         </p>
         <p>
-          Follow the suggested APL and spend this proc before it expires or before staying capped
-          long enough for another Chi spender to waste a future proc. Holding briefly is fine, but
-          the goal is still to convert it cleanly inside the normal rotation.
+          <Trans id="monk.windwalker.docj.explanation2">
+            Follow the suggested APL and spend this proc before it expires or before staying capped
+            long enough for another Chi spender to waste a future proc. Holding briefly is fine, but
+            the goal is still to convert it cleanly inside the normal rotation.
+          </Trans>
         </p>
         <p>
-          Because consuming <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> also guarantees a{' '}
-          <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stack, spending it should be planned with
-          your current <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks in mind so you do not
-          immediately force a new overcap there.
+          <Trans id="monk.windwalker.docj.explanation3">
+            Because consuming <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> also guarantees a{' '}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stack, spending it should be planned with
+            your current <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks in mind so you do not
+            immediately force a new overcap there.
+          </Trans>
         </p>
       </>
     );
     return (
       <GuideSection
         spell={SPELLS.DANCE_OF_CHI_JI_BUFF}
-        title="Dance of Chi-Ji"
+        title={t({ id: 'monk.windwalker.docj.title', message: 'Dance of Chi-Ji' })}
         explanation={explanation}
         explanationPercent={34}
       >
         <AplProcWindowDetail
-          title="Dance of Chi-Ji"
+          title={t({ id: 'monk.windwalker.docj.title', message: 'Dance of Chi-Ji' })}
           windows={this.getWindows()}
           actionSpell={SPELLS.SPINNING_CRANE_KICK}
           formatTimestamp={(timestamp) => this.owner.formatTimestamp(timestamp)}

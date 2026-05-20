@@ -12,11 +12,13 @@ import Ironfur, { IronfurTrackedHit } from 'analysis/retail/druid/guardian/modul
 import SPELLS from 'common/SPELLS';
 import { formatDuration, formatNumber } from 'common/format';
 import { SpellLink } from 'interface';
-import { abilityToSpell } from 'common/abilityToSpell';
+import { maybeGetTalentOrSpell } from 'common/maybeGetTalentOrSpell';
 
 function HitTooltipContent({ hit }: { hit: TrackedHit }) {
   const info = useInfo()!;
   const damage = hit.event.amount + (hit.event.absorbed || 0);
+  const spell = maybeGetTalentOrSpell(hit.event.ability.guid);
+  
   return (
     <div>
       <div>
@@ -31,7 +33,9 @@ function HitTooltipContent({ hit }: { hit: TrackedHit }) {
         {t({ id: 'guardian.ironfur.tooltip.damage', message: 'You took' })}{' '}
         <strong>{formatNumber(damage)}</strong>{' '}
         {t({ id: 'guardian.ironfur.tooltip.from', message: 'from' })}{' '}
-        <SpellLink spell={abilityToSpell(hit.event.ability)}>{hit.event.ability.name}</SpellLink>.
+        <SpellLink spell={spell || hit.event.ability.guid}>
+          {spell?.name || hit.event.ability.name}
+        </SpellLink>.
       </div>
     </div>
   );

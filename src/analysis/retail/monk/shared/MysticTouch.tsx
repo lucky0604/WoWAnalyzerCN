@@ -8,6 +8,8 @@ import { SpellIcon } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 import { EventType } from 'parser/core/Events';
 import LazyLoadStatisticBox, { STATISTIC_ORDER } from 'parser/ui/LazyLoadStatisticBox';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const MYSTIC_TOUCH_INCREASE = 0.05;
 
@@ -61,18 +63,23 @@ class MysticTouch extends Analyzer {
         loader={this.load.bind(this)}
         icon={<SpellIcon spell={SPELLS.MYSTIC_TOUCH_DEBUFF} />}
         value={formatNumber(this.owner.getPerSecond(this.damageAdded)) + ' DPS'}
-        label="Mystic Touch Damage Increased"
+        label={t({ id: 'monk.shared.mystic_touch.label', message: 'Mystic Touch Damage Increased' })}
         tooltip={
-          <>
-            <p>
-              If this number is zero then another monk most likely applyed mystic touch before you.
-            </p>
-            <p>
-              If you want to see the value Mystic Touch provided you will need to go to their log to
-              find out.
-            </p>
-            <p>Total Physical Damage Queried: {formatNumber(this.totalDamageAdded)}</p>
-          </>
+          (() => {
+            const total = formatNumber(this.totalDamageAdded);
+            return (
+              <Trans id="monk.shared.mystic_touch.tooltip">
+                <p>
+                  If this number is zero then another monk most likely applyed mystic touch before you.
+                </p>
+                <p>
+                  If you want to see the value Mystic Touch provided you will need to go to their log to
+                  find out.
+                </p>
+                <p>Total Physical Damage Queried: {total}</p>
+              </Trans>
+            );
+          })()
         }
         drilldown={makeWclUrl(this.owner.report.code, {
           fight: this.owner.fightId,

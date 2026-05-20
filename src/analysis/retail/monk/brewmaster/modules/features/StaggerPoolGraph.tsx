@@ -18,6 +18,8 @@ import StaggerPool from '../core/StaggerPool';
 import PurifyingBrew from '../talents/PurifyingBrew';
 import HighTolerance from '../spells/HighTolerance';
 import { OkColor } from 'interface/guide';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 interface StaggerEvent {
   timestamp: number;
@@ -88,7 +90,7 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
           {
             field: 'newPooledDamage',
             type: 'quantitative' as const,
-            title: 'Staggered Damage',
+            title: defineMessage({ id: 'monk.brewmaster.stagger.staggered_damage', message: 'Staggered Damage' }),
             format: '.3~s',
           },
         ],
@@ -120,7 +122,7 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
               {
                 field: 'hitPoints',
                 type: 'quantitative' as const,
-                title: 'Hit Points',
+                title: defineMessage({ id: 'monk.brewmaster.stagger.hit_points', message: 'Hit Points' }),
                 format: '.3~s',
               },
             ],
@@ -184,11 +186,11 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
               value: 'black',
             },
             tooltip: [
-              { field: 'amount', title: 'Amount Purified', format: '.3~s' },
+              { field: 'amount', title: defineMessage({ id: 'monk.brewmaster.stagger.amount_purified', message: 'Amount Purified' }), format: '.3~s' },
               {
                 field: 'oldPooledAmount',
                 type: 'quantitative' as const,
-                title: 'Staggered Damage',
+                title: defineMessage({ id: 'monk.brewmaster.stagger.staggered_damage', message: 'Staggered Damage' }),
                 format: '.3~s',
               },
             ],
@@ -294,20 +296,20 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
 
   tab() {
     return {
-      title: 'Stagger',
+      title: defineMessage({ id: 'monk.brewmaster.stagger.title', message: 'Stagger' }),
       url: 'stagger',
       render: () => (
         <Panel
-          title="Stagger"
+          title={t({ id: 'monk.brewmaster.stagger.title', message: 'Stagger' })}
           explanation={
-            <>
+            <Trans id="monk.brewmaster.stagger.graph_explanation">
               Damage you take is placed into a <em>pool</em> by <SpellLink spell={SPELLS.STAGGER} />
               . This damage is then removed by the damage-over-time component of{' '}
               <SpellLink spell={SPELLS.STAGGER} /> or by{' '}
               <SpellLink spell={talents.PURIFYING_BREW_TALENT} /> (or other sources of
               purification). This plot shows the amount of damage pooled over the course of the
               fight.
-            </>
+            </Trans>
           }
         >
           {this.plot}

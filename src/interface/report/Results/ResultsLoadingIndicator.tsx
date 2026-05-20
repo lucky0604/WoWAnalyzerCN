@@ -20,23 +20,23 @@ const ResultsLoadingIndicator = () => {
 
   return (
     <div className="container" style={{ marginBottom: 40 }}>
-      <Panel title="Loading..." className="loading-indicators">
+      <Panel title="加载中..." className="loading-indicators">
         <LoadingBar progress={progress} style={{ marginBottom: 30 }} />
 
         <div className="row">
-          <div className="col-md-8">Spec analyzer from WoWAnalyzer</div>
+          <div className="col-md-8">WoWAnalyzer 专精分析器</div>
           <div className={`col-md-4 ${isLoadingParser ? 'loading' : 'ok'}`}>
-            {isLoadingParser ? 'Loading...' : 'OK'}
+            {isLoadingParser ? '加载中...' : '完成'}
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">Player events from Warcraft Logs</div>
+          <div className="col-md-8">从 Warcraft Logs 获取玩家事件</div>
           <div className={`col-md-4 ${isLoadingEvents ? 'loading' : 'ok'}`}>
-            {isLoadingEvents ? 'Loading...' : 'OK'}
+            {isLoadingEvents ? '加载中...' : '完成'}
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">Boss events from Warcraft Logs</div>
+          <div className="col-md-8">从 Warcraft Logs 获取 Boss 事件</div>
           <div
             className={`col-md-4 ${
               bossPhaseEventsLoadingState === BOSS_PHASES_STATE.LOADING
@@ -46,31 +46,31 @@ const ResultsLoadingIndicator = () => {
                   : 'ok'
             }`}
           >
-            {bossPhaseEventsLoadingState === BOSS_PHASES_STATE.SKIPPED && 'Skipped'}
-            {bossPhaseEventsLoadingState === BOSS_PHASES_STATE.LOADING && 'Loading...'}
-            {bossPhaseEventsLoadingState === BOSS_PHASES_STATE.DONE && 'OK'}
+            {bossPhaseEventsLoadingState === BOSS_PHASES_STATE.SKIPPED && '已跳过'}
+            {bossPhaseEventsLoadingState === BOSS_PHASES_STATE.LOADING && '加载中...'}
+            {bossPhaseEventsLoadingState === BOSS_PHASES_STATE.DONE && '完成'}
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">Character info from Blizzard</div>
+          <div className="col-md-8">从暴雪获取角色信息</div>
           <div className={`col-md-4 ${isLoadingCharacterProfile ? 'loading' : 'ok'}`}>
-            {isLoadingCharacterProfile ? 'Loading...' : 'OK'}
+            {isLoadingCharacterProfile ? '加载中...' : '完成'}
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">Analyzing phases</div>
+          <div className="col-md-8">分析战斗阶段</div>
           <div className={`col-md-4 ${isLoadingPhases ? 'loading' : 'ok'}`}>
-            {isLoadingPhases ? 'Loading...' : 'OK'}
+            {isLoadingPhases ? '加载中...' : '完成'}
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">Filtering events</div>
+          <div className="col-md-8">筛选事件</div>
           <div className={`col-md-4 ${isFilteringEvents ? 'loading' : 'ok'}`}>
-            {isFilteringEvents ? 'Loading...' : 'OK'}
+            {isFilteringEvents ? '加载中...' : '完成'}
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">Analyzing events</div>
+          <div className="col-md-8">分析事件</div>
           <div
             className={`col-md-4 ${
               parsingState === EVENT_PARSING_STATE.WAITING
@@ -80,9 +80,9 @@ const ResultsLoadingIndicator = () => {
                   : 'ok'
             }`}
           >
-            {parsingState === EVENT_PARSING_STATE.WAITING && 'Waiting'}
-            {parsingState === EVENT_PARSING_STATE.PARSING && 'Loading...'}
-            {parsingState === EVENT_PARSING_STATE.DONE && 'OK'}
+            {parsingState === EVENT_PARSING_STATE.WAITING && '等待中'}
+            {parsingState === EVENT_PARSING_STATE.PARSING && '加载中...'}
+            {parsingState === EVENT_PARSING_STATE.DONE && '完成'}
           </div>
         </div>
       </Panel>

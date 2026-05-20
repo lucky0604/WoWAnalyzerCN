@@ -22,7 +22,7 @@ const ConsumablesSubSection = ({ recommendedFlasks, recommendedFoods, expansion 
         message: 'Consumables',
       })}
     >
-      <p>Using consumables appropriately is an easy way to improve your throughput.</p>
+      <p>合理使用消耗品是提升输出的简单方式。</p>
       <SideBySidePanels>
         <FoodPanel recommendedFoods={recommendedFoods} expansion={expansion} />
         <PotionPanel expansion={expansion} />

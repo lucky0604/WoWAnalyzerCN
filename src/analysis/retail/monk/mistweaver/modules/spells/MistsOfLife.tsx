@@ -12,6 +12,7 @@ import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import SpellLink from 'interface/SpellLink';
+import { Trans } from '@lingui/react/macro';
 import Combatants from 'parser/shared/modules/Combatants';
 import HotTracker from 'parser/shared/modules/HotTracker';
 import StatisticListBoxItem from 'parser/ui/StatisticListBoxItem';
@@ -224,27 +225,46 @@ class MistsOfLife extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <ul>
-            <li>
-              Extra <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> direct healing:{' '}
-              {formatNumber(this.extraEnvmHealing)}
-            </li>
-            <li>
-              Bonus healing from <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> buff:{' '}
-              {formatNumber(this.extraEnvBonusHealing)}
-            </li>
-            <li>
-              Extra <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> direct healing:{' '}
-              {formatNumber(this.extraRemHealing)}
-            </li>
-            <li>
-              Extra <SpellLink spell={SPELLS.VIVIFY} /> cleaves: {this.extraVivCleaves}
-            </li>
-            <li>
-              Extra <SpellLink spell={SPELLS.VIVIFY} /> direct healing:{' '}
-              {formatNumber(this.extraVivHealing)}
-            </li>
-          </ul>
+          (() => {
+            const extraEnvm = formatNumber(this.extraEnvmHealing);
+            const envmBonus = formatNumber(this.extraEnvBonusHealing);
+            const extraRem = formatNumber(this.extraRemHealing);
+            const vivCleaves = this.extraVivCleaves;
+            const extraViv = formatNumber(this.extraVivHealing);
+            return (
+              <ul>
+                <li>
+                  <Trans id="monk.mistweaver.mists_of_life.extra_envm">
+                    Extra <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> direct healing:{' '}
+                    {extraEnvm}
+                  </Trans>
+                </li>
+                <li>
+                  <Trans id="monk.mistweaver.mists_of_life.bonus_envm">
+                    Bonus healing from <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> buff:{' '}
+                    {envmBonus}
+                  </Trans>
+                </li>
+                <li>
+                  <Trans id="monk.mistweaver.mists_of_life.extra_rem">
+                    Extra <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> direct healing:{' '}
+                    {extraRem}
+                  </Trans>
+                </li>
+                <li>
+                  <Trans id="monk.mistweaver.mists_of_life.extra_viv_cleaves">
+                    Extra <SpellLink spell={SPELLS.VIVIFY} /> cleaves: {vivCleaves}
+                  </Trans>
+                </li>
+                <li>
+                  <Trans id="monk.mistweaver.mists_of_life.extra_viv_healing">
+                    Extra <SpellLink spell={SPELLS.VIVIFY} /> direct healing:{' '}
+                    {extraViv}
+                  </Trans>
+                </li>
+              </ul>
+            );
+          })()
         }
       >
         <TalentSpellText talent={TALENTS_MONK.MISTS_OF_LIFE_TALENT}>

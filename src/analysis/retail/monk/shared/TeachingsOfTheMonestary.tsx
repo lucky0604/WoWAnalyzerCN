@@ -7,6 +7,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_MONK } from 'common/TALENTS';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import SPECS from 'game/SPECS';
+import { t } from '@lingui/core/macro';
 
 class TeachingsOfTheMonestary extends Analyzer {
   numCasts = 0;
@@ -37,7 +38,7 @@ class TeachingsOfTheMonestary extends Analyzer {
         category={STATISTIC_CATEGORY.THEORYCRAFT}
       >
         <TalentSpellText talent={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT}>
-          {this.averageStacks.toFixed(2)} <small> average stacks</small>
+          {this.averageStacks.toFixed(2)} <small>{t({ id: 'monk.shared.totm.average_stacks', message: ' average stacks' })}</small>
         </TalentSpellText>
       </Statistic>
     );

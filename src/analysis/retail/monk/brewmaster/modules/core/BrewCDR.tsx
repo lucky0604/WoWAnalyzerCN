@@ -14,6 +14,7 @@ import KegSmash from '../spells/KegSmash';
 import TigerPalm from '../spells/TigerPalm';
 import AnvilStave from '../talents/AnvilStave';
 import { Abilities } from '../../gen';
+import { Trans } from '@lingui/react/macro';
 
 const deps = {
   ks: KegSmash,
@@ -104,59 +105,117 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
         size="flexible"
         tooltip={
           <>
-            Your cooldowns were reduced by:
+            <Trans id="monk.brewmaster.cdr.reduced_by">
+              Your cooldowns were reduced by:
+            </Trans>
             <ul>
               <li>
-                {ks.totalCasts} Keg Smash casts — <strong>{(ks.cdr / 1000).toFixed(2)}s</strong> (
-                <strong>{(ks.wastedCDR / 1000).toFixed(2)}s</strong> wasted)
+                {(() => {
+                  const casts = ks.totalCasts;
+                  const cdr = (ks.cdr / 1000).toFixed(2);
+                  const wasted = (ks.wastedCDR / 1000).toFixed(2);
+                  return (
+                    <Trans id="monk.brewmaster.cdr.ks">
+                      {casts} Keg Smash casts — <strong>{cdr}s</strong> (
+                      <strong>{wasted}s</strong> wasted)
+                    </Trans>
+                  );
+                })()}
               </li>
               {ks.bocHits > 0 && (
                 <li>
-                  Using Blackout Combo on {ks.bocHits} Keg Smash hits —{' '}
-                  <strong>{(ks.bocCDR / 1000).toFixed(2)}s</strong> (
-                  <strong>{(ks.wastedBocCDR / 1000).toFixed(2)}s</strong> wasted)
+                  {(() => {
+                    const hits = ks.bocHits;
+                    const cdr = (ks.bocCDR / 1000).toFixed(2);
+                    const wasted = (ks.wastedBocCDR / 1000).toFixed(2);
+                    return (
+                      <Trans id="monk.brewmaster.cdr.ks_boc">
+                        Using Blackout Combo on {hits} Keg Smash hits —{' '}
+                        <strong>{cdr}s</strong> (
+                        <strong>{wasted}s</strong> wasted)
+                      </Trans>
+                    );
+                  })()}
                 </li>
               )}
               <>
                 <li>
-                  {tp.totalCasts} Tiger Palm hits — <strong>{(tp.cdr / 1000).toFixed(2)}s</strong> (
-                  <strong>{(tp.wastedCDR / 1000).toFixed(2)}s</strong> wasted)
+                  {(() => {
+                    const casts = tp.totalCasts;
+                    const cdr = (tp.cdr / 1000).toFixed(2);
+                    const wasted = (tp.wastedCDR / 1000).toFixed(2);
+                    return (
+                      <Trans id="monk.brewmaster.cdr.tp">
+                        {casts} Tiger Palm hits — <strong>{cdr}s</strong> (
+                        <strong>{wasted}s</strong> wasted)
+                      </Trans>
+                    );
+                  })()}
                 </li>
                 {this.selectedCombatant.hasTalent(talents.FACE_PALM_TALENT) && (
                   <li>
-                    {tp.totalCasts} Face Palm triggers —{' '}
-                    <strong>{(tp.fpCdr / 1000).toFixed(2)}s</strong> (
-                    <strong>{(tp.wastedFpCdr / 1000).toFixed(2)}s</strong> wasted)
+                    {(() => {
+                      const triggers = tp.totalCasts;
+                      const cdr = (tp.fpCdr / 1000).toFixed(2);
+                      const wasted = (tp.wastedFpCdr / 1000).toFixed(2);
+                      return (
+                        <Trans id="monk.brewmaster.cdr.tp_fp">
+                          {triggers} Face Palm triggers —{' '}
+                          <strong>{cdr}s</strong> (
+                          <strong>{wasted}s</strong> wasted)
+                        </Trans>
+                      );
+                    })()}
                   </li>
                 )}
               </>
               {bob.active && (
                 <li>
-                  {bob.casts} Black Ox Brew casts —{' '}
-                  <strong>{(bob.cdr[talents.PURIFYING_BREW_TALENT.id] / 1000).toFixed(2)}s</strong>{' '}
-                  (
-                  <strong>
-                    {(bob.wastedCDR[talents.PURIFYING_BREW_TALENT.id] / 1000).toFixed(2)}s
-                  </strong>{' '}
-                  wasted)
+                  {(() => {
+                    const casts = bob.casts;
+                    const cdr = (bob.cdr[talents.PURIFYING_BREW_TALENT.id] / 1000).toFixed(2);
+                    const wasted = (bob.wastedCDR[talents.PURIFYING_BREW_TALENT.id] / 1000).toFixed(2);
+                    return (
+                      <Trans id="monk.brewmaster.cdr.bob">
+                        {casts} Black Ox Brew casts —{' '}
+                        <strong>{cdr}s</strong>{' '}
+                        (
+                        <strong>
+                          {wasted}s
+                        </strong>{' '}
+                        wasted)
+                      </Trans>
+                    );
+                  })()}
                 </li>
               )}
               {anvilStave.active && (
                 <li>
-                  {anvilStave.count} Anvil & Stave triggers -{' '}
-                  <strong>{(anvilStave.cdr / 1000).toFixed(2)}s</strong>
+                  {(() => {
+                    const triggers = anvilStave.count;
+                    const cdr = (anvilStave.cdr / 1000).toFixed(2);
+                    return (
+                      <Trans id="monk.brewmaster.cdr.anvil">
+                        {triggers} Anvil & Stave triggers -{' '}
+                        <strong>{cdr}s</strong>
+                      </Trans>
+                    );
+                  })()}
                 </li>
               )}
             </ul>
-            <strong>Total cooldown reduction:</strong> {(this.totalCDR / 1000).toFixed(2)}s.
+            <strong>
+              <Trans id="monk.brewmaster.cdr.total">Total cooldown reduction:</Trans>
+            </strong>{' '}
+            {(this.totalCDR / 1000).toFixed(2)}s.
           </>
         }
       >
         <BoringValue
           label={
-            <>
+            <Trans id="monk.brewmaster.cdr.effective_brew_cdr">
               <SpellIcon spell={SPELLS.TIGER_PALM} /> Effective Brew CDR
-            </>
+            </Trans>
           }
         >
           <>{formatPercentage(this.cooldownReductionRatio)} %</>

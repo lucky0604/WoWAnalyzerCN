@@ -6,6 +6,8 @@ import { SpellSequence, type CastInSequence } from 'interface/guide/components/C
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { ConditionDescription } from 'parser/shared/metrics/apl/annotate';
 import type { AplProcWindow } from './aplProcWindows';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 interface WindowClassification {
   performance: QualitativePerformance;
@@ -61,16 +63,16 @@ export function buildAplProcWindowData({
           <strong>{cast.spellName}</strong>
           <div>@ {formatTimestamp(cast.timestamp)}</div>
           <div style={{ marginTop: '6px' }}>
-            Before:{' '}
+            <Trans id="monk.windwalker.apl.before">Before: </Trans>
             {cast.aplExpectedBefore.length > 0
               ? cast.aplExpectedBefore.map((spell) => spell.name).join(' -> ')
-              : 'None'}
+              : <Trans id="monk.windwalker.apl.none">None</Trans>}
           </div>
           <div>
-            After:{' '}
+            <Trans id="monk.windwalker.apl.after">After: </Trans>
             {cast.aplExpectedAfter.length > 0
               ? cast.aplExpectedAfter.map((spell) => spell.name).join(' -> ')
-              : 'None'}
+              : <Trans id="monk.windwalker.apl.none">None</Trans>}
           </div>
         </>
       );
@@ -91,9 +93,15 @@ export function buildAplProcWindowData({
                 color: isCorrectTopCast ? '#2ecc71' : '#fab700',
               }}
             >
-              {isCorrectTopCast
-                ? 'This cast matched the top APL recommendation at that moment.'
-                : `${actionSpell.name} was already the top APL recommendation at that moment.`}
+              {isCorrectTopCast ? (
+                <Trans id="monk.windwalker.apl.matched_recommendation">
+                  This cast matched the top APL recommendation at that moment.
+                </Trans>
+              ) : (
+                <Trans id="monk.windwalker.apl.was_already_recommended">
+                  {actionSpell.name} was already the top APL recommendation at that moment.
+                </Trans>
+              )}
             </div>
           </>
         ),
@@ -113,14 +121,20 @@ export function buildAplProcWindowData({
         sequence.push({
           timestamp: cast.timestamp,
           spellId: actionSpell.id,
-          spellName: `${actionSpell.name} was expected here`,
+          spellName: defineMessage({
+            id: 'monk.windwalker.apl.expected_here',
+            message: `${actionSpell.name} was expected here`,
+            values: [actionSpell.name],
+          } as unknown),
           icon: actionSpell.icon,
           ghosted: true,
           tooltip: (
             <>
               <strong>{actionSpell.name}</strong>
               <div>
-                This is the first cast where the APL expected {actionSpell.name} to be pressed.
+                <Trans id="monk.windwalker.apl.first_expected_cast">
+                  This is the first cast where the APL expected {actionSpell.name} to be pressed.
+                </Trans>
               </div>
             </>
           ),
@@ -139,17 +153,33 @@ export function buildAplProcWindowData({
           sequence.push({
             timestamp: cast.timestamp,
             spellId: spell.id,
-            spellName: `${spell.name} was higher priority`,
+            spellName: defineMessage({
+              id: 'monk.windwalker.apl.was_higher_priority',
+              message: `${spell.name} was higher priority`,
+              values: [spell.name],
+            } as unknown),
             icon: spell.icon,
             ghosted: true,
             tooltip: (
               <>
                 <strong>{spell.name}</strong>
-                <div>This was still higher priority than {actionSpell.name} at this moment.</div>
+                <div>
+                  <Trans id="monk.windwalker.apl.still_higher_priority">
+                    This was still higher priority than {actionSpell.name} at this moment.
+                  </Trans>
+                </div>
                 {window.higherPriorityRule && (
                   <div style={{ marginTop: '6px' }}>
-                    This was higher priority
-                    <ConditionDescription rule={window.higherPriorityRule} prefix="because" />.
+                    <Trans id="monk.windwalker.apl.this_was_higher_priority">
+                      This was higher priority
+                    </Trans>{' '}
+                    <ConditionDescription
+                      rule={window.higherPriorityRule}
+                      prefix={t({
+                        id: 'monk.windwalker.apl.because',
+                        message: 'because',
+                      })}
+                    />.
                   </div>
                 )}
               </>
@@ -190,7 +220,11 @@ export function buildAplProcWindowData({
               {sequence.length > 0 ? (
                 <SpellSequence casts={sequence} iconSize={34} />
               ) : (
-                <div>No casts recorded during this window.</div>
+                <div>
+                  <Trans id="monk.windwalker.apl.no_casts_recorded">
+                    No casts recorded during this window.
+                  </Trans>
+                </div>
               )}
             </div>
             <div
@@ -203,20 +237,29 @@ export function buildAplProcWindowData({
                 gap: '0.6rem',
               }}
             >
-              <div style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 700 }}>Legend</div>
+              <div style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 700 }}>
+                <Trans id="monk.windwalker.apl.legend">Legend</Trans>
+              </div>
               <div style={{ display: 'grid', gap: '0.5rem' }}>
                 <div>
-                  <LegendSwatch backgroundColor="#2ecc71" /> the cast matched the top APL
-                  recommendation at that moment.
+                  <LegendSwatch backgroundColor="#2ecc71" />{' '}
+                  <Trans id="monk.windwalker.apl.matched_legend">
+                    the cast matched the top APL recommendation at that moment.
+                  </Trans>
                 </div>
                 <div>
-                  <LegendSwatch backgroundColor="#fab700" /> a cast was made while{' '}
-                  <SpellLink spell={actionSpell} /> was already the top APL recommendation.
+                  <LegendSwatch backgroundColor="#fab700" />{' '}
+                  <Trans id="monk.windwalker.apl.made_while_recommended">
+                    a cast was made while <SpellLink spell={actionSpell} /> was already the top APL
+                    recommendation.
+                  </Trans>
                 </div>
                 <div>
-                  <LegendSwatch backgroundColor="rgba(220,220,220,0.75)" /> an APL guidance marker
-                  showing either where <SpellLink spell={actionSpell} /> was first expected or which
-                  ability still ranked above it at the actual spend.
+                  <LegendSwatch backgroundColor="rgba(220,220,220,0.75)" />{' '}
+                  <Trans id="monk.windwalker.apl.guidance_marker">
+                    an APL guidance marker showing either where <SpellLink spell={actionSpell} /> was
+                    first expected or which ability still ranked above it at the actual spend.
+                  </Trans>
                 </div>
               </div>
             </div>

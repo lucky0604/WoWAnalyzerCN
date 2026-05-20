@@ -66,15 +66,15 @@ export function CastEfficiencyStatElement({
     <>
       {!castEfficObj ? (
         <>
-          <i>Error getting Cast Efficiency data</i>
+          <i>获取施法效率数据时出错</i>
         </>
       ) : (
         <>
           <span style={{ color: textColor, fontSize: 16 }}>
             <strong>{formatPercentage(castEfficObj.efficiency || 0, 0)}%</strong>
           </span>{' '}
-          cast efficiency (<strong>{castEfficObj.casts}</strong> of{' '}
-          <strong>{castEfficObj.maxCasts}</strong> possible casts)
+          施法效率（<strong>{castEfficObj.casts}</strong> /{' '}
+          <strong>{castEfficObj.maxCasts}</strong> 次可用施法）
         </>
       )}
     </>
@@ -91,17 +91,17 @@ export function CastEfficiencyBarElement({ spell }: { spell: Spell }) {
   const gapHighlightMode = hasCharges ? GapHighlight.All : GapHighlight.FullCooldown;
   return (
     <div>
-      <strong>Cooldown Timeline</strong>
+      <strong>冷却时间轴</strong>
       <small>
         {hasCharges ? (
-          <> - yellow when cooling down, red when all charges available, white lines show casts.</>
+          <> - 黄色表示冷却中，红色表示所有充能可用，白线表示施法。</>
         ) : (
           <>
             {' '}
-            - yellow when on cooldown, grey when available, white lines show casts.
+            - 黄色表示冷却中，灰色表示可用，白线表示施法。
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Red highlights available times you could have fit a whole extra use of the ability.
+            红色高亮表示你本可以完整多使用一次该技能的时间段。
           </>
         )}
       </small>

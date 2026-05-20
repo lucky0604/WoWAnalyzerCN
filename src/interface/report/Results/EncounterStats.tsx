@@ -67,7 +67,7 @@ class EncounterStats extends PureComponent<Props, State> {
       items: ITEMS,
       spells: SPELLS,
       loaded: false,
-      message: 'Loading statistics...',
+      message: '加载统计数据...',
     };
 
     this.load = this.load.bind(this);
@@ -256,8 +256,8 @@ class EncounterStats extends PureComponent<Props, State> {
             <div>
               {formatDuration(log.duration)} (
               {log.duration > this.props.duration
-                ? ((log.duration - this.props.duration) / 1000).toFixed(1) + 's slower'
-                : ((this.props.duration - log.duration) / 1000).toFixed(1) + 's faster'}
+                ? ((log.duration - this.props.duration) / 1000).toFixed(1) + ' 秒 更慢'
+                : ((this.props.duration - log.duration) / 1000).toFixed(1) + ' 秒 更快'}
               )
             </div>
           </div>
@@ -276,11 +276,9 @@ class EncounterStats extends PureComponent<Props, State> {
         style={{ textAlign: 'left', margin: '5px auto' }}
         key="similiar-wcl-logs"
       >
-        {this.state.similiarKillTimes.length > 1 ? 'These are' : 'This is'}{' '}
-        {this.state.similiarKillTimes.length} of the top {this.amountOfParses}{' '}
-        {this.state.similiarKillTimes.length > 1 ? 'logs' : 'log'} that{' '}
-        {this.state.similiarKillTimes.length > 1 ? 'are' : 'is'} closest to your kill-time within{' '}
-        {formatPercentage(this.durationVariancePercentage, 0)}% variance.
+        以下是排名前 {this.amountOfParses} 的日志中，在{' '}
+        {formatPercentage(this.durationVariancePercentage, 0)}% 方差范围内击杀时间与你最接近的{' '}
+        {this.state.similiarKillTimes.length} 条日志。
         {this.state.similiarKillTimes.map((log) => this.singleLog(log.rank))}
       </div>
     );
@@ -293,11 +291,8 @@ class EncounterStats extends PureComponent<Props, State> {
         style={{ textAlign: 'left', margin: '5px auto' }}
         key="closest-wcl-logs"
       >
-        {this.state.closestKillTimes.length > 1 ? 'These are' : 'This is'}{' '}
-        {this.state.closestKillTimes.length} of the top {this.amountOfParses}{' '}
-        {this.state.closestKillTimes.length > 1 ? 'logs' : 'log'} that{' '}
-        {this.state.closestKillTimes.length > 1 ? 'are' : 'is'} closest to your kill-time. Large
-        differences won't be good for comparing.
+        以下是排名前 {this.amountOfParses} 的日志中，击杀时间与你最接近的{' '}
+        {this.state.closestKillTimes.length} 条日志。差距过大时不适合对比。
         {this.state.closestKillTimes.map((log) => this.singleLog(log.rank))}
       </div>
     );
@@ -323,8 +318,8 @@ class EncounterStats extends PureComponent<Props, State> {
     return (
       <>
         <h1>
-          Statistics for this fight using the top {this.amountOfParses} logs, ranked by{' '}
-          {this.metric.toLocaleUpperCase()}
+          此战斗的统计数据（使用前 {this.amountOfParses} 条日志，按{' '}
+          {this.metric.toLocaleUpperCase()} 排名）
         </h1>
 
         <div className="row">
@@ -333,7 +328,7 @@ class EncounterStats extends PureComponent<Props, State> {
               <div className="col-md-4">
                 <div className="row" style={{ marginBottom: '1em' }}>
                   <div className="col-md-12">
-                    <h2>Most used Trinkets</h2>
+                    <h2>最常用饰品</h2>
                   </div>
                 </div>
                 <div className="row" style={{ marginBottom: '2em' }}>
@@ -344,8 +339,7 @@ class EncounterStats extends PureComponent<Props, State> {
                 <div className="row" style={{ marginBottom: '1em' }}>
                   <div className="col-md-12">
                     <h2>
-                      {this.state.similiarKillTimes.length > 0 ? 'Similiar' : 'Closest'} kill
-                      times{' '}
+                      {this.state.similiarKillTimes.length > 0 ? '相似' : '最接近的'}击杀时间{' '}
                     </h2>
                   </div>
                 </div>

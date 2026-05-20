@@ -11,6 +11,7 @@ import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
 import { SpellLink } from 'interface';
 import StatisticListBoxItem from 'parser/ui/StatisticListBoxItem';
 import { SAVE_THEM_ALL_MAX_INCREASE } from '../mistweaver/constants';
+import { Trans } from '@lingui/react/macro';
 
 class SaveThemAll extends Analyzer {
   totalHealed = 0;
@@ -55,12 +56,26 @@ class SaveThemAll extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <div>Total Healed: {formatNumber(this.totalHealed)}</div>
+            <div>
+              {(() => {
+                const amount = formatNumber(this.totalHealed);
+                return (
+                  <Trans id="monk.shared.save_them_all.total_healed">
+                    Total Healed: {amount}
+                  </Trans>
+                );
+              })()}
+            </div>
             {this.excludedHealing > 0 && (
               <div>
-                Excluded healing with incomplete data:{' '}
-                {formatPercentage(this.owner.getPercentageOfTotalHealingDone(this.excludedHealing))}
-                % of total
+                {(() => {
+                  const pct = formatPercentage(this.owner.getPercentageOfTotalHealingDone(this.excludedHealing));
+                  return (
+                    <Trans id="monk.shared.save_them_all.excluded_healing">
+                      Excluded healing with incomplete data: {pct}% of total
+                    </Trans>
+                  );
+                })()}
               </div>
             )}
           </>

@@ -129,10 +129,10 @@ class HealingDone extends Analyzer {
       >
         <div className="flex">
           <div className="flex-sub icon">
-            <img src="/img/healing.png" alt="Healing" />
+            <img src="/img/healing.png" alt="治疗" />
           </div>
           <div className="flex-sub value" style={{ width: 190 }}>
-            {formatThousands(perSecond)} HPS
+            {formatThousands(perSecond)} 每秒治疗
           </div>
           <div className="flex-main chart" style={{ padding: 0 }}>
             <a href={wclUrl}>

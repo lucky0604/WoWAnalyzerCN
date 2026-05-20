@@ -25,11 +25,11 @@ function getVariantStyle(type: TipBoxType): VariantStyle {
     case 'note':
       return { color: '#a78bfa', defaultIcon: <NoteIcon /> };
     case 'success':
-      return { color: '#4ec04e', defaultIcon: <CheckmarkIcon />, defaultTitle: 'Success' };
+      return { color: '#4ec04e', defaultIcon: <CheckmarkIcon />, defaultTitle: '成功' };
     case 'warning':
-      return { color: '#f59e0b', defaultIcon: <WarningIcon />, defaultTitle: 'Warning' };
+      return { color: '#f59e0b', defaultIcon: <WarningIcon />, defaultTitle: '警告' };
     case 'error':
-      return { color: '#dc2626', defaultIcon: <CrossIcon />, defaultTitle: 'Error' };
+      return { color: '#dc2626', defaultIcon: <CrossIcon />, defaultTitle: '错误' };
     case 'info':
     default:
       return { color: '#3b82f6', defaultIcon: <InformationIcon /> };

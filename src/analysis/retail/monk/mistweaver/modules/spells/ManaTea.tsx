@@ -2,6 +2,7 @@ import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, TooltipElement } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
   ApplyBuffEvent,
@@ -153,15 +154,37 @@ class ManaTea extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            <div>Total mana restored: {formatNumber(this.totalManaRestored)}</div>
-            <div>
-              Average <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} /> stacks:{' '}
-              {this.avgStacks.toFixed(1)}
-            </div>
-            <div>Average channel duration: {(this.avgChannelDuration / 1000).toFixed(1)}s</div>
-            <div>Total wasted stacks: {this.stacksWasted}</div>
-          </>
+          (() => {
+            const total = formatNumber(this.totalManaRestored);
+            const avg = this.avgStacks.toFixed(1);
+            const duration = (this.avgChannelDuration / 1000).toFixed(1);
+            const wasted = this.stacksWasted;
+            return (
+              <>
+                <div>
+                  <Trans id="monk.mistweaver.mana_tea.total_restored">
+                    Total mana restored: {total}
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.mana_tea.avg_stacks">
+                    Average <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} /> stacks:{' '}
+                    {avg}
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.mana_tea.avg_duration">
+                    Average channel duration: {duration}s
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="monk.mistweaver.mana_tea.wasted_stacks">
+                    Total wasted stacks: {wasted}
+                  </Trans>
+                </div>
+              </>
+            );
+          })()
         }
       >
         <TalentSpellText talent={TALENTS_MONK.MANA_TEA_TALENT}>
@@ -172,13 +195,20 @@ class ManaTea extends Analyzer {
           <div>
             <TooltipElement
               content={
-                <>
+                <Trans id="monk.mistweaver.mana_tea.per_cast_tooltip">
                   This is the mana restored from channeling{' '}
                   <SpellLink spell={SPELLS.MANA_TEA_CAST} />
-                </>
+                </Trans>
               }
             >
-              {formatNumber(this.avgManaRestored)} <small> mana restored per cast</small>
+              {(() => {
+                const mana = formatNumber(this.avgManaRestored);
+                return (
+                  <Trans id="monk.mistweaver.mana_tea.per_cast_label">
+                    {mana} <small> mana restored per cast</small>
+                  </Trans>
+                );
+              })()}
             </TooltipElement>
           </div>
         </TalentSpellText>

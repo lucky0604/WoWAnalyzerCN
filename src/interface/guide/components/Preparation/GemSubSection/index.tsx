@@ -32,7 +32,7 @@ const GemSubSection = ({ recommendedGems }: Props) => {
       {/* Show recommended gems if populated */}
       {recommendedGems && recommendedGems.length > 0 && (
         <div>
-          <header>Recommended Gems</header>
+          <header>推荐宝石</header>
           <ul>
             {recommendedGems.map((gemId) => (
               <li key={gemId}>

@@ -254,6 +254,8 @@ const Casts = ({
   const renderChannel = (event: EndChannelEvent) => {
     const left = getOffsetLeft(event.start);
     const fightDuration = event.start - start;
+    const spell = maybeGetTalentOrSpell(event.ability.guid, expansionCtx?.expansion);
+    const spellName = spell?.name ?? event.ability.name;
 
     return (
       <Tooltip
@@ -261,7 +263,7 @@ const Casts = ({
         content={
           <Trans id="interface.report.results.timeline.casts.tooltip.xSecChannelByAbility">
             {formatDuration(fightDuration, 3)}: {(event.duration / 1000).toFixed(2)}s channel by{' '}
-            {event.ability.name}
+            {spellName}
           </Trans>
         }
       >
@@ -278,6 +280,8 @@ const Casts = ({
   const renderGlobalCooldown = (event: GlobalCooldownEvent) => {
     const left = getOffsetLeft(event.timestamp);
     const fightDuration = event.timestamp - start;
+    const spell = maybeGetTalentOrSpell(event.ability.guid, expansionCtx?.expansion);
+    const spellName = spell?.name ?? event.ability.name;
 
     return (
       <Tooltip
@@ -285,7 +289,7 @@ const Casts = ({
         content={
           <Trans id="interface.report.results.timeline.casts.tooltip.xSecGCDByAbility">
             {formatDuration(fightDuration, 3)}: {(event.duration / 1000).toFixed(2)}s Global
-            Cooldown by {event.ability.name}
+            Cooldown by {spellName}
           </Trans>
         }
       >
@@ -399,7 +403,7 @@ const generateTooltip = (meta?: EventMeta) => {
     if (meta.inefficientCastReason) {
       castReason = (
         <>
-          <h3>Inefficient Cast Reasons</h3>
+          <h3>低效施法原因</h3>
           {meta.inefficientCastReason}
         </>
       );
@@ -414,7 +418,7 @@ const generateTooltip = (meta?: EventMeta) => {
               <br />
             </>
           ) : null}
-          <h3>Enhanced Cast Reasons</h3>
+          <h3>强化施法原因</h3>
           {meta.enhancedCastReason}
         </>
       );
@@ -429,7 +433,7 @@ const generateTooltip = (meta?: EventMeta) => {
               <br />
             </>
           ) : null}
-          <h3>Additional Cast Information</h3>
+          <h3>额外施法信息</h3>
           {meta.additionalCastInfo}
         </>
       );

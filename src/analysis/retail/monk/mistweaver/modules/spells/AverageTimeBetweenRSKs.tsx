@@ -7,6 +7,7 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import RisingSunKick from './RisingSunKick';
 import { SpellLink, TooltipElement } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import { getCurrentRSKTalent } from '../../constants';
 import { Talent } from 'common/TALENTS/types';
 import RushingWindKick from './RushingWindKick';
@@ -46,9 +47,9 @@ class TimeBetweenRSKs extends Analyzer {
 
   get averageTimeBetweenRSKSeconds() {
     if (this.totalRSKCasts === 0) {
-      return 'Rising Sun Kick was not cast';
+      return defineMessage({ id: 'monk.mistweaver.time_between_rsks.not_cast', message: 'Rising Sun Kick was not cast' });
     } else if (this.totalRSKCasts === 1) {
-      return 'Rising Sun Kick was only cast once';
+      return defineMessage({ id: 'monk.mistweaver.time_between_rsks.cast_once', message: 'Rising Sun Kick was only cast once' });
     } else {
       return (this.rskWindow / 1000 / (this.totalRSKCasts - 1)).toFixed(2) + `s`;
     }
@@ -81,17 +82,22 @@ class TimeBetweenRSKs extends Analyzer {
       >
         <TalentSpellText talent={this.currentRskTalent}>
           <div>
-            {this.averageTimeBetweenRSKSeconds} <small>average time between casts</small>
+            {this.averageTimeBetweenRSKSeconds} <small><Trans id="monk.mistweaver.time_between_rsks.avg_time_label">average time between casts</Trans></small>
           </div>
           <div>{this.risingSunKick.subStatistic()}</div>
           {this.selectedCombatant.hasTalent(TALENTS_MONK.RUSHING_WIND_KICK_MISTWEAVER_TALENT) && (
             <div>
               <TooltipElement
                 content={
-                  <>
-                    {this.rushingWindKick.avgTargetsHit.toFixed(2)} average targets hit per{' '}
-                    <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_MISTWEAVER_TALENT} /> cast
-                  </>
+                  (() => {
+                    const targets = this.rushingWindKick.avgTargetsHit.toFixed(2);
+                    return (
+                      <Trans id="monk.mistweaver.time_between_rsks.avg_targets">
+                        {targets} average targets hit per{' '}
+                        <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_MISTWEAVER_TALENT} /> cast
+                      </Trans>
+                    );
+                  })()
                 }
               >
                 <ItemHealingDone amount={this.rushingWindKick.healing} />

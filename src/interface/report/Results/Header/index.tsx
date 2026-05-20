@@ -384,7 +384,7 @@ function BossMiniBox({ boss, fight }: Pick<HeaderProps, 'boss' | 'fight'>): JSX.
       <MiniBoxName>{boss?.name ?? getBossDisplayName(fight.boss, fight.name)}</MiniBoxName>
       <MiniBoxSubtext>
         {difficulty.getLabel(fight.difficulty ?? 0)}{' '}
-        {fight.kill ? `Kill - ${duration}` : `Wipe - ${duration}`}
+        {fight.kill ? `击杀 - ${duration}` : `灭团 - ${duration}`}
       </MiniBoxSubtext>
     </MiniBoxContainer>
   );

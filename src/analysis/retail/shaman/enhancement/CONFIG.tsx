@@ -1,4 +1,5 @@
 import { Seriousnes } from 'CONTRIBUTORS';
+import { Trans } from '@lingui/react/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import { AlertWarning } from 'interface';
@@ -14,13 +15,17 @@ const config: Config = {
   description: (
     <>
       <AlertWarning>
-        Analytics are being developed for a level 80 The War Within character on beta. Right now the
-        Enhancement Analyzer is a work-in-progress, and only holds very basic functionality.
+        <Trans id="shaman.enhancement.config.beta_warning">
+          Analytics are being developed for a level 80 The War Within character on beta. Right now the
+          Enhancement Analyzer is a work-in-progress, and only holds very basic functionality.
+        </Trans>
       </AlertWarning>
       <p>
-        Hey there! Thanks for checking out the Enhancement Analyzer. If you have any feedback or
-        suggestions, feel free to reach out to Seriousnes via Discord (seriousnes) or drop an issue
-        in the GitHub repo.
+        <Trans id="shaman.enhancement.config.feedback">
+          Hey there! Thanks for checking out the Enhancement Analyzer. If you have any feedback or
+          suggestions, feel free to reach out to Seriousnes via Discord (seriousnes) or drop an issue
+          in the GitHub repo.
+        </Trans>
       </p>
     </>
   ),

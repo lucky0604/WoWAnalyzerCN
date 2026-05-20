@@ -81,34 +81,34 @@ const CastSummaryAndBreakdown = ({
   const hasOkCasts = ok !== 0;
   const hasBadCasts = bad !== 0;
 
-  const instanceWord = usesInsteadOfCasts ? 'use' : 'cast';
+  const instanceWord = usesInsteadOfCasts ? '使用' : '施法';
 
   const perfectExplanation = !perfectExtraExplanation ? (
-    <>Blue is a perfect {instanceWord}</>
+    <>蓝色表示完美{instanceWord}</>
   ) : (
     <>
-      Blue is a perfect {instanceWord} ({perfectExtraExplanation})
+      蓝色表示完美{instanceWord}（{perfectExtraExplanation}）
     </>
   );
   const goodExplanation = !goodExtraExplanation ? (
-    <>Green is a good {instanceWord}</>
+    <>绿色表示良好{instanceWord}</>
   ) : (
     <>
-      Green is a good {instanceWord} ({goodExtraExplanation})
+      绿色表示良好{instanceWord}（{goodExtraExplanation}）
     </>
   );
   const okExplanation = !okExtraExplanation ? (
-    <>Yellow is an ok {instanceWord}</>
+    <>黄色表示一般{instanceWord}</>
   ) : (
     <>
-      Yellow is an ok {instanceWord} ({okExtraExplanation})
+      黄色表示一般{instanceWord}（{okExtraExplanation}）
     </>
   );
   const badExplanation = !badExtraExplanation ? (
-    <>Red is a bad {instanceWord}</>
+    <>红色表示较差{instanceWord}</>
   ) : (
     <>
-      Red is a bad {instanceWord} ({badExtraExplanation})
+      红色表示较差{instanceWord}（{badExtraExplanation}）
     </>
   );
 
@@ -126,10 +126,10 @@ const CastSummaryAndBreakdown = ({
       </Fragment>
     ));
 
-  const perfectBarLabel = perfectLabel || `Perfect ${instanceWord}s`;
-  const goodBarLabel = goodLabel || `Good ${instanceWord}s`;
-  const okBarLabel = okLabel || `Ok ${instanceWord}s`;
-  const badBarLabel = badLabel || `Bad ${instanceWord}s`;
+  const perfectBarLabel = perfectLabel || `完美${instanceWord}`;
+  const goodBarLabel = goodLabel || `良好${instanceWord}`;
+  const okBarLabel = okLabel || `一般${instanceWord}`;
+  const badBarLabel = badLabel || `较差${instanceWord}`;
 
   return (
     <CastSummaryAndBreakdownContainer>
@@ -166,11 +166,10 @@ const CastSummaryAndBreakdown = ({
         />
       )}
       <strong>
-        <SpellLink spell={spell} /> casts
+        <SpellLink spell={spell} /> 施法
       </strong>{' '}
       <small>
-        - {performanceExplanation}. Mouseover for more details. Click to see per-{instanceWord}{' '}
-        details.
+        - {performanceExplanation}。悬停查看详情。点击查看每次{instanceWord}的详细分析。
       </small>
       <ControlledExpandable
         header={
@@ -185,7 +184,7 @@ const CastSummaryAndBreakdown = ({
         expanded={isExpanded}
         inverseExpanded={() => setIsExpanded(!isExpanded)}
       >
-        <small>Mouseover for more details.</small>
+        <small>悬停查看详情。</small>
         <PerformanceBoxRow onClickBox={onClickBox} values={castEntries} />
       </ControlledExpandable>
     </CastSummaryAndBreakdownContainer>

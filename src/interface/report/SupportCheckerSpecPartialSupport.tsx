@@ -31,10 +31,7 @@ const SupportCheckerSpecPartialSupport = ({ config, ...others }: Props) => {
         <br />
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
-        We recommend reading the{' '}
-        <a href="https://www.wowhead.com/class-guides">
-          <img src="/img/wowhead-tiny.png" style={{ height: '1em' }} alt="Wowhead" /> Wowhead
-        </a>{' '}
+        We recommend reading the Wowhead{' '}
         and <a href="https://www.icy-veins.com/wow/class-guides">Icy Veins</a> guides to gain more
         knowledge about your spec and use this when analyzing yourself. You can also try asking for
         help in a <a href="https://www.reddit.com/r/wow/wiki/discord">class Discord</a>.

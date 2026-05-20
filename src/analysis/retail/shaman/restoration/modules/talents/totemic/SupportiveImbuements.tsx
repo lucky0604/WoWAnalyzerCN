@@ -1,5 +1,6 @@
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -81,17 +82,21 @@ export default class SupportiveImbuements extends Analyzer {
         tooltip={
           <>
             <p>
-              The bonus healing done can be less than what the talent says because of the way
-              effective healing is calculated, if a spell overheals then healing increases are
-              deducted before the baseline healing of the ability.
+              <Trans id="shaman.restoration.si.tooltip.p1">
+                The bonus healing done can be less than what the talent says because of the way
+                effective healing is calculated, if a spell overheals then healing increases are
+                deducted before the baseline healing of the ability.
+              </Trans>
             </p>
             <p>
-              The extra healing done from duration extensions on{' '}
-              <SpellLink spell={TALENTS.HEALING_STREAM_TOTEM_RESTORATION_TALENT} /> and{' '}
-              <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} /> is an approximation. We sum the total
-              healing done by the totems over their duration and then extract a percentage of this
-              equal to the duration <SpellLink spell={TALENTS.SUPPORTIVE_IMBUEMENTS_TALENT} /> added
-              to them.
+              <Trans id="shaman.restoration.si.tooltip.p2">
+                The extra healing done from duration extensions on{' '}
+                <SpellLink spell={TALENTS.HEALING_STREAM_TOTEM_RESTORATION_TALENT} /> and{' '}
+                <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} /> is an approximation. We sum the total
+                healing done by the totems over their duration and then extract a percentage of this
+                equal to the duration <SpellLink spell={TALENTS.SUPPORTIVE_IMBUEMENTS_TALENT} /> added
+                to them.
+              </Trans>
             </p>
           </>
         }
@@ -100,13 +105,13 @@ export default class SupportiveImbuements extends Analyzer {
           <ItemHealingDone amount={totalHealingAttributed} />
           <hr />
           <div>
-            <small>Bonus Healing Done</small>
+            <small><Trans id="shaman.restoration.si.bonus_healing">Bonus Healing Done</Trans></small>
           </div>
           <div>
             <ItemHealingDone amount={this.extraHealingDone} />
           </div>
           <div>
-            <small>Healing Totem Duration Extension</small>
+            <small><Trans id="shaman.restoration.si.duration_extension">Healing Totem Duration Extension</Trans></small>
           </div>
           <div>
             <ItemHealingDone amount={this.durationAttributedHealing} />

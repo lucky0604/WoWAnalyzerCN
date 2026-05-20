@@ -202,33 +202,33 @@ export default function BuffUptimeBar({
     averageStacks = fightDuration > 0 ? totalWeightedStacks / fightDuration : 0;
   }
 
-  const defaultTooltip = `This is the average number of stacks you had over the course of the fight, counting periods where you didn't have the buff as zero stacks.`;
+  const defaultTooltip = `这是你在整场战斗中维持的平均层数，未获得增益的时间段按零层计算。`;
 
   const statsContent = (
     <StatsRow>
       <StatCard color={backgroundBarColor}>
         <StatValue>{formatPercentage(uptimePercent, 0)}%</StatValue>
-        <StatLabel>Uptime</StatLabel>
+        <StatLabel>覆盖率</StatLabel>
       </StatCard>
       {hasStacks && averageStacks !== undefined && (
         <Tooltip content={averageStacksTooltip || defaultTooltip}>
           <StatCard color={barColor}>
             <StatValue>{averageStacks.toFixed(1)}</StatValue>
-            <StatLabel>Avg Stacks</StatLabel>
+            <StatLabel>平均层数</StatLabel>
           </StatCard>
         </Tooltip>
       )}
       {hasStacks && maxStacks !== undefined && (
         <StatCard color="#888">
           <StatValue>{maxStacks}</StatValue>
-          <StatLabel>Max Stacks</StatLabel>
+          <StatLabel>最大层数</StatLabel>
         </StatCard>
       )}
     </StatsRow>
   );
 
   return (
-    <GuideDataWrapper title={`${spell.name} Buff Uptime`} subtitle="Timeline" stats={statsContent}>
+    <GuideDataWrapper title={`${spell.name} 增益覆盖率`} subtitle="时间轴" stats={statsContent}>
       <TimelineContainer>
         <UptimeGraphContainer>
           <UptimeGraph

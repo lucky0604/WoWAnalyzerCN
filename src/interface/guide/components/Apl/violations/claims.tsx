@@ -81,7 +81,7 @@ function TargetName({ event }: { event: AnyEvent }) {
   } else if (enemy && !friendly) {
     return <a href={npcTooltip(enemy.guid)}>{enemy.name}</a>;
   }
-  return <span className="spell-link-text">Unknown</span>;
+  return <span className="spell-link-text">未知</span>;
 }
 
 function EventTimestamp({ event }: { event: AnyEvent }) {

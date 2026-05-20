@@ -8,6 +8,7 @@ import ExplanationRow from 'interface/guide/components/ExplanationRow';
 import PassFailBar from 'interface/guide/components/PassFailBar';
 import { useMemo, type JSX } from 'react';
 import BlackoutCombo from './index';
+import { Trans } from '@lingui/react/macro';
 
 enum ComboEffect {
   KegSmash = talents.KEG_SMASH_TALENT.id,
@@ -64,31 +65,41 @@ export default function BlackoutComboSection(): JSX.Element | null {
       <ExplanationRow leftPercent={45}>
         <div>
           <p>
-            The recommended way to use <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} />
-            's combo bonuses is:
+            <Trans id="monk.brewmaster.blackout_combo.recommended">
+              The recommended way to use <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} />
+              's combo bonuses is:
+            </Trans>
           </p>
           <ul>
             <li style={{ opacity: hasPta ? 0.5 : 1 }}>
               <div>
                 <strong>
-                  <SpellLink spell={SPELLS.TIGER_PALM} />: Almost Always.
+                  <Trans id="monk.brewmaster.blackout_combo.tp_always">
+                    <SpellLink spell={SPELLS.TIGER_PALM} />: Almost Always.
+                  </Trans>
                 </strong>
               </div>
               <div>
-                Comboing <SpellLink spell={SPELLS.TIGER_PALM} /> is the best way to use{' '}
-                <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} /> for damage in single-target and
-                light AoE settings. You will frequently see high ranked raiders using this option.
+                <Trans id="monk.brewmaster.blackout_combo.tp_desc">
+                  Comboing <SpellLink spell={SPELLS.TIGER_PALM} /> is the best way to use{' '}
+                  <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} /> for damage in single-target and
+                  light AoE settings. You will frequently see high ranked raiders using this option.
+                </Trans>
               </div>
             </li>
             <li>
               <div>
                 <strong>
-                  <SpellLink spell={talents.KEG_SMASH_TALENT} />: Sometimes.
+                  <Trans id="monk.brewmaster.blackout_combo.ks_sometimes">
+                    <SpellLink spell={talents.KEG_SMASH_TALENT} />: Sometimes.
+                  </Trans>
                 </strong>
               </div>
               <div>
-                Purely defensive, but not bad. This is more often used in multi-target settings
-                where <SpellLink spell={SPELLS.TIGER_PALM} /> is less valuable.
+                <Trans id="monk.brewmaster.blackout_combo.ks_desc">
+                  Purely defensive, but not bad. This is more often used in multi-target settings
+                  where <SpellLink spell={SPELLS.TIGER_PALM} /> is less valuable.
+                </Trans>
               </div>
             </li>
           </ul>
@@ -99,13 +110,13 @@ export default function BlackoutComboSection(): JSX.Element | null {
               <td>
                 <TooltipElement
                   content={
-                    <>
+                    <Trans id="monk.brewmaster.blackout_combo.buff_tooltip">
                       <SpellLink spell={SPELLS.BLACKOUT_COMBO_BUFF} /> is a buff. If you wait long
                       enough before using a combo spell, it will expire and do nothing!
-                    </>
+                    </Trans>
                   }
                 >
-                  Combos Used
+                  <Trans id="monk.brewmaster.blackout_combo.combos_used">Combos Used</Trans>
                 </TooltipElement>
               </td>
               <td>
@@ -121,7 +132,9 @@ export default function BlackoutComboSection(): JSX.Element | null {
           </tbody>
           <tbody>
             <tr>
-              <th colSpan={3}>Spell Combo Breakdown</th>
+              <th colSpan={3}>
+                <Trans id="monk.brewmaster.blackout_combo.breakdown_title">Spell Combo Breakdown</Trans>
+              </th>
             </tr>
           </tbody>
           <CastReasonBreakdownTableContents
@@ -132,7 +145,9 @@ export default function BlackoutComboSection(): JSX.Element | null {
           <tbody>
             <tr>
               <td colSpan={3} style={{ paddingTop: '1em' }}>
-                <em>Work in Progress</em>
+                <em>
+                  <Trans id="monk.brewmaster.blackout_combo.wip">Work in Progress</Trans>
+                </em>
               </td>
             </tr>
           </tbody>

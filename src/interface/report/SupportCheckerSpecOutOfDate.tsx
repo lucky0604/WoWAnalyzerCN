@@ -37,10 +37,7 @@ const SupportCheckerSpecOutOfDate = ({ config, ...others }: Props) => {
     >
       <Trans id="interface.report.supportChecker.specNotSupportedDetails">
         Sorry, this spec hasn't been updated for the latest patch so we're afraid it might be
-        outdated and potentially mislead. We recommend reading the{' '}
-        <a href="https://www.wowhead.com/guides/classes">
-          <img src="/img/wowhead-tiny.png" style={{ height: '1em' }} alt="Wowhead" /> Wowhead
-        </a>{' '}
+        outdated and potentially mislead. We recommend reading the Wowhead{' '}
         and <a href="https://www.icy-veins.com/wow/class-guides">Icy Veins</a> guides to gain more
         knowledge about your spec and use this to analyze yourself. You can also try asking for help
         in a <a href="https://www.reddit.com/r/wow/wiki/discord">class Discord</a>.

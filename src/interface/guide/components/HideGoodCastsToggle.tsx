@@ -16,10 +16,10 @@ export const HideGoodCastsToggle = ({ id, label, tooltipContent }: HideGoodCasts
           id={id}
           enabled={hideGoodCasts}
           setEnabled={setHideGoodCasts}
-          label={label ?? 'Hide Good Casts'}
+          label={label ?? '隐藏良好施法'}
           tooltipContent={
             tooltipContent ??
-            "Enabling this feature will hide good and perfect casts throughout the Guide. Don't worry, you can always bring them back."
+            '启用此功能将在指南中隐藏良好和完美施法。不用担心，你可以随时重新显示。'
           }
         />
       </div>

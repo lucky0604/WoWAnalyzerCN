@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -60,10 +61,13 @@ class TouchOfKarma extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.OPTIONAL(2)}
         size="flexible"
-        tooltip="This does not account for possible absorbs from missed Touch of Karma casts"
+        tooltip={<Trans id="monk.windwalker.karma.tooltip">This does not account for possible absorbs from missed Touch of Karma casts</Trans>}
       >
         <BoringSpellValueText spell={SPELLS.TOUCH_OF_KARMA_CAST}>
-          {formatPercentage(this.absorbUsed, 0)}% <small>Absorb used</small>
+          {formatPercentage(this.absorbUsed, 0)}%{' '}
+          <small>
+            <Trans id="monk.windwalker.karma.absorb_used">Absorb used</Trans>
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );
@@ -72,11 +76,13 @@ class TouchOfKarma extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.TOUCH_OF_KARMA_CAST} />
-        </b>{' '}
-        is both a defensive and offensive cooldown, although it is mostly used offensively. It
-        should be used any time enough damage will be taken to break the shield.
+        <Trans id="monk.windwalker.karma.explanation">
+          <b>
+            <SpellLink spell={SPELLS.TOUCH_OF_KARMA_CAST} />
+          </b>{' '}
+          is both a defensive and offensive cooldown, although it is mostly used offensively. It
+          should be used any time enough damage will be taken to break the shield.
+        </Trans>
       </p>
     );
 
@@ -84,7 +90,9 @@ class TouchOfKarma extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={SPELLS.TOUCH_OF_KARMA_CAST} /> cast efficiency
+            <Trans id="monk.windwalker.karma.efficiency">
+              <SpellLink spell={SPELLS.TOUCH_OF_KARMA_CAST} /> cast efficiency
+            </Trans>
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>

@@ -174,16 +174,16 @@ class CancelledCasts extends Analyzer {
         className="value"
         tooltip={
           <>
-            You cast {this.totalCasts} spells.
+            你施放了 {this.totalCasts} 个法术。
             <ul>
-              <li>{this.castsFinished} casts were completed</li>
-              <li>{this.castsCancelled} casts were cancelled</li>
+              <li>{this.castsFinished} 次施法已完成</li>
+              <li>{this.castsCancelled} 次施法被取消</li>
             </ul>
           </>
         }
       >
-        <BoringValueText label="Cancelled Casts">
-          <CrossIcon /> {formatPercentage(this.cancelledPercentage)}% <small>Casts Cancelled</small>
+        <BoringValueText label="被取消的施法">
+          <CrossIcon /> {formatPercentage(this.cancelledPercentage)}% <small>施法取消</small>
         </BoringValueText>
       </Statistic>
     );

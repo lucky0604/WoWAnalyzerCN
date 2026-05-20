@@ -35,24 +35,20 @@ export default function FoundationHealerManaSection(): JSX.Element | null {
     >
       <Explanation>
         <Para>
-          As a <strong>Healer</strong>, <ResourceLink id={RESOURCE_TYPES.MANA.id} /> is your most
-          important resource. You have two goals:
+          作为<strong>治疗者</strong>，<ResourceLink id={RESOURCE_TYPES.MANA.id} />
+          是你最重要的资源。你有两个目标：
           <ol>
-            <li>Spend all of your mana by the end of the fight.</li>
-            <li>Don't run out of mana before the end of the fight.</li>
+            <li>在战斗结束前用完所有法力值。</li>
+            <li>不要在战斗结束前耗尽法力值。</li>
           </ol>
         </Para>
         <Para>
-          As a general guideline,{' '}
-          <HL>
-            the percent of mana you have left should match the percent of the fight you have left.
-          </HL>{' '}
-          You should have 50% remaining mana half-way through the fight, and 25% remaining mana with
-          25% left.
+          作为一般参考，{' '}
+          <HL>你剩余的法力值百分比应该与战斗剩余时间的百分比相匹配。</HL>
+          战斗进行到一半时，你应该剩余50%的法力值；战斗剩余25%时，你应该剩余25%的法力值。
         </Para>
         <AlertInfo className="alert-subtle">
-          Remember that this is just a guideline! Many boss fights have raid damage that requires
-          spending more mana early in a fight.
+          请记住这只是一个参考指南！许多首领战会在战斗早期造成大量团队伤害，需要提前消耗更多法力值。
         </AlertInfo>
       </Explanation>
       <SubSection
@@ -63,16 +59,15 @@ export default function FoundationHealerManaSection(): JSX.Element | null {
       >
         <Explanation>
           <Para>
-            This chart shows your mana level over time, along with boss HP. There are a couple of
-            common problems to look for:
+            此图表显示你的法力值随时间的变化，以及首领的生命值。以下是一些需要留意的常见问题：
             <ul>
               <li>
-                If you are at <em>nearly 0 mana</em> for a long time (or in the middle of the fight)
-                then you might need to improve your <strong>Mana Efficiency.</strong>
+                如果你在战斗中长时间（或战斗中期）处于<em>接近0法力值</em>
+                的状态，那么你可能需要提高<strong>法力效率。</strong>
               </li>
               <li>
-                If you end the fight with <em>lots of mana</em>, then you might need to use
-                less-efficient spells to <strong>spend mana more quickly</strong>.
+                如果你在战斗结束时仍有<em>大量法力值</em>，那么你可能需要使用效率较低的技能来
+                <strong>更快地消耗法力值</strong>。
               </li>
             </ul>
           </Para>
@@ -95,10 +90,9 @@ export default function FoundationHealerManaSection(): JSX.Element | null {
           })}
         >
           <Explanation>
-            This table shows the mana and time-efficiency of your spells.{' '}
-            <HL>If you are running out of mana, try switching to more mana-efficient spells.</HL> If
-            you are ending a fight with too much mana, try switching to spells that are more
-            time-efficient even if they are less mana-efficient.
+            此表格显示你各技能的法力效率和时间效率。{' '}
+            <HL>如果你法力值不足，请尝试改用更省法力的技能。</HL>
+            如果你在战斗结束时法力值过多，请尝试改用时间效率更高但法力效率较低的技能。
           </Explanation>
           <HealingEfficiencyBreakdown tracker={healingEfficiencyTracker} disableDamageToggle />
         </SubSection>
