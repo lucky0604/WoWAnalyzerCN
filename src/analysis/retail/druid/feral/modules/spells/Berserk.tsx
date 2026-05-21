@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
 import { SpellLink, Tooltip } from 'interface';
@@ -131,19 +133,25 @@ class Berserk extends Analyzer {
   get guideCastBreakdown(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={this.cdSpell} />
-        </strong>{' '}
-        is our primary damage cooldown. It's best used as soon as it's available, but can be held to
-        ensure you'll have full target uptime during its duration (don't use it when it will be
-        interrupted by a fight mechanic).{' '}
+        <Trans id="druid.feral.berserk.explanation">
+          <strong>
+            <SpellLink spell={this.cdSpell} />
+          </strong>{' '}
+          is our primary damage cooldown. It's best used as soon as it's available, but can be held to
+          ensure you'll have full target uptime during its duration (don't use it when it will be
+          interrupted by a fight mechanic).{' '}
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="druid.feral.berserk.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="druid.feral.berserk.click_expand"> - click to expand</Trans>
+        </small>
         {this.berserkTrackers.map((cast, ix) => {
           // get energy cap stats now that it's end of fight...
           const cdEnd = Math.min(this.owner.fight.end_time, cast.timestamp + this.hardcastDuration);
@@ -166,13 +174,15 @@ class Berserk extends Analyzer {
 
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
-            label: <>Cast as much as possible</>,
+            label: (
+              <Trans id="druid.feral.berserk.cast_as_much">Cast as much as possible</Trans>
+            ),
             result: <PerformanceMark perf={activityPerf} />,
             details: (
-              <>
+              <Trans id="druid.feral.berserk.active_and_energy_capped">
                 ({formatPercentage(segmentPercentActive, 0)}% active time /{' '}
                 {formatPercentage(percentAtCap, 0)}% energy capped)
-              </>
+              </Trans>
             ),
           });
 
@@ -180,13 +190,17 @@ class Berserk extends Analyzer {
             checklistItems.push({
               label: (
                 <>
-                  <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> during Berserk{' '}
+                  <Trans id="druid.feral.berserk.convoke_during">
+                    <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> during Berserk{' '}
+                  </Trans>
                   <Tooltip
                     hoverable
                     content={
                       <>
-                        With <SpellLink spell={TALENTS_DRUID.BERSERK_HEART_OF_THE_LION_TALENT} />,
-                        Convoke and Berserk have the same CD and should always be used together.
+                        <Trans id="druid.feral.berserk.convoke_during_tooltip">
+                          With <SpellLink spell={TALENTS_DRUID.BERSERK_HEART_OF_THE_LION_TALENT} />,
+                          Convoke and Berserk have the same CD and should always be used together.
+                        </Trans>
                       </>
                     }
                   >

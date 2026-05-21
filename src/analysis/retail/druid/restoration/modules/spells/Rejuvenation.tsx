@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon } from 'interface';
 import { SpellLink } from 'interface';
@@ -186,40 +188,48 @@ class Rejuvenation extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.REJUVENATION} />
-          </b>{' '}
-          is your primary filler spell. It can be used on injured raiders or pre-cast on full health
-          raiders when ramping for incoming raid damage. Don't spam it unmotivated - you'll run out
-          of mana.
+          <Trans id="restoration.rejuv.explanation_p1">
+            <b>
+              <SpellLink spell={SPELLS.REJUVENATION} />
+            </b>{' '}
+            is your primary filler spell. It can be used on injured raiders or pre-cast on full health
+            raiders when ramping for incoming raid damage. Don't spam it unmotivated - you'll run out
+            of mana.
+          </Trans>
         </p>
         <p>
-          Don't overwrite on targets with a recent Rejuvenation - you'll clip duration. Some
-          high-overheal Rejuvs are unavoidable due to heal sniping, but if a large proportion of
-          them are you might be casting too much.
+          <Trans id="restoration.rejuv.explanation_p2">
+            Don't overwrite on targets with a recent Rejuvenation - you'll clip duration. Some
+            high-overheal Rejuvs are unavoidable due to heal sniping, but if a large proportion of
+            them are you might be casting too much.
+          </Trans>
         </p>
       </>
     );
 
     const goodRejuvs = {
       count: this.goodRejuvs,
-      label: 'Good Rejuvenations',
+      label: t({ id: 'restoration.rejuv.good_label', message: 'Good Rejuvenations' }),
     };
     const highOverhealRejuvs = {
       count: this.highOverhealCasts,
-      label: 'High-overheal Rejuvenations',
+      label: t({ id: 'restoration.rejuv.high_overheal_label', message: 'High-overheal Rejuvenations' }),
     };
     const clippedRejuvs = {
       count: this.earlyRefreshments,
-      label: 'Clipped duration Rejuvenations',
+      label: t({ id: 'restoration.rejuv.clipped_label', message: 'Clipped duration Rejuvenations' }),
     };
     const data = (
       <div>
-        <strong>Rejuvenation cast breakdown</strong>
+        <strong>
+          <Trans id="restoration.rejuv.breakdown_title">Rejuvenation cast breakdown</Trans>
+        </strong>
         <small>
-          {' '}
-          - Green is a good cast, Yellow is a cast with very high overheal, and Red is an early
-          refresh that clipped duration. Mouseover for more details.
+          <Trans id="restoration.rejuv.breakdown_details">
+            {' '}
+            - Green is a good cast, Yellow is a cast with very high overheal, and Red is an early
+            refresh that clipped duration. Mouseover for more details.
+          </Trans>
         </small>
         <GradiatedPerformanceBar good={goodRejuvs} ok={highOverhealRejuvs} bad={clippedRejuvs} />
       </div>
@@ -234,22 +244,25 @@ class Rejuvenation extends Analyzer {
         position={STATISTIC_ORDER.CORE(18)} // chosen for fixed ordering of general stats
         size="flexible"
         tooltip={
-          <>
+          <Trans id="restoration.rejuv.statistic_tooltip">
             You refreshed Rejuvenation early <strong>{this.earlyRefreshments} times</strong>, losing
             a total of <strong>{this.timeLostInSeconds.toFixed(1)}s</strong> of HoT duration (
             {this.timeLostInSecondsPerMinute.toFixed(1)}s per minute).
-          </>
+          </Trans>
         }
       >
         <BoringValue
           label={
-            <>
+            <Trans id="restoration.rejuv.statistic_label">
               <SpellIcon spell={SPELLS.REJUVENATION} /> Early Rejuvenation refreshes
-            </>
+            </Trans>
           }
         >
           <>
-            {this.earlyRefreshmentsPerMinute.toFixed(1)} <small>per minute</small>
+            {this.earlyRefreshmentsPerMinute.toFixed(1)}{' '}
+            <small>
+              <Trans id="restoration.rejuv.per_minute">per minute</Trans>
+            </small>
           </>
         </BoringValue>
       </Statistic>

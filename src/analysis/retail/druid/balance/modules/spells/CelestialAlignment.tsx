@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { cdDuration, cdSpell } from 'analysis/retail/druid/balance/constants';
+import { Trans } from '@lingui/react/macro';
 import SpellLink from 'interface/SpellLink';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import Spell from 'common/SPELLS/Spell';
@@ -70,19 +71,25 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
 
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={this.cdSpell} />
-        </strong>{' '}
-        is our primary damage cooldown. It's best used as soon as it's available, but can be held to
-        ensure you'll have full target uptime during its duration (don't use it when it will be
-        interrupted by a fight mechanic).
+        <Trans id="balance.ca.explanation">
+          <strong>
+            <SpellLink spell={this.cdSpell} />
+          </strong>{' '}
+          is our primary damage cooldown. It's best used as soon as it's available, but can be held to
+          ensure you'll have full target uptime during its duration (don't use it when it will be
+          interrupted by a fight mechanic).
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="balance.ca.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="balance.ca.click_expand"> - click to expand</Trans>
+        </small>
         {this.caTrackers.map((cast, idx) => {
           const header = (
             <>
@@ -105,9 +112,13 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
 
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
-            label: <>Stay Active!</>,
+            label: <Trans id="balance.ca.stay_active">Stay Active!</Trans>,
             result: <PerformanceMark perf={percentActivePerf} />,
-            details: <>({formatPercentage(cast.activeTimePercentage ?? 0, 0)}% active time)</>,
+            details: (
+              <Trans id="balance.ca.active_time">
+                ({formatPercentage(cast.activeTimePercentage ?? 0, 0)}% active time)
+              </Trans>
+            ),
           });
           // TODO more checks?
 

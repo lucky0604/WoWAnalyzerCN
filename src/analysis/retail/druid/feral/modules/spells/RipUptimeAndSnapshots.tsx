@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { Options } from 'parser/core/Analyzer';
 import { ApplyDebuffEvent, RefreshDebuffEvent } from 'parser/core/Events';
@@ -104,16 +106,24 @@ class RipUptimeAndSnapshots extends Snapshots {
         value = QualitativePerformance.Fail;
         perfExplanation = (
           <h5 style={{ color: BadColor }}>
-            Bad because you used only {cpsUsed} CPs (need at least {currAcceptableCps})
+            <Trans id="druid.feral.rip.low_cps_bad">
+              Bad because you used only {cpsUsed} CPs (need at least {currAcceptableCps})
+            </Trans>
           </h5>
         );
       } else if (clipped > CLIP_BUFFER) {
         value = QualitativePerformance.Fail;
-        perfExplanation = <h5 style={{ color: BadColor }}>Bad because you refreshed too early</h5>;
+        perfExplanation = (
+          <h5 style={{ color: BadColor }}>
+            <Trans id="druid.feral.rip.early_refresh_bad">Bad because you refreshed too early</Trans>
+          </h5>
+        );
       } else if (clipped > 0) {
         value = QualitativePerformance.Ok;
         perfExplanation = (
-          <h5 style={{ color: OkColor }}>Careful, you refreshed this a little early</h5>
+          <h5 style={{ color: OkColor }}>
+            <Trans id="druid.feral.rip.early_refresh_warning">Careful, you refreshed this a little early</Trans>
+          </h5>
         );
       }
 
@@ -121,17 +131,29 @@ class RipUptimeAndSnapshots extends Snapshots {
         <>
           {perfExplanation}
           <div>
-            @ <strong>{this.owner.formatTimestamp(timestamp)}</strong> targetting{' '}
-            <strong>{targetName || 'unknown'}</strong> using <strong>{cpsUsed} CPs</strong>
+            @ <strong>{this.owner.formatTimestamp(timestamp)}</strong>{' '}
+            <Trans id="druid.feral.rip.targeting_with_cps">
+              targetting <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong> using <strong>{cpsUsed} CPs</strong>
+            </Trans>
           </div>
           {!wasNewApplication && (
             <div>
-              Refreshed on target w/ {(remainingOnPrev / 1000).toFixed(1)}s remaining{' '}
-              {clipped > 0 && <strong>- Clipped {(clipped / 1000).toFixed(1)}s!</strong>}
+              <Trans id="druid.feral.moonfire.refreshed_on_target">
+                Refreshed on target w/ {(remainingOnPrev / 1000).toFixed(1)}s remaining{' '}
+              </Trans>
+              {clipped > 0 && (
+                <strong>
+                  <Trans id="druid.feral.moonfire.clipped">
+                    - Clipped {(clipped / 1000).toFixed(1)}s!
+                  </Trans>
+                </strong>
+              )}
             </div>
           )}
           <div>
-            Snapshots: <strong>{snapshots.map((ss) => ss.name).join(', ')}</strong>
+            <Trans id="druid.feral.moonfire.snapshots">
+              Snapshots: <strong>{snapshots.map((ss) => ss.name).join(', ')}</strong>
+            </Trans>
           </div>
         </>
       );
@@ -147,10 +169,15 @@ class RipUptimeAndSnapshots extends Snapshots {
       if (cast) {
         addInefficientCastReason(
           cast,
-          `This cast clipped ${(clipped / 1000).toFixed(
-            1,
-          )} seconds of Rip time without upgrading the snapshot.
-          Try to wait until the last 30% of Rip's duration before refreshing`,
+          t({
+            id: 'druid.feral.rip.clipped_inefficient_reason_prefix',
+            message: 'This cast clipped '
+          }) +
+            (clipped / 1000).toFixed(1) +
+            t({
+              id: 'druid.feral.rip.clipped_inefficient_reason_suffix',
+              message: " seconds of Rip time without upgrading the snapshot. Try to wait until the last 30% of Rip's duration before refreshing"
+            })
         );
       }
     }
@@ -161,23 +188,25 @@ class RipUptimeAndSnapshots extends Snapshots {
     const hasPw = this.selectedCombatant.hasTalent(TALENTS_DRUID.PRIMAL_WRATH_TALENT);
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.RIP} />
-        </b>{' '}
-        is your highest damage-per-energy single target spender. Try to maintain 100% uptime.{' '}
-        {hasPw ? (
-          <>
-            Use <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} /> to apply it when you can hit
-            more than one target.
-          </>
-        ) : (
-          <>
-            You can even keep it active on multiple targets, though if a fight will frequently have
-            multiple targets consider speccing for{' '}
-            <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />.
-          </>
-        )}{' '}
-        Only refresh in the pandemic window (last 30% of duration).
+        <Trans id="druid.feral.rip.explanation">
+          <b>
+            <SpellLink spell={SPELLS.RIP} />
+          </b>{' '}
+          is your highest damage-per-energy single target spender. Try to maintain 100% uptime.{' '}
+          {hasPw ? (
+            <>
+              Use <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} /> to apply it when you can hit
+              more than one target.
+            </>
+          ) : (
+            <>
+              You can even keep it active on multiple targets, though if a fight will frequently have
+              multiple targets consider speccing for{' '}
+              <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />.
+            </>
+          )}{' '}
+          Only refresh in the pandemic window (last 30% of duration).
+        </Trans>
       </p>
     );
 
@@ -185,16 +214,20 @@ class RipUptimeAndSnapshots extends Snapshots {
       <div>
         <RoundedPanel>
           <div>
-            <strong>Rip uptime / snapshots</strong>
-            <small> - Try to get as close to 100% as the encounter allows!</small>
+            <strong>
+              <Trans id="druid.feral.rip.uptime_snapshots_title">Rip uptime / snapshots</Trans>
+            </strong>
+            <small>
+              <Trans id="druid.feral.moonfire.uptime_snapshots_sub"> - Try to get as close to 100% as the encounter allows!</Trans>
+            </small>
           </div>
           {this.subStatistic()}
         </RoundedPanel>
         <CastSummaryAndBreakdown
           spell={SPELLS.RIP}
           castEntries={this.castEntries}
-          okExtraExplanation={<>slightly early refresh</>}
-          badExtraExplanation={<>refreshed outside pandemic or low CPs</>}
+          okExtraExplanation={<Trans id="druid.feral.rip.ok_reason">slightly early refresh</Trans>}
+          badExtraExplanation={<Trans id="druid.feral.rip.bad_reason">refreshed outside pandemic or low CPs</Trans>}
         />
       </div>
     );

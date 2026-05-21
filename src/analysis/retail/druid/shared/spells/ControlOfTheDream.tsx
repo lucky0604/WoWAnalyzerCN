@@ -1,4 +1,6 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { Options } from 'parser/core/Module';
 import Events, { UpdateSpellUsableEvent, UpdateSpellUsableType } from 'parser/core/Events';
@@ -180,14 +182,20 @@ export default class ControlOfTheDream extends Analyzer.withDependencies({
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Ability</th>
-                  <th>Early casts</th>
-                  <th>Eff. CDR</th>
+                  <th>
+                    <Trans id="druid.shared.cotd.ability">Ability</Trans>
+                  </th>
+                  <th>
+                    <Trans id="druid.shared.cotd.early_casts">Early casts</Trans>
+                  </th>
+                  <th>
+                    <Trans id="druid.shared.cotd.eff_cdr">Eff. CDR</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {this.cdrSpellInfos.map((cdrInfo, spellId) => (
-                  <tr>
+                  <tr key={spellId}>
                     <th>
                       <SpellIcon spell={spellId} />
                     </th>
@@ -202,10 +210,14 @@ export default class ControlOfTheDream extends Analyzer.withDependencies({
         tooltip={
           <>
             <p>
-              <b>Early Cast:</b> A cast benefiting from this Talent’s CD reduction.
+              <Trans id="druid.shared.cotd.early_cast_explain">
+                <b>Early Cast:</b> A cast benefiting from this Talent’s CD reduction.
+              </Trans>
             </p>
             <p>
-              <b>Effective CDR:</b> Total CD time saved via Early Casts.
+              <Trans id="druid.shared.cotd.eff_cdr_explain">
+                <b>Effective CDR:</b> Total CD time saved via Early Casts.
+              </Trans>
             </p>
           </>
         }
@@ -213,10 +225,16 @@ export default class ControlOfTheDream extends Analyzer.withDependencies({
         <BoringSpellValueText spell={TALENTS_DRUID.CONTROL_OF_THE_DREAM_TALENT}>
           <>
             <div>
-              {this.totalEarlyCastCount} <small>Early Casts</small>
+              {this.totalEarlyCastCount}{' '}
+              <small>
+                <Trans id="druid.shared.cotd.early_casts_label">Early Casts</Trans>
+              </small>
             </div>
             <div>
-              {this.totalEffectiveCdr.toFixed(0)}s <small>Effective CDR</small>
+              {this.totalEffectiveCdr.toFixed(0)}s{' '}
+              <small>
+                <Trans id="druid.shared.cotd.eff_cdr_label">Effective CDR</Trans>
+              </small>
             </div>
           </>
         </BoringSpellValueText>

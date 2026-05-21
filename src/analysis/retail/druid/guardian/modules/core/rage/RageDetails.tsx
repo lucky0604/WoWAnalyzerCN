@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import RageTracker, {
   RAGE_SCALE_FACTOR,
@@ -14,7 +15,7 @@ export default class RageDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Rage usage',
+      title: t({ id: 'guardian.rage_details.title', message: 'Rage usage' }),
       url: 'rage-usage',
       render: () => (
         <Panel>

@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
@@ -127,8 +129,10 @@ class WildGrowth extends Analyzer {
     const value = effectiveHits >= 3 ? QualitativePerformance.Good : QualitativePerformance.Fail;
     const tooltip = (
       <>
-        @ <strong>{this.owner.formatTimestamp(this.recentWgTimestamp)}</strong>, Hits:{' '}
-        <strong>{hits.length}</strong>, Effective: <strong>{effectiveHits}</strong>
+        @ <strong>{this.owner.formatTimestamp(this.recentWgTimestamp)}</strong>,{' '}
+        {t({ id: 'restoration.wildgrowth.hits', message: 'Hits:' })} <strong>{hits.length}</strong>
+        {t({ id: 'restoration.wildgrowth.effective', message: ', Effective: ' })}{' '}
+        <strong>{effectiveHits}</strong>
       </>
     );
     this.castEntries.push({ value, tooltip });
@@ -147,15 +151,19 @@ class WildGrowth extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.WILD_GROWTH} />
-          </b>{' '}
-          is your best healing spell when multiple raiders are injured. It quickly heals a lot, but
-          has a high mana cost. Use Wild Growth when there are at least 3 injured targets.
+          <Trans id="restoration.wildgrowth.explanation_p1">
+            <b>
+              <SpellLink spell={SPELLS.WILD_GROWTH} />
+            </b>{' '}
+            is your best healing spell when multiple raiders are injured. It quickly heals a lot, but
+            has a high mana cost. Use Wild Growth when there are at least 3 injured targets.
+          </Trans>
         </p>
         <p>
-          Remember that only allies within 30 yds of the primary target can be hit - don't cast this
-          on an isolated player!
+          <Trans id="restoration.wildgrowth.explanation_p2">
+            Remember that only allies within 30 yds of the primary target can be hit - don't cast this
+            on an isolated player!
+          </Trans>
         </p>
       </>
     );
@@ -166,11 +174,11 @@ class WildGrowth extends Analyzer {
           spell={SPELLS.WILD_GROWTH}
           castEntries={this.castEntries}
           badExtraExplanation={
-            <>
+            <Trans id="restoration.wildgrowth.bad_extra_explanation">
               effective on fewer than three targets. A hit is considered "ineffective" if over the
               first {(OVERHEAL_BUFFER / 1000).toFixed(0)} seconds it did more than{' '}
               {formatPercentage(OVERHEAL_THRESHOLD, 0)}% overhealing
-            </>
+            </Trans>
           }
         />
       </div>
@@ -185,7 +193,7 @@ class WildGrowth extends Analyzer {
         size="flexible"
         position={STATISTIC_ORDER.CORE(19)} // chosen for fixed ordering of general stats
         tooltip={
-          <>
+          <Trans id="restoration.wildgrowth.statistic_tooltip">
             This is the average number of effective hits per Wild Growth cast. Because its healing
             is so frontloaded, we consider a hit effective only if it does less than{' '}
             {formatPercentage(OVERHEAL_THRESHOLD, 0)}% overhealing over its first{' '}
@@ -193,14 +201,14 @@ class WildGrowth extends Analyzer {
             <br /> <br />
             This statistic only considers hardcasts, Wild Growths procced by Convoke the Spirits are
             ignored.
-          </>
+          </Trans>
         }
       >
         <BoringValue
           label={
-            <>
+            <Trans id="restoration.wildgrowth.statistic_label">
               <SpellIcon spell={SPELLS.WILD_GROWTH} /> Average Effective Wild Growth Hits
-            </>
+            </Trans>
           }
         >
           <>{this.averageEffectiveHits.toFixed(1)}</>

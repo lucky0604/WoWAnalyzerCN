@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Events, { ResourceChangeEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS';
 import { ResourceLink, SpellLink } from 'interface';
@@ -66,23 +68,27 @@ class BuilderUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: 'Effective Builders',
+        label: t({ id: 'druid.feral.builder_use.effective_builders', message: 'Effective Builders' }),
         value: this.effectiveBuilderCasts,
         tooltip: (
           <>
-            This only counts hardcasts -{' '}
-            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
+            <Trans id="druid.feral.builder_use.hardcast_note">
+              This only counts hardcasts -{' '}
+              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
+            </Trans>
           </>
         ),
       },
       {
         color: BadColor,
-        label: 'Wasted Builders',
+        label: t({ id: 'druid.feral.builder_use.wasted_builders', message: 'Wasted Builders' }),
         value: this.wastedBuilderCasts,
         tooltip: (
           <>
-            This only counts hardcasts -{' '}
-            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
+            <Trans id="druid.feral.builder_use.hardcast_note">
+              This only counts hardcasts -{' '}
+              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
+            </Trans>
           </>
         ),
       },
@@ -96,7 +102,9 @@ class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)}>
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> builder usage
+            <Trans id="druid.feral.builder_use.label">
+              <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> builder usage
+            </Trans>
           </label>
           {this.chart}
         </div>

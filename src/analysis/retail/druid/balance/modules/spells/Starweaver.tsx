@@ -7,6 +7,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import { STARFALL_BASE_COST, STARSURGE_BASE_COST } from '../../constants';
 
 const AFFECTED_CAST = [SPELLS.STARSURGE_MOONKIN, SPELLS.STARFALL_CAST];
@@ -59,8 +60,12 @@ class Starweaver extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Ability</th>
-                  <th>Number of Free Casts</th>
+                  <th>
+                    <Trans id="balance.starweaver.ability">Ability</Trans>
+                  </th>
+                  <th>
+                    <Trans id="balance.starweaver.free_casts">Number of Free Casts</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -79,7 +84,10 @@ class Starweaver extends Analyzer {
       >
         <BoringSpellValueText spell={TALENTS_DRUID.STARWEAVER_TALENT}>
           <>
-            {formatNumber(this.savedAP)} <small> Astral Power accounted in Pulsar </small>
+            {formatNumber(this.savedAP)}{' '}
+            <small>
+              <Trans id="balance.starweaver.ap_pulsar">Astral Power accounted in Pulsar</Trans>
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

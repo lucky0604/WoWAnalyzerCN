@@ -1,4 +1,5 @@
 import { formatNumber } from 'common/format';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import { PassFailCheckmark } from 'interface/guide';
@@ -138,18 +139,22 @@ class Flourish extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} />
-          </strong>{' '}
-          extends your active HoTs during <SpellLink spell={SPELLS.TRANQUILITY_CAST} />. The value
-          in raid depends heavily on what HoTs are already out when Tranquility starts and during
-          its ticks, so ramping with Rejuvenation and Wild Growth first is still important.
+          <Trans id="restoration.flourish.explanation_p1">
+            <strong>
+              <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} />
+            </strong>{' '}
+            extends your active HoTs during <SpellLink spell={SPELLS.TRANQUILITY_CAST} />. The value
+            in raid depends heavily on what HoTs are already out when Tranquility starts and during
+            its ticks, so ramping with Rejuvenation and Wild Growth first is still important.
+          </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
           <p>
-            When pairing this with <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />, the Convoke should
-            ALWAYS be cast first. This is because the Convoke will produce many HoTs which can be
-            extended.
+            <Trans id="restoration.flourish.explanation_p2">
+              When pairing this with <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />, the Convoke should
+              ALWAYS be cast first. This is because the Convoke will produce many HoTs which can be
+              extended.
+            </Trans>
           </p>
         )}
       </>
@@ -157,8 +162,12 @@ class Flourish extends Analyzer {
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="restoration.flourish.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="restoration.flourish.click_expand"> - click to expand</Trans>
+        </small>
         {this.rampTrackers.map((cast, ix) => {
           const castTotalHealing = cast.extensionAttribution.healing;
 
@@ -178,21 +187,29 @@ class Flourish extends Analyzer {
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
             label: (
-              <>
+              <Trans id="restoration.flourish.wg_ramp">
                 <SpellLink spell={SPELLS.WILD_GROWTH} /> ramp
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
-            details: <>({cast.wgsOnCast} HoTs active)</>,
+            details: (
+              <Trans id="restoration.flourish.wg_active">
+                ({cast.wgsOnCast} HoTs active)
+              </Trans>
+            ),
           });
           checklistItems.push({
             label: (
-              <>
+              <Trans id="restoration.flourish.rejuv_ramp">
                 <SpellLink spell={SPELLS.REJUVENATION} /> ramp
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={rejuvRamp} />,
-            details: <>({cast.rejuvsOnCast} HoTs active)</>,
+            details: (
+              <Trans id="restoration.flourish.rejuv_active">
+                ({cast.rejuvsOnCast} HoTs active)
+              </Trans>
+            ),
           });
 
           return (
@@ -221,41 +238,53 @@ class Flourish extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            This is the sum of the healing enabled by the Flourish HoT extension from Tranquility
-            ticks.
+            <Trans id="restoration.flourish.tooltip_p1">
+              This is the sum of the healing enabled by the Flourish HoT extension from Tranquility
+              ticks.
+            </Trans>
             {this.selectedCombatant.hasTalent(TALENTS_DRUID.CENARIUS_GUIDANCE_TALENT) && (
               <>
                 <br />
-                This value does not include Flourish extension procs from{' '}
-                <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> tranquility procs.
-                <br />
-                Excluded Convoke Flourish extension healing:{' '}
-                <strong>
-                  {this.owner.formatItemHealingDone(
-                    this.convokeSpirits.totalFlourishExtensionHealing,
-                  )}
-                </strong>
+                <Trans id="restoration.flourish.tooltip_p2">
+                  This value does not include Flourish extension procs from{' '}
+                  <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> tranquility procs.
+                  <br />
+                  Excluded Convoke Flourish extension healing:{' '}
+                  <strong>
+                    {this.owner.formatItemHealingDone(
+                      this.convokeSpirits.totalFlourishExtensionHealing,
+                    )}
+                  </strong>
+                </Trans>
               </>
             )}
             <ul>
               <li>
-                Extension:{' '}
-                <strong>{this.owner.formatItemHealingDone(this.totalExtensionHealing)}</strong>
+                <Trans id="restoration.flourish.tooltip_extension">
+                  Extension:{' '}
+                  <strong>{this.owner.formatItemHealingDone(this.totalExtensionHealing)}</strong>
+                </Trans>
               </li>
               <li>
-                Wild Growths Casts Extended:{' '}
-                <strong>
-                  {this.wgsExtended} / {this.hardcastCount}
-                </strong>
+                <Trans id="restoration.flourish.tooltip_wg_extended">
+                  Wild Growths Casts Extended:{' '}
+                  <strong>
+                    {this.wgsExtended} / {this.hardcastCount}
+                  </strong>
+                </Trans>
               </li>
               <li>
-                Average Healing per Cast: <strong>{formatNumber(this.healingPerCast)}</strong>
+                <Trans id="restoration.flourish.tooltip_avg_healing">
+                  Average Healing per Cast: <strong>{formatNumber(this.healingPerCast)}</strong>
+                </Trans>
               </li>
             </ul>
             <br />
-            For the included table, note that extension healing for a flourish cast near the end of
-            a fight might have lower than expected numbers because extension healing isn't tallied
-            until the HoT has ticked past its original duration.
+            <Trans id="restoration.flourish.tooltip_p3">
+              For the included table, note that extension healing for a flourish cast near the end of
+              a fight might have lower than expected numbers because extension healing isn't tallied
+              until the HoT has ticked past its original duration.
+            </Trans>
           </>
         }
         dropdown={
@@ -263,9 +292,15 @@ class Flourish extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Cast</th>
-                  <th>HoTs Extended</th>
-                  <th>Extension Healing</th>
+                  <th>
+                    <Trans id="restoration.flourish.cast_header">Cast</Trans>
+                  </th>
+                  <th>
+                    <Trans id="restoration.flourish.hots_extended_header">HoTs Extended</Trans>
+                  </th>
+                  <th>
+                    <Trans id="restoration.flourish.extension_healing_header">Extension Healing</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>

@@ -1,4 +1,5 @@
 import UptimeIcon from 'interface/icons/Uptime';
+import { Trans } from '@lingui/react/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
 import UptimeMultiBarStatistic from 'parser/ui/UptimeMultiBarStatistic';
@@ -26,15 +27,18 @@ class DotUptimesAndSnapshots extends Analyzer {
       <UptimeMultiBarStatistic
         title={
           <>
-            <UptimeIcon /> DoT Uptimes and Snapshots
+            <UptimeIcon />{' '}
+            <Trans id="druid.feral.dots_and_snapshots.title">DoT Uptimes and Snapshots</Trans>
           </>
         }
         position={STATISTIC_ORDER.CORE(1)}
         tooltip={
           <>
-            These uptime bars show the times your DoT was active on at least one target. The
-            snapshot percent is the percentage of the DoT's uptime the snapshot was active on at
-            least one target (not the percent of the whole fight).
+            <Trans id="druid.feral.dots_and_snapshots.tooltip">
+              These uptime bars show the times your DoT was active on at least one target. The
+              snapshot percent is the percentage of the DoT's uptime the snapshot was active on at
+              least one target (not the percent of the whole fight).
+            </Trans>
           </>
         }
       >

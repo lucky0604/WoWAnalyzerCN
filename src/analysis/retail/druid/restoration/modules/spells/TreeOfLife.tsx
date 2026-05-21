@@ -1,4 +1,5 @@
 import { combineQualitativePerformances } from 'common/combineQualitativePerformances';
+import { Trans } from '@lingui/react/macro';
 import { abilityToSpell } from 'common/abilityToSpell';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -359,23 +360,29 @@ class TreeOfLife extends Analyzer {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT} />
-        </strong>{' '}
-        should generally be used 10-12 seconds before major damage hits so you can maximize the mana
-        discount on <SpellLink spell={SPELLS.REJUVENATION} /> during your ramp. While Incarnation is
-        active, you can otherwise continue your standard rotation. Its duration is paused while
-        channeling <SpellLink spell={SPELLS.TRANQUILITY_CAST} />, so combining the two is usually a
-        good idea. Be careful not to overvalue the Regrowth bonus: making{' '}
-        <SpellLink spell={SPELLS.REGROWTH} /> instant mostly front-loads the heal, since its normal
-        cast time is already equal to the global cooldown.
+        <Trans id="restoration.tol.explanation">
+          <strong>
+            <SpellLink spell={TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT} />
+          </strong>{' '}
+          should generally be used 10-12 seconds before major damage hits so you can maximize the mana
+          discount on <SpellLink spell={SPELLS.REJUVENATION} /> during your ramp. While Incarnation is
+          active, you can otherwise continue your standard rotation. Its duration is paused while
+          channeling <SpellLink spell={SPELLS.TRANQUILITY_CAST} />, so combining the two is usually a
+          good idea. Be careful not to overvalue the Regrowth bonus: making{' '}
+          <SpellLink spell={SPELLS.REGROWTH} /> instant mostly front-loads the heal, since its normal
+          cast time is already equal to the global cooldown.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="restoration.tol.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="restoration.tol.click_expand"> - click to expand</Trans>
+        </small>
         {this.hardcastTrackers.map((cast, ix) => {
           const castTotalHealing = this._getTotalHealing(cast.accumulator);
           const treeEnd = Math.min(this.owner.fight.end_time, cast.timestamp + TOL_DURATION);
@@ -428,39 +435,47 @@ class TreeOfLife extends Analyzer {
 
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
-            label: 'Rejuvenation ramp activity in first 15s',
+            label: <Trans id="restoration.tol.rejuv_ramp_activity">Rejuvenation ramp activity in first 15s</Trans>,
             result: <PerformanceMark perf={rejuvRampPerf} />,
-            details: <>({formatPercentage(rejuvActivePercent, 0)}% active Rejuvenation time)</>,
+            details: (
+              <Trans id="restoration.tol.rejuv_active_pct">
+                ({formatPercentage(rejuvActivePercent, 0)}% active Rejuvenation time)
+              </Trans>
+            ),
           });
           checklistItems.push({
-            label: 'Overall active GCD usage during Tree',
+            label: <Trans id="restoration.tol.overall_active_gcd">Overall active GCD usage during Tree</Trans>,
             result: <PerformanceMark perf={overallActivePerf} />,
-            details: <>({formatPercentage(overallActivePercent, 0)}% active time)</>,
+            details: (
+              <Trans id="restoration.tol.overall_active_pct">
+                ({formatPercentage(overallActivePercent, 0)}% active time)
+              </Trans>
+            ),
           });
 
           const detailItems: CooldownExpandableItem[] = [];
           detailItems.push({
-            label: 'Total Healing',
+            label: <Trans id="restoration.tol.total_healing_label">Total Healing</Trans>,
             result: '',
             details: <>{formatNumber(castTotalHealing)}</>,
           });
           detailItems.push({
-            label: 'All-Healing Bonus Contribution',
+            label: <Trans id="restoration.tol.all_healing_bonus_label">All-Healing Bonus Contribution</Trans>,
             result: '',
             details: <>{formatNumber(cast.accumulator.allBoostHealing)}</>,
           });
           detailItems.push({
-            label: 'Rejuvenation Bonus Healing',
+            label: <Trans id="restoration.tol.rejuv_bonus_label">Rejuvenation Bonus Healing</Trans>,
             result: '',
             details: <>{formatNumber(cast.accumulator.rejuvBoostHealing)}</>,
           });
           detailItems.push({
-            label: 'Wild Growth Extra-Target Contribution',
+            label: <Trans id="restoration.tol.wg_extra_target_label">Wild Growth Extra-Target Contribution</Trans>,
             result: '',
             details: <>{formatNumber(cast.accumulator.extraWgsAttribution.healing)}</>,
           });
           detailItems.push({
-            label: 'Casts during Tree',
+            label: <Trans id="restoration.tol.casts_during_label">Casts during Tree</Trans>,
             result: '',
             details: cast.casts.map((castEvent, castIndex) => (
               <span key={castIndex}>
@@ -493,36 +508,44 @@ class TreeOfLife extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            The displayed healing number is the sum of several benefits, listed below:
+            <Trans id="restoration.tol.tooltip_p1">
+              The displayed healing number is the sum of several benefits, listed below:
+            </Trans>
             <ul>
               <li>
-                Overall Increased Healing:{' '}
-                <strong>
-                  {formatPercentage(
-                    this.owner.getPercentageOfTotalHealingDone(this.hardcast.allBoostHealing),
-                  )}
-                  %
-                </strong>
+                <Trans id="restoration.tol.tooltip_all_boost">
+                  Overall Increased Healing:{' '}
+                  <strong>
+                    {formatPercentage(
+                      this.owner.getPercentageOfTotalHealingDone(this.hardcast.allBoostHealing),
+                    )}
+                    %
+                  </strong>
+                </Trans>
               </li>
               <li>
-                Rejuv Increased Healing:{' '}
-                <strong>
-                  {formatPercentage(
-                    this.owner.getPercentageOfTotalHealingDone(this.hardcast.rejuvBoostHealing),
-                  )}
-                  %
-                </strong>
+                <Trans id="restoration.tol.tooltip_rejuv_boost">
+                  Rejuv Increased Healing:{' '}
+                  <strong>
+                    {formatPercentage(
+                      this.owner.getPercentageOfTotalHealingDone(this.hardcast.rejuvBoostHealing),
+                    )}
+                    %
+                  </strong>
+                </Trans>
               </li>
               <li>
-                Increased Wild Growths:{' '}
-                <strong>
-                  {formatPercentage(
-                    this.owner.getPercentageOfTotalHealingDone(
-                      this.hardcast.extraWgsAttribution.healing,
-                    ),
-                  )}
-                  %
-                </strong>
+                <Trans id="restoration.tol.tooltip_wg_boost">
+                  Increased Wild Growths:{' '}
+                  <strong>
+                    {formatPercentage(
+                      this.owner.getPercentageOfTotalHealingDone(
+                        this.hardcast.extraWgsAttribution.healing,
+                      ),
+                    )}
+                    %
+                  </strong>
+                </Trans>
               </li>
             </ul>
           </>

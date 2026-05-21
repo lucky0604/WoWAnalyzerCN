@@ -1,4 +1,6 @@
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { SpellLink, SpellIcon } from 'interface';
 import SPELLS from 'common/SPELLS';
@@ -60,7 +62,13 @@ export default class SpenderUsage extends Analyzer {
   onStarsurge(event: CastEvent) {
     if (currentEclipse(this.selectedCombatant) === 'none' && !this.lastCastNearCap(event)) {
       this.noEclipseStarsurges += 1;
-      addInefficientCastReason(event, `Starsurge cast outside eclipse without being near AP cap.`);
+      addInefficientCastReason(
+        event,
+        t({
+          id: 'balance.spender.starsurge_outside_eclipse',
+          message: 'Starsurge cast outside eclipse without being near AP cap.',
+        }),
+      );
     }
     this.totalStarsurges += 1;
     this.spenderCasts.push({ timestamp: event.timestamp });
@@ -69,7 +77,13 @@ export default class SpenderUsage extends Analyzer {
   onStarfall(event: CastEvent) {
     if (currentEclipse(this.selectedCombatant) === 'none' && !this.lastCastNearCap(event)) {
       this.noEclipseStarfalls += 1;
-      addInefficientCastReason(event, `Starfall cast outside eclipse without being near AP cap.`);
+      addInefficientCastReason(
+        event,
+        t({
+          id: 'balance.spender.starfall_outside_eclipse',
+          message: 'Starfall cast outside eclipse without being near AP cap.',
+        }),
+      );
     }
     this.totalStarfalls += 1;
     this.spenderCasts.push({ timestamp: event.timestamp });
@@ -93,7 +107,13 @@ export default class SpenderUsage extends Analyzer {
   _tallyLastStarfall() {
     if (this.recentlyHitStarfallTargets.size < MIN_STARFALL_TARGETS && this.lastStarfallCast) {
       this.lowTargetStarfalls += 1;
-      addInefficientCastReason(this.lastStarfallCast, `This Starfall hit too few targets!`);
+      addInefficientCastReason(
+        this.lastStarfallCast,
+        t({
+          id: 'balance.spender.starfall_too_few_targets',
+          message: 'This Starfall hit too few targets!',
+        }),
+      );
 
       this.recentlyHitStarfallTargets.clear();
       this.lastStarfallCast = undefined;
@@ -164,25 +184,31 @@ export default class SpenderUsage extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>Spender spells</strong> are{' '}
-          <strong>
-            <SpellLink spell={SPELLS.STARSURGE_MOONKIN} />
-          </strong>{' '}
-          and{' '}
-          <strong>
-            <SpellLink spell={SPELLS.STARFALL} />
-          </strong>
-          .
+          <Trans id="balance.spender.explanation_p1">
+            <strong>Spender spells</strong> are{' '}
+            <strong>
+              <SpellLink spell={SPELLS.STARSURGE_MOONKIN} />
+            </strong>{' '}
+            and{' '}
+            <strong>
+              <SpellLink spell={SPELLS.STARFALL} />
+            </strong>
+            .
+          </Trans>
         </p>
         <p>
-          Aim to cast as many spenders as possible during each{' '}
-          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> window. Use{' '}
-          <SpellLink spell={SPELLS.STARSURGE_MOONKIN} /> against 1 or 2 targets, and{' '}
-          <SpellLink spell={SPELLS.STARFALL} /> against 3 or more targets.
+          <Trans id="balance.spender.explanation_p2">
+            Aim to cast as many spenders as possible during each{' '}
+            <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> window. Use{' '}
+            <SpellLink spell={SPELLS.STARSURGE_MOONKIN} /> against 1 or 2 targets, and{' '}
+            <SpellLink spell={SPELLS.STARFALL} /> against 3 or more targets.
+          </Trans>
         </p>
         <p>
-          Avoid using spenders outside of <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> except
-          to prevent overcapping Astral Power.
+          <Trans id="balance.spender.explanation_p3">
+            Avoid using spenders outside of <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> except
+            to prevent overcapping Astral Power.
+          </Trans>
         </p>
       </>
     );
@@ -194,30 +220,37 @@ export default class SpenderUsage extends Analyzer {
       <div>
         {/* Aggregate bar */}
         <div>
-          <strong>Spenders per Eclipse</strong>
+          <strong>
+            <Trans id="balance.spender.spenders_per_eclipse">Spenders per Eclipse</Trans>
+          </strong>
           <small>
             {' '}
-            - Green is {GOOD_SPENDERS_PER_ECLIPSE}+, Yellow is {OK_SPENDERS_PER_ECLIPSE}, Red is
-            fewer.
+            <Trans id="balance.spender.spenders_per_eclipse_desc">
+              - Green is {GOOD_SPENDERS_PER_ECLIPSE}+, Yellow is {OK_SPENDERS_PER_ECLIPSE}, Red is
+              fewer.
+            </Trans>
           </small>
           <GradiatedPerformanceBar
-            good={{ count: GOOD, label: `${GOOD_SPENDERS_PER_ECLIPSE}+ spenders` }}
-            ok={{ count: OK, label: `${OK_SPENDERS_PER_ECLIPSE} spenders` }}
-            bad={{ count: BAD, label: `Fewer than ${OK_SPENDERS_PER_ECLIPSE} spenders` }}
+            good={{ count: GOOD, label: t({ id: 'balance.spender.good_bar_label', message: '4+ spenders' }) }}
+            ok={{ count: OK, label: t({ id: 'balance.spender.ok_bar_label', message: '3 spenders' }) }}
+            bad={{ count: BAD, label: t({ id: 'balance.spender.bad_bar_label', message: 'Fewer than 3 spenders' }) }}
           />
         </div>
 
         <RoundedPanel>
           <div>
-            <strong>Per-Eclipse Performance</strong> -{' '}
+            <strong>
+              <Trans id="balance.spender.per_eclipse_perf">Per-Eclipse Performance</Trans>
+            </strong>{' '}
+            -{' '}
             <Highlight color={GOOD_WINDOW_COLOR} textColor="black">
-              Good ({GOOD_SPENDERS_PER_ECLIPSE}+)
+              <Trans id="balance.spender.good_legend">Good ({GOOD_SPENDERS_PER_ECLIPSE}+)</Trans>
             </Highlight>{' '}
             <Highlight color={OK_WINDOW_COLOR} textColor="black">
-              OK ({OK_SPENDERS_PER_ECLIPSE})
+              <Trans id="balance.spender.ok_legend">OK ({OK_SPENDERS_PER_ECLIPSE})</Trans>
             </Highlight>{' '}
             <Highlight color={BAD_WINDOW_COLOR} textColor="white">
-              Bad (&lt;{OK_SPENDERS_PER_ECLIPSE})
+              <Trans id="balance.spender.bad_legend">Bad (&lt;{OK_SPENDERS_PER_ECLIPSE})</Trans>
             </Highlight>
           </div>
           <div className="flex-main multi-uptime-bar">
@@ -227,7 +260,7 @@ export default class SpenderUsage extends Analyzer {
               </div>
               <div className="flex-main chart">
                 <UptimeBar
-                  aria-label="Spender usage per Eclipse Window (green = good, yellow = ok, red = bad)"
+                  aria-label={t({ id: 'balance.spender.aria_label', message: 'Spender usage per Eclipse Window (green = good, yellow = ok, red = bad)' })}
                   uptimeHistory={this.spenderWindowUptimes}
                   start={this.owner.fight.start_time}
                   end={this.owner.fight.end_time}
@@ -240,7 +273,11 @@ export default class SpenderUsage extends Analyzer {
         {/* Outside-Eclipse warning */}
         {noEclipseTotal > 0 && (
           <p>
-            <strong>{noEclipseTotal} spender(s) cast outside Eclipse not near AP cap.</strong>
+            <strong>
+              <Trans id="balance.spender.outside_eclipse_warning">
+                {noEclipseTotal} spender(s) cast outside Eclipse not near AP cap.
+              </Trans>
+            </strong>
           </p>
         )}
       </div>

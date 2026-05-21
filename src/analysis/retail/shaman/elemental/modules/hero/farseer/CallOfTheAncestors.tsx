@@ -314,7 +314,7 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
   }
 
   private explainAlwaysBeCasting(cast: CallAncestor): ChecklistUsageInfo {
-    const activeTimeLabel = defineMessage({ id: 'shaman.elemental.ancestors.active_time', message: 'active time' });
+    const activeTimeLabel = t({ id: 'shaman.elemental.ancestors.active_time', message: 'active time' });
     return {
       check: 'always-be-casting',
       timestamp: cast.event.timestamp,

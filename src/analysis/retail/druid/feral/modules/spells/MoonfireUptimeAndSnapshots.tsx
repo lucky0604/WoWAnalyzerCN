@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { Options } from 'parser/core/Analyzer';
 import { ApplyDebuffEvent, RefreshDebuffEvent } from 'parser/core/Events';
@@ -82,25 +84,39 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
     const tooltip = (
       <>
         <div>
-          @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong> targetting{' '}
-          <strong>{targetName || 'unknown'}</strong>
+          @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>{' '}
+          <Trans id="druid.feral.moonfire.targetting">
+            targetting <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
+          </Trans>
         </div>
         {prevSnapshotNames !== null && (
           <div>
-            Refreshed on target w/ {(remainingOnPrev / 1000).toFixed(1)}s remaining{' '}
-            {clipped > 0 && <strong>- Clipped {(clipped / 1000).toFixed(1)}s!</strong>}
+            <Trans id="druid.feral.moonfire.refreshed_on_target">
+              Refreshed on target w/ {(remainingOnPrev / 1000).toFixed(1)}s remaining{' '}
+            </Trans>
+            {clipped > 0 && (
+              <strong>
+                <Trans id="druid.feral.moonfire.clipped">
+                  - Clipped {(clipped / 1000).toFixed(1)}s!
+                </Trans>
+              </strong>
+            )}
           </div>
         )}
         <div>
-          Snapshots:{' '}
-          <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
+          <Trans id="druid.feral.moonfire.snapshots">
+            Snapshots:{' '}
+            <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
+          </Trans>
         </div>
         {prevSnapshotNames !== null && (
           <div>
-            Prev Snapshots:{' '}
-            <strong>
-              {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
-            </strong>
+            <Trans id="druid.feral.moonfire.prev_snapshots">
+              Prev Snapshots:{' '}
+              <strong>
+                {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
+              </strong>
+            </Trans>
           </div>
         )}
       </>
@@ -121,11 +137,13 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
     // TODO this is basically copy pasta'd from Rake - can they be unified?
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.MOONFIRE_FERAL} />
-        </b>{' '}
-        (with <SpellLink spell={TALENTS_DRUID.LUNAR_INSPIRATION_TALENT} />) is another builder DoT
-        that behaves like a long-range (but weaker) Rake. For usage advice, see the Rake section.
+        <Trans id="druid.feral.moonfire.explanation">
+          <b>
+            <SpellLink spell={SPELLS.MOONFIRE_FERAL} />
+          </b>{' '}
+          (with <SpellLink spell={TALENTS_DRUID.LUNAR_INSPIRATION_TALENT} />) is another builder DoT
+          that behaves like a long-range (but weaker) Rake. For usage advice, see the Rake section.
+        </Trans>
       </p>
     );
 
@@ -134,8 +152,12 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
         <div>
           <RoundedPanel>
             <div>
-              <strong>Moonfire uptime / snapshots</strong>
-              <small> - Try to get as close to 100% as the encounter allows!</small>
+              <strong>
+                <Trans id="druid.feral.moonfire.uptime_snapshots_title">Moonfire uptime / snapshots</Trans>
+              </strong>
+              <small>
+                <Trans id="druid.feral.moonfire.uptime_snapshots_sub"> - Try to get as close to 100% as the encounter allows!</Trans>
+              </small>
             </div>
             {this.subStatistic()}
           </RoundedPanel>
@@ -144,8 +166,8 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
           <CastSummaryAndBreakdown
             spell={SPELLS.MOONFIRE_FERAL}
             castEntries={this.castEntries}
-            okExtraExplanation={<>clipped duration but upgraded snapshot</>}
-            badExtraExplanation={<>clipped duration or downgraded snapshot w/ &gt;2s remaining</>}
+            okExtraExplanation={<Trans id="druid.feral.moonfire.ok_reason">clipped duration but upgraded snapshot</Trans>}
+            badExtraExplanation={<Trans id="druid.feral.moonfire.bad_reason">clipped duration or downgraded snapshot w/ &gt;2s remaining</Trans>}
           />
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import {
   BASE_TIGERS_FURY_DAMAGE_BONUS,
@@ -114,8 +115,10 @@ export default class CarnivorousInstinct extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            The damage due specifically to the boost to <SpellLink spell={SPELLS.TIGERS_FURY} />{' '}
-            damage bonus
+            <Trans id="druid.feral.carnivorous_instinct.tooltip">
+              The damage due specifically to the boost to <SpellLink spell={SPELLS.TIGERS_FURY} />{' '}
+              damage bonus
+            </Trans>
           </>
         }
       >

@@ -5,6 +5,8 @@ import Events, { CastEvent, DamageEvent } from 'parser/core/Events';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { hardcastTargetsHit } from 'analysis/retail/druid/balance/normalizers/CastLinkNormalizer';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import ItemPercentDamageDone from 'parser/ui/ItemPercentDamageDone';
@@ -46,7 +48,11 @@ export default class TwinMoons extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(7)}
         size="flexible"
-        tooltip={`The listed damage value counts ONLY the boost to Moonfire's damage, and does not account for the saved GCDs incurred by producing extra moonfire debuffs.`}
+        tooltip={t({
+          id: 'balance.twin_moons.tooltip',
+          message:
+            "The listed damage value counts ONLY the boost to Moonfire's damage, and does not account for the saved GCDs incurred by producing extra moonfire debuffs.",
+        })}
       >
         <TalentSpellText talent={TALENTS_DRUID.TWIN_MOONS_TALENT}>
           <div>
@@ -54,7 +60,9 @@ export default class TwinMoons extends Analyzer {
           </div>
           <div>
             {this.owner.getPerMinute(this.extraHits).toFixed(1)}{' '}
-            <small>extra moonfires per minute</small>
+            <small>
+              <Trans id="balance.twin_moons.extra_mf_pm">extra moonfires per minute</Trans>
+            </small>
           </div>
         </TalentSpellText>
       </Statistic>

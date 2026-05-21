@@ -1,4 +1,6 @@
 import { formatNumber, formatPercentage } from 'common/format';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
 import { PerformanceMark } from 'interface/guide';
@@ -111,21 +113,30 @@ class Innervate extends Analyzer {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.INNERVATE} />
-        </strong>{' '}
-        is best used during your ramp, or any time when you expect to spam cast. Typically it should
-        be used as soon as it's available. Remember to spam cast expensive spells to make the most
-        of it.
+        <Trans id="restoration.innervate.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.INNERVATE} />
+          </strong>{' '}
+          is best used during your ramp, or any time when you expect to spam cast. Typically it should
+          be used as soon as it's available. Remember to spam cast expensive spells to make the most
+          of it.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="restoration.innervate.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="restoration.innervate.click_expand"> - click to expand</Trans>
+        </small>
         {this.castTrackers.map((cast, ix) => {
-          const sourceName = cast.sourceId === undefined ? 'SELF' : 'EXTERNAL';
+          const sourceName =
+            cast.sourceId === undefined
+              ? t({ id: 'restoration.innervate.self_source', message: 'SELF' })
+              : t({ id: 'restoration.innervate.external_source', message: 'EXTERNAL' });
           const endTime = Math.min(this.owner.fight.end_time, cast.timestamp + 8_000);
           const activeRampSpellTime = this.alwaysBeCasting.getActiveTimeMillisecondsFiltered(
             cast.timestamp,
@@ -153,24 +164,32 @@ class Innervate extends Analyzer {
 
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
-            label: "High active time casting 'ramp' spells",
+            label: (
+              <Trans id="restoration.innervate.high_active_ramp_label">
+                High active time casting 'ramp' spells
+              </Trans>
+            ),
             result: <PerformanceMark perf={activePerf} />,
-            details: <>({formatPercentage(activeRampSpellPercent, 0)}% active ramp time)</>,
+            details: (
+              <Trans id="restoration.innervate.active_ramp_pct">
+                ({formatPercentage(activeRampSpellPercent, 0)}% active ramp time)
+              </Trans>
+            ),
           });
 
           const detailItems: CooldownExpandableItem[] = [];
           detailItems.push({
-            label: 'Gained from',
+            label: <Trans id="restoration.innervate.gained_from_label">Gained from</Trans>,
             result: '',
             details: <>{sourceName}</>,
           });
           detailItems.push({
-            label: 'Mana saved',
+            label: <Trans id="restoration.innervate.mana_saved_label">Mana saved</Trans>,
             result: '',
             details: <>{cast.manaSaved}</>,
           });
           detailItems.push({
-            label: 'Casts during Innervate',
+            label: <Trans id="restoration.innervate.casts_during_label">Casts during Innervate</Trans>,
             result: '',
             details: cast.casts.map((c, iix) => (
               <span key={iix}>
@@ -205,7 +224,8 @@ class Innervate extends Analyzer {
         <BoringValueText
           label={
             <>
-              <SpellIcon spell={SPELLS.INNERVATE} /> Average mana saved
+              <SpellIcon spell={SPELLS.INNERVATE} />{' '}
+              <Trans id="restoration.innervate.avg_mana_saved">Average mana saved</Trans>
             </>
           }
         >

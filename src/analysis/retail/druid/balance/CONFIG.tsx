@@ -1,4 +1,5 @@
 import { Rex, Sref } from 'CONTRIBUTORS';
+import { Trans } from '@lingui/react/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -17,33 +18,41 @@ const config: Config = {
   description: (
     <>
       <p>
-        Welcome to the Balance Druid analyzer! We hope you find the guide and statistics useful.
+        <Trans id="balance.config.description.p1">
+          Welcome to the Balance Druid analyzer! We hope you find the guide and statistics useful.
+        </Trans>
       </p>
       <p>
-        If you questions, comments, or suggestions about this analyzer, you can reach the
-        WoWAnalyzer team on{' '}
-        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>, on{' '}
-        <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
-        <a href="/contributor/Sref">Sref</a>) directly on Discord. We're always interested in
-        improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
-        easier to understand. The whole project is open source and welcomes contributions so you can
-        directly improve it too!
+        <Trans id="balance.config.description.p2">
+          If you questions, comments, or suggestions about this analyzer, you can reach the
+          WoWAnalyzer team on{' '}
+          <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>, on{' '}
+          <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
+          <a href="/contributor/Sref">Sref</a>) directly on Discord. We're always interested in
+          improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
+          easier to understand. The whole project is open source and welcomes contributions so you can
+          directly improve it too!
+        </Trans>
       </p>
       <p>
-        If you have gameplay questions, check out:
+        <Trans id="balance.config.description.p3">
+          If you have gameplay questions, check out:
+        </Trans>
         <ul>
           <li>
-            <a href="https://www.wowhead.com/balance-druid-guide">Balance guide</a> on Wowhead
+            <a href="https://www.wowhead.com/balance-druid-guide">
+              <Trans id="balance.config.wowhead_guide">Balance guide on Wowhead</Trans>
+            </a>
           </li>
           <li>
-            <a href="https://www.dreamgrove.gg/blog/balance/compendium">Balance compendium</a> on
-            Dreamgrove.gg
+            <a href="https://www.dreamgrove.gg/blog/balance/compendium">
+              <Trans id="balance.config.compendium">Balance compendium on Dreamgrove.gg</Trans>
+            </a>
           </li>
           <li>
             <a href="https://discord.gg/dreamgrove" target="_blank" rel="noopener noreferrer">
-              Dreamgrove
-            </a>{' '}
-            - the Druid community Discord
+              <Trans id="balance.config.dreamgrove_discord">Dreamgrove - the Druid community Discord</Trans>
+            </a>
           </li>
         </ul>
       </p>

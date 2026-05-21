@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink, TooltipElement } from 'interface';
@@ -129,34 +131,40 @@ class Efflorescence extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
-        </b>{' '}
-        is extremely mana efficient if you place it where raiders are standing. Under the boss is
-        usually a safe bet. While it's acceptable to let it drop during heavy movement, you should
-        otherwise keep it active at all times.
+        <Trans id="restoration.efflo.explanation">
+          <b>
+            <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
+          </b>{' '}
+          is extremely mana efficient if you place it where raiders are standing. Under the boss is
+          usually a safe bet. While it's acceptable to let it drop during heavy movement, you should
+          otherwise keep it active at all times.
+        </Trans>
       </p>
     );
 
     const lifeTreadingExplanation = (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
-        </b>{' '}
-        is free and provides strong healing, especially when Lifebloom is maintained on a target
-        stacked with the raid. Keep Lifebloom on a squishier melee player for consistent value. With
-        <b>
-          <SpellLink spell={TALENTS_DRUID.LIFETREADING_TALENT} />
-        </b>
-        {', '} Efflorescence follows the Lifebloom target, so aim to maintain near 100% uptime on
-        Lifebloom.
+        <Trans id="restoration.efflo.lifetreading_explanation">
+          <b>
+            <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
+          </b>{' '}
+          is free and provides strong healing, especially when Lifebloom is maintained on a target
+          stacked with the raid. Keep Lifebloom on a squishier melee player for consistent value. With
+          <b>
+            <SpellLink spell={TALENTS_DRUID.LIFETREADING_TALENT} />
+          </b>
+          {', '} Efflorescence follows the Lifebloom target, so aim to maintain near 100% uptime on
+          Lifebloom.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
         <RoundedPanel>
-          <strong>Effloresence uptimes</strong>
+          <strong>
+            <Trans id="restoration.efflo.uptimes_title">Efflorescence uptimes</Trans>
+          </strong>
           {this.subStatistic()}
         </RoundedPanel>
       </div>
@@ -181,15 +189,23 @@ class Efflorescence extends Analyzer {
               spell={SPELLS.EFFLORESCENCE_CAST}
             />{' '}
             <span style={{ color: EFFLO_BG_COLOR }}>
-              {formatPercentage(this.uptimePercent, 0)}% <small>active</small>
+              {formatPercentage(this.uptimePercent, 0)}%{' '}
+              <small>
+                <Trans id="restoration.efflo.active_label">active</Trans>
+              </small>
             </span>
             <br />
             <TooltipElement
-              content={`The 'active' percentage considers the times your Effloresence is up,
-              while the 'effective' percentage takes into account the number of players it is actually healing`}
+              content={t({
+                id: 'restoration.efflo.tooltip_content',
+                message: "The 'active' percentage considers the times your Efflorescence is up, while the 'effective' percentage takes into account the number of players it is actually healing",
+              })}
             >
               <span style={{ color: EFFLO_COLOR }}>
-                {formatPercentage(this.weightedUptimePercent, 0)}% <small>effective</small>
+                {formatPercentage(this.weightedUptimePercent, 0)}%{' '}
+                <small>
+                  <Trans id="restoration.efflo.effective_label">effective</Trans>
+                </small>
               </span>
             </TooltipElement>
           </div>

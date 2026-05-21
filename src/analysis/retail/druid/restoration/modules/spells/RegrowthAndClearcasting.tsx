@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
@@ -144,17 +146,17 @@ class RegrowthAndClearcasting extends Analyzer {
     if (this.selectedCombatant.hasBuff(SPELLS.INNERVATE.id)) {
       this.innervateRegrowths += 1;
       isFreeOrCheap = true;
-      freeNote = 'Free (Innervate)';
+      freeNote = t({ id: 'restoration.regrowth.free_innervate', message: 'Free (Innervate)' });
     } else if (
       this.selectedCombatant.hasBuff(SPELLS.NATURES_SWIFTNESS.id, event.timestamp, MS_BUFFER)
     ) {
       this.nsRegrowths += 1;
       isFreeOrCheap = true;
-      freeNote = "Free (Nature's Swiftness)";
+      freeNote = t({ id: 'restoration.regrowth.free_ns', message: "Free (Nature's Swiftness)" });
     } else if (buffedByClearcast(event)) {
       this.ccRegrowths += 1;
       isFreeOrCheap = true;
-      freeNote = 'Free (Clearcasting)';
+      freeNote = t({ id: 'restoration.regrowth.free_cc', message: 'Free (Clearcasting)' });
     } else if (
       this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id) >= ABUNDANCE_EXCEPTION_STACKS
     ) {
@@ -163,8 +165,12 @@ class RegrowthAndClearcasting extends Analyzer {
       const abundanceStacks = this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id);
       freeNote =
         ABUNDANCE_MANA_REDUCTION * abundanceStacks >= 1
-          ? `Free (${abundanceStacks} Abundance stacks)`
-          : `Cheap (${abundanceStacks} Abundance stacks)`;
+          ? t({ id: 'restoration.regrowth.free_abundance_prefix', message: 'Free (' }) +
+            abundanceStacks +
+            t({ id: 'restoration.regrowth.free_abundance_suffix', message: ' Abundance stacks)' })
+          : t({ id: 'restoration.regrowth.cheap_abundance_prefix', message: 'Cheap (' }) +
+            abundanceStacks +
+            t({ id: 'restoration.regrowth.cheap_abundance_suffix', message: ' Abundance stacks)' });
     }
 
     // Check if target already has Regrowth HoT and whether refresh is within pandemic window
@@ -195,21 +201,21 @@ class RegrowthAndClearcasting extends Analyzer {
       this.triageRegrowths += 1;
       performance = QualitativePerformance.Good;
       castNote = isFreeOrCheap
-        ? `${freeNote} on a critically low target`
-        : `Triage cast on a critically low target`;
+        ? freeNote + t({ id: 'restoration.regrowth.on_critically_low', message: ' on a critically low target' })
+        : t({ id: 'restoration.regrowth.triage_critically_low', message: 'Triage cast on a critically low target' });
     } else if (isFreeOrCheap) {
       if (this.hasNaturesBounty) {
         if (!targetHadRegrowth || isPandemicRefresh) {
           // Good: free/cheap on a new target or pandemic refresh
           performance = QualitativePerformance.Good;
           castNote = isPandemicRefresh
-            ? `${freeNote} — pandemic refresh of existing Regrowth`
-            : `${freeNote} — new Regrowth target`;
+            ? freeNote + t({ id: 'restoration.regrowth.pandemic_refresh', message: ' — pandemic refresh of existing Regrowth' })
+            : freeNote + t({ id: 'restoration.regrowth.new_target', message: ' — new Regrowth target' });
         } else {
           // Ok: free/cheap but early overwrite of existing Regrowth HoT
           this.okRegrowths += 1;
           performance = QualitativePerformance.Ok;
-          castNote = `${freeNote} — overwrote existing Regrowth HoT (not in pandemic window)`;
+          castNote = freeNote + t({ id: 'restoration.regrowth.overwrote_existing', message: ' — overwrote existing Regrowth HoT (not in pandemic window)' });
         }
       } else {
         if (isLowOverheal) {
@@ -220,7 +226,7 @@ class RegrowthAndClearcasting extends Analyzer {
           // Ok: free/cheap but high overheal
           this.okRegrowths += 1;
           performance = QualitativePerformance.Ok;
-          castNote = `${freeNote} — high overheal`;
+          castNote = freeNote + t({ id: 'restoration.regrowth.high_overheal', message: ' — high overheal' });
         }
       }
     } else {
@@ -229,16 +235,26 @@ class RegrowthAndClearcasting extends Analyzer {
       performance = QualitativePerformance.Fail;
       const currentAbundanceStacks = this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id);
       if (currentAbundanceStacks > 0) {
-        castNote = `No Clearcasting and only ${currentAbundanceStacks} Abundance stack${currentAbundanceStacks > 1 ? 's' : ''} (need ${ABUNDANCE_EXCEPTION_STACKS}+)`;
+        castNote =
+          t({ id: 'restoration.regrowth.no_cc_low_abundance_prefix', message: 'No Clearcasting and only ' }) +
+          currentAbundanceStacks +
+          (currentAbundanceStacks > 1
+            ? t({ id: 'restoration.regrowth.abundance_stacks', message: ' Abundance stacks' })
+            : t({ id: 'restoration.regrowth.abundance_stack', message: ' Abundance stack' })) +
+          t({ id: 'restoration.regrowth.abundance_stacks_needed', message: ' (need 6+)' });
       } else {
-        castNote = 'No Clearcasting or Abundance stacks';
+        castNote = t({ id: 'restoration.regrowth.no_cc_or_abundance', message: 'No Clearcasting or Abundance stacks' });
       }
     }
 
     const targetHealthString =
-      targetHealthPercent !== undefined ? `${formatPercentage(targetHealthPercent, 0)}` : 'unknown';
+      targetHealthPercent !== undefined ? `${formatPercentage(targetHealthPercent, 0)}` : t({ id: 'restoration.regrowth.unknown_health', message: 'unknown' });
     const overhealString =
-      overhealPercent !== undefined ? ` (${formatPercentage(overhealPercent, 0)}% overheal)` : '';
+      overhealPercent !== undefined
+        ? ' (' +
+          formatPercentage(overhealPercent, 0) +
+          t({ id: 'restoration.regrowth.overheal_suffix', message: '% overheal)' })
+        : '';
 
     this.castEntries.push({
       value: performance,
@@ -247,8 +263,11 @@ class RegrowthAndClearcasting extends Analyzer {
           @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> - {castNote}
           {overhealString}
           <br />
-          targeting <strong>{this.owner.getTargetName(event)}</strong> w/{' '}
-          <strong>{targetHealthString}%</strong> health
+          {t({ id: 'restoration.regrowth.targeting', message: 'targeting' })}{' '}
+          <strong>{this.owner.getTargetName(event)}</strong>{' '}
+          {t({ id: 'restoration.regrowth.with_health', message: 'w/' })}{' '}
+          <strong>{targetHealthString}%</strong>{' '}
+          {t({ id: 'restoration.regrowth.health', message: 'health' })}
         </>
       ),
     });
@@ -295,39 +314,43 @@ class RegrowthAndClearcasting extends Analyzer {
     const hasAbundance = this.selectedCombatant.hasTalent(TALENTS_DRUID.ABUNDANCE_TALENT);
     const explanation = this.hasNaturesBounty ? (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.REGROWTH} />
-        </b>{' '}
-        is for spot healing. The HoT is normally very weak, but with{' '}
-        <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} /> it becomes important to play
-        around. Try to avoid overwriting existing Regrowth HoTs when choosing targets in order to
-        maximize cleave healing from <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />. Also
-        be careful not to cast Regrowth without a <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />{' '}
-        proc
-        {hasAbundance && (
-          <>
-            {' '}
-            or enough <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks
-          </>
-        )}
-        , as it is very mana inefficient otherwise.
+        <Trans id="restoration.regrowth.explanation_nb">
+          <b>
+            <SpellLink spell={SPELLS.REGROWTH} />
+          </b>{' '}
+          is for spot healing. The HoT is normally very weak, but with{' '}
+          <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} /> it becomes important to play
+          around. Try to avoid overwriting existing Regrowth HoTs when choosing targets in order to
+          maximize cleave healing from <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />. Also
+          be careful not to cast Regrowth without a <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />{' '}
+          proc
+          {hasAbundance && (
+            <>
+              {' '}
+              or enough <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks
+            </>
+          )}
+          , as it is very mana inefficient otherwise.
+        </Trans>
       </p>
     ) : (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.REGROWTH} />
-        </b>{' '}
-        is for spot healing. The HoT is very weak — Regrowth is only efficient when its direct
-        portion is effective. Try to minimize overheal on the direct portion. Exceptions are when
-        Regrowth is free due to <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> /{' '}
-        <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />
-        {hasAbundance && (
-          <>
-            {' '}
-            or cheap due to <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
-          </>
-        )}
-        .
+        <Trans id="restoration.regrowth.explanation_base">
+          <b>
+            <SpellLink spell={SPELLS.REGROWTH} />
+          </b>{' '}
+          is for spot healing. The HoT is very weak — Regrowth is only efficient when its direct
+          portion is effective. Try to minimize overheal on the direct portion. Exceptions are when
+          Regrowth is free due to <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> /{' '}
+          <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />
+          {hasAbundance && (
+            <>
+              {' '}
+              or cheap due to <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
+            </>
+          )}
+          .
+        </Trans>
       </p>
     );
 
@@ -337,20 +360,20 @@ class RegrowthAndClearcasting extends Analyzer {
           <CastSummaryAndBreakdown
             spell={SPELLS.REGROWTH}
             castEntries={this.castEntries}
-            badExtraExplanation={<>without Clearcasting or low Abundance stacks</>}
+            badExtraExplanation={
+              <Trans id="restoration.regrowth.bad_extra_explanation">
+                without Clearcasting or low Abundance stacks
+              </Trans>
+            }
             goodExtraExplanation={
-              this.hasNaturesBounty ? (
-                <>free/cheap on a new Regrowth target, or triage on a critically low target</>
-              ) : (
-                <>free/cheap with effective healing, or triage on a critically low target</>
-              )
+              this.hasNaturesBounty
+                ? t({ id: 'restoration.regrowth.good_extra_nb', message: 'free/cheap on a new Regrowth target, or triage on a critically low target' })
+                : t({ id: 'restoration.regrowth.good_extra_base', message: 'free/cheap with effective healing, or triage on a critically low target' })
             }
             okExtraExplanation={
-              this.hasNaturesBounty ? (
-                <>free/cheap but overwrote an existing Regrowth HoT outside pandemic window</>
-              ) : (
-                <>free/cheap but high overheal</>
-              )
+              this.hasNaturesBounty
+                ? t({ id: 'restoration.regrowth.ok_extra_nb', message: 'free/cheap but overwrote an existing Regrowth HoT outside pandemic window' })
+                : t({ id: 'restoration.regrowth.ok_extra_base', message: 'free/cheap but high overheal' })
             }
           />
         </div>
@@ -366,7 +389,7 @@ class RegrowthAndClearcasting extends Analyzer {
         size="flexible"
         position={STATISTIC_ORDER.CORE(20)} // chosen for fixed ordering of general stats
         tooltip={
-          <>
+          <Trans id="restoration.regrowth.statistic_tooltip">
             <SpellLink spell={SPELLS.REGROWTH} /> is mana inefficient relative to{' '}
             <SpellLink spell={SPELLS.REJUVENATION} /> and should only be cast when free due to{' '}
             <SpellLink spell={SPELLS.INNERVATE} />, <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />{' '}
@@ -430,18 +453,24 @@ class RegrowthAndClearcasting extends Analyzer {
                 </li>
               )}
             </ul>
-          </>
+          </Trans>
         }
       >
         <BoringSpellValueText spell={SPELLS.REGROWTH}>
           <>
             {this.badRegrowths === 0 ? <CheckmarkIcon /> : <CrossIcon />}
             {'  '}
-            {this.badRegrowths} <small>bad casts</small>
+            {this.badRegrowths}{' '}
+            <small>
+              <Trans id="restoration.regrowth.bad_casts">bad casts</Trans>
+            </small>
             <br />
             <SpellIcon spell={SPELLS.CLEARCASTING_BUFF} />
             {'  '}
-            {formatPercentage(this.clearcastUtilPercent, 1)}% <small>util</small>
+            {formatPercentage(this.clearcastUtilPercent, 1)}%{' '}
+            <small>
+              <Trans id="restoration.regrowth.util_label">util</Trans>
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

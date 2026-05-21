@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/macro';
 import MaelstromWeaponTracker from './MaelstromWeaponTracker';
 import Panel from 'parser/ui/Panel';
 import { EnhancementEventLinks, MAELSTROM_WEAPON_ELIGIBLE_SPELLS } from '../../constants';
@@ -91,7 +93,15 @@ class MaelstromWeaponSpenders extends Analyzer.withDependencies({
 
   statistic() {
     return [
-      <Panel key="spender-panel" title="Maelstrom Weapon usage" pad={false} position={120}>
+      <Panel
+        key="spender-panel"
+        title={t({
+          id: 'shaman.enhancement.spenders.usage_title',
+          message: 'Maelstrom Weapon usage',
+        })}
+        pad={false}
+        position={120}
+      >
         <MaelstromWeaponBreakdown
           tracker={this.deps.maelstromWeaponTracker}
           showSpenders
@@ -100,18 +110,31 @@ class MaelstromWeaponSpenders extends Analyzer.withDependencies({
       </Panel>,
       <Panel
         key="damage-per-spender"
-        title="Maelstrom Weapon efficiency"
+        title={t({
+          id: 'shaman.enhancement.spenders.efficiency_title',
+          message: 'Maelstrom Weapon efficiency',
+        })}
         pad={false}
         position={121}
       >
         <table className="data-table" style={{ width: '100%' }}>
           <thead>
             <tr>
-              <th style={{ width: '45%' }}>Ability</th>
-              <th className="text-right">Casts</th>
-              <th className="text-right">Dmg / MSW</th>
-              <th className="text-right">Avg. MSW / Cast</th>
-              <th className="text-right">Avg. Cast</th>
+              <th style={{ width: '45%' }}>
+                <Trans id="shaman.enhancement.spenders.ability">Ability</Trans>
+              </th>
+              <th className="text-right">
+                <Trans id="shaman.enhancement.spenders.casts">Casts</Trans>
+              </th>
+              <th className="text-right">
+                <Trans id="shaman.enhancement.spenders.dmg_msw">Dmg / MSW</Trans>
+              </th>
+              <th className="text-right">
+                <Trans id="shaman.enhancement.spenders.avg_msw_cast">Avg. MSW / Cast</Trans>
+              </th>
+              <th className="text-right">
+                <Trans id="shaman.enhancement.spenders.avg_cast">Avg. Cast</Trans>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -173,8 +196,10 @@ class MaelstromWeaponSpenders extends Analyzer.withDependencies({
         <div className="panel-footer">
           <p>
             <small>
-              Note: Damage/Healing values include increases from Augmentation Evokers. Click the{' '}
-              <i>Augmented Damage</i>/<i>Augmented Healing</i> tabs in WCL if the values don't align
+              <Trans id="shaman.enhancement.spenders.note">
+                Note: Damage/Healing values include increases from Augmentation Evokers. Click the{' '}
+                <i>Augmented Damage</i>/<i>Augmented Healing</i> tabs in WCL if the values don't align
+              </Trans>
             </small>
           </p>
         </div>

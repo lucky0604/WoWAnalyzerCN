@@ -1,4 +1,6 @@
 import { formatPercentage } from 'common/format';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
@@ -21,11 +23,13 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
   get guideSubsection() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.MOONFIRE_CAST} />
-        </strong>{' '}
-        is a DoT that can be applied to any number of targets. It's worth maintaining full uptime on
-        low target counts.
+        <Trans id="druid.guardian.moonfire.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.MOONFIRE_CAST} />
+          </strong>{' '}
+          is a DoT that can be applied to any number of targets. It's worth maintaining full uptime on
+          low target counts.
+        </Trans>
       </p>
     );
 
@@ -38,7 +42,9 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
     const data = (
       <div>
         <RoundedPanel>
-          <strong>Moonfire uptimes</strong>
+          <strong>
+            <Trans id="druid.guardian.moonfire.uptimes_title">Moonfire uptimes</Trans>
+          </strong>
           {uptimeBar}
         </RoundedPanel>
       </div>
@@ -58,15 +64,18 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
         size="flexible"
         tooltip={
           <>
-            Your <strong>Moonfire</strong> uptime is{' '}
-            <strong>{`${formatPercentage(this.uptime)}%`}</strong>
+            <Trans id="druid.guardian.moonfire.uptime_tooltip">
+              Your <strong>Moonfire</strong> uptime is{' '}
+              <strong>{formatPercentage(this.uptime)}%</strong>
+            </Trans>
           </>
         }
       >
         <BoringValueText
           label={
             <>
-              <SpellIcon spell={SPELLS.MOONFIRE_DEBUFF} /> Moonfire uptime{' '}
+              <SpellIcon spell={SPELLS.MOONFIRE_DEBUFF} />{' '}
+              <Trans id="druid.guardian.moonfire.uptime_label">Moonfire uptime</Trans>{' '}
             </>
           }
         >

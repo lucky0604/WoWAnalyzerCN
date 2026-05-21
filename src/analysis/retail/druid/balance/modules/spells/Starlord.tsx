@@ -14,6 +14,7 @@ import { currentStacks } from 'parser/shared/modules/helpers/Stacks';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
+import { Trans } from '@lingui/react/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { SpellIcon, SpellLink } from 'interface';
 import UptimeStackBar, { getStackUptimesFromBuffHistory } from 'parser/ui/UptimeStackBar';
@@ -105,20 +106,24 @@ class Starlord extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <>
-        <strong>
-          <SpellLink spell={TALENTS_DRUID.STARLORD_TALENT} />
-        </strong>{' '}
-        grants a significant haste bonus that increases with each stack, try to maximize time spent
-        at 3 stacks. Since gaining a stack does <i>not</i> refresh the duration, 100% uptime is
-        impossible. Plan ahead by pooling Astral Power as Starlord is about to expire so you can
-        quickly rebuild to 3 stacks.
+        <Trans id="balance.starlord.explanation">
+          <strong>
+            <SpellLink spell={TALENTS_DRUID.STARLORD_TALENT} />
+          </strong>{' '}
+          grants a significant haste bonus that increases with each stack, try to maximize time spent
+          at 3 stacks. Since gaining a stack does <i>not</i> refresh the duration, 100% uptime is
+          impossible. Plan ahead by pooling Astral Power as Starlord is about to expire so you can
+          quickly rebuild to 3 stacks.
+        </Trans>
       </>
     );
 
     const data = (
       <div>
         <RoundedPanel>
-          <strong>Starlord Uptime</strong>
+          <strong>
+            <Trans id="balance.starlord.uptime_title">Starlord Uptime</Trans>
+          </strong>
           {this.subStatistic()}
         </RoundedPanel>
       </div>
@@ -141,12 +146,18 @@ class Starlord extends Analyzer {
           <div className="flex-sub bar-label">
             <div style={{ color: STARLORD_BG_COLOR }}>
               <SpellIcon spell={TALENTS_DRUID.STARLORD_TALENT} />{' '}
-              {formatPercentage(overallUptimePercent, 0)}% <small>active</small>
+              <Trans id="balance.starlord.active_label">
+                {formatPercentage(overallUptimePercent, 0)}% <small>active</small>
+              </Trans>
             </div>
             <div style={{ color: STARLORD_BG_COLOR }}>
-              {formatPercentage(this.threeStackUptimePercent, 0)}% <small>Max Stacks Uptime</small>
+              <Trans id="balance.starlord.max_stacks_label">
+                {formatPercentage(this.threeStackUptimePercent, 0)}% <small>Max Stacks Uptime</small>
+              </Trans>
             </div>
-            {this.averageStacks.toFixed(1)} <small>avg stacks</small>
+            <Trans id="balance.starlord.avg_stacks_label">
+              {this.averageStacks.toFixed(1)} <small>avg stacks</small>
+            </Trans>
           </div>
           <div className="flex-main chart">
             <UptimeStackBar
@@ -175,9 +186,15 @@ class Starlord extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Haste-Bonus</th>
-                  <th>Time (s)</th>
-                  <th>Time (%)</th>
+                  <th>
+                    <Trans id="balance.starlord.haste_bonus">Haste-Bonus</Trans>
+                  </th>
+                  <th>
+                    <Trans id="balance.starlord.time_s">Time (s)</Trans>
+                  </th>
+                  <th>
+                    <Trans id="balance.starlord.time_pct">Time (%)</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -197,7 +214,10 @@ class Starlord extends Analyzer {
       >
         <TalentSpellText talent={TALENTS_DRUID.STARLORD_TALENT}>
           <>
-            <HasteIcon /> {this.averageHaste.toFixed(2)} % <small>average haste gained</small>
+            <HasteIcon /> {this.averageHaste.toFixed(2)} %{' '}
+            <small>
+              <Trans id="balance.starlord.avg_haste_label">average haste gained</Trans>
+            </small>
           </>
         </TalentSpellText>
       </Statistic>

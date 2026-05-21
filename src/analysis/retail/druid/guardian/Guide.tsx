@@ -213,7 +213,7 @@ function MajorDefensivesSection(): JSX.Element | null {
           </li>
         </ol>
       </Explanation>
-      <SubSection title="Timeline">
+      <SubSection title={t({ id: 'guardian.timeline.title', message: 'Timeline' })}>
         <Timeline analyzers={analyzers} yScale={0.4} />
       </SubSection>
       <AllCooldownUsagesList analyzers={analyzers} />

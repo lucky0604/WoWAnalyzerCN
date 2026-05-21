@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { ResourceLink, SpellLink } from 'interface';
@@ -67,30 +69,37 @@ class FinisherUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: 'High CP Finishers',
+        label: t({ id: 'druid.feral.finisher_use.high_cp_finishers', message: 'High CP Finishers' }),
         value: this.maxCpFinishers,
         tooltip: (
           <>
-            This only counts casts that actually spent CPs -{' '}
-            <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
+            <Trans id="druid.feral.finisher_use.high_cp_tooltip">
+              This only counts casts that actually spent CPs -{' '}
+              <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} /> and{' '}
+              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
+            </Trans>
           </>
         ),
       },
       {
         color: OkColor,
-        label: 'Low CP Intial Rips',
+        label: t({ id: 'druid.feral.finisher_use.low_cp_rips', message: 'Low CP Intial Rips' }),
         value: this.lowCpRipApplies,
         tooltip: (
           <>
-            When <SpellLink spell={SPELLS.RIP} /> is missing from a target, it's better to apply it
-            at low CPs than wait for max - but ideally you refresh before it drops at all.
+            <Trans id="druid.feral.finisher_use.low_cp_rips_tooltip">
+              When <SpellLink spell={SPELLS.RIP} /> is missing from a target, it's better to apply it
+              at low CPs than wait for max - but ideally you refresh before it drops at all.
+            </Trans>
           </>
         ),
       },
       {
         color: BadColor,
-        label: 'Low CP Bite / Refresh Finishers',
+        label: t({
+          id: 'druid.feral.finisher_use.low_cp_bites',
+          message: 'Low CP Bite / Refresh Finishers',
+        }),
         value: this.badLowCpFinisherCasts,
       },
     ];
@@ -103,7 +112,9 @@ class FinisherUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(6)}>
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> spender usage
+            <Trans id="druid.feral.finisher_use.label">
+              <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> spender usage
+            </Trans>
           </label>
           {this.chart}
         </div>

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { ConvokeSpirits } from 'analysis/retail/druid/shared';
 import SPELLS from 'common/SPELLS';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
@@ -43,12 +45,16 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
           <>
             <p>
               <strong>
-                Damage amount listed considers only the direct damage and non-refreshable DoT damage
-                done by convoked abilities!{' '}
+                <Trans id="druid.feral.convoke.damage_caveat_p1">
+                  Damage amount listed considers only the direct damage and non-refreshable DoT damage
+                  done by convoked abilities!{' '}
+                </Trans>
               </strong>
-              (Non-refreshable DoTs are Starfall and Feral Frenzy) Refreshable DoTs, heals, and the
-              energy and damage boost from Tiger's Fury are all not considered by this number,
-              making it almost certainly an undercount of Convoke's true value.
+              <Trans id="druid.feral.convoke.damage_caveat_p2">
+                (Non-refreshable DoTs are Starfall and Feral Frenzy) Refreshable DoTs, heals, and the
+                energy and damage boost from Tiger's Fury are all not considered by this number,
+                making it almost certainly an undercount of Convoke's true value.
+              </Trans>
             </p>
             {this.baseTooltip}
           </>
@@ -67,20 +73,26 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
-          </strong>{' '}
-          is a powerful but somewhat random burst of damage. Always pair it with{' '}
-          <SpellLink spell={SPELLS.TIGERS_FURY} /> and{' '}
-          <SpellLink spell={cdSpell(this.selectedCombatant)} /> to maximize damage.
+          <Trans id="druid.feral.convoke.explanation">
+            <strong>
+              <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
+            </strong>{' '}
+            is a powerful but somewhat random burst of damage. Always pair it with{' '}
+            <SpellLink spell={SPELLS.TIGERS_FURY} /> and{' '}
+            <SpellLink spell={cdSpell(this.selectedCombatant)} /> to maximize damage.
+          </Trans>
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="druid.feral.convoke.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="druid.feral.convoke.click_expand"> - click to expand</Trans>
+        </small>
         {this.convokeTracker.map((cast, ix) => {
           const feralCast = this.feralConvokeTracker[ix];
 
@@ -96,9 +108,9 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
             label: (
-              <>
+              <Trans id="druid.feral.convoke.tf_active">
                 <SpellLink spell={SPELLS.TIGERS_FURY} /> active
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={feralCast.tfOnCast} />,
           });
@@ -108,9 +120,9 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
 
           checklistItems.push({
             label: (
-              <>
+              <Trans id="druid.feral.convoke.berserk_active">
                 <SpellLink spell={cdSpell(this.selectedCombatant)} /> active
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={feralCast.berserkOnCast} />,
           });

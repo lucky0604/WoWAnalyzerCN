@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import ComboPointTracker from 'analysis/retail/druid/feral/modules/core/combopoints/ComboPointTracker';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import Events, { CastEvent, DamageEvent } from 'parser/core/Events';
@@ -120,19 +122,23 @@ export default class FeralFrenzy extends Analyzer {
     const explanation = (
       <div>
         <p>
-          <strong>
-            <SpellLink spell={talent} />
-          </strong>{' '}
-          is a brief but extremely powerful bleed. Use it on cooldown. As it gives 5 combo points,
-          it's best used at 2 or fewer combo points in order not to waste them.
-          {this.isFrantic &&
-            ' Should be used within as large of packs as possible for you to gain the most benefit out of it.'}
+          <Trans id="druid.feral.ff.explanation">
+            <strong>
+              <SpellLink spell={talent} />
+            </strong>{' '}
+            is a brief but extremely powerful bleed. Use it on cooldown. As it gives 5 combo points,
+            it's best used at 2 or fewer combo points in order not to waste them.
+            {this.isFrantic &&
+              ' Should be used within as large of packs as possible for you to gain the most benefit out of it.'}
+          </Trans>
         </p>
         {this.isFocused && (
           <p>
             {' '}
-            With <SpellLink spell={TALENTS_DRUID.FOCUSED_FRENZY_TALENT} />, always use it during{' '}
-            <SpellLink spell={SPELLS.TIGERS_FURY} />.
+            <Trans id="druid.feral.ff.focused_explanation">
+              With <SpellLink spell={TALENTS_DRUID.FOCUSED_FRENZY_TALENT} />, always use it during{' '}
+              <SpellLink spell={SPELLS.TIGERS_FURY} />.
+            </Trans>
           </p>
         )}
       </div>
@@ -140,8 +146,12 @@ export default class FeralFrenzy extends Analyzer {
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="druid.feral.ff.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="druid.feral.ff.click_expand"> - click to expand</Trans>
+        </small>
         {this.ffTrackers.map((cast, ix) => {
           const header = (
             <>
@@ -164,9 +174,9 @@ export default class FeralFrenzy extends Analyzer {
           if (this.isFocused) {
             checklistItems.push({
               label: (
-                <>
+                <Trans id="druid.feral.ff.tf_active">
                   <SpellLink spell={SPELLS.TIGERS_FURY} /> active
-                </>
+                </Trans>
               ),
               result: <PassFailCheckmark pass={cast.tfOnCast} />,
             });
@@ -176,12 +186,18 @@ export default class FeralFrenzy extends Analyzer {
           }
 
           checklistItems.push({
-            label: 'Combo Points on cast',
+            label: t({ id: 'druid.feral.ff.cps_on_cast', message: 'Combo Points on cast' }),
             result: <PerformanceMark perf={cpsPerf} />,
             details: (
               <>
-                ({cast.cpsOnCast} CPs)
-                {this.isFrantic && <> ({cast.damageByEnemy.size} Targets hit)</>}
+                <Trans id="druid.feral.ff.cps_and_targets">
+                  ({cast.cpsOnCast} CPs)
+                </Trans>
+                {this.isFrantic && (
+                  <Trans id="druid.feral.ff.targets_hit">
+                    {' '}({cast.damageByEnemy.size} Targets hit)
+                  </Trans>
+                )}
               </>
             ),
           });
@@ -210,7 +226,9 @@ export default class FeralFrenzy extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            Total damage dealt by <SpellLink spell={this.talent} /> (initial hits + bleed).
+            <Trans id="druid.feral.ff.damage_tooltip">
+              Total damage dealt by <SpellLink spell={this.talent} /> (initial hits + bleed).
+            </Trans>
           </>
         }
         dropdown={this.castBreakdownTable}
@@ -227,12 +245,24 @@ export default class FeralFrenzy extends Analyzer {
       <table className="table table-condensed" style={{ textAlign: 'left' }}>
         <thead>
           <tr>
-            <th style={{ textAlign: 'center' }}>Cast #</th>
-            <th style={{ textAlign: 'left' }}>Time</th>
-            <th style={{ textAlign: 'left' }}>Cast Damage</th>
-            <th style={{ textAlign: 'left' }}>Enemy</th>
-            <th style={{ textAlign: 'center' }}># Hit</th>
-            <th style={{ textAlign: 'left' }}>Damage</th>
+            <th style={{ textAlign: 'center' }}>
+              <Trans id="druid.shared.convoke.cast_num">Cast #</Trans>
+            </th>
+            <th style={{ textAlign: 'left' }}>
+              <Trans id="druid.shared.convoke.time">Time</Trans>
+            </th>
+            <th style={{ textAlign: 'left' }}>
+              <Trans id="druid.feral.ff.cast_damage">Cast Damage</Trans>
+            </th>
+            <th style={{ textAlign: 'left' }}>
+              <Trans id="druid.feral.ff.enemy">Enemy</Trans>
+            </th>
+            <th style={{ textAlign: 'center' }}>
+              <Trans id="druid.feral.ff.hit_count"># Hit</Trans>
+            </th>
+            <th style={{ textAlign: 'left' }}>
+              <Trans id="druid.shared.convoke.damage">Damage</Trans>
+            </th>
           </tr>
         </thead>
         <tbody>

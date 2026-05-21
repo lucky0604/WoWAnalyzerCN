@@ -1,4 +1,5 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import { Options } from 'parser/core/Module';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
@@ -79,14 +80,18 @@ class DoubleClawedRake extends Analyzer {
         tooltip={
           <>
             <p>
-              This is the damage from Rake DoTs applied by Double-Clawed Rake. It is at best an
-              approximation of this talent's impact because of opportunity cost factors (Without DCR
-              you might have tab-Raked the 2nd target, with it you cast Swipe instead)
+              <Trans id="druid.feral.dcr.tooltip_p1">
+                This is the damage from Rake DoTs applied by Double-Clawed Rake. It is at best an
+                approximation of this talent's impact because of opportunity cost factors (Without DCR
+                you might have tab-Raked the 2nd target, with it you cast Swipe instead)
+              </Trans>
             </p>
             <p>
-              Over the course of this encounter, <strong>{this.extraRakes}</strong> extra Rake DoTs
-              were created by this talent, or{' '}
-              <strong>{this.owner.getPerMinute(this.extraRakes).toFixed(1)} per minute</strong>.
+              <Trans id="druid.feral.dcr.tooltip_p2">
+                Over the course of this encounter, <strong>{this.extraRakes}</strong> extra Rake DoTs
+                were created by this talent, or{' '}
+                <strong>{this.owner.getPerMinute(this.extraRakes).toFixed(1)} per minute</strong>.
+              </Trans>
             </p>
           </>
         }

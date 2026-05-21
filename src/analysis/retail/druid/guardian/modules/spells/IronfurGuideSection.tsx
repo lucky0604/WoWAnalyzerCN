@@ -55,7 +55,7 @@ export default function IronfurSection(): JSX.Element {
   );
 
   return (
-    <Section title="Ironfur">
+    <Section title={t({ id: 'guardian.ironfur.title', message: 'Ironfur' })}>
       <ExplanationRow>
         <Explanation>
           <p>

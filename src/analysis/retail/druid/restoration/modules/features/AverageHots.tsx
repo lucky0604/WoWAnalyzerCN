@@ -1,4 +1,5 @@
 import SPELLS from 'common/SPELLS';
+import { Trans } from '@lingui/react/macro';
 import { SpellIcon } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 import BoringValue from 'parser/ui/BoringValueText';
@@ -31,29 +32,35 @@ class AverageHots extends Analyzer {
         tooltip={
           <>
             <p>
-              This is the average effective multiplier of your mastery your heals benefitted from,
-              weighted by healing done (for example if had 10% mastery and mastery increased your
-              heals by an average of 17%, the listed number would be 1.7).
+              <Trans id="restoration.average_hots.tooltip_p1">
+                This is the average effective multiplier of your mastery your heals benefitted from,
+                weighted by healing done (for example if had 10% mastery and mastery increased your
+                heals by an average of 17%, the listed number would be 1.7).
+              </Trans>
             </p>
             <p>
-              This number should not be read as a performance metric but rather a function of talent
-              choices and healing style. Talents that spread extra HoTs like Cultivation or Spring
-              Blossoms will increase this number, while playing in larger groups will tend to reduce
-              this number.
+              <Trans id="restoration.average_hots.tooltip_p2">
+                This number should not be read as a performance metric but rather a function of talent
+                choices and healing style. Talents that spread extra HoTs like Cultivation or Spring
+                Blossoms will increase this number, while playing in larger groups will tend to reduce
+                this number.
+              </Trans>
             </p>
             <p>
-              This number includes all your healing, even heals that don't benefit from mastery
-              (like Trinkets, potions, Renewal, etc..) Your average mastery multiplier counting only
-              heals that benefit from mastery is <strong>{avgDruidBenefitMult}</strong>.
+              <Trans id="restoration.average_hots.tooltip_p3">
+                This number includes all your healing, even heals that don't benefit from mastery
+                (like Trinkets, potions, Renewal, etc..) Your average mastery multiplier counting only
+                heals that benefit from mastery is <strong>{avgDruidBenefitMult}</strong>.
+              </Trans>
             </p>
           </>
         }
       >
         <BoringValue
           label={
-            <>
+            <Trans id="restoration.average_hots.label">
               <SpellIcon spell={SPELLS.MASTERY_HARMONY} /> Average Mastery benefit
-            </>
+            </Trans>
           }
         >
           <>{avgTotalBenefitMult}</>

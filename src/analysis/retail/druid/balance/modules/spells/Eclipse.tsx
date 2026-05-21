@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { SpellIcon, SpellLink } from 'interface';
 import { formatPercentage } from 'common/format';
@@ -68,7 +69,9 @@ export default class Eclipse extends Analyzer {
             <span>
               <SpellIcon spell={TALENTS_DRUID.ECLIPSE_TALENT} />{' '}
             </span>
-            {formatPercentage(percentUptime, 0)}% <small>uptime</small>
+            <Trans id="balance.eclipse.uptime_pct">
+              {formatPercentage(percentUptime, 0)}% <small>uptime</small>
+            </Trans>
           </div>
           <div className="flex-main chart">
             <UptimeBar
@@ -86,11 +89,15 @@ export default class Eclipse extends Analyzer {
     const explanation = (
       <>
         <p>
-          Cast <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> on cooldown. It has a 32-second
-          cooldown, lasts 15 seconds, and dramatically increases your damage.
+          <Trans id="balance.eclipse.explanation_p1">
+            Cast <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> on cooldown. It has a 32-second
+            cooldown, lasts 15 seconds, and dramatically increases your damage.
+          </Trans>
         </p>
         <p>
-          Your last filler cast determines which Eclipse you enter:
+          <Trans id="balance.eclipse.explanation_p2">
+            Your last filler cast determines which Eclipse you enter:
+          </Trans>
           <ul>
             <li>
               <SpellLink spell={SPELLS.WRATH} /> → <SpellLink spell={SPELLS.ECLIPSE_SOLAR} />
@@ -101,19 +108,25 @@ export default class Eclipse extends Analyzer {
           </ul>
         </p>
         <p>
-          <SpellLink spell={SPELLS.WRATH} /> is single target. <SpellLink spell={SPELLS.STARFIRE} />{' '}
-          cleaves.{' '}
+          <Trans id="balance.eclipse.explanation_p3">
+            <SpellLink spell={SPELLS.WRATH} /> is single target. <SpellLink spell={SPELLS.STARFIRE} />{' '}
+            cleaves.{' '}
+          </Trans>
         </p>
         <p>
-          Choose <SpellLink spell={SPELLS.ECLIPSE_LUNAR} /> when hitting 3 or more stacked targets.
-          Choose <SpellLink spell={SPELLS.ECLIPSE_SOLAR} /> for 1 to 2 targets.
+          <Trans id="balance.eclipse.explanation_p4">
+            Choose <SpellLink spell={SPELLS.ECLIPSE_LUNAR} /> when hitting 3 or more stacked targets.
+            Choose <SpellLink spell={SPELLS.ECLIPSE_SOLAR} /> for 1 to 2 targets.
+          </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.LUNAR_CALLING_TALENT) && (
           <p>
-            <strong>
-              <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} /> talented:{' '}
-            </strong>
-            This talent restricts you from casting <SpellLink spell={SPELLS.ECLIPSE_SOLAR} />
+            <Trans id="balance.eclipse.explanation_lc">
+              <strong>
+                <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} /> talented:{' '}
+              </strong>
+              This talent restricts you from casting <SpellLink spell={SPELLS.ECLIPSE_SOLAR} />
+            </Trans>
           </p>
         )}
       </>
@@ -123,15 +136,18 @@ export default class Eclipse extends Analyzer {
       <div>
         <RoundedPanel>
           <div>
-            <strong>Eclipse uptimes</strong> -{' '}
+            <strong>
+              <Trans id="balance.eclipse.uptimes_title">Eclipse uptimes</Trans>
+            </strong>{' '}
+            -{' '}
             <Highlight color={SOLAR_ECLIPSE_COLOR} textColor="black">
-              Solar
+              <Trans id="balance.eclipse.solar_legend">Solar</Trans>
             </Highlight>{' '}
             <Highlight color={LUNAR_ECLIPSE_COLOR} textColor="white">
-              Lunar
+              <Trans id="balance.eclipse.lunar_legend">Lunar</Trans>
             </Highlight>{' '}
             <Highlight color={CA_COLOR} textColor="black">
-              Both (Celestial Alignment)
+              <Trans id="balance.eclipse.ca_legend">Both (Celestial Alignment)</Trans>
             </Highlight>
           </div>
           {this.uptimeBar}

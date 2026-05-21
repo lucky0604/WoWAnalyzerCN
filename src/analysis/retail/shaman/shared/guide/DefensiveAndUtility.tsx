@@ -3,6 +3,7 @@ import { Section } from 'interface/guide';
 import CooldownGraphSubsection, {
   Cooldown,
 } from 'interface/guide/components/CooldownGraphSubSection';
+import { Trans } from '@lingui/react/macro';
 
 const defensiveTalents: Cooldown[] = [
   { spell: TALENTS.ASTRAL_SHIFT_TALENT, isActive: (c) => c.hasTalent(TALENTS.ASTRAL_SHIFT_TALENT) },
@@ -25,15 +26,17 @@ const defensiveTalents: Cooldown[] = [
 export default function DefensiveAndUtility() {
   return (
     <>
-      <Section title="Defensive and utility">
+      <Section title={<Trans id="shaman.shared.defensive_and_utility.section_title">Defensive and utility</Trans>}>
         <CooldownGraphSubsection
           cooldowns={defensiveTalents}
           description={
             <p>
-              <strong>Defensives and utility</strong> - Defensive and utility talent usage may vary
-              from fight to fight. They may need to be delayed for specific mechanics. In general,
-              any amount of usage is good, but anywhere you could fit in another usage is a
-              theoretical loss.
+              <strong>
+                <Trans id="shaman.shared.defensive_and_utility.title">Defensives and utility</Trans>
+              </strong>{' '}
+              - <Trans id="shaman.shared.defensive_and_utility.description">
+                Defensive and utility talent usage may vary from fight to fight. They may need to be delayed for specific mechanics. In general, any amount of usage is good, but anywhere you could fit in another usage is a theoretical loss.
+              </Trans>
             </p>
           }
         />

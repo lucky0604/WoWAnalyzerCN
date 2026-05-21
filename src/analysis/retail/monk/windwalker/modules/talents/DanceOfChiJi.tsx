@@ -201,7 +201,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.docj.classify.not_consumed',
           message: 'Proc was not consumed',
         }),
@@ -219,7 +219,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.docj.classify.first_top',
           message: 'Spinning Crane Kick was consumed the first time the APL expected it',
         }),
@@ -229,7 +229,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.SPINNING_CRANE_KICK.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.docj.classify.acceptable',
           message: 'Dance of Chi-Ji was consumed in an acceptable APL spot',
         }),
@@ -238,7 +238,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: defineMessage({
+      summary: t({
         id: 'monk.windwalker.docj.classify.not_preferred',
         message: 'Dance of Chi-Ji was consumed, even though the APL did not prefer it yet',
       }),

@@ -1,4 +1,6 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SpellLink from 'interface/SpellLink';
 import SPELLS from 'common/SPELLS';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -37,38 +39,48 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
         <br />
         {hasBerserk && (
           <>
-            in <SpellLink spell={cdSpell(this.selectedCombatant)} /> (Mangle or Thrash always
-            available)
+            <Trans id="druid.guardian.swipe.in_berserk">
+              in <SpellLink spell={cdSpell(this.selectedCombatant)} /> (Mangle or Thrash always
+              available)
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingMangleCd === 0 && (
           <>
-            <SpellLink spell={SPELLS.MANGLE_BEAR} /> was available
+            <Trans id="druid.guardian.swipe.mangle_available">
+              <SpellLink spell={SPELLS.MANGLE_BEAR} /> was available
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingMangleCd > 0 && remainingMangleCd < 1000 && (
           <>
-            <SpellLink spell={SPELLS.MANGLE_BEAR} /> is available in{' '}
-            {(remainingMangleCd / 1000).toFixed(1)} seconds.
+            <Trans id="druid.guardian.swipe.mangle_available_in">
+              <SpellLink spell={SPELLS.MANGLE_BEAR} /> is available in{' '}
+              {(remainingMangleCd / 1000).toFixed(1)} seconds.
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingThrashCd === 0 && (
           <>
-            <SpellLink spell={SPELLS.THRASH_BEAR} /> was available
+            <Trans id="druid.guardian.swipe.thrash_available">
+              <SpellLink spell={SPELLS.THRASH_BEAR} /> was available
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingThrashCd > 0 && remainingThrashCd < 1000 && (
           <>
-            <SpellLink spell={SPELLS.THRASH_BEAR} /> is available in{' '}
-            {(remainingThrashCd / 1000).toFixed(1)} seconds.
+            <Trans id="druid.guardian.swipe.thrash_available_in">
+              <SpellLink spell={SPELLS.THRASH_BEAR} /> is available in{' '}
+              {(remainingThrashCd / 1000).toFixed(1)} seconds.
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
@@ -86,32 +98,45 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={SPELLS.SWIPE_BEAR} />
-          </strong>{' '}
-          is your filler spell. It does not generate rage and does very weak damage. Swipe is barely
-          better than an empty GCD and shouldn't be used if it delays another ability - even by a
-          little.
+          <Trans id="druid.guardian.swipe.explanation_p1">
+            <strong>
+              <SpellLink spell={SPELLS.SWIPE_BEAR} />
+            </strong>{' '}
+            is your filler spell. It does not generate rage and does very weak damage. Swipe is barely
+            better than an empty GCD and shouldn't be used if it delays another ability - even by a
+            little.
+          </Trans>
         </p>
         <p>
-          <strong>Generally speaking, it's fine not to use Swipe at all.</strong>
+          <strong>
+            <Trans id="druid.guardian.swipe.explanation_p2">
+              Generally speaking, it's fine not to use Swipe at all.
+            </Trans>
+          </strong>
         </p>
       </>
     );
 
-    const chartDescription =
-      ' - Green is an acceptable cast, Red is when another spell was available or almost available';
-
     const data =
       this.castEntries.length !== 0 ? (
         <div>
-          <strong>Swipe casts</strong>
-          <small>{chartDescription}</small>
+          <strong>
+            <Trans id="druid.guardian.swipe.casts_title">Swipe casts</Trans>
+          </strong>
+          <small>
+            <Trans id="druid.guardian.swipe.casts_legend">
+              - Green is an acceptable cast, Red is when another spell was available or almost available
+            </Trans>
+          </small>
           <PerformanceBoxRow values={this.castEntries} />
         </div>
       ) : (
         <div>
-          <strong>You never used Swipe this encounter.</strong>
+          <strong>
+            <Trans id="druid.guardian.swipe.never_used">
+              You never used Swipe this encounter.
+            </Trans>
+          </strong>
         </div>
       );
 

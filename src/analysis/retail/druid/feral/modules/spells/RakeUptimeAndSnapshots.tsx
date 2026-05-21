@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import { Options } from 'parser/core/Analyzer';
@@ -79,24 +81,34 @@ class RakeUptimeAndSnapshots extends Snapshots {
     if (wasUnacceptableDowngrade) {
       value = QualitativePerformance.Fail;
       perfExplanation = (
-        <h5 style={{ color: BadColor }}>Bad because you refreshed early with a weaker snapshot</h5>
+        <h5 style={{ color: BadColor }}>
+          <Trans id="druid.feral.rake.weaker_snapshot_early">Bad because you refreshed early with a weaker snapshot</Trans>
+        </h5>
       );
     } else if (clipped > CLIP_BUFFER) {
       if (wasUpgrade) {
         value = QualitativePerformance.Ok;
         perfExplanation = (
           <h5 style={{ color: OkColor }}>
-            You refreshed this too early, but upgraded the snapshot
+            <Trans id="druid.feral.rake.early_refresh_upgraded">
+              You refreshed this too early, but upgraded the snapshot
+            </Trans>
           </h5>
         );
       } else {
         value = QualitativePerformance.Fail;
-        perfExplanation = <h5 style={{ color: BadColor }}>Bad because you refreshed too early</h5>;
+        perfExplanation = (
+          <h5 style={{ color: BadColor }}>
+            <Trans id="druid.feral.rake.early_refresh_bad">Bad because you refreshed too early</Trans>
+          </h5>
+        );
       }
     } else if (clipped > 0) {
       value = QualitativePerformance.Ok;
       perfExplanation = (
-        <h5 style={{ color: OkColor }}>Careful, you refreshed this a little early</h5>
+        <h5 style={{ color: OkColor }}>
+          <Trans id="druid.feral.rake.early_refresh_warning">Careful, you refreshed this a little early</Trans>
+        </h5>
       );
     }
 
@@ -104,25 +116,39 @@ class RakeUptimeAndSnapshots extends Snapshots {
       <>
         {perfExplanation}
         <div>
-          @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong> targetting{' '}
-          <strong>{targetName || 'unknown'}</strong>
+          @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>{' '}
+          <Trans id="druid.feral.moonfire.targetting">
+            targetting <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
+          </Trans>
         </div>
         {prevSnapshotNames !== null && (
           <div>
-            Refreshed on target w/ {(remainingOnPrev / 1000).toFixed(1)}s remaining{' '}
-            {clipped > 0 && <strong>- Clipped {(clipped / 1000).toFixed(1)}s!</strong>}
+            <Trans id="druid.feral.moonfire.refreshed_on_target">
+              Refreshed on target w/ {(remainingOnPrev / 1000).toFixed(1)}s remaining{' '}
+            </Trans>
+            {clipped > 0 && (
+              <strong>
+                <Trans id="druid.feral.moonfire.clipped">
+                  - Clipped {(clipped / 1000).toFixed(1)}s!
+                </Trans>
+              </strong>
+            )}
           </div>
         )}
         <div>
-          Snapshots:{' '}
-          <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
+          <Trans id="druid.feral.moonfire.snapshots">
+            Snapshots:{' '}
+            <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
+          </Trans>
         </div>
         {prevSnapshotNames !== null && (
           <div>
-            Prev Snapshots:{' '}
-            <strong>
-              {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
-            </strong>
+            <Trans id="druid.feral.moonfire.prev_snapshots">
+              Prev Snapshots:{' '}
+              <strong>
+                {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
+              </strong>
+            </Trans>
           </div>
         )}
       </>
@@ -143,15 +169,17 @@ class RakeUptimeAndSnapshots extends Snapshots {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.RAKE} />
-        </b>{' '}
-        is your highest damage-per-energy single target builder. Try to keep it active on all
-        targets (except when in a many-target AoE situation). Rake snapshots{' '}
-        <SpellLink spell={SPELLS.TIGERS_FURY} /> and{' '}
-        <SpellLink spell={TALENTS_DRUID.POUNCING_STRIKES_TALENT} /> - when forced to refresh with a
-        weaker snapshot, try to wait until the last moment in order to overwrite the minimum amount
-        of the stronger DoT.
+        <Trans id="druid.feral.rake.explanation">
+          <b>
+            <SpellLink spell={SPELLS.RAKE} />
+          </b>{' '}
+          is your highest damage-per-energy single target builder. Try to keep it active on all
+          targets (except when in a many-target AoE situation). Rake snapshots{' '}
+          <SpellLink spell={SPELLS.TIGERS_FURY} /> and{' '}
+          <SpellLink spell={TALENTS_DRUID.POUNCING_STRIKES_TALENT} /> - when forced to refresh with a
+          weaker snapshot, try to wait until the last moment in order to overwrite the minimum amount
+          of the stronger DoT.
+        </Trans>
       </p>
     );
 
@@ -159,16 +187,20 @@ class RakeUptimeAndSnapshots extends Snapshots {
       <div>
         <RoundedPanel>
           <div>
-            <strong>Rake uptime / snapshots</strong>
-            <small> - Try to get as close to 100% as the encounter allows!</small>
+            <strong>
+              <Trans id="druid.feral.rake.uptime_snapshots_title">Rake uptime / snapshots</Trans>
+            </strong>
+            <small>
+              <Trans id="druid.feral.moonfire.uptime_snapshots_sub"> - Try to get as close to 100% as the encounter allows!</Trans>
+            </small>
           </div>
           {this.subStatistic()}
         </RoundedPanel>
         <CastSummaryAndBreakdown
           spell={SPELLS.RAKE}
           castEntries={this.castEntries}
-          okExtraExplanation={<>clipped duration but upgraded snapshot</>}
-          badExtraExplanation={<>clipped duration or downgraded snapshot w/ &gt;2s remaining</>}
+          okExtraExplanation={<Trans id="druid.feral.moonfire.ok_reason">clipped duration but upgraded snapshot</Trans>}
+          badExtraExplanation={<Trans id="druid.feral.moonfire.bad_reason">clipped duration or downgraded snapshot w/ &gt;2s remaining</Trans>}
         />
       </div>
     );

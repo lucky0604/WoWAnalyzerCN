@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -155,17 +157,17 @@ class Lifebloom extends Analyzer {
 
     if (isFailCast) {
       value = QualitativePerformance.Fail;
-      text = 'Did not refresh a 3-stack Lifebloom';
+      text = t({ id: 'restoration.lifebloom.did_not_refresh_3stack', message: 'Did not refresh a 3-stack Lifebloom' });
     } else if (isRefresh) {
       value = bloomed ? QualitativePerformance.Good : QualitativePerformance.Ok;
       text = bloomed
-        ? 'Triggered bloom from existing Lifebloom'
-        : 'Refreshed existing Lifebloom without triggering bloom';
+        ? t({ id: 'restoration.lifebloom.triggered_bloom', message: 'Triggered bloom from existing Lifebloom' })
+        : t({ id: 'restoration.lifebloom.refreshed_without_bloom', message: 'Refreshed existing Lifebloom without triggering bloom' });
     } else {
       value = this.hasEverbloom ? QualitativePerformance.Ok : QualitativePerformance.Good;
       text = this.hasEverbloom
-        ? 'Applied/refreshed without maintaining 3 stacks'
-        : 'Fresh cast (no active refresh)';
+        ? t({ id: 'restoration.lifebloom.applied_without_maintaining', message: 'Applied/refreshed without maintaining 3 stacks' })
+        : t({ id: 'restoration.lifebloom.fresh_cast', message: 'Fresh cast (no active refresh)' });
     }
 
     this.castEntries.push({
@@ -174,7 +176,8 @@ class Lifebloom extends Analyzer {
         <>
           @ <strong>{this.owner.formatTimestamp(castTimestamp)}</strong> - {text}
           <br />
-          targetting <strong>{targetName}</strong>
+          {t({ id: 'restoration.lifebloom.targetting', message: 'targetting' })}{' '}
+          <strong>{targetName}</strong>
         </>
       ),
     });
@@ -243,38 +246,44 @@ class Lifebloom extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />
-          </b>{' '}
-          can only be active on one target at a time and its baseline throughput is similar to
-          Rejuvenation. However, it causes <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> procs and
-          so is a big benefit to your mana efficiency. You should aim for 100% Lifebloom uptime.
+          <Trans id="restoration.lifebloom.explanation_p1">
+            <b>
+              <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />
+            </b>{' '}
+            can only be active on one target at a time and its baseline throughput is similar to
+            Rejuvenation. However, it causes <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> procs and
+            so is a big benefit to your mana efficiency. You should aim for 100% Lifebloom uptime.
+          </Trans>
         </p>
         {this.hasEverbloom && (
           <p>
-            Because you took{' '}
-            <strong>
-              <SpellLink spell={TALENTS_DRUID.EVERBLOOM_1_RESTORATION_TALENT} />
-            </strong>
-            , target swapping your lifebloom becomes punishing. Any time you swap targets, Lifebloom
-            resets to 1 stack and loses throughput.
-            <br />
-            <strong>{this.nonThreeStackCasts} casts not refreshing a 3-stack Lifebloom</strong>
+            <Trans id="restoration.lifebloom.explanation_everbloom">
+              Because you took{' '}
+              <strong>
+                <SpellLink spell={TALENTS_DRUID.EVERBLOOM_1_RESTORATION_TALENT} />
+              </strong>
+              , target swapping your lifebloom becomes punishing. Any time you swap targets, Lifebloom
+              resets to 1 stack and loses throughput.
+              <br />
+              <strong>{this.nonThreeStackCasts} casts not refreshing a 3-stack Lifebloom</strong>
+            </Trans>
           </p>
         )}
         {this.hasVerdancy && (
           <p>
-            Because you took{' '}
-            <strong>
-              <SpellLink spell={TALENTS_DRUID.VERDANCY_TALENT} />
-            </strong>
-            , you should take extra care to allow your Lifeblooms to bloom. Refreshing lifebloom
-            early or swapping targets before the existing Lifebloom has completed both will cause
-            the bloom to be skipped - avoid doing this.
-            <br />
-            <strong>
-              Lifebloom refreshes that bloomed: {formatPercentage(this.verdancyBloomRate, 1)}%
-            </strong>
+            <Trans id="restoration.lifebloom.explanation_verdancy">
+              Because you took{' '}
+              <strong>
+                <SpellLink spell={TALENTS_DRUID.VERDANCY_TALENT} />
+              </strong>
+              , you should take extra care to allow your Lifeblooms to bloom. Refreshing lifebloom
+              early or swapping targets before the existing Lifebloom has completed both will cause
+              the bloom to be skipped - avoid doing this.
+              <br />
+              <strong>
+                Lifebloom refreshes that bloomed: {formatPercentage(this.verdancyBloomRate, 1)}%
+              </strong>
+            </Trans>
           </p>
         )}
       </>
@@ -287,28 +296,26 @@ class Lifebloom extends Analyzer {
             spell={SPELLS.LIFEBLOOM_HOT_HEAL}
             castEntries={this.castEntries}
             goodExtraExplanation={
-              this.hasEverbloom ? (
-                <>refresh existing Lifebloom and trigger bloom</>
-              ) : (
-                <>trigger bloom or be a fresh cast</>
-              )
+              this.hasEverbloom
+                ? t({ id: 'restoration.lifebloom.perf_everbloom_good', message: 'refresh existing Lifebloom and trigger bloom' })
+                : t({ id: 'restoration.lifebloom.perf_base_good', message: 'trigger bloom or be a fresh cast' })
             }
             okExtraExplanation={
-              this.hasEverbloom ? (
-                <>refresh existing Lifebloom without triggering bloom</>
-              ) : (
-                <>refresh existing Lifebloom without triggering bloom</>
-              )
+              this.hasEverbloom
+                ? t({ id: 'restoration.lifebloom.perf_ok', message: 'refresh existing Lifebloom without triggering bloom' })
+                : t({ id: 'restoration.lifebloom.perf_ok', message: 'refresh existing Lifebloom without triggering bloom' })
             }
             badExtraExplanation={
               this.hasEverbloom
-                ? 'cast when not refreshing a 3-stack Lifebloom (except first cast)'
+                ? t({ id: 'restoration.lifebloom.perf_everbloom_bad', message: 'cast when not refreshing a 3-stack Lifebloom (except first cast)' })
                 : 'n/a'
             }
           />
         )}
         <RoundedPanel>
-          <strong>Lifebloom uptimes</strong>
+          <strong>
+            <Trans id="restoration.lifebloom.uptimes_title">Lifebloom uptimes</Trans>
+          </strong>
           {this.subStatistic()}
         </RoundedPanel>
       </div>

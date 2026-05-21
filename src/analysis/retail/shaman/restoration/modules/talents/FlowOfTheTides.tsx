@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/macro';
 import ChainHealNormalizer from '../../normalizers/ChainHealNormalizer';
 import talents from 'common/TALENTS/shaman';
 import UnleashLife from './UnleashLife';
@@ -173,22 +175,32 @@ class FlowOfTheTides extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <strong>{formatNumber(this.totalHealing)}</strong> total healing
+            <Trans id="shaman.restoration.fott.total_tooltip">
+              <strong>{formatNumber(this.totalHealing)}</strong> total healing
+            </Trans>
             <ul>
               <li>
-                <strong>{formatNumber(this.healing)}</strong> healing from extra jumps (
-                {this.extraJumps})
+                <Trans id="shaman.restoration.fott.jumps">
+                  <strong>{formatNumber(this.healing)}</strong> healing from extra jumps (
+                  {this.extraJumps})
+                </Trans>
               </li>
               <li>
-                <strong>{formatNumber(this.bonusHealing)}</strong> extra healing from the{' '}
-                {formatPercentage(FLOW_OF_THE_TIDES_INCREASE)}% increase
+                <Trans id="shaman.restoration.fott.bonus">
+                  <strong>{formatNumber(this.bonusHealing)}</strong> extra healing from the{' '}
+                  {formatPercentage(FLOW_OF_THE_TIDES_INCREASE)}% increase
+                </Trans>
               </li>
               <li>
-                <strong>{formatNumber(this.lostRiptides)}</strong> riptides consumed
+                <Trans id="shaman.restoration.fott.lost_riptides">
+                  <strong>{formatNumber(this.lostRiptides)}</strong> riptides consumed
+                </Trans>
               </li>
               <li>
-                <strong>{(this.lostRiptideDuration / 1000).toFixed(2)}</strong> seconds of riptide
-                lost
+                <Trans id="shaman.restoration.fott.lost_riptide_duration">
+                  <strong>{(this.lostRiptideDuration / 1000).toFixed(2)}</strong> seconds of riptide
+                  lost
+                </Trans>
               </li>
             </ul>
           </>
@@ -198,7 +210,10 @@ class FlowOfTheTides extends Analyzer {
           <ItemHealingDone amount={this.totalHealing} />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {this.buffIcon} {this.missedJumps} <small> missed jumps</small>
+          {this.buffIcon} {this.missedJumps}{' '}
+          <small>
+            <Trans id="shaman.restoration.fott.missed_jumps"> missed jumps</Trans>
+          </small>
         </TalentSpellText>
       </Statistic>
     );

@@ -1,4 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
@@ -70,7 +71,13 @@ export default class MercilessClaws extends Analyzer.withDependencies({ enemies:
         position={STATISTIC_ORDER.OPTIONAL(3)} // number based on talent row
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
-        tooltip={<>This statistic checks if target hit was bleeding .</>}
+        tooltip={
+          <>
+            <Trans id="druid.feral.merciless_claws.tooltip">
+              This statistic checks if target hit was bleeding.
+            </Trans>
+          </>
+        }
       >
         <BoringSpellValueText spell={TALENTS_DRUID.MERCILESS_CLAWS_TALENT}>
           <ItemPercentDamageDone amount={this.damage} />

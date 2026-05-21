@@ -1,6 +1,7 @@
 import { SubSection, useAnalyzer, useAnalyzers } from 'interface/guide';
 import { JSX, useMemo } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import StaggerPoolGraph from '../../features/StaggerPoolGraph';
 import StaggerPool from '../StaggerPool';
 import Table from 'interface/Table/Table';
@@ -187,12 +188,12 @@ const commonTableColumns = {
   staggerSpellName: spellName.withLabels({
     [spells.STAGGER_TALENT.id]: <Trans id="monk.brewmaster.stagger.dot">Stagger (DoT)</Trans>,
   }),
-  amountBar: amountBar(defineMessage({ id: 'monk.brewmaster.stagger.damage', message: 'Damage' })),
+  amountBar: amountBar(t({ id: 'monk.brewmaster.stagger.damage', message: 'Damage' })),
 };
 
 const damageTakenColumns = {
   ...commonTableColumns,
-  hits: literalNumberColumn(defineMessage({ id: 'monk.brewmaster.stagger.hits', message: 'Hits' }), 'hits'),
+  hits: literalNumberColumn(t({ id: 'monk.brewmaster.stagger.hits', message: 'Hits' }), 'hits'),
 };
 
 const MAX_DATA_ROWS = 5;
@@ -225,7 +226,7 @@ function StaggerTakenTable(): JSX.Element | null {
         ...rows.slice(0, MAX_DATA_ROWS),
         {
           spell: OTHER_SPECIAL_ID,
-          type: defineMessage({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
+          type: t({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
           amount: rows.slice(MAX_DATA_ROWS).reduce((total, row) => row.amount + total, 0),
           hits: rows.slice(MAX_DATA_ROWS).reduce((total, row) => (row.hits ?? 0) + total, 0),
         },
@@ -254,7 +255,7 @@ const PURIFICATION_SOURCES = [
 
 const purificationColumns = {
   ...commonTableColumns,
-  triggers: literalNumberColumn(defineMessage({ id: 'monk.brewmaster.stagger.triggers', message: 'Triggers' }), 'count'),
+  triggers: literalNumberColumn(t({ id: 'monk.brewmaster.stagger.triggers', message: 'Triggers' }), 'count'),
 };
 
 function StaggerPurifiedTable(): JSX.Element | null {
@@ -285,13 +286,13 @@ function StaggerPurifiedTable(): JSX.Element | null {
 
     rows.push({
       spell: OTHER_SPECIAL_ID,
-      type: defineMessage({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
+      type: t({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
       amount: totalStaggerAbsorbed - totalDoT - totalKnown,
     });
 
     rows.push({
       spell: spells.STAGGER_TALENT.id,
-      type: defineMessage({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
+      type: t({ id: 'monk.brewmaster.stagger.other', message: 'Other' }),
       amount: totalDoT,
     });
 

@@ -121,11 +121,10 @@ export function buildAplProcWindowData({
         sequence.push({
           timestamp: cast.timestamp,
           spellId: actionSpell.id,
-          spellName: defineMessage({
+          spellName: t({
             id: 'monk.windwalker.apl.expected_here',
             message: `${actionSpell.name} was expected here`,
-            values: [actionSpell.name],
-          } as unknown),
+          }),
           icon: actionSpell.icon,
           ghosted: true,
           tooltip: (
@@ -153,11 +152,10 @@ export function buildAplProcWindowData({
           sequence.push({
             timestamp: cast.timestamp,
             spellId: spell.id,
-            spellName: defineMessage({
+            spellName: t({
               id: 'monk.windwalker.apl.was_higher_priority',
               message: `${spell.name} was higher priority`,
-              values: [spell.name],
-            } as unknown),
+            }),
             icon: spell.icon,
             ghosted: true,
             tooltip: (

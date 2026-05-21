@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink, SpellIcon } from 'interface';
 import CrossIcon from 'interface/icons/Cross';
@@ -157,56 +159,85 @@ class ApexPredatorsCraving extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            This is the damage done by the free <SpellLink spell={SPELLS.FEROCIOUS_BITE} /> procced
-            by Apex Predator's Craving
+            <Trans id="druid.feral.apc.tooltip_p1">
+              This is the damage done by the free <SpellLink spell={SPELLS.FEROCIOUS_BITE} /> procced
+              by Apex Predator's Craving
+            </Trans>
             {this.hasRf && (
               <>
                 {' '}
-                and the <SpellLink spell={SPELLS.RAMPANT_FEROCITY} /> splash from those free bites
+                <Trans id="druid.feral.apc.rampant_ferocity_splash">
+                  and the <SpellLink spell={SPELLS.RAMPANT_FEROCITY} /> splash from those free bites
+                </Trans>
               </>
             )}
             {this.hasSotf && (
               <>
-                , and the effective energy gained due to{' '}
-                <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} /> from those bites
+                <Trans id="druid.feral.apc.sotf_energy">
+                  , and the effective energy gained due to{' '}
+                  <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} /> from those bites
+                </Trans>
               </>
             )}
-            . You gained <strong>{this.buffsGainedPerMinute.toFixed(1)} procs per minute</strong>,
-            for a total of <strong>{this.buffsGained} procs</strong>:
+            <Trans id="druid.feral.apc.procs_summary">
+              . You gained <strong>{this.buffsGainedPerMinute.toFixed(1)} procs per minute</strong>,
+              for a total of <strong>{this.buffsGained} procs</strong>:
+            </Trans>
             <ul>
               <li>
-                <SpellIcon spell={SPELLS.FEROCIOUS_BITE} /> Used: <strong>{this.buffsUsed}</strong>
+                <SpellIcon spell={SPELLS.FEROCIOUS_BITE} />{' '}
+                <Trans id="druid.feral.apc.used">
+                  Used: <strong>{this.buffsUsed}</strong>
+                </Trans>
               </li>
               <li>
-                <CrossIcon /> Overwritten: <strong>{this.buffsOverwritten}</strong>
+                <CrossIcon />{' '}
+                <Trans id="druid.feral.apc.overwritten">
+                  Overwritten: <strong>{this.buffsOverwritten}</strong>
+                </Trans>
               </li>
               <li>
-                <UptimeIcon /> Expired: <strong>{this.buffsExpired}</strong>
+                <UptimeIcon />{' '}
+                <Trans id="druid.feral.apc.expired">
+                  Expired: <strong>{this.buffsExpired}</strong>
+                </Trans>
               </li>
               {this.buffsActive > 0 && (
                 <li>
-                  Still active at fight end: <strong>{this.buffsActive}</strong>
+                  <Trans id="druid.feral.apc.still_active">
+                    Still active at fight end: <strong>{this.buffsActive}</strong>
+                  </Trans>
                 </li>
               )}
             </ul>
             {this.hasSotf && (
               <>
-                Total <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} /> energy gained
-                from free bites was <strong>{this.sotfEnergyGained}</strong>.
+                <Trans id="druid.feral.apc.sotf_total">
+                  Total <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} /> energy gained
+                  from free bites was <strong>{this.sotfEnergyGained}</strong>.
+                </Trans>
                 <ul>
                   <li>
-                    <UpArrowIcon /> Effective: <strong>{this.sotfEnergyEffective}</strong>
+                    <UpArrowIcon />{' '}
+                    <Trans id="druid.feral.apc.sotf_effective">
+                      Effective: <strong>{this.sotfEnergyEffective}</strong>
+                    </Trans>
                   </li>
                   <li>
-                    <CrossIcon /> Wasted: <strong>{this.sotfEnergyWasted}</strong>
+                    <CrossIcon />{' '}
+                    <Trans id="druid.feral.apc.sotf_wasted">
+                      Wasted: <strong>{this.sotfEnergyWasted}</strong>
+                    </Trans>
                   </li>
                 </ul>
               </>
             )}
             {this.hasRf && (
               <>
-                Breakdown between direct bite damage and from{' '}
-                <SpellLink spell={SPELLS.RAMPANT_FEROCITY} />
+                <Trans id="druid.feral.apc.rf_breakdown">
+                  Breakdown between direct bite damage and from{' '}
+                  <SpellLink spell={SPELLS.RAMPANT_FEROCITY} />
+                </Trans>
                 <ul>
                   <li>
                     <SpellLink spell={SPELLS.FEROCIOUS_BITE} />:{' '}
@@ -239,13 +270,19 @@ class ApexPredatorsCraving extends Analyzer {
             <ItemPercentDamageDone amount={this.totalDamage} />
           </div>
           <div>
-            <UptimeIcon /> {formatPercentage(this.buffUptime, 1)}% <small>buff uptime</small>
+            <UptimeIcon /> {formatPercentage(this.buffUptime, 1)}%{' '}
+            <small>
+              <Trans id="druid.feral.apc.buff_uptime_label">buff uptime</Trans>
+            </small>
           </div>
 
           {this.hasSotf && (
             <div>
               <SpellIcon spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} />{' '}
-              {this.sotfEnergyEffectivePerMinute.toFixed(0)} <small>energy per minute</small>
+              {this.sotfEnergyEffectivePerMinute.toFixed(0)}{' '}
+              <small>
+                <Trans id="druid.feral.apc.energy_per_min">energy per minute</Trans>
+              </small>
             </div>
           )}
         </BoringSpellValueText>

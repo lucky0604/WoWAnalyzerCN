@@ -1,4 +1,6 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import { Options } from 'parser/core/Module';
 import { TALENTS_DRUID } from 'common/TALENTS';
@@ -174,50 +176,78 @@ export default class Berserk extends Analyzer.withDependencies({
 
     const checklistItems: CooldownExpandableItem[] = [];
     checklistItems.push({
-      label: <>Stay Active!</>,
+      label: (
+        <Trans id="druid.guardian.berserk.stay_active">Stay Active!</Trans>
+      ),
       result: <PerformanceMark perf={percentActivePerf} />,
-      details: <>({formatPercentage(cast.activeTimePercentage ?? 0, 0)}% active time)</>,
+      details: (
+        <Trans id="druid.guardian.berserk.active_time_pct">
+          ({formatPercentage(cast.activeTimePercentage ?? 0, 0)}% active time)
+        </Trans>
+      ),
     });
     checklistItems.push({
-      label: <>Spend your Rage</>,
+      label: (
+        <Trans id="druid.guardian.berserk.spend_rage">Spend your Rage</Trans>
+      ),
       result: <PerformanceMark perf={rageSpendPerf} />,
-      details: <>({formatPercentage(rageWastedPercentage ?? 0, 0)}% rage wasted)</>,
+      details: (
+        <Trans id="druid.guardian.berserk.rage_wasted_pct">
+          ({formatPercentage(rageWastedPercentage ?? 0, 0)}% rage wasted)
+        </Trans>
+      ),
     });
     checklistItems.push({
-      label: <>Don't Swipe</>,
+      label: (
+        <Trans id="druid.guardian.berserk.dont_swipe">Don't Swipe</Trans>
+      ),
       result: <PerformanceMark perf={swipesPerf} />,
-      details: <>({cast.swipes} swipes)</>,
+      details: (
+        <Trans id="druid.guardian.berserk.swipes_count">
+          ({cast.swipes} swipes)
+        </Trans>
+      ),
     });
     const overallPerf = getLowestPerf([percentActivePerf, rageSpendPerf, swipesPerf]);
 
     const detailItems: CooldownExpandableItem[] = [];
     if (cast.rageData) {
       detailItems.push({
-        label: <>Total Rage generated</>,
-        details: <>{cast.rageData.builderGenerated * RAGE_SCALE_FACTOR} Rage</>,
-      });
-      detailItems.push({
         label: (
-          <>
-            Rage spent on <SpellLink spell={SPELLS.IRONFUR} />
-          </>
-        ),
-        details: <>{cast.rageData.spentBySpell(SPELLS.IRONFUR.id) * RAGE_SCALE_FACTOR} Rage</>,
-      });
-      detailItems.push({
-        label: (
-          <>
-            Rage spent on <SpellLink spell={SPELLS.MAUL} /> &{' '}
-            <SpellLink spell={TALENTS_DRUID.RAZE_TALENT} />
-          </>
+          <Trans id="druid.guardian.berserk.total_rage">Total Rage generated</Trans>
         ),
         details: (
-          <>
+          <Trans id="druid.guardian.berserk.rage_amount">
+            {cast.rageData.builderGenerated * RAGE_SCALE_FACTOR} Rage
+          </Trans>
+        ),
+      });
+      detailItems.push({
+        label: (
+          <Trans id="druid.guardian.berserk.rage_spent_ironfur">
+            Rage spent on <SpellLink spell={SPELLS.IRONFUR} />
+          </Trans>
+        ),
+        details: (
+          <Trans id="druid.guardian.berserk.rage_amount">
+            {cast.rageData.spentBySpell(SPELLS.IRONFUR.id) * RAGE_SCALE_FACTOR} Rage
+          </Trans>
+        ),
+      });
+      detailItems.push({
+        label: (
+          <Trans id="druid.guardian.berserk.rage_spent_maul_raze">
+            Rage spent on <SpellLink spell={SPELLS.MAUL} /> &amp;{' '}
+            <SpellLink spell={TALENTS_DRUID.RAZE_TALENT} />
+          </Trans>
+        ),
+        details: (
+          <Trans id="druid.guardian.berserk.rage_amount">
             {(cast.rageData.spentBySpell(SPELLS.MAUL.id) +
               cast.rageData.spentBySpell(TALENTS_DRUID.RAZE_TALENT.id)) *
               RAGE_SCALE_FACTOR}{' '}
             Rage
-          </>
+          </Trans>
         ),
       });
     }
@@ -238,18 +268,24 @@ export default class Berserk extends Analyzer.withDependencies({
 
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={this.cdSpell} />
-        </strong>{' '}
-        is our primary damage cooldown and also a very powerful defensive cooldown. It's
-        particularly potent in AoE. You should maximize ability use while its active.
+        <Trans id="druid.guardian.berserk.explanation">
+          <strong>
+            <SpellLink spell={this.cdSpell} />
+          </strong>{' '}
+          is our primary damage cooldown and also a very powerful defensive cooldown. It's
+          particularly potent in AoE. You should maximize ability use while its active.
+        </Trans>
       </p>
     );
 
     const data = (
       <p>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="druid.guardian.berserk.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="druid.guardian.berserk.click_expand"> - click to expand</Trans>
+        </small>
         {this.berserkTrackers.map((cast) => this.perCastBreakdown(cast))}
       </p>
     );

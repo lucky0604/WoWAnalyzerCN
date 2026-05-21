@@ -1,4 +1,5 @@
 import SPELLS from 'common/SPELLS';
+import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -36,8 +37,10 @@ class Earthsurge extends Analyzer {
       addInefficientCastReason(
         event,
         <>
-          <SpellLink spell={TALENTS.EARTHSURGE_TALENT} /> triggered a{' '}
-          <SpellLink spell={TALENTS.SUNDERING_TALENT} /> that didn't hit any targets.
+          <Trans id="shaman.enhancement.earthsurge.inefficient_reason">
+            <SpellLink spell={TALENTS.EARTHSURGE_TALENT} /> triggered a{' '}
+            <SpellLink spell={TALENTS.SUNDERING_TALENT} /> that didn't hit any targets.
+          </Trans>
         </>,
       );
     }

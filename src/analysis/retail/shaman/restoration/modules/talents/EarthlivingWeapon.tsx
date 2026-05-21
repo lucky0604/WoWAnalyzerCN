@@ -144,7 +144,9 @@ class EarthlivingWeapon extends Analyzer {
         <aside className="pad">
           <hr />
           <header>
-            <label>Earthliving Weapon Healing Sources</label>
+            <label>
+              <Trans id="shaman.restoration.earthliving_weapon.sources">Earthliving Weapon Healing Sources</Trans>
+            </label>
           </header>
           {this.earthlivingWeaponCastRatioChart}
         </aside>

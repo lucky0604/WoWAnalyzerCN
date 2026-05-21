@@ -1,4 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
@@ -55,14 +56,16 @@ export default class InfectedWounds extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            Damage attributable to the 30% <strong>Rake</strong> bonus from Infected Wounds.
+            <Trans id="druid.feral.infected_wounds.tooltip">
+              Damage attributable to the 30% <strong>Rake</strong> bonus from Infected Wounds.
+            </Trans>
             <ul>
               <li>
-                Direct hits:{' '}
+                <Trans id="druid.feral.infected_wounds.direct_hits">Direct hits:</Trans>{' '}
                 <strong>{this.owner.formatItemDamageDone(this.rakeDirectDamage)}</strong>
               </li>
               <li>
-                Bleed ticks:{' '}
+                <Trans id="druid.feral.infected_wounds.bleed_ticks">Bleed ticks:</Trans>{' '}
                 <strong>{this.owner.formatItemDamageDone(this.rakeBleedDamage)}</strong>
               </li>
             </ul>

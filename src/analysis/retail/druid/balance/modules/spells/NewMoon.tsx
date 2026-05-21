@@ -1,5 +1,6 @@
 import Analyzer, { Options } from 'parser/core/Analyzer';
 import { TALENTS_DRUID } from 'common/TALENTS';
+import { Trans } from '@lingui/react/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import SpellLink from 'interface/SpellLink';
 import CastEfficiencyPanel from 'interface/guide/components/CastEfficiencyPanel';
@@ -24,11 +25,13 @@ export default class NewMoon extends Analyzer.withDependencies(deps) {
   get guideSubsection() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS_DRUID.NEW_MOON_TALENT} />
-        </strong>{' '}
-        is a charge based nuke / AsP generator. It is stronger than your filler spells. Aim to never
-        cap on charges.
+        <Trans id="balance.new_moon.explanation">
+          <strong>
+            <SpellLink spell={TALENTS_DRUID.NEW_MOON_TALENT} />
+          </strong>{' '}
+          is a charge based nuke / AsP generator. It is stronger than your filler spells. Aim to never
+          cap on charges.
+        </Trans>
       </p>
     );
 

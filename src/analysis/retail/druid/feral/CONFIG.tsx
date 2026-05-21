@@ -1,4 +1,5 @@
 import { Drowzen } from 'CONTRIBUTORS';
+import { Trans } from '@lingui/react/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -16,32 +17,47 @@ const config: Config = {
   // If this spec's analysis does not show a complete picture please mention this in the `<Warning>` component.
   description: (
     <>
-      <p>Welcome to the Feral Druid analyzer! We hope you find the guide and statistics useful.</p>
       <p>
-        If you questions, comments, or suggestions about this analyzer, you can reach the
-        WoWAnalyzer team on{' '}
-        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>, on{' '}
-        <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
-        <a href="/contributor/Sref">Sref</a>) directly on Discord. We're always interested in
-        improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
-        easier to understand. The whole project is open source and welcomes contributions so you can
-        directly improve it too!
+        <Trans id="druid.feral.config.welcome">
+          Welcome to the Feral Druid analyzer! We hope you find the guide and statistics useful.
+        </Trans>
       </p>
       <p>
-        If you have gameplay questions, check out:
+        <Trans id="druid.feral.config.feedback">
+          If you questions, comments, or suggestions about this analyzer, you can reach the
+          WoWAnalyzer team on{' '}
+          <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>, on{' '}
+          <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
+          <a href="/contributor/Sref">Sref</a>) directly on Discord. We're always interested in
+          improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
+          easier to understand. The whole project is open source and welcomes contributions so you can
+          directly improve it too!
+        </Trans>
+      </p>
+      <p>
+        <Trans id="druid.feral.config.gameplay_questions">
+          If you have gameplay questions, check out:
+        </Trans>
         <ul>
           <li>
-            <a href="https://www.wowhead.com/feral-druid-guide">Feral guide</a> on Wowhead
+            <a href="https://www.wowhead.com/feral-druid-guide">
+              <Trans id="druid.feral.config.wowhead_guide">Feral guide</Trans>
+            </a>{' '}
+            <Trans id="druid.feral.config.on_wowhead">on Wowhead</Trans>
           </li>
           <li>
-            <a href="https://www.dreamgrove.gg/blog/feral/compendium">Feral compendium</a> on
-            Dreamgrove.gg
+            <a href="https://www.dreamgrove.gg/blog/feral/compendium">
+              <Trans id="druid.feral.config.dreamgrove_compendium">Feral compendium</Trans>
+            </a>{' '}
+            <Trans id="druid.feral.config.on_dreamgrove">on Dreamgrove.gg</Trans>
           </li>
           <li>
             <a href="https://discord.gg/dreamgrove" target="_blank" rel="noopener noreferrer">
-              Dreamgrove
+              <Trans id="druid.feral.config.dreamgrove_discord">Dreamgrove</Trans>
             </a>{' '}
-            - the Druid community Discord
+            <Trans id="druid.feral.config.dreamgrove_description">
+              - the Druid community Discord
+            </Trans>
           </li>
         </ul>
       </p>

@@ -1,6 +1,7 @@
 import { act, render } from '@testing-library/react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { store } from 'store';
+import { TooltipProvider } from 'interface/TooltipContext';
 
 import { ConditionDescription } from './annotate';
 import { buffPresent } from './conditions';
@@ -11,9 +12,11 @@ describe('ConditionDescription', () => {
     act(() => {
       const { container } = render(
         <ReduxProvider store={store}>
-          <ConditionDescription
-            rule={{ spell: { type: TargetType.Spell, target: { id: 1, name: 'Test', icon: '' } } }}
-          />
+          <TooltipProvider>
+            <ConditionDescription
+              rule={{ spell: { type: TargetType.Spell, target: { id: 1, name: 'Test', icon: '' } } }}
+            />
+          </TooltipProvider>
         </ReduxProvider>,
       );
       expect(container).toBeEmptyDOMElement();
@@ -29,7 +32,9 @@ describe('ConditionDescription', () => {
     act(() => {
       const { container } = render(
         <ReduxProvider store={store}>
-          <ConditionDescription rule={rule} />
+          <TooltipProvider>
+            <ConditionDescription rule={rule} />
+          </TooltipProvider>
         </ReduxProvider>,
       );
 

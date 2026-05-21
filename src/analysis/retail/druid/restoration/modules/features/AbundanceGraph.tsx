@@ -1,4 +1,5 @@
 import SPELLS from 'common/SPELLS';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -338,39 +339,45 @@ class AbundanceGraph extends Analyzer {
   get guideSubsection() {
     return (
       <>
-        <strong>
-          <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
-        </strong>{' '}
-        — this graph shows your <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks over the
-        fight, with <SpellLink spell={SPELLS.REGROWTH} /> casts and active{' '}
-        <SpellLink spell={SPELLS.REGROWTH} /> HoTs overlaid. You want to ramp{' '}
-        <SpellLink spell={SPELLS.REJUVENATION} /> on the group before or as damage hits to set up an{' '}
-        <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> window where you can spam{' '}
-        <SpellLink spell={SPELLS.REGROWTH} />. During this window,{' '}
-        <SpellLink spell={SPELLS.REGROWTH} /> is extremely cheap and guaranteed to crit, so you
-        should be casting it repeatedly while your stacks are high.
+        <Trans id="restoration.abundance.guide_subsection_p1">
+          <strong>
+            <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
+          </strong>{' '}
+          — this graph shows your <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks over the
+          fight, with <SpellLink spell={SPELLS.REGROWTH} /> casts and active{' '}
+          <SpellLink spell={SPELLS.REGROWTH} /> HoTs overlaid. You want to ramp{' '}
+          <SpellLink spell={SPELLS.REJUVENATION} /> on the group before or as damage hits to set up an{' '}
+          <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> window where you can spam{' '}
+          <SpellLink spell={SPELLS.REGROWTH} />. During this window,{' '}
+          <SpellLink spell={SPELLS.REGROWTH} /> is extremely cheap and guaranteed to crit, so you
+          should be casting it repeatedly while your stacks are high.
+        </Trans>
         <br />
         <br />
-        The number of <SpellLink spell={SPELLS.REGROWTH} /> casts in this window depends on the
-        fight and incoming damage
-        {this.hasNaturesBounty && (
-          <>
-            —early casts are very efficient, and even as stacks start to fall off, additional active{' '}
-            <SpellLink spell={SPELLS.REGROWTH} /> HoTs increase the value of each cast through{' '}
-            <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />
-          </>
-        )}
-        . In general, your gameplay should cycle between ramping with{' '}
-        <SpellLink spell={SPELLS.REJUVENATION} /> and then spending that window with high{' '}
-        <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks casting{' '}
-        <SpellLink spell={SPELLS.REGROWTH} />.
+        <Trans id="restoration.abundance.guide_subsection_p2">
+          The number of <SpellLink spell={SPELLS.REGROWTH} /> casts in this window depends on the
+          fight and incoming damage
+          {this.hasNaturesBounty && (
+            <>
+              —early casts are very efficient, and even as stacks start to fall off, additional active{' '}
+              <SpellLink spell={SPELLS.REGROWTH} /> HoTs increase the value of each cast through{' '}
+               <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />
+            </>
+          )}
+          . In general, your gameplay should cycle between ramping with{' '}
+          <SpellLink spell={SPELLS.REJUVENATION} /> and then spending that window with high{' '}
+          <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks casting{' '}
+          <SpellLink spell={SPELLS.REGROWTH} />.
+        </Trans>
         <br />
         <br />
-        On the graph, this should show up as clear cycles:{' '}
-        <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks rising during your{' '}
-        <SpellLink spell={SPELLS.REJUVENATION} /> ramp, followed by a series of{' '}
-        <SpellLink spell={SPELLS.REGROWTH} /> casts while stacks are high or healing is needed, then
-        going back into your <SpellLink spell={SPELLS.REJUVENATION} /> ramp again.
+        <Trans id="restoration.abundance.guide_subsection_p3">
+          On the graph, this should show up as clear cycles:{' '}
+          <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks rising during your{' '}
+          <SpellLink spell={SPELLS.REJUVENATION} /> ramp, followed by a series of{' '}
+          <SpellLink spell={SPELLS.REGROWTH} /> casts while stacks are high or healing is needed, then
+          going back into your <SpellLink spell={SPELLS.REJUVENATION} /> ramp again.
+        </Trans>
         <div style={{ marginTop: 15 }}>{this.plot}</div>
       </>
     );

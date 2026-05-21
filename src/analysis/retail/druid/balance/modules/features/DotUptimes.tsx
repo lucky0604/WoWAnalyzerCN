@@ -1,4 +1,5 @@
 import UptimeIcon from 'interface/icons/Uptime';
+import { Trans } from '@lingui/react/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
 import UptimeMultiBarStatistic from 'parser/ui/UptimeMultiBarStatistic';
@@ -25,21 +26,25 @@ class DotUptimes extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={SPELLS.MOONFIRE_CAST} />
-        </b>{' '}
-        and{' '}
-        <b>
-          <SpellLink spell={SPELLS.SUNFIRE} />
-        </b>{' '}
-        are high damage-per-cast-time DoTs that further boost your spell damage via Mastery.
-        Maintaining 100% uptime is your highest priority.
+        <Trans id="balance.dotUptimes.explanation">
+          <b>
+            <SpellLink spell={SPELLS.MOONFIRE_CAST} />
+          </b>{' '}
+          and{' '}
+          <b>
+            <SpellLink spell={SPELLS.SUNFIRE} />
+          </b>{' '}
+          are high damage-per-cast-time DoTs that further boost your spell damage via Mastery.
+          Maintaining 100% uptime is your highest priority.
+        </Trans>
       </p>
     );
 
     const data = (
       <RoundedPanel>
-        <strong>DoT Uptimes</strong>
+        <strong>
+          <Trans id="balance.dotUptimes.rounded_panel_title">DoT Uptimes</Trans>
+        </strong>
         {this.moonfireUptime.subStatistic()}
         {this.sunfireUptime.subStatistic()}
       </RoundedPanel>
@@ -53,11 +58,16 @@ class DotUptimes extends Analyzer {
       <UptimeMultiBarStatistic
         title={
           <>
-            <UptimeIcon /> DoT Uptimes
+            <UptimeIcon />{' '}
+            <Trans id="balance.dotUptimes.title">DoT Uptimes</Trans>
           </>
         }
         position={STATISTIC_ORDER.CORE(1)}
-        tooltip={<>These uptime bars show the times your DoT was active on at least one target.</>}
+        tooltip={
+          <Trans id="balance.dotUptimes.tooltip">
+            These uptime bars show the times your DoT was active on at least one target.
+          </Trans>
+        }
       >
         {this.moonfireUptime.subStatistic()}
         {this.sunfireUptime.subStatistic()}

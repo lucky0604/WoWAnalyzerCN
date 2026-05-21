@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_SHAMAN } from 'common/TALENTS';
@@ -118,22 +119,26 @@ class EarthShield extends Analyzer {
 
     const explanation = (
       <>
-        <b>
-          <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} />
-        </b>{' '}
-        is the only shield shaman can place on allies and provides very strong throughput when
-        combined with affecting talents in the class and spec tree.{' '}
-        <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> should be applied prior to the
-        fight starting and maintained as it falls off throughout the encounter
+        <Trans id="shaman.shared.earthshield.explanation_p1">
+          <b>
+            <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} />
+          </b>{' '}
+          is the only shield shaman can place on allies and provides very strong throughput when
+          combined with affecting talents in the class and spec tree.{' '}
+          <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> should be applied prior to the
+          fight starting and maintained as it falls off throughout the encounter
+        </Trans>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {hasElementalOrbit && (
           <>
-            <b>
-              <SpellLink spell={TALENTS_SHAMAN.ELEMENTAL_ORBIT_TALENT} />
-            </b>{' '}
-            allows you to place <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> on yourself
-            as well as an ally, and you should aim to maintain high uptime on both.
+            <Trans id="shaman.shared.earthshield.explanation_orbit">
+              <b>
+                <SpellLink spell={TALENTS_SHAMAN.ELEMENTAL_ORBIT_TALENT} />
+              </b>{' '}
+              allows you to place <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> on yourself
+              as well as an ally, and you should aim to maintain high uptime on both.
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
@@ -142,21 +147,27 @@ class EarthShield extends Analyzer {
         )}
         {hasEarthenHarmony && (
           <>
-            <b>
-              <SpellLink spell={TALENTS_SHAMAN.EARTHEN_HARMONY_TALENT} />
-            </b>{' '}
-            augments <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> even further by
-            providing damage reduction (
-            <b>{formatNumber(this.earthenHarmony.totalDamageReduction)} mitigated</b>){' '}
+            <Trans id="shaman.shared.earthshield.explanation_earthen_harmony">
+              <b>
+                <SpellLink spell={TALENTS_SHAMAN.EARTHEN_HARMONY_TALENT} />
+              </b>{' '}
+              augments <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> even further by
+              providing damage reduction (
+              <b>{formatNumber(this.earthenHarmony.totalDamageReduction)} mitigated</b>){' '}
+            </Trans>
           </>
         )}
-        {hasReactiveWarding && hasEarthenHarmony && <>while </>}
+        {hasReactiveWarding && hasEarthenHarmony && (
+          <Trans id="shaman.shared.earthshield.while">while </Trans>
+        )}
         {hasReactiveWarding && (
           <>
-            <b>
-              <SpellLink spell={TALENTS_SHAMAN.REACTIVE_WARDING_TALENT} />
-            </b>{' '}
-            is most efficient when you refresh your shields with as few stacks left as possible
+            <Trans id="shaman.shared.earthshield.explanation_reactive_warding">
+              <b>
+                <SpellLink spell={TALENTS_SHAMAN.REACTIVE_WARDING_TALENT} />
+              </b>{' '}
+              is most efficient when you refresh your shields with as few stacks left as possible
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
@@ -168,7 +179,9 @@ class EarthShield extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> Uptimes
+            <Trans id="shaman.shared.earthshield.uptimes">
+              <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> Uptimes
+            </Trans>
           </strong>
           {this.earthShieldUptimeBar()}
           {hasElementalOrbit && this.elementalOrbitUptimeBar()}

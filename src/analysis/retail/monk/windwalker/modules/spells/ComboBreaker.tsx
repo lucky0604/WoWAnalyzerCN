@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 import GuideSection from 'interface/guide/components/GuideSection';
 import { consumedComboBreaker } from 'analysis/retail/monk/windwalker/normalizers/ComboBreakerCastLinkNormalizer';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -23,7 +24,6 @@ import { TALENTS_MONK } from 'common/TALENTS';
 import windwalkerApl from '../apl/WindwalkerApl';
 import AplProcWindowDetail from '../core/AplProcWindowDetail';
 import { buildAplProcWindows, type AplProcWindow } from '../core/aplProcWindows';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 const COMBO_BREAKER_PROC_CHANCE = 0.08;
@@ -234,7 +234,7 @@ class ComboBreaker extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: defineMessage({ id: 'monk.windwalker.cb.classify.not_consumed', message: 'Proc was not consumed' }),
+        summary: t({ id: 'monk.windwalker.cb.classify.not_consumed', message: 'Proc was not consumed' }),
       };
     }
 
@@ -250,7 +250,7 @@ class ComboBreaker extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.cb.classify.first_top',
           message: 'Blackout Kick was consumed the first time the APL expected it',
         }),
@@ -260,13 +260,13 @@ class ComboBreaker extends Analyzer {
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.BLACKOUT_KICK.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: defineMessage({ id: 'monk.windwalker.cb.classify.acceptable', message: 'Blackout Kick was consumed in an acceptable APL spot' }),
+        summary: t({ id: 'monk.windwalker.cb.classify.acceptable', message: 'Blackout Kick was consumed in an acceptable APL spot' }),
       };
     }
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: defineMessage({
+      summary: t({
         id: 'monk.windwalker.cb.classify.not_preferred',
         message: 'Blackout Kick was consumed, even though the APL did not prefer it yet',
       }),

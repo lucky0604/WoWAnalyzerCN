@@ -6,6 +6,7 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { STARFALL_BASE_COST, STARSURGE_BASE_COST } from '../../constants';
 import { TALENTS_DRUID } from 'common/TALENTS';
@@ -61,8 +62,12 @@ class TouchTheCosmos extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Ability</th>
-                  <th>Number of Free Casts</th>
+                  <th>
+                    <Trans id="balance.totc.ability">Ability</Trans>
+                  </th>
+                  <th>
+                    <Trans id="balance.totc.free_casts">Number of Free Casts</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -81,7 +86,10 @@ class TouchTheCosmos extends Analyzer {
       >
         <BoringSpellValueText spell={SPELLS.TOUCH_THE_COSMOS}>
           <>
-            {formatNumber(this.savedAP)} <small>Astral Power accounted in Pulsar</small>
+            {formatNumber(this.savedAP)}{' '}
+            <small>
+              <Trans id="balance.totc.ap_pulsar">Astral Power accounted in Pulsar</Trans>
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

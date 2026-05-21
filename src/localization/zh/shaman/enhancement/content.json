@@ -11,5 +11,20 @@
   "shaman.enhancement.cooldowns.description": "<strong>冷却技能</strong> - 此图表显示你何时使用了主要冷却技能以及等待了多久才再次使用。除非是为了特定的团队机制而留爆发，否则尽量卡 CD 使用这些技能。",
   "shaman.enhancement.resources.title": "资源",
   "shaman.enhancement.resources.maelstrom_title": "漩涡武器",
-  "shaman.enhancement.resources.maelstrom_description": "增强萨满的核心资源是 <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />。下方图表展示了你在整个战斗过程中 <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> 的数量变化。"
+  "shaman.enhancement.resources.maelstrom_description": "增强萨满的核心资源是 <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />。下方图表展示了你在整个战斗过程中 <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> 的数量变化。",
+  "shaman.enhancement.earthsurge.inefficient_reason": "<0/> 触发了 <1/>，但未命中任何目标。",
+  "shaman.enhancement.maelstrom.gained": "获得了 {0} 层",
+  "shaman.enhancement.maelstrom.wasted": "浪费了 {0} 层",
+  "shaman.enhancement.maelstrom.spent_ps": "每秒消耗 {0} 层",
+  "shaman.enhancement.maelstrom.gained_ps": "每秒获得 {0} 层",
+  "shaman.enhancement.spenders.usage_title": "漩涡武器使用分布",
+  "shaman.enhancement.spenders.efficiency_title": "漩涡武器消耗效率",
+  "shaman.enhancement.spenders.ability": "技能",
+  "shaman.enhancement.spenders.casts": "施放次数",
+  "shaman.enhancement.spenders.dmg_msw": "伤害 / 漩涡",
+  "shaman.enhancement.spenders.avg_msw_cast": "平均漩涡 / 施放",
+  "shaman.enhancement.spenders.avg_cast": "平均单次伤害",
+  "shaman.enhancement.spenders.augmented_damage": "已增幅伤害",
+  "shaman.enhancement.spenders.augmented_healing": "已增幅治疗",
+  "shaman.enhancement.spenders.note": "注：伤害/治疗量包含来自增效唤魔师的加成。如果数据对不上，请在 WCL 中点击 <0>已增幅伤害</0>/<1>已增幅治疗</1> 标签页。"
 }

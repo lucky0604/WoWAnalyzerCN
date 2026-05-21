@@ -86,7 +86,7 @@ class EnergyCapTracker extends RegenResourceCapTracker {
                 id: 'monk.windwalker.energy_cap.not_capped_for',
                 message: 'Not at capped energy for {duration}',
                 duration: formatDuration((this.owner.fightDuration - this.atCap) / 1000),
-              } as unknown)}
+              } as any)}
             >
               <div
                 className="stat-healing-bg"
@@ -104,7 +104,7 @@ class EnergyCapTracker extends RegenResourceCapTracker {
                 id: 'monk.windwalker.energy_cap.capped_for',
                 message: 'At capped energy for {duration}',
                 duration: formatDuration(this.atCap / 1000),
-              } as unknown)}
+              } as any)}
             >
               <div className="remainder DeathKnight-bg">
                 <img

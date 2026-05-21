@@ -1,6 +1,7 @@
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, RemoveBuffEvent, RemoveBuffStackEvent } from 'parser/core/Events';
@@ -16,9 +17,9 @@ import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 
 function oxfordCommaJoin(
   list: JSX.Element[],
-  joiner = defineMessage({ id: 'monk.windwalker.blackout_kick.and', message: 'and' }),
-  comma = defineMessage({ id: 'monk.windwalker.blackout_kick.comma', message: ', ' }),
-  oxfordComma = defineMessage({ id: 'monk.windwalker.blackout_kick.oxford_comma', message: ', ' }),
+  joiner = t({ id: 'monk.windwalker.blackout_kick.and', message: 'and' }),
+  comma = t({ id: 'monk.windwalker.blackout_kick.comma', message: ', ' }),
+  oxfordComma = t({ id: 'monk.windwalker.blackout_kick.oxford_comma', message: ', ' }),
 ): JSX.Element {
   switch (list.length) {
     case 1:

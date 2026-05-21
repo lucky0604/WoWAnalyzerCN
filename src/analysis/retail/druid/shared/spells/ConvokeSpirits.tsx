@@ -1,4 +1,6 @@
 import { formatNumber } from 'common/format';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -398,11 +400,21 @@ class ConvokeSpirits extends Analyzer {
         <table className="table table-condensed">
           <thead>
             <tr>
-              <th>Cast #</th>
-              <th>Time</th>
-              <th>Form</th>
-              <th>Damage</th>
-              <th>Spells In Cast</th>
+              <th>
+                <Trans id="druid.shared.convoke.cast_num">Cast #</Trans>
+              </th>
+              <th>
+                <Trans id="druid.shared.convoke.time">Time</Trans>
+              </th>
+              <th>
+                <Trans id="druid.shared.convoke.form">Form</Trans>
+              </th>
+              <th>
+                <Trans id="druid.shared.convoke.damage">Damage</Trans>
+              </th>
+              <th>
+                <Trans id="druid.shared.convoke.spells_in_cast">Spells In Cast</Trans>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -431,10 +443,12 @@ class ConvokeSpirits extends Analyzer {
   get baseTooltip(): React.ReactNode {
     return (
       <>
-        Abilities cast by Convoke do not create cast events; this listing is created by tracking
-        related events during the channel. Occasionally a Convoke will cast an ability that hits
-        nothing (like Thrash when only immune targets are in range). In these cases we won't be able
-        to track it and so the number of spells listed may not add up to {this.spellsPerCast}.
+        <Trans id="druid.shared.convoke.tooltip">
+          Abilities cast by Convoke do not create cast events; this listing is created by tracking
+          related events during the channel. Occasionally a Convoke will cast an ability that hits
+          nothing (like Thrash when only immune targets are in range). In these cases we won't be able
+          to track it and so the number of spells listed may not add up to {this.spellsPerCast}.
+        </Trans>
       </>
     );
   }

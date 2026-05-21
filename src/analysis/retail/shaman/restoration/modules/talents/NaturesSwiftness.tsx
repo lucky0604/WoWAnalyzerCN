@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/macro';
 import { TALENTS_SHAMAN } from 'common/TALENTS';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -103,21 +105,27 @@ class NaturesSwiftness extends Analyzer {
       value = QualitativePerformance.Good;
       tooltip = (
         <>
-          Correct cast: buffed <SpellLink spell={spellId} />
+          <Trans id="shaman.restoration.ns.good_cast">
+            Correct cast: buffed <SpellLink spell={spellId} />
+          </Trans>
         </>
       );
     } else if (NaturesSwiftness.OK_SPELLS.includes(spellId)) {
       value = QualitativePerformance.Ok;
       tooltip = (
         <>
-          Ok cast: buffed <SpellLink spell={spellId} />
+          <Trans id="shaman.restoration.ns.ok_cast">
+            Ok cast: buffed <SpellLink spell={spellId} />
+          </Trans>
         </>
       );
     } else {
       value = QualitativePerformance.Fail;
       tooltip = (
         <>
-          Incorrect cast: buffed <SpellLink spell={spellId} />
+          <Trans id="shaman.restoration.ns.fail_cast">
+            Incorrect cast: buffed <SpellLink spell={spellId} />
+          </Trans>
         </>
       );
     }
@@ -133,7 +141,10 @@ class NaturesSwiftness extends Analyzer {
             <ItemManaGained amount={this.manaSaved} useAbbrev customLabel="mana" />
           </div>
           <div>
-            {formatNumber(this.avgManaSaved)} <small>mana saved per cast</small>
+            {formatNumber(this.avgManaSaved)}{' '}
+            <small>
+              <Trans id="shaman.restoration.ns.mana_saved_label">mana saved per cast</Trans>
+            </small>
           </div>
         </TalentSpellText>
       </Statistic>
@@ -143,14 +154,16 @@ class NaturesSwiftness extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS_SHAMAN.NATURES_SWIFTNESS_TALENT} />
-        </b>{' '}
-        is a very important spell as every cast gives you one{' '}
-        <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} />. It can also save you a substantial amount of
-        mana over the course of a fight. You should aim to use it on your most expensive spells,
-        like <SpellLink spell={TALENTS_SHAMAN.CHAIN_HEAL_TALENT} />. Using it with{' '}
-        <SpellLink spell={SPELLS.HEALING_WAVE} /> could also save a life.
+        <Trans id="shaman.restoration.ns.explanation">
+          <b>
+            <SpellLink spell={TALENTS_SHAMAN.NATURES_SWIFTNESS_TALENT} />
+          </b>{' '}
+          is a very important spell as every cast gives you one{' '}
+          <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} />. It can also save you a substantial amount of
+          mana over the course of a fight. You should aim to use it on your most expensive spells,
+          like <SpellLink spell={TALENTS_SHAMAN.CHAIN_HEAL_TALENT} />. Using it with{' '}
+          <SpellLink spell={SPELLS.HEALING_WAVE} /> could also save a life.
+        </Trans>
       </p>
     );
 
@@ -158,7 +171,9 @@ class NaturesSwiftness extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_SHAMAN.NATURES_SWIFTNESS_TALENT} /> cast efficiency
+            <Trans id="shaman.restoration.ns.cast_efficiency">
+              <SpellLink spell={TALENTS_SHAMAN.NATURES_SWIFTNESS_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             <CastEfficiencyBar
@@ -168,11 +183,15 @@ class NaturesSwiftness extends Analyzer {
             />{' '}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <strong>Casts </strong>
+            <strong>
+              <Trans id="shaman.restoration.ns.casts_title">Casts </Trans>
+            </strong>
             <small>
-              - Green indicates a good use of the{' '}
-              <SpellLink spell={TALENTS_SHAMAN.NATURES_SWIFTNESS_TALENT} /> buff, Yellow indicates
-              an ok use, and Red is an incorrect use or the buff expired.
+              <Trans id="shaman.restoration.ns.casts_desc">
+                - Green indicates a good use of the{' '}
+                <SpellLink spell={TALENTS_SHAMAN.NATURES_SWIFTNESS_TALENT} /> buff, Yellow indicates
+                an ok use, and Red is an incorrect use or the buff expired.
+              </Trans>
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>
@@ -186,16 +205,18 @@ class NaturesSwiftness extends Analyzer {
   get farseerGuideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} />
-        </b>{' '}
-        is a crucial spell for Farseer Shamans. You should aim to cast this on cooldown to maximize
-        your Ancestor uptime through{' '}
-        <SpellLink spell={TALENTS_SHAMAN.CALL_OF_THE_ANCESTORS_TALENT} /> and how many{' '}
-        <SpellLink spell={TALENTS_SHAMAN.STORMSTREAM_TOTEM_3_RESTORATION_TALENT} /> you generate.
-        You should aim to use it on your most expensive spells, like{' '}
-        <SpellLink spell={TALENTS_SHAMAN.CHAIN_HEAL_TALENT} />. Avoid using it with{' '}
-        <SpellLink spell={SPELLS.HEALING_WAVE} /> or DPS spells.
+        <Trans id="shaman.restoration.as.explanation">
+          <b>
+            <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} />
+          </b>{' '}
+          is a crucial spell for Farseer Shamans. You should aim to cast this on cooldown to maximize
+          your Ancestor uptime through{' '}
+          <SpellLink spell={TALENTS_SHAMAN.CALL_OF_THE_ANCESTORS_TALENT} /> and how many{' '}
+          <SpellLink spell={TALENTS_SHAMAN.STORMSTREAM_TOTEM_3_RESTORATION_TALENT} /> you generate.
+          You should aim to use it on your most expensive spells, like{' '}
+          <SpellLink spell={TALENTS_SHAMAN.CHAIN_HEAL_TALENT} />. Avoid using it with{' '}
+          <SpellLink spell={SPELLS.HEALING_WAVE} /> or DPS spells.
+        </Trans>
       </p>
     );
 
@@ -203,7 +224,9 @@ class NaturesSwiftness extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} /> cast efficiency
+            <Trans id="shaman.restoration.as.cast_efficiency">
+              <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             <CastEfficiencyBar
@@ -214,11 +237,15 @@ class NaturesSwiftness extends Analyzer {
             />{' '}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <strong>Casts </strong>
+            <strong>
+              <Trans id="shaman.restoration.ns.casts_title">Casts </Trans>
+            </strong>
             <small>
-              - Green indicates a good use of the{' '}
-              <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} /> buff, Yellow indicates
-              an ok use, and Red is an incorrect use or the buff expired.
+              <Trans id="shaman.restoration.as.casts_desc">
+                - Green indicates a good use of the{' '}
+                <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} /> buff, Yellow indicates
+                an ok use, and Red is an incorrect use or the buff expired.
+              </Trans>
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>

@@ -1,5 +1,6 @@
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -35,7 +36,9 @@ class PulseCapacitor extends Analyzer {
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
           <>
-            <strong>{formatNumber(this.healingContribution)}</strong> bonus healing
+            <Trans id="shaman.restoration.pulse_capacitor.bonus_healing">
+              <strong>{formatNumber(this.healingContribution)}</strong> bonus healing
+            </Trans>
           </>
         }
       >

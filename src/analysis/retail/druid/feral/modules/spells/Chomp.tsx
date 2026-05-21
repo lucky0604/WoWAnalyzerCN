@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import HIT_TYPES from 'game/HIT_TYPES';
@@ -69,20 +71,26 @@ export default class Chomp extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS_DRUID.CHOMP_TALENT} />
-          </strong>{' '}
-          is a high-damage filler available when your energy drops below 30%. Use it as soon as the
-          condition is met and the cooldown is ready. Using it during{' '}
-          <SpellLink spell={SPELLS.TIGERS_FURY} /> is ideal, but don't hold it to align.
+          <Trans id="druid.feral.chomp.explanation">
+            <strong>
+              <SpellLink spell={TALENTS_DRUID.CHOMP_TALENT} />
+            </strong>{' '}
+            is a high-damage filler available when your energy drops below 30%. Use it as soon as the
+            condition is met and the cooldown is ready. Using it during{' '}
+            <SpellLink spell={SPELLS.TIGERS_FURY} /> is ideal, but don't hold it to align.
+          </Trans>
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="druid.feral.chomp.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="druid.feral.chomp.click_expand"> - click to expand</Trans>
+        </small>
         {this.chompCasts.map((cast, idx) => {
           const tfPerf = cast.tigersFuryActive
             ? QualitativePerformance.Perfect
@@ -90,17 +98,19 @@ export default class Chomp extends Analyzer {
 
           const header = (
             <span>
-              @ {this.owner.formatTimestamp(cast.timestamp)} — {formatNumber(cast.damage)} damage
-              {cast.isCrit ? ' (Crit) ' : ' '}
+              @ {this.owner.formatTimestamp(cast.timestamp)} —{' '}
+              <Trans id="druid.feral.chomp.damage_header">
+                {formatNumber(cast.damage)} damage{cast.isCrit ? ' (Crit) ' : ' '}
+              </Trans>
               <SpellLink spell={TALENTS_DRUID.CHOMP_TALENT} />
             </span>
           );
 
           const checklistItems = [
             {
-              label: "Tiger's Fury active",
+              label: t({ id: 'druid.feral.chomp.tf_active', message: "Tiger's Fury active" }),
               result: <PerformanceMark perf={tfPerf} />,
-              details: <>{cast.tigersFuryActive ? 'Yes' : 'No'}</>,
+              details: <>{cast.tigersFuryActive ? t({ id: 'druid.shared.yes', message: 'Yes' }) : t({ id: 'druid.shared.no', message: 'No' })}</>,
             },
           ];
 

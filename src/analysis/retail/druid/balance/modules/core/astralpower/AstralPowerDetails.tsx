@@ -1,4 +1,5 @@
 import { formatPercentage } from 'common/format';
+import { t } from '@lingui/core/macro';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
@@ -36,12 +37,27 @@ class AstralPowerDetails extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(1)}
         size="small"
-        tooltip={`${this.wasted * ASTRAL_POWER_SCALE_FACTOR} out of ${this.total * ASTRAL_POWER_SCALE_FACTOR} Astral Power wasted.`}
+        tooltip={
+          t({
+            id: 'balance.astralPower.wasted_prefix',
+            message: 'Wasted '
+          }) +
+          (this.wasted * ASTRAL_POWER_SCALE_FACTOR) +
+          t({
+            id: 'balance.astralPower.wasted_middle',
+            message: ' out of '
+          }) +
+          (this.total * ASTRAL_POWER_SCALE_FACTOR) +
+          t({
+            id: 'balance.astralPower.wasted_suffix',
+            message: ' Astral Power.'
+          })
+        }
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.ASTRAL_POWER}
           value={`${formatPercentage(this.wastedPercent)} %`}
-          label="Overcapped Astral Power"
+          label={t({ id: 'balance.astralPower.overcapped_label', message: 'Overcapped Astral Power' })}
         />
       </Statistic>
     );
@@ -49,7 +65,7 @@ class AstralPowerDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Astral Power usage',
+      title: t({ id: 'balance.astralPower.usage_title', message: 'Astral Power usage' }),
       url: 'astral-power-usage',
       render: () => (
         <Panel>

@@ -1,4 +1,5 @@
 import { Seriousnes } from 'CONTRIBUTORS';
+import { Trans } from '@lingui/react/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -17,22 +18,26 @@ export default {
   description: (
     <>
       <p>
-        Hello there! Welcome to the analyzer for Elemental Shaman! This analyzer has functionalities
-        that I hope you find useful when playing the spec. If you have any input or suggestions
-        please ask questions in the #elemental channel in the{' '}
-        <a href="https://discord.gg/earthshrine">Earthshrine discord</a>.
+        <Trans id="shaman.elemental.config.welcome">
+          Hello there! Welcome to the analyzer for Elemental Shaman! This analyzer has functionalities
+          that I hope you find useful when playing the spec. If you have any input or suggestions
+          please ask questions in the #elemental channel in the{' '}
+          <a href="https://discord.gg/earthshrine">Earthshrine discord</a>.
+        </Trans>
       </p>
       <p>
-        More resources for Elemental:
+        <Trans id="shaman.elemental.config.more_resources">
+          More resources for Elemental:
+        </Trans>
         <ul>
           <li>
             <a href="https://discord.gg/earthshrine" target="_blank" rel="noopener noreferrer">
-              Shaman Class Discord
+              <Trans id="shaman.elemental.config.class_discord">Shaman Class Discord</Trans>
             </a>
           </li>
           <li>
             <a href="https://stormearthandlava.com/" target="_blank" rel="noopener noreferrer">
-              Storm, Earth and Lava
+              <Trans id="shaman.elemental.config.storm_earth_lava">Storm, Earth and Lava</Trans>
             </a>
           </li>
           <li>
@@ -41,7 +46,7 @@ export default {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Wowhead Guide
+              <Trans id="shaman.elemental.config.wowhead_guide">Wowhead Guide</Trans>
             </a>
           </li>
           <li>
@@ -50,7 +55,7 @@ export default {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Icy Veins Guide
+              <Trans id="shaman.elemental.config.icy_veins_guide">Icy Veins Guide</Trans>
             </a>
           </li>
         </ul>

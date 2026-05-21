@@ -1,4 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
 import Events, { DamageEvent } from 'parser/core/Events';
@@ -104,13 +105,19 @@ class RampantFerocity extends Analyzer {
         tooltip={
           <>
             <div>
-              Average splash hits per Bite: <strong>{this.avgTargetsHit.toFixed(1)}</strong>
+              <Trans id="druid.feral.rf.avg_splash">
+                Average splash hits per Bite: <strong>{this.avgTargetsHit.toFixed(1)}</strong>
+              </Trans>
             </div>
             {(hasApex || hasConvoke) && (
               <>
-                <div>Breakdown per Bite source:</div>
+                <div>
+                  <Trans id="druid.feral.rf.breakdown">Breakdown per Bite source:</Trans>
+                </div>
                 <ul>
-                  <li>Hardcast: {this._formattedPercentDamage(this.hardcastRfDamage)}</li>
+                  <li>
+                    <Trans id="druid.feral.rf.hardcast">Hardcast:</Trans> {this._formattedPercentDamage(this.hardcastRfDamage)}
+                  </li>
                   {hasApex && (
                     <li>
                       <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} />:{' '}
@@ -119,7 +126,7 @@ class RampantFerocity extends Analyzer {
                   )}
                   {hasConvoke && (
                     <li>
-                      <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />:{' '}
+                      <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />:{ ' ' }
                       {this._formattedPercentDamage(this.convokeRfDamage)}
                     </li>
                   )}

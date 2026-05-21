@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
@@ -160,19 +161,19 @@ class ThunderFocusTea extends Analyzer {
     const items = [
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: defineMessage({ id: 'monk.mistweaver.tft.renewing_mist', message: 'Renewing Mist' }),
+        label: t({ id: 'monk.mistweaver.tft.renewing_mist', message: 'Renewing Mist' }),
         spellId: SPELLS.RENEWING_MIST_CAST.id,
         value: this.castsTftRem,
       },
       {
         color: SPELL_COLORS.ENVELOPING_MIST,
-        label: defineMessage({ id: 'monk.mistweaver.tft.enveloping_mists', message: 'Enveloping Mists' }),
+        label: t({ id: 'monk.mistweaver.tft.enveloping_mists', message: 'Enveloping Mists' }),
         spellId: TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
         value: this.castsTftEnm,
       },
       {
         color: SPELL_COLORS.RISING_SUN_KICK,
-        label: defineMessage({ id: 'monk.mistweaver.tft.rising_sun_kick', message: 'Rising Sun Kick' }),
+        label: t({ id: 'monk.mistweaver.tft.rising_sun_kick', message: 'Rising Sun Kick' }),
         spellId: this.currentRskTalent.id,
         value: this.castsTftRsk,
       },

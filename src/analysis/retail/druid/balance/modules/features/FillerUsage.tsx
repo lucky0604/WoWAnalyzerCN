@@ -1,4 +1,6 @@
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
@@ -50,14 +52,25 @@ export default class FillerUsage extends Analyzer {
     if (eclipse === 'solar') {
       addInefficientCastReason(
         event,
-        `Use Wrath instead of Starfire in Solar Eclipse, regardless of target count`,
+        t({
+          id: 'balance.filler.solar_starfire_reason',
+          message: 'Use Wrath instead of Starfire in Solar Eclipse, regardless of target count',
+        }),
       );
       this.solarStarfires += 1;
     } else if (eclipse === 'lunar' && !this.hasLunarCalling) {
       if (targetsHit < MIN_STARFIRE_TARGETS_LUNAR) {
         addInefficientCastReason(
           event,
-          `You hit too few targets: ${targetsHit} - use Wrath instead`,
+          t({
+            id: 'balance.filler.too_few_targets_prefix',
+            message: 'You hit too few targets: ',
+          }) +
+            targetsHit +
+            t({
+              id: 'balance.filler.too_few_targets_suffix',
+              message: ' - use Wrath instead',
+            }),
         );
         this.lowTargetStarfires += 1;
       }
@@ -65,14 +78,26 @@ export default class FillerUsage extends Analyzer {
       if (targetsHit < MIN_STARFIRE_TARGETS_CA) {
         addInefficientCastReason(
           event,
-          `You hit too few targets: ${targetsHit} - use Wrath instead`,
+          t({
+            id: 'balance.filler.too_few_targets_prefix',
+            message: 'You hit too few targets: ',
+          }) +
+            targetsHit +
+            t({
+              id: 'balance.filler.too_few_targets_suffix',
+              message: ' - use Wrath instead',
+            }),
         );
         this.lowTargetStarfires += 1;
       }
     } else if (eclipse === 'none' && this.hasLunarCalling) {
       addInefficientCastReason(
         event,
-        `You cast Starfire while not in eclipse. Because you took Lunar Calling, you need to use Wrath to reenter eclipse.`,
+        t({
+          id: 'balance.filler.no_eclipse_lc_reason',
+          message:
+            'You cast Starfire while not in eclipse. Because you took Lunar Calling, you need to use Wrath to reenter eclipse.',
+        }),
       );
     }
   }
@@ -110,38 +135,48 @@ export default class FillerUsage extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>Filler spells</strong> are{' '}
-          <strong>
-            <SpellLink spell={SPELLS.WRATH} />
-          </strong>{' '}
-          and{' '}
-          <strong>
-            <SpellLink spell={SPELLS.STARFIRE} />
-          </strong>
-          .
+          <Trans id="balance.filler.explanation_p1">
+            <strong>Filler spells</strong> are{' '}
+            <strong>
+              <SpellLink spell={SPELLS.WRATH} />
+            </strong>{' '}
+            and{' '}
+            <strong>
+              <SpellLink spell={SPELLS.STARFIRE} />
+            </strong>
+            .
+          </Trans>
         </p>
         <p>
-          They are spammable and generate Astral Power. Use <SpellLink spell={SPELLS.WRATH} /> in
-          single target and <SpellLink spell={SPELLS.STARFIRE} /> against multiple stacked targets.
+          <Trans id="balance.filler.explanation_p2">
+            They are spammable and generate Astral Power. Use <SpellLink spell={SPELLS.WRATH} /> in
+            single target and <SpellLink spell={SPELLS.STARFIRE} /> against multiple stacked targets.
+          </Trans>
         </p>
         <p>
-          Your fillers are greatly buffed by their corresponding{' '}
-          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> - aim to enter an Eclipse that matches
-          your current target count.
+          <Trans id="balance.filler.explanation_p3">
+            Your fillers are greatly buffed by their corresponding{' '}
+            <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> - aim to enter an Eclipse that matches
+            your current target count.
+          </Trans>
         </p>
         {this.hasLunarCalling && (
           <p>
             <i>
-              However, because you took <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} />,
-              you can only enter Lunar Eclipse. When Eclipse drops you must use Wrath to reenter
-              Eclipse.
+              <Trans id="balance.filler.explanation_lc">
+                However, because you took <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} />,
+                you can only enter Lunar Eclipse. When Eclipse drops you must use Wrath to reenter
+                Eclipse.
+              </Trans>
             </i>
           </p>
         )}
         {!this.hasLunarCalling && (
           <p>
-            If you make a mistake and find yourself in Lunar Eclipse with no stacked targets or in
-            Solar Eclipse with stacked targets, you should use <SpellLink spell={SPELLS.WRATH} />.
+            <Trans id="balance.filler.explanation_no_lc">
+              If you make a mistake and find yourself in Lunar Eclipse with no stacked targets or in
+              Solar Eclipse with stacked targets, you should use <SpellLink spell={SPELLS.WRATH} />.
+            </Trans>
           </p>
         )}
       </>
@@ -149,26 +184,30 @@ export default class FillerUsage extends Analyzer {
 
     const goodFillerData = {
       count: this.goodFillers,
-      label: 'Good Fillers',
+      label: t({ id: 'balance.filler.good_label', message: 'Good Fillers' }),
     };
     const okFillerData = {
       count: this.okFillers,
-      label: 'Wraths during Lunar Eclipse (did you enter the wrong Eclipse?)',
+      label: t({ id: 'balance.filler.ok_label', message: 'Wraths during Lunar Eclipse (did you enter the wrong Eclipse?)' }),
     };
     const badFillerData = {
       count: this.badFillers,
       label: this.hasLunarCalling
-        ? 'Starfire when out of Eclipse (with Lunar Calling, you must Wrath to enter eclipse)'
-        : 'Starfires during Solar Eclipse or that hit too few targets',
+        ? t({ id: 'balance.filler.bad_lc_label', message: 'Starfire when out of Eclipse (with Lunar Calling, you must Wrath to enter eclipse)' })
+        : t({ id: 'balance.filler.bad_no_lc_label', message: 'Starfires during Solar Eclipse or that hit too few targets' }),
     };
 
     const data = (
       <div>
-        <strong>Filler cast breakdown</strong>
+        <strong>
+          <Trans id="balance.filler.breakdown_title">Filler cast breakdown</Trans>
+        </strong>
         <small>
           {' '}
-          - Green is a good cast, Yellow is a Wrath during Lunar Eclipse, Red is a bad Starfire.
-          Mouseover for more details.
+          <Trans id="balance.filler.breakdown_desc">
+            - Green is a good cast, Yellow is a Wrath during Lunar Eclipse, Red is a bad Starfire.
+            Mouseover for more details.
+          </Trans>
         </small>
         <GradiatedPerformanceBar good={goodFillerData} ok={okFillerData} bad={badFillerData} />
       </div>

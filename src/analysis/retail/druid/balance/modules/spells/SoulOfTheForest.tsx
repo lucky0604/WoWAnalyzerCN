@@ -14,6 +14,7 @@ import {
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { ResourceIcon, SpellIcon } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import ItemPercentDamageDone from 'parser/ui/ItemPercentDamageDone';
 
 const WRATH_BONUS_AP = 0.6;
@@ -92,7 +93,9 @@ class SoulOfTheForest extends Analyzer {
           <div>
             <ResourceIcon id={RESOURCE_TYPES.ASTRAL_POWER.id} />{' '}
             {formatNumber(this.owner.getPerMinute(this.totalAp))}{' '}
-            <small>Astral Power per minute</small>
+            <small>
+              <Trans id="balance.sotf.ap_pm">Astral Power per minute</Trans>
+            </small>
           </div>
           <div>
             <SpellIcon spell={SPELLS.STARFIRE} noLink />{' '}

@@ -1,4 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import {
   INCARN_ENERGY_MULT,
@@ -93,15 +94,15 @@ export default class OmenAndMomentOfClarity extends Analyzer {
           <>
             <ul>
               <li>
-                Gained Procs per Minute:{' '}
+                <Trans id="druid.feral.omen.gained_procs">Gained Procs per Minute:</Trans>{' '}
                 <strong>{this.owner.getPerMinute(this.procsGained).toFixed(1)}</strong>
               </li>
               <li>
-                Used Procs per Minute:{' '}
+                <Trans id="druid.feral.omen.used_procs">Used Procs per Minute:</Trans>{' '}
                 <strong>{this.owner.getPerMinute(this.procsUsed).toFixed(1)}</strong>
               </li>
               <li>
-                Avg. Energy Saved per Used Proc:{' '}
+                <Trans id="druid.feral.omen.avg_saved">Avg. Energy Saved per Used Proc:</Trans>{' '}
                 <strong>{(this.totalEnergy / this.procsUsed || 0).toFixed(1)}</strong>
               </li>
             </ul>
@@ -115,7 +116,9 @@ export default class OmenAndMomentOfClarity extends Analyzer {
           <div className="value">
             <Icon icon="spell_shadow_shadowworddominate" />{' '}
             {this.owner.getPerMinute(this.totalEnergy).toFixed(1)}
-            <small> energy per minute</small>
+            <small>
+              <Trans id="druid.feral.omen.energy_per_min"> energy per minute</Trans>
+            </small>
           </div>
         </div>
       </Statistic>

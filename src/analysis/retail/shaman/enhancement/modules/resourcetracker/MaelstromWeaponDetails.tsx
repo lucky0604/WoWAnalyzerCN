@@ -1,4 +1,5 @@
 import Analyzer from 'parser/core/Analyzer';
+import { Trans } from '@lingui/react/macro';
 import MaelstromWeaponTracker from './MaelstromWeaponTracker';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
@@ -21,14 +22,28 @@ class MaelstromWeaponDetails extends Analyzer {
         position={STATISTIC_ORDER.CORE()}
         tooltip={
           <ul>
-            <li>{this.maelstromWeaponTracker.generated} stacks gained</li>
-            <li>{this.maelstromWeaponTracker.wasted} stacks wasted</li>
-            <li>{spentPerSecond.toFixed(2)} spent per second</li>
+            <li>
+              <Trans id="shaman.enhancement.maelstrom.gained">
+                {this.maelstromWeaponTracker.generated} stacks gained
+              </Trans>
+            </li>
+            <li>
+              <Trans id="shaman.enhancement.maelstrom.wasted">
+                {this.maelstromWeaponTracker.wasted} stacks wasted
+              </Trans>
+            </li>
+            <li>
+              <Trans id="shaman.enhancement.maelstrom.spent_ps">
+                {spentPerSecond.toFixed(2)} spent per second
+              </Trans>
+            </li>
           </ul>
         }
       >
         <BoringSpellValueText spell={SPELLS.MAELSTROM_WEAPON_BUFF}>
-          {gainedPerSecond.toFixed(2)} <small>stacks per second</small>
+          <Trans id="shaman.enhancement.maelstrom.gained_ps">
+            {gainedPerSecond.toFixed(2)} <small>stacks per second</small>
+          </Trans>
         </BoringSpellValueText>
       </Statistic>
     );

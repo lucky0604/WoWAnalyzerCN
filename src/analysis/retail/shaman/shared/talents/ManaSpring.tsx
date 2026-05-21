@@ -1,4 +1,5 @@
 import SPELLS from 'common/SPELLS';
+import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import { formatNumber } from 'common/format';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -75,7 +76,7 @@ class ManaSpring extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            Mana restored:
+            <Trans id="shaman.shared.manaspring.restored">Mana restored:</Trans>
             <ul>
               {Object.values(this.regenPerTarget).map((p) => {
                 return (
@@ -86,10 +87,17 @@ class ManaSpring extends Analyzer {
                 );
               })}
             </ul>
-            Mana Wasted: <ManaIcon /> {formatNumber(this.wasted)} wasted
+            <Trans id="shaman.shared.manaspring.wasted">Mana Wasted:</Trans> <ManaIcon />{' '}
+            <Trans id="shaman.shared.manaspring.wasted_amount">
+              {formatNumber(this.wasted)} wasted
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <small>Only mana restored to healers and arcane mages is included.</small>
+            <small>
+              <Trans id="shaman.shared.manaspring.note">
+                Only mana restored to healers and arcane mages is included.
+              </Trans>
+            </small>
           </>
         }
       >

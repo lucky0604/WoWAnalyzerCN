@@ -10,6 +10,8 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import { TALENTS_SHAMAN } from 'common/TALENTS';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/macro';
 
 export const FLAMESHOCK_BASE_DURATION = 18000;
 
@@ -78,10 +80,20 @@ class FlameShock extends EarlyDotRefreshesAnalyzer {
 
   statistic() {
     return (
-      <Statistic position={STATISTIC_ORDER.CORE()} size="flexible" tooltip="Flame Shock Uptime">
+      <Statistic
+        position={STATISTIC_ORDER.CORE()}
+        size="flexible"
+        tooltip={t({
+          id: 'shaman.shared.flameshock.uptime_tooltip',
+          message: 'Flame Shock Uptime',
+        })}
+      >
         <BoringSpellValueText spell={SPELLS.FLAME_SHOCK}>
           <>
-            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>uptime</small>
+            <UptimeIcon /> {formatPercentage(this.uptime)}%{' '}
+            <small>
+              <Trans id="shaman.shared.flameshock.uptime_label">uptime</Trans>
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS/monk';
 import { formatNumber } from 'common/format';
 import TALENTS_MONK from 'common/TALENTS/monk';
 import { SpellIcon, SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
@@ -243,8 +244,8 @@ class Zenith extends Analyzer.withDependencies({
     );
 
     const chiLabel = this.hasObsidianSpiral
-      ? defineMessage({ id: 'monk.windwalker.zenith.chi_label', message: 'Chi generated with Obsidian Spiral' })
-      : defineMessage({
+      ? t({ id: 'monk.windwalker.zenith.chi_label', message: 'Chi generated with Obsidian Spiral' })
+      : t({
           id: 'monk.windwalker.zenith.chi_label_potential',
           message: 'Chi that would have been generated with Obsidian Spiral',
         });

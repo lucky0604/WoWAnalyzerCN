@@ -8,6 +8,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import RisingSunKick from './RisingSunKick';
 import { SpellLink, TooltipElement } from 'interface';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { getCurrentRSKTalent } from '../../constants';
 import { Talent } from 'common/TALENTS/types';
 import RushingWindKick from './RushingWindKick';
@@ -47,9 +48,9 @@ class TimeBetweenRSKs extends Analyzer {
 
   get averageTimeBetweenRSKSeconds() {
     if (this.totalRSKCasts === 0) {
-      return defineMessage({ id: 'monk.mistweaver.time_between_rsks.not_cast', message: 'Rising Sun Kick was not cast' });
+      return t({ id: 'monk.mistweaver.time_between_rsks.not_cast', message: 'Rising Sun Kick was not cast' });
     } else if (this.totalRSKCasts === 1) {
-      return defineMessage({ id: 'monk.mistweaver.time_between_rsks.cast_once', message: 'Rising Sun Kick was only cast once' });
+      return t({ id: 'monk.mistweaver.time_between_rsks.cast_once', message: 'Rising Sun Kick was only cast once' });
     } else {
       return (this.rskWindow / 1000 / (this.totalRSKCasts - 1)).toFixed(2) + `s`;
     }

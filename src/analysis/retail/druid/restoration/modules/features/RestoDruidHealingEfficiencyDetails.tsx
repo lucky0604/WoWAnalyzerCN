@@ -13,14 +13,14 @@ class RestoDruidHealingEfficiencyDetails extends HealingEfficiencyDetails {
       <Panel
         title={<Trans id="shared.healingEfficiency.title">Mana Efficiency</Trans>}
         explanation={
-          <>
+          <Trans id="restoration.healing_efficiency.explanation">
             These stats include only your hardcasts - procs and casts due to{' '}
             <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> are not included in this chart. <br />
             Additional healing enabled by a HoT's mastery stack ARE counted here, but further
             implications of the cast (like a{' '}
             <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} /> proc from
             Swiftmend) are not counted.
-          </>
+          </Trans>
         }
         position={120}
       >

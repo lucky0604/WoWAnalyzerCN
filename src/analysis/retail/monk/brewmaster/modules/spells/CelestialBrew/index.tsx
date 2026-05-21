@@ -220,25 +220,23 @@ class CelestialBrew extends MajorDefensiveBuff {
     if (absorb.wastedAmount / absorb.maxAmount > 1 - WASTED_THRESHOLD) {
       return {
         perf: QualitativePerformance.Ok,
-        explanation: defineMessage({
+        explanation: t({
           id: 'monk.brewmaster.celestial_brew.perf.expired',
-          message: `Shield expired with at least {pct}% remaining`,
-          pct: formatPercentage(WASTED_THRESHOLD),
-        } as unknown),
+          message: `Shield expired with at least ${formatPercentage(WASTED_THRESHOLD)}% remaining`,
+        }),
       };
     } else if (absorb.wastedAmount / absorb.maxAmount > 1 - GOOD_THRESHOLD) {
       return {
         perf: QualitativePerformance.Good,
-        explanation: defineMessage({
+        explanation: t({
           id: 'monk.brewmaster.celestial_brew.perf.consumed_part',
-          message: `At least {pct} of the shield was consumed`,
-          pct: formatPercentage(GOOD_THRESHOLD),
-        } as unknown),
+          message: `At least ${formatPercentage(GOOD_THRESHOLD)} of the shield was consumed`,
+        }),
       };
     } else if (absorb.wastedAmount === 0) {
       return {
         perf: QualitativePerformance.Perfect,
-        explanation: defineMessage({
+        explanation: t({
           id: 'monk.brewmaster.celestial_brew.perf.consumed_all',
           message: 'The entire shield was consumed',
         }),

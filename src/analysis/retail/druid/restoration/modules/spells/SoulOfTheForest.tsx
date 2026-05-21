@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -191,7 +193,7 @@ class SoulOfTheForest extends Analyzer {
 
     if (event.type === EventType.RefreshBuff) {
       if (this.lastBuffFromHardcast) {
-        useText = 'Overwritten';
+        useText = t({ id: 'restoration.sotf.overwritten', message: 'Overwritten' });
         value = QualitativePerformance.Fail;
       }
       this.lastBuffFromHardcast = false;
@@ -205,7 +207,7 @@ class SoulOfTheForest extends Analyzer {
       }
 
       if (buffed.length === 0) {
-        useText = 'Expired';
+        useText = t({ id: 'restoration.sotf.expired', message: 'Expired' });
         value = QualitativePerformance.Fail;
         this.wastedBuffs += 1;
       } else {
@@ -225,8 +227,8 @@ class SoulOfTheForest extends Analyzer {
           if (incompletePota) {
             useText = (
               <>
-                <SpellLink spell={SPELLS.REJUVENATION} /> - fewer than 2{' '}
-                <SpellLink spell={TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT} /> extra HoTs
+                <SpellLink spell={SPELLS.REJUVENATION} />{' '}
+                {t({ id: 'restoration.sotf.pota_fail_extra_hots', message: '- fewer than 2 extra HoTs' })}
               </>
             );
             value = QualitativePerformance.Fail;
@@ -238,8 +240,8 @@ class SoulOfTheForest extends Analyzer {
           if (incompletePota) {
             useText = (
               <>
-                <SpellLink spell={SPELLS.REGROWTH} /> - fewer than 2{' '}
-                <SpellLink spell={TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT} /> extra HoTs
+                <SpellLink spell={SPELLS.REGROWTH} />{' '}
+                {t({ id: 'restoration.sotf.pota_fail_extra_hots', message: '- fewer than 2 extra HoTs' })}
               </>
             );
             value = QualitativePerformance.Fail;
@@ -304,24 +306,26 @@ class SoulOfTheForest extends Analyzer {
 
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} />
-        </strong>{' '}
-        procs should be consumed with <SpellLink spell={SPELLS.REJUVENATION} /> or{' '}
-        <SpellLink spell={SPELLS.REGROWTH} />.{' '}
-        {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
-          <>
-            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> can overwrite procs - always use your proc
-            before casting Convoke. Never let a proc expire.
-          </>
-        )}
-        {hasPota && (
-          <>
-            {' '}
-            With <SpellLink spell={TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT} />, make sure your
-            target is within 20 yards of at least 2 other allies when consuming a proc.
-          </>
-        )}
+        <Trans id="restoration.sotf.explanation">
+          <strong>
+            <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} />
+          </strong>{' '}
+          procs should be consumed with <SpellLink spell={SPELLS.REJUVENATION} /> or{' '}
+          <SpellLink spell={SPELLS.REGROWTH} />.{' '}
+          {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
+            <>
+              <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> can overwrite procs - always use your proc
+              before casting Convoke. Never let a proc expire.
+            </>
+          )}
+          {hasPota && (
+            <>
+              {' '}
+              With <SpellLink spell={TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT} />, make sure your
+              target is within 20 yards of at least 2 other allies when consuming a proc.
+            </>
+          )}
+        </Trans>
       </p>
     );
 
@@ -331,15 +335,15 @@ class SoulOfTheForest extends Analyzer {
           spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT}
           castEntries={this.useEntries}
           usesInsteadOfCasts
-          goodExtraExplanation={<>used on Rejuvenation or Regrowth</>}
+          goodExtraExplanation={t({ id: 'restoration.sotf.good_extra_explanation', message: 'used on Rejuvenation or Regrowth' })}
           badExtraExplanation={
             hasPota ? (
-              <>
+              <Trans id="restoration.sotf.bad_extra_explanation_pota">
                 proc expired, was overwritten, or created less than 2 extra HoTs from Power of the
                 Archdruid
-              </>
+              </Trans>
             ) : (
-              <>proc expired or was overwritten</>
+              <Trans id="restoration.sotf.bad_extra_explanation_base">proc expired or was overwritten</Trans>
             )
           }
         />
@@ -351,20 +355,20 @@ class SoulOfTheForest extends Analyzer {
 
   _spellReportLine(totalUses: number, hardcastUses: number, healing: number): React.ReactNode {
     return this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) ? (
-      <>
+      <Trans id="restoration.sotf.report_line_convoke">
         {' '}
         consumed <strong>{hardcastUses}</strong> hardcast /{' '}
         <strong>{totalUses - hardcastUses}</strong> convoke :{' '}
         <strong>{formatPercentage(this.owner.getPercentageOfTotalHealingDone(healing), 1)}%</strong>{' '}
         healing
-      </>
+      </Trans>
     ) : (
-      <>
+      <Trans id="restoration.sotf.report_line_base">
         {' '}
         consumed <strong>{totalUses}</strong> procs :{' '}
         <strong>{formatPercentage(this.owner.getPercentageOfTotalHealingDone(healing), 1)}%</strong>{' '}
         healing
-      </>
+      </Trans>
     );
   }
 
@@ -376,9 +380,13 @@ class SoulOfTheForest extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            You used <strong>{this.totalUses}</strong> Soul of the Forest procs.
+            <Trans id="restoration.sotf.statistic_tooltip_p1">
+              You used <strong>{this.totalUses}</strong> Soul of the Forest procs.
+            </Trans>
             <br />
-            Wasted (expired): <strong>{this.wastedBuffs}</strong>
+            <Trans id="restoration.sotf.statistic_tooltip_wasted">
+              Wasted (expired): <strong>{this.wastedBuffs}</strong>
+            </Trans>
             <ul>
               <li>
                 <SpellLink spell={SPELLS.REJUVENATION} />

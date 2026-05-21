@@ -1,4 +1,6 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Options } from 'parser/core/Module';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
@@ -130,21 +132,28 @@ export default class Lunation extends Analyzer.withDependencies({ spellUsable: S
         tooltip={
           <>
             <p>
-              This is the cooldown reduction per <SpellLink spell={this.spell} /> cast, averaged
-              over the entire encounter. The total effective CDR over the entire encounter was{' '}
-              <strong>{(this.totalCdrMs / 1000).toFixed(0)}s</strong>.
+              <Trans id="druid.shared.lunation.avg_cdr_tooltip_p1">
+                This is the cooldown reduction per <SpellLink spell={this.spell} /> cast, averaged
+                over the entire encounter. The total effective CDR over the entire encounter was{' '}
+                <strong>{(this.totalCdrMs / 1000).toFixed(0)}s</strong>.
+              </Trans>
             </p>
             <p>
-              The total 'raw' CDR over the entire encounter (including Arcane spells cast while{' '}
-              <SpellLink spell={this.spell} /> was not on CD) was{' '}
-              <strong>{(this.totalRawCdr / 1000).toFixed(0)}s</strong>.
+              <Trans id="druid.shared.lunation.avg_cdr_tooltip_p2">
+                The total 'raw' CDR over the entire encounter (including Arcane spells cast while{' '}
+                <SpellLink spell={this.spell} /> was not on CD) was{' '}
+                <strong>{(this.totalRawCdr / 1000).toFixed(0)}s</strong>.
+              </Trans>
             </p>
           </>
         }
       >
         <TalentSpellText talent={TALENTS_DRUID.LUNATION_TALENT}>
           <>
-            <SpellIcon spell={this.spell} /> {this.cdrPerCast} <small>avg CDR per cast</small>
+            <SpellIcon spell={this.spell} /> {this.cdrPerCast}{' '}
+            <small>
+              <Trans id="druid.shared.lunation.avg_cdr_per_cast">avg CDR per cast</Trans>
+            </small>
           </>
         </TalentSpellText>
       </Statistic>

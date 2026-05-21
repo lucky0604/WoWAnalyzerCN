@@ -1,4 +1,5 @@
 import { formatNumber } from 'common/format';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink, Tooltip } from 'interface';
 import { PassFailCheckmark } from 'interface/guide';
@@ -71,49 +72,63 @@ class Tranquility extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={SPELLS.TRANQUILITY_CAST} />
-          </strong>{' '}
-          is your most powerful raid healing cooldown. You should line it up with the most dangerous
-          moments of the fight, and in many raids you'll be assigned to use it at specific timings.
+          <Trans id="restoration.tranquility.explanation_p1">
+            <strong>
+              <SpellLink spell={SPELLS.TRANQUILITY_CAST} />
+            </strong>{' '}
+            is your most powerful raid healing cooldown. You should line it up with the most dangerous
+            moments of the fight, and in many raids you'll be assigned to use it at specific timings.
+          </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.FLOURISH_TALENT) && (
           <>
             <p>
-              In Midnight, <strong>Flourish is passive on Tranquility</strong>. Each Tranquility
-              tick extends active HoTs by 2 seconds (up to 10 seconds overall), so the value of
-              every cast depends heavily on how many HoTs are active when you start channeling.
+              <Trans id="restoration.tranquility.explanation_p2">
+                In Midnight, <strong>Flourish is passive on Tranquility</strong>. Each Tranquility
+                tick extends active HoTs by 2 seconds (up to 10 seconds overall), so the value of
+                every cast depends heavily on how many HoTs are active when you start channeling.
+              </Trans>
             </p>
             <p>
-              In the lead-up to Tranquility, prioritize setting up as many{' '}
-              <SpellLink spell={SPELLS.REJUVENATION} />s as possible, then cast{' '}
-              <SpellLink spell={SPELLS.SWIFTMEND} />, one more{' '}
-              <SpellLink spell={SPELLS.REJUVENATION} />, and a{' '}
-              <SpellLink spell={SPELLS.WILD_GROWTH} /> before channeling Tranquility. After the
-              channel starts, use the extended HoT window to cast as many{' '}
-              <SpellLink spell={SPELLS.REGROWTH} />s as needed.
+              <Trans id="restoration.tranquility.explanation_p3">
+                In the lead-up to Tranquility, prioritize setting up as many{' '}
+                <SpellLink spell={SPELLS.REJUVENATION} />s as possible, then cast{' '}
+                <SpellLink spell={SPELLS.SWIFTMEND} />, one more{' '}
+                <SpellLink spell={SPELLS.REJUVENATION} />, and a{' '}
+                <SpellLink spell={SPELLS.WILD_GROWTH} /> before channeling Tranquility. After the
+                channel starts, use the extended HoT window to cast as many{' '}
+                <SpellLink spell={SPELLS.REGROWTH} />s as needed.
+              </Trans>
             </p>
           </>
         )}
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT) && (
           <p>
-            If you are talented into{' '}
-            <SpellLink spell={TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT} />, it's often worth
-            combining it with Tranquility, since channeling Tranquility pauses the remaining
-            duration of your Tree buff.
+            <Trans id="restoration.tranquility.explanation_p4">
+              If you are talented into{' '}
+              <SpellLink spell={TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT} />, it's often worth
+              combining it with Tranquility, since channeling Tranquility pauses the remaining
+              duration of your Tree buff.
+            </Trans>
           </p>
         )}
         <p>
-          Watch your positioning before casting so you can complete the full channel without moving
-          and avoid clipping ticks at the end.
+          <Trans id="restoration.tranquility.explanation_p5">
+            Watch your positioning before casting so you can complete the full channel without moving
+            and avoid clipping ticks at the end.
+          </Trans>
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="restoration.tranquility.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="restoration.tranquility.click_expand"> - click to expand</Trans>
+        </small>
         {this.tranqCasts.map((cast, ix) => {
           const header = (
             <>
@@ -134,34 +149,44 @@ class Tranquility extends Analyzer {
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
             label: (
-              <>
+              <Trans id="restoration.tranquility.wg_ramp">
                 <SpellLink spell={SPELLS.WILD_GROWTH} /> ramp
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
-            details: <>({cast.wgsOnCast} HoTs active)</>,
+            details: (
+              <Trans id="restoration.tranquility.wg_active">
+                ({cast.wgsOnCast} HoTs active)
+              </Trans>
+            ),
           });
           checklistItems.push({
             label: (
-              <>
+              <Trans id="restoration.tranquility.rejuv_ramp">
                 <SpellLink spell={SPELLS.REJUVENATION} /> ramp
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={rejuvRamp} />,
-            details: <>({cast.rejuvsOnCast} HoTs active)</>,
+            details: (
+              <Trans id="restoration.tranquility.rejuv_active">
+                ({cast.rejuvsOnCast} HoTs active)
+              </Trans>
+            ),
           });
           checklistItems.push({
             label: (
               <>
-                Channeled full duration{' '}
+                <Trans id="restoration.tranquility.channeled_full_duration">
+                  Channeled full duration
+                </Trans>{' '}
                 <Tooltip
                   hoverable
                   content={
-                    <>
+                    <Trans id="restoration.tranquility.channeled_full_duration_tooltip">
                       Every tick of Tranquility is very powerful - plan ahead so you're in a
                       position to channel it for its full duration, and be careful not to clip ticks
                       at the end.
-                    </>
+                    </Trans>
                   }
                 >
                   <span>
@@ -172,15 +197,15 @@ class Tranquility extends Analyzer {
             ),
             result: <PassFailCheckmark pass={channeledMaxTicks} />,
             details: (
-              <>
+              <Trans id="restoration.tranquility.ticks_count">
                 ({cast.channeledTicks} / {MAX_TRANQ_TICKS} ticks)
-              </>
+              </Trans>
             ),
           });
 
           const detailItems: CooldownExpandableItem[] = [];
           detailItems.push({
-            label: 'Direct Healing',
+            label: <Trans id="restoration.tranquility.direct_healing_label">Direct Healing</Trans>,
             result: '',
             details: <>{formatNumber(cast.directHealing)}</>,
           });

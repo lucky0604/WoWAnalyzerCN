@@ -216,7 +216,9 @@ class EarthenAccord extends Analyzer {
         <aside className="pad">
           <hr />
           <header>
-            <label>Earthen Accord Healing Sources</label>
+            <label>
+              <Trans id="shaman.restoration.earthen_accord.sources">Earthen Accord Healing Sources</Trans>
+            </label>
           </header>
           {this.earthenAccordCastRatioChart}
         </aside>

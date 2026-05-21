@@ -45,8 +45,8 @@ class ChiDetails extends Analyzer {
     };
   }
 
-  suggestions(when: unknown) {
-    when(this.suggestionThresholds).addSuggestion((suggest: unknown, actual: unknown, recommended: unknown) =>
+  suggestions(when: any) {
+    when(this.suggestionThresholds).addSuggestion((suggest: any, actual: any, recommended: any) =>
       suggest(
         defineMessage({
           id: 'monk.windwalker.chi_details.suggest',
@@ -60,7 +60,7 @@ class ChiDetails extends Analyzer {
             message: `${this.chiWasted} Chi wasted (${actual.toFixed(2)} per minute)`,
             wasted: this.chiWasted,
             perMinute: actual.toFixed(2),
-          } as unknown),
+          } as any),
         )
         .recommended(`${recommended} Chi wasted is recommended`),
     );

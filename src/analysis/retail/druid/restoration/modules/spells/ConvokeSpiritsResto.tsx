@@ -1,4 +1,5 @@
 import { ConvokeSpirits } from 'analysis/retail/druid/shared';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink, Tooltip } from 'interface';
@@ -142,33 +143,39 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
 
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
-        </strong>{' '}
-        is a major healing moment in raid. Cast <SpellLink spell={SPELLS.REJUVENATION} /> before
-        Convoke so you can get better value from your HoTs during and after the cast.{' '}
-        {hasCenariusGuidance && hasFlourish && (
-          <>
-            Due to <SpellLink spell={TALENTS_DRUID.CENARIUS_GUIDANCE_TALENT} />, it also has a 50%
-            chance of proccing <SpellLink spell={TALENTS_DRUID.TRANQUILITY_TALENT} />. If you have
-            <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} /> talented, this Tranquility tick will
-            extend all HoTs by 2 seconds.
-          </>
-        )}{' '}
-        A lot of your gameplay revolves around ramping into either{' '}
-        <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> or{' '}
-        <SpellLink spell={SPELLS.TRANQUILITY_CAST} />. Follow each Convoke with{' '}
-        <SpellLink spell={SPELLS.REGROWTH} /> casts regardless of whether you proc an extension.
-        Convoke also generates significant Grove Guardian value because included{' '}
-        <SpellLink spell={SPELLS.WILD_GROWTH} /> and <SpellLink spell={SPELLS.SWIFTMEND} /> casts
-        can each produce one.
+        <Trans id="restoration.convoke.explanation_p1">
+          <strong>
+            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
+          </strong>{' '}
+          is a major healing moment in raid. Cast <SpellLink spell={SPELLS.REJUVENATION} /> before
+          Convoke so you can get better value from your HoTs during and after the cast.{' '}
+          {hasCenariusGuidance && hasFlourish && (
+            <>
+              Due to <SpellLink spell={TALENTS_DRUID.CENARIUS_GUIDANCE_TALENT} />, it also has a 50%
+              chance of proccing <SpellLink spell={TALENTS_DRUID.TRANQUILITY_TALENT} />. If you have
+              <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} /> talented, this Tranquility tick will
+              extend all HoTs by 2 seconds.
+            </>
+          )}{' '}
+          A lot of your gameplay revolves around ramping into either{' '}
+          <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> or{' '}
+          <SpellLink spell={SPELLS.TRANQUILITY_CAST} />. Follow each Convoke with{' '}
+          <SpellLink spell={SPELLS.REGROWTH} /> casts regardless of whether you proc an extension.
+          Convoke also generates significant Grove Guardian value because included{' '}
+          <SpellLink spell={SPELLS.WILD_GROWTH} /> and <SpellLink spell={SPELLS.SWIFTMEND} /> casts
+          can each produce one.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="restoration.convoke.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="restoration.convoke.click_expand"> - click to expand</Trans>
+        </small>
         {this.convokeTracker.map((cast, ix) => {
           const restoCast = this.restoConvokeTracker[ix];
           const castTotalHealing =
@@ -195,37 +202,47 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
             label: (
-              <>
+              <Trans id="restoration.convoke.wg_ramp">
                 <SpellLink spell={SPELLS.WILD_GROWTH} /> ramp
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
-            details: <>({restoCast.wgsOnCast} HoTs active)</>,
+            details: (
+              <Trans id="restoration.convoke.wg_active">
+                ({restoCast.wgsOnCast} HoTs active)
+              </Trans>
+            ),
           });
           checklistItems.push({
             label: (
-              <>
+              <Trans id="restoration.convoke.rejuv_ramp">
                 <SpellLink spell={SPELLS.REJUVENATION} /> ramp
-              </>
+              </Trans>
             ),
             result: <PassFailCheckmark pass={rejuvRamp} />,
-            details: <>({restoCast.rejuvsOnCast} HoTs active)</>,
+            details: (
+              <Trans id="restoration.convoke.rejuv_active">
+                ({restoCast.rejuvsOnCast} HoTs active)
+              </Trans>
+            ),
           });
           hasReforestation &&
             checklistItems.push({
               label: (
                 <>
-                  Sync with <SpellLink spell={TALENTS_DRUID.REFORESTATION_TALENT} />{' '}
+                  <Trans id="restoration.convoke.sync_reforestation">
+                    Sync with <SpellLink spell={TALENTS_DRUID.REFORESTATION_TALENT} />
+                  </Trans>{' '}
                   <Tooltip
                     hoverable
                     content={
-                      <>
+                      <Trans id="restoration.convoke.sync_reforestation_tooltip">
                         <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
                         's power is greatly increased when in Tree of Life form. With the{' '}
                         <SpellLink spell={TALENTS_DRUID.REFORESTATION_TALENT} /> talent, you can
                         reasonably get a proc about once every minute, so it is recommended to sync
                         your procs with Convoke.
-                      </>
+                      </Trans>
                     }
                   >
                     <span>
@@ -273,9 +290,15 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             {this.baseTooltip}
             <br />
             <br />
-            Healing amount is attributed by tracking the healing spells cast by Convoke
-            {hasCenariusGuidance && ', including possible Flourish Tranquility procs'}. This amount
-            includes mastery benefit from the proceed HoTs.
+            {hasCenariusGuidance ? (
+              <Trans id="restoration.convoke.tooltip_with_cg">
+                Healing amount is attributed by tracking the healing spells cast by Convoke, including possible Flourish Tranquility procs. This amount includes mastery benefit from the procced HoTs.
+              </Trans>
+            ) : (
+              <Trans id="restoration.convoke.tooltip_without_cg">
+                Healing amount is attributed by tracking the healing spells cast by Convoke. This amount includes mastery benefit from the procced HoTs.
+              </Trans>
+            )}
           </>
         }
         dropdown={
@@ -283,11 +306,21 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Cast #</th>
-                  <th>Time</th>
-                  <th>Form</th>
-                  <th>Healing</th>
-                  <th>Spells In Cast</th>
+                  <th>
+                    <Trans id="restoration.convoke.cast_num">Cast #</Trans>
+                  </th>
+                  <th>
+                    <Trans id="restoration.convoke.time_header">Time</Trans>
+                  </th>
+                  <th>
+                    <Trans id="restoration.convoke.form_header">Form</Trans>
+                  </th>
+                  <th>
+                    <Trans id="restoration.convoke.healing_header">Healing</Trans>
+                  </th>
+                  <th>
+                    <Trans id="restoration.convoke.spells_in_cast_header">Spells In Cast</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>

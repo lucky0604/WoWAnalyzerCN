@@ -1,4 +1,6 @@
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
@@ -125,11 +127,11 @@ class Swiftmend extends Analyzer {
       }
 
       if (extendedHotIds.length === 0) {
-        hotChangeText = 'extended Nothing!';
+        hotChangeText = t({ id: 'restoration.swiftmend.extended_nothing', message: 'extended Nothing!' });
       } else {
         hotChangeText = (
           <>
-            extended{' '}
+            {t({ id: 'restoration.swiftmend.extended', message: 'extended' })}{' '}
             <strong>
               {extendedHotIds.map((id, index) => (
                 <Fragment key={id}>
@@ -179,18 +181,20 @@ class Swiftmend extends Analyzer {
 
       hotChangeText = (
         <>
-          removed{' '}
+          {t({ id: 'restoration.swiftmend.removed', message: 'removed' })}{' '}
           <strong>
             {removedHotHeal ? (
               <SpellLink spell={abilityToSpell(removedHotHeal.ability)} />
             ) : (
-              'unknown HoT'
+              t({ id: 'restoration.swiftmend.unknown_hot', message: 'unknown HoT' })
             )}
           </strong>
           {rejuvRemainingMs !== undefined && (
             <>
               {' '}
-              w/ <strong>{(rejuvRemainingMs / 1000).toFixed(1)}s</strong> remaining
+              {t({ id: 'restoration.swiftmend.with', message: 'w/' })}{' '}
+              <strong>{(rejuvRemainingMs / 1000).toFixed(1)}s</strong>{' '}
+              {t({ id: 'restoration.swiftmend.remaining', message: 'remaining' })}
             </>
           )}
         </>
@@ -201,8 +205,11 @@ class Swiftmend extends Analyzer {
       <>
         @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
         <br />
-        targetting <strong>{target.name}</strong> w/ <strong>{targetHealthPercentText}%</strong>{' '}
-        health
+        {t({ id: 'restoration.swiftmend.targetting', message: 'targetting' })}{' '}
+        <strong>{target.name}</strong>{' '}
+        {t({ id: 'restoration.swiftmend.with_health', message: 'w/' })}{' '}
+        <strong>{targetHealthPercentText}%</strong>{' '}
+        {t({ id: 'restoration.swiftmend.health', message: 'health' })}
         <br />
         {hotChangeText}
       </>
@@ -223,23 +230,29 @@ class Swiftmend extends Analyzer {
     }
 
     const baseText = this.hasVi ? (
-      <>
+      <Trans id="restoration.swiftmend.base_text_vi">
         is our spot heal that extends all HoTs on its target due to{' '}
         <SpellLink spell={TALENTS_DRUID.VERDANT_INFUSION_TALENT} />. Try to cast on your{' '}
         <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} /> target to reduce manual Lifebloom
         re-applications.
-      </>
+      </Trans>
     ) : (
-      <>
+      <Trans id="restoration.swiftmend.base_text_no_vi">
         is our spot heal that removes a HoT on its target, slightly hurting overall throughput. Aim
         to consume a Wild Growth or low duration Rejuvenation. Regrowth is acceptable, but avoid
         consuming high duration Rejuvenations.
-      </>
+      </Trans>
     );
 
     const cooldownText = this.hasVi
-      ? ` Aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: `
-      : ` You should still aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: `;
+      ? t({
+          id: 'restoration.swiftmend.cooldown_text_vi',
+          message: ' Aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: ',
+        })
+      : t({
+          id: 'restoration.swiftmend.cooldown_text_no_vi',
+          message: ' You should still aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: ',
+        });
 
     const explanation = (
       <>
@@ -259,7 +272,7 @@ class Swiftmend extends Analyzer {
               ))}
             </>
           )}
-          {this.numProcs === 0 && `Use only on targets who need urgent healing.`}
+          {this.numProcs === 0 && t({ id: 'restoration.swiftmend.use_only_urgent', message: 'Use only on targets who need urgent healing.' })}
         </p>
       </>
     );
@@ -271,12 +284,12 @@ class Swiftmend extends Analyzer {
     let badExtraExplanation = undefined;
     if (this.hasVi) {
       // has VI
-      perfectExtraExplanation = `extended high value HoTs`;
+      perfectExtraExplanation = t({ id: 'restoration.swiftmend.perf_vi_perfect', message: 'extended high value HoTs' });
     }
     if (!this.hasVi) {
-      goodExtraExplanation = `consumed a Wild Growth/low duration Rejuvenation, or was a triage cast`;
-      okExtraExplanation = `consumed a Regrowth`;
-      badExtraExplanation = `consumed a high duration Rejuvenation`;
+      goodExtraExplanation = t({ id: 'restoration.swiftmend.perf_no_vi_good', message: 'consumed a Wild Growth/low duration Rejuvenation, or was a triage cast' });
+      okExtraExplanation = t({ id: 'restoration.swiftmend.perf_no_vi_ok', message: 'consumed a Regrowth' });
+      badExtraExplanation = t({ id: 'restoration.swiftmend.perf_no_vi_bad', message: 'consumed a high duration Rejuvenation' });
     }
 
     const data = (

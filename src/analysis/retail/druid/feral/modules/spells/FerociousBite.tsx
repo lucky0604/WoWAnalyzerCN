@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -69,7 +71,11 @@ class FerociousBite extends Analyzer {
     if (cpsUsed < currAcceptableCps) {
       value = QualitativePerformance.Fail;
       perfExplanation = (
-        <h5 style={{ color: BadColor }}>Bad because you used less than {currAcceptableCps} CPs</h5>
+        <h5 style={{ color: BadColor }}>
+          <Trans id="druid.feral.fb.low_cps_perf_explanation">
+            Bad because you used less than {currAcceptableCps} CPs
+          </Trans>
+        </h5>
       );
       addInefficientCastReason(
         event,
@@ -79,7 +85,9 @@ class FerociousBite extends Analyzer {
       value = QualitativePerformance.Ok;
       perfExplanation = (
         <h5 style={{ color: OkColor }}>
-          Questionable because you cast when Rip was close to expiring
+          <Trans id="druid.feral.fb.expiring_rip_perf_explanation">
+            Questionable because you cast when Rip was close to expiring
+          </Trans>
         </h5>
       );
     }
@@ -88,16 +96,20 @@ class FerociousBite extends Analyzer {
       <>
         {perfExplanation}
         <div>
-          @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targetting{' '}
-          <strong>{this.owner.getTargetName(event)}</strong> using <strong>{cpsUsed} CPs</strong>
+          @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>{' '}
+          <Trans id="druid.feral.fb.targeting_with_cps">
+            targetting <strong>{this.owner.getTargetName(event)}</strong> using <strong>{cpsUsed} CPs</strong>
+          </Trans>
         </div>
         <div>
           {timeLeftOnRip === 0 ? (
-            <strong>No Rip on target!</strong>
+            <strong>
+              <Trans id="druid.feral.fb.no_rip">No Rip on target!</Trans>
+            </strong>
           ) : (
-            <>
+            <Trans id="druid.feral.fb.rip_time_remaining">
               Time remaining on Rip: <strong>{(timeLeftOnRip / 1000).toFixed(1)}s</strong>
-            </>
+            </Trans>
           )}
         </div>
       </>
@@ -115,12 +127,14 @@ class FerociousBite extends Analyzer {
       this.selectedCombatant.hasTalent(TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT);
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.FEROCIOUS_BITE} />
-        </strong>{' '}
-        is your direct damage finisher. Use it when you've already applied Rip to enemies. Use Bite
-        with at least {MIN_ACCEPTABLE_CPS} CPs, or {MIN_ACCEPTABLE_CPS + 1}+ during{' '}
-        <SpellLink spell={SPELLS.BERSERK_CAT} />.
+        <Trans id="druid.feral.fb.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.FEROCIOUS_BITE} />
+          </strong>{' '}
+          is your direct damage finisher. Use it when you've already applied Rip to enemies. Use Bite
+          with at least {MIN_ACCEPTABLE_CPS} CPs, or {MIN_ACCEPTABLE_CPS + 1}+ during{' '}
+          <SpellLink spell={SPELLS.BERSERK_CAT} />.
+        </Trans>
       </p>
     );
 
@@ -128,16 +142,18 @@ class FerociousBite extends Analyzer {
       <div>
         {hasConvokeOrApex && (
           <p>
-            The below cast evaluations consider only CP spending Bites -{' '}
-            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} /> procs aren't included.
+            <Trans id="druid.feral.fb.procs_omitted_note">
+              The below cast evaluations consider only CP spending Bites -{' '}
+              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> and{' '}
+              <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} /> procs aren't included.
+            </Trans>
           </p>
         )}
         <CastSummaryAndBreakdown
           spell={SPELLS.FEROCIOUS_BITE}
           castEntries={this.castEntries}
-          okExtraExplanation={<>used on target with low duration Rip</>}
-          badExtraExplanation={<>low CPs</>}
+          okExtraExplanation={<Trans id="druid.feral.fb.ok_reason">used on target with low duration Rip</Trans>}
+          badExtraExplanation={<Trans id="druid.feral.fb.bad_reason">low CPs</Trans>}
         />
       </div>
     );
