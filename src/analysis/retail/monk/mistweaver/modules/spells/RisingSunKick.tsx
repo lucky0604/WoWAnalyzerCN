@@ -13,6 +13,7 @@ import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import { getCurrentRSKTalent } from '../../constants';
 import { Talent } from 'common/TALENTS/types';
 
+import { Trans } from '@lingui/react/macro';
 const CAST_BUFFER_MS = 250;
 
 class RisingSunKick extends Analyzer {
@@ -79,17 +80,19 @@ class RisingSunKick extends Analyzer {
         <b>
           <SpellLink spell={this.currentRskTalent} />
         </b>{' '}
-        is one of your primary damaging spells but is also your highest priority healing spell
-        (alongside <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />) due to its synergy with{' '}
-        <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />
-        {this.selectedCombatant.hasTalent(TALENTS_MONK.POOL_OF_MISTS_TALENT) && (
-          <>
-            , <SpellLink spell={TALENTS_MONK.POOL_OF_MISTS_TALENT} />
-          </>
-        )}
-        , and <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />. Using it as much as
-        possible is essential for maintaining high counts of{' '}
-        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />.
+        <Trans id="monk.mistweaver.risingSunKick.explanation">
+          is one of your primary damaging spells but is also your highest priority healing spell
+          (alongside <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />) due to its synergy with{' '}
+          <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />
+          {this.selectedCombatant.hasTalent(TALENTS_MONK.POOL_OF_MISTS_TALENT) && (
+            <>
+              , <SpellLink spell={TALENTS_MONK.POOL_OF_MISTS_TALENT} />
+            </>
+          )}
+          , and <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />. Using it as much as
+          possible is essential for maintaining high counts of{' '}
+          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />.
+        </Trans>
       </p>
     );
 
@@ -97,7 +100,8 @@ class RisingSunKick extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={this.currentRskTalent} /> cast efficiency
+            <SpellLink spell={this.currentRskTalent} />{' '}
+            <Trans id="monk.mistweaver.risingSunKick.castEfficiency">cast efficiency</Trans>
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>
@@ -123,7 +127,10 @@ class RisingSunKick extends Analyzer {
   subStatistic() {
     return (
       <>
-        {this.rskResets} <small>resets</small>
+        {this.rskResets}{' '}
+        <small>
+          <Trans id="monk.mistweaver.risingSunKick.resets">resets</Trans>
+        </small>
       </>
     );
   }

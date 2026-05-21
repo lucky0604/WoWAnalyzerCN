@@ -8,6 +8,8 @@ import classColor from 'game/classColor';
 import ROLES from 'game/ROLES';
 import SPECS from 'game/SPECS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Events, {
   ApplyBuffEvent,
   FightEndEvent,
@@ -587,18 +589,22 @@ class BuffTargetHelper extends Analyzer {
     }
 
     return (
-      <SubSection title="Buff Helper">
+      <SubSection title={t({ id: 'guide.augmentation.buffHelper.title', message: 'Buff Helper' })}>
         <div className="grid">
           <div>
             <p>
-              This module will help you with finding the optimal buff targets for{' '}
-              <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> and{' '}
-              <SpellLink spell={TALENTS.PRESCIENCE_TALENT} />. It will show you the top 4 DPS for
-              each of your Ebon Might windows. Refreshing Ebon Might is counted as a new window.
+              <Trans id="guide.augmentation.buffHelper.desc1">
+                This module will help you with finding the optimal buff targets for{' '}
+                <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> and{' '}
+                <SpellLink spell={TALENTS.PRESCIENCE_TALENT} />. It will show you the top 4 DPS for
+                each of your Ebon Might windows. Refreshing Ebon Might is counted as a new window.
+              </Trans>
             </p>
             <p>
-              Damage events that doesn't get amplified by your buffs will be ignored. Tanks, Healers
-              and other Augmentations are not included.
+              <Trans id="guide.augmentation.buffHelper.desc2">
+                Damage events that doesn't get amplified by your buffs will be ignored. Tanks,
+                Healers and other Augmentations are not included.
+              </Trans>
             </p>
             {/*             <p>
               This module will also produce a note for{' '}

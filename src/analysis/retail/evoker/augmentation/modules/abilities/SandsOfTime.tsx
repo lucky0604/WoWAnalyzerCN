@@ -10,6 +10,8 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { SpellLink } from 'interface';
 import { combineQualitativePerformances } from 'common/combineQualitativePerformances';
 import ContextualSpellUsageSubSection from 'parser/core/SpellUsage/HideGoodCastsSpellUsageSubSection';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   failedEbonMightExtension,
   failedDuplicateExtension,
@@ -115,26 +117,34 @@ class SandsOfTime extends Analyzer {
           : QualitativePerformance.Fail;
     const summary = (
       <div>
-        Extended with <SpellLink spell={spell} />
+        <Trans id="guide.augmentation.sandsOfTime.extended">
+          Extended with <SpellLink spell={spell} />
+        </Trans>
       </div>
     );
     const details =
       extendedDuplicate && extendedEbonMight ? (
         <div>
-          You extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> and{' '}
-          <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} /> by casting{' '}
-          <SpellLink spell={spell} />. Great job!
+          <Trans id="guide.augmentation.sandsOfTime.extendedBoth">
+            You extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> and{' '}
+            <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} /> by casting{' '}
+            <SpellLink spell={spell} />. Great job!
+          </Trans>
         </div>
       ) : extendedEbonMight ? (
         <div>
-          You extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> buff by casting{' '}
-          <SpellLink spell={spell} />. Good job!
+          <Trans id="guide.augmentation.sandsOfTime.extendedEbon">
+            You extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> buff by casting{' '}
+            <SpellLink spell={spell} />. Good job!
+          </Trans>
         </div>
       ) : (
         <div>
-          <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> wasn't active. You should always try and
-          cast <SpellLink spell={spell} /> inside of your{' '}
-          <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> window.
+          <Trans id="guide.augmentation.sandsOfTime.missed">
+            <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> wasn't active. You should always try and
+            cast <SpellLink spell={spell} /> inside of your{' '}
+            <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> window.
+          </Trans>
         </div>
       );
 
@@ -157,8 +167,8 @@ class SandsOfTime extends Analyzer {
       checklistItems,
       performanceExplanation:
         actualPerformance !== QualitativePerformance.Fail
-          ? `${actualPerformance} Usage`
-          : 'Bad Usage',
+          ? defineMessage({ id: 'guide.augmentation.sandsOfTime.goodUsage', message: 'Good Usage' })
+          : defineMessage({ id: 'guide.augmentation.sandsOfTime.badUsage', message: 'Bad Usage' }),
     };
   }
 
@@ -169,42 +179,61 @@ class SandsOfTime extends Analyzer {
     const explanation = (
       <section>
         <p>
-          <strong>
-            <SpellLink spell={SPELLS.SANDS_OF_TIME} />
-          </strong>{' '}
-          extends the duration of your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
-          {this.selectedCombatant.hasTalent(TALENTS.DUPLICATE_2_AUGMENTATION_TALENT) && (
-            <>
-              and <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />
-            </>
-          )}{' '}
-          when casting <SpellLink spell={SPELLS.FIRE_BREATH} />,{' '}
-          <SpellLink spell={SPELLS.UPHEAVAL} />, <SpellLink spell={TALENTS.ERUPTION_TALENT} /> or{' '}
-          <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />.
+          <Trans id="guide.augmentation.sandsOfTime.explanation1">
+            <strong>
+              <SpellLink spell={SPELLS.SANDS_OF_TIME} />
+            </strong>{' '}
+            extends the duration of your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
+            {this.selectedCombatant.hasTalent(TALENTS.DUPLICATE_2_AUGMENTATION_TALENT) && (
+              <>
+                and <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />
+              </>
+            )}{' '}
+            when casting <SpellLink spell={SPELLS.FIRE_BREATH} />,{' '}
+            <SpellLink spell={SPELLS.UPHEAVAL} />, <SpellLink spell={TALENTS.ERUPTION_TALENT} /> or{' '}
+            <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />.
+          </Trans>
         </p>
         <p>
-          You should never cast these spells outside your{' '}
-          <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> windows.
+          <Trans id="guide.augmentation.sandsOfTime.explanation2">
+            You should never cast these spells outside your{' '}
+            <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> windows.
+          </Trans>
         </p>
       </section>
     );
     return (
       <ContextualSpellUsageSubSection
-        title="Sands of Time"
+        title={t({ id: 'guide.augmentation.sandsOfTime.title', message: 'Sands of Time' })}
         explanation={explanation}
         uses={this.uses}
         castBreakdownSmallText={
           <>
             {' '}
-            - <span className="goodCast">Green</span> is a good cast where you extended your{' '}
-            <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> window,{' '}
-            <span className="badCast">red</span> is a bad cast where you didn't extend.
+            -{' '}
+            <span className="goodCast">
+              <Trans id="guide.augmentation.sandsOfTime.goodCastLabel">Green</Trans>
+            </span>{' '}
+            <Trans id="guide.augmentation.sandsOfTime.goodCastText">
+              is a good cast where you extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
+              window,{' '}
+            </Trans>
+            <span className="badCast">
+              <Trans id="guide.augmentation.sandsOfTime.badCastLabel">red</Trans>
+            </span>{' '}
+            <Trans id="guide.augmentation.sandsOfTime.badCastText">
+              is a bad cast where you didn't extend.
+            </Trans>
             {this.selectedCombatant.hasTalent(TALENTS.DUPLICATE_2_AUGMENTATION_TALENT) && (
               <>
                 {' '}
-                <span className="perfectCast">Blue</span> is a cast where you extended both{' '}
-                <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> and{' '}
-                <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />.
+                <span className="perfectCast">
+                  <Trans id="guide.augmentation.sandsOfTime.perfectCastLabel">Blue</Trans>
+                </span>{' '}
+                <Trans id="guide.augmentation.sandsOfTime.perfectCastText">
+                  is a cast where you extended both <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
+                  and <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />.
+                </Trans>
               </>
             )}
           </>

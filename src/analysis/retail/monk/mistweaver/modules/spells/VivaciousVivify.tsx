@@ -14,6 +14,7 @@ import Vivify from './Vivify';
 import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
 import { CelestialHooks } from 'analysis/retail/monk/shared';
 
+import { Trans } from '@lingui/react/macro';
 class VivaciousVivification extends Analyzer {
   static dependencies = {
     vivify: Vivify,
@@ -114,10 +115,12 @@ class VivaciousVivification extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} />
         </b>{' '}
-        is a buff granted when you cast{' '}
-        <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> making your next{' '}
-        <SpellLink spell={SPELLS.VIVIFY} /> instant cast. Try to consume this buff without letting
-        it refresh as healing and mana warrant.
+        <Trans id="monk.mistweaver.vivaciousVivify.explanation">
+          is a buff granted when you cast{' '}
+          <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> making your next{' '}
+          <SpellLink spell={SPELLS.VIVIFY} /> instant cast. Try to consume this buff without letting
+          it refresh as healing and mana warrant.
+        </Trans>
       </p>
     );
     this.unusableUptimes.at(-1)!.end = this.owner.fight.end_time;
@@ -131,12 +134,15 @@ class VivaciousVivification extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} /> utilization
+            <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} />{' '}
+            <Trans id="monk.mistweaver.vivaciousVivify.utilization">utilization</Trans>
           </strong>
           <small>
-            Grey periods indicate times that you could have used your{' '}
-            <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} /> buff effectively, but
-            did not.
+            <Trans id="monk.mistweaver.vivaciousVivify.utilizationDesc">
+              Grey periods indicate times that you could have used your{' '}
+              <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} /> buff effectively, but
+              did not.
+            </Trans>
           </small>
 
           {uptimeBarSubStatistic(
@@ -153,7 +159,11 @@ class VivaciousVivification extends Analyzer {
           )}
           <div style={styleObj}>
             <b>{this.wastedApplications}</b>{' '}
-            <small style={styleObjInner}>wasted applications</small>
+            <small style={styleObjInner}>
+              <Trans id="monk.mistweaver.vivaciousVivify.wastedApplications">
+                wasted applications
+              </Trans>
+            </small>
           </div>
         </RoundedPanel>
       </div>

@@ -1,6 +1,4 @@
 import SpellLink from 'interface/SpellLink';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import BaseFlameShock from '../../../shared/core/FlameShock';
 import { Options } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
@@ -12,6 +10,8 @@ import { ExplanationAndDataSubSection } from 'interface/guide/components/Explana
 import { GUIDE_EXPLANATION_PERCENT_WIDTH } from '../../constants';
 import { SubSection } from 'interface/guide';
 
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 class FlameShock extends BaseFlameShock {
   constructor(options: Options) {
     super(options);
@@ -26,8 +26,8 @@ class FlameShock extends BaseFlameShock {
               <SpellLink spell={SPELLS.FLAME_SHOCK} />
             </b>{' '}
             is one of the best sources of damage for it's cast time. Additionally, it makes every{' '}
-            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> into a critical hit. This should always be
-            up on your target at low target counts so every{' '}
+            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> into a critical hit. This should always
+            be up on your target at low target counts so every{' '}
             <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> critically hits.
           </Trans>
         </p>
@@ -50,7 +50,8 @@ class FlameShock extends BaseFlameShock {
             </Trans>
           </strong>
           <div className="flex-main">
-            {formatPercentage(this.uptime)}% <small>{t({ id: 'shaman.elemental.flameshock.uptime', message: 'uptime' })}</small>
+            {formatPercentage(this.uptime)}%{' '}
+            <small>{t({ id: 'shaman.elemental.flameshock.uptimeLabel', message: 'uptime' })}</small>
             <div
               style={{
                 height: '24px' /* UptimeStackBar floats and doesn't have an intrinsic height */,

@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import {
   MajorDefensiveBuff,
   absoluteMitigation,
@@ -38,12 +39,16 @@ class ObsidianScales extends MajorDefensiveBuff {
     return (
       <>
         <p>
-          <SpellLink spell={TALENTS.OBSIDIAN_SCALES_TALENT} /> reduces the damage you take by 30%.
+          <Trans id="evoker.obsidianScales.desc">
+            <SpellLink spell={TALENTS.OBSIDIAN_SCALES_TALENT} /> reduces the damage you take by 30%.
+          </Trans>
         </p>
         {this.hasHardenedScales && (
           <p>
-            <SpellLink spell={TALENTS.HARDENED_SCALES_TALENT} /> increases this mitigation to{' '}
-            <strong>{this.mitPct * 100}%</strong>.
+            <Trans id="evoker.obsidianScales.hardened">
+              <SpellLink spell={TALENTS.HARDENED_SCALES_TALENT} /> increases this mitigation to{' '}
+              <strong>{this.mitPct * 100}%</strong>.
+            </Trans>
           </p>
         )}
       </>

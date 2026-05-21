@@ -1,9 +1,9 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/macro';
 import MaelstromWeaponTracker from './MaelstromWeaponTracker';
 import Panel from 'parser/ui/Panel';
 import { EnhancementEventLinks, MAELSTROM_WEAPON_ELIGIBLE_SPELLS } from '../../constants';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Events, {
   CastEvent,
   DamageEvent,
@@ -198,7 +198,8 @@ class MaelstromWeaponSpenders extends Analyzer.withDependencies({
             <small>
               <Trans id="shaman.enhancement.spenders.note">
                 Note: Damage/Healing values include increases from Augmentation Evokers. Click the{' '}
-                <i>Augmented Damage</i>/<i>Augmented Healing</i> tabs in WCL if the values don't align
+                <i>Augmented Damage</i>/<i>Augmented Healing</i> tabs in WCL if the values don't
+                align
               </Trans>
             </small>
           </p>

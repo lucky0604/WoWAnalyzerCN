@@ -10,6 +10,8 @@ import CastOverview from 'interface/guide/components/CastOverview';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,
   evaluateQualitativePerformanceByThreshold,
@@ -204,19 +206,23 @@ class Vivify extends Analyzer {
     const explanation = (
       <>
         <p>
-          <SpellLink spell={SPELLS.VIVIFY} /> can be one of your best healing spells when you have
-          high enough counts of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> out on the raid via{' '}
-          <SpellLink spell={TALENTS_MONK.INVIGORATING_MISTS_TALENT} /> and{' '}
-          <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />, and will be a major portion of your
-          healing when used correctly.
+          <Trans id="monk.mistweaver.vivify.explanation1">
+            <SpellLink spell={SPELLS.VIVIFY} /> can be one of your best healing spells when you have
+            high enough counts of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> out on the raid
+            via <SpellLink spell={TALENTS_MONK.INVIGORATING_MISTS_TALENT} /> and{' '}
+            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />, and will be a major portion of your
+            healing when used correctly.
+          </Trans>
         </p>
         <p>
-          The spell's effectiveness goes hand in hand with your{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> count - the more you have out at a given
-          time, the more healing and better mana efficiency this spell has. This further emphasizes
-          the importance of casting your rotational abilities in{' '}
-          <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> and{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> as often as possible.
+          <Trans id="monk.mistweaver.vivify.explanation2">
+            The spell's effectiveness goes hand in hand with your{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> count - the more you have out at a given
+            time, the more healing and better mana efficiency this spell has. This further
+            emphasizes the importance of casting your rotational abilities in{' '}
+            <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> and{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> as often as possible.
+          </Trans>
         </p>
         {VIVIFY_LEGEND}
       </>
@@ -225,13 +231,13 @@ class Vivify extends Analyzer {
     const stats = [
       {
         value: this.averageRemPerVivify.toFixed(1),
-        label: 'Avg ReMs Per Cast',
+        label: defineMessage({ id: 'monk.mistweaver.vivify.avgReMsPerCast', message: 'Avg ReMs Per Cast' }),
         tooltip: (
-          <>
+          <Trans id="monk.mistweaver.vivify.avgReMsPerCastTooltip">
             Average number of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> targets cleaved per{' '}
             <SpellLink spell={SPELLS.VIVIFY} /> cast via{' '}
             <SpellLink spell={TALENTS_MONK.INVIGORATING_MISTS_TALENT} />
-          </>
+          </Trans>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.averageRemPerVivify,
@@ -244,8 +250,12 @@ class Vivify extends Analyzer {
       },
       {
         value: `${formatPercentage(avgOverheal)}%`,
-        label: 'Avg Overheal',
-        tooltip: <>Average overheal across all {this.casts} casts</>,
+        label: defineMessage({ id: 'monk.mistweaver.vivify.avgOverheal', message: 'Avg Overheal' }),
+        tooltip: (
+          <Trans id="monk.mistweaver.vivify.avgOverhealTooltip">
+            Average overheal across all {this.casts} casts
+          </Trans>
+        ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: avgOverheal,
           isLessThanOrEqual: { perfect: 0.3, good: 0.55, ok: 0.7 },
@@ -253,11 +263,14 @@ class Vivify extends Analyzer {
       },
       {
         value: formatNumber(this.avgHealingPerCast),
-        label: 'Avg Healing Per Cast',
+        label: defineMessage({
+          id: 'monk.mistweaver.vivify.avgHealingPerCast',
+          message: 'Avg Healing Per Cast',
+        }),
         tooltip: (
-          <>
+          <Trans id="monk.mistweaver.vivify.avgHealingPerCastTooltip">
             {formatNumber(this.avgRawPerCast)} <small>raw healing per cast</small>
-          </>
+          </Trans>
         ),
       },
     ];
@@ -268,12 +281,16 @@ class Vivify extends Analyzer {
           spell={SPELLS.VIVIFY}
           title={
             <>
-              <SpellLink spell={SPELLS.VIVIFY} /> Overview
+              <SpellLink spell={SPELLS.VIVIFY} />{' '}
+              <Trans id="monk.mistweaver.vivify.overview">Overview</Trans>
             </>
           }
           stats={stats}
         />
-        <CastDetail title="Vivify Casts" casts={this.castEntries} />
+        <CastDetail
+          title={t({ id: 'monk.mistweaver.vivify.casts', message: 'Vivify Casts' })}
+          casts={this.castEntries}
+        />
       </GuideSection>
     );
   }

@@ -13,6 +13,8 @@ import { VOID_RAY_MAX_TICKS } from '../../constants';
 import { formatPercentage } from 'common/format';
 import CastSummaryAndBreakdown from 'interface/guide/components/CastSummaryAndBreakdown';
 
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 class VoidRay extends Analyzer {
   #voidRayEntries: BoxRowEntry[] = [];
 
@@ -30,16 +32,18 @@ class VoidRay extends Analyzer {
     const damageEvents = getVoidRayDamageEvents(event);
 
     let value = QualitativePerformance.Good;
-    let tooltip = <>Great! Fully channeled cast.</>;
+    let tooltip = (
+      <Trans id="guide.demonhunter.devourer.voidRay.goodCast">Great! Fully channeled cast.</Trans>
+    );
 
     // The last two damage ticks aren't needed to proc related talents
     if (damageEvents.length < VOID_RAY_MAX_TICKS - 2) {
       value = QualitativePerformance.Fail;
       tooltip = (
-        <>
+        <Trans id="guide.demonhunter.devourer.voidRay.incomplete">
           You didn't let this cast finish! (
           {formatPercentage(damageEvents.length / VOID_RAY_MAX_TICKS, 0)}%)
-        </>
+        </Trans>
       );
     }
 
@@ -50,32 +54,40 @@ class VoidRay extends Analyzer {
     const explanation = (
       <>
         <p>
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} /> should always be fully
-          channeled due to interactions it has with different talents:
+          <Trans id="guide.demonhunter.devourer.voidRay.explanation">
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} /> should always be fully
+            channeled due to interactions it has with different talents:
+          </Trans>
           <ul>
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.FINAL_BREATH_TALENT) && (
               <li>
-                The last tick deals increased damage thanks to{' '}
-                <SpellLink spell={TALENTS_DEMON_HUNTER.FINAL_BREATH_TALENT} />.
+                <Trans id="guide.demonhunter.devourer.voidRay.finalBreath">
+                  The last tick deals increased damage thanks to{' '}
+                  <SpellLink spell={TALENTS_DEMON_HUNTER.FINAL_BREATH_TALENT} />.
+                </Trans>
               </li>
             )}
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.MOMENT_OF_CRAVING_TALENT) && (
               <li>
-                You get the very important{' '}
-                <SpellLink spell={TALENTS_DEMON_HUNTER.MOMENT_OF_CRAVING_TALENT} />
-                {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.ERADICATE_TALENT) && (
-                  <>
-                    {' '}
-                    and <SpellLink spell={TALENTS_DEMON_HUNTER.ERADICATE_TALENT} />
-                  </>
-                )}
-                .
+                <Trans id="guide.demonhunter.devourer.voidRay.momentOfCraving">
+                  You get the very important{' '}
+                  <SpellLink spell={TALENTS_DEMON_HUNTER.MOMENT_OF_CRAVING_TALENT} />
+                  {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.ERADICATE_TALENT) && (
+                    <>
+                      {' '}
+                      and <SpellLink spell={TALENTS_DEMON_HUNTER.ERADICATE_TALENT} />
+                    </>
+                  )}
+                  .
+                </Trans>
               </li>
             )}
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.VOIDFALL_TALENT) && (
               <li>
-                As Annihilator, fully channeling grants a{' '}
-                <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDFALL_TALENT} /> stack.
+                <Trans id="guide.demonhunter.devourer.voidRay.voidfall">
+                  As Annihilator, fully channeling grants a{' '}
+                  <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDFALL_TALENT} /> stack.
+                </Trans>
               </li>
             )}
           </ul>
@@ -95,7 +107,10 @@ class VoidRay extends Analyzer {
         explanation={explanation}
         data={data}
         explanationPercent={GUIDE_CORE_EXPLANATION_PERCENT}
-        title="Void Ray"
+        title={t({
+          id: 'guide.demonhunter.devourer.voidRay.title',
+          message: 'Void Ray',
+        })}
       />
     );
   }

@@ -9,6 +9,7 @@ import { explanationAndDataSubsection } from 'interface/guide/components/Explana
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import { BoxRowEntry, PerformanceBoxRow } from 'interface/guide/components/PerformanceBoxRow';
 import SpellLink from 'interface/SpellLink';
+import { Trans } from '@lingui/react/macro';
 import {
   evaluateQualitativePerformanceByThreshold,
   getAveragePerf,
@@ -64,9 +65,12 @@ class AspectOfHarmony extends AspectOfHarmonyBaseAnalyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.ASPECT_OF_HARMONY_TALENT} />
         </b>{' '}
-        consumes stored vitality by healing allies after you use{' '}
-        <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> equal to 40% of the heal that
-        consumed it. It is extremely important to try to apply the HoT to as many allies as possible
+        <Trans id="monk.mistweaver.aspectOfHarmony.explanation">
+          consumes stored vitality by healing allies after you use{' '}
+          <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> equal to 40% of the heal that
+          consumed it. It is extremely important to try to apply the HoT to as many allies as
+          possible
+        </Trans>
       </p>
     );
     const styleObj = {
@@ -82,11 +86,15 @@ class AspectOfHarmony extends AspectOfHarmonyBaseAnalyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.ASPECT_OF_HARMONY_TALENT} /> utilization
+            <SpellLink spell={TALENTS_MONK.ASPECT_OF_HARMONY_TALENT} />{' '}
+            <Trans id="monk.mistweaver.aspectOfHarmony.utilization">utilization</Trans>
           </strong>
           <PerformanceBoxRow values={entries} />
           <div style={styleObj}>
-            <b>{this.avgHots.toFixed(1)}</b> <small style={styleObjInner}>average HoTs</small>
+            <b>{this.avgHots.toFixed(1)}</b>{' '}
+            <small style={styleObjInner}>
+              <Trans id="monk.mistweaver.aspectOfHarmony.averageHoTs">average HoTs</Trans>
+            </small>
           </div>
         </RoundedPanel>
       </div>

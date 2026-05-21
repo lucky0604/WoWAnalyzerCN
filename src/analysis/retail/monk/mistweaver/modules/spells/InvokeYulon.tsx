@@ -2,6 +2,7 @@ import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { Trans } from '@lingui/react/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
 } from 'interface/guide/components/CooldownExpandable';
@@ -142,24 +143,29 @@ class InvokeYulon extends BaseCelestialAnalyzer {
           </strong>
         </p>
         <p>
-          Before casting <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} />,
-          make sure that <SpellLink spell={this.currentRskTalent} /> is on cooldown, and make to
-          sure cast{' '}
-          {this.selectedCombatant.hasTalent(TALENTS_MONK.GIFT_OF_THE_CELESTIALS_TALENT) ? (
-            <>at least one </>
-          ) : (
-            <>all </>
-          )}{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-          (s) to prevent overcapping charges during Yulon's duration, and be sure to have at least 1
-          proc of <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} /> available.{' '}
+          <Trans id="monk.mistweaver.invokeYulon.explanation1">
+            Before casting <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} />,
+            make sure that <SpellLink spell={this.currentRskTalent} /> is on cooldown, and make to
+            sure cast{' '}
+            {this.selectedCombatant.hasTalent(TALENTS_MONK.GIFT_OF_THE_CELESTIALS_TALENT) ? (
+              <>at least one </>
+            ) : (
+              <>all </>
+            )}{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            (s) to prevent overcapping charges during Yulon's duration, and be sure to have at least
+            1 proc of <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />{' '}
+            available.{' '}
+          </Trans>
         </p>
         <hr />
         <p>
-          It is crucial to pair <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> with{' '}
-          <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} /> for the several
-          buffs that <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> provides,
-          including:
+          <Trans id="monk.mistweaver.invokeYulon.explanation2">
+            It is crucial to pair <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> with{' '}
+            <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} /> for the several
+            buffs that <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> provides,
+            including:
+          </Trans>
         </p>
         <ol>
           <li>
@@ -178,33 +184,43 @@ class InvokeYulon extends BaseCelestialAnalyzer {
           </li>
         </ol>
         <p>
-          If <SpellLink spell={TALENTS_MONK.SECRET_INFUSION_TALENT} /> talented, use{' '}
-          <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> with{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> for a multiplicative haste bonus
+          <Trans id="monk.mistweaver.invokeYulon.explanation3">
+            If <SpellLink spell={TALENTS_MONK.SECRET_INFUSION_TALENT} /> talented, use{' '}
+            <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> with{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> for a multiplicative haste bonus
+          </Trans>
         </p>
         <hr />
         <p>
-          Be sure to cast <SpellLink spell={this.currentRskTalent} /> before your first{' '}
-          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> and{' '}
-          <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> falls off to extend their duration.
+          <Trans id="monk.mistweaver.invokeYulon.explanation4">
+            Be sure to cast <SpellLink spell={this.currentRskTalent} /> before your first{' '}
+            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> and{' '}
+            <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> falls off to extend their duration.
+          </Trans>
         </p>
         <hr />
         <p>
-          Be sure to follow up your{' '}
-          <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} /> with casts of{' '}
-          <SpellLink spell={SPELLS.VIVIFY} /> to consume your{' '}
-          <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> with the highest amount of{' '}
-          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />s and{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />s possible.
+          <Trans id="monk.mistweaver.invokeYulon.explanation5">
+            Be sure to follow up your{' '}
+            <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} /> with casts of{' '}
+            <SpellLink spell={SPELLS.VIVIFY} /> to consume your{' '}
+            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> with the highest amount of{' '}
+            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />s and{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />s possible.
+          </Trans>
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="monk.mistweaver.invokeYulon.perCastBreakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="monk.mistweaver.invokeYulon.clickToExpand"> - click to expand</Trans>
+        </small>
         {this.castTrackers.map((cast, ix) => {
           const header = (
             <>
@@ -227,7 +243,10 @@ class InvokeYulon extends BaseCelestialAnalyzer {
           checklistItems.splice(1, 0, {
             label: (
               <span style={{ paddingLeft: '1.5em' }}>
-                <Arrow /> Cast during <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />
+                <Arrow />{' '}
+                <Trans id="monk.mistweaver.invokeYulon.castDuringSoom">
+                  Cast during <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />
+                </Trans>
               </span>
             ),
             result: <PerformanceMark perf={soomPerf} />,

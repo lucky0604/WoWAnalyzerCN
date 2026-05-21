@@ -1,6 +1,4 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatNumber, formatSeconds } from 'common/format';
 import TALENTS from 'common/TALENTS/shaman';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
@@ -21,6 +19,8 @@ import Events, {
 import MaelstromTracker from '../resources/MaelstromTracker';
 import MaelstromSpenderInfo from '../core/MaelstromSpenderInfo';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   computeScore,
   getAggregatedScore,
@@ -167,7 +167,7 @@ class MaelstromSpenders extends Analyzer.withDependencies({
   private getMaelstromStat(cast: SpenderCast): PerCastStat {
     return {
       value: `${formatNumber(cast.currentMaelstrom)}/${formatNumber(this.maelstromCap)}`,
-      label: t({ id: 'shaman.elemental.maelstrom.title', message: 'Maelstrom' }),
+      label: defineMessage({ id: 'shaman.elemental.maelstrom.title', message: 'Maelstrom' }),
       performance: this.getWastePerformance(cast),
       tooltip: (
         <Trans id="shaman.elemental.spenders.maelstrom_tooltip">
@@ -182,7 +182,7 @@ class MaelstromSpenders extends Analyzer.withDependencies({
 
     return {
       value: formatNumber(wasteSinceLastSpender),
-      label: t({ id: 'shaman.elemental.spenders.waste', message: 'Waste Since Last' }),
+      label: defineMessage({ id: 'shaman.elemental.spenders.waste', message: 'Waste Since Last' }),
       performance: this.getWastePerformance(cast),
       tooltip: (
         <Trans id="shaman.elemental.spenders.waste_tooltip">
@@ -195,8 +195,8 @@ class MaelstromSpenders extends Analyzer.withDependencies({
 
   private getMoteStat(cast: SpenderCast): PerCastStat {
     return {
-      value: cast.hasMoTE ? t({ id: 'yes', message: 'Yes' }) : t({ id: 'no', message: 'No' }),
-      label: t({ id: 'shaman.elemental.spenders.mote', message: 'MoTE' }),
+      value: cast.hasMoTE ? defineMessage({ id: 'yes', message: 'Yes' }) : defineMessage({ id: 'no', message: 'No' }),
+      label: defineMessage({ id: 'shaman.elemental.spenders.mote', message: 'MoTE' }),
       performance: cast.hasMoTE
         ? QualitativePerformance.Perfect
         : this.getLavaBurstOpportunityPerformance(cast),
@@ -213,12 +213,12 @@ class MaelstromSpenders extends Analyzer.withDependencies({
     const performance = this.getLavaBurstOpportunityPerformance(cast);
     const value =
       cast.lavaBurstAvailableDuration < LAVA_BURST_AVAILABLE_GRACE_MS
-        ? t({ id: 'no', message: 'No' })
+        ? defineMessage({ id: 'no', message: 'No' })
         : `${formatSeconds(cast.lavaBurstAvailableDuration, 1)}s`;
 
     return {
       value: value,
-      label: t({ id: 'shaman.elemental.spenders.lvb_ready', message: 'LvB Ready' }),
+      label: defineMessage({ id: 'shaman.elemental.spenders.lvb_ready', message: 'LvB Ready' }),
       performance: this.enabledTalents.masterOfTheElements ? performance : undefined,
       tooltip: (
         <Trans id="shaman.elemental.spenders.lvb_tooltip">
@@ -311,7 +311,7 @@ class MaelstromSpenders extends Analyzer.withDependencies({
 
     stats.push({
       value: `${Math.round(overallScore * 100)}%`,
-      label: t({ id: 'score', message: 'Score' }),
+      label: defineMessage({ id: 'score', message: 'Score' }),
       performance: scoreToQualitativePerformance(overallScore),
     });
 
@@ -370,7 +370,7 @@ class MaelstromSpenders extends Analyzer.withDependencies({
         performance: scoreToQualitativePerformance(overallScore),
         timestamp: this.owner.formatTimestamp(cast.event.timestamp),
         additionalContent: {
-          title: t({ id: 'shaman.elemental.spenders.details', message: 'Cast Details' }),
+          title: defineMessage({ id: 'shaman.elemental.spenders.details', message: 'Cast Details' }),
           content: this.getCastDetails(cast),
         },
         stats: stats,
@@ -392,19 +392,19 @@ class MaelstromSpenders extends Analyzer.withDependencies({
     return [
       {
         value: `${totalCasts}`,
-        label: t({ id: 'shaman.elemental.spenders.total', message: 'Total Spenders' }),
+        label: defineMessage({ id: 'shaman.elemental.spenders.total', message: 'Total Spenders' }),
         tooltip: null,
       },
       {
         value: formatNumber(averageMaelstrom),
-        label: t({ id: 'shaman.elemental.spenders.avg', message: 'Avg Maelstrom' }),
+        label: defineMessage({ id: 'shaman.elemental.spenders.avg', message: 'Avg Maelstrom' }),
         tooltip: null,
       },
       ...(this.enabledTalents.masterOfTheElements
         ? [
             {
               value: `${castsWithMote}`,
-              label: t({ id: 'shaman.elemental.spenders.mote', message: 'MoTE Casts' }),
+              label: defineMessage({ id: 'shaman.elemental.spenders.moteCasts', message: 'MoTE Casts' }),
               tooltip: null,
               performance:
                 castsWithMote === totalCasts
@@ -413,7 +413,10 @@ class MaelstromSpenders extends Analyzer.withDependencies({
             },
             {
               value: `${lavaBurstReadyMisses}`,
-              label: t({ id: 'shaman.elemental.spenders.missed_mote', message: 'Missed MOTE Opportunities' }),
+              label: defineMessage({
+                id: 'shaman.elemental.spenders.missed_mote',
+                message: 'Missed MOTE Opportunities',
+              }),
               tooltip: (
                 <Trans id="shaman.elemental.spenders.missed_mote_tooltip">
                   Spenders cast without <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} />{' '}
@@ -439,8 +442,8 @@ class MaelstromSpenders extends Analyzer.withDependencies({
       <>
         <p>
           <Trans id="shaman.elemental.spenders.explanation1">
-            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> spenders are now often used earlier, so
-            this section does not expect every cast to happen near cap.
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> spenders are now often used earlier,
+            so this section does not expect every cast to happen near cap.
           </Trans>
         </p>
         {this.enabledTalents.masterOfTheElements ? (
@@ -473,7 +476,10 @@ class MaelstromSpenders extends Analyzer.withDependencies({
           spell={this.deps.spenderInfo.primarySpender}
           stats={this.buildOverviewStats()}
         />
-        <CastDetail title={t({ id: 'shaman.elemental.spenders.title', message: 'Maelstrom Spender Casts' })} casts={this.buildPerCastData()} />
+        <CastDetail
+          title={t({ id: 'shaman.elemental.spenders.title', message: 'Maelstrom Spender Casts' })}
+          casts={this.buildPerCastData()}
+        />
       </GuideSection>
     );
   }

@@ -13,6 +13,8 @@ import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { qualitativePerformanceToColor } from 'interface/guide';
 
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 class Voidstep extends Analyzer {
   totalProcs = 0;
   consumedProcs = 0;
@@ -121,30 +123,43 @@ class Voidstep extends Analyzer {
     const explanation = (
       <>
         <p>
-          After each <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} /> and{' '}
-          <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> casts, you are granted a temporary
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> charge that deals
-          increased AoE damage. You should aim to consume this proc everytime, as it is free damage.
-          <div>If you can't afford the forced movement at a specific point, don't die trying.</div>
+          <Trans id="guide.demonhunter.devourer.voidstep.explanation">
+            After each <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} /> and{' '}
+            <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> casts, you are granted a temporary
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> charge that deals
+            increased AoE damage. You should aim to consume this proc everytime, as it is free
+            damage.
+          </Trans>
+          <div>
+            <Trans id="guide.demonhunter.devourer.voidstep.warning">
+              If you can't afford the forced movement at a specific point, don't die trying.
+            </Trans>
+          </div>
         </p>
       </>
     );
 
     const consumedTooltip = (
       <>
-        {this.consumedProcs}/{this.totalProcs} procs consumed
+        <Trans id="guide.demonhunter.devourer.voidstep.consumedTooltip">
+          {this.consumedProcs}/{this.totalProcs} procs consumed
+        </Trans>
       </>
     );
 
     const expiredTooltip = (
       <>
-        {this.expiredProcs}/{this.totalProcs} procs expired
+        <Trans id="guide.demonhunter.devourer.voidstep.expiredTooltip">
+          {this.expiredProcs}/{this.totalProcs} procs expired
+        </Trans>
       </>
     );
 
     const overwrittenTooltip = (
       <>
-        {this.voidstepRefreshes}/{this.totalProcs} procs overwritten
+        <Trans id="guide.demonhunter.devourer.voidstep.overwrittenTooltip">
+          {this.voidstepRefreshes}/{this.totalProcs} procs overwritten
+        </Trans>
       </>
     );
 
@@ -163,7 +178,10 @@ class Voidstep extends Analyzer {
         >
           <SpellIcon spell={SPELLS.VOIDSTEP} />{' '}
           <TooltipElement content={consumedTooltip}>
-            {formatPercentage(this.consumedProcs / this.totalProcs, 0)} % <small>consumed</small>
+            {formatPercentage(this.consumedProcs / this.totalProcs, 0)} %{' '}
+            <small>
+              <Trans id="guide.demonhunter.devourer.voidstep.consumed">consumed</Trans>
+            </small>
           </TooltipElement>
         </div>
 
@@ -176,7 +194,9 @@ class Voidstep extends Analyzer {
           <SpellIcon spell={SPELLS.VOIDSTEP} />{' '}
           <TooltipElement content={overwrittenTooltip}>
             {formatPercentage(this.voidstepRefreshes / this.totalProcs, 0)} %{' '}
-            <small>overwritten</small>
+            <small>
+              <Trans id="guide.demonhunter.devourer.voidstep.overwritten">overwritten</Trans>
+            </small>
           </TooltipElement>
         </div>
 
@@ -188,7 +208,10 @@ class Voidstep extends Analyzer {
         >
           <SpellIcon spell={SPELLS.VOIDSTEP} />{' '}
           <TooltipElement content={expiredTooltip}>
-            {formatPercentage(this.expiredProcs / this.totalProcs, 0)} % <small>expired</small>
+            {formatPercentage(this.expiredProcs / this.totalProcs, 0)} %{' '}
+            <small>
+              <Trans id="guide.demonhunter.devourer.voidstep.expired">expired</Trans>
+            </small>
           </TooltipElement>
         </div>
       </RoundedPanel>
@@ -199,7 +222,10 @@ class Voidstep extends Analyzer {
         explanation={explanation}
         data={data}
         explanationPercent={GUIDE_CORE_EXPLANATION_PERCENT}
-        title="Voidstep"
+        title={t({
+          id: 'guide.demonhunter.devourer.voidstep.title',
+          message: 'Voidstep',
+        })}
       />
     );
   }

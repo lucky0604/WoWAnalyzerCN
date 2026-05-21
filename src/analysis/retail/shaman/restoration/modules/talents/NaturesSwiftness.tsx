@@ -1,6 +1,4 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/macro';
 import { TALENTS_SHAMAN } from 'common/TALENTS';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -20,6 +18,7 @@ import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 
+import { Trans } from '@lingui/react/macro';
 class NaturesSwiftness extends Analyzer {
   static AFFECTED_SPELLS = [
     SPELLS.LIGHTNING_BOLT,
@@ -159,9 +158,9 @@ class NaturesSwiftness extends Analyzer {
             <SpellLink spell={TALENTS_SHAMAN.NATURES_SWIFTNESS_TALENT} />
           </b>{' '}
           is a very important spell as every cast gives you one{' '}
-          <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} />. It can also save you a substantial amount of
-          mana over the course of a fight. You should aim to use it on your most expensive spells,
-          like <SpellLink spell={TALENTS_SHAMAN.CHAIN_HEAL_TALENT} />. Using it with{' '}
+          <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} />. It can also save you a substantial amount
+          of mana over the course of a fight. You should aim to use it on your most expensive
+          spells, like <SpellLink spell={TALENTS_SHAMAN.CHAIN_HEAL_TALENT} />. Using it with{' '}
           <SpellLink spell={SPELLS.HEALING_WAVE} /> could also save a life.
         </Trans>
       </p>
@@ -209,8 +208,8 @@ class NaturesSwiftness extends Analyzer {
           <b>
             <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} />
           </b>{' '}
-          is a crucial spell for Farseer Shamans. You should aim to cast this on cooldown to maximize
-          your Ancestor uptime through{' '}
+          is a crucial spell for Farseer Shamans. You should aim to cast this on cooldown to
+          maximize your Ancestor uptime through{' '}
           <SpellLink spell={TALENTS_SHAMAN.CALL_OF_THE_ANCESTORS_TALENT} /> and how many{' '}
           <SpellLink spell={TALENTS_SHAMAN.STORMSTREAM_TOTEM_3_RESTORATION_TALENT} /> you generate.
           You should aim to use it on your most expensive spells, like{' '}
@@ -243,8 +242,8 @@ class NaturesSwiftness extends Analyzer {
             <small>
               <Trans id="shaman.restoration.as.casts_desc">
                 - Green indicates a good use of the{' '}
-                <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} /> buff, Yellow indicates
-                an ok use, and Red is an incorrect use or the buff expired.
+                <SpellLink spell={TALENTS_SHAMAN.ANCESTRAL_SWIFTNESS_TALENT} /> buff, Yellow
+                indicates an ok use, and Red is an incorrect use or the buff expired.
               </Trans>
             </small>
             <PerformanceBoxRow values={this.castEntries} />

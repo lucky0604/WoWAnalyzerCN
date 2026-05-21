@@ -12,13 +12,13 @@ import { TALENTS_MONK } from 'common/TALENTS';
 import { LIFE_COCOON_HEALING_BOOST } from '../../constants';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 
+import { Trans } from '@lingui/react/macro';
 class LifeCocoon extends Analyzer {
   static dependencies = {
     combatants: Combatants,
@@ -54,12 +54,14 @@ class LifeCocoon extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.LIFE_COCOON_TALENT} />
         </b>{' '}
-        is a strong external cooldown that has many supporting talents in{' '}
-        <SpellLink spell={TALENTS_MONK.MISTS_OF_LIFE_TALENT} />,{' '}
-        <SpellLink spell={TALENTS_MONK.CHRYSALIS_TALENT} />, and{' '}
-        <SpellLink spell={TALENTS_MONK.CALMING_COALESCENCE_TALENT} />, and is important as often as
-        possible while still getting good value from it. Similar to your other cooldowns, this just
-        means don't hold it for so long that you miss out on an entire cast.
+        <Trans id="monk.mistweaver.lifeCocoon.explanation">
+          is a strong external cooldown that has many supporting talents in{' '}
+          <SpellLink spell={TALENTS_MONK.MISTS_OF_LIFE_TALENT} />,{' '}
+          <SpellLink spell={TALENTS_MONK.CHRYSALIS_TALENT} />, and{' '}
+          <SpellLink spell={TALENTS_MONK.CALMING_COALESCENCE_TALENT} />, and is important as often
+          as possible while still getting good value from it. Similar to your other cooldowns, this
+          just means don't hold it for so long that you miss out on an entire cast.
+        </Trans>
       </p>
     );
 
@@ -67,7 +69,8 @@ class LifeCocoon extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_MONK.LIFE_COCOON_TALENT} /> cast efficiency
+            <SpellLink spell={TALENTS_MONK.LIFE_COCOON_TALENT} />{' '}
+            <Trans id="monk.mistweaver.lifeCocoon.castEfficiency">cast efficiency</Trans>
           </strong>
           {this.subStatistic()}
         </RoundedPanel>
@@ -93,14 +96,20 @@ class LifeCocoon extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(70)}
         category={STATISTIC_CATEGORY.THEORYCRAFT}
         size="flexible"
-        tooltip={<Trans id="monk.mistweaver.life_cocoon.tooltip">Life Cocoon boosts HoTs from other players as wells as your own.</Trans>}
+        tooltip={
+          <Trans id="monk.mistweaver.life_cocoon.tooltip">
+            Life Cocoon boosts HoTs from other players as wells as your own.
+          </Trans>
+        }
       >
         <TalentSpellText talent={TALENTS_MONK.LIFE_COCOON_TALENT}>
           <div>
             <ItemHealingDone amount={this.healing} />
           </div>
           <div>
-            <small><Trans id="monk.mistweaver.life_cocoon.label">Increased HoT Healing</Trans></small>
+            <small>
+              <Trans id="monk.mistweaver.life_cocoon.label">Increased HoT Healing</Trans>
+            </small>
           </div>
         </TalentSpellText>
       </Statistic>

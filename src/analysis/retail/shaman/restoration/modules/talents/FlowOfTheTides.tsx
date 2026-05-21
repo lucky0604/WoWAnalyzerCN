@@ -1,10 +1,9 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/macro';
 import ChainHealNormalizer from '../../normalizers/ChainHealNormalizer';
 import talents from 'common/TALENTS/shaman';
 import UnleashLife from './UnleashLife';
 import Events, { BeginCastEvent, CastEvent, HealEvent } from 'parser/core/Events';
+import { Trans } from '@lingui/react/macro';
 import {
   CHAIN_HEAL_TARGETS,
   FLOW_OF_THE_TIDES_INCREASE,

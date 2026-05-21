@@ -7,6 +7,7 @@ import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { getLowestPerf, QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { Trans } from '@lingui/react/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
 } from 'interface/guide/components/CooldownExpandable';
@@ -113,16 +114,22 @@ class Revival extends Analyzer {
     const explanationPercent = 55;
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={this.getRevivalTalent()} />
-        </strong>{' '}
-        is a fairly straightforward cooldown that should be used to heal burst damage events.
+        <Trans id="monk.mistweaver.revival.explanation">
+          <strong>
+            <SpellLink spell={this.getRevivalTalent()} />
+          </strong>{' '}
+          is a fairly straightforward cooldown that should be used to heal burst damage events.
+        </Trans>
       </p>
     );
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="monk.mistweaver.revival.perCastBreakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="monk.mistweaver.revival.clickToExpand"> - click to expand</Trans>
+        </small>
         {this.castTracker.map((cast, idx) => {
           const header = (
             <>

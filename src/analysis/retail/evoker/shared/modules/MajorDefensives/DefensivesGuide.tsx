@@ -8,63 +8,81 @@ import { SpellLink, TooltipElement } from 'interface';
 import { Highlight } from 'interface/Highlight';
 import TALENTS from 'common/TALENTS/evoker';
 
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 const MajorDefensives = () => {
   const defensiveAnalyzers = [ObsidianScales];
 
   return (
-    <Section title="Defensives">
+    <Section title={t({ id: 'evoker.defensives.title', message: 'Defensives' })}>
       <HideExplanationsToggle id="hide-explanations-major-defensives" />
       <Explanation>
         <p>
-          Effectively using your major defensive cooldowns is an important aspect of your
-          performance, as it will not only increase your own survivability, but also your entire
-          raid by allowing healers to focus on keeping others alive.
+          <Trans id="evoker.defensives.intro">
+            Effectively using your major defensive cooldowns is an important aspect of your
+            performance, as it will not only increase your own survivability, but also your entire
+            raid by allowing healers to focus on keeping others alive.
+          </Trans>
         </p>
         <p>
-          As an <span className="Evoker">Evoker</span> you have access to short CD defensives such
-          as <SpellLink spell={TALENTS.OBSIDIAN_SCALES_TALENT} /> and{' '}
-          <SpellLink spell={TALENTS.ZEPHYR_TALENT} />.
+          <Trans id="evoker.defensives.shortCD">
+            As an <span className="Evoker">Evoker</span> you have access to short CD defensives such
+            as <SpellLink spell={TALENTS.OBSIDIAN_SCALES_TALENT} /> and{' '}
+            <SpellLink spell={TALENTS.ZEPHYR_TALENT} />.
+          </Trans>
         </p>
-        <p>There are two things you should look for in your cooldown usage:</p>
+        <p>
+          <Trans id="evoker.defensives.twoThings">
+            There are two things you should look for in your cooldown usage:
+          </Trans>
+        </p>
         <ol>
           <li>
-            You should cover as many{' '}
-            <TooltipElement
-              content={
-                <>
-                  A <strong>damage spike</strong> is when you take much more damage than normal in a
-                  small amount of time. These are visible on the Timeline below as tall spikes.
-                </>
-              }
-            >
-              damage spikes
-            </TooltipElement>{' '}
-            as possible, and use any left over to cover periods of heavy, consistent damage.
+            <Trans id="evoker.defensives.coverSpikes">
+              You should cover as many{' '}
+              <TooltipElement
+                content={
+                  <>
+                    A <strong>damage spike</strong> is when you take much more damage than normal in
+                    a small amount of time. These are visible on the Timeline below as tall spikes.
+                  </>
+                }
+              >
+                damage spikes
+              </TooltipElement>{' '}
+              as possible, and use any left over to cover periods of heavy, consistent damage.
+            </Trans>
             <p>
               <small>
-                In the damage chart below, a spike highlighted in{' '}
-                <Highlight color={GoodColor} textColor="black">
-                  green
-                </Highlight>{' '}
-                was covered by a defensive.
+                <Trans id="evoker.defensives.coverSpikesNote">
+                  In the damage chart below, a spike highlighted in{' '}
+                  <Highlight color={GoodColor} textColor="black">
+                    green
+                  </Highlight>{' '}
+                  was covered by a defensive.
+                </Trans>
               </small>
             </p>
           </li>
           <li>
-            You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using
-            defensives is a common problem! For <span className="Evoker">Evokers</span>, it is also
-            likely to be fatal, since most of your mitigation lies in your active cooldowns.
+            <Trans id="evoker.defensives.useThem">
+              You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using
+              defensives is a common problem! For <span className="Evoker">Evokers</span>, it is
+              also likely to be fatal, since most of your mitigation lies in your active cooldowns.
+            </Trans>
             <p>
               <small>
-                Below the damage chart, your cooldowns are shown. Large gaps may indicate that you
-                could get more uses&mdash;but remember that covering spikes is more important than
-                maximizing total casts!
+                <Trans id="evoker.defensives.useThemNote">
+                  Below the damage chart, your cooldowns are shown. Large gaps may indicate that you
+                  could get more uses&mdash;but remember that covering spikes is more important than
+                  maximizing total casts!
+                </Trans>
               </small>
             </p>
           </li>
         </ol>
       </Explanation>
-      <SubSection title="Damage Taken">
+      <SubSection title={t({ id: 'evoker.defensives.damageTaken', message: 'Damage Taken' })}>
         <Timeline analyzers={useAnalyzers(defensiveAnalyzers)} />
       </SubSection>
       <AllCooldownUsageList analyzers={useAnalyzers(defensiveAnalyzers)} />

@@ -19,6 +19,8 @@ import { TooltipElement } from 'interface/Tooltip';
 import { formatNumber, formatPercentage } from 'common/format';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   getSelectedPrimaryHeal,
   ZEN_PULSE_INCREASE_PER_STACK,
@@ -221,29 +223,37 @@ class ZenPulse extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />
-          </b>{' '}
-          is a buff that procs off of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> that makes
-          your next <SpellLink spell={getSelectedPrimaryHeal(this.selectedCombatant)} /> cast do
-          additional healing on your target and all targets with{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />. The healing done by{' '}
-          <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> is increased by 6% per target with{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> up to 30%, so it is important to have at
-          least 5 ReMs active before consuming the buff.
+          <Trans id="monk.mistweaver.zenPulse.explanation1">
+            <b>
+              <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />
+            </b>{' '}
+            is a buff that procs off of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> that makes
+            your next <SpellLink spell={getSelectedPrimaryHeal(this.selectedCombatant)} /> cast do
+            additional healing on your target and all targets with{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />. The healing done by{' '}
+            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> is increased by 6% per target with{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> up to 30%, so it is important to have at
+            least 5 ReMs active before consuming the buff.
+          </Trans>
         </p>
         <p style={{ paddingTop: '1em' }}>
-          It is very important to make sure that you never let this buff expire. Ideally try to
-          consume this buff to minimize overheal while ensuring that you have a high number of{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> buffs active.
+          <Trans id="monk.mistweaver.zenPulse.explanation2">
+            It is very important to make sure that you never let this buff expire. Ideally try to
+            consume this buff to minimize overheal while ensuring that you have a high number of{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> buffs active.
+          </Trans>
         </p>
       </>
     );
     const stats = [
       {
         value: this.avgHitsPerConsume.toFixed(2),
-        label: 'Avg Hits Per Buff',
-        tooltip: <>Average number of targets hit per buff consumption</>,
+        label: defineMessage({ id: 'monk.mistweaver.zenPulse.avgHitsPerBuff', message: 'Avg Hits Per Buff' }),
+        tooltip: (
+          <Trans id="monk.mistweaver.zenPulse.avgHitsPerBuffTooltip">
+            Average number of targets hit per buff consumption
+          </Trans>
+        ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.avgHitsPerConsume,
           isGreaterThanOrEqual: {
@@ -255,12 +265,12 @@ class ZenPulse extends Analyzer {
       },
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: 'Wasted Buffs',
+        label: defineMessage({ id: 'monk.mistweaver.zenPulse.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
-          <>
+          <Trans id="monk.mistweaver.zenPulse.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>
             <div>{this.refreshedBuffs} refreshed</div>
-          </>
+          </Trans>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.expiredBuffs + this.refreshedBuffs,
@@ -274,12 +284,19 @@ class ZenPulse extends Analyzer {
           spell={TALENTS_MONK.ZEN_PULSE_TALENT}
           title={
             <>
-              <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> Overview
+              <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />{' '}
+              <Trans id="monk.mistweaver.zenPulse.overview">Overview</Trans>
             </>
           }
           stats={stats}
         />
-        <CastDetail title="Buff Consumptions" casts={this.entries} />
+        <CastDetail
+          title={t({
+            id: 'monk.mistweaver.zenPulse.buffConsumptions',
+            message: 'Buff Consumptions',
+          })}
+          casts={this.entries}
+        />
       </GuideSection>
     );
   }

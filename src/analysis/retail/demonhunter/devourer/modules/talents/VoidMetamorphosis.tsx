@@ -8,6 +8,8 @@ import { TALENTS_DEMON_HUNTER } from 'common/TALENTS';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import Events, { CastEvent, DeathEvent, FightEndEvent, RemoveBuffEvent } from 'parser/core/Events';
 import { SubSection } from 'interface/guide';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
 } from 'interface/guide/components/CooldownExpandable';
@@ -138,7 +140,8 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     const cullChecklistItem: CooldownExpandableItem = {
       label: (
         <>
-          <SpellLink spell={SPELLS.CULL} /> casts
+          <SpellLink spell={SPELLS.CULL} />{' '}
+          <Trans id="guide.demonhunter.devourer.vm.casts">casts</Trans>
         </>
       ),
       result: <PerformanceMark perf={cullPerformance} />,
@@ -165,7 +168,7 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     }
 
     const activeTimeChecklistItem: CooldownExpandableItem = {
-      label: <>Active time</>,
+      label: <Trans id="guide.demonhunter.devourer.vm.activeTime">Active time</Trans>,
       result: <PerformanceMark perf={activeTimePerformance} />,
       details: <>{formatPercentage(activeTimePercentageDuringWindow)}%</>,
     };
@@ -180,11 +183,19 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     const smugglingChecklistItem: CooldownExpandableItem = {
       label: (
         <>
-          Smuggled <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} />
+          <Trans id="guide.demonhunter.devourer.vm.smuggled">
+            Smuggled <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} />
+          </Trans>
         </>
       ),
       result: <PerformanceMark perf={smugglingPerformance} />,
-      details: <>{cast.smuggledToll ? 'Yes' : 'No'}</>,
+      details: (
+        <>
+          {cast.smuggledToll
+            ? t({ id: 'guide.demonhunter.devourer.vm.yes', message: 'Yes' })
+            : t({ id: 'guide.demonhunter.devourer.vm.no', message: 'No' })}
+        </>
+      ),
     };
 
     return { performance: smugglingPerformance, checklistItem: smugglingChecklistItem };
@@ -217,41 +228,52 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     const explanation = (
       <>
         <p>
-          As <span className="DemonHunter">Devourer</span>, the greater share of your damage is
-          dealt during <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />.
+          <Trans id="guide.demonhunter.devourer.vm.explanation1">
+            As <span className="DemonHunter">Devourer</span>, the greater share of your damage is
+            dealt during <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />.
+          </Trans>
         </p>
         <p>
-          During <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />,{' '}
-          <ResourceLink id={RESOURCE_TYPES.FURY.id} /> is constantly consumed. Fight this process by
-          generating <ResourceLink id={RESOURCE_TYPES.FURY.id} /> using your abilities.{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} />,{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} /> and{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} /> stop the fury
-          drain&mdash; use them on cooldown!
+          <Trans id="guide.demonhunter.devourer.vm.explanation2">
+            During <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />,{' '}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> is constantly consumed. Fight this process
+            by generating <ResourceLink id={RESOURCE_TYPES.FURY.id} /> using your abilities.{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} />,{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} /> and{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} /> stop the fury
+            drain&mdash; use them on cooldown!
+          </Trans>
           <div>
-            In order to extend <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />{' '}
-            the longest, it is mandatory to keep up near-perfect active time.
+            <Trans id="guide.demonhunter.devourer.vm.explanation3">
+              In order to extend{' '}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> the longest, it
+              is mandatory to keep up near-perfect active time.
+            </Trans>
           </div>
         </p>
         <hr />
         <p>
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> upgrades{' '}
-          <SpellLink spell={SPELLS.REAP} /> to <SpellLink spell={SPELLS.CULL} />. The latter becomes
-          uncommonly powerful and should be used as much as possible with 4{' '}
-          <SpellLink spell={SPELLS.SOUL_FRAGMENT_DEVOUR} /> or more.
+          <Trans id="guide.demonhunter.devourer.vm.explanation4">
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> upgrades{' '}
+            <SpellLink spell={SPELLS.REAP} /> to <SpellLink spell={SPELLS.CULL} />. The latter
+            becomes uncommonly powerful and should be used as much as possible with 4{' '}
+            <SpellLink spell={SPELLS.SOUL_FRAGMENT_DEVOUR} /> or more.
+          </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.HUNGERING_SLASH_TALENT) && (
           <>
             <hr />
             <p>
-              <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} /> becomes{' '}
-              <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> for much higher damage. You can press{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} /> or{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} /> right before
-              entering <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> to
-              convert one to the other. This allows for at least three{' '}
-              <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> casts during your cooldown window,
-              instead of two. This is referred to as smuggling.
+              <Trans id="guide.demonhunter.devourer.vm.explanation5">
+                <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} /> becomes{' '}
+                <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> for much higher damage. You can press{' '}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} /> or{' '}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} /> right before
+                entering <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> to
+                convert one to the other. This allows for at least three{' '}
+                <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> casts during your cooldown window,
+                instead of two. This is referred to as smuggling.
+              </Trans>
             </p>
           </>
         )}
@@ -260,8 +282,12 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
 
     const data = (
       <div>
-        <b>Per-Cast Breakdown</b>
-        <small> - click to expand</small>
+        <b>
+          <Trans id="guide.demonhunter.devourer.vm.perCastBreakdown">Per-Cast Breakdown</Trans>
+        </b>
+        <small>
+          <Trans id="guide.demonhunter.devourer.vm.clickToExpand"> - click to expand</Trans>
+        </small>
         {this.#castTrackers.map((cast, index) => {
           const header = (
             <>
@@ -293,8 +319,13 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     return (
       <>
         <div>
-          <b>Uptime graph</b> - grey segments show when the buff was not active, yellow segments
-          show when it was active.
+          <b>
+            <Trans id="guide.demonhunter.devourer.vm.uptimeGraph">Uptime graph</Trans>
+          </b>{' '}
+          <Trans id="guide.demonhunter.devourer.vm.uptimeGraphDesc">
+            - grey segments show when the buff was not active, yellow segments show when it was
+            active.
+          </Trans>
         </div>
         <>
           {uptimeBarSubStatistic(this.owner.fight, {
@@ -311,7 +342,12 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
 
   guideSubsection(): JSX.Element {
     return (
-      <SubSection title="Void Metamorphosis">
+      <SubSection
+        title={t({
+          id: 'guide.demonhunter.devourer.vm.title',
+          message: 'Void Metamorphosis',
+        })}
+      >
         {this.#uptimeGuidePart()}
         {this.#castBreakdownGuidePart()}
       </SubSection>

@@ -1,6 +1,4 @@
 import type { JSX } from 'react';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
@@ -18,6 +16,8 @@ import DonutChart from 'parser/ui/DonutChart';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import {
   RESTORATION_COLORS,
@@ -268,13 +268,14 @@ class UnleashLife extends Analyzer {
           {secondary && secondary.active && (
             <li>
               <Trans id="shaman.restoration.ul.total_healing">
-                <strong>{formatNumber(this.healingMap[primary.spellId].amount)}</strong> total healing
+                <strong>{formatNumber(this.healingMap[primary.spellId].amount)}</strong> total
+                healing
               </Trans>
             </li>
           )}
           <li>
             <Trans id="shaman.restoration.ul.extra_healing">
-              <strong>{formatNumber(primary.amount)} </strong> extra{' '}
+              <strong>{formatNumber(primary.amount)}</strong> extra{' '}
               <SpellLink spell={primary.spellId} /> healing
             </Trans>
           </li>
@@ -288,7 +289,8 @@ class UnleashLife extends Analyzer {
           )}
           <li>
             <Trans id="shaman.restoration.ul.avg_healing">
-              <strong>{formatNumber(this._getAveragePerCast(primary.spellId))} </strong> healing per use
+              <strong>{formatNumber(this._getAveragePerCast(primary.spellId))} </strong> healing per
+              use
             </Trans>
           </li>
         </ul>
@@ -373,12 +375,20 @@ class UnleashLife extends Analyzer {
           <ItemHealingDone amount={this.totalHealing} />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {this.buffIcon} {this.wastedBuffs} <small> <Trans id="shaman.restoration.ul.wasted_buffs">wasted buffs</Trans></small>
+          {this.buffIcon} {this.wastedBuffs}{' '}
+          <small>
+            {' '}
+            <Trans id="shaman.restoration.ul.wasted_buffs">wasted buffs</Trans>
+          </small>
         </TalentSpellText>
         <aside className="pad">
           <hr />
           <header>
-            <label><Trans id="shaman.restoration.ul.breakdown_title">Breakdown of Unleash Life Healing</Trans></label>
+            <label>
+              <Trans id="shaman.restoration.ul.breakdown_title">
+                Breakdown of Unleash Life Healing
+              </Trans>
+            </label>
           </header>
           {this.unleashLifeCastRatioChart}
         </aside>
@@ -396,7 +406,8 @@ class UnleashLife extends Analyzer {
           </b>{' '}
           is a very efficient and potent heal on a short cooldown that also provides a buff that
           improves your next <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />,{' '}
-          <SpellLink spell={SPELLS.HEALING_WAVE} />, or <SpellLink spell={TALENTS.RIPTIDE_TALENT} />.
+          <SpellLink spell={SPELLS.HEALING_WAVE} />, or <SpellLink spell={TALENTS.RIPTIDE_TALENT} />
+          .
         </Trans>
       </p>
     );
@@ -415,8 +426,9 @@ class UnleashLife extends Analyzer {
             <strong>{t({ id: 'shaman.restoration.ul.casts_label', message: 'Casts ' })}</strong>
             <small>
               <Trans id="shaman.restoration.ul.casts_desc">
-                - Green indicates a good use of the <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />{' '}
-                buff, Yellow indicates an ok use, and Red is an incorrect use or the buff expired.
+                - Green indicates a good use of the{' '}
+                <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> buff, Yellow indicates an ok use,
+                and Red is an incorrect use or the buff expired.
               </Trans>
             </small>
             <PerformanceBoxRow values={this.castEntries} />

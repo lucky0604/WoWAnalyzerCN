@@ -1,8 +1,6 @@
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import UptimeIcon from 'interface/icons/Uptime';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
 import Events, { DamageEvent } from 'parser/core/Events';
@@ -14,6 +12,8 @@ import { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { ABILITIES_AFFECTED_BY_DAMAGE_INCREASES } from '../../constants';
 
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 const MOD_PER_STACK = 0.01;
 const MAX_STACKS = 6;
 
@@ -95,7 +95,7 @@ class HitCombo extends Analyzer {
           <div>
             <img
               src="/img/sword.png"
-              alt={t({ id: 'monk.windwalker.hitcombo.weighted_uptime', message: 'Damage' })}
+              alt={t({ id: 'monk.windwalker.hitcombo.damage', message: 'Damage' })}
               className="icon"
             />{' '}
             {formatNumber(this.dps)} DPS{' '}

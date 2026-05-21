@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, Tooltip } from 'interface';
 import { PerformanceMark } from 'interface/guide';
+import { Trans } from '@lingui/react/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
 } from 'interface/guide/components/CooldownExpandable';
@@ -180,37 +181,50 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
-          </strong>{' '}
-          requires some preparation to be used optimally. Get all of your{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> charges and{' '}
-          <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> on cooldown. <hr />
-          Your first ability after casting{' '}
-          <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} /> should be{' '}
-          <SpellLink spell={SPELLS.BLACKOUT_KICK} /> to immediately utilize the{' '}
-          <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} /> stacks granted by{' '}
-          <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />.
+          <Trans id="monk.mistweaver.invokeChiJi.explanation1">
+            <strong>
+              <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
+            </strong>{' '}
+            requires some preparation to be used optimally. Get all of your{' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> charges and{' '}
+            <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> on cooldown.
+          </Trans>
+          <hr />
+          <Trans id="monk.mistweaver.invokeChiJi.explanation2">
+            Your first ability after casting{' '}
+            <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} /> should be{' '}
+            <SpellLink spell={SPELLS.BLACKOUT_KICK} /> to immediately utilize the{' '}
+            <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} /> stacks granted by{' '}
+            <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />.
+          </Trans>
         </p>
         <hr />
         <p>
-          During <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />, aim to cast{' '}
-          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> only when other buffs like{' '}
-          <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} /> or{' '}
-          <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} /> are active to maximize{' '}
-          your healing.
+          <Trans id="monk.mistweaver.invokeChiJi.explanation3">
+            During <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />, aim to
+            cast <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> only when other buffs
+            like <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} /> or{' '}
+            <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} /> are active to
+            maximize your healing.
+          </Trans>
         </p>
         <p>
-          It is important to avoid overcapping on{' '}
-          <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />.
+          <Trans id="monk.mistweaver.invokeChiJi.explanation4">
+            It is important to avoid overcapping on{' '}
+            <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />.
+          </Trans>
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>
+          <Trans id="monk.mistweaver.invokeChiJi.perCastBreakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="monk.mistweaver.invokeChiJi.clickToExpand"> - click to expand</Trans>
+        </small>
         {this.castTrackers.map((cast, ix) => {
           const header = (
             <>
@@ -235,8 +249,8 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
             checklistItems.push({
               label: (
                 <>
-                  <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} /> stacks on
-                  cast{' '}
+                  <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />{' '}
+                  <Trans id="monk.mistweaver.invokeChiJi.stacksOnCast">stacks on cast</Trans>{' '}
                   <Tooltip
                     hoverable
                     content={
@@ -262,7 +276,8 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
           checklistItems.push({
             label: (
               <>
-                <SpellLink spell={SPELLS.TEACHINGS_OF_THE_MONASTERY} /> stacks wasted
+                <SpellLink spell={SPELLS.TEACHINGS_OF_THE_MONASTERY} />{' '}
+                <Trans id="monk.mistweaver.invokeChiJi.stacksWasted">stacks wasted</Trans>
               </>
             ),
             result: <PerformanceMark perf={totmRefreshPerf} />,

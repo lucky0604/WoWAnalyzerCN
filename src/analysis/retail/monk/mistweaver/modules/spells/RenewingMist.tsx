@@ -13,6 +13,7 @@ import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 import Vivify from './Vivify';
 
+import { Trans } from '@lingui/react/macro';
 class RenewingMist extends Analyzer {
   static dependencies = {
     remGraph: REMGraph,
@@ -75,15 +76,20 @@ class RenewingMist extends Analyzer {
         <b>
           <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
         </b>{' '}
-        is your primary healing spell. You can use it on any target and it will either stay on the
-        target, jump targets if the chosen target has a{' '}
-        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> and there are players in range, or pandemic
-        if there are no players to jump to in range. Using{' '}
-        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> as much as possible is extremely important
-        due to its synergy with <SpellLink spell={SPELLS.VIVIFY} />,{' '}
-        <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />,{' '}
-        <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />, and{' '}
-        <SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT} />.
+        <Trans id="monk.mistweaver.renewingMist.explanation">
+          <b>
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+          </b>{' '}
+          is your primary healing spell. You can use it on any target and it will either stay on the
+          target, jump targets if the chosen target has a{' '}
+          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> and there are players in range, or
+          pandemic if there are no players to jump to in range. Using{' '}
+          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> as much as possible is extremely important
+          due to its synergy with <SpellLink spell={SPELLS.VIVIFY} />,{' '}
+          <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />,{' '}
+          <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />, and{' '}
+          <SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT} />.
+        </Trans>
       </p>
     );
 
@@ -91,7 +97,8 @@ class RenewingMist extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> cast efficiency
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />{' '}
+            <Trans id="monk.mistweaver.renewingMist.castEfficiency">cast efficiency</Trans>
           </strong>
           {this.subStatistic()}
         </RoundedPanel>

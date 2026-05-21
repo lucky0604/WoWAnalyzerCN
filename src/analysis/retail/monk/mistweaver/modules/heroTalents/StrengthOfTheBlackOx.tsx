@@ -6,6 +6,8 @@ import Events, { RefreshBuffEvent, RemoveBuffEvent } from 'parser/core/Events';
 import { isStrengthOfTheBlackOxConsumed } from '../../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,
   evaluateQualitativePerformanceByThreshold,
@@ -87,22 +89,24 @@ class StrengthOfTheBlackOx extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} />
         </b>{' '}
-        is a buff that makes your next <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
-        have a reduced cast time and apply a shield to 5 nearby allies. It is very important to
-        never let this buff refresh or expire as it is a considerable amount of shielding. Try to
-        have <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active when
-        casting <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> as it is very expensive.
+        <Trans id="monk.mistweaver.sotbo.explanation">
+          is a buff that makes your next <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
+          have a reduced cast time and apply a shield to 5 nearby allies. It is very important to
+          never let this buff refresh or expire as it is a considerable amount of shielding. Try to
+          have <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active when
+          casting <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> as it is very expensive.
+        </Trans>
       </p>
     );
     const stats = [
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: 'Wasted Buffs',
+        label: defineMessage({ id: 'monk.mistweaver.sotbo.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
-          <>
+          <Trans id="monk.mistweaver.sotbo.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>
             <div>{this.refreshedBuffs} refreshed</div>
-          </>
+          </Trans>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.expiredBuffs + this.refreshedBuffs,
@@ -116,12 +120,16 @@ class StrengthOfTheBlackOx extends Analyzer {
           spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT}
           title={
             <>
-              <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} /> Overview
+              <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} />{' '}
+              <Trans id="monk.mistweaver.sotbo.overview">Overview</Trans>
             </>
           }
           stats={stats}
         />
-        <CastDetail title="Buff Utilization" casts={this.entries} />
+        <CastDetail
+          title={t({ id: 'monk.mistweaver.sotbo.buffUtilization', message: 'Buff Utilization' })}
+          casts={this.entries}
+        />
       </GuideSection>
     );
   }

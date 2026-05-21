@@ -21,6 +21,8 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { SpellLink } from 'interface';
 import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   SPIRITFONT_MAX_STACKS,
   SPIRITFONT_R1_ENV_RSK_INCREASE,
@@ -254,24 +256,27 @@ class Spiritfont extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />
         </b>{' '}
-        is our Apex talent. It stacks up to {SPIRITFONT_MAX_STACKS} charges, and consuming a charge
-        causes several <SpellLink spell={SPELLS.SPIRITFONT_HOT} /> to heal players. Additionally, it
-        increases the damage and healing of your <SpellLink spell={this.activeRSKTalent} /> and{' '}
-        <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />, with even greater increases
-        during <SpellLink spell={TALENTS_MONK.SPIRITFONT_2_MISTWEAVER_TALENT} /> activity. It is
-        very important to never let this buff refresh at {SPIRITFONT_MAX_STACKS} stacks or expire,
-        as all portions of the Apex add up to a significant amount of your healing.
+        <Trans id="monk.mistweaver.spiritfont.explanation">
+          is our Apex talent. It stacks up to {SPIRITFONT_MAX_STACKS} charges, and consuming a
+          charge causes several <SpellLink spell={SPELLS.SPIRITFONT_HOT} /> to heal players.
+          Additionally, it increases the damage and healing of your{' '}
+          <SpellLink spell={this.activeRSKTalent} /> and{' '}
+          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />, with even greater increases
+          during <SpellLink spell={TALENTS_MONK.SPIRITFONT_2_MISTWEAVER_TALENT} /> activity. It is
+          very important to never let this buff refresh at {SPIRITFONT_MAX_STACKS} stacks or expire,
+          as all portions of the Apex add up to a significant amount of your healing.
+        </Trans>
       </p>
     );
     const stats = [
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: 'Wasted Buffs',
+        label: defineMessage({ id: 'monk.mistweaver.spiritfont.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
-          <>
+          <Trans id="monk.mistweaver.spiritfont.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>
             <div>{this.refreshedBuffs} refreshed</div>
-          </>
+          </Trans>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.expiredBuffs + this.refreshedBuffs,
@@ -285,14 +290,18 @@ class Spiritfont extends Analyzer {
           spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT}
           title={
             <>
-              <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} /> Overview
+              <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />{' '}
+              <Trans id="monk.mistweaver.spiritfont.overview">Overview</Trans>
             </>
           }
           stats={stats}
         />
         <CastSummary
           spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT}
-          title={'Buff Utilization'}
+          title={t({
+            id: 'monk.mistweaver.spiritfont.buffUtilization',
+            message: 'Buff Utilization',
+          })}
           casts={this.entries}
           showBreakdown
           startExpanded
