@@ -58,7 +58,7 @@ class CometStorm extends Analyzer {
     this.cometStorm.push(cometStormDetails);
 
     let performance = QualitativePerformance.Fail;
-    const count = t({ id: 'mage.frost.cometStorm.hitCount', message: '{shatteredHits} shattered hits / {enemyCount} enemies hit', values: { shatteredHits: cometStormDetails.shatteredHits, enemyCount: cometStormDetails.enemiesHit.length } });
+    const count = t`${cometStormDetails.shatteredHits} shattered hits / ${cometStormDetails.enemiesHit.length} enemies hit`;
     if (enemies.length === 1) {
       if (cometStormDetails.shatteredHits >= 7) {
         performance = QualitativePerformance.Perfect;
