@@ -10,6 +10,7 @@ import Enemies, { encodeTargetString } from 'parser/shared/modules/Enemies';
 import { qualitativePerformanceToColor, useAnalyzer, useInfo } from '../index';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { maybeGetTalentOrSpell } from 'common/maybeGetTalentOrSpell';
+import { getSpellCnName } from 'common/CN_MAPPING';
 
 export interface TrackedHit {
   /** How good a job the player did of mitigating the tracked hit */
@@ -132,7 +133,8 @@ export function DamageSourceLink({
 
   if (showSourceName) {
     const enemy = enemies?.getSourceEntity(event);
-    let displayName = spell?.name ?? ability.name;
+    let displayName =
+      (i18n.locale === 'zh' ? getSpellCnName(ability.guid) : null) ?? spell?.name ?? ability.name;
     if (i18n.locale === 'zh' && displayName === 'Melee') {
       displayName = '普通攻击';
     }
@@ -142,9 +144,11 @@ export function DamageSourceLink({
       </a>
     );
   } else {
+    const displayName =
+      (i18n.locale === 'zh' ? getSpellCnName(ability.guid) : null) ?? ability.name;
     return (
       <SpellLink spell={ability.guid} style={style}>
-        {ability.name}
+        {displayName}
       </SpellLink>
     );
   }

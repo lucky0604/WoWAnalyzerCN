@@ -8,6 +8,7 @@ import { useExpansionContext } from 'interface/report/ExpansionContext';
 import { getSpellId } from 'common/getSpellId';
 import { maybeGetTalentOrSpell } from 'common/maybeGetTalentOrSpell';
 import { i18n } from '@lingui/core';
+import { getSpellCnName, getSpellCnNameByEnglish } from 'common/CN_MAPPING';
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
 
@@ -39,8 +40,11 @@ const useSpellInfo = (spell: number | Spell | undefined) => {
 
   const result = argumentAsSpell ?? data;
   if (result && i18n.locale === 'zh') {
-    if (result.name === 'Melee') {
-      return { ...result, name: '普通攻击' };
+    // 查询 CN_MAPPING/spellNames.ts 的中文映射
+    // 优先使用 spell ID 精确匹配，失败时回退到英文名模糊匹配
+    const cnName = (spellId && getSpellCnName(spellId)) ?? getSpellCnNameByEnglish(result.name);
+    if (cnName) {
+      return { ...result, name: cnName };
     }
   }
 

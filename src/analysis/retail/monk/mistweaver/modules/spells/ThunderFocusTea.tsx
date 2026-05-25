@@ -26,6 +26,7 @@ import { GapHighlight } from 'parser/ui/CooldownBar';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { numberToQualitativePerformance } from 'common/combineQualitativePerformances';
 import { Talent } from 'common/TALENTS/types';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import type Spell from 'common/SPELLS/Spell';
 import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
@@ -294,9 +295,11 @@ class ThunderFocusTea extends Analyzer {
           <b>
             <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />
           </b>{' '}
-          is an important spell used to empower other abilities. It should be used on cooldown at
-          all times and the spell that you use it on depends on your talent selection. Try to adhere
-          to the following priority list with <SpellLink spell={this.currentCelestial} />:
+          <Trans id="monk.mistweaver.tft.explanation">
+            is an important spell used to empower other abilities. It should be used on cooldown at
+            all times and the spell that you use it on depends on your talent selection. Try to
+            adhere to the following priority list with <SpellLink spell={this.currentCelestial} />:
+          </Trans>
         </p>
         <ul style={{ marginBottom: '1em' }}>
           {this.spellPriorities.map(([spell, score], i) => (
@@ -307,10 +310,12 @@ class ThunderFocusTea extends Analyzer {
         </ul>
         {this.ftActive && (
           <p>
-            With <SpellLink spell={TALENTS_MONK.FOCUSED_THUNDER_TALENT} />, the second empower
-            carries slightly less weight as{' '}
-            <SpellLink spell={TALENTS_MONK.SECRET_INFUSION_TALENT} /> only changes the secondary
-            stat buff gain on the first empower.
+            <Trans id="monk.mistweaver.tft.focusedThunderNote">
+              With <SpellLink spell={TALENTS_MONK.FOCUSED_THUNDER_TALENT} />, the second empower
+              carries slightly less weight as{' '}
+              <SpellLink spell={TALENTS_MONK.SECRET_INFUSION_TALENT} /> only changes the secondary
+              stat buff gain on the first empower.
+            </Trans>
           </p>
         )}
       </>
@@ -318,11 +323,15 @@ class ThunderFocusTea extends Analyzer {
     const data = (
       <RoundedPanel>
         <strong>
-          <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> cast efficiency
+          <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />{' '}
+          <Trans id="monk.mistweaver.tft.castEfficiency">cast efficiency</Trans>
         </strong>
         {this.subStatistic()}
         <div style={{ minWidth: 0, overflow: 'hidden' }}>
-          <CastDetail title="Empowered Spells" casts={this.buildCastDetails()} />
+          <CastDetail
+            title={t({ id: 'monk.mistweaver.tft.empoweredSpells', message: 'Empowered Spells' })}
+            casts={this.buildCastDetails()}
+          />
         </div>
       </RoundedPanel>
     );
