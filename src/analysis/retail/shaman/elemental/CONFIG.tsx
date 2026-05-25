@@ -11,7 +11,7 @@ export default {
   contributors: [Seriousnes],
   branch: GameBranch.Retail,
   // The WoW client patch this spec was last updated.
-  patchCompatibility: '12.0.0',
+  patchCompatibility: '12.0.5',
   supportLevel: SupportLevel.MaintainedFull,
   // Explain the status of this spec's analysis here. Try to mention how complete it is, and perhaps show links to places users can learn more.
   // If this spec's analysis does not show a complete picture please mention this in the `<Warning>` component.
@@ -19,16 +19,14 @@ export default {
     <>
       <p>
         <Trans id="shaman.elemental.config.welcome">
-          Hello there! Welcome to the analyzer for Elemental Shaman! This analyzer has functionalities
-          that I hope you find useful when playing the spec. If you have any input or suggestions
-          please ask questions in the #elemental channel in the{' '}
+          Hello there! Welcome to the analyzer for Elemental Shaman! This analyzer has
+          functionalities that I hope you find useful when playing the spec. If you have any input
+          or suggestions please ask questions in the #elemental channel in the{' '}
           <a href="https://discord.gg/earthshrine">Earthshrine discord</a>.
         </Trans>
       </p>
       <p>
-        <Trans id="shaman.elemental.config.more_resources">
-          More resources for Elemental:
-        </Trans>
+        <Trans id="shaman.elemental.config.more_resources">More resources for Elemental:</Trans>
         <ul>
           <li>
             <a href="https://discord.gg/earthshrine" target="_blank" rel="noopener noreferrer">

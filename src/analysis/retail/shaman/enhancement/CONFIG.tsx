@@ -10,21 +10,21 @@ import CHANGELOG from './CHANGELOG';
 const config: Config = {
   contributors: [Seriousnes],
   branch: GameBranch.Retail,
-  patchCompatibility: '12.0.0',
+  patchCompatibility: '12.0.5',
   supportLevel: SupportLevel.MaintainedFull,
   description: (
     <>
       <AlertWarning>
         <Trans id="shaman.enhancement.config.beta_warning">
-          Analytics are being developed for a level 80 The War Within character on beta. Right now the
-          Enhancement Analyzer is a work-in-progress, and only holds very basic functionality.
+          Analytics are being developed for a level 80 The War Within character on beta. Right now
+          the Enhancement Analyzer is a work-in-progress, and only holds very basic functionality.
         </Trans>
       </AlertWarning>
       <p>
         <Trans id="shaman.enhancement.config.feedback">
           Hey there! Thanks for checking out the Enhancement Analyzer. If you have any feedback or
-          suggestions, feel free to reach out to Seriousnes via Discord (seriousnes) or drop an issue
-          in the GitHub repo.
+          suggestions, feel free to reach out to Seriousnes via Discord (seriousnes) or drop an
+          issue in the GitHub repo.
         </Trans>
       </p>
     </>
