@@ -1,5 +1,5 @@
 import { formatDurationMillisMinSec } from 'common/format';
-import { defineMessage, t } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS/shaman';
@@ -277,7 +277,7 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: `${cast.spendersCast}/${maxSpenders}`,
-      label: defineMessage({ id: 'shaman.elemental.ascendance.spenders', message: 'Spenders' }),
+      label: t({ id: 'shaman.elemental.ascendance.spenders', message: 'Spenders' }),
       tooltip: (
         <Trans id="shaman.elemental.ascendance.spenders_tooltip">
           You cast <strong>{cast.spendersCast}</strong> out of a maximum of{' '}
@@ -303,7 +303,7 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: formatDurationMillisMinSec(downtime, 1),
-      label: defineMessage({ id: 'shaman.elemental.ascendance.downtime', message: 'Downtime' }),
+      label: t({ id: 'shaman.elemental.ascendance.downtime', message: 'Downtime' }),
       performance: evaluateQualitativePerformanceByThreshold({
         actual: downtime,
         isLessThan: {
@@ -349,7 +349,7 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: `${nonOverloadSpellCount}`,
-      label: defineMessage({ id: 'shaman.elemental.ascendance.non_overload', message: 'Non-Overload Spells' }),
+      label: t({ id: 'shaman.elemental.ascendance.non_overload', message: 'Non-Overload Spells' }),
       tooltip: (
         <>
           <Trans id="shaman.elemental.ascendance.non_overload_tooltip">
@@ -444,7 +444,7 @@ class Ascendance extends Analyzer.withDependencies({
           ...scoredStats,
           {
             value: `${cast.endingMaelstrom}`,
-            label: defineMessage({
+            label: t({
               id: 'shaman.elemental.ascendance.ending_maelstrom',
               message: 'Ending Maelstrom',
             }),
@@ -455,7 +455,7 @@ class Ascendance extends Analyzer.withDependencies({
         additionalContent:
           sequence.length > 0
             ? {
-                title: defineMessage({
+                title: t({
                   id: 'shaman.elemental.ascendance.cast_sequence',
                   message: 'Cast Sequence',
                 }),

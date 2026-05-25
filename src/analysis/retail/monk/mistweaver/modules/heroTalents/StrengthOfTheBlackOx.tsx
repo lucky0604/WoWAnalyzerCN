@@ -6,7 +6,7 @@ import Events, { RefreshBuffEvent, RemoveBuffEvent } from 'parser/core/Events';
 import { isStrengthOfTheBlackOxConsumed } from '../../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
-import { defineMessage, t } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,
@@ -101,7 +101,7 @@ class StrengthOfTheBlackOx extends Analyzer {
     const stats = [
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: defineMessage({ id: 'monk.mistweaver.sotbo.wastedBuffs', message: 'Wasted Buffs' }),
+        label: t({ id: 'monk.mistweaver.sotbo.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
           <Trans id="monk.mistweaver.sotbo.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>

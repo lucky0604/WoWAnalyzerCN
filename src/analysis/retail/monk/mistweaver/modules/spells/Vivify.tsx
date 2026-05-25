@@ -10,7 +10,7 @@ import CastOverview from 'interface/guide/components/CastOverview';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
-import { defineMessage, t } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,
@@ -231,7 +231,7 @@ class Vivify extends Analyzer {
     const stats = [
       {
         value: this.averageRemPerVivify.toFixed(1),
-        label: defineMessage({ id: 'monk.mistweaver.vivify.avgReMsPerCast', message: 'Avg ReMs Per Cast' }),
+        label: t({ id: 'monk.mistweaver.vivify.avgReMsPerCast', message: 'Avg ReMs Per Cast' }),
         tooltip: (
           <Trans id="monk.mistweaver.vivify.avgReMsPerCastTooltip">
             Average number of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> targets cleaved per{' '}
@@ -250,7 +250,7 @@ class Vivify extends Analyzer {
       },
       {
         value: `${formatPercentage(avgOverheal)}%`,
-        label: defineMessage({ id: 'monk.mistweaver.vivify.avgOverheal', message: 'Avg Overheal' }),
+        label: t({ id: 'monk.mistweaver.vivify.avgOverheal', message: 'Avg Overheal' }),
         tooltip: (
           <Trans id="monk.mistweaver.vivify.avgOverhealTooltip">
             Average overheal across all {this.casts} casts
@@ -263,7 +263,7 @@ class Vivify extends Analyzer {
       },
       {
         value: formatNumber(this.avgHealingPerCast),
-        label: defineMessage({
+        label: t({
           id: 'monk.mistweaver.vivify.avgHealingPerCast',
           message: 'Avg Healing Per Cast',
         }),

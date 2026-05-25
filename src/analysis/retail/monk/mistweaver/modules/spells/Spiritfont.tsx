@@ -21,7 +21,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { SpellLink } from 'interface';
 import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
-import { defineMessage, t } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   SPIRITFONT_MAX_STACKS,
@@ -271,7 +271,7 @@ class Spiritfont extends Analyzer {
     const stats = [
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: defineMessage({ id: 'monk.mistweaver.spiritfont.wastedBuffs', message: 'Wasted Buffs' }),
+        label: t({ id: 'monk.mistweaver.spiritfont.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
           <Trans id="monk.mistweaver.spiritfont.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>

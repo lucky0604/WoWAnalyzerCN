@@ -19,7 +19,7 @@ import { TooltipElement } from 'interface/Tooltip';
 import { formatNumber, formatPercentage } from 'common/format';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
-import { defineMessage, t } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   getSelectedPrimaryHeal,
@@ -248,7 +248,7 @@ class ZenPulse extends Analyzer {
     const stats = [
       {
         value: this.avgHitsPerConsume.toFixed(2),
-        label: defineMessage({ id: 'monk.mistweaver.zenPulse.avgHitsPerBuff', message: 'Avg Hits Per Buff' }),
+        label: t({ id: 'monk.mistweaver.zenPulse.avgHitsPerBuff', message: 'Avg Hits Per Buff' }),
         tooltip: (
           <Trans id="monk.mistweaver.zenPulse.avgHitsPerBuffTooltip">
             Average number of targets hit per buff consumption
@@ -265,7 +265,7 @@ class ZenPulse extends Analyzer {
       },
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: defineMessage({ id: 'monk.mistweaver.zenPulse.wastedBuffs', message: 'Wasted Buffs' }),
+        label: t({ id: 'monk.mistweaver.zenPulse.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
           <Trans id="monk.mistweaver.zenPulse.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>
