@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -94,18 +96,24 @@ class RayOfFrost extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{rayOfFrost}</b> is the most important long cooldown spell in Frost. You want to cast
-          it as soon as possible, but there are some rules to follow in order to get the most out of
-          it.
+          <Trans id="mage.frost.rayOfFrost.explanation">
+            <b>{rayOfFrost}</b> is the most important long cooldown spell in Frost. You want to cast
+            it as soon as possible, but there are some rules to follow in order to get the most out
+            of it.
+          </Trans>
         </p>
         <ol>
           <li>
-            Don't miss ticks. Stand still while casting. You have shimmer in case you need to avoid
-            something
+            <Trans id="mage.frost.rayOfFrost.rule1">
+              Don't miss ticks. Stand still while casting. You have shimmer in case you need to avoid
+              something
+            </Trans>
           </li>
           <li>
-            It generates 8 stacks of freeze, try to cast it with less than 12 stacks on the target
-            to avoid wasting stacks
+            <Trans id="mage.frost.rayOfFrost.rule2">
+              It generates 8 stacks of freeze, try to cast it with less than 12 stacks on the target
+              to avoid wasting stacks
+            </Trans>
           </li>
         </ol>
       </>
@@ -113,14 +121,14 @@ class RayOfFrost extends Analyzer {
     const data = (
       <div>
         <RoundedPanel>
-          <strong>{rayOfFrost} cast efficiency</strong>
+          <strong><Trans id="mage.frost.rayOfFrost.castEfficiency">{rayOfFrost} cast efficiency</Trans></strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
           </div>
-          <strong>{rayOfFrost} cast details</strong>
+          <strong><Trans id="mage.frost.rayOfFrost.castDetails">{rayOfFrost} cast details</Trans></strong>
           <PerformanceBoxRow values={this.castEntries} />
           <small>
-            blue (perfect) / green (good) / red (fail) mouseover the rectangles to see more details
+            <Trans id="mage.frost.rayOfFrost.legend">blue (perfect) / green (good) / red (fail) mouseover the rectangles to see more details</Trans>
           </small>
         </RoundedPanel>
       </div>
@@ -130,7 +138,7 @@ class RayOfFrost extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      'Ray Of Frost',
+      t({ id: 'mage.frost.rayOfFrost.title', message: 'Ray Of Frost' }),
     );
   }
 

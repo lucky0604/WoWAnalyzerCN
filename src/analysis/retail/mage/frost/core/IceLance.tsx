@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -148,9 +150,9 @@ class IceLance extends Analyzer {
         if (icelance.hadThermalVoid) {
           addEnhancedCastReason(
             icelance.cast,
-            <>
+            <Trans id="mage.frost.iceLance.enhancedReason">
               This cast utilized <SpellLink spell={TALENTS.THERMAL_VOID_TALENT} /> and {FINGERS}
-            </>,
+            </Trans>,
           );
         }
       } else if (icelance.highestShatteredStacks >= this.targetFreezingCount) {
@@ -168,39 +170,39 @@ class IceLance extends Analyzer {
         // 4 is an arbitrary cut-off, but this will only highlight REALLY inefficient casts on the timeline.
         highlightInefficientCast(
           icelance.cast,
-          <>
+          <Trans id="mage.frost.iceLance.shatterTooltip">
             This cast shattered <strong>{icelance.highestShatteredStacks}</strong> {FREEZING} stack
             {icelance.highestShatteredStacks === 1 ? '' : 's'}
-          </>,
+          </Trans>,
         );
       }
     });
 
     donutData.push({
-      label: <>with {FINGERS}</>,
+      label: <Trans id="mage.frost.iceLance.donut.withFingers">with {FINGERS}</Trans>,
       color: '#3a91c2',
       value: withFingers,
     });
     donutData.push({
       label: (
-        <>
+        <Trans id="mage.frost.iceLance.donut.enoughFreezing">
           &gt;= {this.targetFreezingCount} {FREEZING}
-        </>
+        </Trans>
       ),
       color: '#5fc047',
       value: enoughFreezing,
     });
     donutData.push({
       label: (
-        <>
+        <Trans id="mage.frost.iceLance.donut.almostFreezing">
           4-{this.targetFreezingCount - 1} {FREEZING}
-        </>
+        </Trans>
       ),
       color: '#e6c200',
       value: almostEnoughFreezing,
     });
     donutData.push({
-      label: <>&lt; 4 {FREEZING}</>,
+      label: <Trans id="mage.frost.iceLance.donut.lowFreezing">&lt; 4 {FREEZING}</Trans>,
       color: '#a51c37',
       value: lowFreezing,
     });
@@ -215,19 +217,25 @@ class IceLance extends Analyzer {
     const explanation = (
       <>
         <p>
-          {ICE_LANCE} doesn't do much damage on its own, but it is one of the core spells that can
-          {SHATTER} the {FREEZING} debuff. To be efficient, you only want to cast it when your
-          target has enough {FREEZING} stacks, or when you have {FINGERS}.
+          <Trans id="mage.frost.iceLance.explanation1">
+            {ICE_LANCE} doesn't do much damage on its own, but it is one of the core spells that can
+            {SHATTER} the {FREEZING} debuff. To be efficient, you only want to cast it when your
+            target has enough {FREEZING} stacks, or when you have {FINGERS}.
+          </Trans>
         </p>
         <p>
-          Based on your talent setup, you should cast {ICE_LANCE} when your target has{' '}
-          <strong>{this.targetFreezingCount}</strong> or more {FREEZING} stacks.
+          <Trans id="mage.frost.iceLance.explanation2">
+            Based on your talent setup, you should cast {ICE_LANCE} when your target has{' '}
+            <strong>{this.targetFreezingCount}</strong> or more {FREEZING} stacks.
+          </Trans>
         </p>
         {this.talentWarning && (
           <p>
             <small>
-              Note that this suggested {FREEZING} count assumes you are using one of the accepted
-              standard talent builds, which this report has deviated from.
+              <Trans id="mage.frost.iceLance.talentWarning">
+                Note that this suggested {FREEZING} count assumes you are using one of the accepted
+                standard talent builds, which this report has deviated from.
+              </Trans>
             </small>
           </p>
         )}
@@ -237,7 +245,7 @@ class IceLance extends Analyzer {
     const data = (
       <>
         <RoundedPanel>
-          <b>{ICE_LANCE} cast efficiency</b>
+          <b><Trans id="mage.frost.iceLance.castEfficiency">{ICE_LANCE} cast efficiency</Trans></b>
           <DonutChart items={this.results?.donutData ?? []} />
         </RoundedPanel>
       </>
@@ -247,17 +255,17 @@ class IceLance extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      'Ice Lance',
+      t({ id: 'mage.frost.iceLance.title', message: 'Ice Lance' }),
     );
   }
 
   statistic() {
     if (!this.results) return undefined;
     const tooltip = (
-      <>
+      <Trans id="mage.frost.iceLance.statTooltip">
         The total and average number of {FREEZING} stacks shattered by {ICE_LANCE}, including those
         on secondary cleave targets.
-      </>
+      </Trans>
     );
 
     const averageFreezing = this.results.totalFreezingStacks / this.results.totalCasts;
@@ -267,10 +275,10 @@ class IceLance extends Analyzer {
           <span>
             <p>
               {formatNumber(this.results.totalFreezingStacks)}{' '}
-              <small>Total {FREEZING} stacks</small>
+              <small><Trans id="mage.frost.iceLance.totalStacks">Total {FREEZING} stacks</Trans></small>
             </p>
             <p>
-              {formatNumber(averageFreezing)} <small>Average {FREEZING} stacks</small>
+              {formatNumber(averageFreezing)} <small><Trans id="mage.frost.iceLance.avgStacks">Average {FREEZING} stacks</Trans></small>
             </p>
           </span>
         </BoringSpellValueText>

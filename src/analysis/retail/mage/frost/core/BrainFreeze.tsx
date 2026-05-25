@@ -1,6 +1,8 @@
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { SpellIcon, SpellLink, TooltipElement } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
@@ -169,18 +171,18 @@ class BrainFreeze extends Analyzer {
         position={STATISTIC_ORDER.CORE(30)}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="mage.frost.brainFreeze.statTooltip">
             You got {this.totalProcs} total procs.
             <ul>
               <li>{this.totalProcs - this.expiredProcs - this.brainFreezeRefreshes} used</li>
               <li>{this.brainFreezeRefreshes} overwritten</li>
               <li>{this.expiredProcs} expired</li>
             </ul>
-          </>
+          </Trans>
         }
       >
         <BoringSpellValueText spell={TALENTS.BRAIN_FREEZE_TALENT}>
-          {formatPercentage(this.utilPercent, 0)}% <small>Proc utilization</small>
+          {formatPercentage(this.utilPercent, 0)}% <small><Trans id="mage.frost.brainFreeze.procUtilization">Proc utilization</Trans></small>
         </BoringSpellValueText>
       </Statistic>
     );
@@ -191,21 +193,19 @@ class BrainFreeze extends Analyzer {
     const brainFreezeIcon = <SpellIcon spell={TALENTS.BRAIN_FREEZE_TALENT} />;
 
     const explanation = (
-      <>
+      <Trans id="mage.frost.brainFreeze.explanation">
         You should use your {brainFreeze} procs as soon as possible and avoid letting them expire or
         be overwritten whenever possible. There are not any situations where it would be
         advantageous to hold your {brainFreeze}.
-      </>
+      </Trans>
     );
 
     const utilizationTooltip = (
-      <>
-        {this.totalProcs - this.wastedProcs}/{this.totalProcs} procs utilized
-      </>
+      <Trans id="mage.frost.brainFreeze.utilTooltip">{this.totalProcs - this.wastedProcs}/{this.totalProcs} procs utilized</Trans>
     );
-    const overwrittenTooltip = <>{this.brainFreezeRefreshes} procs</>;
+    const overwrittenTooltip = <Trans id="mage.frost.brainFreeze.overwrittenTooltip">{this.brainFreezeRefreshes} procs</Trans>;
 
-    const expiredTooltip = <>{this.expiredProcs} procs</>;
+    const expiredTooltip = <Trans id="mage.frost.brainFreeze.expiredTooltip">{this.expiredProcs} procs</Trans>;
 
     const data = (
       <div>
@@ -218,7 +218,7 @@ class BrainFreeze extends Analyzer {
           >
             {brainFreezeIcon}{' '}
             <TooltipElement content={utilizationTooltip}>
-              {formatPercentage(this.utilPercent, 0)} % <small>utilization</small>
+              {formatPercentage(this.utilPercent, 0)} % <small><Trans id="mage.frost.brainFreeze.utilization">utilization</Trans></small>
             </TooltipElement>
           </div>
 
@@ -230,7 +230,7 @@ class BrainFreeze extends Analyzer {
           >
             {brainFreezeIcon}{' '}
             <TooltipElement content={overwrittenTooltip}>
-              {formatPercentage(this.overwrittenPercentage, 0)} % <small>overwritten</small>
+              {formatPercentage(this.overwrittenPercentage, 0)} % <small><Trans id="mage.frost.brainFreeze.overwritten">overwritten</Trans></small>
             </TooltipElement>
           </div>
 
@@ -242,7 +242,7 @@ class BrainFreeze extends Analyzer {
           >
             {brainFreezeIcon}{' '}
             <TooltipElement content={expiredTooltip}>
-              {formatPercentage(this.expiredPercentage, 0)} % <small>expired</small>
+              {formatPercentage(this.expiredPercentage, 0)} % <small><Trans id="mage.frost.brainFreeze.expired">expired</Trans></small>
             </TooltipElement>
           </div>
         </RoundedPanel>
@@ -253,7 +253,7 @@ class BrainFreeze extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      'Brain Freeze',
+      t({ id: 'mage.frost.brainFreeze.title', message: 'Brain Freeze' }),
     );
   }
 }
