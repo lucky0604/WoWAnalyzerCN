@@ -19,7 +19,7 @@ import Events, {
 import MaelstromTracker from '../resources/MaelstromTracker';
 import MaelstromSpenderInfo from '../core/MaelstromSpenderInfo';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   computeScore,
