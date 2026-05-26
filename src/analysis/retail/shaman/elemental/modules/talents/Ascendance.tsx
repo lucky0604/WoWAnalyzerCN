@@ -277,7 +277,7 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: `${cast.spendersCast}/${maxSpenders}`,
-      label: t({ id: 'shaman.elemental.ascendance.spenders', message: 'Spenders' }),
+      label: defineMessage({ id: 'shaman.elemental.ascendance.spenders', message: 'Spenders' }),
       tooltip: (
         <Trans id="shaman.elemental.ascendance.spenders_tooltip">
           You cast <strong>{cast.spendersCast}</strong> out of a maximum of{' '}
@@ -303,7 +303,7 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: formatDurationMillisMinSec(downtime, 1),
-      label: t({ id: 'shaman.elemental.ascendance.downtime', message: 'Downtime' }),
+      label: defineMessage({ id: 'shaman.elemental.ascendance.downtime', message: 'Downtime' }),
       performance: evaluateQualitativePerformanceByThreshold({
         actual: downtime,
         isLessThan: {
@@ -349,7 +349,10 @@ class Ascendance extends Analyzer.withDependencies({
 
     return {
       value: `${nonOverloadSpellCount}`,
-      label: t({ id: 'shaman.elemental.ascendance.non_overload', message: 'Non-Overload Spells' }),
+      label: defineMessage({
+        id: 'shaman.elemental.ascendance.non_overload',
+        message: 'Non-Overload Spells',
+      }),
       tooltip: (
         <>
           <Trans id="shaman.elemental.ascendance.non_overload_tooltip">
@@ -444,7 +447,7 @@ class Ascendance extends Analyzer.withDependencies({
           ...scoredStats,
           {
             value: `${cast.endingMaelstrom}`,
-            label: t({
+            label: defineMessage({
               id: 'shaman.elemental.ascendance.ending_maelstrom',
               message: 'Ending Maelstrom',
             }),
@@ -455,7 +458,7 @@ class Ascendance extends Analyzer.withDependencies({
         additionalContent:
           sequence.length > 0
             ? {
-                title: t({
+                title: defineMessage({
                   id: 'shaman.elemental.ascendance.cast_sequence',
                   message: 'Cast Sequence',
                 }),

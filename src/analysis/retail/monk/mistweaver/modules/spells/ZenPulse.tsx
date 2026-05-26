@@ -248,7 +248,10 @@ class ZenPulse extends Analyzer {
     const stats = [
       {
         value: this.avgHitsPerConsume.toFixed(2),
-        label: t({ id: 'monk.mistweaver.zenPulse.avgHitsPerBuff', message: 'Avg Hits Per Buff' }),
+        label: defineMessage({
+          id: 'monk.mistweaver.zenPulse.avgHitsPerBuff',
+          message: 'Avg Hits Per Buff',
+        }),
         tooltip: (
           <Trans id="monk.mistweaver.zenPulse.avgHitsPerBuffTooltip">
             Average number of targets hit per buff consumption
@@ -265,7 +268,10 @@ class ZenPulse extends Analyzer {
       },
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: t({ id: 'monk.mistweaver.zenPulse.wastedBuffs', message: 'Wasted Buffs' }),
+        label: defineMessage({
+          id: 'monk.mistweaver.zenPulse.wastedBuffs',
+          message: 'Wasted Buffs',
+        }),
         tooltip: (
           <Trans id="monk.mistweaver.zenPulse.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>

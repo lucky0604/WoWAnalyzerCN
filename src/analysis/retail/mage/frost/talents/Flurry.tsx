@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
@@ -19,7 +18,9 @@ import { TALENTS_MAGE } from 'common/TALENTS';
 const colors = ['#3a91c2', '#5fc047', '#a51c37'];
 const brainFreeze = <SpellLink spell={TALENTS.BRAIN_FREEZE_TALENT} />;
 const thermalVoid = <SpellLink spell={TALENTS_MAGE.THERMAL_VOID_TALENT} />;
-const munchedThermalVoidTooltip = <Trans id="mage.frost.flurry.munchedTooltip">This cast munched {thermalVoid}.</Trans>;
+const munchedThermalVoidTooltip = (
+  <Trans id="mage.frost.flurry.munchedTooltip">This cast munched {thermalVoid}.</Trans>
+);
 
 class Flurry extends Analyzer {
   static dependencies = {
@@ -109,14 +110,17 @@ class Flurry extends Analyzer {
     const flurry = <SpellLink spell={TALENTS.FLURRY_TALENT} />;
     const freezing = <SpellLink spell={SPELLS.FREEZING} />;
     const avoidTVMunching = this.hasThermalVoidTalent && (
-      <Trans id="mage.frost.flurry.avoidTVMunching">, unless you already have {thermalVoid} active</Trans>
+      <Trans id="mage.frost.flurry.avoidTVMunching">
+        , unless you already have {thermalVoid} active
+      </Trans>
     );
     const explanation = (
       <>
         <p>
           <Trans id="mage.frost.flurry.explanation">
             {flurry} usage is important to ensure you get the most raw damage and {freezing} out of{' '}
-            {brainFreeze}. You should cast it as your highest priority any time you have {brainFreeze}
+            {brainFreeze}. You should cast it as your highest priority any time you have{' '}
+            {brainFreeze}
             {avoidTVMunching}.
           </Trans>
         </p>
@@ -126,7 +130,9 @@ class Flurry extends Analyzer {
     const data = (
       <>
         <RoundedPanel>
-          <b><Trans id="mage.frost.flurry.castEfficiency">{flurry} cast efficiency</Trans></b>
+          <b>
+            <Trans id="mage.frost.flurry.castEfficiency">{flurry} cast efficiency</Trans>
+          </b>
           <DonutChart items={this.analyzeFlurry()} />
         </RoundedPanel>
       </>
@@ -136,7 +142,7 @@ class Flurry extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      t({ id: 'mage.frost.flurry.title', message: 'Flurry' }),
+      defineMessage({ id: 'mage.frost.flurry.title', message: 'Flurry' }),
     );
   }
 }

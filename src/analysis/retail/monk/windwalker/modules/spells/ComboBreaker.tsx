@@ -174,25 +174,22 @@ class ComboBreaker extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(6)}
         size="flexible"
-        tooltip={
-          (() => {
-            const total = this.CBProcsTotal;
-            const consumed = this.consumedCBProc;
-            const overcapped = this.overwrittenCBProc;
-            const expired = this.expiredCBProc;
-            const average = averageCBProcs.toFixed(2);
-            return (
-              <Trans id="monk.windwalker.cb.statistic_tooltip">
-                You got a total of <strong>{total} Combo Breaker procs</strong> and{' '}
-                <strong>used {consumed}</strong> of them.{' '}
-                <strong>{overcapped}</strong> were overcapped and{' '}
-                <strong>{expired}</strong> expired unused. The average expected number of
-                procs from your Tiger Palms this fight is <strong>{average}</strong>,
-                and you got <strong>{total}</strong>.
-              </Trans>
-            );
-          })()
-        }
+        tooltip={(() => {
+          const total = this.CBProcsTotal;
+          const consumed = this.consumedCBProc;
+          const overcapped = this.overwrittenCBProc;
+          const expired = this.expiredCBProc;
+          const average = averageCBProcs.toFixed(2);
+          return (
+            <Trans id="monk.windwalker.cb.statistic_tooltip">
+              You got a total of <strong>{total} Combo Breaker procs</strong> and{' '}
+              <strong>used {consumed}</strong> of them. <strong>{overcapped}</strong> were
+              overcapped and <strong>{expired}</strong> expired unused. The average expected number
+              of procs from your Tiger Palms this fight is <strong>{average}</strong>, and you got{' '}
+              <strong>{total}</strong>.
+            </Trans>
+          );
+        })()}
       >
         <BoringSpellValueText spell={SPELLS.COMBO_BREAKER_BUFF}>
           {formatPercentage(this.usedCBProcs, 0)}%{' '}
@@ -234,7 +231,10 @@ class ComboBreaker extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: t({ id: 'monk.windwalker.cb.classify.not_consumed', message: 'Proc was not consumed' }),
+        summary: defineMessage({
+          id: 'monk.windwalker.cb.classify.not_consumed',
+          message: 'Proc was not consumed',
+        }),
       };
     }
 
@@ -250,7 +250,7 @@ class ComboBreaker extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: t({
+        summary: defineMessage({
           id: 'monk.windwalker.cb.classify.first_top',
           message: 'Blackout Kick was consumed the first time the APL expected it',
         }),
@@ -260,13 +260,16 @@ class ComboBreaker extends Analyzer {
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.BLACKOUT_KICK.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: t({ id: 'monk.windwalker.cb.classify.acceptable', message: 'Blackout Kick was consumed in an acceptable APL spot' }),
+        summary: defineMessage({
+          id: 'monk.windwalker.cb.classify.acceptable',
+          message: 'Blackout Kick was consumed in an acceptable APL spot',
+        }),
       };
     }
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: t({
+      summary: defineMessage({
         id: 'monk.windwalker.cb.classify.not_preferred',
         message: 'Blackout Kick was consumed, even though the APL did not prefer it yet',
       }),
@@ -284,30 +287,30 @@ class ComboBreaker extends Analyzer {
             <SpellLink spell={SPELLS.TIGER_PALM} />, which has an 8% chance to trigger it from{' '}
             <SpellLink spell={SPELLS.COMBO_BREAKER} />.{' '}
           </Trans>
-          {this.selectedCombatant.hasTalent(TALENTS_MONK.MEMORY_OF_THE_MONASTERY_TALENT) && (
+          {this.selectedCombatant.hasTalent(TALENTS_MONK.MEMORY_OF_THE_MONASTERY_TALENT) &&
             (() => {
               const chance = formatPercentage(this.tigerPalmProcChance, 0);
               return (
                 <Trans id="monk.windwalker.cb.explanation1_talent">
                   With <SpellLink spell={TALENTS_MONK.MEMORY_OF_THE_MONASTERY_TALENT} />, that{' '}
-                  <SpellLink spell={SPELLS.TIGER_PALM} /> proc chance is increased by 75%, which raises
-                  the chance from 8% to {chance}%.
+                  <SpellLink spell={SPELLS.TIGER_PALM} /> proc chance is increased by 75%, which
+                  raises the chance from 8% to {chance}%.
                 </Trans>
               );
-            })()
-          )}
+            })()}
         </p>
         <p>
           <Trans id="monk.windwalker.cb.explanation2">
-            <SpellLink spell={SPELLS.BLACKOUT_KICK} /> and <SpellLink spell={SPELLS.COMBO_BREAKER} />{' '}
-            refer to the same proc effect here, so this section treats them as the same buff state.
+            <SpellLink spell={SPELLS.BLACKOUT_KICK} /> and{' '}
+            <SpellLink spell={SPELLS.COMBO_BREAKER} /> refer to the same proc effect here, so this
+            section treats them as the same buff state.
           </Trans>
         </p>
         <p>
           <Trans id="monk.windwalker.cb.explanation3">
             This section is about timing, not raw proc speed. Use{' '}
-            <SpellLink spell={SPELLS.BLACKOUT_KICK} /> once it rises to the top of the suggested APL,
-            not just because the buff is active.
+            <SpellLink spell={SPELLS.BLACKOUT_KICK} /> once it rises to the top of the suggested
+            APL, not just because the buff is active.
           </Trans>
         </p>
         <p>
@@ -355,8 +358,9 @@ class ComboBreaker extends Analyzer {
                 return (
                   <Trans id="monk.windwalker.cb.risky_tp_desc">
                     <b>{riskyTP}</b> casts of <SpellLink spell={SPELLS.TIGER_PALM} /> were made at{' '}
-                    {COMBO_BREAKER_MAX_STACKS} stacks without actually overcapping. These casts are still
-                    risky because the next proc source could easily have turned them into wasted value.
+                    {COMBO_BREAKER_MAX_STACKS} stacks without actually overcapping. These casts are
+                    still risky because the next proc source could easily have turned them into
+                    wasted value.
                   </Trans>
                 );
               })()}

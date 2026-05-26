@@ -14,7 +14,6 @@ import TalentAggregateBars from 'parser/ui/TalentAggregateStatistic';
 import DonutChart from 'parser/ui/DonutChart';
 import { Talent } from 'common/TALENTS/types';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
 
 class RisingMistBreakdown extends Analyzer {
   static dependencies = {
@@ -84,7 +83,7 @@ class RisingMistBreakdown extends Analyzer {
     const items = [
       {
         color: SPELL_COLORS.ENVELOPING_MIST,
-        label: t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
         spellId: talents.ENVELOPING_MIST_TALENT.id,
         value: this.risingMist.envHardcastExtensionHealing,
         valuePercent: false,
@@ -112,7 +111,7 @@ class RisingMistBreakdown extends Analyzer {
     const items = [
       {
         color: SPELL_COLORS.ENVELOPING_MIST,
-        label: t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
         spellId: talents.ENVELOPING_MIST_TALENT.id,
         value: this.risingMist.envBonusHardcast,
         valuePercent: false,
@@ -155,7 +154,7 @@ class RisingMistBreakdown extends Analyzer {
       },
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
         spellId: SPELLS.RENEWING_MIST_HEAL.id,
         value: this.risingMist.renewingMistHardcastExtensionHealing,
         valuePercent: false,
@@ -185,8 +184,7 @@ class RisingMistBreakdown extends Analyzer {
               const healing = formatNumber(this.risingMist.averageHealing);
               return (
                 <Trans id="monk.mistweaver.rising_mist.avg_healing_per">
-                  {healing} average healing per{' '}
-                  <SpellLink spell={this.currentRskTalent} />
+                  {healing} average healing per <SpellLink spell={this.currentRskTalent} />
                 </Trans>
               );
             })()}
@@ -196,8 +194,7 @@ class RisingMistBreakdown extends Analyzer {
               const hits = this.risingMist.averageTargetsPerRSKCast();
               return (
                 <Trans id="monk.mistweaver.rising_mist.avg_hits_per">
-                  {hits} average hits per{' '}
-                  <SpellLink spell={this.currentRskTalent} />
+                  {hits} average hits per <SpellLink spell={this.currentRskTalent} />
                 </Trans>
               );
             })()}
@@ -225,7 +222,7 @@ class RisingMistBreakdown extends Analyzer {
       },
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
         spellId: SPELLS.RENEWING_MIST_HEAL.id,
         value: this.risingMist.vivHealingFromHardcastRems,
         valuePercent: false,
@@ -267,7 +264,7 @@ class RisingMistBreakdown extends Analyzer {
       },
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
         spellId: SPELLS.RENEWING_MIST_HEAL.id,
         value: this.risingMist.zpHealingFromHardcastRems,
         valuePercent: false,
@@ -279,8 +276,8 @@ class RisingMistBreakdown extends Analyzer {
           const zpHits = this.risingMist.zpHits;
           return (
             <Trans id="monk.mistweaver.rising_mist.total_extra_zp_hits">
-              <strong>{zpHits}</strong> total extra{' '}
-              <SpellLink spell={talents.ZEN_PULSE_TALENT} /> hits from extended
+              <strong>{zpHits}</strong> total extra <SpellLink spell={talents.ZEN_PULSE_TALENT} />{' '}
+              hits from extended
               <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> by source:
             </Trans>
           );
@@ -302,7 +299,11 @@ class RisingMistBreakdown extends Analyzer {
         }
         category={STATISTIC_CATEGORY.TALENTS}
         position={STATISTIC_ORDER.CORE(1)}
-        footer={<Trans id="monk.mistweaver.rising_mist.see_tab">See the Rising Mist tab for HoT extension details</Trans>}
+        footer={
+          <Trans id="monk.mistweaver.rising_mist.see_tab">
+            See the Rising Mist tab for HoT extension details
+          </Trans>
+        }
         smallFooter
         tooltip={this.risingMist.toolTip()}
         wide

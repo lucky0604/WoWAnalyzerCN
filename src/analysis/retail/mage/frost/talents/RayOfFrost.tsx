@@ -1,5 +1,4 @@
 import type { JSX } from 'react';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink } from 'interface';
@@ -105,8 +104,8 @@ class RayOfFrost extends Analyzer {
         <ol>
           <li>
             <Trans id="mage.frost.rayOfFrost.rule1">
-              Don't miss ticks. Stand still while casting. You have shimmer in case you need to avoid
-              something
+              Don't miss ticks. Stand still while casting. You have shimmer in case you need to
+              avoid something
             </Trans>
           </li>
           <li>
@@ -121,14 +120,21 @@ class RayOfFrost extends Analyzer {
     const data = (
       <div>
         <RoundedPanel>
-          <strong><Trans id="mage.frost.rayOfFrost.castEfficiency">{rayOfFrost} cast efficiency</Trans></strong>
+          <strong>
+            <Trans id="mage.frost.rayOfFrost.castEfficiency">{rayOfFrost} cast efficiency</Trans>
+          </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
           </div>
-          <strong><Trans id="mage.frost.rayOfFrost.castDetails">{rayOfFrost} cast details</Trans></strong>
+          <strong>
+            <Trans id="mage.frost.rayOfFrost.castDetails">{rayOfFrost} cast details</Trans>
+          </strong>
           <PerformanceBoxRow values={this.castEntries} />
           <small>
-            <Trans id="mage.frost.rayOfFrost.legend">blue (perfect) / green (good) / red (fail) mouseover the rectangles to see more details</Trans>
+            <Trans id="mage.frost.rayOfFrost.legend">
+              blue (perfect) / green (good) / red (fail) mouseover the rectangles to see more
+              details
+            </Trans>
           </small>
         </RoundedPanel>
       </div>
@@ -138,7 +144,7 @@ class RayOfFrost extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      t({ id: 'mage.frost.rayOfFrost.title', message: 'Ray Of Frost' }),
+      defineMessage({ id: 'mage.frost.rayOfFrost.title', message: 'Ray Of Frost' }),
     );
   }
 

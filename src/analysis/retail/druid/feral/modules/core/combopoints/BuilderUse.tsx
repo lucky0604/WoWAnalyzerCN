@@ -1,5 +1,4 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Events, { ResourceChangeEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS';
@@ -68,7 +67,10 @@ class BuilderUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: t({ id: 'druid.feral.builder_use.effective_builders', message: 'Effective Builders' }),
+        label: defineMessage({
+          id: 'druid.feral.builder_use.effective_builders',
+          message: 'Effective Builders',
+        }),
         value: this.effectiveBuilderCasts,
         tooltip: (
           <>
@@ -81,7 +83,10 @@ class BuilderUse extends Analyzer {
       },
       {
         color: BadColor,
-        label: t({ id: 'druid.feral.builder_use.wasted_builders', message: 'Wasted Builders' }),
+        label: defineMessage({
+          id: 'druid.feral.builder_use.wasted_builders',
+          message: 'Wasted Builders',
+        }),
         value: this.wastedBuilderCasts,
         tooltip: (
           <>

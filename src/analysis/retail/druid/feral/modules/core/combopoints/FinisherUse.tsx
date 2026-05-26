@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
@@ -69,7 +68,10 @@ class FinisherUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: t({ id: 'druid.feral.finisher_use.high_cp_finishers', message: 'High CP Finishers' }),
+        label: defineMessage({
+          id: 'druid.feral.finisher_use.high_cp_finishers',
+          message: 'High CP Finishers',
+        }),
         value: this.maxCpFinishers,
         tooltip: (
           <>
@@ -83,20 +85,23 @@ class FinisherUse extends Analyzer {
       },
       {
         color: OkColor,
-        label: t({ id: 'druid.feral.finisher_use.low_cp_rips', message: 'Low CP Intial Rips' }),
+        label: defineMessage({
+          id: 'druid.feral.finisher_use.low_cp_rips',
+          message: 'Low CP Intial Rips',
+        }),
         value: this.lowCpRipApplies,
         tooltip: (
           <>
             <Trans id="druid.feral.finisher_use.low_cp_rips_tooltip">
-              When <SpellLink spell={SPELLS.RIP} /> is missing from a target, it's better to apply it
-              at low CPs than wait for max - but ideally you refresh before it drops at all.
+              When <SpellLink spell={SPELLS.RIP} /> is missing from a target, it's better to apply
+              it at low CPs than wait for max - but ideally you refresh before it drops at all.
             </Trans>
           </>
         ),
       },
       {
         color: BadColor,
-        label: t({
+        label: defineMessage({
           id: 'druid.feral.finisher_use.low_cp_bites',
           message: 'Low CP Bite / Refresh Finishers',
         }),

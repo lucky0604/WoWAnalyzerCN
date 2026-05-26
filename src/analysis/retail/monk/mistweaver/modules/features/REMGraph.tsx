@@ -101,7 +101,7 @@ class REMGraph extends Analyzer {
       scale: {
         nice: false,
       },
-      title: t({ id: 'monk.mistweaver.rem_graph.time', message: 'Time' }),
+      title: defineMessage({ id: 'monk.mistweaver.rem_graph.time', message: 'Time' }),
     };
 
     const spec: VisualizationSpec = {
@@ -232,7 +232,7 @@ class REMGraph extends Analyzer {
             y: {
               field: 'remCount',
               type: 'quantitative' as const,
-              title: t({ id: 'monk.mistweaver.rem_graph.count', message: 'Count' }),
+              title: defineMessage({ id: 'monk.mistweaver.rem_graph.count', message: 'Count' }),
             },
             color: { datum: 'Rising Sun Kick', value: SPELL_COLORS.RISING_SUN_KICK },
           },

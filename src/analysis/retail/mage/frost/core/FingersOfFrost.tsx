@@ -1,5 +1,4 @@
 import { formatPercentage } from 'common/format';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -158,8 +157,12 @@ class FingersOfFrost extends Analyzer {
         {this.totalProcs - this.wastedProcs} / {this.totalProcs} spent procs
       </Trans>
     );
-    const expiredTooltip = <Trans id="mage.frost.fingersOfFrost.expiredTooltip">{this.expiredProcs} procs</Trans>;
-    const overcappedTooltip = <Trans id="mage.frost.fingersOfFrost.overcappedTooltip">{this.overcappedProcs} procs</Trans>;
+    const expiredTooltip = (
+      <Trans id="mage.frost.fingersOfFrost.expiredTooltip">{this.expiredProcs} procs</Trans>
+    );
+    const overcappedTooltip = (
+      <Trans id="mage.frost.fingersOfFrost.overcappedTooltip">{this.overcappedProcs} procs</Trans>
+    );
 
     const data = (
       <div>
@@ -172,7 +175,10 @@ class FingersOfFrost extends Analyzer {
           >
             {fingersOfFrostIcon}{' '}
             <TooltipElement content={utilizationTooltip}>
-              {formatPercentage(this.utilizationPercentage, 0)} % <small><Trans id="mage.frost.fingersOfFrost.utilized">utilized</Trans></small>
+              {formatPercentage(this.utilizationPercentage, 0)} %{' '}
+              <small>
+                <Trans id="mage.frost.fingersOfFrost.utilized">utilized</Trans>
+              </small>
             </TooltipElement>
           </div>
           <div
@@ -183,7 +189,10 @@ class FingersOfFrost extends Analyzer {
           >
             {fingersOfFrostIcon}{' '}
             <TooltipElement content={expiredTooltip}>
-              {formatPercentage(this.expiredPercent, 0)} % <small><Trans id="mage.frost.fingersOfFrost.expired">expired</Trans></small>
+              {formatPercentage(this.expiredPercent, 0)} %{' '}
+              <small>
+                <Trans id="mage.frost.fingersOfFrost.expired">expired</Trans>
+              </small>
             </TooltipElement>
           </div>
           <div
@@ -194,7 +203,10 @@ class FingersOfFrost extends Analyzer {
           >
             {fingersOfFrostIcon}{' '}
             <TooltipElement content={overcappedTooltip}>
-              {formatPercentage(this.overcappedPercent, 0)} % <small><Trans id="mage.frost.fingersOfFrost.overcapped">overcapped</Trans></small>
+              {formatPercentage(this.overcappedPercent, 0)} %{' '}
+              <small>
+                <Trans id="mage.frost.fingersOfFrost.overcapped">overcapped</Trans>
+              </small>
             </TooltipElement>
           </div>
         </RoundedPanel>
@@ -205,7 +217,7 @@ class FingersOfFrost extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      t({ id: 'mage.frost.fingersOfFrost.title', message: 'Fingers of Frost' }),
+      defineMessage({ id: 'mage.frost.fingersOfFrost.title', message: 'Fingers of Frost' }),
     );
   }
 }

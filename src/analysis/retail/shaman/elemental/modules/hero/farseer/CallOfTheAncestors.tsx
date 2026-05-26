@@ -253,8 +253,9 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
             spells. Focus on your regular rotation, while minimising the number of non-damaging
             spells, and using instant cast spells during forced movement, such as{' '}
             <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> with{' '}
-            <SpellLink spell={SPELLS.LAVA_SURGE} />, <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} />,
-            or even refreshing <SpellLink spell={SPELLS.FLAME_SHOCK} />
+            <SpellLink spell={SPELLS.LAVA_SURGE} />,{' '}
+            <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} />, or even refreshing{' '}
+            <SpellLink spell={SPELLS.FLAME_SHOCK} />
           </Trans>
         </p>
       </>
@@ -306,7 +307,12 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
 
     return {
       check: 'invocation',
-      details: <div>{t({ id: 'shaman.elemental.ancestors.source', message: 'Source: ' })}{source}</div>,
+      details: (
+        <div>
+          {t({ id: 'shaman.elemental.ancestors.source', message: 'Source: ' })}
+          {source}
+        </div>
+      ),
       summary: source,
       performance: QualitativePerformance.Perfect,
       timestamp: cast.event.timestamp,
@@ -314,11 +320,18 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
   }
 
   private explainAlwaysBeCasting(cast: CallAncestor): ChecklistUsageInfo {
-    const activeTimeLabel = t({ id: 'shaman.elemental.ancestors.active_time', message: 'active time' });
+    const activeTimeLabel = defineMessage({
+      id: 'shaman.elemental.ancestors.active_time',
+      message: 'active time',
+    });
     return {
       check: 'always-be-casting',
       timestamp: cast.event.timestamp,
-      summary: <>{formatPercentage(cast.activeTime)}% {activeTimeLabel}</>,
+      summary: (
+        <>
+          {formatPercentage(cast.activeTime)}% {activeTimeLabel}
+        </>
+      ),
       details: (
         <>
           <p>
@@ -377,9 +390,7 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
                 <div key={`ancestor-${id}`}>
                   <li>
                     <span>
-                      <Trans id="shaman.elemental.ancestors.ancestor">
-                        Ancestor {index + 1}
-                      </Trans>
+                      <Trans id="shaman.elemental.ancestors.ancestor">Ancestor {index + 1}</Trans>
                     </span>
                     <ul>
                       {[...spells.entries()].map(([spellId, damage]) => {
@@ -411,7 +422,11 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
     const timelineChecklist = {
       performance: QualitativePerformance.Perfect,
       summary: null,
-      details: <span>{t({ id: 'shaman.elemental.ancestors.spell_order', message: 'Spell order: See below' })}</span>,
+      details: (
+        <span>
+          {t({ id: 'shaman.elemental.ancestors.spell_order', message: 'Spell order: See below' })}
+        </span>
+      ),
       check: 'farseer-timeline',
       timestamp: cast.event.timestamp,
     };

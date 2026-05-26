@@ -1,5 +1,4 @@
 import SPELLS from 'common/SPELLS';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -52,7 +51,7 @@ export default class FillerUsage extends Analyzer {
     if (eclipse === 'solar') {
       addInefficientCastReason(
         event,
-        t({
+        defineMessage({
           id: 'balance.filler.solar_starfire_reason',
           message: 'Use Wrath instead of Starfire in Solar Eclipse, regardless of target count',
         }),
@@ -62,12 +61,12 @@ export default class FillerUsage extends Analyzer {
       if (targetsHit < MIN_STARFIRE_TARGETS_LUNAR) {
         addInefficientCastReason(
           event,
-          t({
+          defineMessage({
             id: 'balance.filler.too_few_targets_prefix',
             message: 'You hit too few targets: ',
           }) +
             targetsHit +
-            t({
+            defineMessage({
               id: 'balance.filler.too_few_targets_suffix',
               message: ' - use Wrath instead',
             }),
@@ -78,12 +77,12 @@ export default class FillerUsage extends Analyzer {
       if (targetsHit < MIN_STARFIRE_TARGETS_CA) {
         addInefficientCastReason(
           event,
-          t({
+          defineMessage({
             id: 'balance.filler.too_few_targets_prefix',
             message: 'You hit too few targets: ',
           }) +
             targetsHit +
-            t({
+            defineMessage({
               id: 'balance.filler.too_few_targets_suffix',
               message: ' - use Wrath instead',
             }),
@@ -93,7 +92,7 @@ export default class FillerUsage extends Analyzer {
     } else if (eclipse === 'none' && this.hasLunarCalling) {
       addInefficientCastReason(
         event,
-        t({
+        defineMessage({
           id: 'balance.filler.no_eclipse_lc_reason',
           message:
             'You cast Starfire while not in eclipse. Because you took Lunar Calling, you need to use Wrath to reenter eclipse.',
@@ -150,14 +149,15 @@ export default class FillerUsage extends Analyzer {
         <p>
           <Trans id="balance.filler.explanation_p2">
             They are spammable and generate Astral Power. Use <SpellLink spell={SPELLS.WRATH} /> in
-            single target and <SpellLink spell={SPELLS.STARFIRE} /> against multiple stacked targets.
+            single target and <SpellLink spell={SPELLS.STARFIRE} /> against multiple stacked
+            targets.
           </Trans>
         </p>
         <p>
           <Trans id="balance.filler.explanation_p3">
             Your fillers are greatly buffed by their corresponding{' '}
-            <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> - aim to enter an Eclipse that matches
-            your current target count.
+            <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> - aim to enter an Eclipse that
+            matches your current target count.
           </Trans>
         </p>
         {this.hasLunarCalling && (
@@ -184,17 +184,27 @@ export default class FillerUsage extends Analyzer {
 
     const goodFillerData = {
       count: this.goodFillers,
-      label: t({ id: 'balance.filler.good_label', message: 'Good Fillers' }),
+      label: defineMessage({ id: 'balance.filler.good_label', message: 'Good Fillers' }),
     };
     const okFillerData = {
       count: this.okFillers,
-      label: t({ id: 'balance.filler.ok_label', message: 'Wraths during Lunar Eclipse (did you enter the wrong Eclipse?)' }),
+      label: defineMessage({
+        id: 'balance.filler.ok_label',
+        message: 'Wraths during Lunar Eclipse (did you enter the wrong Eclipse?)',
+      }),
     };
     const badFillerData = {
       count: this.badFillers,
       label: this.hasLunarCalling
-        ? t({ id: 'balance.filler.bad_lc_label', message: 'Starfire when out of Eclipse (with Lunar Calling, you must Wrath to enter eclipse)' })
-        : t({ id: 'balance.filler.bad_no_lc_label', message: 'Starfires during Solar Eclipse or that hit too few targets' }),
+        ? defineMessage({
+            id: 'balance.filler.bad_lc_label',
+            message:
+              'Starfire when out of Eclipse (with Lunar Calling, you must Wrath to enter eclipse)',
+          })
+        : defineMessage({
+            id: 'balance.filler.bad_no_lc_label',
+            message: 'Starfires during Solar Eclipse or that hit too few targets',
+          }),
     };
 
     const data = (

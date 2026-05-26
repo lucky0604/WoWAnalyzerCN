@@ -64,15 +64,19 @@ export function buildAplProcWindowData({
           <div>@ {formatTimestamp(cast.timestamp)}</div>
           <div style={{ marginTop: '6px' }}>
             <Trans id="monk.windwalker.apl.before">Before: </Trans>
-            {cast.aplExpectedBefore.length > 0
-              ? cast.aplExpectedBefore.map((spell) => spell.name).join(' -> ')
-              : <Trans id="monk.windwalker.apl.none">None</Trans>}
+            {cast.aplExpectedBefore.length > 0 ? (
+              cast.aplExpectedBefore.map((spell) => spell.name).join(' -> ')
+            ) : (
+              <Trans id="monk.windwalker.apl.none">None</Trans>
+            )}
           </div>
           <div>
             <Trans id="monk.windwalker.apl.after">After: </Trans>
-            {cast.aplExpectedAfter.length > 0
-              ? cast.aplExpectedAfter.map((spell) => spell.name).join(' -> ')
-              : <Trans id="monk.windwalker.apl.none">None</Trans>}
+            {cast.aplExpectedAfter.length > 0 ? (
+              cast.aplExpectedAfter.map((spell) => spell.name).join(' -> ')
+            ) : (
+              <Trans id="monk.windwalker.apl.none">None</Trans>
+            )}
           </div>
         </>
       );
@@ -121,7 +125,7 @@ export function buildAplProcWindowData({
         sequence.push({
           timestamp: cast.timestamp,
           spellId: actionSpell.id,
-          spellName: t({
+          spellName: defineMessage({
             id: 'monk.windwalker.apl.expected_here',
             message: `${actionSpell.name} was expected here`,
           }),
@@ -152,7 +156,7 @@ export function buildAplProcWindowData({
           sequence.push({
             timestamp: cast.timestamp,
             spellId: spell.id,
-            spellName: t({
+            spellName: defineMessage({
               id: 'monk.windwalker.apl.was_higher_priority',
               message: `${spell.name} was higher priority`,
             }),
@@ -177,7 +181,8 @@ export function buildAplProcWindowData({
                         id: 'monk.windwalker.apl.because',
                         message: 'because',
                       })}
-                    />.
+                    />
+                    .
                   </div>
                 )}
               </>
@@ -255,8 +260,8 @@ export function buildAplProcWindowData({
                 <div>
                   <LegendSwatch backgroundColor="rgba(220,220,220,0.75)" />{' '}
                   <Trans id="monk.windwalker.apl.guidance_marker">
-                    an APL guidance marker showing either where <SpellLink spell={actionSpell} /> was
-                    first expected or which ability still ranked above it at the actual spend.
+                    an APL guidance marker showing either where <SpellLink spell={actionSpell} />{' '}
+                    was first expected or which ability still ranked above it at the actual spend.
                   </Trans>
                 </div>
               </div>

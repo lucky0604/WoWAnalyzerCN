@@ -167,8 +167,8 @@ class SandsOfTime extends Analyzer {
       checklistItems,
       performanceExplanation:
         actualPerformance !== QualitativePerformance.Fail
-          ? t({ id: 'guide.augmentation.sandsOfTime.goodUsage', message: 'Good Usage' })
-          : t({ id: 'guide.augmentation.sandsOfTime.badUsage', message: 'Bad Usage' }),
+          ? defineMessage({ id: 'guide.augmentation.sandsOfTime.goodUsage', message: 'Good Usage' })
+          : defineMessage({ id: 'guide.augmentation.sandsOfTime.badUsage', message: 'Bad Usage' }),
     };
   }
 

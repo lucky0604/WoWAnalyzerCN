@@ -64,7 +64,7 @@ export default class SpenderUsage extends Analyzer {
       this.noEclipseStarsurges += 1;
       addInefficientCastReason(
         event,
-        t({
+        defineMessage({
           id: 'balance.spender.starsurge_outside_eclipse',
           message: 'Starsurge cast outside eclipse without being near AP cap.',
         }),
@@ -79,7 +79,7 @@ export default class SpenderUsage extends Analyzer {
       this.noEclipseStarfalls += 1;
       addInefficientCastReason(
         event,
-        t({
+        defineMessage({
           id: 'balance.spender.starfall_outside_eclipse',
           message: 'Starfall cast outside eclipse without being near AP cap.',
         }),
@@ -109,7 +109,7 @@ export default class SpenderUsage extends Analyzer {
       this.lowTargetStarfalls += 1;
       addInefficientCastReason(
         this.lastStarfallCast,
-        t({
+        defineMessage({
           id: 'balance.spender.starfall_too_few_targets',
           message: 'This Starfall hit too few targets!',
         }),
@@ -206,8 +206,8 @@ export default class SpenderUsage extends Analyzer {
         </p>
         <p>
           <Trans id="balance.spender.explanation_p3">
-            Avoid using spenders outside of <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> except
-            to prevent overcapping Astral Power.
+            Avoid using spenders outside of <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} />{' '}
+            except to prevent overcapping Astral Power.
           </Trans>
         </p>
       </>
@@ -231,9 +231,18 @@ export default class SpenderUsage extends Analyzer {
             </Trans>
           </small>
           <GradiatedPerformanceBar
-            good={{ count: GOOD, label: t({ id: 'balance.spender.good_bar_label', message: '4+ spenders' }) }}
-            ok={{ count: OK, label: t({ id: 'balance.spender.ok_bar_label', message: '3 spenders' }) }}
-            bad={{ count: BAD, label: t({ id: 'balance.spender.bad_bar_label', message: 'Fewer than 3 spenders' }) }}
+            good={{
+              count: GOOD,
+              label: t({ id: 'balance.spender.good_bar_label', message: '4+ spenders' }),
+            }}
+            ok={{
+              count: OK,
+              label: t({ id: 'balance.spender.ok_bar_label', message: '3 spenders' }),
+            }}
+            bad={{
+              count: BAD,
+              label: t({ id: 'balance.spender.bad_bar_label', message: 'Fewer than 3 spenders' }),
+            }}
           />
         </div>
 
@@ -260,7 +269,11 @@ export default class SpenderUsage extends Analyzer {
               </div>
               <div className="flex-main chart">
                 <UptimeBar
-                  aria-label={t({ id: 'balance.spender.aria_label', message: 'Spender usage per Eclipse Window (green = good, yellow = ok, red = bad)' })}
+                  aria-label={t({
+                    id: 'balance.spender.aria_label',
+                    message:
+                      'Spender usage per Eclipse Window (green = good, yellow = ok, red = bad)',
+                  })}
                   uptimeHistory={this.spenderWindowUptimes}
                   start={this.owner.fight.start_time}
                   end={this.owner.fight.end_time}

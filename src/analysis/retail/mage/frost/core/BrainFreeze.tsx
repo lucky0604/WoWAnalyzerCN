@@ -1,7 +1,6 @@
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellIcon, SpellLink, TooltipElement } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -182,7 +181,10 @@ class BrainFreeze extends Analyzer {
         }
       >
         <BoringSpellValueText spell={TALENTS.BRAIN_FREEZE_TALENT}>
-          {formatPercentage(this.utilPercent, 0)}% <small><Trans id="mage.frost.brainFreeze.procUtilization">Proc utilization</Trans></small>
+          {formatPercentage(this.utilPercent, 0)}%{' '}
+          <small>
+            <Trans id="mage.frost.brainFreeze.procUtilization">Proc utilization</Trans>
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );
@@ -201,11 +203,19 @@ class BrainFreeze extends Analyzer {
     );
 
     const utilizationTooltip = (
-      <Trans id="mage.frost.brainFreeze.utilTooltip">{this.totalProcs - this.wastedProcs}/{this.totalProcs} procs utilized</Trans>
+      <Trans id="mage.frost.brainFreeze.utilTooltip">
+        {this.totalProcs - this.wastedProcs}/{this.totalProcs} procs utilized
+      </Trans>
     );
-    const overwrittenTooltip = <Trans id="mage.frost.brainFreeze.overwrittenTooltip">{this.brainFreezeRefreshes} procs</Trans>;
+    const overwrittenTooltip = (
+      <Trans id="mage.frost.brainFreeze.overwrittenTooltip">
+        {this.brainFreezeRefreshes} procs
+      </Trans>
+    );
 
-    const expiredTooltip = <Trans id="mage.frost.brainFreeze.expiredTooltip">{this.expiredProcs} procs</Trans>;
+    const expiredTooltip = (
+      <Trans id="mage.frost.brainFreeze.expiredTooltip">{this.expiredProcs} procs</Trans>
+    );
 
     const data = (
       <div>
@@ -218,7 +228,10 @@ class BrainFreeze extends Analyzer {
           >
             {brainFreezeIcon}{' '}
             <TooltipElement content={utilizationTooltip}>
-              {formatPercentage(this.utilPercent, 0)} % <small><Trans id="mage.frost.brainFreeze.utilization">utilization</Trans></small>
+              {formatPercentage(this.utilPercent, 0)} %{' '}
+              <small>
+                <Trans id="mage.frost.brainFreeze.utilization">utilization</Trans>
+              </small>
             </TooltipElement>
           </div>
 
@@ -230,7 +243,10 @@ class BrainFreeze extends Analyzer {
           >
             {brainFreezeIcon}{' '}
             <TooltipElement content={overwrittenTooltip}>
-              {formatPercentage(this.overwrittenPercentage, 0)} % <small><Trans id="mage.frost.brainFreeze.overwritten">overwritten</Trans></small>
+              {formatPercentage(this.overwrittenPercentage, 0)} %{' '}
+              <small>
+                <Trans id="mage.frost.brainFreeze.overwritten">overwritten</Trans>
+              </small>
             </TooltipElement>
           </div>
 
@@ -242,7 +258,10 @@ class BrainFreeze extends Analyzer {
           >
             {brainFreezeIcon}{' '}
             <TooltipElement content={expiredTooltip}>
-              {formatPercentage(this.expiredPercentage, 0)} % <small><Trans id="mage.frost.brainFreeze.expired">expired</Trans></small>
+              {formatPercentage(this.expiredPercentage, 0)} %{' '}
+              <small>
+                <Trans id="mage.frost.brainFreeze.expired">expired</Trans>
+              </small>
             </TooltipElement>
           </div>
         </RoundedPanel>
@@ -253,7 +272,7 @@ class BrainFreeze extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      t({ id: 'mage.frost.brainFreeze.title', message: 'Brain Freeze' }),
+      defineMessage({ id: 'mage.frost.brainFreeze.title', message: 'Brain Freeze' }),
     );
   }
 }

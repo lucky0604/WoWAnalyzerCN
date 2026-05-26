@@ -173,19 +173,28 @@ class MoTCGraph extends Analyzer {
           {
             field: 'motcCount',
             type: 'quantitative' as const,
-            title: t({ id: 'monk.windwalker.motc_graph.motc_count', message: 'Mark of the Crane Count' }),
+            title: defineMessage({
+              id: 'monk.windwalker.motc_graph.motc_count',
+              message: 'Mark of the Crane Count',
+            }),
             format: '.3~s',
           },
           {
             field: 'bdbCount',
             type: 'quantitative' as const,
-            title: t({ id: 'monk.windwalker.motc_graph.bdb_count', message: 'Bonedust Brew Debuffs' }),
+            title: defineMessage({
+              id: 'monk.windwalker.motc_graph.bdb_count',
+              message: 'Bonedust Brew Debuffs',
+            }),
             format: '.3~s',
           },
           {
             field: 'motcAverage',
             type: 'quantitative' as const,
-            title: t({ id: 'monk.windwalker.motc_graph.motc_average', message: 'Mark of the Crane Average' }),
+            title: defineMessage({
+              id: 'monk.windwalker.motc_graph.motc_average',
+              message: 'Mark of the Crane Average',
+            }),
             format: '.3~s',
           },
         ],

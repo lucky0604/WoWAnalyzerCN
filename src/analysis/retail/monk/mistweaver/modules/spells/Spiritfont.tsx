@@ -271,7 +271,10 @@ class Spiritfont extends Analyzer {
     const stats = [
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: t({ id: 'monk.mistweaver.spiritfont.wastedBuffs', message: 'Wasted Buffs' }),
+        label: defineMessage({
+          id: 'monk.mistweaver.spiritfont.wastedBuffs',
+          message: 'Wasted Buffs',
+        }),
         tooltip: (
           <Trans id="monk.mistweaver.spiritfont.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>

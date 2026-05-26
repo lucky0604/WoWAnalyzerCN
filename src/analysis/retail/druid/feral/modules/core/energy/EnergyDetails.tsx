@@ -27,13 +27,16 @@ class EnergyDetails extends Analyzer {
         position={STATISTIC_ORDER.CORE(2)}
         icon={<Icon icon="spell_shadow_shadowworddominate" alt="Capped Energy" />}
         value={`${formatPercentage(percentAtCap)}%`}
-        label={t({ id: 'druid.feral.energy_details.capped_label', message: 'Time with capped energy' })}
+        label={t({
+          id: 'druid.feral.energy_details.capped_label',
+          message: 'Time with capped energy',
+        })}
         tooltip={
           <>
             <p>
               <Trans id="druid.feral.energy_details.tooltip_p1">
-                Although it can be beneficial to wait and let your energy pool ready to be used at the
-                right time, you should still avoid letting it reach the cap.
+                Although it can be beneficial to wait and let your energy pool ready to be used at
+                the right time, you should still avoid letting it reach the cap.
               </Trans>
             </p>
             <p>
@@ -48,11 +51,13 @@ class EnergyDetails extends Analyzer {
         footer={
           <div className="statistic-box-bar">
             <Tooltip
-              content={t({
-                id: 'druid.feral.energy_details.uncapped_duration',
-                message: 'Not at capped energy for {duration}',
-                duration: formatDuration(this.owner.fightDuration - timeAtCap),
-              } as any)}
+              content={t(
+                {
+                  id: 'druid.feral.energy_details.uncapped_duration',
+                  message: 'Not at capped energy for {duration}',
+                },
+                { duration: formatDuration(this.owner.fightDuration - timeAtCap) },
+              )}
             >
               <div className="stat-healing-bg" style={{ width: `${(1 - percentAtCap) * 100}%` }}>
                 <img src="/img/sword.png" alt="Uncapped Energy" />
@@ -60,11 +65,13 @@ class EnergyDetails extends Analyzer {
             </Tooltip>
 
             <Tooltip
-              content={t({
-                id: 'druid.feral.energy_details.capped_duration',
-                message: 'At capped energy for {duration}',
-                duration: formatDuration(timeAtCap),
-              } as any)}
+              content={t(
+                {
+                  id: 'druid.feral.energy_details.capped_duration',
+                  message: 'At capped energy for {duration}',
+                },
+                { duration: formatDuration(timeAtCap) },
+              )}
             >
               <div className="remainder DeathKnight-bg">
                 <img src="/img/overhealing.png" alt="Capped Energy" />
@@ -78,7 +85,7 @@ class EnergyDetails extends Analyzer {
 
   tab() {
     return {
-      title: t({ id: 'druid.feral.energy_details.title', message: 'Energy usage' }),
+      title: defineMessage({ id: 'druid.feral.energy_details.title', message: 'Energy usage' }),
       url: 'energy-usage',
       render: () => (
         <Panel>

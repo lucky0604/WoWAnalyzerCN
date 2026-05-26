@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -245,7 +244,9 @@ class IceLance extends Analyzer {
     const data = (
       <>
         <RoundedPanel>
-          <b><Trans id="mage.frost.iceLance.castEfficiency">{ICE_LANCE} cast efficiency</Trans></b>
+          <b>
+            <Trans id="mage.frost.iceLance.castEfficiency">{ICE_LANCE} cast efficiency</Trans>
+          </b>
           <DonutChart items={this.results?.donutData ?? []} />
         </RoundedPanel>
       </>
@@ -255,7 +256,7 @@ class IceLance extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      t({ id: 'mage.frost.iceLance.title', message: 'Ice Lance' }),
+      defineMessage({ id: 'mage.frost.iceLance.title', message: 'Ice Lance' }),
     );
   }
 
@@ -275,10 +276,15 @@ class IceLance extends Analyzer {
           <span>
             <p>
               {formatNumber(this.results.totalFreezingStacks)}{' '}
-              <small><Trans id="mage.frost.iceLance.totalStacks">Total {FREEZING} stacks</Trans></small>
+              <small>
+                <Trans id="mage.frost.iceLance.totalStacks">Total {FREEZING} stacks</Trans>
+              </small>
             </p>
             <p>
-              {formatNumber(averageFreezing)} <small><Trans id="mage.frost.iceLance.avgStacks">Average {FREEZING} stacks</Trans></small>
+              {formatNumber(averageFreezing)}{' '}
+              <small>
+                <Trans id="mage.frost.iceLance.avgStacks">Average {FREEZING} stacks</Trans>
+              </small>
             </p>
           </span>
         </BoringSpellValueText>

@@ -1,5 +1,4 @@
 import type { JSX } from 'react';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { TooltipElement } from 'interface';
@@ -79,7 +78,13 @@ class HitCountAoE extends Analyzer {
     tracker.hits += hits;
     if (hits === 0) {
       tracker.zeroHitCasts += 1;
-      addInefficientCastReason(event, t({ id: 'druid.feral.aoe.hit_nothing_reason', message: 'This cast hit nothing!' }));
+      addInefficientCastReason(
+        event,
+        defineMessage({
+          id: 'druid.feral.aoe.hit_nothing_reason',
+          message: 'This cast hit nothing!',
+        }),
+      );
     } else if (hits === 1) {
       tracker.oneHitCasts += 1;
     } else {
@@ -90,23 +95,30 @@ class HitCountAoE extends Analyzer {
 
   get swipeChart() {
     if (this.swipeTracker!.casts === 0) {
-      return <strong><Trans id="druid.shared.spell_never_used">You never used this spell!</Trans></strong>;
+      return (
+        <strong>
+          <Trans id="druid.shared.spell_never_used">You never used this spell!</Trans>
+        </strong>
+      );
     }
 
     const items = [
       {
         color: PerfectColor,
-        label: t({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
+        label: defineMessage({
+          id: 'druid.feral.aoe.hit_multi_targets',
+          message: 'Hit 2+ Targets',
+        }),
         value: this.swipeTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: t({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
+        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
         value: this.swipeTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: t({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
+        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
         value: this.swipeTracker!.zeroHitCasts,
       },
     ];
@@ -115,23 +127,30 @@ class HitCountAoE extends Analyzer {
 
   get pwChart() {
     if (this.pwTracker!.casts === 0) {
-      return <strong><Trans id="druid.shared.spell_never_used">You never used this spell!</Trans></strong>;
+      return (
+        <strong>
+          <Trans id="druid.shared.spell_never_used">You never used this spell!</Trans>
+        </strong>
+      );
     }
 
     const items = [
       {
         color: PerfectColor,
-        label: t({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
+        label: defineMessage({
+          id: 'druid.feral.aoe.hit_multi_targets',
+          message: 'Hit 2+ Targets',
+        }),
         value: this.pwTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: t({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
+        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
         value: this.pwTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: t({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
+        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
         value: this.pwTracker!.zeroHitCasts,
       },
     ];
@@ -145,10 +164,10 @@ class HitCountAoE extends Analyzer {
       <SubSection>
         <p>
           <Trans id="druid.feral.aoe.explanation">
-            <strong>AoE Abilities</strong> should usually only be used when you can hit more than one
-            target, but some of them have applications on single target. The following charts count
-            only hardcasts - procs from <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />{' '}
-            are excluded.
+            <strong>AoE Abilities</strong> should usually only be used when you can hit more than
+            one target, but some of them have applications on single target. The following charts
+            count only hardcasts - procs from{' '}
+            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> are excluded.
           </Trans>
         </p>
         <SideBySidePanels>
@@ -196,7 +215,9 @@ class HitCountAoE extends Analyzer {
         position={STATISTIC_ORDER.CORE(10)}
       >
         <div className="pad boring-text">
-          <label><Trans id="druid.feral.aoe.label">AoE Ability Usage</Trans></label>
+          <label>
+            <Trans id="druid.feral.aoe.label">AoE Ability Usage</Trans>
+          </label>
           <div className="value">
             {this.allTrackers.map((tracker) => (
               <div key={tracker.spell.id}>
@@ -230,7 +251,9 @@ class HitCountAoE extends Analyzer {
                   <SpellIcon spell={tracker.spell} />{' '}
                   {(tracker.casts === 0 ? 0 : tracker.hits / tracker.casts).toFixed(1)}{' '}
                 </TooltipElement>
-                <small><Trans id="druid.feral.aoe.avg_targets_hit">avg targets hit</Trans></small>
+                <small>
+                  <Trans id="druid.feral.aoe.avg_targets_hit">avg targets hit</Trans>
+                </small>
               </div>
             ))}
           </div>

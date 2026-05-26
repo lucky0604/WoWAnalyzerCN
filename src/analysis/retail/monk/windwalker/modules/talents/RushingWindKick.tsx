@@ -157,7 +157,10 @@ class RushingWindKick extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: t({ id: 'monk.windwalker.rwk.classify.not_consumed', message: 'Proc was not consumed' }),
+        summary: defineMessage({
+          id: 'monk.windwalker.rwk.classify.not_consumed',
+          message: 'Proc was not consumed',
+        }),
       };
     }
 
@@ -172,7 +175,7 @@ class RushingWindKick extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: t({
+        summary: defineMessage({
           id: 'monk.windwalker.rwk.classify.first_top',
           message: 'Rushing Wind Kick was consumed the first time the APL expected it',
         }),
@@ -182,7 +185,7 @@ class RushingWindKick extends Analyzer {
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.RUSHING_WIND_KICK_CAST.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: t({
+        summary: defineMessage({
           id: 'monk.windwalker.rwk.classify.acceptable',
           message: 'Rushing Wind Kick was consumed in an acceptable APL spot',
         }),
@@ -191,7 +194,7 @@ class RushingWindKick extends Analyzer {
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: t({
+      summary: defineMessage({
         id: 'monk.windwalker.rwk.classify.not_preferred',
         message: 'Rushing Wind Kick was consumed, even though the APL did not prefer it yet',
       }),
@@ -217,8 +220,8 @@ class RushingWindKick extends Analyzer {
         <p>
           <Trans id="monk.windwalker.rwk.explanation1">
             The <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_WINDWALKER_TALENT} /> talent gives
-            consumed <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks a 60% chance to make your
-            next cast of <SpellLink spell={SPELLS.RUSHING_WIND_KICK_CAST} /> available.
+            consumed <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks a 60% chance to make
+            your next cast of <SpellLink spell={SPELLS.RUSHING_WIND_KICK_CAST} /> available.
           </Trans>
         </p>
         <p>

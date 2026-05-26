@@ -40,24 +40,27 @@ class AstralPowerDetails extends Analyzer {
         tooltip={
           t({
             id: 'balance.astralPower.wasted_prefix',
-            message: 'Wasted '
+            message: 'Wasted ',
           }) +
-          (this.wasted * ASTRAL_POWER_SCALE_FACTOR) +
+          this.wasted * ASTRAL_POWER_SCALE_FACTOR +
           t({
             id: 'balance.astralPower.wasted_middle',
-            message: ' out of '
+            message: ' out of ',
           }) +
-          (this.total * ASTRAL_POWER_SCALE_FACTOR) +
+          this.total * ASTRAL_POWER_SCALE_FACTOR +
           t({
             id: 'balance.astralPower.wasted_suffix',
-            message: ' Astral Power.'
+            message: ' Astral Power.',
           })
         }
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.ASTRAL_POWER}
           value={`${formatPercentage(this.wastedPercent)} %`}
-          label={t({ id: 'balance.astralPower.overcapped_label', message: 'Overcapped Astral Power' })}
+          label={t({
+            id: 'balance.astralPower.overcapped_label',
+            message: 'Overcapped Astral Power',
+          })}
         />
       </Statistic>
     );
@@ -65,7 +68,10 @@ class AstralPowerDetails extends Analyzer {
 
   tab() {
     return {
-      title: t({ id: 'balance.astralPower.usage_title', message: 'Astral Power usage' }),
+      title: defineMessage({
+        id: 'balance.astralPower.usage_title',
+        message: 'Astral Power usage',
+      }),
       url: 'astral-power-usage',
       render: () => (
         <Panel>

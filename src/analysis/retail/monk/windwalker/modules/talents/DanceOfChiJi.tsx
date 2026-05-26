@@ -201,7 +201,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: t({
+        summary: defineMessage({
           id: 'monk.windwalker.docj.classify.not_consumed',
           message: 'Proc was not consumed',
         }),
@@ -219,7 +219,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: t({
+        summary: defineMessage({
           id: 'monk.windwalker.docj.classify.first_top',
           message: 'Spinning Crane Kick was consumed the first time the APL expected it',
         }),
@@ -229,7 +229,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.SPINNING_CRANE_KICK.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: t({
+        summary: defineMessage({
           id: 'monk.windwalker.docj.classify.acceptable',
           message: 'Dance of Chi-Ji was consumed in an acceptable APL spot',
         }),
@@ -238,7 +238,7 @@ class DANCE_OF_CHI_JI extends Analyzer {
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: t({
+      summary: defineMessage({
         id: 'monk.windwalker.docj.classify.not_preferred',
         message: 'Dance of Chi-Ji was consumed, even though the APL did not prefer it yet',
       }),
@@ -293,8 +293,8 @@ class DANCE_OF_CHI_JI extends Analyzer {
       <>
         <p>
           <Trans id="monk.windwalker.docj.explanation1">
-            The <SpellLink spell={TALENTS_MONK.DANCE_OF_CHI_JI_WINDWALKER_TALENT} /> talent gives your
-            Chi spenders a chance to grant a free cast of{' '}
+            The <SpellLink spell={TALENTS_MONK.DANCE_OF_CHI_JI_WINDWALKER_TALENT} /> talent gives
+            your Chi spenders a chance to grant a free cast of{' '}
             <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> at roughly one proc per minute.
           </Trans>
         </p>
@@ -308,9 +308,9 @@ class DANCE_OF_CHI_JI extends Analyzer {
         <p>
           <Trans id="monk.windwalker.docj.explanation3">
             Because consuming <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> also guarantees a{' '}
-            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stack, spending it should be planned with
-            your current <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks in mind so you do not
-            immediately force a new overcap there.
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stack, spending it should be planned
+            with your current <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks in mind so you
+            do not immediately force a new overcap there.
           </Trans>
         </p>
       </>

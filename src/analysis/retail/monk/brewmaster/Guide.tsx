@@ -220,7 +220,7 @@ function BlackoutComboTipBox() {
 
     data.push({
       spell: OTHER_SPECIAL_ID,
-      type: t({ id: 'monk.brewmaster.blackoutCombo.other', message: 'Other' }),
+      type: defineMessage({ id: 'monk.brewmaster.blackoutCombo.other', message: 'Other' }),
       amount: blackoutCombo.blackoutComboBuffs - blackoutCombo.blackoutComboConsumed,
       casts: null,
     });
@@ -325,7 +325,10 @@ function CastEfficiencyTipBox({
 
   const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = useMemo(
     () => ({
-      label: t({ id: 'monk.brewmaster.castEfficiency.label', message: 'Cast Efficiency' }),
+      label: defineMessage({
+        id: 'monk.brewmaster.castEfficiency.label',
+        message: 'Cast Efficiency',
+      }),
       expand: true,
       render({ casts, maxCasts }) {
         return (
@@ -399,7 +402,7 @@ function ElevatedPurifyTipBox() {
 
   const elevatedCdrColumn: Column<{ elevatedCdrMs: number }> = useMemo(
     () => ({
-      label: t({ id: 'monk.brewmaster.elevatedCdr.label', message: 'Elevated CDR' }),
+      label: defineMessage({ id: 'monk.brewmaster.elevatedCdr.label', message: 'Elevated CDR' }),
       render({ elevatedCdrMs }) {
         return formatDurationMinSec(elevatedCdrMs / 1000);
       },
@@ -410,7 +413,10 @@ function ElevatedPurifyTipBox() {
 
   const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = useMemo(
     () => ({
-      label: t({ id: 'monk.brewmaster.castEfficiency.label', message: 'Cast Efficiency' }),
+      label: defineMessage({
+        id: 'monk.brewmaster.castEfficiency.label',
+        message: 'Cast Efficiency',
+      }),
       expand: true,
       render({ casts, maxCasts }) {
         return (

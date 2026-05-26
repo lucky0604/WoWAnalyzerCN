@@ -115,14 +115,18 @@ class RipUptimeAndSnapshots extends Snapshots {
         value = QualitativePerformance.Fail;
         perfExplanation = (
           <h5 style={{ color: BadColor }}>
-            <Trans id="druid.feral.rip.early_refresh_bad">Bad because you refreshed too early</Trans>
+            <Trans id="druid.feral.rip.early_refresh_bad">
+              Bad because you refreshed too early
+            </Trans>
           </h5>
         );
       } else if (clipped > 0) {
         value = QualitativePerformance.Ok;
         perfExplanation = (
           <h5 style={{ color: OkColor }}>
-            <Trans id="druid.feral.rip.early_refresh_warning">Careful, you refreshed this a little early</Trans>
+            <Trans id="druid.feral.rip.early_refresh_warning">
+              Careful, you refreshed this a little early
+            </Trans>
           </h5>
         );
       }
@@ -133,7 +137,9 @@ class RipUptimeAndSnapshots extends Snapshots {
           <div>
             @ <strong>{this.owner.formatTimestamp(timestamp)}</strong>{' '}
             <Trans id="druid.feral.rip.targeting_with_cps">
-              targetting <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong> using <strong>{cpsUsed} CPs</strong>
+              targetting{' '}
+              <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>{' '}
+              using <strong>{cpsUsed} CPs</strong>
             </Trans>
           </div>
           {!wasNewApplication && (
@@ -169,15 +175,16 @@ class RipUptimeAndSnapshots extends Snapshots {
       if (cast) {
         addInefficientCastReason(
           cast,
-          t({
+          defineMessage({
             id: 'druid.feral.rip.clipped_inefficient_reason_prefix',
-            message: 'This cast clipped '
+            message: 'This cast clipped ',
           }) +
             (clipped / 1000).toFixed(1) +
-            t({
+            defineMessage({
               id: 'druid.feral.rip.clipped_inefficient_reason_suffix',
-              message: " seconds of Rip time without upgrading the snapshot. Try to wait until the last 30% of Rip's duration before refreshing"
-            })
+              message:
+                " seconds of Rip time without upgrading the snapshot. Try to wait until the last 30% of Rip's duration before refreshing",
+            }),
         );
       }
     }
@@ -195,13 +202,13 @@ class RipUptimeAndSnapshots extends Snapshots {
           is your highest damage-per-energy single target spender. Try to maintain 100% uptime.{' '}
           {hasPw ? (
             <>
-              Use <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} /> to apply it when you can hit
-              more than one target.
+              Use <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} /> to apply it when you can
+              hit more than one target.
             </>
           ) : (
             <>
-              You can even keep it active on multiple targets, though if a fight will frequently have
-              multiple targets consider speccing for{' '}
+              You can even keep it active on multiple targets, though if a fight will frequently
+              have multiple targets consider speccing for{' '}
               <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />.
             </>
           )}{' '}
@@ -218,7 +225,10 @@ class RipUptimeAndSnapshots extends Snapshots {
               <Trans id="druid.feral.rip.uptime_snapshots_title">Rip uptime / snapshots</Trans>
             </strong>
             <small>
-              <Trans id="druid.feral.moonfire.uptime_snapshots_sub"> - Try to get as close to 100% as the encounter allows!</Trans>
+              <Trans id="druid.feral.moonfire.uptime_snapshots_sub">
+                {' '}
+                - Try to get as close to 100% as the encounter allows!
+              </Trans>
             </small>
           </div>
           {this.subStatistic()}
@@ -227,7 +237,9 @@ class RipUptimeAndSnapshots extends Snapshots {
           spell={SPELLS.RIP}
           castEntries={this.castEntries}
           okExtraExplanation={<Trans id="druid.feral.rip.ok_reason">slightly early refresh</Trans>}
-          badExtraExplanation={<Trans id="druid.feral.rip.bad_reason">refreshed outside pandemic or low CPs</Trans>}
+          badExtraExplanation={
+            <Trans id="druid.feral.rip.bad_reason">refreshed outside pandemic or low CPs</Trans>
+          }
         />
       </div>
     );

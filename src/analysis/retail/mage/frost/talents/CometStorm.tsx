@@ -90,7 +90,10 @@ class CometStorm extends Analyzer {
         cs.shatteredHits < MIN_SHATTERED_PROJECTILES_PER_CAST,
     );
 
-    const tooltip = t({ id: 'mage.frost.cometStorm.badCastTooltip', message: 'This Comet Storm was not shattered and did not hit multiple enemies.' });
+    const tooltip = defineMessage({
+      id: 'mage.frost.cometStorm.badCastTooltip',
+      message: 'This Comet Storm was not shattered and did not hit multiple enemies.',
+    });
     badCasts.forEach((e) => e.cast && highlightInefficientCast(e.cast, tooltip));
 
     return badCasts.length;
@@ -123,14 +126,20 @@ class CometStorm extends Analyzer {
       <>
         <p>
           <Trans id="mage.frost.cometStorm.explanation1">
-            <b>{cometStorm}</b> is another important spell. You want to keep it on cooldown as much as
-            you can.
+            <b>{cometStorm}</b> is another important spell. You want to keep it on cooldown as much
+            as you can.
           </Trans>
         </p>
-        <p><Trans id="mage.frost.cometStorm.explanation2">This spell has different modes of use for single and multitarget.</Trans></p>
+        <p>
+          <Trans id="mage.frost.cometStorm.explanation2">
+            This spell has different modes of use for single and multitarget.
+          </Trans>
+        </p>
         <ul>
           <li>
-            <b><Trans id="mage.frost.cometStorm.singleTarget">Single Target</Trans></b>
+            <b>
+              <Trans id="mage.frost.cometStorm.singleTarget">Single Target</Trans>
+            </b>
           </li>
           <SpellSeq
             spells={[TALENTS.FLURRY_TALENT, SPELLS.ICE_LANCE_DAMAGE, TALENTS.COMET_STORM_TALENT]}
@@ -142,15 +151,21 @@ class CometStorm extends Analyzer {
     const data = (
       <div>
         <RoundedPanel>
-          <strong><Trans id="mage.frost.cometStorm.castEfficiency">{cometStorm} cast efficiency</Trans></strong>
+          <strong>
+            <Trans id="mage.frost.cometStorm.castEfficiency">{cometStorm} cast efficiency</Trans>
+          </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
           </div>
-          <strong><Trans id="mage.frost.cometStorm.castDetails">{cometStorm} cast details</Trans></strong>
+          <strong>
+            <Trans id="mage.frost.cometStorm.castDetails">{cometStorm} cast details</Trans>
+          </strong>
           <PerformanceBoxRow values={this.castEntries} />
           <small>
-            <Trans id="mage.frost.cometStorm.legend">blue (perfect) / green (good) / yellow (ok) / red (fail) mouseover the rectangles to see
-            more details</Trans>
+            <Trans id="mage.frost.cometStorm.legend">
+              blue (perfect) / green (good) / yellow (ok) / red (fail) mouseover the rectangles to
+              see more details
+            </Trans>
           </small>
         </RoundedPanel>
       </div>
@@ -160,7 +175,7 @@ class CometStorm extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      t({ id: 'mage.frost.cometStorm.title', message: 'Comet Storm' }),
+      defineMessage({ id: 'mage.frost.cometStorm.title', message: 'Comet Storm' }),
     );
   }
 
