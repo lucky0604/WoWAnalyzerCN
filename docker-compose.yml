@@ -1,0 +1,32 @@
+services:
+  nginx:
+    build:
+      context: .
+      args:
+        # CN fork: set to "true" to route WCL API via /wcl-api proxy below
+        # set to "false" and provide VITE_SERVER_BASE for upstream WCL access
+        VITE_WCL_DIRECT: '${VITE_WCL_DIRECT:-true}'
+        VITE_SERVER_BASE: '${VITE_SERVER_BASE:-/}'
+        VITE_ENABLE_GA: '${VITE_ENABLE_GA:-false}'
+    ports:
+      - '${NGINX_PORT:-80}:80'
+    depends_on:
+      - wcl-proxy
+    restart: unless-stopped
+    networks:
+      - wowanalyzer
+
+  # CN WCL API proxy server
+  # Replace the image below with your actual wcl-proxy-server image,
+  # or use `build:` if the source is colocated in this repo.
+  wcl-proxy:
+    image: ${WCL_PROXY_IMAGE:-wcl-proxy-server:latest}
+    ports:
+      - '9528:9528'
+    restart: unless-stopped
+    networks:
+      - wowanalyzer
+
+networks:
+  wowanalyzer:
+    driver: bridge
