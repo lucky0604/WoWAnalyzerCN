@@ -45,24 +45,26 @@ class ChiDetails extends Analyzer {
     };
   }
 
+  // eslint-disable-next-line typescript-eslint/no-explicit-any -- dead API, no longer in ParseResults
   suggestions(when: any) {
-    when(this.suggestionThresholds).addSuggestion((suggest: any, actual: any, recommended: any) =>
-      suggest(
-        defineMessage({
-          id: 'monk.windwalker.chi_details.suggest',
-          message: 'You are wasting Chi. Try to use it and not let it cap and go to waste',
-        }),
-      )
-        .icon('creatureportrait_bubble')
-        .actual(
+    // eslint-disable-next-line typescript-eslint/no-explicit-any -- dead API, no longer in ParseResults
+    when(this.suggestionThresholds).addSuggestion(
+      // eslint-disable-next-line typescript-eslint/no-explicit-any -- dead API
+      (suggest: any, actual: number, recommended: number) =>
+        suggest(
           defineMessage({
-            id: 'monk.windwalker.suggestions.chi.wastedPerMinute',
-            message: `${this.chiWasted} Chi wasted (${actual.toFixed(2)} per minute)`,
-            wasted: this.chiWasted,
-            perMinute: actual.toFixed(2),
-          } as any),
+            id: 'monk.windwalker.chi_details.suggest',
+            message: 'You are wasting Chi. Try to use it and not let it cap and go to waste',
+          }),
         )
-        .recommended(`${recommended} Chi wasted is recommended`),
+          .icon('creatureportrait_bubble')
+          .actual(
+            defineMessage({
+              id: 'monk.windwalker.suggestions.chi.wastedPerMinute',
+              message: '{chiWasted, number} Chi wasted ({perMinute, number} per minute)',
+            }),
+          )
+          .recommended(`${recommended} Chi wasted is recommended`),
     );
   }
 
@@ -93,10 +95,7 @@ class ChiDetails extends Analyzer {
       url: 'chi',
       render: () => (
         <Panel>
-          <ResourceBreakdown
-            tracker={this.chiTracker}
-            showSpenders
-          />
+          <ResourceBreakdown tracker={this.chiTracker} showSpenders />
         </Panel>
       ),
     };
