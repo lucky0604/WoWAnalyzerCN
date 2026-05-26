@@ -10,20 +10,10 @@ services:
         VITE_ENABLE_GA: '${VITE_ENABLE_GA:-false}'
     ports:
       - '${NGINX_PORT:-80}:80'
-    depends_on:
-      - wcl-proxy
     restart: unless-stopped
-    networks:
-      - wowanalyzer
-
-  # CN WCL API proxy server
-  # Replace the image below with your actual wcl-proxy-server image,
-  # or use `build:` if the source is colocated in this repo.
-  wcl-proxy:
-    image: ${WCL_PROXY_IMAGE:-wcl-proxy-server:latest}
-    ports:
-      - '9528:9528'
-    restart: unless-stopped
+    extra_hosts:
+      # 允许 nginx 通过 host.docker.internal 访问宿主机上的 wcl-proxy-server
+      - 'host.docker.internal:host-gateway'
     networks:
       - wowanalyzer
 
