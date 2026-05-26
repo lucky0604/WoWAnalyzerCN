@@ -3,17 +3,13 @@ services:
     build:
       context: .
       args:
-        # CN fork: set to "true" to route WCL API via /wcl-api proxy below
-        # set to "false" and provide VITE_SERVER_BASE for upstream WCL access
+        # CN fork: true=前端请求 /wcl-api（需外层反代），false=走 VITE_SERVER_BASE
         VITE_WCL_DIRECT: '${VITE_WCL_DIRECT:-true}'
         VITE_SERVER_BASE: '${VITE_SERVER_BASE:-/}'
         VITE_ENABLE_GA: '${VITE_ENABLE_GA:-false}'
     ports:
       - '${NGINX_PORT:-80}:80'
     restart: unless-stopped
-    extra_hosts:
-      # 允许 nginx 通过 host.docker.internal 访问宿主机上的 wcl-proxy-server
-      - 'host.docker.internal:host-gateway'
     networks:
       - wowanalyzer
 
