@@ -18,7 +18,7 @@ import StaggerPool from '../core/StaggerPool';
 import PurifyingBrew from '../talents/PurifyingBrew';
 import HighTolerance from '../spells/HighTolerance';
 import { OkColor } from 'interface/guide';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 interface StaggerEvent {

@@ -1,6 +1,6 @@
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {

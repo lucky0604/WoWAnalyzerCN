@@ -24,7 +24,7 @@ import { damageEvent } from './normalizer';
 import Spell from 'common/SPELLS/Spell';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import SPELLS from '../../../spell-list_Monk_Brewmaster.retail';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 const WASTED_THRESHOLD = 0.25;

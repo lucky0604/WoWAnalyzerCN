@@ -1,5 +1,5 @@
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { SpellLink, SpellIcon } from 'interface';

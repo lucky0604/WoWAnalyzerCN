@@ -6,7 +6,7 @@ import Events, { RefreshBuffEvent, RemoveBuffEvent } from 'parser/core/Events';
 import { isStrengthOfTheBlackOxConsumed } from '../../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,

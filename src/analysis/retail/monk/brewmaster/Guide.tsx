@@ -1,5 +1,5 @@
 import { useMemo, type JSX } from 'react';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { formatDurationMinSec } from 'common/format';

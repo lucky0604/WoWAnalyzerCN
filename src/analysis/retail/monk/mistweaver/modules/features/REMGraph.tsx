@@ -8,7 +8,7 @@ import Panel from 'parser/ui/Panel';
 import { VisualizationSpec } from 'react-vega';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { getCurrentRSKTalent, SPELL_COLORS } from '../../constants';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 interface SpellTracker {
