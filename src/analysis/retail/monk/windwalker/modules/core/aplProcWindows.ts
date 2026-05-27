@@ -9,6 +9,7 @@ import {
 } from 'parser/core/Events';
 import { AplChecker, type InternalRule } from 'parser/shared/metrics/apl';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { t } from '@lingui/core/macro';
 
 // Shared helper for Windwalker proc timing sections that compare proc spends against the live APL.
 // It tracks one window per active buff stack, records the reported casts that happened inside each

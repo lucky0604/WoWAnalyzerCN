@@ -19,7 +19,7 @@ import Events, {
 import MaelstromTracker from '../resources/MaelstromTracker';
 import MaelstromSpenderInfo from '../core/MaelstromSpenderInfo';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   computeScore,
@@ -195,9 +195,7 @@ class MaelstromSpenders extends Analyzer.withDependencies({
 
   private getMoteStat(cast: SpenderCast): PerCastStat {
     return {
-      value: cast.hasMoTE
-        ? defineMessage({ id: 'yes', message: 'Yes' })
-        : defineMessage({ id: 'no', message: 'No' }),
+      value: cast.hasMoTE ? defineMessage({ id: 'yes', message: 'Yes' }) : defineMessage({ id: 'no', message: 'No' }),
       label: defineMessage({ id: 'shaman.elemental.spenders.mote', message: 'MoTE' }),
       performance: cast.hasMoTE
         ? QualitativePerformance.Perfect

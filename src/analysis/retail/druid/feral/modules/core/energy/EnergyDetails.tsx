@@ -1,4 +1,4 @@
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { Icon, Panel, Tooltip } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
@@ -27,10 +27,7 @@ class EnergyDetails extends Analyzer {
         position={STATISTIC_ORDER.CORE(2)}
         icon={<Icon icon="spell_shadow_shadowworddominate" alt="Capped Energy" />}
         value={`${formatPercentage(percentAtCap)}%`}
-        label={t({
-          id: 'druid.feral.energy_details.capped_label',
-          message: 'Time with capped energy',
-        })}
+        label={t`Time with capped energy`}
         tooltip={
           <>
             <p>
@@ -51,28 +48,14 @@ class EnergyDetails extends Analyzer {
         footer={
           <div className="statistic-box-bar">
             <Tooltip
-              content={t(
-                {
-                  id: 'druid.feral.energy_details.uncapped_duration',
-                  message: 'Not at capped energy for {duration}',
-                },
-                { duration: formatDuration(this.owner.fightDuration - timeAtCap) },
-              )}
+              content={t`Not at capped energy for ${formatDuration(this.owner.fightDuration - timeAtCap)}`}
             >
               <div className="stat-healing-bg" style={{ width: `${(1 - percentAtCap) * 100}%` }}>
                 <img src="/img/sword.png" alt="Uncapped Energy" />
               </div>
             </Tooltip>
 
-            <Tooltip
-              content={t(
-                {
-                  id: 'druid.feral.energy_details.capped_duration',
-                  message: 'At capped energy for {duration}',
-                },
-                { duration: formatDuration(timeAtCap) },
-              )}
-            >
+            <Tooltip content={t`At capped energy for ${formatDuration(timeAtCap)}`}>
               <div className="remainder DeathKnight-bg">
                 <img src="/img/overhealing.png" alt="Capped Energy" />
               </div>
@@ -85,7 +68,7 @@ class EnergyDetails extends Analyzer {
 
   tab() {
     return {
-      title: defineMessage({ id: 'druid.feral.energy_details.title', message: 'Energy usage' }),
+      title: t`Energy usage`,
       url: 'energy-usage',
       render: () => (
         <Panel>

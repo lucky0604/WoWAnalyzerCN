@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import RageTracker, {
   RAGE_SCALE_FACTOR,

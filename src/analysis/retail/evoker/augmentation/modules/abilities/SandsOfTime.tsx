@@ -10,7 +10,7 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { SpellLink } from 'interface';
 import { combineQualitativePerformances } from 'common/combineQualitativePerformances';
 import ContextualSpellUsageSubSection from 'parser/core/SpellUsage/HideGoodCastsSpellUsageSubSection';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   failedEbonMightExtension,
@@ -166,9 +166,11 @@ class SandsOfTime extends Analyzer {
       performance: actualPerformance,
       checklistItems,
       performanceExplanation:
-        actualPerformance !== QualitativePerformance.Fail
-          ? defineMessage({ id: 'guide.augmentation.sandsOfTime.goodUsage', message: 'Good Usage' })
-          : defineMessage({ id: 'guide.augmentation.sandsOfTime.badUsage', message: 'Bad Usage' }),
+        actualPerformance !== QualitativePerformance.Fail ? (
+          <Trans id="guide.augmentation.sandsOfTime.goodUsage">Good Usage</Trans>
+        ) : (
+          <Trans id="guide.augmentation.sandsOfTime.badUsage">Bad Usage</Trans>
+        ),
     };
   }
 

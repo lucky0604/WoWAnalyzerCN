@@ -67,10 +67,7 @@ class BuilderUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: defineMessage({
-          id: 'druid.feral.builder_use.effective_builders',
-          message: 'Effective Builders',
-        }),
+        label: <Trans id="druid.feral.builder_use.effective_builders">Effective Builders</Trans>,
         value: this.effectiveBuilderCasts,
         tooltip: (
           <>
@@ -83,10 +80,7 @@ class BuilderUse extends Analyzer {
       },
       {
         color: BadColor,
-        label: defineMessage({
-          id: 'druid.feral.builder_use.wasted_builders',
-          message: 'Wasted Builders',
-        }),
+        label: <Trans id="druid.feral.builder_use.wasted_builders">Wasted Builders</Trans>,
         value: this.wastedBuilderCasts,
         tooltip: (
           <>

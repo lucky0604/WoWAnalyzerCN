@@ -18,7 +18,7 @@ import StaggerPool from '../core/StaggerPool';
 import PurifyingBrew from '../talents/PurifyingBrew';
 import HighTolerance from '../spells/HighTolerance';
 import { OkColor } from 'interface/guide';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 interface StaggerEvent {
@@ -90,10 +90,7 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
           {
             field: 'newPooledDamage',
             type: 'quantitative' as const,
-            title: defineMessage({
-              id: 'monk.brewmaster.stagger.staggered_damage',
-              message: 'Staggered Damage',
-            }),
+            title: t`Staggered Damage`,
             format: '.3~s',
           },
         ],
@@ -125,10 +122,7 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
               {
                 field: 'hitPoints',
                 type: 'quantitative' as const,
-                title: defineMessage({
-                  id: 'monk.brewmaster.stagger.hit_points',
-                  message: 'Hit Points',
-                }),
+                title: t`Hit Points`,
                 format: '.3~s',
               },
             ],
@@ -194,19 +188,13 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
             tooltip: [
               {
                 field: 'amount',
-                title: defineMessage({
-                  id: 'monk.brewmaster.stagger.amount_purified',
-                  message: 'Amount Purified',
-                }),
+                title: t`Amount Purified`,
                 format: '.3~s',
               },
               {
                 field: 'oldPooledAmount',
                 type: 'quantitative' as const,
-                title: defineMessage({
-                  id: 'monk.brewmaster.stagger.staggered_damage',
-                  message: 'Staggered Damage',
-                }),
+                title: t`Staggered Damage`,
                 format: '.3~s',
               },
             ],
@@ -312,7 +300,7 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
 
   tab() {
     return {
-      title: defineMessage({ id: 'monk.brewmaster.stagger.title', message: 'Stagger' }),
+      title: t`Stagger`,
       url: 'stagger',
       render: () => (
         <Panel

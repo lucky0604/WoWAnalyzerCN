@@ -1,6 +1,6 @@
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
@@ -173,28 +173,19 @@ class MoTCGraph extends Analyzer {
           {
             field: 'motcCount',
             type: 'quantitative' as const,
-            title: defineMessage({
-              id: 'monk.windwalker.motc_graph.motc_count',
-              message: 'Mark of the Crane Count',
-            }),
+            title: t`Mark of the Crane Count`,
             format: '.3~s',
           },
           {
             field: 'bdbCount',
             type: 'quantitative' as const,
-            title: defineMessage({
-              id: 'monk.windwalker.motc_graph.bdb_count',
-              message: 'Bonedust Brew Debuffs',
-            }),
+            title: t`Bonedust Brew Debuffs`,
             format: '.3~s',
           },
           {
             field: 'motcAverage',
             type: 'quantitative' as const,
-            title: defineMessage({
-              id: 'monk.windwalker.motc_graph.motc_average',
-              message: 'Mark of the Crane Average',
-            }),
+            title: t`Mark of the Crane Average`,
             format: '.3~s',
           },
         ],

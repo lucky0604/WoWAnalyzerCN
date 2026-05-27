@@ -83,7 +83,7 @@ class RisingMistBreakdown extends Analyzer {
     const items = [
       {
         color: SPELL_COLORS.ENVELOPING_MIST,
-        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: <Trans id="monk.mistweaver.rising_mist.hardcast">Hardcast</Trans>,
         spellId: talents.ENVELOPING_MIST_TALENT.id,
         value: this.risingMist.envHardcastExtensionHealing,
         valuePercent: false,
@@ -111,7 +111,7 @@ class RisingMistBreakdown extends Analyzer {
     const items = [
       {
         color: SPELL_COLORS.ENVELOPING_MIST,
-        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: <Trans id="monk.mistweaver.rising_mist.hardcast">Hardcast</Trans>,
         spellId: talents.ENVELOPING_MIST_TALENT.id,
         value: this.risingMist.envBonusHardcast,
         valuePercent: false,
@@ -154,7 +154,7 @@ class RisingMistBreakdown extends Analyzer {
       },
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: <Trans id="monk.mistweaver.rising_mist.hardcast">Hardcast</Trans>,
         spellId: SPELLS.RENEWING_MIST_HEAL.id,
         value: this.risingMist.renewingMistHardcastExtensionHealing,
         valuePercent: false,
@@ -222,7 +222,7 @@ class RisingMistBreakdown extends Analyzer {
       },
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: <Trans id="monk.mistweaver.rising_mist.hardcast">Hardcast</Trans>,
         spellId: SPELLS.RENEWING_MIST_HEAL.id,
         value: this.risingMist.vivHealingFromHardcastRems,
         valuePercent: false,
@@ -264,7 +264,7 @@ class RisingMistBreakdown extends Analyzer {
       },
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+        label: <Trans id="monk.mistweaver.rising_mist.hardcast">Hardcast</Trans>,
         spellId: SPELLS.RENEWING_MIST_HEAL.id,
         value: this.risingMist.zpHealingFromHardcastRems,
         valuePercent: false,

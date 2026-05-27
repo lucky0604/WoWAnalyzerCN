@@ -560,10 +560,7 @@ class RisingMist extends Analyzer {
     const rdRemEntries = this.hotTable(
       SPELLS.RENEWING_MIST_HEAL.id,
       rdRemHistory,
-      defineMessage({
-        id: 'monk.mistweaver.rising_mist.rapid_diffusion',
-        message: 'Rapid Diffusion',
-      }),
+      defineMessage({ id: 'monk.mistweaver.rising_mist.rapid_diffusion', message: 'Rapid Diffusion' }),
     );
     const dmRemHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       SPELLS.RENEWING_MIST_HEAL.id,
@@ -601,7 +598,7 @@ class RisingMist extends Analyzer {
 
   tab() {
     return {
-      title: defineMessage({ id: 'monk.mistweaver.rising_mist.tab_title', message: 'Rising Mist' }),
+      title: t`Rising Mist`,
       url: 'rising-mist',
       render: () => (
         <Panel

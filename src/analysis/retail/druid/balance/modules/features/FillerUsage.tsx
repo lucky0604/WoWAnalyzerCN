@@ -1,4 +1,5 @@
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -62,14 +63,9 @@ export default class FillerUsage extends Analyzer {
         addInefficientCastReason(
           event,
           defineMessage({
-            id: 'balance.filler.too_few_targets_prefix',
-            message: 'You hit too few targets: ',
-          }) +
-            targetsHit +
-            defineMessage({
-              id: 'balance.filler.too_few_targets_suffix',
-              message: ' - use Wrath instead',
-            }),
+            id: 'balance.filler.too_few_targets',
+            message: `You hit too few targets: ${targetsHit} - use Wrath instead`,
+          }),
         );
         this.lowTargetStarfires += 1;
       }
@@ -78,14 +74,9 @@ export default class FillerUsage extends Analyzer {
         addInefficientCastReason(
           event,
           defineMessage({
-            id: 'balance.filler.too_few_targets_prefix',
-            message: 'You hit too few targets: ',
-          }) +
-            targetsHit +
-            defineMessage({
-              id: 'balance.filler.too_few_targets_suffix',
-              message: ' - use Wrath instead',
-            }),
+            id: 'balance.filler.too_few_targets_ca',
+            message: `You hit too few targets: ${targetsHit} - use Wrath instead`,
+          }),
         );
         this.lowTargetStarfires += 1;
       }
@@ -184,27 +175,27 @@ export default class FillerUsage extends Analyzer {
 
     const goodFillerData = {
       count: this.goodFillers,
-      label: defineMessage({ id: 'balance.filler.good_label', message: 'Good Fillers' }),
+      label: <Trans id="balance.filler.good_label">Good Fillers</Trans>,
     };
     const okFillerData = {
       count: this.okFillers,
-      label: defineMessage({
-        id: 'balance.filler.ok_label',
-        message: 'Wraths during Lunar Eclipse (did you enter the wrong Eclipse?)',
-      }),
+      label: (
+        <Trans id="balance.filler.ok_label">
+          Wraths during Lunar Eclipse (did you enter the wrong Eclipse?)
+        </Trans>
+      ),
     };
     const badFillerData = {
       count: this.badFillers,
-      label: this.hasLunarCalling
-        ? defineMessage({
-            id: 'balance.filler.bad_lc_label',
-            message:
-              'Starfire when out of Eclipse (with Lunar Calling, you must Wrath to enter eclipse)',
-          })
-        : defineMessage({
-            id: 'balance.filler.bad_no_lc_label',
-            message: 'Starfires during Solar Eclipse or that hit too few targets',
-          }),
+      label: this.hasLunarCalling ? (
+        <Trans id="balance.filler.bad_lc_label">
+          Starfire when out of Eclipse (with Lunar Calling, you must Wrath to enter eclipse)
+        </Trans>
+      ) : (
+        <Trans id="balance.filler.bad_no_lc_label">
+          Starfires during Solar Eclipse or that hit too few targets
+        </Trans>
+      ),
     };
 
     const data = (

@@ -24,7 +24,7 @@ import { damageEvent } from './normalizer';
 import Spell from 'common/SPELLS/Spell';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import SPELLS from '../../../spell-list_Monk_Brewmaster.retail';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 const WASTED_THRESHOLD = 0.25;
@@ -222,26 +222,29 @@ class CelestialBrew extends MajorDefensiveBuff {
     if (absorb.wastedAmount / absorb.maxAmount > 1 - WASTED_THRESHOLD) {
       return {
         perf: QualitativePerformance.Ok,
-        explanation: defineMessage({
-          id: 'monk.brewmaster.celestial_brew.perf.expired',
-          message: `Shield expired with at least ${formatPercentage(WASTED_THRESHOLD)}% remaining`,
-        }),
+        explanation: (
+          <Trans id="monk.brewmaster.celestial_brew.perf.expired">
+            Shield expired with at least {formatPercentage(WASTED_THRESHOLD)}% remaining
+          </Trans>
+        ),
       };
     } else if (absorb.wastedAmount / absorb.maxAmount > 1 - GOOD_THRESHOLD) {
       return {
         perf: QualitativePerformance.Good,
-        explanation: defineMessage({
-          id: 'monk.brewmaster.celestial_brew.perf.consumed_part',
-          message: `At least ${formatPercentage(GOOD_THRESHOLD)} of the shield was consumed`,
-        }),
+        explanation: (
+          <Trans id="monk.brewmaster.celestial_brew.perf.consumed_part">
+            At least {formatPercentage(GOOD_THRESHOLD)} of the shield was consumed
+          </Trans>
+        ),
       };
     } else if (absorb.wastedAmount === 0) {
       return {
         perf: QualitativePerformance.Perfect,
-        explanation: defineMessage({
-          id: 'monk.brewmaster.celestial_brew.perf.consumed_all',
-          message: 'The entire shield was consumed',
-        }),
+        explanation: (
+          <Trans id="monk.brewmaster.celestial_brew.perf.consumed_all">
+            The entire shield was consumed
+          </Trans>
+        ),
       };
     }
 

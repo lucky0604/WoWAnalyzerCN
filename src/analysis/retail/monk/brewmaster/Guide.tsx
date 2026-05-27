@@ -1,5 +1,5 @@
 import { useMemo, type JSX } from 'react';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { formatDurationMinSec } from 'common/format';
@@ -325,10 +325,7 @@ function CastEfficiencyTipBox({
 
   const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = useMemo(
     () => ({
-      label: defineMessage({
-        id: 'monk.brewmaster.castEfficiency.label',
-        message: 'Cast Efficiency',
-      }),
+      label: <Trans id="monk.brewmaster.castEfficiency.label">Cast Efficiency</Trans>,
       expand: true,
       render({ casts, maxCasts }) {
         return (
@@ -402,7 +399,7 @@ function ElevatedPurifyTipBox() {
 
   const elevatedCdrColumn: Column<{ elevatedCdrMs: number }> = useMemo(
     () => ({
-      label: defineMessage({ id: 'monk.brewmaster.elevatedCdr.label', message: 'Elevated CDR' }),
+      label: <Trans id="monk.brewmaster.elevatedCdr.label">Elevated CDR</Trans>,
       render({ elevatedCdrMs }) {
         return formatDurationMinSec(elevatedCdrMs / 1000);
       },
@@ -413,10 +410,7 @@ function ElevatedPurifyTipBox() {
 
   const castEfficiencyColumn: Column<{ casts: number; maxCasts: number }> = useMemo(
     () => ({
-      label: defineMessage({
-        id: 'monk.brewmaster.castEfficiency.label',
-        message: 'Cast Efficiency',
-      }),
+      label: <Trans id="monk.brewmaster.castEfficiency.label">Cast Efficiency</Trans>,
       expand: true,
       render({ casts, maxCasts }) {
         return (

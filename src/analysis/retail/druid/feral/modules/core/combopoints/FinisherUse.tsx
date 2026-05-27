@@ -68,10 +68,7 @@ class FinisherUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: defineMessage({
-          id: 'druid.feral.finisher_use.high_cp_finishers',
-          message: 'High CP Finishers',
-        }),
+        label: <Trans id="druid.feral.finisher_use.high_cp_finishers">High CP Finishers</Trans>,
         value: this.maxCpFinishers,
         tooltip: (
           <>
@@ -85,10 +82,7 @@ class FinisherUse extends Analyzer {
       },
       {
         color: OkColor,
-        label: defineMessage({
-          id: 'druid.feral.finisher_use.low_cp_rips',
-          message: 'Low CP Intial Rips',
-        }),
+        label: <Trans id="druid.feral.finisher_use.low_cp_rips">Low CP Intial Rips</Trans>,
         value: this.lowCpRipApplies,
         tooltip: (
           <>
@@ -101,10 +95,9 @@ class FinisherUse extends Analyzer {
       },
       {
         color: BadColor,
-        label: defineMessage({
-          id: 'druid.feral.finisher_use.low_cp_bites',
-          message: 'Low CP Bite / Refresh Finishers',
-        }),
+        label: (
+          <Trans id="druid.feral.finisher_use.low_cp_bites">Low CP Bite / Refresh Finishers</Trans>
+        ),
         value: this.badLowCpFinisherCasts,
       },
     ];

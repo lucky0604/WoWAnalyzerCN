@@ -1,5 +1,6 @@
 import { SubSection, useAnalyzer, useAnalyzers } from 'interface/guide';
 import { JSX, useMemo } from 'react';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import StaggerPoolGraph from '../../features/StaggerPoolGraph';
 import StaggerPool from '../StaggerPool';
@@ -191,10 +192,7 @@ const commonTableColumns = {
 
 const damageTakenColumns = {
   ...commonTableColumns,
-  hits: literalNumberColumn(
-    defineMessage({ id: 'monk.brewmaster.stagger.hits', message: 'Hits' }),
-    'hits',
-  ),
+  hits: literalNumberColumn(<Trans id="monk.brewmaster.stagger.hits">Hits</Trans>, 'hits'),
 };
 
 const MAX_DATA_ROWS = 5;
@@ -257,7 +255,7 @@ const PURIFICATION_SOURCES = [
 const purificationColumns = {
   ...commonTableColumns,
   triggers: literalNumberColumn(
-    defineMessage({ id: 'monk.brewmaster.stagger.triggers', message: 'Triggers' }),
+    <Trans id="monk.brewmaster.stagger.triggers">Triggers</Trans>,
     'count',
   ),
 };

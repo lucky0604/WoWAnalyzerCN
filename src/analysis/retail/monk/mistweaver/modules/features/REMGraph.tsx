@@ -8,7 +8,7 @@ import Panel from 'parser/ui/Panel';
 import { VisualizationSpec } from 'react-vega';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { getCurrentRSKTalent, SPELL_COLORS } from '../../constants';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 interface SpellTracker {
@@ -101,7 +101,7 @@ class REMGraph extends Analyzer {
       scale: {
         nice: false,
       },
-      title: defineMessage({ id: 'monk.mistweaver.rem_graph.time', message: 'Time' }),
+      title: t`Time`,
     };
 
     const spec: VisualizationSpec = {
@@ -232,7 +232,7 @@ class REMGraph extends Analyzer {
             y: {
               field: 'remCount',
               type: 'quantitative' as const,
-              title: defineMessage({ id: 'monk.mistweaver.rem_graph.count', message: 'Count' }),
+              title: t`Count`,
             },
             color: { datum: 'Rising Sun Kick', value: SPELL_COLORS.RISING_SUN_KICK },
           },

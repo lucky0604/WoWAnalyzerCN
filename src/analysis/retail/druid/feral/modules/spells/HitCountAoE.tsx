@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { TooltipElement } from 'interface';
@@ -105,20 +106,17 @@ class HitCountAoE extends Analyzer {
     const items = [
       {
         color: PerfectColor,
-        label: defineMessage({
-          id: 'druid.feral.aoe.hit_multi_targets',
-          message: 'Hit 2+ Targets',
-        }),
+        label: <Trans id="druid.feral.aoe.hit_multi_targets">Hit 2+ Targets</Trans>,
         value: this.swipeTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
+        label: <Trans id="druid.feral.aoe.hit_one_target">Hit 1 Target</Trans>,
         value: this.swipeTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
+        label: <Trans id="druid.feral.aoe.hit_zero_targets">Hit 0 Targets</Trans>,
         value: this.swipeTracker!.zeroHitCasts,
       },
     ];
@@ -137,20 +135,17 @@ class HitCountAoE extends Analyzer {
     const items = [
       {
         color: PerfectColor,
-        label: defineMessage({
-          id: 'druid.feral.aoe.hit_multi_targets',
-          message: 'Hit 2+ Targets',
-        }),
+        label: <Trans id="druid.feral.aoe.hit_multi_targets">Hit 2+ Targets</Trans>,
         value: this.pwTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
+        label: <Trans id="druid.feral.aoe.hit_one_target">Hit 1 Target</Trans>,
         value: this.pwTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
+        label: <Trans id="druid.feral.aoe.hit_zero_targets">Hit 0 Targets</Trans>,
         value: this.pwTracker!.zeroHitCasts,
       },
     ];
