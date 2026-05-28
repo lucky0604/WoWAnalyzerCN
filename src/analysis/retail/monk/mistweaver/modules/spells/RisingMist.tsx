@@ -1,5 +1,5 @@
 import { formatDuration, formatNumber, formatPercentage } from 'common/format';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { Options } from 'parser/core/Analyzer';
 import { Panel, SpellIcon, SpellLink } from 'interface';
@@ -560,7 +560,10 @@ class RisingMist extends Analyzer {
     const rdRemEntries = this.hotTable(
       SPELLS.RENEWING_MIST_HEAL.id,
       rdRemHistory,
-      defineMessage({ id: 'monk.mistweaver.rising_mist.rapid_diffusion', message: 'Rapid Diffusion' }),
+      defineMessage({
+        id: 'monk.mistweaver.rising_mist.rapid_diffusion',
+        message: 'Rapid Diffusion',
+      }),
     );
     const dmRemHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       SPELLS.RENEWING_MIST_HEAL.id,
