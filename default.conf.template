@@ -1,4 +1,5 @@
 # For the Docker server (copied into the container in the Dockerfile)
+# Uses envsubst at container startup to replace ${WCL_API_PROXY_TARGET}
 server {
 	listen 80;
 	root   /usr/share/nginx/html;
@@ -7,18 +8,18 @@ server {
 	# 当 VITE_WCL_DIRECT=true 且 VITE_WCL_API_BASE 为空时，前端请求 /wcl-api/...
 	# 此处将其代理到 CN WCL API（/v1/...），避免返回 index.html 导致 JSON 解析错误
 	location /wcl-api/ {
-		proxy_pass https://wcl-live-mp.rpglogs.cn/v1/;
+		proxy_pass ${WCL_API_PROXY_TARGET};
 		proxy_ssl_server_name on;
-		proxy_set_header Host wcl-live-mp.rpglogs.cn;
+		proxy_set_header Host ${WCL_API_PROXY_HOST};
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header Accept-Encoding "";
 	}
 
 	location /i/ {
-		proxy_pass https://wowanalyzer.com/i/;
+		proxy_pass ${WOWANALYZER_API_PROXY_TARGET};
 		proxy_ssl_server_name on;
-		proxy_set_header Host wowanalyzer.com;
+		proxy_set_header Host ${WOWANALYZER_API_PROXY_HOST};
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header Accept-Encoding "";

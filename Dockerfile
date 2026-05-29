@@ -15,8 +15,8 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Build-time env vars for CN fork (override via --build-arg or docker-compose)
-ARG VITE_WCL_API_BASE=
-ARG VITE_WCL_DIRECT=true
+ARG VITE_WCL_API_BASE=https://wcl-live-mp.rpglogs.cn
+ARG VITE_WCL_DIRECT=false
 ARG VITE_SERVER_BASE=/
 ARG VITE_ENABLE_GA=false
 ENV VITE_WCL_API_BASE=$VITE_WCL_API_BASE
@@ -32,7 +32,12 @@ RUN pnpm build
 # Stage 2: Serve with nginx
 FROM nginx:stable-alpine
 
-COPY default.conf /etc/nginx/conf.d/default.conf
+ENV WCL_API_PROXY_TARGET=https://wcl-live-mp.rpglogs.cn/v1/
+ENV WCL_API_PROXY_HOST=wcl-live-mp.rpglogs.cn
+ENV WOWANALYZER_API_PROXY_TARGET=https://wowanalyzer.com/i/
+ENV WOWANALYZER_API_PROXY_HOST=wowanalyzer.com
+
+COPY default.conf.template /etc/nginx/templates/default.conf.template
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80

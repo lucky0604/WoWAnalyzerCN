@@ -44,6 +44,16 @@ const HTTP_CODES = {
 };
 const WCL_API_ERROR_TEXT = 'Warcraft Logs API error';
 
+function shouldIncludeCredentials(url: string) {
+  const directApiBase = import.meta.env.VITE_WCL_API_BASE;
+  if (!directApiBase || typeof window === 'undefined') {
+    return true;
+  }
+  const requestOrigin = new URL(url, window.location.href).origin;
+  const directApiOrigin = new URL(directApiBase, window.location.href).origin;
+  return requestOrigin !== directApiOrigin || requestOrigin === window.location.origin;
+}
+
 function fixControlCharacters(text: string) {
   // Try to replace non-ascii chars on "unexpected character"-errors
   // hotfixes the german logs that have control-characters in their names
@@ -96,7 +106,7 @@ async function rawFetchWcl(endpoint: string, queryParams: QueryParams, noCache =
   }
   const url = makeWclApiUrl(endpoint, queryParams);
   const response = await fetch(url, {
-    credentials: 'include',
+    credentials: shouldIncludeCredentials(url) ? 'include' : 'omit',
     cache: noCache ? 'reload' : 'default',
   });
 

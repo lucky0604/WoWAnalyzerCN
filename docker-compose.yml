@@ -5,11 +5,16 @@ services:
       args:
         # CN fork: 直连 WCL API 地址（需 CORS 支持）
         # 设置此项后，前端直接请求该地址，无需 nginx 代理
-        VITE_WCL_API_BASE: '${VITE_WCL_API_BASE:-}'
-        # CN fork: true=前端请求 /wcl-api（需外层反代），false=走 VITE_SERVER_BASE
-        VITE_WCL_DIRECT: '${VITE_WCL_DIRECT:-true}'
+        VITE_WCL_API_BASE: '${VITE_WCL_API_BASE:-https://wcl-live-mp.rpglogs.cn}'
+        # CN fork: true=前端请求 /wcl-api（需 nginx 代理），false=直连 VITE_WCL_API_BASE
+        VITE_WCL_DIRECT: '${VITE_WCL_DIRECT:-false}'
         VITE_SERVER_BASE: '${VITE_SERVER_BASE:-/}'
         VITE_ENABLE_GA: '${VITE_ENABLE_GA:-false}'
+    environment:
+      WCL_API_PROXY_TARGET: '${WCL_API_PROXY_TARGET:-https://wcl-live-mp.rpglogs.cn/v1/}'
+      WCL_API_PROXY_HOST: '${WCL_API_PROXY_HOST:-wcl-live-mp.rpglogs.cn}'
+      WOWANALYZER_API_PROXY_TARGET: '${WOWANALYZER_API_PROXY_TARGET:-https://wowanalyzer.com/i/}'
+      WOWANALYZER_API_PROXY_HOST: '${WOWANALYZER_API_PROXY_HOST:-wowanalyzer.com}'
     ports:
       - '${NGINX_PORT:-9000}:80'
     restart: unless-stopped

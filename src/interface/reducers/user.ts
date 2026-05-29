@@ -17,7 +17,7 @@ interface User {
   };
 }
 
-export const fetchUser = createAsyncThunk<User | null>('user/fetchUser', async () => {
+export const fetchUser = createAsyncThunk<User | false | null>('user/fetchUser', async () => {
   try {
     const response = await fetch(`${import.meta.env.VITE_SERVER_BASE}user`, {
       credentials: 'include',
@@ -32,6 +32,11 @@ export const fetchUser = createAsyncThunk<User | null>('user/fetchUser', async (
       throw new Error(response.statusText);
     }
 
+    const contentType = response.headers.get('content-type') || '';
+    if (!contentType.includes('application/json')) {
+      return false;
+    }
+
     const data = await response.json();
     return data satisfies User;
   } catch (err: unknown) {
@@ -41,6 +46,7 @@ export const fetchUser = createAsyncThunk<User | null>('user/fetchUser', async (
       },
     });
     // fail silently since this only enhances the experience, if we're shortly down it shouldn't *kill* the experience.
+    return false;
   }
 });
 
@@ -57,7 +63,7 @@ export const logout = createAsyncThunk('user/logout', async () => {
   return;
 });
 
-type UserState = User | null;
+type UserState = User | false | null;
 const initialState: UserState = null as UserState;
 
 const userSlice = createSlice({
