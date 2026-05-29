@@ -12,6 +12,7 @@ services:
         VITE_WCL_DIRECT: '${VITE_WCL_DIRECT:-false}'
         VITE_SERVER_BASE: '${VITE_SERVER_BASE:-/}'
         VITE_ENABLE_GA: '${VITE_ENABLE_GA:-false}'
+        VITE_DISABLE_USER_FETCH: '${VITE_DISABLE_USER_FETCH:-true}'
     environment:
       WCL_API_PROXY_TARGET: '${WCL_API_PROXY_TARGET:-https://wcl-live-mp.rpglogs.cn/v1/}'
       WCL_API_PROXY_HOST: '${WCL_API_PROXY_HOST:-wcl-live-mp.rpglogs.cn}'

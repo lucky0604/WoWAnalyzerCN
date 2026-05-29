@@ -18,6 +18,10 @@ interface User {
 }
 
 export const fetchUser = createAsyncThunk<User | false | null>('user/fetchUser', async () => {
+  if (import.meta.env.VITE_DISABLE_USER_FETCH === 'true') {
+    return false;
+  }
+
   try {
     const response = await fetch(`${import.meta.env.VITE_SERVER_BASE}user`, {
       credentials: 'include',
