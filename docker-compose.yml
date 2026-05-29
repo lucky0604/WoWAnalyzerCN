@@ -3,6 +3,9 @@ services:
     build:
       context: .
       args:
+        # CN fork: 直连 WCL API 地址（需 CORS 支持）
+        # 设置此项后，前端直接请求该地址，无需 nginx 代理
+        VITE_WCL_API_BASE: '${VITE_WCL_API_BASE:-}'
         # CN fork: true=前端请求 /wcl-api（需外层反代），false=走 VITE_SERVER_BASE
         VITE_WCL_DIRECT: '${VITE_WCL_DIRECT:-true}'
         VITE_SERVER_BASE: '${VITE_SERVER_BASE:-/}'

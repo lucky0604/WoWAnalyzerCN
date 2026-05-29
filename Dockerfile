@@ -15,9 +15,11 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Build-time env vars for CN fork (override via --build-arg or docker-compose)
+ARG VITE_WCL_API_BASE=
 ARG VITE_WCL_DIRECT=true
 ARG VITE_SERVER_BASE=/
 ARG VITE_ENABLE_GA=false
+ENV VITE_WCL_API_BASE=$VITE_WCL_API_BASE
 ENV VITE_WCL_DIRECT=$VITE_WCL_DIRECT
 ENV VITE_SERVER_BASE=$VITE_SERVER_BASE
 ENV VITE_ENABLE_GA=$VITE_ENABLE_GA

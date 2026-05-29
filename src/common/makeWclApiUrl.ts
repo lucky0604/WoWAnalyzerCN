@@ -3,10 +3,21 @@ import makeApiUrl from 'common/makeApiUrl';
 import makeUrl from 'common/makeUrl';
 
 export default function makeWclApiUrl(endpoint: string, queryParams: QueryParams = {}) {
-  // CN fork: 直连 cn.warcraftlogs.com（通过 Vite dev proxy 或生产环境 CN 代理）
-  // 在 .env.local 中设置 VITE_WCL_DIRECT=true 启用
-  // 设置 VITE_WCL_API_KEY=your_key 提供 v1 API key
-  // 删掉 VITE_WCL_DIRECT 或设为 false 即可切回原版 wowanalyzer.com 代理
+  // CN fork: 直连 WCL API
+  // 优先使用 VITE_WCL_API_BASE（完整URL，如 https://wcl-live-mp.rpglogs.cn）
+  // 其次使用 VITE_WCL_DIRECT=true 走 /wcl-api/ 代理
+  // 都没设置则走原版 wowanalyzer.com 代理
+  const wclApiBase = import.meta.env.VITE_WCL_API_BASE;
+  if (wclApiBase) {
+    // 直连模式：直接请求 WCL API 服务器（需 CORS 支持）
+    const url = new URL(`/v1/${endpoint}`, wclApiBase);
+    Object.entries(queryParams).forEach(([key, value]) => {
+      if (value !== undefined) {
+        url.searchParams.append(key, String(value));
+      }
+    });
+    return url.toString();
+  }
   if (import.meta.env.VITE_WCL_DIRECT === 'true') {
     return makeUrl(`/wcl-api/${endpoint}`, queryParams);
   }
