@@ -3,6 +3,8 @@ services:
     build:
       context: .
       args:
+        PNPM_VERSION: '${PNPM_VERSION:-9.5.0}'
+        NPM_CONFIG_REGISTRY: '${NPM_CONFIG_REGISTRY:-https://registry.npmmirror.com}'
         # CN fork: 直连 WCL API 地址（需 CORS 支持）
         # 设置此项后，前端直接请求该地址，无需 nginx 代理
         VITE_WCL_API_BASE: '${VITE_WCL_API_BASE:-https://wcl-live-mp.rpglogs.cn}'

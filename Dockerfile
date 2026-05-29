@@ -1,7 +1,17 @@
 # Stage 1: Build the application
 FROM node:22-alpine AS builder
 
-RUN corepack enable && corepack prepare pnpm@9.5.0 --activate
+ARG PNPM_VERSION=9.5.0
+ARG NPM_CONFIG_REGISTRY=https://registry.npmmirror.com
+RUN npm config set registry "$NPM_CONFIG_REGISTRY" \
+	&& npm config set fetch-retries 5 \
+	&& npm config set fetch-retry-mintimeout 20000 \
+	&& npm config set fetch-retry-maxtimeout 120000 \
+	&& npm install -g "pnpm@$PNPM_VERSION" \
+	&& pnpm config set registry "$NPM_CONFIG_REGISTRY" \
+	&& pnpm config set fetch-retries 5 \
+	&& pnpm config set fetch-retry-mintimeout 20000 \
+	&& pnpm config set fetch-retry-maxtimeout 120000
 
 WORKDIR /app
 
