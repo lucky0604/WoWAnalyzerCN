@@ -6,10 +6,9 @@ import { isSupportedRegion } from 'common/regions';
 export type QueryParams = Record<string, string | number | boolean | undefined>;
 
 export default function makeApiUrl(endpoint: string, queryParams: QueryParams = {}) {
-  return makeUrl(
-    `${import.meta.env.VITE_SERVER_BASE}${import.meta.env.VITE_API_BASE}${endpoint}`,
-    queryParams,
-  );
+  const serverBase = import.meta.env.VITE_SERVER_BASE || '/';
+  const apiBase = import.meta.env.VITE_API_BASE || 'i/';
+  return makeUrl(`${serverBase}${apiBase}${endpoint}`, queryParams);
 }
 export function makeCharacterApiUrl(
   characterId?: number,

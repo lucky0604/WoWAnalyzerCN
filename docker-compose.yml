@@ -11,6 +11,8 @@ services:
         # CN fork: true=前端请求 /wcl-api（需 nginx 代理），false=直连 VITE_WCL_API_BASE
         VITE_WCL_DIRECT: '${VITE_WCL_DIRECT:-false}'
         VITE_SERVER_BASE: '${VITE_SERVER_BASE:-/}'
+        # 后端 API 路径前缀，必须与 nginx location 匹配
+        VITE_API_BASE: '${VITE_API_BASE:-i/}'
         VITE_ENABLE_GA: '${VITE_ENABLE_GA:-false}'
         VITE_DISABLE_USER_FETCH: '${VITE_DISABLE_USER_FETCH:-true}'
     environment:
