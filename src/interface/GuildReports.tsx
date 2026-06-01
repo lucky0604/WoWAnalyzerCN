@@ -1,5 +1,5 @@
 import { i18n, MessageDescriptor } from '@lingui/core';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { captureException } from 'common/errorLogger';
 import fetchWcl, { GuildNotFoundError, UnknownApiError, WclApiError } from 'common/fetchWclApi';

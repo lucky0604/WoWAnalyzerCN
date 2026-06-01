@@ -1,6 +1,6 @@
 import { i18n, MessageDescriptor } from '@lingui/core';
 import { Trans } from '@lingui/react/macro';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { captureException } from 'common/errorLogger';
 import fetchWcl, { CharacterNotFoundError, UnknownApiError, WclApiError } from 'common/fetchWclApi';
 import { makeCharacterApiUrl } from 'common/makeApiUrl';

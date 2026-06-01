@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { makeCharacterApiUrl, makeGuildApiUrl } from 'common/makeApiUrl';
 import makeCharacterPageUrl from 'common/makeCharacterPageUrl';
@@ -196,7 +196,7 @@ const NameSearch = ({ type }: Props) => {
       >
         <option value="" disabled>
           {i18n._(
-            defineMessage({
+            t({
               id: 'interface.nameSearch.realm',
               message: `Realm`,
             }),

@@ -7,7 +7,7 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import RisingSunKick from './RisingSunKick';
 import { SpellLink, TooltipElement } from 'interface';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { getCurrentRSKTalent } from '../../constants';
 import { Talent } from 'common/TALENTS/types';

@@ -1,5 +1,5 @@
 import { formatPercentage } from 'common/format';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';

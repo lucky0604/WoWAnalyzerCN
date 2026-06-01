@@ -1,5 +1,5 @@
 import { formatDuration, formatNumber, formatPercentage } from 'common/format';
-import { defineMessage, t } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { Options } from 'parser/core/Analyzer';
 import { Panel, SpellIcon, SpellLink } from 'interface';

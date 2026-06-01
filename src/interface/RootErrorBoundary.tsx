@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/react/macro';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import ErrorBoundary from 'interface/ErrorBoundary';
 import FullscreenError from 'interface/FullscreenError';
 import ApiDownBackground from 'interface/images/api-down-background.gif';
@@ -125,11 +125,11 @@ class RootErrorBoundary extends PureComponent<Props, State> {
       if (this.state.error instanceof EventsParseError) {
         return (
           <FullscreenError
-            error={defineMessage({
+            error={t({
               id: 'interface.rootErrorBoundary.errorDuringAnalysis',
               message: `An error occurred during analysis`,
             })}
-            details={defineMessage({
+            details={t({
               id: 'interface.rootErrorBoundary.errorDuringAnalysisDetails',
               message: `We ran into an error while looking at your gameplay and running our analysis. Please let us know on Discord and we will fix it for you.`,
             })}

@@ -1,5 +1,5 @@
 import SPELLS from 'common/SPELLS';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { TIERS } from 'game/TIERS';
 import CoreAbilities from 'parser/core/modules/Abilities';

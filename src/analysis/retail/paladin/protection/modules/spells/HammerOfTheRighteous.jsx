@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -69,7 +69,7 @@ export default class HammerOfTheRighteous extends Analyzer {
       )
         .icon(this.activeSpell.icon)
         .actual(
-          defineMessage({
+          t({
             id: 'paladin.protection.suggestions.hammerOfTheRighteous.efficiency',
             message: `${formatPercentage(
               this.badCastRatio,

@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage, formatDurationMillisMinSec } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -181,7 +181,7 @@ export default class LightOfTheProtector extends Analyzer {
       )
         .icon(SPELLS.LIGHT_OF_THE_PROTECTOR.icon)
         .actual(
-          defineMessage({
+          t({
             id: 'paladin.protection.suggestions.lightOfTheProtector.averageDelay',
             message: `${actual.toFixed(2)}s Average Delay`,
           }),
@@ -198,7 +198,7 @@ export default class LightOfTheProtector extends Analyzer {
       )
         .icon(SPELLS.LIGHT_OF_THE_PROTECTOR.icon)
         .actual(
-          defineMessage({
+          t({
             id: 'paladin.protection.suggestions.lightOfTheProtector.overhealing',
             message: `${formatPercentage(actual)}% Overhealing`,
           }),

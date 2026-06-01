@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { i18n } from '@lingui/core';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { findZoneByBossId, normalizedEncounterId, type Boss } from 'game/raids';
 import {
   AboutIcon,

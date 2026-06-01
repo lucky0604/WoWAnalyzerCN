@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import indexById from 'common/indexById';
 
 import { PRIMARY_STAT } from 'parser/shared/modules/features/STAT';

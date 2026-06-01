@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/paladin';
 import { Panel } from 'interface';

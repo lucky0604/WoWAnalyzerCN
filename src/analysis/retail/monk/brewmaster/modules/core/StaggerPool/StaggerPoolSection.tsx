@@ -1,6 +1,6 @@
 import { SubSection, useAnalyzer, useAnalyzers } from 'interface/guide';
 import { JSX, useMemo } from 'react';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import StaggerPoolGraph from '../../features/StaggerPoolGraph';
 import StaggerPool from '../StaggerPool';

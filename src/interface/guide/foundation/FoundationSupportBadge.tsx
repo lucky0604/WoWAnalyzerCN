@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 import styled from '@emotion/styled';
 import { OkMark } from '../index';
 import { TooltipElement } from 'interface/Tooltip';
-import { defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { i18n } from '@lingui/core';
 
