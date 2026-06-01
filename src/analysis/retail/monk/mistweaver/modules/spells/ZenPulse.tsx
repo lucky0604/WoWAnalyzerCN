@@ -19,7 +19,7 @@ import { TooltipElement } from 'interface/Tooltip';
 import { formatNumber, formatPercentage } from 'common/format';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   getSelectedPrimaryHeal,

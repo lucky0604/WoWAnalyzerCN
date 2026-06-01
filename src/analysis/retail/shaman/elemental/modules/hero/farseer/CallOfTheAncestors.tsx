@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import Events, {

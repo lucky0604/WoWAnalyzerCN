@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import GuideSection from 'interface/guide/components/GuideSection';
 import { consumedComboBreaker } from 'analysis/retail/monk/windwalker/normalizers/ComboBreakerCastLinkNormalizer';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';

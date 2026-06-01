@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, RemoveBuffEvent, RemoveBuffStackEvent } from 'parser/core/Events';

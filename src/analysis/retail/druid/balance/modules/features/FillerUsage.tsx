@@ -1,5 +1,5 @@
 import SPELLS from 'common/SPELLS';
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';

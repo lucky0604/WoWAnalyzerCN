@@ -3,7 +3,7 @@ import SPELLS from 'common/SPELLS/monk';
 import { formatNumber } from 'common/format';
 import TALENTS_MONK from 'common/TALENTS/monk';
 import { SpellIcon, SpellLink } from 'interface';
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
