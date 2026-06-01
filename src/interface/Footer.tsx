@@ -81,7 +81,10 @@ const Footer = () => (
           This is a fan site and we are not affiliated.
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          <Link to="/">Home</Link> &ndash; <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/">Home</Link> - <Link to="/privacy">Privacy Policy</Link> -{' '}
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+            鄂ICP备2021003590号-1
+          </a>
         </div>
       </div>
     </div>
