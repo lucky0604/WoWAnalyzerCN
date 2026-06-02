@@ -14,6 +14,7 @@ import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/Cas
 import ComboPointTracker from 'analysis/retail/rogue/shared/ComboPointTracker';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import { CustomType } from 'analysis/retail/rogue/subtlety/normalizers/CustomType';
+import { Trans } from '@lingui/react/macro';
 
 export default class ShadowBlades extends Analyzer {
   static dependencies = {
@@ -41,12 +42,16 @@ export default class ShadowBlades extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>{shadowBlades}</strong> is the most important Subtlety Rogue cooldown. It should
-          be used strategically with {secretTechniques} and {shadowDance}.
+          <Trans id="rogue.subtlety.shadowBlades.explanation.main">
+            <strong>{shadowBlades}</strong> is the most important Subtlety Rogue cooldown. It should
+            be used strategically with {secretTechniques} and {shadowDance}.
+          </Trans>
         </p>
         <p>
-          You should aim to fit 2 {shadowDance} casts during {shadowBlades} buff duration. For this
-          reason, the second {shadowDance} will be without {secretTechniques} available.
+          <Trans id="rogue.subtlety.shadowBlades.explanation.danceCasts">
+            You should aim to fit 2 {shadowDance} casts during {shadowBlades} buff duration. For
+            this reason, the second {shadowDance} will be without {secretTechniques} available.
+          </Trans>
         </p>
       </>
     );
@@ -63,7 +68,15 @@ export default class ShadowBlades extends Analyzer {
         explanation={explanation}
         wideExplanation={true}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Red indicates a wasted Shadow Blades.</>}
+        castBreakdownSmallText={
+          <>
+            {' '}
+            -{' '}
+            <Trans id="rogue.subtlety.shadowBlades.redIndicator">
+              Red indicates a wasted Shadow Blades.
+            </Trans>
+          </>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -110,17 +123,23 @@ export default class ShadowBlades extends Analyzer {
       { event },
       {
         performance,
-        summary: <div>Shadow Dance Casts</div>,
+        summary: (
+          <div>
+            <Trans id="rogue.subtlety.shadowBlades.check.shadowDanceCasts">
+              Shadow Dance Casts
+            </Trans>
+          </div>
+        ),
         details: (
           <div>
             {shadowDanceCasts === 2 ? (
-              <>
+              <Trans id="rogue.subtlety.shadowBlades.check.danceUsedTwice">
                 <SpellLink spell={SPELLS.SHADOW_DANCE} /> was used twice.
-              </>
+              </Trans>
             ) : (
-              <>
+              <Trans id="rogue.subtlety.shadowBlades.check.danceNotUsedTwice">
                 <SpellLink spell={SPELLS.SHADOW_DANCE} /> was not used twice.
-              </>
+              </Trans>
             )}
           </div>
         ),
@@ -141,17 +160,23 @@ export default class ShadowBlades extends Analyzer {
       { event },
       {
         performance,
-        summary: <div>Secret Technique Alignment</div>,
+        summary: (
+          <div>
+            <Trans id="rogue.subtlety.shadowBlades.check.secTecAlignment">
+              Secret Technique Alignment
+            </Trans>
+          </div>
+        ),
         details: (
           <div>
             {hasSecTecAvailable ? (
-              <>
+              <Trans id="rogue.subtlety.shadowBlades.check.secTecAvailable">
                 <SpellLink spell={SPELLS.SECRET_TECHNIQUE} /> was available.
-              </>
+              </Trans>
             ) : (
-              <>
+              <Trans id="rogue.subtlety.shadowBlades.check.secTecNotAvailable">
                 <SpellLink spell={SPELLS.SECRET_TECHNIQUE} /> was not available.
-              </>
+              </Trans>
             )}
           </div>
         ),
@@ -174,17 +199,23 @@ export default class ShadowBlades extends Analyzer {
       { event },
       {
         performance,
-        summary: <div>Shadow Dance Alignment</div>,
+        summary: (
+          <div>
+            <Trans id="rogue.subtlety.shadowBlades.check.shadowDanceAlignment">
+              Shadow Dance Alignment
+            </Trans>
+          </div>
+        ),
         details: (
           <div>
             {hasShadowDanceBuff || hasShadowDanceAvailable ? (
-              <>
+              <Trans id="rogue.subtlety.shadowBlades.check.dancePresent">
                 <SpellLink spell={SPELLS.SHADOW_DANCE} /> buff was present or available.
-              </>
+              </Trans>
             ) : (
-              <>
+              <Trans id="rogue.subtlety.shadowBlades.check.danceNotPresent">
                 <SpellLink spell={SPELLS.SHADOW_DANCE} /> buff was not present and not available.
-              </>
+              </Trans>
             )}
           </div>
         ),

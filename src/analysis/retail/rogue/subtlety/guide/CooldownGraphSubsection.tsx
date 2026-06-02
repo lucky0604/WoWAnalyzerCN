@@ -6,6 +6,7 @@ import { GapHighlight } from 'parser/ui/CooldownBar';
 import SPELLS from 'common/SPELLS/rogue';
 import TALENTS from 'common/TALENTS/rogue';
 import Spell from 'common/SPELLS/Spell';
+import { Trans } from '@lingui/react/macro';
 
 export interface Cooldown {
   spell: Spell;
@@ -43,21 +44,23 @@ const CooldownGraphSubsection = () => {
   return (
     <SubSection>
       <div>
-        <strong>Cooldown Graph</strong> - This graph visualizes the usage of your cooldowns and
-        highlights areas where optimizations can be made.
-        <ul>
-          <li>
-            <strong>Grey segments</strong> indicate availability.
-          </li>
-          <li>
-            <strong>Yellow segments</strong> indicate cooldown time.
-          </li>
-          <li>
-            <strong>Red segments</strong> highlight areas where an extra cooldown could have fit.
-          </li>
-        </ul>
-        For Subtlety, <strong>Shadow Dance</strong> usage is crucial, as they define your burst
-        windows.
+        <Trans id="rogue.subtlety.cooldownGraph.description">
+          <strong>Cooldown Graph</strong> - This graph visualizes the usage of your cooldowns and
+          highlights areas where optimizations can be made.
+          <ul>
+            <li>
+              <strong>Grey segments</strong> indicate availability.
+            </li>
+            <li>
+              <strong>Yellow segments</strong> indicate cooldown time.
+            </li>
+            <li>
+              <strong>Red segments</strong> highlight areas where an extra cooldown could have fit.
+            </li>
+          </ul>
+          For Subtlety, <strong>Shadow Dance</strong> usage is crucial, as they define your burst
+          windows.
+        </Trans>
       </div>
       {cooldowns.map((cooldownCheck) => (
         <CastEfficiencyBar

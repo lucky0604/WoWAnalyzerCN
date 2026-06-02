@@ -8,6 +8,8 @@ import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
 import { createSpellUse } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { SpellUse } from 'parser/core/SpellUsage/core';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export default class Backstab extends Analyzer {
   private cooldownUses: SpellUse[] = [];
@@ -20,12 +22,14 @@ export default class Backstab extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.BACKSTAB} />
-        </strong>{' '}
-        is your primary filler ability when <SpellLink spell={SPELLS.SHADOWSTRIKE} /> is
-        unavailable. Always make sure you are positioned **behind the target** to benefit from its
-        increased damage effect.
+        <Trans id="rogue.subtlety.backstab.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.BACKSTAB} />
+          </strong>{' '}
+          is your primary filler ability when <SpellLink spell={SPELLS.SHADOWSTRIKE} /> is
+          unavailable. Always make sure you are positioned **behind the target** to benefit from its
+          increased damage effect.
+        </Trans>
       </p>
     );
 
@@ -39,7 +43,9 @@ export default class Backstab extends Analyzer {
         hideGoodCasts
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Red is a bad cast.</>}
+        castBreakdownSmallText={
+          <> - {t({ id: 'rogue.subtlety.backstab.redBadCast', message: 'Red is a bad cast.' })}</>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -52,7 +58,10 @@ export default class Backstab extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: 'All of your casts of this spell were good!',
+          noCastsOverride: t({
+            id: 'rogue.subtlety.backstab.allCorrect',
+            message: 'All of your casts of this spell were good!',
+          }),
         }}
       />
     );

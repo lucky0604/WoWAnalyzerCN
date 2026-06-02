@@ -11,6 +11,8 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import type { ReactNode } from 'react';
 import { abilityToSpell } from 'common/abilityToSpell';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 class GeneratorFollowingVanish extends Analyzer {
   generatorSpells = [
@@ -69,20 +71,32 @@ class GeneratorFollowingVanish extends Analyzer {
           size="flexible"
           category={STATISTIC_CATEGORY.GENERAL}
           tooltip={
-            <>
+            <Trans id="rogue.subtlety.generatorFollowingVanish.tooltip">
               You cast non-generators following <SpellLink spell={SPELLS.VANISH} />{' '}
               {formatNumber(this.badFollowingVanishCasts.length)} times and generators{' '}
               {formatNumber(this.goodFollowingVanishCasts.length)} times.
-            </>
+            </Trans>
           }
           dropdown={
             <>
               <table className="table table-condensed">
                 <thead>
                   <tr>
-                    <th>Vanish Timestamp</th>
-                    <th>Bad Spell Cast</th>
-                    <th>Bad Cast Timestamp</th>
+                    <th>
+                      <Trans id="rogue.subtlety.generatorFollowingVanish.table.vanishTimestamp">
+                        Vanish Timestamp
+                      </Trans>
+                    </th>
+                    <th>
+                      <Trans id="rogue.subtlety.generatorFollowingVanish.table.badSpellCast">
+                        Bad Spell Cast
+                      </Trans>
+                    </th>
+                    <th>
+                      <Trans id="rogue.subtlety.generatorFollowingVanish.table.badCastTimestamp">
+                        Bad Cast Timestamp
+                      </Trans>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>{tableEntries}</tbody>
@@ -92,8 +106,14 @@ class GeneratorFollowingVanish extends Analyzer {
         >
           <BoringSpellValue
             spell={SPELLS.VANISH.id}
-            value={`${this.badFollowingVanishCasts.length} non-generators cast`}
-            label="Non-generators Cast After Vanish"
+            value={t({
+              id: 'rogue.subtlety.generatorFollowingVanish.nonGeneratorsValue',
+              message: `${this.badFollowingVanishCasts.length} non-generators cast`,
+            })}
+            label={t({
+              id: 'rogue.subtlety.generatorFollowingVanish.nonGeneratorsLabel',
+              message: 'Non-generators Cast After Vanish',
+            })}
           />
         </Statistic>
       </>

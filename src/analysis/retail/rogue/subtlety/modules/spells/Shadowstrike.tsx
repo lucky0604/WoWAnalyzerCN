@@ -8,6 +8,8 @@ import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
 import { createSpellUse, createChecklistItem } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { SpellUse } from 'parser/core/SpellUsage/core';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const STEALTH_BUFFS = [
   SPELLS.STEALTH.id,
@@ -32,12 +34,14 @@ export default class Shadowstrike extends Analyzer {
 
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.SHADOWSTRIKE} />
-        </strong>{' '}
-        should <strong>only be used</strong> during <SpellLink spell={SPELLS.SHADOW_DANCE} />,{' '}
-        <SpellLink spell={SPELLS.STEALTH} /> or <SpellLink spell={SPELLS.VANISH_BUFF} />. Using it
-        outside of these conditions is a waste.
+        <Trans id="rogue.subtlety.shadowstrike.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.SHADOWSTRIKE} />
+          </strong>{' '}
+          should <strong>only be used</strong> during <SpellLink spell={SPELLS.SHADOW_DANCE} />,{' '}
+          <SpellLink spell={SPELLS.STEALTH} /> or <SpellLink spell={SPELLS.VANISH_BUFF} />. Using it
+          outside of these conditions is a waste.
+        </Trans>
       </p>
     );
 
@@ -46,7 +50,12 @@ export default class Shadowstrike extends Analyzer {
         hideGoodCasts
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Red is a bad cast.</>}
+        castBreakdownSmallText={
+          <>
+            {' '}
+            - {t({ id: 'rogue.subtlety.shadowstrike.redBadCast', message: 'Red is a bad cast.' })}
+          </>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -59,7 +68,10 @@ export default class Shadowstrike extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: 'All of your casts of Shadowstrike were correctly used!',
+          noCastsOverride: t({
+            id: 'rogue.subtlety.shadowstrike.allCorrect',
+            message: 'All of your casts of Shadowstrike were correctly used!',
+          }),
         }}
       />
     );
@@ -76,20 +88,32 @@ export default class Shadowstrike extends Analyzer {
       {
         performance: isStealthActive ? QualitativePerformance.Good : QualitativePerformance.Fail,
         summary: isStealthActive ? (
-          <div>Good usage during stealth or Shadow Dance.</div>
-        ) : (
-          <div>Incorrect usage outside stealth or Shadow Dance.</div>
-        ),
-        details: isStealthActive ? (
           <div>
-            You correctly cast <SpellLink spell={SPELLS.SHADOWSTRIKE} /> during{' '}
-            <SpellLink spell={SPELLS.SHADOW_DANCE} /> or stealth.
+            <Trans id="rogue.subtlety.shadowstrike.check.goodUsage">
+              Good usage during stealth or Shadow Dance.
+            </Trans>
           </div>
         ) : (
           <div>
-            <strong>Incorrect cast:</strong> You used <SpellLink spell={SPELLS.SHADOWSTRIKE} />{' '}
-            outside of <SpellLink spell={SPELLS.SHADOW_DANCE} /> or stealth, which is a waste of
-            resources.
+            <Trans id="rogue.subtlety.shadowstrike.check.badUsage">
+              Incorrect usage outside stealth or Shadow Dance.
+            </Trans>
+          </div>
+        ),
+        details: isStealthActive ? (
+          <div>
+            <Trans id="rogue.subtlety.shadowstrike.check.goodDetail">
+              You correctly cast <SpellLink spell={SPELLS.SHADOWSTRIKE} /> during{' '}
+              <SpellLink spell={SPELLS.SHADOW_DANCE} /> or stealth.
+            </Trans>
+          </div>
+        ) : (
+          <div>
+            <Trans id="rogue.subtlety.shadowstrike.check.badDetail">
+              <strong>Incorrect cast:</strong> You used <SpellLink spell={SPELLS.SHADOWSTRIKE} />{' '}
+              outside of <SpellLink spell={SPELLS.SHADOW_DANCE} /> or stealth, which is a waste of
+              resources.
+            </Trans>
           </div>
         ),
       },

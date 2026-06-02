@@ -7,5 +7,106 @@
   "guide.rogue.subtlety.sections.coreRotation.title": "核心循环",
   "guide.rogue.subtlety.sections.coreRotation.summary": "敏锐的核心循环是用攒点技能生成连击点，然后用终结技消耗。<0/>和<1/>这样的冷却技能应该被优化使用。",
   "guide.rogue.subtlety.sections.cooldowns.title": "冷却技能",
-  "guide.rogue.subtlety.sections.cooldowns.summary": "敏锐贼的冷却技能应该被高效使用以最大化爆发伤害。"
+  "guide.rogue.subtlety.sections.cooldowns.summary": "敏锐贼的冷却技能应该被高效使用以最大化爆发伤害。",
+
+  "rogue.subtlety.shadowDance.evaluation.cooldownsReady": "影舞释放时，暗影之刃未激活且影分身不可用。",
+  "rogue.subtlety.shadowDance.evaluation.energyForEviscerate": "进入影舞时能量不足以施放刺骨(35)。",
+  "rogue.subtlety.shadowDance.evaluation.energyForSecTec": "进入影舞时能量不足以施放影分身(30)。",
+  "rogue.subtlety.shadowDance.evaluation.comboPoints": "进入影舞时连击点不理想。",
+  "rogue.subtlety.shadowDance.evaluation.perfect": "影舞使用完美！你使用了所有可用的 GCD。",
+  "rogue.subtlety.shadowDance.evaluation.good": "影舞使用良好！你还可以在本次影舞中多打一个技能。",
+  "rogue.subtlety.shadowDance.evaluation.suboptimal": "影舞利用率不理想。",
+
+  "rogue.subtlety.shadowDance.explanation.main": "{shadowDance} 是我们主要的短时间冷却技能。它与天赋树中的多个天赋联动。在 {shadowDance} 期间，我们获得增伤和额外的连击点与能量获取。",
+  "rogue.subtlety.shadowDance.explanation.maximizeIntro": "为了最大化伤害，你需要：",
+  "rogue.subtlety.shadowDance.explanation.trickster": "6+ 连击点时进入。",
+  "rogue.subtlety.shadowDance.explanation.deathstalker": "低连击点时进入。",
+  "rogue.subtlety.shadowDance.explanation.alignCooldown": "将此冷却与 {secretTechniques} 对齐，除非是在 {shadowBlades} 期间的第二次使用。",
+  "rogue.subtlety.shadowDance.explanation.energy": "确保你有足够能量立即打出终结技，这是一个常见错误。",
+  "rogue.subtlety.shadowDance.explanation.castAbilities": "尽可能多地施放技能。",
+  "rogue.subtlety.shadowDance.explanation.hasteNotes": "急速与 GCD 注记",
+  "rogue.subtlety.shadowDance.explanation.hasteDetail": "{shadowDance} 的持续时间随急速属性线性增长（因 {deepeningShadows}）。你需要尽可能在 {shadowDance} 内塞入最多的 GCD。",
+  "rogue.subtlety.shadowDance.explanation.hasteExample": "例如，如果你的 {shadowDance} 持续 7.1 秒，你应该在其中打出 8 个技能。有时那 0.1 秒的窗口非常紧凑。",
+  "rogue.subtlety.shadowDance.explanation.macros": "如果你难以挤入最后一个技能，可以考虑稍微提高急速。宏在这里特别有用，它们可以让你在同一时刻施放 {shadowDance} 和第一个 GCD。",
+  "rogue.subtlety.shadowDance.explanation.macroLinks": "查看 <0>wowhead</0> 或 <1>icy-veins</1> 的宏章节了解更多信息。",
+
+  "rogue.subtlety.shadowDance.tooltip.totalDamage": "所有 {shadowDance} 造成的总伤害。",
+  "rogue.subtlety.shadowDance.tooltip.damageFraction": "所有 {shadowDance} 占总伤害的比例。",
+  "rogue.subtlety.shadowDance.tooltip.activeTime": "{shadowDance} 的平均活跃时间。",
+
+  "rogue.subtlety.shadowDance.stat.damage": "伤害",
+  "rogue.subtlety.shadowDance.stat.damageTooltip": "本次影舞期间造成的总伤害",
+  "rogue.subtlety.shadowDance.stat.duration": "持续时间",
+  "rogue.subtlety.shadowDance.stat.durationTooltip": "本次影舞的持续时间",
+  "rogue.subtlety.shadowDance.stat.casts": "施法次数",
+  "rogue.subtlety.shadowDance.stat.castsTooltip": "总施法次数",
+  "rogue.subtlety.shadowDance.stat.castSequence": "施法序列",
+
+  "rogue.subtlety.shadowDance.overview.damageLabel": "影舞期间伤害",
+  "rogue.subtlety.shadowDance.overview.damagePctLabel": "占总伤害比",
+  "rogue.subtlety.shadowDance.overview.activeTimeLabel": "影舞活跃时间",
+  "rogue.subtlety.shadowDance.castDetail.title": "影舞详情",
+
+  "rogue.subtlety.shadowBlades.explanation.main": "<0>暗影之刃</0> 是敏锐贼最重要的冷却技能。应与 {secretTechniques} 和 {shadowDance} 策略性配合使用。",
+  "rogue.subtlety.shadowBlades.explanation.danceCasts": "你应该在 {shadowBlades} 增益期间使用 2 次 {shadowDance}。正因如此，第二次 {shadowDance} 将没有 {secretTechniques} 可用。",
+  "rogue.subtlety.shadowBlades.redIndicator": "红色表示暗影之刃被浪费。",
+  "rogue.subtlety.shadowBlades.check.shadowDanceCasts": "影舞施法次数",
+  "rogue.subtlety.shadowBlades.check.danceUsedTwice": "<0>影舞</0> 已使用两次。",
+  "rogue.subtlety.shadowBlades.check.danceNotUsedTwice": "<0>影舞</0> 未使用两次。",
+  "rogue.subtlety.shadowBlades.check.secTecAlignment": "影分身对齐",
+  "rogue.subtlety.shadowBlades.check.secTecAvailable": "<0>影分身</0> 可用。",
+  "rogue.subtlety.shadowBlades.check.secTecNotAvailable": "<0>影分身</0> 不可用。",
+  "rogue.subtlety.shadowBlades.check.shadowDanceAlignment": "影舞对齐",
+  "rogue.subtlety.shadowBlades.check.dancePresent": "<0>影舞</0> 增益存在或可用。",
+  "rogue.subtlety.shadowBlades.check.danceNotPresent": "<0>影舞</0> 增益不存在且不可用。",
+
+  "rogue.subtlety.cooldownGraph.description": "<0>冷却图表</0> - 此图表可视化你的冷却技能使用情况，并标出可优化的区域。<1><2><3>灰色段</3> 表示可用。</2><4><5>黄色段</5> 表示冷却中。</4><6><7>红色段</7> 标出可额外使用一次冷却的区域。</6></1>对于敏锐贼，<8>影舞</8> 的使用至关重要，它决定了你的爆发窗口。",
+
+  "rogue.subtlety.shadowstrike.explanation": "<0><1>暗影打击</1></0> 应该<2>只在</2> <3>影舞</3>、<4>潜行</4> 或 <5>消失</5> 期间使用。在这些条件之外使用是一种浪费。",
+  "rogue.subtlety.shadowstrike.redBadCast": "红色表示施法不当。",
+  "rogue.subtlety.shadowstrike.allCorrect": "你的所有暗影打击使用都正确！",
+  "rogue.subtlety.shadowstrike.check.goodUsage": "在潜行或影舞期间正确使用。",
+  "rogue.subtlety.shadowstrike.check.badUsage": "在潜行或影舞之外不当使用。",
+  "rogue.subtlety.shadowstrike.check.goodDetail": "你在 <1>影舞</1> 或潜行期间正确施放了 <0>暗影打击</0>。",
+  "rogue.subtlety.shadowstrike.check.badDetail": "<0>施法不当：</0> 你在 <1>影舞</1> 或潜行之外使用了 <2>暗影打击</2>，这是资源浪费。",
+
+  "rogue.subtlety.backstab.explanation": "<0><1>背刺</1></0> 是 <2>暗影打击</2> 不可用时的主要填充技能。始终确保你站在<4>目标背后</4>以获得额外的伤害效果。",
+  "rogue.subtlety.backstab.redBadCast": "红色表示施法不当。",
+  "rogue.subtlety.backstab.allCorrect": "你的所有该技能使用都正确！",
+
+  "rogue.subtlety.eviscerate.explanation": "<0><1>刺骨</1></0> 是主要单体终结技。始终以<3>5+ 连击点</3>施放以最大化伤害效率。",
+  "rogue.subtlety.eviscerate.redBadCast": "红色表示施法不当。",
+  "rogue.subtlety.eviscerate.allCorrect": "你的所有该技能使用都正确！",
+
+  "rogue.subtlety.builderUse.effective": "有效攒点",
+  "rogue.subtlety.builderUse.wasted": "浪费的攒点",
+  "rogue.subtlety.builderUse.label": "攒点使用",
+
+  "rogue.subtlety.finisherUse.maxCp": "满连击点终结技",
+  "rogue.subtlety.finisherUse.maxCpTooltip": "包含在 {0}+ 连击点时施放的终结技。",
+  "rogue.subtlety.finisherUse.lowCpOpener": "低连击点开局终结技",
+  "rogue.subtlety.finisherUse.lowCpOpenerTooltip": "包含战斗开始 {0} 内的低连击点终结技施放。",
+  "rogue.subtlety.finisherUse.lowCp": "低连击点终结技",
+  "rogue.subtlety.finisherUse.label": "消耗使用",
+
+  "rogue.subtlety.comboPoints.avoidWasting": "施放时避免浪费连击点",
+
+  "rogue.subtlety.castsInShadowDance.inefficientCast": "在影舞窗口期间应使用暗影打击而不是此技能",
+  "rogue.subtlety.castsInShadowDance.uptimeLabel": "影舞覆盖率",
+
+  "rogue.subtlety.shadowBladesUptime.label": "暗影之刃覆盖率",
+
+  "rogue.subtlety.vanishFindWeakness.tooltip.badCasts": "你在当前目标身上还有 {1}s <3>洞悉弱点</3> 时施放了 {0} 次 <2>消失</2>，共计 {2} 次。",
+  "rogue.subtlety.vanishFindWeakness.tooltip.badCastDefinition": "如果使用 <0>消失</0> 重新施加 <1>洞悉弱点</1> 时目标身上还剩超过 {0}s，则视为不当施放。",
+  "rogue.subtlety.vanishFindWeakness.table.castTimestamp": "施放时间",
+  "rogue.subtlety.vanishFindWeakness.table.debuffRemaining": "减益剩余时间",
+  "rogue.subtlety.vanishFindWeakness.badCastsValue": "{0} 次不当施放",
+  "rogue.subtlety.vanishFindWeakness.badCastsLabel": "关于洞悉弱点的不当施放",
+
+  "rogue.subtlety.generatorFollowingVanish.tooltip": "你在 <2>消失</2> 后使用了 {0} 次非攒点技能和 {1} 次攒点技能。",
+  "rogue.subtlety.generatorFollowingVanish.table.vanishTimestamp": "消失时间",
+  "rogue.subtlety.generatorFollowingVanish.table.badSpellCast": "不当技能",
+  "rogue.subtlety.generatorFollowingVanish.table.badCastTimestamp": "不当施放时间",
+  "rogue.subtlety.generatorFollowingVanish.nonGeneratorsValue": "{0} 次非攒点施放",
+  "rogue.subtlety.generatorFollowingVanish.nonGeneratorsLabel": "消失后非攒点施放"
 }

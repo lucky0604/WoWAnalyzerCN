@@ -6,6 +6,7 @@ import Enemies from 'parser/shared/modules/Enemies';
 import BoringValueText from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
+import { t } from '@lingui/core/macro';
 
 class ShadowBladesUptime extends Analyzer {
   static dependencies = {
@@ -23,7 +24,11 @@ class ShadowBladesUptime extends Analyzer {
         <BoringValueText
           label={
             <>
-              <SpellIcon spell={TALENTS.SHADOW_BLADES_TALENT} /> Shadow Blades Uptime
+              <SpellIcon spell={TALENTS.SHADOW_BLADES_TALENT} />{' '}
+              {t({
+                id: 'rogue.subtlety.shadowBladesUptime.label',
+                message: 'Shadow Blades Uptime',
+              })}
             </>
           }
         >

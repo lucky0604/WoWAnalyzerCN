@@ -19,6 +19,9 @@ import CastDetail, { type PerCastData } from 'interface/guide/components/CastDet
 import { EventType } from 'parser/core/Events';
 import DamageDone from 'parser/shared/modules/throughput/DamageDone';
 import InformationIcon from 'interface/icons/Information';
+import { defineMessage, t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
+import { i18n } from '@lingui/core';
 
 class ShadowDanceGuide extends Analyzer.withDependencies({
   damageDone: DamageDone,
@@ -53,8 +56,13 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
       return {
         timestamp: dance.applied,
         performance: QualitativePerformance.Fail,
-        reason:
-          'Shadow Dance was used when neither Shadow Blades was active nor Secret Technique was available.',
+        reason: i18n._(
+          defineMessage({
+            id: 'rogue.subtlety.shadowDance.evaluation.cooldownsReady',
+            message:
+              'Shadow Dance was used when neither Shadow Blades was active nor Secret Technique was available.',
+          }),
+        ),
       };
     }
 
@@ -63,7 +71,12 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
       return {
         timestamp: dance.applied,
         performance: QualitativePerformance.Fail,
-        reason: `Entered Shadow Dance without enough energy for Eviscerate(35). Had ${energyAtCast} energy.`,
+        reason: i18n._(
+          defineMessage({
+            id: 'rogue.subtlety.shadowDance.evaluation.energyForEviscerate',
+            message: `Entered Shadow Dance without enough energy for Eviscerate(35). Had ${energyAtCast} energy.`,
+          }),
+        ),
       };
     }
 
@@ -72,7 +85,12 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
       return {
         timestamp: dance.applied,
         performance: QualitativePerformance.Fail,
-        reason: `Entered Shadow Dance without enough energy for Secret Technique(30). Had ${energyAtCast} energy.`,
+        reason: i18n._(
+          defineMessage({
+            id: 'rogue.subtlety.shadowDance.evaluation.energyForSecTec',
+            message: `Entered Shadow Dance without enough energy for Secret Technique(30). Had ${energyAtCast} energy.`,
+          }),
+        ),
       };
     }
 
@@ -81,7 +99,12 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
       return {
         timestamp: dance.applied,
         performance: QualitativePerformance.Fail,
-        reason: `Entered Shadow Dance with suboptimal combo points. Had ${comboPointsAtCast} combo points.`,
+        reason: i18n._(
+          defineMessage({
+            id: 'rogue.subtlety.shadowDance.evaluation.comboPoints',
+            message: `Entered Shadow Dance with suboptimal combo points. Had ${comboPointsAtCast} combo points.`,
+          }),
+        ),
       };
     }
 
@@ -89,7 +112,12 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
       return {
         timestamp: dance.applied,
         performance: QualitativePerformance.Perfect,
-        reason: `Excellent Shadow Dance usage! You spend all possible gcds using abilities.`,
+        reason: i18n._(
+          defineMessage({
+            id: 'rogue.subtlety.shadowDance.evaluation.perfect',
+            message: 'Excellent Shadow Dance usage! You spend all possible gcds using abilities.',
+          }),
+        ),
       };
     }
 
@@ -97,14 +125,25 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
       return {
         timestamp: dance.applied,
         performance: QualitativePerformance.Good,
-        reason: `Good Shadow Dance usage! You could have cast one more ability during this Shadow Dance.`,
+        reason: i18n._(
+          defineMessage({
+            id: 'rogue.subtlety.shadowDance.evaluation.good',
+            message:
+              'Good Shadow Dance usage! You could have cast one more ability during this Shadow Dance.',
+          }),
+        ),
       };
     }
 
     return {
       timestamp: dance.applied,
       performance: QualitativePerformance.Fail,
-      reason: `Shadow Dance uptime was suboptimal. You missed ${maxAbilities - abilitiesUsed} abilities.`,
+      reason: i18n._(
+        defineMessage({
+          id: 'rogue.subtlety.shadowDance.evaluation.suboptimal',
+          message: `Shadow Dance uptime was suboptimal. You missed ${maxAbilities - abilitiesUsed} abilities.`,
+        }),
+      ),
     };
   }
 
@@ -117,64 +156,116 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
     const explanation = (
       <div>
         <p>
-          {shadowDance} is our main short time cooldown. It interacts with several talents in our
-          tree. During {shadowDance} we have increased damage and enhanced combo point and energy
-          generation.
+          <Trans id="rogue.subtlety.shadowDance.explanation.main">
+            {shadowDance} is our main short time cooldown. It interacts with several talents in our
+            tree. During {shadowDance} we have increased damage and enhanced combo point and energy
+            generation.
+          </Trans>
         </p>
-        In order to maximize damage you want to:
+        <Trans id="rogue.subtlety.shadowDance.explanation.maximizeIntro">
+          In order to maximize damage you want to:
+        </Trans>
         <ul>
-          {this.isTrickster && <li>Enter with 6+ combo points.</li>}
-          {this.isDeathstalker && <li>Enter with low combo points.</li>}
+          {this.isTrickster && (
+            <li>
+              <Trans id="rogue.subtlety.shadowDance.explanation.trickster">
+                Enter with 6+ combo points.
+              </Trans>
+            </li>
+          )}
+          {this.isDeathstalker && (
+            <li>
+              <Trans id="rogue.subtlety.shadowDance.explanation.deathstalker">
+                Enter with low combo points.
+              </Trans>
+            </li>
+          )}
           <li>
-            Align this cooldown with {secretTechniques}, except in the second use during{' '}
-            {shadowBlades}.
+            <Trans id="rogue.subtlety.shadowDance.explanation.alignCooldown">
+              Align this cooldown with {secretTechniques}, except in the second use during{' '}
+              {shadowBlades}.
+            </Trans>
           </li>
           <li>
-            Make sure you have enough energy to instantly throw your finisher, this is a common
-            mistake.
+            <Trans id="rogue.subtlety.shadowDance.explanation.energy">
+              Make sure you have enough energy to instantly throw your finisher, this is a common
+              mistake.
+            </Trans>
           </li>
-          <li>Cast as many abilities as you can.</li>
+          <li>
+            <Trans id="rogue.subtlety.shadowDance.explanation.castAbilities">
+              Cast as many abilities as you can.
+            </Trans>
+          </li>
         </ul>
         <h5>
           <InformationIcon />
-          <i>Haste and GCDs notes</i>
+          <i>
+            <Trans id="rogue.subtlety.shadowDance.explanation.hasteNotes">
+              Haste and GCDs notes
+            </Trans>
+          </i>
         </h5>
         <p>
-          {shadowDance} duration increases with flat haste stat due to {deepeningShadows}. You will
-          want to fit the maximum amount of GCDs within your {shadowDance}.
+          <Trans id="rogue.subtlety.shadowDance.explanation.hasteDetail">
+            {shadowDance} duration increases with flat haste stat due to {deepeningShadows}. You
+            will want to fit the maximum amount of GCDs within your {shadowDance}.
+          </Trans>
         </p>
         <p>
-          i.e. if your {shadowDance} lasts 7.1s, you will want to squeeze 8 abilities within it.
-          Sometimes that .1s window is very tight.
+          <Trans id="rogue.subtlety.shadowDance.explanation.hasteExample">
+            i.e. if your {shadowDance} lasts 7.1s, you will want to squeeze 8 abilities within it.
+            Sometimes that .1s window is very tight.
+          </Trans>
         </p>
         <p>
-          If youre struggling to squeeze that last ability, you might want to increase your haste a
-          bit. Macros are of particular interest here. They will allow you to send {shadowDance} and
-          the first GCD at the exact same time.
+          <Trans id="rogue.subtlety.shadowDance.explanation.macros">
+            If you're struggling to squeeze that last ability, you might want to increase your haste
+            a bit. Macros are of particular interest here. They will allow you to send {shadowDance}{' '}
+            and the first GCD at the exact same time.
+          </Trans>
         </p>
         <p>
-          Check
-          <a href="https://www.wowhead.com/guide/classes/rogue/subtlety/addons-macro-ui-imports#macros-macros-combining-abilities">
-            {' '}
-            wowhead{' '}
-          </a>
-          or
-          <a href="https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-macros-addons">
-            {' '}
-            icy-veins{' '}
-          </a>
-          macros section for more information.
+          <Trans id="rogue.subtlety.shadowDance.explanation.macroLinks">
+            Check
+            <a href="https://www.wowhead.com/guide/classes/rogue/subtlety/addons-macro-ui-imports#macros-macros-combining-abilities">
+              {' '}
+              wowhead{' '}
+            </a>
+            or
+            <a href="https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-macros-addons">
+              {' '}
+              icy-veins{' '}
+            </a>
+            macros section for more information.
+          </Trans>
         </p>
       </div>
     );
 
-    const totalDamageTooltip = <>Total Damage done through all {shadowDance} Uses.</>;
-
-    const percentageDuringShadowDanceTooltip = (
-      <>Fraction of total damage done through all {shadowDance} Uses.</>
+    const totalDamageTooltip = (
+      <>
+        <Trans id="rogue.subtlety.shadowDance.tooltip.totalDamage">
+          Total Damage done through all {shadowDance} Uses.
+        </Trans>
+      </>
     );
 
-    const activeTimeDuringShadowDanceTooltip = <>Average active time during {shadowDance} casts.</>;
+    const percentageDuringShadowDanceTooltip = (
+      <>
+        <Trans id="rogue.subtlety.shadowDance.tooltip.damageFraction">
+          Fraction of total damage done through all {shadowDance} Uses.
+        </Trans>
+      </>
+    );
+
+    const activeTimeDuringShadowDanceTooltip = (
+      <>
+        <Trans id="rogue.subtlety.shadowDance.tooltip.activeTime">
+          Average active time during {shadowDance} casts.
+        </Trans>
+      </>
+    );
 
     // Get cast sequences for each Shadow Dance window
     const danceSequenceEvents: CastSequenceEntry<ShadowDanceData>[] =
@@ -222,24 +313,53 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
         stats: [
           {
             value: formatNumber(dance.totalDamage),
-            label: 'Damage',
-            tooltip: <>Total damage accumulated during this Shadow Dance</>,
+            label: i18n._(
+              defineMessage({ id: 'rogue.subtlety.shadowDance.stat.damage', message: 'Damage' }),
+            ),
+            tooltip: (
+              <Trans id="rogue.subtlety.shadowDance.stat.damageTooltip">
+                Total damage accumulated during this Shadow Dance
+              </Trans>
+            ),
           },
           {
             value: `${formatDurationMillisMinSec(dance.duration, 2)}`,
-            label: 'Duration',
-            tooltip: <>Duration of this Shadow Dance</>,
+            label: i18n._(
+              defineMessage({
+                id: 'rogue.subtlety.shadowDance.stat.duration',
+                message: 'Duration',
+              }),
+            ),
+            tooltip: (
+              <Trans id="rogue.subtlety.shadowDance.stat.durationTooltip">
+                Duration of this Shadow Dance
+              </Trans>
+            ),
           },
           {
             value: formatNumber(dance.numberAbilitiesUsed || 0),
-            label: 'Casts',
-            tooltip: <>Total casts</>,
+            label: i18n._(
+              defineMessage({ id: 'rogue.subtlety.shadowDance.stat.casts', message: 'Casts' }),
+            ),
+            tooltip: (
+              <>
+                {t({
+                  id: 'rogue.subtlety.shadowDance.stat.castsTooltip',
+                  message: 'Total casts',
+                })}
+              </>
+            ),
           },
         ],
         details: evaluation.reason,
         additionalContent: sequenceEntry
           ? {
-              title: 'Cast Sequence',
+              title: i18n._(
+                defineMessage({
+                  id: 'rogue.subtlety.shadowDance.stat.castSequence',
+                  message: 'Cast Sequence',
+                }),
+              ),
               content: <SpellSequence casts={sequenceEntry.casts} iconSize={40} />,
             }
           : undefined,
@@ -253,25 +373,46 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
           stats={[
             {
               value: `${formatNumber(this.shadowDance.danceTotalDamage)}`,
-              label: 'Damage during Shadow Dance',
+              label: i18n._(
+                defineMessage({
+                  id: 'rogue.subtlety.shadowDance.overview.damageLabel',
+                  message: 'Damage during Shadow Dance',
+                }),
+              ),
               tooltip: totalDamageTooltip,
               performance: QualitativePerformance.Good,
             },
             {
               value: `${formatPercentage(this.shadowDance.danceTotalDamage / this.damageDone.total.effective)}%`,
-              label: 'of Overall Damage',
+              label: i18n._(
+                defineMessage({
+                  id: 'rogue.subtlety.shadowDance.overview.damagePctLabel',
+                  message: 'of Overall Damage',
+                }),
+              ),
               tooltip: percentageDuringShadowDanceTooltip,
               performance: QualitativePerformance.Good,
             },
             {
               value: `${formatPercentage(this.shadowDance.averageActiveTime)}%`,
-              label: 'active time during Shadow Dance',
+              label: i18n._(
+                defineMessage({
+                  id: 'rogue.subtlety.shadowDance.overview.activeTimeLabel',
+                  message: 'active time during Shadow Dance',
+                }),
+              ),
               tooltip: activeTimeDuringShadowDanceTooltip,
               performance: QualitativePerformance.Good,
             },
           ]}
         />
-        <CastDetail title="Shadow Dance Details" casts={perCastData} />
+        <CastDetail
+          title={t({
+            id: 'rogue.subtlety.shadowDance.castDetail.title',
+            message: 'Shadow Dance Details',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

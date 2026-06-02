@@ -8,6 +8,8 @@ import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
 import { createSpellUse } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { SpellUse } from 'parser/core/SpellUsage/core';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export default class Eviscerate extends Analyzer {
   private cooldownUses: SpellUse[] = [];
@@ -20,11 +22,13 @@ export default class Eviscerate extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.EVISCERATE} />
-        </strong>{' '}
-        is your primary single-target finisher. Always aim to cast it at{' '}
-        <strong>5+ Combo Points</strong> to maximize damage efficiency.
+        <Trans id="rogue.subtlety.eviscerate.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.EVISCERATE} />
+          </strong>{' '}
+          is your primary single-target finisher. Always aim to cast it at{' '}
+          <strong>5+ Combo Points</strong> to maximize damage efficiency.
+        </Trans>
       </p>
     );
 
@@ -38,7 +42,9 @@ export default class Eviscerate extends Analyzer {
         hideGoodCasts
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Red is a bad cast.</>}
+        castBreakdownSmallText={
+          <> - {t({ id: 'rogue.subtlety.eviscerate.redBadCast', message: 'Red is a bad cast.' })}</>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -51,7 +57,10 @@ export default class Eviscerate extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: 'All of your casts of this spell were good!',
+          noCastsOverride: t({
+            id: 'rogue.subtlety.eviscerate.allCorrect',
+            message: 'All of your casts of this spell were good!',
+          }),
         }}
       />
     );
