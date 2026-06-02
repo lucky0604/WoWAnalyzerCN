@@ -21,12 +21,7 @@ import { t } from '@lingui/core/macro';
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section
-        title={t({
-          id: 'guide.rogue.outlaw.sections.coreSkills.title',
-          message: 'Core Skills',
-        })}
-      >
+      <Section title="Core Skills">
         <FoundationDowntimeSection />
         {modules.rollTheBonesBuffs.guideSubsection}
       </Section>
@@ -123,55 +118,40 @@ function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParse
 
 function ActionPriorityList({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section
-      title={t({
-        id: 'guide.rogue.outlaw.sections.apl.title',
-        message: 'Action Priority List',
-      })}
-    >
+    <Section title="Action Priority List">
       <p>
-        <Trans id="guide.rogue.outlaw.sections.apl.summary">
-          Outlaw has a fast paced rotation that is constantly reacting to buffs and procs. The spec
-          doesn't burst but makes up for it in consistent output. Should be thought as a chaining
-          priority list:
-          <ol>
-            <li>Cooldowns, according to the priorities below.</li>
-            <li>Finishers, according to the priorities below.</li>
-            <li>Builders, according to the priorities below.</li>
-          </ol>
-        </Trans>
+        Outlaw has a fast paced rotation that is constantly reacting to buffs and procs. The spec
+        doesn't burst but makes up for it in consistent output. Should be thought as a chaining
+        priority list:
+        <ol>
+          <li>Cooldowns, according to the priorities below.</li>
+          <li>Finishers, according to the priorities below.</li>
+          <li>Builders, according to the priorities below.</li>
+        </ol>
       </p>
       <p>
-        <Trans id="guide.rogue.outlaw.sections.apl.simcReference">
-          This Action Priority List (APL) is a simplified version off the simc APL that can be found{' '}
-          <a href="https://github.com/simulationcraft/simc/blob/thewarwithin/engine/class_modules/apl/rogue/outlaw.simc">
-            here
-          </a>
-          .
-        </Trans>
+        This Action Priority List (APL) is a simplified version off the simc APL that can be found{' '}
+        <a href="https://github.com/simulationcraft/simc/blob/thewarwithin/engine/class_modules/apl/rogue/outlaw.simc">
+          here
+        </a>
+        .
       </p>
       <AplSectionData checker={AplCheck.check} apl={AplCheck.apl(info)} />
       <hr />
       <p>
-        <Trans id="guide.rogue.outlaw.sections.apl.disclaimer">
-          <strong>Disclaimer:</strong> (Currently unsupported spells/talents)
-          <ul>
-            <li>
-              {' '}
-              <SpellLink spell={TALENTS.THISTLE_TEA_TALENT} />
-            </li>
-            <li>
-              {' '}
-              <SpellLink spell={SPELLS.BLADE_FLURRY} />
-            </li>
-          </ul>
-        </Trans>
+        <strong>Disclaimer:</strong> (Currently unsupported spells/talents)
+        <ul>
+          <li>
+            {' '}
+            <SpellLink spell={TALENTS.THISTLE_TEA_TALENT} />
+          </li>
+          <li>
+            {' '}
+            <SpellLink spell={SPELLS.BLADE_FLURRY} />
+          </li>
+        </ul>
       </p>
-      <p>
-        <Trans id="guide.rogue.outlaw.sections.apl.accuracyNote">
-          You can use the accuracy here as a reference point to compare to other logs.
-        </Trans>
-      </p>
+      <p>You can use the accuracy here as a reference point to compare to other logs.</p>
     </Section>
   );
 }
@@ -204,28 +184,21 @@ function CooldownSection({ info }: GuideProps<typeof CombatLogParser>) {
   });
 
   return (
-    <Section
-      title={t({
-        id: 'guide.rogue.outlaw.sections.cooldowns.title',
-        message: 'Cooldowns',
-      })}
-    >
+    <Section title="Cooldowns">
       <p>
-        <Trans id="guide.rogue.outlaw.sections.cooldowns.summary">
-          <strong>Cooldown Graph</strong> - This graph visualizes the usage of your cooldowns and
-          highlights areas where optimizations can be made.
-          <ul>
-            <li>
-              <strong>Grey segments</strong> indicate availability.
-            </li>
-            <li>
-              <strong>Yellow segments</strong> indicate cooldown time.
-            </li>
-            <li>
-              <strong>Red segments</strong> highlight areas where an extra cooldown could have fit.
-            </li>
-          </ul>
-        </Trans>
+        <strong>Cooldown Graph</strong> - This graph visualizes the usage of your cooldowns and
+        highlights areas where optimizations can be made.
+        <ul>
+          <li>
+            <strong>Grey segments</strong> indicate availability.
+          </li>
+          <li>
+            <strong>Yellow segments</strong> indicate cooldown time.
+          </li>
+          <li>
+            <strong>Red segments</strong> highlight areas where an extra cooldown could have fit.
+          </li>
+        </ul>
       </p>
       {cooldowns.map((cooldownCheck) => (
         <CastEfficiencyBar

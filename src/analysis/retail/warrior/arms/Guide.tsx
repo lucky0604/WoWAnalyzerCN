@@ -1,5 +1,3 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section } from 'interface/guide';
 import TALENTS from 'common/TALENTS/warrior';
 import { SpellLink } from 'interface';
@@ -13,36 +11,28 @@ import * as AplCheck from './modules/core/AplCheck';
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section title={t({ id: 'warrior.arms.section.preface', message: 'Preface & Disclaimers' })}>
+      <Section title="Preface & Disclaimers">
         <>
           <p>
-            <Trans id="warrior.arms.preface.description1">
-              When reviewing this information, keep in mind that WoWAnalyzer is limited to the
-              information that is present in your combat log. As a result, we have no way of knowing
-              if you were intentionally doing something suboptimal because the fight or strat
-              required it (such as forced downtime or holding cooldowns for a burn phase). Because
-              of this, we recommend comparing your analysis against a top 100 log for the same boss.
-            </Trans>
+            When reviewing this information, keep in mind that WoWAnalyzer is limited to the
+            information that is present in your combat log. As a result, we have no way of knowing
+            if you were intentionally doing something suboptimal because the fight or strat required
+            it (such as forced downtime or holding cooldowns for a burn phase). Because of this, we
+            recommend comparing your analysis against a top 100 log for the same boss.
           </p>
           <p>
-            <Trans id="warrior.arms.preface.description2">
-              For additional assistance in improving your gameplay, or to have someone look more in
-              depth at your combat logs, please visit the{' '}
-              <a href="https://discord.gg/skyhold">Skyhold</a> discord.
-            </Trans>
+            For additional assistance in improving your gameplay, or to have someone look more in
+            depth at your combat logs, please visit the{' '}
+            <a href="https://discord.gg/skyhold">Skyhold</a> discord.
           </p>
           <p>
-            <Trans id="warrior.arms.preface.description3">
-              If you notice any issues or errors in this analysis or if there is additional analysis
-              you would like added, please ping <code>@Bigbowwl</code> in the{' '}
-              <a href="https://discord.gg/skyhold">Skyhold</a> discord (please don't DM me).
-            </Trans>
+            If you notice any issues or errors in this analysis or if there is additional analysis
+            you would like added, please ping <code>@Bigbowwl</code> in the{' '}
+            <a href="https://discord.gg/skyhold">Skyhold</a> discord (please don't DM me).
           </p>
         </>
       </Section>
-      <Section
-        title={t({ id: 'warrior.arms.section.alwaysBeCasting', message: 'Always Be Casting' })}
-      >
+      <Section title="Always Be Casting">
         <FoundationDowntimeSectionV2 />
       </Section>
       <CooldownSection modules={modules} events={events} info={info} />
@@ -54,7 +44,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 
 function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title={t({ id: 'warrior.arms.section.cooldowns', message: 'Cooldowns' })}>
+    <Section title="Cooldowns">
       <CooldownGraphSubsection />
     </Section>
   );
@@ -62,60 +52,42 @@ function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
 
 function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title={t({ id: 'warrior.arms.section.rotation', message: 'Rotation' })}>
+    <Section title="Rotation">
       <p>
-        <Trans id="warrior.arms.rotation.description1">
-          This single target rotation analyzer is based on a number of sources, including the guides
-          at{' '}
-          <a
-            href="https://www.wowhead.com/guide/classes/warrior/arms/rotation-cooldowns-pve-dps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Wowhead
-          </a>
-          {' and '}
-          <a
-            href="https://maxroll.gg/wow/class-guides/arms-warrior-raid-guide"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Maxroll
-          </a>{' '}
-          (credit to Archimtiros and Revvez for writing these guides).
-        </Trans>
+        This single target rotation analyzer is based on a number of sources, including the guides
+        at{' '}
+        <a
+          href="https://www.wowhead.com/guide/classes/warrior/arms/rotation-cooldowns-pve-dps"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Wowhead
+        </a>
+        {' and '}
+        <a
+          href="https://maxroll.gg/wow/class-guides/arms-warrior-raid-guide"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Maxroll
+        </a>{' '}
+        (credit to Archimtiros and Revvez for writing these guides).
       </p>
       <p>
-        <Trans id="warrior.arms.rotation.description2">
-          This should be used as a reference point for improvement when comparing against other
-          logs. It does not cover the full set of priorites used by Simulationcraft/Raidbots (much
-          like the written guides) as the list would be far too long and too complex to follow.
-        </Trans>
+        This should be used as a reference point for improvement when comparing against other logs.
+        It does not cover the full set of priorites used by Simulationcraft/Raidbots (much like the
+        written guides) as the list would be far too long and too complex to follow.
       </p>
       <div>
-        <Trans id="warrior.arms.rotation.potentialInaccuracy">Potential areas of inaccuracy:</Trans>
+        Potential areas of inaccuracy:
         <ul>
-          <li>
-            <Trans id="warrior.arms.rotation.inaccuracy1">
-              Holding abilities for upcoming add spawns or damage amps
-            </Trans>
-          </li>
-          <li>
-            <Trans id="warrior.arms.rotation.inaccuracy2">Multiple targets</Trans>
-          </li>
-          <li>
-            <Trans id="warrior.arms.rotation.inaccuracy3">Movement or periods of downtime</Trans>
-          </li>
+          <li>Holding abilities for upcoming add spawns or damage amps</li>
+          <li>Multiple targets</li>
+          <li>Movement or periods of downtime</li>
         </ul>
       </div>
       <p>
-        <strong>
-          <Trans id="warrior.arms.rotation.note">NOTE:</Trans>
-        </strong>
-        <Trans id="warrior.arms.rotation.noteDescription">
-          {' '}
-          The priority list below does not include
-        </Trans>
+        <strong> NOTE:</strong> The priority list below does not include{' '}
         <SpellLink spell={TALENTS.REND_TALENT} icon />
       </p>
       <AplSectionData checker={AplCheck.check} apl={AplCheck.apl(info)} />

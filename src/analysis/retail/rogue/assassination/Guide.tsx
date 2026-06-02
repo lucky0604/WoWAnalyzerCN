@@ -7,8 +7,6 @@ import { ResourceLink, SpellLink } from 'interface';
 import SPELLS from 'common/SPELLS';
 import { RoundedPanel, SideBySidePanels } from 'interface/guide/components/GuideDivs';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
-import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
 
 import CombatLogParser from './CombatLogParser';
 import CooldownGraphSubsection from './guide/CooldownGraphSubsection';
@@ -35,28 +33,15 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
   const energyWasted = modules.energyTracker.wasted;
 
   return (
-    <Section
-      title={t({
-        id: 'guide.rogue.assassination.sections.resources.title',
-        message: 'Resource Use',
-      })}
-    >
-      <SubSection
-        title={t({
-          id: 'guide.rogue.assassination.sections.resources.energy.title',
-          message: 'Energy',
-        })}
-      >
+    <Section title="Resource Use">
+      <SubSection title="Energy">
         <p>
-          <Trans id="guide.rogue.assassination.sections.resources.energy.summary">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Typically,
-            ability use will be limited by <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />, not time.
-            Avoid capping <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> regeneration is lost DPS. It will
-            occasionally be impossible to avoid capping{' '}
-            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> - like while handling mechanics or during
-            intermission phases.
-          </Trans>
+          Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Typically,
+          ability use will be limited by <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />, not time.
+          Avoid capping <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> - lost{' '}
+          <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> regeneration is lost DPS. It will
+          occasionally be impossible to avoid capping <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />{' '}
+          - like while handling mechanics or during intermission phases.
         </p>
         <EnergyCapWaste
           percentAtCap={percentAtCap}
@@ -67,18 +52,11 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         />
         {modules.energyGraph.plot}
       </SubSection>
-      <SubSection
-        title={t({
-          id: 'guide.rogue.assassination.sections.resources.comboPoints.title',
-          message: 'Combo Points',
-        })}
-      >
+      <SubSection title="Combo Points">
         <p>
-          <Trans id="guide.rogue.assassination.sections.resources.comboPoints.summary">
-            Most of your abilities either <strong>build</strong> or <strong>spend</strong>{' '}
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />. Never use a builder at max CPs,
-            and always wait until {getTargetComboPoints(info.combatant)}+ CPs to use a spender.
-          </Trans>
+          Most of your abilities either <strong>build</strong> or <strong>spend</strong>{' '}
+          <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />. Never use a builder at max CPs, and
+          always wait until {getTargetComboPoints(info.combatant)}+ CPs to use a spender.
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>
@@ -91,27 +69,20 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
 
 function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section
-      title={t({
-        id: 'guide.rogue.assassination.sections.coreRotation.title',
-        message: 'Core Rotation',
-      })}
-    >
+    <Section title="Core Rotation">
       <p>
-        <Trans id="guide.rogue.assassination.sections.coreRotation.summary">
-          Assassination's core rotation involves performing <strong>builder</strong> abilites up to{' '}
-          {modules.comboPointTracker.maxResource} combo points, then using a{' '}
-          <strong>spender</strong> ability. Maintain your damage over time effects on targets, then
-          fill with your direct damage abilities. Refer to the spec guide for{' '}
-          <a
-            href="https://www.wowhead.com/assassination-rogue-rotation-guide"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            rotation details
-          </a>
-          . See below for spell usage details.
-        </Trans>
+        Assassination's core rotation involves performing <strong>builder</strong> abilites up to{' '}
+        {modules.comboPointTracker.maxResource} combo points, then using a <strong>spender</strong>{' '}
+        ability. Maintain your damage over time effects on targets, then fill with your direct
+        damage abilities. Refer to the spec guide for{' '}
+        <a
+          href="https://www.wowhead.com/assassination-rogue-rotation-guide"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          rotation details
+        </a>
+        . See below for spell usage details.
       </p>
       <HideExplanationsToggle id="hide-explanations-rotation" />
       <HideGoodCastsToggle id="hide-good-casts-rotation" />
@@ -130,19 +101,12 @@ function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParse
 function CooldownSection({ info, modules }: GuideProps<typeof CombatLogParser>) {
   return (
     <ExperimentalKingsbaneContextProvider>
-      <Section
-        title={t({
-          id: 'guide.rogue.assassination.sections.cooldowns.title',
-          message: 'Cooldowns',
-        })}
-      >
+      <Section title="Cooldowns">
         <p>
-          <Trans id="guide.rogue.assassination.sections.cooldowns.summary">
-            Assassination's cooldowns are decently powerful but should not be held on to for long.
-            In order to maximize usages over the course of an encounter, you should aim to send the
-            cooldown as soon as it becomes available (as long as it can do damage on target). It is
-            particularly important to use <SpellLink spell={SPELLS.VANISH} /> as often as possible.
-          </Trans>
+          Assassination's cooldowns are decently powerful but should not be held on to for long. In
+          order to maximize usages over the course of an encounter, you should aim to send the
+          cooldown as soon as it becomes available (as long as it can do damage on target). It is
+          particularly important to use <SpellLink spell={SPELLS.VANISH} /> as often as possible.
         </p>
         <HideExplanationsToggle id="hide-explanations-rotation" />
         <HideGoodCastsToggle id="hide-good-casts-rotation" />

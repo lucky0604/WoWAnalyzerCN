@@ -1,0 +1,82 @@
+import { t } from '@lingui/core/macro';
+import { GuideProps, Section } from 'interface/guide';
+import TALENTS from 'common/TALENTS/priest';
+//import { TIERS } from 'game/TIERS';
+import CombatLogParser from './CombatLogParser';
+import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
+import CooldownGraphSubsection from './modules/guide/CooldownGraphSubsection';
+import ResourceSubsection from './modules/guide/ResourceSubsection';
+import CastingSubsection from './modules/guide/CastingSubsection';
+import DefensivesGuide from '../shared/Defensives';
+import DesperatePrayer from '../shared/spells/DesperatePrayer';
+import Fade from '../shared/spells/Fade';
+import Dispersion from './modules/spells/Dispersion';
+
+export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  return (
+    <>
+      <Section title={t({ id: 'priest.shadow.section.core', message: 'Core' })}>
+        <Section title={t({ id: 'priest.shadow.section.insanity', message: 'Insanity' })}>
+          <ResourceSubsection.ResourceSubsection modules={modules} events={events} info={info} />{' '}
+          {modules.dotUptimes.guideSubsectionDP}
+        </Section>
+        <Section title={t({ id: 'priest.shadow.section.dots', message: 'DoTs' })}>
+          {modules.dotUptimes.guideSubsection}
+        </Section>
+        {modules.shadowform.guideSubsection}
+        <Section title={t({ id: 'priest.shadow.section.activeTime', message: 'Active Time' })}>
+          <CastingSubsection.CastingSubsection modules={modules} events={events} info={info} />
+        </Section>
+      </Section>
+
+      <Section title={t({ id: 'priest.shadow.section.cooldowns', message: 'Cooldowns' })}>
+        <Section title={t({ id: 'priest.shadow.section.coreSpells', message: 'Core Spells' })}>
+          <CooldownGraphSubsection.CoreCooldownsGraph />
+        </Section>
+        <Section
+          title={t({ id: 'priest.shadow.section.shortCooldowns', message: 'Short Cooldowns' })}
+        >
+          <CooldownGraphSubsection.ShortCooldownsGraph />
+          {info.combatant.hasTalent(TALENTS.INSIDIOUS_IRE_TALENT) &&
+            modules.insidiousIre.guideSubsection}
+          {info.combatant.hasTalent(TALENTS.VOID_TORRENT_TALENT) &&
+            modules.voidTorrent.guideSubsection}
+          {info.combatant.hasTalent(TALENTS.VOID_BLAST_TALENT) && modules.voidBlast.guideSubsection}
+          {info.combatant.hasTalent(TALENTS.COLLAPSING_VOID_TALENT) &&
+            modules.entropicRift.guideSubsectionCollapsingVoid}
+          {info.combatant.hasTalent(TALENTS.DARKENING_HORIZON_TALENT) &&
+            modules.entropicRift.guideSubsectionDarkeningHorizon}
+          {info.combatant.hasTalent(TALENTS.TENTACLE_SLAM_TALENT) &&
+            modules.tentacleSlam.guideSubsection}
+        </Section>
+        <Section
+          title={t({ id: 'priest.shadow.section.majorCooldowns', message: 'Major Cooldowns' })}
+        >
+          <CooldownGraphSubsection.LongCooldownsGraph />
+          {info.combatant.hasTalent(
+            TALENTS.ANCIENT_MADNESS_TALENT || TALENTS.SUSTAINED_POTENCY_TALENT,
+          ) && modules.voidform.guideSubsection}
+          {info.combatant.hasTalent(TALENTS.INESCAPABLE_TORMENT_TALENT) &&
+            modules.inescapableTorment.guideSubsection}
+        </Section>
+      </Section>
+
+      <Section title={t({ id: 'priest.shadow.section.procUsage', message: 'Proc Usage' })}>
+        {info.combatant.hasTalent(TALENTS.SHADOWY_INSIGHT_TALENT) &&
+          modules.shadowyInsight.guideSubsection}
+        {info.combatant.hasTalent(TALENTS.MIND_DEVOURER_TALENT) &&
+          modules.mindDevourer.guideSubsection}
+        {info.combatant.hasTalent(TALENTS.MANIFESTED_POWER_TALENT) &&
+          modules.mindFlayInsanity.guideSubsection}
+      </Section>
+
+      <DefensivesGuide analyzers={[DesperatePrayer, Dispersion, Fade]} />
+
+      {/* TODO:
+      <Section title="Action Priority List"></>
+      */}
+
+      <PreparationSection />
+    </>
+  );
+}

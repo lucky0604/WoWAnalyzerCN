@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import { GuideProps, Section } from 'interface/guide';
 import CombatLogParser from './CombatLogParser';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
@@ -21,24 +20,16 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 }
 
 function CoreSection({ modules }: GuideProps<typeof CombatLogParser>) {
-  return (
-    <Section title={t({ id: 'warlock.demonology.section.core', message: 'Core' })}>
-      {modules.alwaysBeCasting.guideSubsection}
-    </Section>
-  );
+  return <Section title="Core">{modules.alwaysBeCasting.guideSubsection}</Section>;
 }
 
 function CooldownSection({ modules }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title={t({ id: 'warlock.demonology.section.cooldowns', message: 'Cooldowns' })}>
-      <Section
-        title={t({ id: 'warlock.demonology.section.cooldownUsage', message: 'Cooldown Usage' })}
-      >
+    <Section title="Cooldowns">
+      <Section title="Cooldown Usage">
         <CooldownSubsection />
       </Section>
-      <Section
-        title={t({ id: 'warlock.demonology.section.demonicTyrant', message: 'Demonic Tyrant' })}
-      >
+      <Section title="Demonic Tyrant">
         <DemonicTyrantGuide />
       </Section>
     </Section>
@@ -48,13 +39,8 @@ function CooldownSection({ modules }: GuideProps<typeof CombatLogParser>) {
 // ✅ New Defensives Section including Healthstone Tracker
 function DefensivesSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title={t({ id: 'warlock.demonology.section.defensives', message: 'Defensives' })}>
-      <Section
-        title={t({
-          id: 'warlock.demonology.section.healthstoneTracker',
-          message: 'Healthstone Tracker',
-        })}
-      >
+    <Section title="Defensives">
+      <Section title="Healthstone Tracker">
         {modules.demonicHealthstone?.active && (
           <DemonicHealthstoneGuide
             analyzer={modules.demonicHealthstone}

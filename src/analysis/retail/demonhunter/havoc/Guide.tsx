@@ -23,8 +23,6 @@ import ActiveTimeGraph from 'parser/ui/ActiveTimeGraph';
 import Blur from './modules/spells/Blur';
 import Timeline from 'interface/guide/components/MajorDefensives/Timeline';
 import AllCooldownUsageList from 'interface/guide/components/MajorDefensives/AllCooldownUsagesList';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
@@ -43,24 +41,12 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
   const percentAtFuryCapPerformance = modules.furyTracker.percentAtCapPerformance;
   const furyWasted = modules.furyTracker.wasted;
   return (
-    <Section
-      title={t({
-        id: 'guide.demonhunter.havoc.sections.core.title',
-        message: 'Core',
-      })}
-    >
-      <SubSection
-        title={t({
-          id: 'guide.demonhunter.havoc.sections.core.fury.title',
-          message: 'Fury',
-        })}
-      >
+    <Section title="Core">
+      <SubSection title="Fury">
         <p>
-          <Trans id="guide.demonhunter.havoc.sections.core.fury.summary">
-            Havoc's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should
-            avoid capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
-          </Trans>
+          Havoc's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should avoid
+          capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
+          <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
         </p>
         <FuryCapWaste
           percentAtCap={percentAtFuryCap}
@@ -72,26 +58,19 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         />
         {modules.furyGraph.plot}
       </SubSection>
-      <SubSection
-        title={t({
-          id: 'guide.demonhunter.havoc.sections.core.activeTime.title',
-          message: 'Active Time',
-        })}
-      >
+      <SubSection title="Active Time">
         <p>
-          <Trans id="guide.demonhunter.havoc.sections.core.activeTime.summary">
-            <b>
-              Continuously casting throughout an encounter is the single most important thing for
-              achieving good DPS.
-            </b>
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            <br />
-            Some fights have unavoidable downtime due to phase transitions and the like, so in these
-            cases 0% downtime will not be possible - do the best you can.
-          </Trans>
+          <b>
+            Continuously casting throughout an encounter is the single most important thing for
+            achieving good DPS.
+          </b>
+          {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+          <br />
+          Some fights have unavoidable downtime due to phase transitions and the like, so in these
+          cases 0% downtime will not be possible - do the best you can.
         </p>
         <p>
-          <Trans id="guide.demonhunter.havoc.sections.core.activeTime.value">Active Time: </Trans>
+          Active Time:{' '}
           <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
             {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
           </PerformanceStrong>{' '}
@@ -108,12 +87,7 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
 
 function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section
-      title={t({
-        id: 'guide.demonhunter.havoc.sections.cooldowns.title',
-        message: 'Cooldowns',
-      })}
-    >
+    <Section title="Cooldowns">
       <HideExplanationsToggle id="hide-explanations-cooldowns" />
       <HideGoodCastsToggle id="hide-good-casts-cooldowns" />
       <CooldownGraphSubsection />
@@ -121,19 +95,15 @@ function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       {info.combatant.hasTalent(TALENTS.ESSENCE_BREAK_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="guide.demonhunter.havoc.sections.cooldowns.essenceBreak.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
-            </Trans>
+            Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
           </div>,
           <></>,
         )}
       {info.combatant.hasTalent(TALENTS.ART_OF_THE_GLAIVE_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="guide.demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ART_OF_THE_GLAIVE_TALENT} /> coming
-              soon!
-            </Trans>
+            Per-cast breakdown for <SpellLink spell={TALENTS.ART_OF_THE_GLAIVE_TALENT} /> coming
+            soon!
           </div>,
           <></>,
         )}
@@ -143,29 +113,20 @@ function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
 
 function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section
-      title={t({
-        id: 'guide.demonhunter.havoc.sections.rotation.title',
-        message: 'Rotation',
-      })}
-    >
+    <Section title="Rotation">
       <HideExplanationsToggle id="hide-explanations-rotations" />
       <HideGoodCastsToggle id="hide-good-casts-rotations" />
       <p>
-        <Trans id="guide.demonhunter.havoc.sections.rotation.summary">
-          Havoc does not have a single rigid rotation. Your priority changes with your talent
-          choices, with different builds leaning into different burst windows, buff upkeep, and
-          cooldown pairings.
-        </Trans>
+        Havoc does not have a single rigid rotation. Your priority changes with your talent choices,
+        with different builds leaning into different burst windows, buff upkeep, and cooldown
+        pairings.
       </p>
       {modules.inertia.guideSubsection()}
       {/* {modules.throwGlaive.guideSubsection()} */}
       {info.combatant.hasTalent(TALENTS.ESSENCE_BREAK_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="guide.demonhunter.havoc.sections.rotation.essenceBreak.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
-            </Trans>
+            Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
           </div>,
           <></>,
         )}
@@ -177,67 +138,40 @@ function DefensivesSection({ modules }: GuideProps<typeof CombatLogParser>) {
   const defensiveAnalyzers = useAnalyzers([Blur]);
 
   return (
-    <Section
-      title={t({
-        id: 'guide.demonhunter.havoc.sections.defensives.title',
-        message: 'Defensives',
-      })}
-    >
+    <Section title="Defensives">
       <p>
-        <Trans id="guide.demonhunter.havoc.sections.defensives.blur.summary">
-          <SpellLink spell={SPELLS.BLUR} /> is Havoc's primary personal defensive. Using it well
-          helps you survive dangerous moments more reliably and reduces avoidable pressure on your
-          healers.
-        </Trans>
+        <SpellLink spell={SPELLS.BLUR} /> is Havoc's primary personal defensive. Using it well helps
+        you survive dangerous moments more reliably and reduces avoidable pressure on your healers.
       </p>
       <p>
-        <Trans id="guide.demonhunter.havoc.sections.defensives.blur.timing">
-          Because Blur has a relatively short cooldown, it should usually be used proactively for
-          meaningful incoming damage rather than held too long waiting for a perfect emergency.
-        </Trans>
+        Because Blur has a relatively short cooldown, it should usually be used proactively for
+        meaningful incoming damage rather than held too long waiting for a perfect emergency.
       </p>
-      <p>
-        <Trans id="guide.demonhunter.havoc.sections.defensives.blur.questions">
-          When reviewing your Blur usage, focus on two questions:
-        </Trans>
-      </p>
+      <p>When reviewing your Blur usage, focus on two questions:</p>
       <ol>
         <li>
-          <Trans id="guide.demonhunter.havoc.sections.defensives.blur.question1">
-            Did Blur cover dangerous spikes or other high-pressure damage windows?
-          </Trans>
+          Did Blur cover dangerous spikes or other high-pressure damage windows?
           <p>
             <small>
-              <Trans id="guide.demonhunter.havoc.sections.defensives.blur.question1.explanation">
-                In the damage chart below, a spike highlighted in{' '}
-                <Highlight color={GoodColor} textColor="black">
-                  green
-                </Highlight>{' '}
-                was covered by Blur.
-              </Trans>
+              In the damage chart below, a spike highlighted in{' '}
+              <Highlight color={GoodColor} textColor="black">
+                green
+              </Highlight>{' '}
+              was covered by Blur.
             </small>
           </p>
         </li>
         <li>
-          <Trans id="guide.demonhunter.havoc.sections.defensives.blur.question2">
-            Was Blur used often enough across the fight, or was it held long enough to lose value?
-          </Trans>
+          Was Blur used often enough across the fight, or was it held long enough to lose value?
           <p>
             <small>
-              <Trans id="guide.demonhunter.havoc.sections.defensives.blur.question2.explanation">
-                The cooldown timeline below shows whether casts were timed around threatening damage
-                and whether long gaps may have cost you additional uses.
-              </Trans>
+              The cooldown timeline below shows whether casts were timed around threatening damage
+              and whether long gaps may have cost you additional uses.
             </small>
           </p>
         </li>
       </ol>
-      <SubSection
-        title={t({
-          id: 'guide.demonhunter.havoc.sections.defensives.damageTaken.title',
-          message: 'Damage Taken',
-        })}
-      >
+      <SubSection title="Damage Taken">
         <Timeline analyzers={defensiveAnalyzers} />
       </SubSection>
       <AllCooldownUsageList analyzers={defensiveAnalyzers} />

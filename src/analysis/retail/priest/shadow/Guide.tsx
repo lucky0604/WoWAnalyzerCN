@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import { GuideProps, Section } from 'interface/guide';
 import TALENTS from 'common/TALENTS/priest';
 //import { TIERS } from 'game/TIERS';
@@ -15,27 +14,23 @@ import Dispersion from './modules/spells/Dispersion';
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section title={t({ id: 'priest.shadow.section.core', message: 'Core' })}>
-        <Section title={t({ id: 'priest.shadow.section.insanity', message: 'Insanity' })}>
+      <Section title="Core">
+        <Section title="Insanity">
           <ResourceSubsection.ResourceSubsection modules={modules} events={events} info={info} />{' '}
           {modules.dotUptimes.guideSubsectionDP}
         </Section>
-        <Section title={t({ id: 'priest.shadow.section.dots', message: 'DoTs' })}>
-          {modules.dotUptimes.guideSubsection}
-        </Section>
+        <Section title="DoTs">{modules.dotUptimes.guideSubsection}</Section>
         {modules.shadowform.guideSubsection}
-        <Section title={t({ id: 'priest.shadow.section.activeTime', message: 'Active Time' })}>
+        <Section title="Active Time">
           <CastingSubsection.CastingSubsection modules={modules} events={events} info={info} />
         </Section>
       </Section>
 
-      <Section title={t({ id: 'priest.shadow.section.cooldowns', message: 'Cooldowns' })}>
-        <Section title={t({ id: 'priest.shadow.section.coreSpells', message: 'Core Spells' })}>
+      <Section title="Cooldowns">
+        <Section title="Core Spells">
           <CooldownGraphSubsection.CoreCooldownsGraph />
         </Section>
-        <Section
-          title={t({ id: 'priest.shadow.section.shortCooldowns', message: 'Short Cooldowns' })}
-        >
+        <Section title="Short Cooldowns">
           <CooldownGraphSubsection.ShortCooldownsGraph />
           {info.combatant.hasTalent(TALENTS.INSIDIOUS_IRE_TALENT) &&
             modules.insidiousIre.guideSubsection}
@@ -49,9 +44,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           {info.combatant.hasTalent(TALENTS.TENTACLE_SLAM_TALENT) &&
             modules.tentacleSlam.guideSubsection}
         </Section>
-        <Section
-          title={t({ id: 'priest.shadow.section.majorCooldowns', message: 'Major Cooldowns' })}
-        >
+        <Section title="Major Cooldowns">
           <CooldownGraphSubsection.LongCooldownsGraph />
           {info.combatant.hasTalent(
             TALENTS.ANCIENT_MADNESS_TALENT || TALENTS.SUSTAINED_POTENCY_TALENT,
@@ -61,7 +54,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         </Section>
       </Section>
 
-      <Section title={t({ id: 'priest.shadow.section.procUsage', message: 'Proc Usage' })}>
+      <Section title="Proc Usage">
         {info.combatant.hasTalent(TALENTS.SHADOWY_INSIGHT_TALENT) &&
           modules.shadowyInsight.guideSubsection}
         {info.combatant.hasTalent(TALENTS.MIND_DEVOURER_TALENT) &&

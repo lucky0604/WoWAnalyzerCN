@@ -11,6 +11,7 @@ import { globSync } from 'glob';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 import checker from 'vite-plugin-checker';
+import { cnOverridesPlugin } from './vite-plugins/cn-overrides';
 
 const GOOGLE_ANALYTICS_SCRIPT = `
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MW95W6NHVC"></script>
@@ -63,6 +64,7 @@ export default defineConfig((env) => ({
     },
   },
   plugins: [
+    cnOverridesPlugin(),
     react(),
     lingui(),
     babel({

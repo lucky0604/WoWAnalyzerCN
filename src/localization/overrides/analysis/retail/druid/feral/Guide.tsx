@@ -1,0 +1,213 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
+import { GuideProps, Section, SubSection } from 'interface/guide';
+import CombatLogParser from 'analysis/retail/druid/feral/CombatLogParser';
+import { TALENTS_DRUID } from 'common/TALENTS';
+import { GapHighlight } from 'parser/ui/CooldownBar';
+import SPELLS from 'common/SPELLS';
+import { SpellLink } from 'interface';
+import { formatPercentage } from 'common/format';
+import { RoundedPanel, SideBySidePanels } from 'interface/guide/components/GuideDivs';
+import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
+import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
+import { ACCEPTABLE_CPS } from 'analysis/retail/druid/feral/constants';
+
+export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  return (
+    <>
+      <ResourceUseSection modules={modules} events={events} info={info} />
+      <CoreRotationSection modules={modules} events={events} info={info} />
+      <AdvancedRotationSection modules={modules} events={events} info={info} />
+      <CooldownSection modules={modules} events={events} info={info} />
+      <PreparationSection />
+    </>
+  );
+}
+
+function ResourceUseSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  return (
+    <Section title={t({ id: 'feral.resources.title', message: 'Resource Use' })}>
+      <SubSection title={t({ id: 'feral.energy.title', message: 'Energy' })}>
+        <p>
+          <Trans id="feral.energy.description">
+            Your primary resource is Energy. Typically, ability use will be limited by energy, not
+            time. Avoid capping energy - lost energy regeneration is lost DPS. High-end gear
+            combined with more energy talents than in previous expansions causes it to be
+            occasionally impossible to avoid capping energy, particularly during cooldowns. During
+            these periods, it's important to send abilities as fast as possible to maximize DPS.
+          </Trans>
+        </p>
+        <Trans id="feral.energy.wasted">
+          The chart below shows your energy over the course of the encounter. You spent{' '}
+          <strong>{formatPercentage(modules.energyTracker.percentAtCap, 1)}%</strong> of the
+          encounter capped on Energy.
+        </Trans>
+        {modules.energyGraph.plot}
+      </SubSection>
+      <SubSection title={t({ id: 'feral.comboPoints.title', message: 'Combo Points' })}>
+        <p>
+          <Trans id="feral.comboPoints.description">
+            Most of your abilities either <strong>build</strong> or <strong>spend</strong> Combo
+            Points. Never use a builder at max CPs, and always wait until {ACCEPTABLE_CPS} to use a
+            spender (with the exception of your opening <SpellLink spell={SPELLS.RIP} />
+            ).
+          </Trans>
+        </p>
+        <SideBySidePanels>
+          <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>
+          <RoundedPanel>{modules.finisherUse.chart}</RoundedPanel>
+        </SideBySidePanels>
+      </SubSection>
+    </Section>
+  );
+}
+
+function CoreRotationSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  return (
+    <Section title={t({ id: 'feral.rotation.title', message: 'Core Rotation' })}>
+      <p>
+        <Trans id="feral.rotation.description">
+          Feral's core rotation involves performing <strong>builder</strong> abilites to gain combo
+          points, then using powerful <strong>spender</strong> abilities to consume the combo
+          points. Maintain your damage over time effects on targets, then fill with your direct
+          damage abilities. Refer to the spec guide for{' '}
+          <a
+            href="https://www.wowhead.com/feral-druid-rotation-guide"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            rotation details
+          </a>
+          .
+        </Trans>
+      </p>
+      <p>
+        <Trans id="feral.rotation.primarySpells">
+          Correct usage of <SpellLink spell={SPELLS.FEROCIOUS_BITE} /> ,{' '}
+          <SpellLink spell={SPELLS.RIP} /> , and <SpellLink spell={SPELLS.RAKE} /> are the most
+          important factors for high single target damage.
+          <b> Master these before optimizing the items in the next section.</b>
+        </Trans>
+      </p>
+      {modules.ferociousBite.guideSubsection}
+      {modules.ripUptime.guideSubsection}
+      {modules.rakeUptime.guideSubsection}
+    </Section>
+  );
+}
+
+function AdvancedRotationSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  return (
+    <Section title={t({ id: 'feral.advancedRotation.title', message: 'Advanced Rotation' })}>
+      <p>
+        <Trans id="feral.advancedRotation.description">
+          Talent choices add new buttons or ability order changes to your rotation. Using them
+          correctly will allow you to optimize your DPS. Make sure you have your core rotation down
+          before optimizing these.
+        </Trans>
+      </p>
+      {info.combatant.hasTalent(TALENTS_DRUID.SUDDEN_AMBUSH_TALENT) &&
+        modules.suddenAmbush.guideSubsection}
+      {info.combatant.hasTalent(TALENTS_DRUID.LUNAR_INSPIRATION_TALENT) &&
+        modules.moonfireUptime.guideSubsection}
+      {modules.hitCountAoe.guideSubsection}
+    </Section>
+  );
+}
+
+function CooldownSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  return (
+    <Section title={t({ id: 'feral.cooldowns.title', message: 'Cooldowns' })}>
+      <p>
+        <Trans id="feral.cooldowns.description">
+          Feral's cooldowns are powerful and should not be held on to for long. In order to maximize
+          usages over the course of an encounter, you should aim to send the cooldown as soon as it
+          becomes available (as long as it can do damage on target). It is particularly important to
+          use <SpellLink spell={SPELLS.TIGERS_FURY} /> as often as possible.
+        </Trans>
+      </p>
+      <CooldownGraphSubsection modules={modules} events={events} info={info} />
+      <CooldownBreakdownSubsection modules={modules} events={events} info={info} />
+    </Section>
+  );
+}
+
+function CooldownGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  const hasBerserk = info.combatant.hasTalent(TALENTS_DRUID.BERSERK_FERAL_TALENT);
+  const hasIncarn = info.combatant.hasTalent(TALENTS_DRUID.INCARNATION_AVATAR_OF_ASHAMANE_TALENT);
+  const hasConvoke = info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT);
+  const hasFeralFrenzy =
+    info.combatant.hasTalent(TALENTS_DRUID.FERAL_FRENZY_TALENT) &&
+    !info.combatant.hasTalent(TALENTS_DRUID.FRANTIC_FRENZY_TALENT);
+  const hasFranticFrenzy = info.combatant.hasTalent(TALENTS_DRUID.FRANTIC_FRENZY_TALENT);
+  // TODO: Add once Focused Frenzy/Frantic Frenzy is figured out
+  return (
+    <SubSection>
+      <strong>{t({ id: 'feral.cooldownGraph.title', message: 'Cooldown Graph' })}</strong>{' '}
+      <Trans id="feral.cooldownGraph.description">
+        - this graph shows when you used your cooldowns and how long you waited to use them again.
+        Grey segments show when the spell was available, yellow segments show when the spell was
+        cooling down. Red segments highlight times when you could have fit a whole extra use of the
+        cooldown.
+      </Trans>
+      <CastEfficiencyBar
+        spell={SPELLS.TIGERS_FURY}
+        gapHighlightMode={GapHighlight.FullCooldown}
+        useThresholds
+      />
+      {hasBerserk && !hasIncarn && (
+        <CastEfficiencyBar
+          spell={SPELLS.BERSERK_CAT}
+          gapHighlightMode={GapHighlight.FullCooldown}
+          useThresholds
+        />
+      )}
+      {hasIncarn && (
+        <CastEfficiencyBar
+          spell={TALENTS_DRUID.INCARNATION_AVATAR_OF_ASHAMANE_TALENT}
+          gapHighlightMode={GapHighlight.FullCooldown}
+          useThresholds
+        />
+      )}
+      {hasConvoke && (
+        <CastEfficiencyBar
+          spell={SPELLS.CONVOKE_SPIRITS}
+          gapHighlightMode={GapHighlight.FullCooldown}
+          useThresholds
+        />
+      )}
+      {hasFeralFrenzy && (
+        <CastEfficiencyBar
+          spell={TALENTS_DRUID.FERAL_FRENZY_TALENT}
+          gapHighlightMode={GapHighlight.FullCooldown}
+          useThresholds
+        />
+      )}
+      {hasFranticFrenzy && (
+        <CastEfficiencyBar
+          spell={TALENTS_DRUID.FRANTIC_FRENZY_TALENT}
+          gapHighlightMode={GapHighlight.FullCooldown}
+          useThresholds
+        />
+      )}
+    </SubSection>
+  );
+}
+
+function CooldownBreakdownSubsection({
+  modules,
+  events,
+  info,
+}: GuideProps<typeof CombatLogParser>) {
+  return (
+    <SubSection>
+      {info.combatant.hasTalent(TALENTS_DRUID.BERSERK_FERAL_TALENT) &&
+        modules.berserk.guideCastBreakdown}
+      {info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) &&
+        modules.convokeSpirits.guideCastBreakdown}
+      {info.combatant.hasTalent(TALENTS_DRUID.FERAL_FRENZY_TALENT) &&
+        modules.feralFrenzy.guideCastBreakdown}
+      {info.combatant.hasTalent(TALENTS_DRUID.CHOMP_TALENT) && modules.chomp.guideCastBreakdown}
+    </SubSection>
+  );
+}

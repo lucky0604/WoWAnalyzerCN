@@ -1,5 +1,3 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section, SubSection } from 'interface/guide';
 import { ResourceLink } from 'interface';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
@@ -46,101 +44,76 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   }
 
   return (
-    <Section title={t({ id: 'paladin.retribution.section.core', message: 'Core' })}>
+    <Section title="Core">
       <FoundationDowntimeSection />
       <h4>
-        <strong>{t({ id: 'paladin.retribution.core.explanation', message: 'Explanation' })}</strong>
+        <strong>Explanation</strong>
       </h4>
       <p>
-        <Trans id="paladin.retribution.core.downtime">
-          Although Retribution is a spec with some natural downtime, it needs to be auto-attacking
-          as much as possible because of talents like{' '}
-          <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} /> and{' '}
-          <SpellLink spell={TALENTS.ART_OF_WAR_TALENT} />. Failing to maintain good melee uptime
-          will likely result in a lower ability uptime because of lower{' '}
-          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> generation.
-        </Trans>
+        Although Retribution is a spec with some natural downtime, it needs to be auto-attacking as
+        much as possible because of talents like{' '}
+        <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} /> and{' '}
+        <SpellLink spell={TALENTS.ART_OF_WAR_TALENT} />. Failing to maintain good melee uptime will
+        likely result in a lower ability uptime because of lower{' '}
+        <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> generation.
       </p>
 
-      <SubSection
-        title={t({ id: 'paladin.retribution.subsection.holyPower', message: 'Holy Power' })}
-      >
+      <SubSection title="Holy Power">
         <p>
-          <Trans id="paladin.retribution.holyPower.description">
-            Most of your rotational abilities either <strong>build</strong> or{' '}
-            <strong>spend</strong> <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />. Never use a
-            builder at max <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> or when doing so will
-            cause you to overcap on <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
-          </Trans>
+          Most of your rotational abilities either <strong>build</strong> or <strong>spend</strong>{' '}
+          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />. Never use a builder at max{' '}
+          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> or when doing so will cause you to
+          overcap on <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
         </p>
         <SideBySidePanels>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.retribution.holyPower.wasteTitle">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Waste
-              </Trans>
+              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Waste
             </strong>
             <p>
-              <Trans id="paladin.retribution.holyPower.wasted">
-                You wasted{' '}
-                <PerformancePercentage
-                  performance={wastedHolyPowerPercentagePerformance}
-                  perfectPercentage={PERFECT_HOLY_POWER_CAP}
-                  goodPercentage={GOOD_HOLY_POWER_CAP}
-                  okPercentage={OK_HOLY_POWER_CAP}
-                  percentage={wastedHolyPowerPercentage}
-                  flatAmount={holyPowerWasted}
-                />{' '}
-                of your <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
-              </Trans>
+              You wasted{' '}
+              <PerformancePercentage
+                performance={wastedHolyPowerPercentagePerformance}
+                perfectPercentage={PERFECT_HOLY_POWER_CAP}
+                goodPercentage={GOOD_HOLY_POWER_CAP}
+                okPercentage={OK_HOLY_POWER_CAP}
+                percentage={wastedHolyPowerPercentage}
+                flatAmount={holyPowerWasted}
+              />{' '}
+              of your <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
             </p>
             {info.combatant.hasTalent(TALENTS.CRUSADING_STRIKES_TALENT) ? (
               <p>
-                <Trans id="paladin.retribution.holyPower.crusadingStrikes">
-                  Because you're taking <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} />, you
-                  need to be extra careful about how you time your abilities that build{' '}
-                  <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> so that you don't overcap.
-                </Trans>
+                Because you're taking <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} />, you
+                need to be extra careful about how you time your abilities that build{' '}
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> so that you don't overcap.
               </p>
             ) : null}
             {info.combatant.hasTalent(TALENTS.DIVINE_TOLL_TALENT) &&
             wastedHolyPowerPercentage > PERFECT_HOLY_POWER_CAP ? (
               <p>
-                <Trans id="paladin.retribution.holyPower.divineToll">
-                  Some of this might be attributable to the Judgments from{' '}
-                  <SpellLink spell={TALENTS.DIVINE_TOLL_TALENT} />.
-                </Trans>
+                Some of this might be attributable to the Judgments from{' '}
+                <SpellLink spell={TALENTS.DIVINE_TOLL_TALENT} />.
               </p>
             ) : null}
             {info.combatant.hasTalent(TALENTS.DIVINE_RESONANCE_RETRIBUTION_TALENT) &&
             wastedHolyPowerPercentage > PERFECT_HOLY_POWER_CAP ? (
               <p>
-                <Trans id="paladin.retribution.holyPower.divineResonance">
-                  Some of this might be attributable to the free Judgments from{' '}
-                  <SpellLink spell={TALENTS.DIVINE_RESONANCE_RETRIBUTION_TALENT} />.
-                </Trans>
+                Some of this might be attributable to the free Judgments from{' '}
+                <SpellLink spell={TALENTS.DIVINE_RESONANCE_RETRIBUTION_TALENT} />.
               </p>
             ) : null}
           </RoundedPanel>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.retribution.holyPower.builderEffectiveness">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Builder Effectiveness
-              </Trans>
+              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Builder Effectiveness
             </strong>
             {modules.builderUse.chart}
           </RoundedPanel>
         </SideBySidePanels>
       </SubSection>
       {info.combatant.hasTalent(TALENTS.HOLY_FLAMES_TALENT) && (
-        <SubSection
-          title={t({
-            id: 'paladin.retribution.subsection.buffsDebuffs',
-            message: 'Buffs and debuffs',
-          })}
-        >
-          {modules.expurgation.guideSubsection}
-        </SubSection>
+        <SubSection title="Buffs and debuffs">{modules.expurgation.guideSubsection}</SubSection>
       )}
     </Section>
   );
@@ -166,13 +139,11 @@ const cooldowns: Cooldown[] = [
 ];
 function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title={t({ id: 'paladin.retribution.section.cooldowns', message: 'Cooldowns' })}>
+    <Section title="Cooldowns">
       <p>
-        <Trans id="paladin.retribution.cooldowns.description">
-          Retribution's cooldowns are decently powerful but should not be held on to for long. In
-          order to maximize usages over the course of an encounter, you should aim to send the
-          cooldown as soon as it becomes available (as long as it can do damage on target).
-        </Trans>
+        Retribution's cooldowns are decently powerful but should not be held on to for long. In
+        order to maximize usages over the course of an encounter, you should aim to send the
+        cooldown as soon as it becomes available (as long as it can do damage on target).
       </p>
       <CooldownGraphSubsection cooldowns={cooldowns} />
       {info.combatant.hasTalent(TALENTS.RADIANT_GLORY_TALENT) && (
