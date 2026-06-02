@@ -8,7 +8,22 @@ export const linguiTMacroOutsideJsx = {
     },
   },
   create(context) {
+    let hasLinguiCoreMacroImport = false;
+    let hasDefineMessageImport = false;
+    let linguiImportNode = null;
+
     return {
+      ImportDeclaration(node) {
+        if (node.source.value === '@lingui/core/macro') {
+          hasLinguiCoreMacroImport = true;
+          linguiImportNode = node;
+          for (const specifier of node.specifiers) {
+            if (specifier.imported && specifier.imported.name === 'defineMessage') {
+              hasDefineMessageImport = true;
+            }
+          }
+        }
+      },
       'CallExpression > Identifier[name="t"]'(identifierNode) {
         // If we don't find a JSX element, this usage of the t macro is suspect.
         let parent = identifierNode.parent;
@@ -23,7 +38,25 @@ export const linguiTMacroOutsideJsx = {
           node: identifierNode,
           messageId: 'tMacroOutsideJsxContext',
           fix(fixer) {
-            return fixer.replaceText(identifierNode, 'defineMessage');
+            const fixes = [fixer.replaceText(identifierNode, 'defineMessage')];
+
+            if (hasLinguiCoreMacroImport && !hasDefineMessageImport) {
+              fixes.push(
+                fixer.insertTextAfter(
+                  linguiImportNode.specifiers[linguiImportNode.specifiers.length - 1],
+                  ', defineMessage',
+                ),
+              );
+            } else if (!hasLinguiCoreMacroImport) {
+              fixes.push(
+                fixer.insertTextBefore(
+                  context.getSourceCode().ast.body[0],
+                  "import { defineMessage } from '@lingui/core/macro';\n",
+                ),
+              );
+            }
+
+            return fixes;
           },
         });
       },
