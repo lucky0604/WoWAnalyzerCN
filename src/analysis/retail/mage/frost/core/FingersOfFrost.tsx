@@ -214,7 +214,7 @@ class FingersOfFrost extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      defineMessage({ id: 'mage.frost.fingersOfFrost.title', message: 'Fingers of Frost' }),
+      t({ id: 'mage.frost.fingersOfFrost.title', message: 'Fingers of Frost' }),
     );
   }
 }

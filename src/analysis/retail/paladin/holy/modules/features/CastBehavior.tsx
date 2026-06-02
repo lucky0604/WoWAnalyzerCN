@@ -64,7 +64,7 @@ class CastBehavior extends Analyzer {
       },
       {
         color: '#A93226',
-        label: defineMessage({ id: 'paladin.holy.modules.castBehavior.wastedProcs', message: 'Wasted procs' }),
+        label: t({ id: 'paladin.holy.modules.castBehavior.wastedProcs', message: 'Wasted procs' }),
         tooltip: (
           <Trans id="paladin.holy.modules.castBehavior.wastedProcsDetails">
             The amount of Infusion of Lights you did not use out of the total available. You cast{' '}

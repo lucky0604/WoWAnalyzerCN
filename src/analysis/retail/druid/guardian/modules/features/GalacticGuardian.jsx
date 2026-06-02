@@ -79,7 +79,7 @@ class GalacticGuardian extends Analyzer {
         )
           .icon(SPELLS.GALACTIC_GUARDIAN.icon)
           .actual(
-            defineMessage({
+            t({
               id: 'druid.guardian.suggestions.galacticGuardian.unused',
               message: `${formatPercentage(unusedGGProcs)}% unused`,
             }),

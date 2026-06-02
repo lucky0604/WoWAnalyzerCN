@@ -74,21 +74,21 @@ class EarthlivingWeapon extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
+        label: t({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: talents.CHAIN_HEAL_TALENT.id,
         value: getAmount(talents.CHAIN_HEAL_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(talents.CHAIN_HEAL_TALENT.id)} />,
       },
       {
         color: RESTORATION_COLORS.STORMSTREAM_TOTEM,
-        label: defineMessage({ id: 'shaman.restoration.spell.stormstreamTotem', message: 'Stormstream Totem' }),
+        label: t({ id: 'shaman.restoration.spell.stormstreamTotem', message: 'Stormstream Totem' }),
         spellId: spells.STORMSTREAM_TOTEM.id,
         value: getAmount(spells.STORMSTREAM_TOTEM_HEAL.id),
         valueTooltip: <ItemHealingDone amount={getAmount(spells.STORMSTREAM_TOTEM_HEAL.id)} />,
       },
       {
         color: RESTORATION_COLORS.HEALING_STREAM_TOTEM,
-        label: defineMessage({
+        label: t({
           id: 'shaman.restoration.spell.healingStreamTotem',
           message: 'Healing Stream Totem',
         }),
@@ -98,14 +98,14 @@ class EarthlivingWeapon extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
+        label: t({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: spells.HEALING_WAVE.id,
         value: getAmount(spells.HEALING_WAVE.id),
         valueTooltip: <ItemHealingDone amount={getAmount(spells.HEALING_WAVE.id)} />,
       },
       {
         color: RESTORATION_COLORS.HEALING_TIDE_TOTEM,
-        label: defineMessage({
+        label: t({
           id: 'shaman.restoration.spell.healingTideTotem',
           message: 'Healing Tide Totem',
         }),
@@ -115,7 +115,7 @@ class EarthlivingWeapon extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.RIPTIDE,
-        label: defineMessage({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
+        label: t({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
         spellId: talents.RIPTIDE_TALENT.id,
         value: getAmount(talents.RIPTIDE_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(talents.RIPTIDE_TALENT.id)} />,

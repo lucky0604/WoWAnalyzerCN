@@ -320,7 +320,7 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
   }
 
   private explainAlwaysBeCasting(cast: CallAncestor): ChecklistUsageInfo {
-    const activeTimeLabel = defineMessage({
+    const activeTimeLabel = t({
       id: 'shaman.elemental.ancestors.active_time',
       message: 'active time',
     });

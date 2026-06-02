@@ -42,25 +42,25 @@ class CastBehavior extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
+        label: t({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: twHealingWaves,
       },
       {
         color: RESTORATION_COLORS.HEALING_SURGE,
-        label: defineMessage({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
+        label: t({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
         spellId: SPELLS.HEALING_SURGE.id,
         value: twHealingSurges,
       },
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
+        label: t({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: TALENTS.CHAIN_HEAL_TALENT.id,
         value: twChainHeals,
       },
       {
         color: RESTORATION_COLORS.UNUSED,
-        label: defineMessage({
+        label: t({
           id: 'shaman.restoration.castBehaviour.unusedTW',
           message: 'Unused Tidal Waves',
         }),
@@ -92,13 +92,13 @@ class CastBehavior extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
+        label: t({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: fillerHealingWaves,
       },
       {
         color: RESTORATION_COLORS.HEALING_SURGE,
-        label: defineMessage({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
+        label: t({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
         spellId: SPELLS.HEALING_SURGE.id,
         value: fillerHealingSurges,
       },

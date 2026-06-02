@@ -170,7 +170,7 @@ class EarthenAccord extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.UNLEASH_LIFE,
-        label: defineMessage({
+        label: t({
           id: 'shaman.restoration.spell.unleashLifeDirect',
           message: 'Unleash Life (Direct)',
         }),
@@ -180,21 +180,21 @@ class EarthenAccord extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.RIPTIDE,
-        label: defineMessage({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
+        label: t({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
         spellId: TALENTS.RIPTIDE_TALENT.id,
         value: getAmount(TALENTS.RIPTIDE_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(TALENTS.RIPTIDE_TALENT.id)} />,
       },
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
+        label: t({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: TALENTS.CHAIN_HEAL_TALENT.id,
         value: getAmount(TALENTS.CHAIN_HEAL_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(TALENTS.CHAIN_HEAL_TALENT.id)} />,
       },
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
+        label: t({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: getAmount(SPELLS.HEALING_WAVE.id),
         valueTooltip: <ItemHealingDone amount={getAmount(SPELLS.HEALING_WAVE.id)} />,

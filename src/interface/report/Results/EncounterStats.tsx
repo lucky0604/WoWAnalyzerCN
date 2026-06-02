@@ -185,7 +185,7 @@ class EncounterStats extends PureComponent<Props, State> {
       })
       .catch(() => {
         this.setState({
-          message: defineMessage({
+          message: t({
             id: 'interface.report.results.encounterStats.eeek',
             message: 'Something went wrong.',
           }),

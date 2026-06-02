@@ -81,7 +81,7 @@ class HitCountAoE extends Analyzer {
       tracker.zeroHitCasts += 1;
       addInefficientCastReason(
         event,
-        defineMessage({
+        t({
           id: 'druid.feral.aoe.hit_nothing_reason',
           message: 'This cast hit nothing!',
         }),
@@ -106,17 +106,17 @@ class HitCountAoE extends Analyzer {
     const items = [
       {
         color: PerfectColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
+        label: t({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
         value: this.swipeTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
+        label: t({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
         value: this.swipeTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
+        label: t({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
         value: this.swipeTracker!.zeroHitCasts,
       },
     ];
@@ -135,17 +135,17 @@ class HitCountAoE extends Analyzer {
     const items = [
       {
         color: PerfectColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
+        label: t({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
         value: this.pwTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
+        label: t({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
         value: this.pwTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
+        label: t({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
         value: this.pwTracker!.zeroHitCasts,
       },
     ];

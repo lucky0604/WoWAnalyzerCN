@@ -19,27 +19,27 @@ export function HomeLayout() {
   const pages = [
     {
       icon: NewsIcon,
-      name: defineMessage({ id: 'interface.home.page.news', message: 'News' }),
+      name: t({ id: 'interface.home.page.news', message: 'News' }),
       url: 'news',
     },
     {
       icon: FingerprintFilledIcon,
-      name: defineMessage({ id: 'interface.home.page.specs', message: 'Specs' }),
+      name: t({ id: 'interface.home.page.specs', message: 'Specs' }),
       url: 'specs',
     },
     {
       icon: Logo,
-      name: defineMessage({ id: 'interface.home.page.about', message: 'About' }),
+      name: t({ id: 'interface.home.page.about', message: 'About' }),
       url: 'about',
     },
     {
       icon: PremiumIcon,
-      name: defineMessage({ id: 'interface.home.page.premium', message: 'Premium' }),
+      name: t({ id: 'interface.home.page.premium', message: 'Premium' }),
       url: 'premium',
     },
     {
       icon: HelpWantedIcon,
-      name: defineMessage({ id: 'interface.home.page.helpWanted', message: 'Help wanted' }),
+      name: t({ id: 'interface.home.page.helpWanted', message: 'Help wanted' }),
       url: 'help-wanted',
     },
   ];

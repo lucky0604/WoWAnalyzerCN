@@ -164,7 +164,7 @@ export function buildAplProcWindows({
         end: timestamp,
         resolvedAt: timestamp,
         performance: QualitativePerformance.Fail,
-        outcome: defineMessage({
+        outcome: t({
           id: 'monk.windwalker.apl.outcome.overcapped',
           message: 'Overcapped before use',
         }),
@@ -201,26 +201,26 @@ export function buildAplProcWindows({
       if (resolution === 'expired') {
         if (window.readyAt !== undefined) {
           performance = QualitativePerformance.Fail;
-          outcome = defineMessage({
+          outcome = t({
             id: 'monk.windwalker.apl.outcome.expired_ready',
             message: 'Expired after becoming ready',
           });
         } else {
           performance = QualitativePerformance.Ok;
-          outcome = defineMessage({
+          outcome = t({
             id: 'monk.windwalker.apl.outcome.expired_not_ready',
             message: 'Expired before it became ready',
           });
         }
       } else if (!spentWhenReady || window.readyAt === undefined) {
         performance = QualitativePerformance.Fail;
-        outcome = defineMessage({
+        outcome = t({
           id: 'monk.windwalker.apl.outcome.spent_not_ready',
           message: 'Spent before it became ready',
         });
       } else {
         performance = QualitativePerformance.Good;
-        outcome = defineMessage({
+        outcome = t({
           id: 'monk.windwalker.apl.outcome.spent_ready',
           message: 'Spent when it became ready',
         });

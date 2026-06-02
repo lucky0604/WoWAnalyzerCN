@@ -271,7 +271,7 @@ class Spiritfont extends Analyzer {
     const stats = [
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: defineMessage({
+        label: t({
           id: 'monk.mistweaver.spiritfont.wastedBuffs',
           message: 'Wasted Buffs',
         }),

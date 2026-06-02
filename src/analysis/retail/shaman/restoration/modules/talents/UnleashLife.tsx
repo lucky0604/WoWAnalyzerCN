@@ -319,7 +319,7 @@ class UnleashLife extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
+        label: t({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: TALENTS.CHAIN_HEAL_TALENT.id,
         value: this.healingMap[TALENTS.CHAIN_HEAL_TALENT.id].amount,
         valueTooltip: this._tooltip({
@@ -330,7 +330,7 @@ class UnleashLife extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
+        label: t({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: this.healingMap[SPELLS.HEALING_WAVE.id].amount,
         valueTooltip: this._tooltip({
@@ -341,7 +341,7 @@ class UnleashLife extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.RIPTIDE,
-        label: defineMessage({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
+        label: t({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
         spellId: TALENTS.RIPTIDE_TALENT.id,
         value: this.healingMap[TALENTS.RIPTIDE_TALENT.id].amount,
         valueTooltip: this._tooltip({

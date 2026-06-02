@@ -96,7 +96,7 @@ class RaidHealthChart extends Component {
           field: 'y',
           type: 'quantitative',
           stack: true,
-          title: defineMessage({
+          title: t({
             id: 'shared.modules.raidHealthTab.chart.title.y',
             message: `Total Raid Health`,
           }),
@@ -104,7 +104,7 @@ class RaidHealthChart extends Component {
         color: {
           field: 'title',
           type: 'nominal',
-          title: defineMessage({
+          title: t({
             id: 'common.player',
             message: `Player`,
           }),

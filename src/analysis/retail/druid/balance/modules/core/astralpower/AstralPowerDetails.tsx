@@ -68,7 +68,7 @@ class AstralPowerDetails extends Analyzer {
 
   tab() {
     return {
-      title: defineMessage({
+      title: t({
         id: 'balance.astralPower.usage_title',
         message: 'Astral Power usage',
       }),

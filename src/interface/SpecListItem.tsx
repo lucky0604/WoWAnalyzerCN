@@ -47,7 +47,7 @@ const SpecListItem = ({
         </em>
       </small>
     );
-    supportDescription = defineMessage({
+    supportDescription = t({
       id: 'interface.specListItem.notSupported',
       message: 'Not currently supported',
     });

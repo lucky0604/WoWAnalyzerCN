@@ -157,7 +157,7 @@ class RushingWindKick extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.rwk.classify.not_consumed',
           message: 'Proc was not consumed',
         }),
@@ -175,7 +175,7 @@ class RushingWindKick extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.rwk.classify.first_top',
           message: 'Rushing Wind Kick was consumed the first time the APL expected it',
         }),
@@ -185,7 +185,7 @@ class RushingWindKick extends Analyzer {
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.RUSHING_WIND_KICK_CAST.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.rwk.classify.acceptable',
           message: 'Rushing Wind Kick was consumed in an acceptable APL spot',
         }),
@@ -194,7 +194,7 @@ class RushingWindKick extends Analyzer {
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: defineMessage({
+      summary: t({
         id: 'monk.windwalker.rwk.classify.not_preferred',
         message: 'Rushing Wind Kick was consumed, even though the APL did not prefer it yet',
       }),

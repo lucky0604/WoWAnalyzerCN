@@ -90,19 +90,19 @@ class ElementalBlast extends Analyzer {
     const items = [
       {
         color: '#9256ff',
-        label: defineMessage({ id: 'shaman.elemental.eb.mastery', message: 'Mastery' }),
+        label: t({ id: 'shaman.elemental.eb.mastery', message: 'Mastery' }),
         spellId: SPELLS.ELEMENTAL_BLAST_MASTERY.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_MASTERY.id],
       },
       {
         color: '#0ed59b',
-        label: defineMessage({ id: 'shaman.elemental.eb.haste', message: 'Haste' }),
+        label: t({ id: 'shaman.elemental.eb.haste', message: 'Haste' }),
         spellId: SPELLS.ELEMENTAL_BLAST_HASTE.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_HASTE.id],
       },
       {
         color: '#e01c1c',
-        label: defineMessage({ id: 'shaman.elemental.eb.crit', message: 'Crit' }),
+        label: t({ id: 'shaman.elemental.eb.crit', message: 'Crit' }),
         spellId: SPELLS.ELEMENTAL_BLAST_CRIT.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_CRIT.id],
       },

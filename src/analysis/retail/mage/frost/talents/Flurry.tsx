@@ -143,7 +143,7 @@ class Flurry extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      defineMessage({ id: 'mage.frost.flurry.title', message: 'Flurry' }),
+      t({ id: 'mage.frost.flurry.title', message: 'Flurry' }),
     );
   }
 }

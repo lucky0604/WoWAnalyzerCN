@@ -25,7 +25,7 @@ const About = ({ config }: Props) => {
       ? contributors.map((contributor) => (
           <Contributor key={contributor.nickname} {...contributor} />
         ))
-      : defineMessage({ id: 'interface.report.results.about.unmaintained', message: 'CURRENTLY UNMAINTAINED' });
+      : t({ id: 'interface.report.results.about.unmaintained', message: 'CURRENTLY UNMAINTAINED' });
 
   const description = config.description ?? <DefaultDescription {...config} />;
 

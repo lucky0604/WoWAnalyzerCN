@@ -176,7 +176,7 @@ export default class Berserk extends Analyzer.withDependencies({
 
     const checklistItems: CooldownExpandableItem[] = [];
     checklistItems.push({
-      label: defineMessage({ id: 'druid.guardian.berserk.stay_active', message: 'Stay Active!' }),
+      label: t({ id: 'druid.guardian.berserk.stay_active', message: 'Stay Active!' }),
       result: <PerformanceMark perf={percentActivePerf} />,
       details: (
         <Trans id="druid.guardian.berserk.active_time_pct">
@@ -185,7 +185,7 @@ export default class Berserk extends Analyzer.withDependencies({
       ),
     });
     checklistItems.push({
-      label: defineMessage({ id: 'druid.guardian.berserk.spend_rage', message: 'Spend your Rage' }),
+      label: t({ id: 'druid.guardian.berserk.spend_rage', message: 'Spend your Rage' }),
       result: <PerformanceMark perf={rageSpendPerf} />,
       details: (
         <Trans id="druid.guardian.berserk.rage_wasted_pct">
@@ -194,7 +194,7 @@ export default class Berserk extends Analyzer.withDependencies({
       ),
     });
     checklistItems.push({
-      label: defineMessage({ id: 'druid.guardian.berserk.dont_swipe', message: "Don't Swipe" }),
+      label: t({ id: 'druid.guardian.berserk.dont_swipe', message: "Don't Swipe" }),
       result: <PerformanceMark perf={swipesPerf} />,
       details: <Trans id="druid.guardian.berserk.swipes_count">({cast.swipes} swipes)</Trans>,
     });
@@ -203,7 +203,7 @@ export default class Berserk extends Analyzer.withDependencies({
     const detailItems: CooldownExpandableItem[] = [];
     if (cast.rageData) {
       detailItems.push({
-        label: defineMessage({ id: 'druid.guardian.berserk.total_rage', message: 'Total Rage generated' }),
+        label: t({ id: 'druid.guardian.berserk.total_rage', message: 'Total Rage generated' }),
         details: (
           <Trans id="druid.guardian.berserk.rage_amount">
             {cast.rageData.builderGenerated * RAGE_SCALE_FACTOR} Rage

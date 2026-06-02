@@ -168,7 +168,7 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     }
 
     const activeTimeChecklistItem: CooldownExpandableItem = {
-      label: defineMessage({ id: 'guide.demonhunter.devourer.vm.activeTime', message: 'Active time' }),
+      label: t({ id: 'guide.demonhunter.devourer.vm.activeTime', message: 'Active time' }),
       result: <PerformanceMark perf={activeTimePerformance} />,
       details: <>{formatPercentage(activeTimePercentageDuringWindow)}%</>,
     };

@@ -175,12 +175,12 @@ class RipUptimeAndSnapshots extends Snapshots {
       if (cast) {
         addInefficientCastReason(
           cast,
-          defineMessage({
+          t({
             id: 'druid.feral.rip.clipped_inefficient_reason_prefix',
             message: 'This cast clipped ',
           }) +
             (clipped / 1000).toFixed(1) +
-            defineMessage({
+            t({
               id: 'druid.feral.rip.clipped_inefficient_reason_suffix',
               message:
                 " seconds of Rip time without upgrading the snapshot. Try to wait until the last 30% of Rip's duration before refreshing",

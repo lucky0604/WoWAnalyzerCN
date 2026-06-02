@@ -231,7 +231,7 @@ class Vivify extends Analyzer {
     const stats = [
       {
         value: this.averageRemPerVivify.toFixed(1),
-        label: defineMessage({
+        label: t({
           id: 'monk.mistweaver.vivify.avgReMsPerCast',
           message: 'Avg ReMs Per Cast',
         }),
@@ -253,7 +253,7 @@ class Vivify extends Analyzer {
       },
       {
         value: `${formatPercentage(avgOverheal)}%`,
-        label: defineMessage({ id: 'monk.mistweaver.vivify.avgOverheal', message: 'Avg Overheal' }),
+        label: t({ id: 'monk.mistweaver.vivify.avgOverheal', message: 'Avg Overheal' }),
         tooltip: (
           <Trans id="monk.mistweaver.vivify.avgOverhealTooltip">
             Average overheal across all {this.casts} casts
@@ -266,7 +266,7 @@ class Vivify extends Analyzer {
       },
       {
         value: formatNumber(this.avgHealingPerCast),
-        label: defineMessage({
+        label: t({
           id: 'monk.mistweaver.vivify.avgHealingPerCast',
           message: 'Avg Healing Per Cast',
         }),
