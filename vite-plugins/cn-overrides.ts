@@ -23,7 +23,18 @@ function resolveSourceFile(importerDir: string, source: string): string | null {
 
   const base = path.resolve(importerDir, source);
   if (path.extname(base)) {
-    return fs.existsSync(base) ? base : null;
+    if (fs.existsSync(base)) {
+      return base;
+    }
+    // Source has a non-standard extension (e.g., ./foo.retail → foo.retail.ts).
+    // Try appending standard extensions before falling through to index lookup.
+    for (const ext of EXTENSIONS) {
+      const candidate = `${base}${ext}`;
+      if (fs.existsSync(candidate)) {
+        return candidate;
+      }
+    }
+    return null;
   }
 
   for (const ext of EXTENSIONS) {
