@@ -2,7 +2,7 @@ import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import HIT_TYPES from 'game/HIT_TYPES';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent } from 'parser/core/Events';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
@@ -51,15 +51,11 @@ class GloryOfTheDawn extends Analyzer {
         <BoringSpellValueText spell={TALENTS_MONK.GLORY_OF_THE_DAWN_TALENT}>
           <div>
             {formatPercentage(this.critRate, 0)}%{' '}
-            <small>
-              <Trans id="monk.windwalker.gotd.crit_rate">Crit rate</Trans>
-            </small>
+            <small>{t({ id: 'monk.windwalker.gotd.crit_rate', message: 'Crit rate' })}</small>
           </div>
           <div>
             {this.critHits} / {this.totalHits}{' '}
-            <small>
-              <Trans id="monk.windwalker.gotd.crits_hits">Crits / Hits</Trans>
-            </small>
+            <small>{t({ id: 'monk.windwalker.gotd.crits_hits', message: 'Crits / Hits' })}</small>
           </div>
         </BoringSpellValueText>
       </Statistic>

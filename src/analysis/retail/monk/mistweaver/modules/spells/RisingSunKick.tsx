@@ -14,6 +14,7 @@ import { getCurrentRSKTalent } from '../../constants';
 import { Talent } from 'common/TALENTS/types';
 
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 const CAST_BUFFER_MS = 250;
 
 class RisingSunKick extends Analyzer {
@@ -101,7 +102,7 @@ class RisingSunKick extends Analyzer {
         <RoundedPanel>
           <strong>
             <SpellLink spell={this.currentRskTalent} />{' '}
-            <Trans id="monk.mistweaver.risingSunKick.castEfficiency">cast efficiency</Trans>
+            {t({ id: 'monk.mistweaver.risingSunKick.castEfficiency', message: 'cast efficiency' })}
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>
@@ -128,9 +129,7 @@ class RisingSunKick extends Analyzer {
     return (
       <>
         {this.rskResets}{' '}
-        <small>
-          <Trans id="monk.mistweaver.risingSunKick.resets">resets</Trans>
-        </small>
+        <small>{t({ id: 'monk.mistweaver.risingSunKick.resets', message: 'resets' })}</small>
       </>
     );
   }

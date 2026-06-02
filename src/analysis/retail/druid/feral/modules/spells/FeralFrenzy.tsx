@@ -147,11 +147,9 @@ export default class FeralFrenzy extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="druid.feral.ff.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'druid.feral.ff.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
-        <small>
-          <Trans id="druid.feral.ff.click_expand"> - click to expand</Trans>
-        </small>
+        <small>{t({ id: 'druid.feral.ff.click_expand', message: '- click to expand' })}</small>
         {this.ffTrackers.map((cast, ix) => {
           const header = (
             <>
@@ -190,12 +188,11 @@ export default class FeralFrenzy extends Analyzer {
             result: <PerformanceMark perf={cpsPerf} />,
             details: (
               <>
-                <Trans id="druid.feral.ff.cps_and_targets">
-                  ({cast.cpsOnCast} CPs)
-                </Trans>
+                <Trans id="druid.feral.ff.cps_and_targets">({cast.cpsOnCast} CPs)</Trans>
                 {this.isFrantic && (
                   <Trans id="druid.feral.ff.targets_hit">
-                    {' '}({cast.damageByEnemy.size} Targets hit)
+                    {' '}
+                    ({cast.damageByEnemy.size} Targets hit)
                   </Trans>
                 )}
               </>
@@ -246,22 +243,22 @@ export default class FeralFrenzy extends Analyzer {
         <thead>
           <tr>
             <th style={{ textAlign: 'center' }}>
-              <Trans id="druid.shared.convoke.cast_num">Cast #</Trans>
+              {t({ id: 'druid.shared.convoke.cast_num', message: 'Cast #' })}
             </th>
             <th style={{ textAlign: 'left' }}>
-              <Trans id="druid.shared.convoke.time">Time</Trans>
+              {t({ id: 'druid.shared.convoke.time', message: 'Time' })}
             </th>
             <th style={{ textAlign: 'left' }}>
-              <Trans id="druid.feral.ff.cast_damage">Cast Damage</Trans>
+              {t({ id: 'druid.feral.ff.cast_damage', message: 'Cast Damage' })}
             </th>
             <th style={{ textAlign: 'left' }}>
-              <Trans id="druid.feral.ff.enemy">Enemy</Trans>
+              {t({ id: 'druid.feral.ff.enemy', message: 'Enemy' })}
             </th>
             <th style={{ textAlign: 'center' }}>
-              <Trans id="druid.feral.ff.hit_count"># Hit</Trans>
+              {t({ id: 'druid.feral.ff.hit_count', message: '# Hit' })}
             </th>
             <th style={{ textAlign: 'left' }}>
-              <Trans id="druid.shared.convoke.damage">Damage</Trans>
+              {t({ id: 'druid.shared.convoke.damage', message: 'Damage' })}
             </th>
           </tr>
         </thead>

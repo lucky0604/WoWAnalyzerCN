@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import AlertWarning from 'interface/AlertWarning';
 import ReportIcon from 'interface/icons/Events';
 import GuildIcon from 'interface/icons/People';
@@ -119,7 +120,10 @@ class ReportSelectionHeader extends PureComponent<Props, State> {
                     >
                       <a href="/" style={{ padding: '5px' }} onClick={this.handleReportSearchClick}>
                         <ReportIcon />
-                        <Trans id="interface.home.reportSelectionHeader.report">Report</Trans>
+                        {t({
+                          id: 'interface.home.reportSelectionHeader.report',
+                          message: 'Report',
+                        })}
                       </a>
                     </li>
                     <li
@@ -134,7 +138,10 @@ class ReportSelectionHeader extends PureComponent<Props, State> {
                         onClick={this.handleCharacterSearchClick}
                       >
                         <CharacterIcon />
-                        <Trans id="interface.home.reportSelectionHeader.character">Character</Trans>
+                        {t({
+                          id: 'interface.home.reportSelectionHeader.character',
+                          message: 'Character',
+                        })}
                       </a>
                     </li>
                     <li
@@ -143,7 +150,7 @@ class ReportSelectionHeader extends PureComponent<Props, State> {
                     >
                       <a href="/" style={{ padding: '5px' }} onClick={this.handleGuildSearchClick}>
                         <GuildIcon />
-                        <Trans id="interface.home.reportSelectionHeader.guild">Guild</Trans>
+                        {t({ id: 'interface.home.reportSelectionHeader.guild', message: 'Guild' })}
                       </a>
                     </li>
                   </ul>

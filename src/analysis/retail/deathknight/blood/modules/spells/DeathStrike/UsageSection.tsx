@@ -42,6 +42,7 @@ import {
   timeAxis,
 } from 'analysis/retail/monk/brewmaster/modules/charts';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { ActualCastDescription } from 'interface/guide/components/Apl/violations/claims';
 import { StringFieldDefWithCondition } from 'vega-lite/build/src/channeldef';
 import { MitigationSegments } from 'interface/guide/components/MajorDefensives/MitigationSegments';
@@ -55,7 +56,7 @@ import AlertWarning from 'interface/AlertWarning';
 const reasonLabel = (reason: DeathStrikeReason) => {
   switch (reason) {
     case DeathStrikeReason.GoodHealing:
-      return <Trans id="blood.guide.death-strike.good-healing">Large Heal</Trans>;
+      return defineMessage({ id: 'blood.guide.death-strike.good-healing', message: 'Large Heal' });
     case DeathStrikeReason.LowHealth:
       return (
         <Trans id="blood.guide.death-strike.low-hp">
@@ -84,7 +85,7 @@ const reasonLabel = (reason: DeathStrikeReason) => {
         </Trans>
       );
     case DeathStrikeReason.Other:
-      return <Trans id="guide.unknown-reason">Other</Trans>;
+      return defineMessage({ id: 'guide.unknown-reason', message: 'Other' });
   }
 };
 

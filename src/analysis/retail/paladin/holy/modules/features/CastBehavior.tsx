@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -63,7 +64,7 @@ class CastBehavior extends Analyzer {
       },
       {
         color: '#A93226',
-        label: <Trans id="paladin.holy.modules.castBehavior.wastedProcs">Wasted procs</Trans>,
+        label: defineMessage({ id: 'paladin.holy.modules.castBehavior.wastedProcs', message: 'Wasted procs' }),
         tooltip: (
           <Trans id="paladin.holy.modules.castBehavior.wastedProcsDetails">
             The amount of Infusion of Lights you did not use out of the total available. You cast{' '}
@@ -137,7 +138,7 @@ class CastBehavior extends Analyzer {
         <Statistic ultrawide size="flexible">
           <div className="pad">
             <label>
-              <Trans id="paladin.holy.modules.castBehavior.fillers">Fillers</Trans>
+              {t({ id: 'paladin.holy.modules.castBehavior.fillers', message: 'Fillers' })}
             </label>
 
             {this.fillerCastRatioChart()}

@@ -410,7 +410,7 @@ class Ascendance extends Analyzer.withDependencies({
           <SpellLink spell={event.ability.guid} />
           <div>@ {this.owner.formatTimestamp(event.timestamp)}</div>
           <div>
-            <Trans id="shaman.elemental.ascendance.not_finished">Cast never finished.</Trans>
+            {t({ id: 'shaman.elemental.ascendance.not_finished', message: 'Cast never finished.' })}
           </div>
         </>
       ),

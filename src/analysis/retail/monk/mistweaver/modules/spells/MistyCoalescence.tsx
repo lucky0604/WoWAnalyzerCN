@@ -12,6 +12,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { formatPercentage } from 'common/format';
 import SpellLink from 'interface/SpellLink';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 class MistyCoalescence extends Analyzer {
   static dependencies = {
@@ -75,24 +76,22 @@ class MistyCoalescence extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(21)}
         size="flexible"
-        tooltip={
-          (() => {
-            const avg = this.avgRems.toFixed(2);
-            const players = this.combatants.playerCount;
-            return (
-              <Trans id="monk.mistweaver.misty_coalescence.tooltip">
-                {avg} average <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} />
-                (s) on a {players} player group.
-              </Trans>
-            );
-          })()
-        }
+        tooltip={(() => {
+          const avg = this.avgRems.toFixed(2);
+          const players = this.combatants.playerCount;
+          return (
+            <Trans id="monk.mistweaver.misty_coalescence.tooltip">
+              {avg} average <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} />
+              (s) on a {players} player group.
+            </Trans>
+          );
+        })()}
       >
         <TalentSpellText talent={TALENTS_MONK.MISTY_COALESCENCE_TALENT}>
           <div>
             {formatPercentage(this.averageIncrease)}%{' '}
             <small>
-              <Trans id="monk.mistweaver.misty_coalescence.label"> average increase</Trans>
+              {t({ id: 'monk.mistweaver.misty_coalescence.label', message: 'average increase' })}
             </small>
           </div>
           <div>

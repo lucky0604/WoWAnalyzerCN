@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import fetchWcl from 'common/fetchWclApi';
 import { formatDuration, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -137,8 +138,8 @@ class AncestralVigor extends Analyzer {
       return (
         <StatisticBox
           icon={<SpellIcon spell={SPELLS.ANCESTRAL_VIGOR} />}
-          label={<Trans id="shaman.restoration.av.statistic.label">Lives saved</Trans>}
-          value={<Trans id="shaman.restoration.av.statistic.disabled">Module disabled</Trans>}
+          label={t({ id: 'shaman.restoration.av.statistic.label', message: 'Lives saved' })}
+          value={t({ id: 'shaman.restoration.av.statistic.disabled', message: 'Module disabled' })}
           tooltip={
             <Trans id="shaman.restoration.av.statistic.disabled.reason">
               There were multiple Restoration Shamans with Ancestral Vigor or Downpour in your raid
@@ -210,7 +211,7 @@ class AncestralVigor extends Analyzer {
           loader={this.load.bind(this)}
           icon={<SpellIcon spell={SPELLS.ANCESTRAL_VIGOR} />}
           value={`≈${this.filteredLifeSavingEvents.length}`}
-          label={<Trans id="shaman.restoration.av.statistic.label">Lives saved</Trans>}
+          label={t({ id: 'shaman.restoration.av.statistic.label', message: 'Lives saved' })}
           tooltip={tooltip}
           category={STATISTIC_CATEGORY.TALENTS}
           position={STATISTIC_ORDER.OPTIONAL(60)}
@@ -218,21 +219,13 @@ class AncestralVigor extends Analyzer {
           <table className="table table-condensed">
             <thead>
               <tr>
-                <th>
-                  <Trans id="common.time">Time</Trans>
-                </th>
-                <th>
-                  <Trans id="common.player">Player</Trans>
-                </th>
+                <th>{t({ id: 'common.time', message: 'Time' })}</th>
+                <th>{t({ id: 'common.player', message: 'Player' })}</th>
                 <th style={{ textAlign: 'center' }}>
-                  <Trans id="common.ability">Ability</Trans>
+                  {t({ id: 'common.ability', message: 'Ability' })}
                 </th>
-                <th>
-                  <Trans id="common.buffs">Buff(s)</Trans>
-                </th>
-                <th>
-                  <Trans id="common.health">Health</Trans>
-                </th>
+                <th>{t({ id: 'common.buffs', message: 'Buff(s)' })}</th>
+                <th>{t({ id: 'common.health', message: 'Health' })}</th>
               </tr>
             </thead>
             <tbody>

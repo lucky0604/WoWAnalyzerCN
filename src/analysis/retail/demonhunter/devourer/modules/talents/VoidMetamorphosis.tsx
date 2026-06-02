@@ -141,7 +141,7 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
       label: (
         <>
           <SpellLink spell={SPELLS.CULL} />{' '}
-          <Trans id="guide.demonhunter.devourer.vm.casts">casts</Trans>
+          {t({ id: 'guide.demonhunter.devourer.vm.casts', message: 'casts' })}
         </>
       ),
       result: <PerformanceMark perf={cullPerformance} />,
@@ -168,7 +168,7 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     }
 
     const activeTimeChecklistItem: CooldownExpandableItem = {
-      label: <Trans id="guide.demonhunter.devourer.vm.activeTime">Active time</Trans>,
+      label: defineMessage({ id: 'guide.demonhunter.devourer.vm.activeTime', message: 'Active time' }),
       result: <PerformanceMark perf={activeTimePerformance} />,
       details: <>{formatPercentage(activeTimePercentageDuringWindow)}%</>,
     };
@@ -283,10 +283,13 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     const data = (
       <div>
         <b>
-          <Trans id="guide.demonhunter.devourer.vm.perCastBreakdown">Per-Cast Breakdown</Trans>
+          {t({
+            id: 'guide.demonhunter.devourer.vm.perCastBreakdown',
+            message: 'Per-Cast Breakdown',
+          })}
         </b>
         <small>
-          <Trans id="guide.demonhunter.devourer.vm.clickToExpand"> - click to expand</Trans>
+          {t({ id: 'guide.demonhunter.devourer.vm.clickToExpand', message: '- click to expand' })}
         </small>
         {this.#castTrackers.map((cast, index) => {
           const header = (
@@ -319,9 +322,7 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     return (
       <>
         <div>
-          <b>
-            <Trans id="guide.demonhunter.devourer.vm.uptimeGraph">Uptime graph</Trans>
-          </b>{' '}
+          <b>{t({ id: 'guide.demonhunter.devourer.vm.uptimeGraph', message: 'Uptime graph' })}</b>{' '}
           <Trans id="guide.demonhunter.devourer.vm.uptimeGraphDesc">
             - grey segments show when the buff was not active, yellow segments show when it was
             active.

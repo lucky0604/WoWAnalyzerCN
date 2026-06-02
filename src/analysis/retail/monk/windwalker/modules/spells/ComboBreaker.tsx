@@ -194,7 +194,7 @@ class ComboBreaker extends Analyzer {
         <BoringSpellValueText spell={SPELLS.COMBO_BREAKER_BUFF}>
           {formatPercentage(this.usedCBProcs, 0)}%{' '}
           <small>
-            <Trans id="monk.windwalker.cb.proc_utilization">Proc utilization</Trans>
+            {t({ id: 'monk.windwalker.cb.proc_utilization', message: 'Proc utilization' })}
           </small>
         </BoringSpellValueText>
       </Statistic>
@@ -350,7 +350,7 @@ class ComboBreaker extends Analyzer {
             }}
           >
             <div style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 700 }}>
-              <Trans id="monk.windwalker.cb.risky_tp_title">Risky Tiger Palm Casts</Trans>
+              {t({ id: 'monk.windwalker.cb.risky_tp_title', message: 'Risky Tiger Palm Casts' })}
             </div>
             <div>
               {(() => {

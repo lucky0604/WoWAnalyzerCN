@@ -198,22 +198,22 @@ class SurgingTotem extends Analyzer {
               <b>
                 <SpellLink spell={SPELLS.SURGING_TOTEM} />
               </b>{' '}
-              is central to your gameplay as a Totemic Shaman. It should be active at all times as it
-              casts a longer and more potent version of{' '}
+              is central to your gameplay as a Totemic Shaman. It should be active at all times as
+              it casts a longer and more potent version of{' '}
               <SpellLink spell={SPELLS.HEALING_RAIN_TOTEMIC} />. You can use{' '}
-              <SpellLink spell={TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT} /> to reposition it every 10
-              seconds.
+              <SpellLink spell={TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT} /> to reposition it every
+              10 seconds.
             </Trans>
           ) : (
             <Trans id="shaman.restoration.st.explanation1_no_talent">
               <b>
                 <SpellLink spell={SPELLS.SURGING_TOTEM} />
               </b>{' '}
-              is central to your gameplay as a Totemic Shaman. It should be active at all times as it
-              casts a longer and more potent version of{' '}
+              is central to your gameplay as a Totemic Shaman. It should be active at all times as
+              it casts a longer and more potent version of{' '}
               <SpellLink spell={SPELLS.HEALING_RAIN_TOTEMIC} />. You can talent into{' '}
-              <SpellLink spell={TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT} /> to reposition it every 10
-              seconds.
+              <SpellLink spell={TALENTS_SHAMAN.TOTEMIC_PROJECTION_TALENT} /> to reposition it every
+              10 seconds.
             </Trans>
           )}
         </p>
@@ -234,8 +234,8 @@ class SurgingTotem extends Analyzer {
               Through <SpellLink spell={TALENTS_SHAMAN.WHIRLING_ELEMENTS_TALENT} />, every cast
               produces three motes, each offering a powerful buff :{' '}
               <SpellLink spell={SPELLS.WHIRLING_AIR} />, <SpellLink spell={SPELLS.WHIRLING_EARTH} />{' '}
-              and <SpellLink spell={SPELLS.WHIRLING_WATER} />. You should always try and consume these
-              buffs.
+              and <SpellLink spell={SPELLS.WHIRLING_WATER} />. You should always try and consume
+              these buffs.
             </Trans>
           </p>
         )}
@@ -315,18 +315,30 @@ class SurgingTotem extends Analyzer {
             <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_EARTH.id]}</strong>{' '}
             <SpellLink spell={SPELLS.WHIRLING_EARTH} />, and{' '}
             <strong>{this.whirlingMotesConsumed[SPELLS.WHIRLING_WATER.id]}</strong>{' '}
-            <SpellLink spell={SPELLS.WHIRLING_WATER} />. The following breakdown represents your usage
-            of the elemental motes.
+            <SpellLink spell={SPELLS.WHIRLING_WATER} />. The following breakdown represents your
+            usage of the elemental motes.
           </Trans>
         </div>
 
         <CastSummaryAndBreakdown
           spell={SPELLS.SURGING_TOTEM}
           castEntries={this.castEntries}
-          perfectExtraExplanation={t({ id: 'shaman.restoration.st.motes_consumed', message: 'all 3 motes consumed' })}
-          goodExtraExplanation={t({ id: 'shaman.restoration.st.motes_consumed_2', message: '2 motes consumed' })}
-          okExtraExplanation={t({ id: 'shaman.restoration.st.motes_consumed_1', message: '1 mote consumed' })}
-          badExtraExplanation={t({ id: 'shaman.restoration.st.motes_wasted', message: 'all motes wasted' })}
+          perfectExtraExplanation={t({
+            id: 'shaman.restoration.st.motes_consumed',
+            message: 'all 3 motes consumed',
+          })}
+          goodExtraExplanation={t({
+            id: 'shaman.restoration.st.motes_consumed_2',
+            message: '2 motes consumed',
+          })}
+          okExtraExplanation={t({
+            id: 'shaman.restoration.st.motes_consumed_1',
+            message: '1 mote consumed',
+          })}
+          badExtraExplanation={t({
+            id: 'shaman.restoration.st.motes_wasted',
+            message: 'all motes wasted',
+          })}
         />
       </>
     );
@@ -382,7 +394,7 @@ class SurgingTotem extends Analyzer {
           )}
           {value === QualitativePerformance.Perfect && (
             <div>
-              <Trans id="shaman.restoration.st.all_consumed">All motes consumed ✅</Trans>
+              {t({ id: 'shaman.restoration.st.all_consumed', message: 'All motes consumed ✅' })}
             </div>
           )}
         </>

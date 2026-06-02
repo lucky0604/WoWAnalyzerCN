@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Spell from 'common/SPELLS/Spell';
 import Icon from 'interface/Icon';
 import SpellLink from 'interface/SpellLink';
@@ -164,9 +165,10 @@ class Lane extends PureComponent<Props> {
 
     return (
       <Tooltip
-        content={
-          <Trans id="interface.report.results.timeline.lane.tooltip.castable">Castable</Trans>
-        }
+        content={t({
+          id: 'interface.report.results.timeline.lane.tooltip.castable',
+          message: 'Castable',
+        })}
       >
         <div
           key={`castable-${start}-${end}`}

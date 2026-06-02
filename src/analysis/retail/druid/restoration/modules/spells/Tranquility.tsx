@@ -1,5 +1,6 @@
 import { formatNumber } from 'common/format';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink, Tooltip } from 'interface';
 import { PassFailCheckmark } from 'interface/guide';
@@ -76,8 +77,9 @@ class Tranquility extends Analyzer {
             <strong>
               <SpellLink spell={SPELLS.TRANQUILITY_CAST} />
             </strong>{' '}
-            is your most powerful raid healing cooldown. You should line it up with the most dangerous
-            moments of the fight, and in many raids you'll be assigned to use it at specific timings.
+            is your most powerful raid healing cooldown. You should line it up with the most
+            dangerous moments of the fight, and in many raids you'll be assigned to use it at
+            specific timings.
           </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.FLOURISH_TALENT) && (
@@ -114,8 +116,8 @@ class Tranquility extends Analyzer {
         )}
         <p>
           <Trans id="restoration.tranquility.explanation_p5">
-            Watch your positioning before casting so you can complete the full channel without moving
-            and avoid clipping ticks at the end.
+            Watch your positioning before casting so you can complete the full channel without
+            moving and avoid clipping ticks at the end.
           </Trans>
         </p>
       </>
@@ -124,10 +126,10 @@ class Tranquility extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="restoration.tranquility.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'restoration.tranquility.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="restoration.tranquility.click_expand"> - click to expand</Trans>
+          {t({ id: 'restoration.tranquility.click_expand', message: '- click to expand' })}
         </small>
         {this.tranqCasts.map((cast, ix) => {
           const header = (
@@ -155,9 +157,7 @@ class Tranquility extends Analyzer {
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
             details: (
-              <Trans id="restoration.tranquility.wg_active">
-                ({cast.wgsOnCast} HoTs active)
-              </Trans>
+              <Trans id="restoration.tranquility.wg_active">({cast.wgsOnCast} HoTs active)</Trans>
             ),
           });
           checklistItems.push({
@@ -205,7 +205,10 @@ class Tranquility extends Analyzer {
 
           const detailItems: CooldownExpandableItem[] = [];
           detailItems.push({
-            label: <Trans id="restoration.tranquility.direct_healing_label">Direct Healing</Trans>,
+            label: t({
+              id: 'restoration.tranquility.direct_healing_label',
+              message: 'Direct Healing',
+            }),
             result: '',
             details: <>{formatNumber(cast.directHealing)}</>,
           });

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { ResourceLink, SpellLink } from 'interface';
@@ -68,7 +69,10 @@ class FinisherUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: <Trans id="druid.feral.finisher_use.high_cp_finishers">High CP Finishers</Trans>,
+        label: defineMessage({
+          id: 'druid.feral.finisher_use.high_cp_finishers',
+          message: 'High CP Finishers',
+        }),
         value: this.maxCpFinishers,
         tooltip: (
           <>
@@ -82,7 +86,7 @@ class FinisherUse extends Analyzer {
       },
       {
         color: OkColor,
-        label: <Trans id="druid.feral.finisher_use.low_cp_rips">Low CP Intial Rips</Trans>,
+        label: defineMessage({ id: 'druid.feral.finisher_use.low_cp_rips', message: 'Low CP Intial Rips' }),
         value: this.lowCpRipApplies,
         tooltip: (
           <>
@@ -95,9 +99,10 @@ class FinisherUse extends Analyzer {
       },
       {
         color: BadColor,
-        label: (
-          <Trans id="druid.feral.finisher_use.low_cp_bites">Low CP Bite / Refresh Finishers</Trans>
-        ),
+        label: defineMessage({
+          id: 'druid.feral.finisher_use.low_cp_bites',
+          message: 'Low CP Bite / Refresh Finishers',
+        }),
         value: this.badLowCpFinisherCasts,
       },
     ];

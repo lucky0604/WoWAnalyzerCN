@@ -213,7 +213,7 @@ const ReportSelecter = () => {
         </Tooltip>
 
         <button type="submit" className="btn btn-primary analyze">
-          <Trans id="interface.reportSelecter.reportSelecter.button">Analyze</Trans>{' '}
+          {t({ id: 'interface.reportSelecter.reportSelecter.button', message: 'Analyze' })}{' '}
           <span className="glyphicon glyphicon-chevron-right" aria-hidden />
         </button>
       </div>

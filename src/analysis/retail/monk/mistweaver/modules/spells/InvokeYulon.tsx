@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
 } from 'interface/guide/components/CooldownExpandable';
@@ -216,10 +217,10 @@ class InvokeYulon extends BaseCelestialAnalyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="monk.mistweaver.invokeYulon.perCastBreakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'monk.mistweaver.invokeYulon.perCastBreakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="monk.mistweaver.invokeYulon.clickToExpand"> - click to expand</Trans>
+          {t({ id: 'monk.mistweaver.invokeYulon.clickToExpand', message: '- click to expand' })}
         </small>
         {this.castTrackers.map((cast, ix) => {
           const header = (

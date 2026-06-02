@@ -2,6 +2,7 @@ import { TALENTS_MONK } from 'common/TALENTS';
 import { Options } from 'parser/core/Module';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import {
   CastInfo,
   default as CommonCelestialConduit,
@@ -46,13 +47,16 @@ class CelestialConduit extends CommonCelestialConduit {
         </strong>
         <div>
           <strong>
-            <Trans id="monk.windwalker.celestial_conduit.clip_analysis">Clip Analysis</Trans>{' '}
+            {t({
+              id: 'monk.windwalker.celestial_conduit.clip_analysis',
+              message: 'Clip Analysis',
+            })}{' '}
           </strong>
           <small>
             <Trans id="monk.windwalker.celestial_conduit.blue_perfect">
               - Blue indicates a perfect cast (
-              <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> was channeled to
-              completion)
+              <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> was channeled
+              to completion)
             </Trans>
           </small>
           <PerformanceBoxRow values={this.castEntries(this.castInfoList)} />
@@ -67,8 +71,9 @@ class CelestialConduit extends CommonCelestialConduit {
         <Trans id="monk.windwalker.celestial_conduit.explanation">
           <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> should be cast
           towards the end of a <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />{' '}
-          window, so that the secondary cast of <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />{' '}
-          triggers a new window. The channel should always be fully completed when possible.
+          window, so that the secondary cast of{' '}
+          <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> triggers a new window. The channel
+          should always be fully completed when possible.
         </Trans>
       </p>
     );

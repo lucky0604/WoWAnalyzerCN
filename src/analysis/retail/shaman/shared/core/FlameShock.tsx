@@ -12,7 +12,6 @@ import { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import { TALENTS_SHAMAN } from 'common/TALENTS';
 
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 export const FLAMESHOCK_BASE_DURATION = 18000;
 
 class FlameShock extends EarlyDotRefreshesAnalyzer {
@@ -91,9 +90,7 @@ class FlameShock extends EarlyDotRefreshesAnalyzer {
         <BoringSpellValueText spell={SPELLS.FLAME_SHOCK}>
           <>
             <UptimeIcon /> {formatPercentage(this.uptime)}%{' '}
-            <small>
-              <Trans id="shaman.shared.flameshock.uptime_label">uptime</Trans>
-            </small>
+            <small>{t({ id: 'shaman.shared.flameshock.uptime_label', message: 'uptime' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

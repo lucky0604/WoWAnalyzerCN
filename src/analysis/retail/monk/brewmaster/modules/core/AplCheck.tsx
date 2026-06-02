@@ -8,6 +8,7 @@ import talents from 'common/TALENTS/monk';
 import { AnyEvent } from 'parser/core/Events';
 import { SpellLink, TooltipElement } from 'interface';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const withCombo = cnd.buffPresent(SPELLS_COMMON.BLACKOUT_COMBO_BUFF);
 
@@ -42,7 +43,7 @@ const CHP_SETUP = {
           </Trans>
         }
       >
-        <Trans id="monk.brewmaster.apl.optional">(Optional)</Trans>
+        {t({ id: 'monk.brewmaster.apl.optional', message: '(Optional)' })}
       </TooltipElement>{' '}
       <Trans id="monk.brewmaster.apl.apply_charred_passions">
         Apply <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} /> when it is missing before using{' '}
@@ -64,9 +65,8 @@ const standardApl = build([
         const tense = tenseAlt(tenseVal, 'is', 'was');
         return (
           <Trans id="monk.brewmaster.apl.niusao_active">
-            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>{' '}
-            {tense} active (as{' '}
-            <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink> {tense}{' '}
+            active (as <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
           </Trans>
         );
       },
@@ -83,9 +83,8 @@ const standardApl = build([
         const tense = tenseAlt(tenseVal, 'is', 'was');
         return (
           <Trans id="monk.brewmaster.apl.niusao_active">
-            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>{' '}
-            {tense} active (as{' '}
-            <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink> {tense}{' '}
+            active (as <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
           </Trans>
         );
       },

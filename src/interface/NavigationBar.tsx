@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import DiscordIcon from 'interface/icons/DiscordTiny';
 import GitHubIcon from 'interface/icons/GitHubMarkSmall';
 import PremiumIcon from 'interface/icons/Premium';
@@ -41,20 +41,23 @@ const NavigationBar = ({ children, ...others }: Props) => {
         {report ? (
           <div className="menu-item">
             <Link to={report.link}>
-              {fight ? (
-                fight.title
-              ) : (
-                <Trans id="interface.layout.navigationBar.fightSelection">Fight selection</Trans>
-              )}
+              {fight
+                ? fight.title
+                : t({
+                    id: 'interface.layout.navigationBar.fightSelection',
+                    message: 'Fight selection',
+                  })}
             </Link>
           </div>
         ) : null}
         {report && (fight || playerName) && (
           <div className="menu-item">
             <Link to={fight?.link ?? report.link}>
-              {playerName ?? (
-                <Trans id="interface.layout.navigationBar.playerSelection">Player selection</Trans>
-              )}
+              {playerName ??
+                t({
+                  id: 'interface.layout.navigationBar.playerSelection',
+                  message: 'Player selection',
+                })}
             </Link>
           </div>
         )}
@@ -76,20 +79,23 @@ const NavigationBar = ({ children, ...others }: Props) => {
         <div className="menu-item required">
           {user && user.premium ? (
             <Tooltip
-              content={
-                <Trans id="interface.layout.navigationBar.premiumActive">Premium active</Trans>
-              }
+              content={t({
+                id: 'interface.layout.navigationBar.premiumActive',
+                message: 'Premium active',
+              })}
             >
               <Link to="/premium">
                 <PremiumIcon /> <span className="optional">{user.name}</span>
               </Link>
             </Tooltip>
           ) : (
-            <Tooltip content={<Trans id="interface.layout.navigationBar.premium">Premium</Trans>}>
+            <Tooltip
+              content={t({ id: 'interface.layout.navigationBar.premium', message: 'Premium' })}
+            >
               <Link to="/premium" className="premium">
                 <PremiumIcon />{' '}
                 <span className="optional">
-                  <Trans id="interface.layout.navigationBar.premium">Premium</Trans>
+                  {t({ id: 'interface.layout.navigationBar.premium', message: 'Premium' })}
                 </span>
               </Link>
             </Tooltip>

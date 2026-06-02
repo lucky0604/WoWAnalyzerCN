@@ -117,9 +117,9 @@ class Innervate extends Analyzer {
           <strong>
             <SpellLink spell={SPELLS.INNERVATE} />
           </strong>{' '}
-          is best used during your ramp, or any time when you expect to spam cast. Typically it should
-          be used as soon as it's available. Remember to spam cast expensive spells to make the most
-          of it.
+          is best used during your ramp, or any time when you expect to spam cast. Typically it
+          should be used as soon as it's available. Remember to spam cast expensive spells to make
+          the most of it.
         </Trans>
       </p>
     );
@@ -127,10 +127,10 @@ class Innervate extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="restoration.innervate.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'restoration.innervate.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="restoration.innervate.click_expand"> - click to expand</Trans>
+          {t({ id: 'restoration.innervate.click_expand', message: '- click to expand' })}
         </small>
         {this.castTrackers.map((cast, ix) => {
           const sourceName =
@@ -179,17 +179,20 @@ class Innervate extends Analyzer {
 
           const detailItems: CooldownExpandableItem[] = [];
           detailItems.push({
-            label: <Trans id="restoration.innervate.gained_from_label">Gained from</Trans>,
+            label: t({ id: 'restoration.innervate.gained_from_label', message: 'Gained from' }),
             result: '',
             details: <>{sourceName}</>,
           });
           detailItems.push({
-            label: <Trans id="restoration.innervate.mana_saved_label">Mana saved</Trans>,
+            label: t({ id: 'restoration.innervate.mana_saved_label', message: 'Mana saved' }),
             result: '',
             details: <>{cast.manaSaved}</>,
           });
           detailItems.push({
-            label: <Trans id="restoration.innervate.casts_during_label">Casts during Innervate</Trans>,
+            label: t({
+              id: 'restoration.innervate.casts_during_label',
+              message: 'Casts during Innervate',
+            }),
             result: '',
             details: cast.casts.map((c, iix) => (
               <span key={iix}>
@@ -225,7 +228,7 @@ class Innervate extends Analyzer {
           label={
             <>
               <SpellIcon spell={SPELLS.INNERVATE} />{' '}
-              <Trans id="restoration.innervate.avg_mana_saved">Average mana saved</Trans>
+              {t({ id: 'restoration.innervate.avg_mana_saved', message: 'Average mana saved' })}
             </>
           }
         >

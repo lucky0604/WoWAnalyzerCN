@@ -184,7 +184,10 @@ class BlackoutKick extends Analyzer {
             />{' '}
             {(this.effectiveRisingSunKickReductionMs / 1000).toFixed(1)}{' '}
             <small>
-              <Trans id="monk.windwalker.blackout_kick.seconds_reduced">Seconds reduced</Trans>
+              {t({
+                id: 'monk.windwalker.blackout_kick.seconds_reduced',
+                message: 'Seconds reduced',
+              })}
             </small>
           </p>
           <p>
@@ -197,7 +200,10 @@ class BlackoutKick extends Analyzer {
             />{' '}
             {(this.effectiveFistsOfFuryReductionMs / 1000).toFixed(1)}{' '}
             <small>
-              <Trans id="monk.windwalker.blackout_kick.seconds_reduced">Seconds reduced</Trans>
+              {t({
+                id: 'monk.windwalker.blackout_kick.seconds_reduced',
+                message: 'Seconds reduced',
+              })}
             </small>
           </p>
         </BoringSpellValueText>

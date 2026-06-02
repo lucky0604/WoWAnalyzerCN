@@ -149,7 +149,8 @@ class Efflorescence extends Analyzer {
             <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
           </b>{' '}
           is free and provides strong healing, especially when Lifebloom is maintained on a target
-          stacked with the raid. Keep Lifebloom on a squishier melee player for consistent value. With
+          stacked with the raid. Keep Lifebloom on a squishier melee player for consistent value.
+          With
           <b>
             <SpellLink spell={TALENTS_DRUID.LIFETREADING_TALENT} />
           </b>
@@ -163,7 +164,7 @@ class Efflorescence extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="restoration.efflo.uptimes_title">Efflorescence uptimes</Trans>
+            {t({ id: 'restoration.efflo.uptimes_title', message: 'Efflorescence uptimes' })}
           </strong>
           {this.subStatistic()}
         </RoundedPanel>
@@ -190,21 +191,20 @@ class Efflorescence extends Analyzer {
             />{' '}
             <span style={{ color: EFFLO_BG_COLOR }}>
               {formatPercentage(this.uptimePercent, 0)}%{' '}
-              <small>
-                <Trans id="restoration.efflo.active_label">active</Trans>
-              </small>
+              <small>{t({ id: 'restoration.efflo.active_label', message: 'active' })}</small>
             </span>
             <br />
             <TooltipElement
               content={t({
                 id: 'restoration.efflo.tooltip_content',
-                message: "The 'active' percentage considers the times your Efflorescence is up, while the 'effective' percentage takes into account the number of players it is actually healing",
+                message:
+                  "The 'active' percentage considers the times your Efflorescence is up, while the 'effective' percentage takes into account the number of players it is actually healing",
               })}
             >
               <span style={{ color: EFFLO_COLOR }}>
                 {formatPercentage(this.weightedUptimePercent, 0)}%{' '}
                 <small>
-                  <Trans id="restoration.efflo.effective_label">effective</Trans>
+                  {t({ id: 'restoration.efflo.effective_label', message: 'effective' })}
                 </small>
               </span>
             </TooltipElement>

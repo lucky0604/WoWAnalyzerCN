@@ -1,5 +1,6 @@
 import SPELLS from 'common/SPELLS';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import { formatNumber } from 'common/format';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -76,7 +77,7 @@ class ManaSpring extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <Trans id="shaman.shared.manaspring.restored">Mana restored:</Trans>
+            {t({ id: 'shaman.shared.manaspring.restored', message: 'Mana restored:' })}
             <ul>
               {Object.values(this.regenPerTarget).map((p) => {
                 return (
@@ -87,7 +88,7 @@ class ManaSpring extends Analyzer {
                 );
               })}
             </ul>
-            <Trans id="shaman.shared.manaspring.wasted">Mana Wasted:</Trans> <ManaIcon />{' '}
+            {t({ id: 'shaman.shared.manaspring.wasted', message: 'Mana Wasted:' })} <ManaIcon />{' '}
             <Trans id="shaman.shared.manaspring.wasted_amount">
               {formatNumber(this.wasted)} wasted
             </Trans>

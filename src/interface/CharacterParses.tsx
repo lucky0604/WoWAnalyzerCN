@@ -1,6 +1,6 @@
 import { i18n, MessageDescriptor } from '@lingui/core';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { captureException } from 'common/errorLogger';
 import fetchWcl, { CharacterNotFoundError, UnknownApiError, WclApiError } from 'common/fetchWclApi';
 import { makeCharacterApiUrl } from 'common/makeApiUrl';
@@ -674,7 +674,7 @@ class CharacterParses extends Component<CharacterParsesProps, CharacterParsesSta
                     style={{ fontSize: 22 }}
                   >
                     <ArmoryIcon style={{ marginRight: '0.3em' }} />
-                    <Trans id="interface.armory.text">Armory</Trans>
+                    {t({ id: 'interface.armory.text', message: 'Armory' })}
                   </a>
                   {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                   <br />
@@ -828,7 +828,7 @@ class CharacterParses extends Component<CharacterParsesProps, CharacterParsesSta
               {this.state.error && (
                 <span>
                   <Link to="/">
-                    <Trans id="interface.characterParses.characterParses.home">Home</Trans>
+                    {t({ id: 'interface.characterParses.characterParses.home', message: 'Home' })}
                   </Link>{' '}
                   &gt;{' '}
                   <span>
@@ -858,11 +858,12 @@ class CharacterParses extends Component<CharacterParsesProps, CharacterParsesSta
                       </Link>
                     </div>
                     <h1 style={{ display: 'inline-block' }}>
-                      {this.state.error ? (
-                        i18n._(this.state.error)
-                      ) : (
-                        <Trans id="interface.characterParses.characterParses.parses">Parses</Trans>
-                      )}
+                      {this.state.error
+                        ? i18n._(this.state.error)
+                        : t({
+                            id: 'interface.characterParses.characterParses.parses',
+                            message: 'Parses',
+                          })}
                     </h1>
                     <small>
                       <Trans id="interface.characterParses.characterParses.parsesDetails">

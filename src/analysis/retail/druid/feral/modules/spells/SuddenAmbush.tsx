@@ -128,9 +128,9 @@ class SuddenAmbush extends Analyzer {
       tooltip: (
         <>
           <h5 style={{ color: BadColor }}>
-            <Trans id="druid.feral.sa.expire_bad">Bad because you let a proc expire</Trans>
-          </h5>@{' '}
-          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
+            {t({ id: 'druid.feral.sa.expire_bad', message: 'Bad because you let a proc expire' })}
+          </h5>
+          @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
         </>
       ),
     });
@@ -169,14 +169,16 @@ class SuddenAmbush extends Analyzer {
           {isRake && (
             <h5 style={{ color: BadColor }}>
               <Trans id="druid.feral.sa.rake_warning">
-                Sudden Ambush only buffs Rake's initial damage now, not the bleed. Prefer using it on{' '}
-                <SpellLink spell={SPELLS.SHRED} /> or <SpellLink spell={SPELLS.SWIPE_CAT} /> instead.
+                Sudden Ambush only buffs Rake's initial damage now, not the bleed. Prefer using it
+                on <SpellLink spell={SPELLS.SHRED} /> or <SpellLink spell={SPELLS.SWIPE_CAT} />{' '}
+                instead.
               </Trans>
             </h5>
           )}
           @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>{' '}
           <Trans id="druid.feral.moonfire.targetting">
-            targetting <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
+            targetting{' '}
+            <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
           </Trans>
         </>
       ),
@@ -221,11 +223,11 @@ class SuddenAmbush extends Analyzer {
           <strong>
             <SpellLink spell={TALENTS_DRUID.SUDDEN_AMBUSH_TALENT} />
           </strong>{' '}
-          buffs your next <SpellLink spell={SPELLS.SHRED} />, <SpellLink spell={SPELLS.SWIPE_CAT} />,
-          or <SpellLink spell={SPELLS.RAKE} />. You should spend the proc on{' '}
-          <SpellLink spell={SPELLS.SHRED} /> (single target) or <SpellLink spell={SPELLS.SWIPE_CAT} />{' '}
-          (AoE). Avoid using it on <SpellLink spell={SPELLS.RAKE} /> as it only buffs the initial
-          damage, not the bleed.
+          buffs your next <SpellLink spell={SPELLS.SHRED} />, <SpellLink spell={SPELLS.SWIPE_CAT} />
+          , or <SpellLink spell={SPELLS.RAKE} />. You should spend the proc on{' '}
+          <SpellLink spell={SPELLS.SHRED} /> (single target) or{' '}
+          <SpellLink spell={SPELLS.SWIPE_CAT} /> (AoE). Avoid using it on{' '}
+          <SpellLink spell={SPELLS.RAKE} /> as it only buffs the initial damage, not the bleed.
         </Trans>
       </p>
     );
@@ -235,7 +237,10 @@ class SuddenAmbush extends Analyzer {
         <CastSummaryAndBreakdown
           spell={TALENTS_DRUID.SUDDEN_AMBUSH_TALENT}
           castEntries={this.useEntries}
-          badExtraExplanation={<Trans id="druid.feral.sa.bad_reason">or an expired proc</Trans>}
+          badExtraExplanation={t({
+            id: 'druid.feral.sa.bad_reason',
+            message: 'or an expired proc',
+          })}
           usesInsteadOfCasts
         />
       </div>
@@ -255,8 +260,8 @@ class SuddenAmbush extends Analyzer {
             <p>
               <Trans id="druid.feral.sa.tooltip_p1">
                 This is the damage from the increase to Shred, Swipe, and Rake initial damage caused
-                by Sudden Ambush procs. This underrates the total benefit of Sudden Ambush because it
-                does not count the increased crit chance and additional combo point from Shred.
+                by Sudden Ambush procs. This underrates the total benefit of Sudden Ambush because
+                it does not count the increased crit chance and additional combo point from Shred.
               </Trans>
             </p>
             <div>
@@ -290,7 +295,7 @@ class SuddenAmbush extends Analyzer {
               )}
             </ul>
             <div>
-              <Trans id="druid.feral.sa.breakdown_by_spell">Breakdown by spell:</Trans>
+              {t({ id: 'druid.feral.sa.breakdown_by_spell', message: 'Breakdown by spell:' })}
             </div>
             <ul>
               <li>
@@ -309,8 +314,9 @@ class SuddenAmbush extends Analyzer {
               </li>
               <li>
                 <Trans id="druid.feral.sa.rake_boosted">
-                  <SpellLink spell={SPELLS.RAKE} />: Boosted <strong>{this.boostedRakes}</strong> hits
-                  for <strong>&gt;{this.owner.formatItemDamageDone(this.boostedRakeDamage)}</strong>
+                  <SpellLink spell={SPELLS.RAKE} />: Boosted <strong>{this.boostedRakes}</strong>{' '}
+                  hits for{' '}
+                  <strong>&gt;{this.owner.formatItemDamageDone(this.boostedRakeDamage)}</strong>
                 </Trans>
               </li>
             </ul>

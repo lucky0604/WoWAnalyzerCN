@@ -15,6 +15,7 @@ import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
 import { CelestialHooks } from 'analysis/retail/monk/shared';
 
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 class VivaciousVivification extends Analyzer {
   static dependencies = {
     vivify: Vivify,
@@ -135,7 +136,7 @@ class VivaciousVivification extends Analyzer {
         <RoundedPanel>
           <strong>
             <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} />{' '}
-            <Trans id="monk.mistweaver.vivaciousVivify.utilization">utilization</Trans>
+            {t({ id: 'monk.mistweaver.vivaciousVivify.utilization', message: 'utilization' })}
           </strong>
           <small>
             <Trans id="monk.mistweaver.vivaciousVivify.utilizationDesc">

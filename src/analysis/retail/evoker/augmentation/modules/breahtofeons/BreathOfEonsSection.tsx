@@ -84,7 +84,7 @@ const BreathOfEonsSection: FC<Props> = ({
       const error =
         window.breathPerformance.temporalWoundsCounter.length > 0 ? undefined : (
           <div>
-            <Trans id="guide.augmentation.breathofeons.noHit">You didn't hit anything</Trans>
+            {t({ id: 'guide.augmentation.breathofeons.noHit', message: "You didn't hit anything" })}
           </div>
         );
       const newGraphData = generateGraphData(
@@ -105,7 +105,10 @@ const BreathOfEonsSection: FC<Props> = ({
             <tbody>
               <tr>
                 <td>
-                  <Trans id="guide.augmentation.breathofeons.uptime">Ebon Might Uptime</Trans>
+                  {t({
+                    id: 'guide.augmentation.breathofeons.uptime',
+                    message: 'Ebon Might Uptime',
+                  })}
                 </td>
                 <td className="pass-fail-counts">
                   {' '}
@@ -136,7 +139,7 @@ const BreathOfEonsSection: FC<Props> = ({
                         'This value indicates the amount of damage you did, along with the potential damage you lost to mobs dying early. This value is a guesstimation and therefore not 100% accurate.',
                     })}
                   >
-                    <Trans id="guide.augmentation.breathofeons.damageLabel">Damage</Trans>
+                    {t({ id: 'guide.augmentation.breathofeons.damageLabel', message: 'Damage' })}
                   </TooltipElement>
                 </td>
                 <td>
@@ -158,7 +161,10 @@ const BreathOfEonsSection: FC<Props> = ({
             <tbody>
               <tr>
                 <strong>
-                  <Trans id="guide.augmentation.breathofeons.castPerf">Cast performance</Trans>
+                  {t({
+                    id: 'guide.augmentation.breathofeons.castPerf',
+                    message: 'Cast performance',
+                  })}
                 </strong>
               </tr>
               <tr>
@@ -211,7 +217,10 @@ const BreathOfEonsSection: FC<Props> = ({
               )}
               <tr>
                 <td>
-                  <Trans id="guide.augmentation.breathofeons.potionUsed">Potion used</Trans>{' '}
+                  {t({
+                    id: 'guide.augmentation.breathofeons.potionUsed',
+                    message: 'Potion used',
+                  })}{' '}
                 </td>
                 <td>
                   {window.breathPerformance.potionUsed} / {window.breathPerformance.possiblePotions}

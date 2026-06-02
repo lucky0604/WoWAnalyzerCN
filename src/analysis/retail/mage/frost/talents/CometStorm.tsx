@@ -137,9 +137,7 @@ class CometStorm extends Analyzer {
         </p>
         <ul>
           <li>
-            <b>
-              <Trans id="mage.frost.cometStorm.singleTarget">Single Target</Trans>
-            </b>
+            <b>{t({ id: 'mage.frost.cometStorm.singleTarget', message: 'Single Target' })}</b>
           </li>
           <SpellSeq
             spells={[TALENTS.FLURRY_TALENT, SPELLS.ICE_LANCE_DAMAGE, TALENTS.COMET_STORM_TALENT]}

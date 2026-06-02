@@ -4,6 +4,7 @@ import { formatDuration, formatNumber } from 'common/format';
 import SpellLink from 'interface/SpellLink';
 import { BadColor, GoodColor } from 'interface/guide';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import EventLinkNormalizer from 'parser/core/EventLinkNormalizer';
@@ -194,11 +195,15 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                   },
                 }),
                 summary:
-                  spend.estimatedVitality > spend.maxHp ? (
-                    <Trans id="monk.brewmaster.aoh.cap.summary.overcapped">Overcapped Vitality</Trans>
-                  ) : (
-                    <Trans id="monk.brewmaster.aoh.cap.summary.not_overcapped">Did Not Overcap Vitality</Trans>
-                  ),
+                  spend.estimatedVitality > spend.maxHp
+                    ? defineMessage({
+                        id: 'monk.brewmaster.aoh.cap.summary.overcapped',
+                        message: 'Overcapped Vitality',
+                      })
+                    : defineMessage({
+                        id: 'monk.brewmaster.aoh.cap.summary.not_overcapped',
+                        message: 'Did Not Overcap Vitality',
+                      }),
                 details: (
                   <Trans id="monk.brewmaster.aoh.cap.details">
                     You generated an estimated {formatNumber(spend.estimatedVitality)} Vitality to

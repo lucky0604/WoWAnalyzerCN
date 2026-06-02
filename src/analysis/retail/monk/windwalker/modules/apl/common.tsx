@@ -6,6 +6,7 @@ import SpellLink from 'interface/SpellLink';
 import Combatant from 'parser/core/Combatant';
 import { EventType } from 'parser/core/Events';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Apl, Condition, Rule, build, tenseAlt } from 'parser/shared/metrics/apl';
 import {
   and,
@@ -194,9 +195,7 @@ export const danceOfChiJiExpiring = and(
  */
 export const optionalTouchOfDeath = optionalRule(
   describe(hasResource(RESOURCE_TYPES.ENERGY, { atLeast: 0 }), () => (
-    <>
-      <Trans id="monk.windwalker.apl.available">available</Trans>
-    </>
+    <>{t({ id: 'monk.windwalker.apl.available', message: 'available' })}</>
   )),
   undefined,
   '',

@@ -291,7 +291,7 @@ class ZenPulse extends Analyzer {
           title={
             <>
               <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />{' '}
-              <Trans id="monk.mistweaver.zenPulse.overview">Overview</Trans>
+              {t({ id: 'monk.mistweaver.zenPulse.overview', message: 'Overview' })}
             </>
           }
           stats={stats}

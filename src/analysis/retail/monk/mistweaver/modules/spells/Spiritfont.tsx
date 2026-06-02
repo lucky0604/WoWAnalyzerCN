@@ -294,7 +294,7 @@ class Spiritfont extends Analyzer {
           title={
             <>
               <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />{' '}
-              <Trans id="monk.mistweaver.spiritfont.overview">Overview</Trans>
+              {t({ id: 'monk.mistweaver.spiritfont.overview', message: 'Overview' })}
             </>
           }
           stats={stats}

@@ -89,7 +89,7 @@ class HitCombo extends Analyzer {
           <div>
             <UptimeIcon /> {formatPercentage(this.uptime)}%{' '}
             <small>
-              <Trans id="monk.windwalker.hitcombo.weighted_uptime">Weighted uptime</Trans>
+              {t({ id: 'monk.windwalker.hitcombo.weighted_uptime', message: 'Weighted uptime' })}
             </small>
           </div>
           <div>

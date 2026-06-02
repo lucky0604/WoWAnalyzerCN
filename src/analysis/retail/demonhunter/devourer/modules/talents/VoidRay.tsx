@@ -1,4 +1,4 @@
-import type { JSX } from 'react';
+import type { JSX, ReactNode } from 'react';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { ExplanationAndDataSubSection } from 'interface/guide/components/ExplanationRow';
@@ -32,9 +32,10 @@ class VoidRay extends Analyzer {
     const damageEvents = getVoidRayDamageEvents(event);
 
     let value = QualitativePerformance.Good;
-    let tooltip = (
-      <Trans id="guide.demonhunter.devourer.voidRay.goodCast">Great! Fully channeled cast.</Trans>
-    );
+    let tooltip: ReactNode = defineMessage({
+      id: 'guide.demonhunter.devourer.voidRay.goodCast',
+      message: 'Great! Fully channeled cast.',
+    });
 
     // The last two damage ticks aren't needed to proc related talents
     if (damageEvents.length < VOID_RAY_MAX_TICKS - 2) {

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber } from 'common/format';
 import { SpellIcon } from 'interface';
 import { SpellLink } from 'interface';
@@ -49,7 +50,7 @@ class AstralShift extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL()}
         icon={<SpellIcon spell={TALENTS_SHAMAN.ASTRAL_SHIFT_TALENT} />}
         value={`≈${formatNumber(this.totalDrps)} DRPS`}
-        label={<Trans id="shaman.shared.damageReduced.label">Estimated damage reduced</Trans>}
+        label={t({ id: 'shaman.shared.damageReduced.label', message: 'Estimated damage reduced' })}
         tooltip={
           <Trans id="shaman.shared.damageReduced.tooltip">
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}

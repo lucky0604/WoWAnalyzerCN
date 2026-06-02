@@ -10,6 +10,7 @@ import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import { BoxRowEntry, PerformanceBoxRow } from 'interface/guide/components/PerformanceBoxRow';
 import SpellLink from 'interface/SpellLink';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import {
   evaluateQualitativePerformanceByThreshold,
   getAveragePerf,
@@ -87,13 +88,13 @@ class AspectOfHarmony extends AspectOfHarmonyBaseAnalyzer {
         <RoundedPanel>
           <strong>
             <SpellLink spell={TALENTS_MONK.ASPECT_OF_HARMONY_TALENT} />{' '}
-            <Trans id="monk.mistweaver.aspectOfHarmony.utilization">utilization</Trans>
+            {t({ id: 'monk.mistweaver.aspectOfHarmony.utilization', message: 'utilization' })}
           </strong>
           <PerformanceBoxRow values={entries} />
           <div style={styleObj}>
             <b>{this.avgHots.toFixed(1)}</b>{' '}
             <small style={styleObjInner}>
-              <Trans id="monk.mistweaver.aspectOfHarmony.averageHoTs">average HoTs</Trans>
+              {t({ id: 'monk.mistweaver.aspectOfHarmony.averageHoTs', message: 'average HoTs' })}
             </small>
           </div>
         </RoundedPanel>

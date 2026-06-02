@@ -9,6 +9,7 @@ import PassFailBar from 'interface/guide/components/PassFailBar';
 import { useMemo, type JSX } from 'react';
 import BlackoutCombo from './index';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 enum ComboEffect {
   KegSmash = talents.KEG_SMASH_TALENT.id,
@@ -82,8 +83,9 @@ export default function BlackoutComboSection(): JSX.Element | null {
               <div>
                 <Trans id="monk.brewmaster.blackout_combo.tp_desc">
                   Comboing <SpellLink spell={SPELLS.TIGER_PALM} /> is the best way to use{' '}
-                  <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} /> for damage in single-target and
-                  light AoE settings. You will frequently see high ranked raiders using this option.
+                  <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} /> for damage in single-target
+                  and light AoE settings. You will frequently see high ranked raiders using this
+                  option.
                 </Trans>
               </div>
             </li>
@@ -116,7 +118,7 @@ export default function BlackoutComboSection(): JSX.Element | null {
                     </Trans>
                   }
                 >
-                  <Trans id="monk.brewmaster.blackout_combo.combos_used">Combos Used</Trans>
+                  {t({ id: 'monk.brewmaster.blackout_combo.combos_used', message: 'Combos Used' })}
                 </TooltipElement>
               </td>
               <td>
@@ -133,7 +135,10 @@ export default function BlackoutComboSection(): JSX.Element | null {
           <tbody>
             <tr>
               <th colSpan={3}>
-                <Trans id="monk.brewmaster.blackout_combo.breakdown_title">Spell Combo Breakdown</Trans>
+                {t({
+                  id: 'monk.brewmaster.blackout_combo.breakdown_title',
+                  message: 'Spell Combo Breakdown',
+                })}
               </th>
             </tr>
           </tbody>
@@ -146,7 +151,7 @@ export default function BlackoutComboSection(): JSX.Element | null {
             <tr>
               <td colSpan={3} style={{ paddingTop: '1em' }}>
                 <em>
-                  <Trans id="monk.brewmaster.blackout_combo.wip">Work in Progress</Trans>
+                  {t({ id: 'monk.brewmaster.blackout_combo.wip', message: 'Work in Progress' })}
                 </em>
               </td>
             </tr>

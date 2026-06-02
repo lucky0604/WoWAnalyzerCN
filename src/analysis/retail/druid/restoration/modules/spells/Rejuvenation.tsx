@@ -192,9 +192,9 @@ class Rejuvenation extends Analyzer {
             <b>
               <SpellLink spell={SPELLS.REJUVENATION} />
             </b>{' '}
-            is your primary filler spell. It can be used on injured raiders or pre-cast on full health
-            raiders when ramping for incoming raid damage. Don't spam it unmotivated - you'll run out
-            of mana.
+            is your primary filler spell. It can be used on injured raiders or pre-cast on full
+            health raiders when ramping for incoming raid damage. Don't spam it unmotivated - you'll
+            run out of mana.
           </Trans>
         </p>
         <p>
@@ -213,16 +213,22 @@ class Rejuvenation extends Analyzer {
     };
     const highOverhealRejuvs = {
       count: this.highOverhealCasts,
-      label: t({ id: 'restoration.rejuv.high_overheal_label', message: 'High-overheal Rejuvenations' }),
+      label: t({
+        id: 'restoration.rejuv.high_overheal_label',
+        message: 'High-overheal Rejuvenations',
+      }),
     };
     const clippedRejuvs = {
       count: this.earlyRefreshments,
-      label: t({ id: 'restoration.rejuv.clipped_label', message: 'Clipped duration Rejuvenations' }),
+      label: t({
+        id: 'restoration.rejuv.clipped_label',
+        message: 'Clipped duration Rejuvenations',
+      }),
     };
     const data = (
       <div>
         <strong>
-          <Trans id="restoration.rejuv.breakdown_title">Rejuvenation cast breakdown</Trans>
+          {t({ id: 'restoration.rejuv.breakdown_title', message: 'Rejuvenation cast breakdown' })}
         </strong>
         <small>
           <Trans id="restoration.rejuv.breakdown_details">
@@ -260,9 +266,7 @@ class Rejuvenation extends Analyzer {
         >
           <>
             {this.earlyRefreshmentsPerMinute.toFixed(1)}{' '}
-            <small>
-              <Trans id="restoration.rejuv.per_minute">per minute</Trans>
-            </small>
+            <small>{t({ id: 'restoration.rejuv.per_minute', message: 'per minute' })}</small>
           </>
         </BoringValue>
       </Statistic>

@@ -14,6 +14,7 @@ import { GapHighlight } from 'parser/ui/CooldownBar';
 import Vivify from './Vivify';
 
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 class RenewingMist extends Analyzer {
   static dependencies = {
     remGraph: REMGraph,
@@ -98,7 +99,7 @@ class RenewingMist extends Analyzer {
         <RoundedPanel>
           <strong>
             <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />{' '}
-            <Trans id="monk.mistweaver.renewingMist.castEfficiency">cast efficiency</Trans>
+            {t({ id: 'monk.mistweaver.renewingMist.castEfficiency', message: 'cast efficiency' })}
           </strong>
           {this.subStatistic()}
         </RoundedPanel>

@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';

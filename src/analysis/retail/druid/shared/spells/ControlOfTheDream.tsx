@@ -182,15 +182,9 @@ export default class ControlOfTheDream extends Analyzer.withDependencies({
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>
-                    <Trans id="druid.shared.cotd.ability">Ability</Trans>
-                  </th>
-                  <th>
-                    <Trans id="druid.shared.cotd.early_casts">Early casts</Trans>
-                  </th>
-                  <th>
-                    <Trans id="druid.shared.cotd.eff_cdr">Eff. CDR</Trans>
-                  </th>
+                  <th>{t({ id: 'druid.shared.cotd.ability', message: 'Ability' })}</th>
+                  <th>{t({ id: 'druid.shared.cotd.early_casts', message: 'Early casts' })}</th>
+                  <th>{t({ id: 'druid.shared.cotd.eff_cdr', message: 'Eff. CDR' })}</th>
                 </tr>
               </thead>
               <tbody>
@@ -227,13 +221,13 @@ export default class ControlOfTheDream extends Analyzer.withDependencies({
             <div>
               {this.totalEarlyCastCount}{' '}
               <small>
-                <Trans id="druid.shared.cotd.early_casts_label">Early Casts</Trans>
+                {t({ id: 'druid.shared.cotd.early_casts_label', message: 'Early Casts' })}
               </small>
             </div>
             <div>
               {this.totalEffectiveCdr.toFixed(0)}s{' '}
               <small>
-                <Trans id="druid.shared.cotd.eff_cdr_label">Effective CDR</Trans>
+                {t({ id: 'druid.shared.cotd.eff_cdr_label', message: 'Effective CDR' })}
               </small>
             </div>
           </>

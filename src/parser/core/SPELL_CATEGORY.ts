@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import { i18n } from '@lingui/core';
 
 enum SPELL_CATEGORY {

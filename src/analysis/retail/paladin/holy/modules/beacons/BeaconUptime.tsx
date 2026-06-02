@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_PALADIN } from 'common/TALENTS/paladin';
 import { Options } from 'parser/core/Analyzer';
@@ -253,17 +254,20 @@ class BeaconUptime extends BeaconAnalyzer {
     const getLabel = (beaconId: number): React.ReactNode => {
       switch (beaconId) {
         case SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF.id:
-          return (
-            <Trans id="paladin.holy.modules.beacons.beaconUptime.bolUptime">Beacon of Light</Trans>
-          );
+          return defineMessage({
+            id: 'paladin.holy.modules.beacons.beaconUptime.bolUptime',
+            message: 'Beacon of Light',
+          });
         case TALENTS.BEACON_OF_FAITH_TALENT.id:
-          return (
-            <Trans id="paladin.holy.modules.beacons.beaconUptime.bofUptime">Beacon of Faith</Trans>
-          );
+          return defineMessage({
+            id: 'paladin.holy.modules.beacons.beaconUptime.bofUptime',
+            message: 'Beacon of Faith',
+          });
         case TALENTS.BEACON_OF_VIRTUE_TALENT.id:
-          return (
-            <Trans id="paladin.holy.modules.beacons.beaconUptime.bovUptime">Beacon of Virtue</Trans>
-          );
+          return defineMessage({
+            id: 'paladin.holy.modules.beacons.beaconUptime.bovUptime',
+            message: 'Beacon of Virtue',
+          });
         case SPELLS.BEACON_OF_THE_SAVIOR_BUFF.id:
           return (
             <Trans id="paladin.holy.modules.beacons.beaconUptime.botsUptime">
@@ -276,7 +280,10 @@ class BeaconUptime extends BeaconAnalyzer {
     return (
       <Statistic position={STATISTIC_ORDER.CORE(60)} size="flexible">
         <label style={{ margin: '10px' }}>
-          <Trans id="paladin.holy.modules.beacons.beaconUptime.beaconUptime">Beacon Uptime</Trans>
+          {t({
+            id: 'paladin.holy.modules.beacons.beaconUptime.beaconUptime',
+            message: 'Beacon Uptime',
+          })}
         </label>
 
         {this.beaconBuffIds.map((beaconId) => {

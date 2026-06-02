@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { i18n } from '@lingui/core';
 import SPELLS from 'common/SPELLS';

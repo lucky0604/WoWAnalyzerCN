@@ -1,5 +1,5 @@
 import { i18n, MessageDescriptor } from '@lingui/core';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { captureException } from 'common/errorLogger';
 import fetchWcl, { GuildNotFoundError, UnknownApiError, WclApiError } from 'common/fetchWclApi';
@@ -424,7 +424,7 @@ class GuildReports extends Component<Props, State> {
                     style={{ fontSize: 22 }}
                   >
                     <ArmoryIcon style={{ marginRight: '0.3em' }} />
-                    <Trans id="interface.armory.text">Armory</Trans>
+                    {t({ id: 'interface.armory.text', message: 'Armory' })}
                   </a>
                   {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                   <br />
@@ -497,9 +497,7 @@ class GuildReports extends Component<Props, State> {
             <div className="col-md-12">
               {this.state.error && (
                 <span>
-                  <Link to="/">
-                    <Trans id="interface.guildReports.home">Home</Trans>
-                  </Link>{' '}
+                  <Link to="/">{t({ id: 'interface.guildReports.home', message: 'Home' })}</Link>{' '}
                   &gt;{' '}
                   <span>
                     {this.props.region} &gt; {this.props.realm} &gt; {this.props.name}
@@ -522,15 +520,16 @@ class GuildReports extends Component<Props, State> {
                         }}
                       >
                         <span className="glyphicon glyphicon-refresh" aria-hidden="true" />{' '}
-                        <Trans id="interface.guildReports.refresh">Refresh</Trans>
+                        {t({ id: 'interface.guildReports.refresh', message: 'Refresh' })}
                       </Link>
                     </div>
                     <h1 style={{ display: 'inline-block' }}>
-                      {this.state.error ? (
-                        i18n._(this.state.error)
-                      ) : (
-                        <Trans id="interface.guildReports.guildReports">Guild Reports</Trans>
-                      )}
+                      {this.state.error
+                        ? i18n._(this.state.error)
+                        : t({
+                            id: 'interface.guildReports.guildReports',
+                            message: 'Guild Reports',
+                          })}
                     </h1>
                     <small>
                       <Trans id="interface.guildReports.guildReportsDetails">

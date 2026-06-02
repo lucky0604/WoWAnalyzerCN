@@ -176,9 +176,7 @@ export default class Berserk extends Analyzer.withDependencies({
 
     const checklistItems: CooldownExpandableItem[] = [];
     checklistItems.push({
-      label: (
-        <Trans id="druid.guardian.berserk.stay_active">Stay Active!</Trans>
-      ),
+      label: defineMessage({ id: 'druid.guardian.berserk.stay_active', message: 'Stay Active!' }),
       result: <PerformanceMark perf={percentActivePerf} />,
       details: (
         <Trans id="druid.guardian.berserk.active_time_pct">
@@ -187,9 +185,7 @@ export default class Berserk extends Analyzer.withDependencies({
       ),
     });
     checklistItems.push({
-      label: (
-        <Trans id="druid.guardian.berserk.spend_rage">Spend your Rage</Trans>
-      ),
+      label: defineMessage({ id: 'druid.guardian.berserk.spend_rage', message: 'Spend your Rage' }),
       result: <PerformanceMark perf={rageSpendPerf} />,
       details: (
         <Trans id="druid.guardian.berserk.rage_wasted_pct">
@@ -198,24 +194,16 @@ export default class Berserk extends Analyzer.withDependencies({
       ),
     });
     checklistItems.push({
-      label: (
-        <Trans id="druid.guardian.berserk.dont_swipe">Don't Swipe</Trans>
-      ),
+      label: defineMessage({ id: 'druid.guardian.berserk.dont_swipe', message: "Don't Swipe" }),
       result: <PerformanceMark perf={swipesPerf} />,
-      details: (
-        <Trans id="druid.guardian.berserk.swipes_count">
-          ({cast.swipes} swipes)
-        </Trans>
-      ),
+      details: <Trans id="druid.guardian.berserk.swipes_count">({cast.swipes} swipes)</Trans>,
     });
     const overallPerf = getLowestPerf([percentActivePerf, rageSpendPerf, swipesPerf]);
 
     const detailItems: CooldownExpandableItem[] = [];
     if (cast.rageData) {
       detailItems.push({
-        label: (
-          <Trans id="druid.guardian.berserk.total_rage">Total Rage generated</Trans>
-        ),
+        label: defineMessage({ id: 'druid.guardian.berserk.total_rage', message: 'Total Rage generated' }),
         details: (
           <Trans id="druid.guardian.berserk.rage_amount">
             {cast.rageData.builderGenerated * RAGE_SCALE_FACTOR} Rage
@@ -281,10 +269,10 @@ export default class Berserk extends Analyzer.withDependencies({
     const data = (
       <p>
         <strong>
-          <Trans id="druid.guardian.berserk.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'druid.guardian.berserk.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="druid.guardian.berserk.click_expand"> - click to expand</Trans>
+          {t({ id: 'druid.guardian.berserk.click_expand', message: '- click to expand' })}
         </small>
         {this.berserkTrackers.map((cast) => this.perCastBreakdown(cast))}
       </p>

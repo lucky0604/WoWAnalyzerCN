@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import CORE_CHANGELOG from 'CHANGELOG';
 import AVAILABLE_CONFIGS from 'parser';
@@ -16,7 +16,7 @@ const ChangelogPanel = () => {
 
   return (
     <Panel
-      title={<Trans id="interface.changelogPanel.heading">Changelog</Trans>}
+      title={t({ id: 'interface.changelogPanel.heading', message: 'Changelog' })}
       anchor="changelog"
     >
       <select

@@ -166,11 +166,9 @@ class SandsOfTime extends Analyzer {
       performance: actualPerformance,
       checklistItems,
       performanceExplanation:
-        actualPerformance !== QualitativePerformance.Fail ? (
-          <Trans id="guide.augmentation.sandsOfTime.goodUsage">Good Usage</Trans>
-        ) : (
-          <Trans id="guide.augmentation.sandsOfTime.badUsage">Bad Usage</Trans>
-        ),
+        actualPerformance !== QualitativePerformance.Fail
+          ? defineMessage({ id: 'guide.augmentation.sandsOfTime.goodUsage', message: 'Good Usage' })
+          : defineMessage({ id: 'guide.augmentation.sandsOfTime.badUsage', message: 'Bad Usage' }),
     };
   }
 
@@ -214,14 +212,14 @@ class SandsOfTime extends Analyzer {
             {' '}
             -{' '}
             <span className="goodCast">
-              <Trans id="guide.augmentation.sandsOfTime.goodCastLabel">Green</Trans>
+              {t({ id: 'guide.augmentation.sandsOfTime.goodCastLabel', message: 'Green' })}
             </span>{' '}
             <Trans id="guide.augmentation.sandsOfTime.goodCastText">
               is a good cast where you extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
               window,{' '}
             </Trans>
             <span className="badCast">
-              <Trans id="guide.augmentation.sandsOfTime.badCastLabel">red</Trans>
+              {t({ id: 'guide.augmentation.sandsOfTime.badCastLabel', message: 'red' })}
             </span>{' '}
             <Trans id="guide.augmentation.sandsOfTime.badCastText">
               is a bad cast where you didn't extend.
@@ -230,7 +228,7 @@ class SandsOfTime extends Analyzer {
               <>
                 {' '}
                 <span className="perfectCast">
-                  <Trans id="guide.augmentation.sandsOfTime.perfectCastLabel">Blue</Trans>
+                  {t({ id: 'guide.augmentation.sandsOfTime.perfectCastLabel', message: 'Blue' })}
                 </span>{' '}
                 <Trans id="guide.augmentation.sandsOfTime.perfectCastText">
                   is a cast where you extended both <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}

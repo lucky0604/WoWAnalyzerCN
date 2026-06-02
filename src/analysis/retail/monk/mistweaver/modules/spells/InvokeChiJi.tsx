@@ -4,6 +4,7 @@ import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, Tooltip } from 'interface';
 import { PerformanceMark } from 'interface/guide';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
 } from 'interface/guide/components/CooldownExpandable';
@@ -220,10 +221,10 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="monk.mistweaver.invokeChiJi.perCastBreakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'monk.mistweaver.invokeChiJi.perCastBreakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="monk.mistweaver.invokeChiJi.clickToExpand"> - click to expand</Trans>
+          {t({ id: 'monk.mistweaver.invokeChiJi.clickToExpand', message: '- click to expand' })}
         </small>
         {this.castTrackers.map((cast, ix) => {
           const header = (
@@ -250,7 +251,7 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
               label: (
                 <>
                   <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />{' '}
-                  <Trans id="monk.mistweaver.invokeChiJi.stacksOnCast">stacks on cast</Trans>{' '}
+                  {t({ id: 'monk.mistweaver.invokeChiJi.stacksOnCast', message: 'stacks on cast' })}{' '}
                   <Tooltip
                     hoverable
                     content={
@@ -277,7 +278,7 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
             label: (
               <>
                 <SpellLink spell={SPELLS.TEACHINGS_OF_THE_MONASTERY} />{' '}
-                <Trans id="monk.mistweaver.invokeChiJi.stacksWasted">stacks wasted</Trans>
+                {t({ id: 'monk.mistweaver.invokeChiJi.stacksWasted', message: 'stacks wasted' })}
               </>
             ),
             result: <PerformanceMark perf={totmRefreshPerf} />,

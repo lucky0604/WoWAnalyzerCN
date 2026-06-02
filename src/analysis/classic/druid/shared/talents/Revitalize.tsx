@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import fetchWcl from 'common/fetchWclApi';
 import { formatNumber } from 'common/format';
 import { SpellIcon } from 'interface';
@@ -225,9 +225,7 @@ class Revitalize extends Analyzer {
         <table className="table table-condensed">
           <thead>
             <tr>
-              <th>
-                <Trans id="common.player">Player</Trans>
-              </th>
+              <th>{t({ id: 'common.player', message: 'Player' })}</th>
               <th>Procs</th>
               <th>Power</th>
             </tr>

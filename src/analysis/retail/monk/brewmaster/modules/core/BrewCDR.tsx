@@ -15,6 +15,7 @@ import TigerPalm from '../spells/TigerPalm';
 import AnvilStave from '../talents/AnvilStave';
 import { Abilities } from '../../gen';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const deps = {
   ks: KegSmash,
@@ -105,9 +106,7 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
         size="flexible"
         tooltip={
           <>
-            <Trans id="monk.brewmaster.cdr.reduced_by">
-              Your cooldowns were reduced by:
-            </Trans>
+            <Trans id="monk.brewmaster.cdr.reduced_by">Your cooldowns were reduced by:</Trans>
             <ul>
               <li>
                 {(() => {
@@ -116,8 +115,8 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                   const wasted = (ks.wastedCDR / 1000).toFixed(2);
                   return (
                     <Trans id="monk.brewmaster.cdr.ks">
-                      {casts} Keg Smash casts — <strong>{cdr}s</strong> (
-                      <strong>{wasted}s</strong> wasted)
+                      {casts} Keg Smash casts — <strong>{cdr}s</strong> (<strong>{wasted}s</strong>{' '}
+                      wasted)
                     </Trans>
                   );
                 })()}
@@ -130,8 +129,7 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                     const wasted = (ks.wastedBocCDR / 1000).toFixed(2);
                     return (
                       <Trans id="monk.brewmaster.cdr.ks_boc">
-                        Using Blackout Combo on {hits} Keg Smash hits —{' '}
-                        <strong>{cdr}s</strong> (
+                        Using Blackout Combo on {hits} Keg Smash hits — <strong>{cdr}s</strong> (
                         <strong>{wasted}s</strong> wasted)
                       </Trans>
                     );
@@ -160,8 +158,7 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                       const wasted = (tp.wastedFpCdr / 1000).toFixed(2);
                       return (
                         <Trans id="monk.brewmaster.cdr.tp_fp">
-                          {triggers} Face Palm triggers —{' '}
-                          <strong>{cdr}s</strong> (
+                          {triggers} Face Palm triggers — <strong>{cdr}s</strong> (
                           <strong>{wasted}s</strong> wasted)
                         </Trans>
                       );
@@ -174,16 +171,13 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                   {(() => {
                     const casts = bob.casts;
                     const cdr = (bob.cdr[talents.PURIFYING_BREW_TALENT.id] / 1000).toFixed(2);
-                    const wasted = (bob.wastedCDR[talents.PURIFYING_BREW_TALENT.id] / 1000).toFixed(2);
+                    const wasted = (bob.wastedCDR[talents.PURIFYING_BREW_TALENT.id] / 1000).toFixed(
+                      2,
+                    );
                     return (
                       <Trans id="monk.brewmaster.cdr.bob">
-                        {casts} Black Ox Brew casts —{' '}
-                        <strong>{cdr}s</strong>{' '}
-                        (
-                        <strong>
-                          {wasted}s
-                        </strong>{' '}
-                        wasted)
+                        {casts} Black Ox Brew casts — <strong>{cdr}s</strong> (
+                        <strong>{wasted}s</strong> wasted)
                       </Trans>
                     );
                   })()}
@@ -196,8 +190,7 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                     const cdr = (anvilStave.cdr / 1000).toFixed(2);
                     return (
                       <Trans id="monk.brewmaster.cdr.anvil">
-                        {triggers} Anvil & Stave triggers -{' '}
-                        <strong>{cdr}s</strong>
+                        {triggers} Anvil & Stave triggers - <strong>{cdr}s</strong>
                       </Trans>
                     );
                   })()}
@@ -205,7 +198,7 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
               )}
             </ul>
             <strong>
-              <Trans id="monk.brewmaster.cdr.total">Total cooldown reduction:</Trans>
+              {t({ id: 'monk.brewmaster.cdr.total', message: 'Total cooldown reduction:' })}
             </strong>{' '}
             {(this.totalCDR / 1000).toFixed(2)}s.
           </>

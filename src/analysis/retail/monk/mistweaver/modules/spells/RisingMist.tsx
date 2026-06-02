@@ -481,7 +481,7 @@ class RisingMist extends Analyzer {
         >
           <SubSection>
             <div style={liDivTitle}>
-              <Trans id="monk.mistweaver.rising_mist.hot_and_source">HoT and Source</Trans>
+              {t({ id: 'monk.mistweaver.rising_mist.hot_and_source', message: 'HoT and Source' })}
             </div>
 
             <div

@@ -1,5 +1,4 @@
-import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import CombatLogParser from 'parser/core/CombatLogParser';
 import Statistic, { StatisticSize } from 'parser/ui/Statistic';
@@ -159,7 +158,7 @@ const ReportStatistics = ({
 
           {panels && panels.length > 0 && (
             <StatisticsSectionTitle>
-              <Trans id="report.statistics.details">Details</Trans>
+              {t({ id: 'report.statistics.details', message: 'Details' })}
             </StatisticsSectionTitle>
           )}
 

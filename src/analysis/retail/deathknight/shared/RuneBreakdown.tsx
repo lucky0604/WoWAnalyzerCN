@@ -40,9 +40,7 @@ const RuneBreakdown = ({ tracker, showSpenders }: Props) => {
       <table className="data-table">
         <thead>
           <tr>
-            <th>
-              <Trans id="shared.resourceBreakdown.ability">Ability</Trans>
-            </th>
+            <th>{t({ id: 'shared.resourceBreakdown.ability', message: 'Ability' })}</th>
             <th colSpan={2}>
               <TooltipElement
                 content={t({
@@ -115,14 +113,12 @@ const RuneBreakdown = ({ tracker, showSpenders }: Props) => {
         <table className="data-table">
           <thead>
             <tr>
-              <th>
-                <Trans id="shared.resourceBreakdown.ability">Ability</Trans>
-              </th>
+              <th>{t({ id: 'shared.resourceBreakdown.ability', message: 'Ability' })}</th>
               <th colSpan={2}>
                 <Trans id="shared.resourceBreakdown.spentHeader">{resourceName} spent</Trans>
               </th>
               <th colSpan={2}>
-                <Trans id="shared.resourceBreakdown.castsHeader">Casts</Trans>
+                {t({ id: 'shared.resourceBreakdown.castsHeader', message: 'Casts' })}
               </th>
             </tr>
           </thead>

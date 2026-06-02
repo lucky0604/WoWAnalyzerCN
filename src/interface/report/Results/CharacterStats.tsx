@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import SpellIcon from 'interface/SpellIcon';
@@ -130,7 +131,7 @@ const CharacterStats = ({ statTracker }: Props) => {
             }
           >
             <h2 style={{ marginTop: 0 }}>
-              <Trans id="shared.characterPanel.stats.pull">Stats on pull</Trans>
+              {t({ id: 'shared.characterPanel.stats.pull', message: 'Stats on pull' })}
             </h2>
           </Tooltip>
         </div>

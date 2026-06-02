@@ -82,7 +82,10 @@ class RakeUptimeAndSnapshots extends Snapshots {
       value = QualitativePerformance.Fail;
       perfExplanation = (
         <h5 style={{ color: BadColor }}>
-          <Trans id="druid.feral.rake.weaker_snapshot_early">Bad because you refreshed early with a weaker snapshot</Trans>
+          {t({
+            id: 'druid.feral.rake.weaker_snapshot_early',
+            message: 'Bad because you refreshed early with a weaker snapshot',
+          })}
         </h5>
       );
     } else if (clipped > CLIP_BUFFER) {
@@ -99,7 +102,10 @@ class RakeUptimeAndSnapshots extends Snapshots {
         value = QualitativePerformance.Fail;
         perfExplanation = (
           <h5 style={{ color: BadColor }}>
-            <Trans id="druid.feral.rake.early_refresh_bad">Bad because you refreshed too early</Trans>
+            {t({
+              id: 'druid.feral.rake.early_refresh_bad',
+              message: 'Bad because you refreshed too early',
+            })}
           </h5>
         );
       }
@@ -107,7 +113,10 @@ class RakeUptimeAndSnapshots extends Snapshots {
       value = QualitativePerformance.Ok;
       perfExplanation = (
         <h5 style={{ color: OkColor }}>
-          <Trans id="druid.feral.rake.early_refresh_warning">Careful, you refreshed this a little early</Trans>
+          {t({
+            id: 'druid.feral.rake.early_refresh_warning',
+            message: 'Careful, you refreshed this a little early',
+          })}
         </h5>
       );
     }
@@ -118,7 +127,8 @@ class RakeUptimeAndSnapshots extends Snapshots {
         <div>
           @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>{' '}
           <Trans id="druid.feral.moonfire.targetting">
-            targetting <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
+            targetting{' '}
+            <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
           </Trans>
         </div>
         {prevSnapshotNames !== null && (
@@ -176,9 +186,9 @@ class RakeUptimeAndSnapshots extends Snapshots {
           is your highest damage-per-energy single target builder. Try to keep it active on all
           targets (except when in a many-target AoE situation). Rake snapshots{' '}
           <SpellLink spell={SPELLS.TIGERS_FURY} /> and{' '}
-          <SpellLink spell={TALENTS_DRUID.POUNCING_STRIKES_TALENT} /> - when forced to refresh with a
-          weaker snapshot, try to wait until the last moment in order to overwrite the minimum amount
-          of the stronger DoT.
+          <SpellLink spell={TALENTS_DRUID.POUNCING_STRIKES_TALENT} /> - when forced to refresh with
+          a weaker snapshot, try to wait until the last moment in order to overwrite the minimum
+          amount of the stronger DoT.
         </Trans>
       </p>
     );
@@ -188,10 +198,16 @@ class RakeUptimeAndSnapshots extends Snapshots {
         <RoundedPanel>
           <div>
             <strong>
-              <Trans id="druid.feral.rake.uptime_snapshots_title">Rake uptime / snapshots</Trans>
+              {t({
+                id: 'druid.feral.rake.uptime_snapshots_title',
+                message: 'Rake uptime / snapshots',
+              })}
             </strong>
             <small>
-              <Trans id="druid.feral.moonfire.uptime_snapshots_sub"> - Try to get as close to 100% as the encounter allows!</Trans>
+              {t({
+                id: 'druid.feral.moonfire.uptime_snapshots_sub',
+                message: '- Try to get as close to 100% as the encounter allows!',
+              })}
             </small>
           </div>
           {this.subStatistic()}
@@ -199,8 +215,14 @@ class RakeUptimeAndSnapshots extends Snapshots {
         <CastSummaryAndBreakdown
           spell={SPELLS.RAKE}
           castEntries={this.castEntries}
-          okExtraExplanation={<Trans id="druid.feral.moonfire.ok_reason">clipped duration but upgraded snapshot</Trans>}
-          badExtraExplanation={<Trans id="druid.feral.moonfire.bad_reason">clipped duration or downgraded snapshot w/ &gt;2s remaining</Trans>}
+          okExtraExplanation={t({
+            id: 'druid.feral.moonfire.ok_reason',
+            message: 'clipped duration but upgraded snapshot',
+          })}
+          badExtraExplanation={t({
+            id: 'druid.feral.moonfire.bad_reason',
+            message: 'clipped duration or downgraded snapshot w/ &gt;2s remaining',
+          })}
         />
       </div>
     );

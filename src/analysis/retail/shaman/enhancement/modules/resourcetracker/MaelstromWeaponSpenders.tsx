@@ -121,19 +121,19 @@ class MaelstromWeaponSpenders extends Analyzer.withDependencies({
           <thead>
             <tr>
               <th style={{ width: '45%' }}>
-                <Trans id="shaman.enhancement.spenders.ability">Ability</Trans>
+                {t({ id: 'shaman.enhancement.spenders.ability', message: 'Ability' })}
               </th>
               <th className="text-right">
-                <Trans id="shaman.enhancement.spenders.casts">Casts</Trans>
+                {t({ id: 'shaman.enhancement.spenders.casts', message: 'Casts' })}
               </th>
               <th className="text-right">
-                <Trans id="shaman.enhancement.spenders.dmg_msw">Dmg / MSW</Trans>
+                {t({ id: 'shaman.enhancement.spenders.dmg_msw', message: 'Dmg / MSW' })}
               </th>
               <th className="text-right">
-                <Trans id="shaman.enhancement.spenders.avg_msw_cast">Avg. MSW / Cast</Trans>
+                {t({ id: 'shaman.enhancement.spenders.avg_msw_cast', message: 'Avg. MSW / Cast' })}
               </th>
               <th className="text-right">
-                <Trans id="shaman.enhancement.spenders.avg_cast">Avg. Cast</Trans>
+                {t({ id: 'shaman.enhancement.spenders.avg_cast', message: 'Avg. Cast' })}
               </th>
             </tr>
           </thead>

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import groupByToMap from 'common/groupByToMap';
 import DocumentTitle from 'interface/DocumentTitle';
 import AVAILABLE_CONFIGS from 'parser';
@@ -58,9 +59,7 @@ export function Component() {
       <DocumentTitle title="Specializations" />
 
       <div>
-        <h1>
-          <Trans id="interface.specList.specs">Specializations</Trans>
-        </h1>
+        <h1>{t({ id: 'interface.specList.specs', message: 'Specializations' })}</h1>
       </div>
       <small>
         <Trans id="interface.specList.specs.label">
@@ -69,9 +68,7 @@ export function Component() {
       </small>
 
       <div>
-        <h2>
-          <Trans id="interface.specList.retail">Retail</Trans>
-        </h2>
+        <h2>{t({ id: 'interface.specList.retail', message: 'Retail' })}</h2>
       </div>
 
       {retailClassesOrderedBySupport.map(([className, specConfigs]) => (
@@ -83,9 +80,7 @@ export function Component() {
       ))}
 
       <div>
-        <h2>
-          <Trans id="interface.specList.classic">Classic</Trans>
-        </h2>
+        <h2>{t({ id: 'interface.specList.classic', message: 'Classic' })}</h2>
       </div>
 
       <div className="spec-listing">
@@ -96,7 +91,7 @@ export function Component() {
 
       <div className="text-right">
         <a style={{ fontStyle: 'italic', fontSize: 'small' }} href="/support-stats">
-          <Trans id="interface.specList.viewAnalysis">View Analysis Stats</Trans>
+          {t({ id: 'interface.specList.viewAnalysis', message: 'View Analysis Stats' })}
         </a>
       </div>
     </>

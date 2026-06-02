@@ -106,7 +106,10 @@ export default function StaggerPoolSection(): JSX.Element | null {
           </dt>
           <dd>{formatNumber(stagger.totalTickDamageTaken)}</dd>
           <dt>
-            <Trans id="monk.brewmaster.stagger.total_purified">Total Damage Purified&nbsp;</Trans>
+            {t({
+              id: 'monk.brewmaster.stagger.total_purified',
+              message: 'Total Damage Purified&nbsp;',
+            })}
             <Tooltip
               content={
                 <Trans id="monk.brewmaster.stagger.purified_tooltip">
@@ -185,14 +188,14 @@ export default function StaggerPoolSection(): JSX.Element | null {
 
 const commonTableColumns = {
   staggerSpellName: spellName.withLabels({
-    [spells.STAGGER_TALENT.id]: <Trans id="monk.brewmaster.stagger.dot">Stagger (DoT)</Trans>,
+    [spells.STAGGER_TALENT.id]: defineMessage({ id: 'monk.brewmaster.stagger.dot', message: 'Stagger (DoT)' }),
   }),
   amountBar: amountBar(defineMessage({ id: 'monk.brewmaster.stagger.damage', message: 'Damage' })),
 };
 
 const damageTakenColumns = {
   ...commonTableColumns,
-  hits: literalNumberColumn(<Trans id="monk.brewmaster.stagger.hits">Hits</Trans>, 'hits'),
+  hits: literalNumberColumn(defineMessage({ id: 'monk.brewmaster.stagger.hits', message: 'Hits' }), 'hits'),
 };
 
 const MAX_DATA_ROWS = 5;
@@ -255,7 +258,7 @@ const PURIFICATION_SOURCES = [
 const purificationColumns = {
   ...commonTableColumns,
   triggers: literalNumberColumn(
-    <Trans id="monk.brewmaster.stagger.triggers">Triggers</Trans>,
+    defineMessage({ id: 'monk.brewmaster.stagger.triggers', message: 'Triggers' }),
     'count',
   ),
 };

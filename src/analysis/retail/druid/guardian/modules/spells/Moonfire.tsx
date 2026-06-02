@@ -27,8 +27,8 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
           <strong>
             <SpellLink spell={SPELLS.MOONFIRE_CAST} />
           </strong>{' '}
-          is a DoT that can be applied to any number of targets. It's worth maintaining full uptime on
-          low target counts.
+          is a DoT that can be applied to any number of targets. It's worth maintaining full uptime
+          on low target counts.
         </Trans>
       </p>
     );
@@ -43,7 +43,7 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="druid.guardian.moonfire.uptimes_title">Moonfire uptimes</Trans>
+            {t({ id: 'druid.guardian.moonfire.uptimes_title', message: 'Moonfire uptimes' })}
           </strong>
           {uptimeBar}
         </RoundedPanel>
@@ -75,7 +75,7 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
           label={
             <>
               <SpellIcon spell={SPELLS.MOONFIRE_DEBUFF} />{' '}
-              <Trans id="druid.guardian.moonfire.uptime_label">Moonfire uptime</Trans>{' '}
+              {t({ id: 'druid.guardian.moonfire.uptime_label', message: 'Moonfire uptime' })}{' '}
             </>
           }
         >

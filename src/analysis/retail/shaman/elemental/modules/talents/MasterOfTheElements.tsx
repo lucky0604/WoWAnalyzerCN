@@ -1,5 +1,6 @@
 import TALENTS from 'common/TALENTS/shaman';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, GetRelatedEvent } from 'parser/core/Events';
@@ -69,11 +70,9 @@ class MasterOfTheElements extends Analyzer {
           <MasterOfTheElementsTable className="table table-condensed">
             <thead>
               <tr>
+                <th>{t({ id: 'shaman.elemental.mote.ability', message: 'Ability' })}</th>
                 <th>
-                  <Trans id="shaman.elemental.mote.ability">Ability</Trans>
-                </th>
-                <th>
-                  <Trans id="shaman.elemental.mote.casts">Number of Buffed Casts</Trans>
+                  {t({ id: 'shaman.elemental.mote.casts', message: 'Number of Buffed Casts' })}
                 </th>
               </tr>
             </thead>

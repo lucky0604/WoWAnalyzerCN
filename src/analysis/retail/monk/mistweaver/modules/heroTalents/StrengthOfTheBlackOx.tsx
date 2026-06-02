@@ -121,7 +121,7 @@ class StrengthOfTheBlackOx extends Analyzer {
           title={
             <>
               <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} />{' '}
-              <Trans id="monk.mistweaver.sotbo.overview">Overview</Trans>
+              {t({ id: 'monk.mistweaver.sotbo.overview', message: 'Overview' })}
             </>
           }
           stats={stats}

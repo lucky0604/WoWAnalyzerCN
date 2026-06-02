@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Changelog from 'interface/Changelog';
 import Contributor from 'interface/ContributorButton';
 import Icon from 'interface/Icon';
@@ -115,7 +116,7 @@ const SupportCheckerIssue = ({
       </Panel>
 
       <Panel
-        title={<Trans id="supportCheckerIssue.specChangelog">Spec changelog</Trans>}
+        title={t({ id: 'supportCheckerIssue.specChangelog', message: 'Spec changelog' })}
         pad={false}
       >
         <Changelog includeCore={false} changelog={changelog ?? []} />

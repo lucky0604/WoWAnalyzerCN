@@ -1,4 +1,5 @@
 import { Plural, Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import isLatestPatch from 'game/isLatestPatch';
 import AlertInfo from 'interface/AlertInfo';
@@ -20,11 +21,11 @@ const About = ({ config }: Props) => {
   const { i18n } = useLingui();
   const isPartial = supportLevel === SupportLevel.MaintainedPartial;
   const contributorinfo =
-    contributors.length !== 0 ? (
-      contributors.map((contributor) => <Contributor key={contributor.nickname} {...contributor} />)
-    ) : (
-      <Trans id="interface.report.results.about.unmaintained">CURRENTLY UNMAINTAINED</Trans>
-    );
+    contributors.length !== 0
+      ? contributors.map((contributor) => (
+          <Contributor key={contributor.nickname} {...contributor} />
+        ))
+      : defineMessage({ id: 'interface.report.results.about.unmaintained', message: 'CURRENTLY UNMAINTAINED' });
 
   const description = config.description ?? <DefaultDescription {...config} />;
 
@@ -39,12 +40,12 @@ const About = ({ config }: Props) => {
         <>
           <div>
             <Link to="../events">
-              <Trans id="interface.report.results.about.viewEvents">View all events</Trans>
+              {t({ id: 'interface.report.results.about.viewEvents', message: 'View all events' })}
             </Link>
           </div>
           <div>
             <Link to="../debug">
-              <Trans id="interface.report.results.about.viewDebug">View debug info</Trans>
+              {t({ id: 'interface.report.results.about.viewDebug', message: 'View debug info' })}
             </Link>
           </div>
         </>
@@ -67,7 +68,10 @@ const About = ({ config }: Props) => {
       </div>
       <div className="row" style={{ marginTop: '0.5em' }}>
         <div className="col-lg-4" style={{ fontWeight: 'bold', paddingRight: 0 }}>
-          <Trans id="interface.report.results.about.updatedForPatch">Updated for patch</Trans>
+          {t({
+            id: 'interface.report.results.about.updatedForPatch',
+            message: 'Updated for patch',
+          })}
         </div>
         <div className="col-lg-8">{patchCompatibility}</div>
       </div>
@@ -105,15 +109,14 @@ const DefaultDescription = ({ spec, supportLevel }: Config) => {
     supportLevel === SupportLevel.Foundation ? (
       <>
         <p>
-          {specTitle} 具有 <FoundationSupportBadge />，包括：
+          {specTitle} 具有 <FoundationSupportBadge />
+          ，包括：
         </p>
         <ul>
           <li>技能使用和覆盖率的综合分析（始终保持施法！）</li>
           <li>所有职业和专精技能的精确冷却追踪</li>
         </ul>
-        <p>
-          然而，该分析器没有专门的维护者提供详细的循环分析、统计数据或其他功能。
-        </p>
+        <p>然而，该分析器没有专门的维护者提供详细的循环分析、统计数据或其他功能。</p>
         <p>
           如果你认为存在技能或冷却追踪方面的错误，请通过 <SmallDiscordButton /> 告知我们。
         </p>
@@ -131,9 +134,7 @@ const DefaultDescription = ({ spec, supportLevel }: Config) => {
       {supportDesc}
       <AlertInfo>
         有兴趣为 {specTitle} 分析做出贡献？请查看我们的{' '}
-        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/wiki#getting-started">
-          入门指南
-        </a>
+        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/wiki#getting-started">入门指南</a>
         ，或访问 <SmallDiscordButton /> 参与帮助！
       </AlertInfo>
     </div>

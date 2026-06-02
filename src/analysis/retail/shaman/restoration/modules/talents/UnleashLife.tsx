@@ -319,7 +319,7 @@ class UnleashLife extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: <Trans id="shaman.restoration.spell.chainHeal">Chain Heal</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: TALENTS.CHAIN_HEAL_TALENT.id,
         value: this.healingMap[TALENTS.CHAIN_HEAL_TALENT.id].amount,
         valueTooltip: this._tooltip({
@@ -330,7 +330,7 @@ class UnleashLife extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: <Trans id="shaman.restoration.spell.healingWave">Healing Wave</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: this.healingMap[SPELLS.HEALING_WAVE.id].amount,
         valueTooltip: this._tooltip({
@@ -341,7 +341,7 @@ class UnleashLife extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.RIPTIDE,
-        label: <Trans id="shaman.restoration.spell.riptide">Riptide</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
         spellId: TALENTS.RIPTIDE_TALENT.id,
         value: this.healingMap[TALENTS.RIPTIDE_TALENT.id].amount,
         valueTooltip: this._tooltip({
@@ -376,10 +376,7 @@ class UnleashLife extends Analyzer {
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {this.buffIcon} {this.wastedBuffs}{' '}
-          <small>
-            {' '}
-            <Trans id="shaman.restoration.ul.wasted_buffs">wasted buffs</Trans>
-          </small>
+          <small> {t({ id: 'shaman.restoration.ul.wasted_buffs', message: 'wasted buffs' })}</small>
         </TalentSpellText>
         <aside className="pad">
           <hr />
@@ -472,9 +469,9 @@ class UnleashLife extends Analyzer {
       value = QualitativePerformance.Fail;
       tooltip = (
         <>
-          <Trans id="shaman.restoration.ul.incorrect">Incorrect cast: </Trans>
+          {t({ id: 'shaman.restoration.ul.incorrect', message: 'Incorrect cast:' })}
           {spellId === -1 ? (
-            <Trans id="shaman.restoration.ul.unused">Unused Buff!</Trans>
+            t({ id: 'shaman.restoration.ul.unused', message: 'Unused Buff!' })
           ) : (
             <Trans id="shaman.restoration.ul.buffed_spell">
               buffed <SpellLink spell={spellId} />

@@ -6,7 +6,6 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { hardcastTargetsHit } from 'analysis/retail/druid/balance/normalizers/CastLinkNormalizer';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import ItemPercentDamageDone from 'parser/ui/ItemPercentDamageDone';
@@ -61,7 +60,7 @@ export default class TwinMoons extends Analyzer {
           <div>
             {this.owner.getPerMinute(this.extraHits).toFixed(1)}{' '}
             <small>
-              <Trans id="balance.twin_moons.extra_mf_pm">extra moonfires per minute</Trans>
+              {t({ id: 'balance.twin_moons.extra_mf_pm', message: 'extra moonfires per minute' })}
             </small>
           </div>
         </TalentSpellText>

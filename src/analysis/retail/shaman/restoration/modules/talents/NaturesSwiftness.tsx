@@ -19,6 +19,7 @@ import { GapHighlight } from 'parser/ui/CooldownBar';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 class NaturesSwiftness extends Analyzer {
   static AFFECTED_SPELLS = [
     SPELLS.LIGHTNING_BOLT,
@@ -142,7 +143,7 @@ class NaturesSwiftness extends Analyzer {
           <div>
             {formatNumber(this.avgManaSaved)}{' '}
             <small>
-              <Trans id="shaman.restoration.ns.mana_saved_label">mana saved per cast</Trans>
+              {t({ id: 'shaman.restoration.ns.mana_saved_label', message: 'mana saved per cast' })}
             </small>
           </div>
         </TalentSpellText>
@@ -182,9 +183,7 @@ class NaturesSwiftness extends Analyzer {
             />{' '}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <strong>
-              <Trans id="shaman.restoration.ns.casts_title">Casts </Trans>
-            </strong>
+            <strong>{t({ id: 'shaman.restoration.ns.casts_title', message: 'Casts' })}</strong>
             <small>
               <Trans id="shaman.restoration.ns.casts_desc">
                 - Green indicates a good use of the{' '}
@@ -236,9 +235,7 @@ class NaturesSwiftness extends Analyzer {
             />{' '}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <strong>
-              <Trans id="shaman.restoration.ns.casts_title">Casts </Trans>
-            </strong>
+            <strong>{t({ id: 'shaman.restoration.ns.casts_title', message: 'Casts' })}</strong>
             <small>
               <Trans id="shaman.restoration.as.casts_desc">
                 - Green indicates a good use of the{' '}

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { SpellLink } from 'interface';
@@ -83,12 +84,8 @@ class ManaTideTotem extends Analyzer {
           <table className="table table-condensed">
             <thead>
               <tr>
-                <th>
-                  <Trans id="common.player">Player</Trans>
-                </th>
-                <th>
-                  <Trans id="common.stat.mana">Mana</Trans>
-                </th>
+                <th>{t({ id: 'common.player', message: 'Player' })}</th>
+                <th>{t({ id: 'common.stat.mana', message: 'Mana' })}</th>
               </tr>
             </thead>
             <tbody>

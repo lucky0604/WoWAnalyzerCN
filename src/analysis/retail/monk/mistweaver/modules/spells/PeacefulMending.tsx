@@ -8,7 +8,7 @@ import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { PEACEFUL_MENDING_INCREASE } from '../../constants';
@@ -111,7 +111,10 @@ class PeacefulMending extends Analyzer {
         tooltip={
           <>
             <strong>
-              <Trans id="monk.mistweaver.peaceful_mending.effective_healing">Effective healing:</Trans>
+              {t({
+                id: 'monk.mistweaver.peaceful_mending.effective_healing',
+                message: 'Effective healing:',
+              })}
             </strong>
             <ul>
               <li>
@@ -132,7 +135,10 @@ class PeacefulMending extends Analyzer {
               </li>
             </ul>
             <strong>
-              <Trans id="monk.mistweaver.peaceful_mending.contribution">Contribution by source:</Trans>
+              {t({
+                id: 'monk.mistweaver.peaceful_mending.contribution',
+                message: 'Contribution by source:',
+              })}
             </strong>
             <ul>
               {SOOTHING_MIST_SOURCES.map(({ spell }) => {

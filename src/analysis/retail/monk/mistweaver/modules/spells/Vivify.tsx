@@ -285,7 +285,7 @@ class Vivify extends Analyzer {
           title={
             <>
               <SpellLink spell={SPELLS.VIVIFY} />{' '}
-              <Trans id="monk.mistweaver.vivify.overview">Overview</Trans>
+              {t({ id: 'monk.mistweaver.vivify.overview', message: 'Overview' })}
             </>
           }
           stats={stats}

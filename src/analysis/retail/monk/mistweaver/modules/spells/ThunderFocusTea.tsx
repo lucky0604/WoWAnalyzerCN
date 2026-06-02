@@ -324,7 +324,7 @@ class ThunderFocusTea extends Analyzer {
       <RoundedPanel>
         <strong>
           <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />{' '}
-          <Trans id="monk.mistweaver.tft.castEfficiency">cast efficiency</Trans>
+          {t({ id: 'monk.mistweaver.tft.castEfficiency', message: 'cast efficiency' })}
         </strong>
         {this.subStatistic()}
         <div style={{ minWidth: 0, overflow: 'hidden' }}>

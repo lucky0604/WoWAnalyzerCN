@@ -180,7 +180,7 @@ class Voidstep extends Analyzer {
           <TooltipElement content={consumedTooltip}>
             {formatPercentage(this.consumedProcs / this.totalProcs, 0)} %{' '}
             <small>
-              <Trans id="guide.demonhunter.devourer.voidstep.consumed">consumed</Trans>
+              {t({ id: 'guide.demonhunter.devourer.voidstep.consumed', message: 'consumed' })}
             </small>
           </TooltipElement>
         </div>
@@ -195,7 +195,7 @@ class Voidstep extends Analyzer {
           <TooltipElement content={overwrittenTooltip}>
             {formatPercentage(this.voidstepRefreshes / this.totalProcs, 0)} %{' '}
             <small>
-              <Trans id="guide.demonhunter.devourer.voidstep.overwritten">overwritten</Trans>
+              {t({ id: 'guide.demonhunter.devourer.voidstep.overwritten', message: 'overwritten' })}
             </small>
           </TooltipElement>
         </div>
@@ -210,7 +210,7 @@ class Voidstep extends Analyzer {
           <TooltipElement content={expiredTooltip}>
             {formatPercentage(this.expiredProcs / this.totalProcs, 0)} %{' '}
             <small>
-              <Trans id="guide.demonhunter.devourer.voidstep.expired">expired</Trans>
+              {t({ id: 'guide.demonhunter.devourer.voidstep.expired', message: 'expired' })}
             </small>
           </TooltipElement>
         </div>

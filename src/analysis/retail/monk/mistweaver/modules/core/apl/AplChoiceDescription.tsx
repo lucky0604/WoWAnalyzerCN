@@ -4,6 +4,7 @@ import talents from 'common/TALENTS/monk';
 import { SpellLink } from 'interface';
 import { MistweaverApl } from './AplCheck';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const aplTitle = (choice: MistweaverApl) => {
   switch (choice) {
@@ -90,8 +91,8 @@ const RisingMistJadefireTeachingsShaohaosDescription = () => {
           <SpellLink spell={talents.JADEFIRE_TEACHINGS_TALENT} /> with{' '}
           <SpellLink spell={talents.RISING_SUN_KICK_TALENT} /> as often as possible, and cast{' '}
           <SpellLink spell={talents.JADEFIRE_STOMP_TALENT} /> or{' '}
-          <SpellLink spell={talents.THUNDER_FOCUS_TEA_TALENT} /> as often as necessary to maintain the{' '}
-          <SpellLink spell={talents.JADEFIRE_TEACHINGS_TALENT} /> buff.
+          <SpellLink spell={talents.THUNDER_FOCUS_TEA_TALENT} /> as often as necessary to maintain
+          the <SpellLink spell={talents.JADEFIRE_TEACHINGS_TALENT} /> buff.
         </Trans>
         <ThunderFocusTeaRemRsk />
       </p>
@@ -152,11 +153,11 @@ const FallbackDescription = () => {
     <>
       <p>
         <Trans id="monk.mistweaver.apl.fallback">
-          The {aplTitle(MistweaverApl.Fallback)} rotation is used when you aren't using a recommended
-          raid build. Regardless of talent choices it is still important for you to follow the core
-          priority: high mana efficient spells and short cooldowns, then filler damage spells. This is
-          the simplest rotation, but practicing it will build good habits that work with the other
-          variations.
+          The {aplTitle(MistweaverApl.Fallback)} rotation is used when you aren't using a
+          recommended raid build. Regardless of talent choices it is still important for you to
+          follow the core priority: high mana efficient spells and short cooldowns, then filler
+          damage spells. This is the simplest rotation, but practicing it will build good habits
+          that work with the other variations.
         </Trans>
       </p>
     </>
@@ -187,8 +188,8 @@ export default function AplChoiceDescription({
     <>
       <p>
         <Trans id="monk.mistweaver.apl.mw_core_explanation">
-          Mistweavers have a few different variations to their core rotation, depending on your talent
-          selection. The core of the rotations does not change with{' '}
+          Mistweavers have a few different variations to their core rotation, depending on your
+          talent selection. The core of the rotations does not change with{' '}
           <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />,{' '}
           <SpellLink spell={talents.RISING_SUN_KICK_TALENT} />/
           <SpellLink spell={talents.RUSHING_WIND_KICK_MISTWEAVER_TALENT} />, and{' '}
@@ -198,8 +199,9 @@ export default function AplChoiceDescription({
       </p>
       <p>
         <strong>
-          <Trans id="monk.mistweaver.apl.selected_build">Selected Build:</Trans>
-        </strong> {aplTitle(aplChoice)}
+          {t({ id: 'monk.mistweaver.apl.selected_build', message: 'Selected Build:' })}
+        </strong>{' '}
+        {aplTitle(aplChoice)}
       </p>
       <Description aplChoice={aplChoice} />
     </>

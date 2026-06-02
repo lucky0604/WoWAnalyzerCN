@@ -8,6 +8,7 @@ import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { getLowestPerf, QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
 } from 'interface/guide/components/CooldownExpandable';
@@ -125,10 +126,10 @@ class Revival extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="monk.mistweaver.revival.perCastBreakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'monk.mistweaver.revival.perCastBreakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="monk.mistweaver.revival.clickToExpand"> - click to expand</Trans>
+          {t({ id: 'monk.mistweaver.revival.clickToExpand', message: '- click to expand' })}
         </small>
         {this.castTracker.map((cast, idx) => {
           const header = (

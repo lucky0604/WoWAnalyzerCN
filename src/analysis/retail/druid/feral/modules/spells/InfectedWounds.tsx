@@ -1,5 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
@@ -61,11 +62,11 @@ export default class InfectedWounds extends Analyzer {
             </Trans>
             <ul>
               <li>
-                <Trans id="druid.feral.infected_wounds.direct_hits">Direct hits:</Trans>{' '}
+                {t({ id: 'druid.feral.infected_wounds.direct_hits', message: 'Direct hits:' })}{' '}
                 <strong>{this.owner.formatItemDamageDone(this.rakeDirectDamage)}</strong>
               </li>
               <li>
-                <Trans id="druid.feral.infected_wounds.bleed_ticks">Bleed ticks:</Trans>{' '}
+                {t({ id: 'druid.feral.infected_wounds.bleed_ticks', message: 'Bleed ticks:' })}{' '}
                 <strong>{this.owner.formatItemDamageDone(this.rakeBleedDamage)}</strong>
               </li>
             </ul>

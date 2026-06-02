@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
 // import ISSUE_IMPORTANCE from 'parser/core/ISSUE_IMPORTANCE';

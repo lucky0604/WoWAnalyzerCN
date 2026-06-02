@@ -75,8 +75,8 @@ export default class Chomp extends Analyzer {
             <strong>
               <SpellLink spell={TALENTS_DRUID.CHOMP_TALENT} />
             </strong>{' '}
-            is a high-damage filler available when your energy drops below 30%. Use it as soon as the
-            condition is met and the cooldown is ready. Using it during{' '}
+            is a high-damage filler available when your energy drops below 30%. Use it as soon as
+            the condition is met and the cooldown is ready. Using it during{' '}
             <SpellLink spell={SPELLS.TIGERS_FURY} /> is ideal, but don't hold it to align.
           </Trans>
         </p>
@@ -86,11 +86,9 @@ export default class Chomp extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="druid.feral.chomp.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'druid.feral.chomp.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
-        <small>
-          <Trans id="druid.feral.chomp.click_expand"> - click to expand</Trans>
-        </small>
+        <small>{t({ id: 'druid.feral.chomp.click_expand', message: '- click to expand' })}</small>
         {this.chompCasts.map((cast, idx) => {
           const tfPerf = cast.tigersFuryActive
             ? QualitativePerformance.Perfect
@@ -110,7 +108,13 @@ export default class Chomp extends Analyzer {
             {
               label: t({ id: 'druid.feral.chomp.tf_active', message: "Tiger's Fury active" }),
               result: <PerformanceMark perf={tfPerf} />,
-              details: <>{cast.tigersFuryActive ? t({ id: 'druid.shared.yes', message: 'Yes' }) : t({ id: 'druid.shared.no', message: 'No' })}</>,
+              details: (
+                <>
+                  {cast.tigersFuryActive
+                    ? t({ id: 'druid.shared.yes', message: 'Yes' })
+                    : t({ id: 'druid.shared.no', message: 'No' })}
+                </>
+              ),
             },
           ];
 

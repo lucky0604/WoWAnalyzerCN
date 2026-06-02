@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import { ThresholdStyle } from 'parser/core/ParseResults';
 import CoreAlwaysBeCasting from 'parser/shared/modules/AlwaysBeCasting';
@@ -49,7 +50,7 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
       >
         <div className="pad">
           <label>
-            <Trans id="mage.frost.alwaysBeCasting.statistic.label">Active time</Trans>
+            {t({ id: 'mage.frost.alwaysBeCasting.statistic.label', message: 'Active time' })}
           </label>
           <Gauge value={this.activeTimePercentage} />
         </div>

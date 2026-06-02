@@ -63,20 +63,16 @@ export function buildAplProcWindowData({
           <strong>{cast.spellName}</strong>
           <div>@ {formatTimestamp(cast.timestamp)}</div>
           <div style={{ marginTop: '6px' }}>
-            <Trans id="monk.windwalker.apl.before">Before: </Trans>
-            {cast.aplExpectedBefore.length > 0 ? (
-              cast.aplExpectedBefore.map((spell) => spell.name).join(' -> ')
-            ) : (
-              <Trans id="monk.windwalker.apl.none">None</Trans>
-            )}
+            {t({ id: 'monk.windwalker.apl.before', message: 'Before:' })}
+            {cast.aplExpectedBefore.length > 0
+              ? cast.aplExpectedBefore.map((spell) => spell.name).join(' -> ')
+              : t({ id: 'monk.windwalker.apl.none', message: 'None' })}
           </div>
           <div>
-            <Trans id="monk.windwalker.apl.after">After: </Trans>
-            {cast.aplExpectedAfter.length > 0 ? (
-              cast.aplExpectedAfter.map((spell) => spell.name).join(' -> ')
-            ) : (
-              <Trans id="monk.windwalker.apl.none">None</Trans>
-            )}
+            {t({ id: 'monk.windwalker.apl.after', message: 'After:' })}
+            {cast.aplExpectedAfter.length > 0
+              ? cast.aplExpectedAfter.map((spell) => spell.name).join(' -> ')
+              : t({ id: 'monk.windwalker.apl.none', message: 'None' })}
           </div>
         </>
       );
@@ -241,7 +237,7 @@ export function buildAplProcWindowData({
               }}
             >
               <div style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 700 }}>
-                <Trans id="monk.windwalker.apl.legend">Legend</Trans>
+                {t({ id: 'monk.windwalker.apl.legend', message: 'Legend' })}
               </div>
               <div style={{ display: 'grid', gap: '0.5rem' }}>
                 <div>

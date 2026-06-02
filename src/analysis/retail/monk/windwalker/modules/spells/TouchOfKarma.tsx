@@ -3,6 +3,7 @@ import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -61,13 +62,14 @@ class TouchOfKarma extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.OPTIONAL(2)}
         size="flexible"
-        tooltip={<Trans id="monk.windwalker.karma.tooltip">This does not account for possible absorbs from missed Touch of Karma casts</Trans>}
+        tooltip={t({
+          id: 'monk.windwalker.karma.tooltip',
+          message: 'This does not account for possible absorbs from missed Touch of Karma casts',
+        })}
       >
         <BoringSpellValueText spell={SPELLS.TOUCH_OF_KARMA_CAST}>
           {formatPercentage(this.absorbUsed, 0)}%{' '}
-          <small>
-            <Trans id="monk.windwalker.karma.absorb_used">Absorb used</Trans>
-          </small>
+          <small>{t({ id: 'monk.windwalker.karma.absorb_used', message: 'Absorb used' })}</small>
         </BoringSpellValueText>
       </Statistic>
     );

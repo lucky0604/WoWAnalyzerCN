@@ -228,7 +228,10 @@ class SoulOfTheForest extends Analyzer {
             useText = (
               <>
                 <SpellLink spell={SPELLS.REJUVENATION} />{' '}
-                {t({ id: 'restoration.sotf.pota_fail_extra_hots', message: '- fewer than 2 extra HoTs' })}
+                {t({
+                  id: 'restoration.sotf.pota_fail_extra_hots',
+                  message: '- fewer than 2 extra HoTs',
+                })}
               </>
             );
             value = QualitativePerformance.Fail;
@@ -241,7 +244,10 @@ class SoulOfTheForest extends Analyzer {
             useText = (
               <>
                 <SpellLink spell={SPELLS.REGROWTH} />{' '}
-                {t({ id: 'restoration.sotf.pota_fail_extra_hots', message: '- fewer than 2 extra HoTs' })}
+                {t({
+                  id: 'restoration.sotf.pota_fail_extra_hots',
+                  message: '- fewer than 2 extra HoTs',
+                })}
               </>
             );
             value = QualitativePerformance.Fail;
@@ -314,8 +320,8 @@ class SoulOfTheForest extends Analyzer {
           <SpellLink spell={SPELLS.REGROWTH} />.{' '}
           {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
             <>
-              <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> can overwrite procs - always use your proc
-              before casting Convoke. Never let a proc expire.
+              <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> can overwrite procs - always use your
+              proc before casting Convoke. Never let a proc expire.
             </>
           )}
           {hasPota && (
@@ -335,7 +341,10 @@ class SoulOfTheForest extends Analyzer {
           spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT}
           castEntries={this.useEntries}
           usesInsteadOfCasts
-          goodExtraExplanation={t({ id: 'restoration.sotf.good_extra_explanation', message: 'used on Rejuvenation or Regrowth' })}
+          goodExtraExplanation={t({
+            id: 'restoration.sotf.good_extra_explanation',
+            message: 'used on Rejuvenation or Regrowth',
+          })}
           badExtraExplanation={
             hasPota ? (
               <Trans id="restoration.sotf.bad_extra_explanation_pota">
@@ -343,7 +352,10 @@ class SoulOfTheForest extends Analyzer {
                 Archdruid
               </Trans>
             ) : (
-              <Trans id="restoration.sotf.bad_extra_explanation_base">proc expired or was overwritten</Trans>
+              t({
+                id: 'restoration.sotf.bad_extra_explanation_base',
+                message: 'proc expired or was overwritten',
+              })
             )
           }
         />

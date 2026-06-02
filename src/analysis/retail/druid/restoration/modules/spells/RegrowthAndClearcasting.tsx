@@ -201,21 +201,38 @@ class RegrowthAndClearcasting extends Analyzer {
       this.triageRegrowths += 1;
       performance = QualitativePerformance.Good;
       castNote = isFreeOrCheap
-        ? freeNote + t({ id: 'restoration.regrowth.on_critically_low', message: ' on a critically low target' })
-        : t({ id: 'restoration.regrowth.triage_critically_low', message: 'Triage cast on a critically low target' });
+        ? freeNote +
+          t({
+            id: 'restoration.regrowth.on_critically_low',
+            message: ' on a critically low target',
+          })
+        : t({
+            id: 'restoration.regrowth.triage_critically_low',
+            message: 'Triage cast on a critically low target',
+          });
     } else if (isFreeOrCheap) {
       if (this.hasNaturesBounty) {
         if (!targetHadRegrowth || isPandemicRefresh) {
           // Good: free/cheap on a new target or pandemic refresh
           performance = QualitativePerformance.Good;
           castNote = isPandemicRefresh
-            ? freeNote + t({ id: 'restoration.regrowth.pandemic_refresh', message: ' — pandemic refresh of existing Regrowth' })
-            : freeNote + t({ id: 'restoration.regrowth.new_target', message: ' — new Regrowth target' });
+            ? freeNote +
+              t({
+                id: 'restoration.regrowth.pandemic_refresh',
+                message: ' — pandemic refresh of existing Regrowth',
+              })
+            : freeNote +
+              t({ id: 'restoration.regrowth.new_target', message: ' — new Regrowth target' });
         } else {
           // Ok: free/cheap but early overwrite of existing Regrowth HoT
           this.okRegrowths += 1;
           performance = QualitativePerformance.Ok;
-          castNote = freeNote + t({ id: 'restoration.regrowth.overwrote_existing', message: ' — overwrote existing Regrowth HoT (not in pandemic window)' });
+          castNote =
+            freeNote +
+            t({
+              id: 'restoration.regrowth.overwrote_existing',
+              message: ' — overwrote existing Regrowth HoT (not in pandemic window)',
+            });
         }
       } else {
         if (isLowOverheal) {
@@ -226,7 +243,8 @@ class RegrowthAndClearcasting extends Analyzer {
           // Ok: free/cheap but high overheal
           this.okRegrowths += 1;
           performance = QualitativePerformance.Ok;
-          castNote = freeNote + t({ id: 'restoration.regrowth.high_overheal', message: ' — high overheal' });
+          castNote =
+            freeNote + t({ id: 'restoration.regrowth.high_overheal', message: ' — high overheal' });
         }
       }
     } else {
@@ -236,19 +254,27 @@ class RegrowthAndClearcasting extends Analyzer {
       const currentAbundanceStacks = this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id);
       if (currentAbundanceStacks > 0) {
         castNote =
-          t({ id: 'restoration.regrowth.no_cc_low_abundance_prefix', message: 'No Clearcasting and only ' }) +
+          t({
+            id: 'restoration.regrowth.no_cc_low_abundance_prefix',
+            message: 'No Clearcasting and only ',
+          }) +
           currentAbundanceStacks +
           (currentAbundanceStacks > 1
             ? t({ id: 'restoration.regrowth.abundance_stacks', message: ' Abundance stacks' })
             : t({ id: 'restoration.regrowth.abundance_stack', message: ' Abundance stack' })) +
           t({ id: 'restoration.regrowth.abundance_stacks_needed', message: ' (need 6+)' });
       } else {
-        castNote = t({ id: 'restoration.regrowth.no_cc_or_abundance', message: 'No Clearcasting or Abundance stacks' });
+        castNote = t({
+          id: 'restoration.regrowth.no_cc_or_abundance',
+          message: 'No Clearcasting or Abundance stacks',
+        });
       }
     }
 
     const targetHealthString =
-      targetHealthPercent !== undefined ? `${formatPercentage(targetHealthPercent, 0)}` : t({ id: 'restoration.regrowth.unknown_health', message: 'unknown' });
+      targetHealthPercent !== undefined
+        ? `${formatPercentage(targetHealthPercent, 0)}`
+        : t({ id: 'restoration.regrowth.unknown_health', message: 'unknown' });
     const overhealString =
       overhealPercent !== undefined
         ? ' (' +
@@ -321,9 +347,9 @@ class RegrowthAndClearcasting extends Analyzer {
           is for spot healing. The HoT is normally very weak, but with{' '}
           <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} /> it becomes important to play
           around. Try to avoid overwriting existing Regrowth HoTs when choosing targets in order to
-          maximize cleave healing from <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />. Also
-          be careful not to cast Regrowth without a <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />{' '}
-          proc
+          maximize cleave healing from <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />.
+          Also be careful not to cast Regrowth without a{' '}
+          <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> proc
           {hasAbundance && (
             <>
               {' '}
@@ -367,13 +393,28 @@ class RegrowthAndClearcasting extends Analyzer {
             }
             goodExtraExplanation={
               this.hasNaturesBounty
-                ? t({ id: 'restoration.regrowth.good_extra_nb', message: 'free/cheap on a new Regrowth target, or triage on a critically low target' })
-                : t({ id: 'restoration.regrowth.good_extra_base', message: 'free/cheap with effective healing, or triage on a critically low target' })
+                ? t({
+                    id: 'restoration.regrowth.good_extra_nb',
+                    message:
+                      'free/cheap on a new Regrowth target, or triage on a critically low target',
+                  })
+                : t({
+                    id: 'restoration.regrowth.good_extra_base',
+                    message:
+                      'free/cheap with effective healing, or triage on a critically low target',
+                  })
             }
             okExtraExplanation={
               this.hasNaturesBounty
-                ? t({ id: 'restoration.regrowth.ok_extra_nb', message: 'free/cheap but overwrote an existing Regrowth HoT outside pandemic window' })
-                : t({ id: 'restoration.regrowth.ok_extra_base', message: 'free/cheap but high overheal' })
+                ? t({
+                    id: 'restoration.regrowth.ok_extra_nb',
+                    message:
+                      'free/cheap but overwrote an existing Regrowth HoT outside pandemic window',
+                  })
+                : t({
+                    id: 'restoration.regrowth.ok_extra_base',
+                    message: 'free/cheap but high overheal',
+                  })
             }
           />
         </div>
@@ -461,16 +502,12 @@ class RegrowthAndClearcasting extends Analyzer {
             {this.badRegrowths === 0 ? <CheckmarkIcon /> : <CrossIcon />}
             {'  '}
             {this.badRegrowths}{' '}
-            <small>
-              <Trans id="restoration.regrowth.bad_casts">bad casts</Trans>
-            </small>
+            <small>{t({ id: 'restoration.regrowth.bad_casts', message: 'bad casts' })}</small>
             <br />
             <SpellIcon spell={SPELLS.CLEARCASTING_BUFF} />
             {'  '}
             {formatPercentage(this.clearcastUtilPercent, 1)}%{' '}
-            <small>
-              <Trans id="restoration.regrowth.util_label">util</Trans>
-            </small>
+            <small>{t({ id: 'restoration.regrowth.util_label', message: 'util' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

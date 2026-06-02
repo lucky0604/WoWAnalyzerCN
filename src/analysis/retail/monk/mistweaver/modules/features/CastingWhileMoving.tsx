@@ -14,6 +14,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { SpellLink } from 'interface';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import DistanceMoved from 'parser/shared/modules/DistanceMoved';
 
@@ -94,30 +95,31 @@ class CastingWhileMoving extends Analyzer {
         position={STATISTIC_ORDER.UNIMPORTANT()}
         size="flexible"
         category={STATISTIC_CATEGORY.GENERAL}
-        tooltip={
-          (() => {
-            const soom = formatNumber(soomMovement);
-            const cjl = formatNumber(cjlMovement);
-            return (
-              <>
-                <div>
-                  <Trans id="monk.mistweaver.casting_while_moving.soom">
-                    <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />: {soom} yards
-                  </Trans>
-                </div>
-                <div>
-                  <Trans id="monk.mistweaver.casting_while_moving.cjl">
-                    <SpellLink spell={SPELLS.CRACKLING_JADE_LIGHTNING} />: {cjl} yards
-                  </Trans>
-                </div>
-              </>
-            );
-          })()
-        }
+        tooltip={(() => {
+          const soom = formatNumber(soomMovement);
+          const cjl = formatNumber(cjlMovement);
+          return (
+            <>
+              <div>
+                <Trans id="monk.mistweaver.casting_while_moving.soom">
+                  <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />: {soom} yards
+                </Trans>
+              </div>
+              <div>
+                <Trans id="monk.mistweaver.casting_while_moving.cjl">
+                  <SpellLink spell={SPELLS.CRACKLING_JADE_LIGHTNING} />: {cjl} yards
+                </Trans>
+              </div>
+            </>
+          );
+        })()}
       >
         <div className={`pad boring-text`}>
           <label>
-            <Trans id="monk.mistweaver.casting_while_moving.label">Casting while moving</Trans>
+            {t({
+              id: 'monk.mistweaver.casting_while_moving.label',
+              message: 'Casting while moving',
+            })}
           </label>
           <div className="value">
             {(() => {

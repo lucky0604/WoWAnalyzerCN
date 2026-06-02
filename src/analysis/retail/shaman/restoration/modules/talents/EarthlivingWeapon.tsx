@@ -1,7 +1,7 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Combatants from 'parser/shared/modules/Combatants';
 import StatTracker from 'parser/shared/modules/StatTracker';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import talents from 'common/TALENTS/shaman';
 import { Options } from 'parser/core/Module';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -74,42 +74,48 @@ class EarthlivingWeapon extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: <Trans id="shaman.restoration.spell.chainHeal">Chain Heal</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: talents.CHAIN_HEAL_TALENT.id,
         value: getAmount(talents.CHAIN_HEAL_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(talents.CHAIN_HEAL_TALENT.id)} />,
       },
       {
         color: RESTORATION_COLORS.STORMSTREAM_TOTEM,
-        label: <Trans id="shaman.restoration.spell.stormstreamTotem">Stormstream Totem</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.stormstreamTotem', message: 'Stormstream Totem' }),
         spellId: spells.STORMSTREAM_TOTEM.id,
         value: getAmount(spells.STORMSTREAM_TOTEM_HEAL.id),
         valueTooltip: <ItemHealingDone amount={getAmount(spells.STORMSTREAM_TOTEM_HEAL.id)} />,
       },
       {
         color: RESTORATION_COLORS.HEALING_STREAM_TOTEM,
-        label: <Trans id="shaman.restoration.spell.healingStreamTotem">Healing Stream Totem</Trans>,
+        label: defineMessage({
+          id: 'shaman.restoration.spell.healingStreamTotem',
+          message: 'Healing Stream Totem',
+        }),
         spellId: spells.HEALING_STREAM_TOTEM.id,
         value: getAmount(spells.HEALING_STREAM_TOTEM_HEAL.id),
         valueTooltip: <ItemHealingDone amount={getAmount(spells.HEALING_STREAM_TOTEM_HEAL.id)} />,
       },
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: <Trans id="shaman.restoration.spell.healingWave">Healing Wave</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: spells.HEALING_WAVE.id,
         value: getAmount(spells.HEALING_WAVE.id),
         valueTooltip: <ItemHealingDone amount={getAmount(spells.HEALING_WAVE.id)} />,
       },
       {
         color: RESTORATION_COLORS.HEALING_TIDE_TOTEM,
-        label: <Trans id="shaman.restoration.spell.healingTideTotem">Healing Tide Totem</Trans>,
+        label: defineMessage({
+          id: 'shaman.restoration.spell.healingTideTotem',
+          message: 'Healing Tide Totem',
+        }),
         spellId: talents.HEALING_TIDE_TOTEM_TALENT.id,
         value: getAmount(spells.HEALING_TIDE_TOTEM_HEAL.id),
         valueTooltip: <ItemHealingDone amount={getAmount(spells.HEALING_TIDE_TOTEM_HEAL.id)} />,
       },
       {
         color: RESTORATION_COLORS.RIPTIDE,
-        label: <Trans id="shaman.restoration.spell.riptide">Riptide</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
         spellId: talents.RIPTIDE_TALENT.id,
         value: getAmount(talents.RIPTIDE_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(talents.RIPTIDE_TALENT.id)} />,
@@ -145,7 +151,10 @@ class EarthlivingWeapon extends Analyzer {
           <hr />
           <header>
             <label>
-              <Trans id="shaman.restoration.earthliving_weapon.sources">Earthliving Weapon Healing Sources</Trans>
+              {t({
+                id: 'shaman.restoration.earthliving_weapon.sources',
+                message: 'Earthliving Weapon Healing Sources',
+              })}
             </label>
           </header>
           {this.earthlivingWeaponCastRatioChart}

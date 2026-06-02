@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNth, formatDuration } from 'common/format';
 import { SpellLink, SpecIcon } from 'interface';
 import Analyzer, { SELECTED_PLAYER, Options } from 'parser/core/Analyzer';
@@ -178,15 +179,9 @@ class ChainHeal extends Analyzer {
               <table className="table table-condensed">
                 <thead>
                   <tr>
-                    <th>
-                      <Trans id="common.cast">Cast</Trans>
-                    </th>
-                    <th>
-                      <Trans id="common.time">Time</Trans>
-                    </th>
-                    <th>
-                      <Trans id="common.target">Target</Trans>
-                    </th>
+                    <th>{t({ id: 'common.cast', message: 'Cast' })}</th>
+                    <th>{t({ id: 'common.time', message: 'Time' })}</th>
+                    <th>{t({ id: 'common.target', message: 'Target' })}</th>
                   </tr>
                 </thead>
                 <tbody>

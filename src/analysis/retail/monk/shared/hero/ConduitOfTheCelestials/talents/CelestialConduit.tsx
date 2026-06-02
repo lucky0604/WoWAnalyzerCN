@@ -231,13 +231,19 @@ class CelestialConduit extends Analyzer {
       ? QualitativePerformance.Fail
       : QualitativePerformance.Good;
     const cancelledItem: CooldownExpandableItem = {
-      label: <Trans id="monk.shared.cc.fully_channeled">Fully channeled cast</Trans>,
+      label: defineMessage({ id: 'monk.shared.cc.fully_channeled', message: 'Fully channeled cast' }),
       result: (
         <>
           <PerformanceMark perf={cancelPerf} />
         </>
       ),
-      details: <>{castInfo.cancelled ? t({ id: 'monk.shared.no', message: 'No' }) : t({ id: 'monk.shared.yes', message: 'Yes' })}</>,
+      details: (
+        <>
+          {castInfo.cancelled
+            ? t({ id: 'monk.shared.no', message: 'No' })
+            : t({ id: 'monk.shared.yes', message: 'Yes' })}
+        </>
+      ),
     };
     const cooldownPerfs: QualitativePerformance[] = [];
     const cooldownItems: CooldownExpandableItem[] = [];
@@ -261,7 +267,13 @@ class CelestialConduit extends Analyzer {
             <PerformanceMark perf={perf} />
           </>
         ),
-        details: <>{cooldown === 0 ? t({ id: 'monk.shared.no', message: 'No' }) : t({ id: 'monk.shared.yes', message: 'Yes' })}</>,
+        details: (
+          <>
+            {cooldown === 0
+              ? t({ id: 'monk.shared.no', message: 'No' })
+              : t({ id: 'monk.shared.yes', message: 'Yes' })}
+          </>
+        ),
       });
     });
     const avgTargetsHit =
@@ -273,7 +285,7 @@ class CelestialConduit extends Analyzer {
 
     const targetHitPerf = this.getTargetsHitPerf(avgTargetsHit);
     const targetsHitItem: CooldownExpandableItem = {
-      label: <Trans id="monk.shared.cc.avg_targets_hit">Average targets hit per pulse</Trans>,
+      label: defineMessage({ id: 'monk.shared.cc.avg_targets_hit', message: 'Average targets hit per pulse' }),
       result: (
         <>
           <PerformanceMark perf={targetHitPerf} />
@@ -331,11 +343,9 @@ class CelestialConduit extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="monk.shared.cc.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'monk.shared.cc.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
-        <small>
-          <Trans id="monk.shared.cc.click_to_expand"> - click to expand</Trans>
-        </small>
+        <small>{t({ id: 'monk.shared.cc.click_to_expand', message: '- click to expand' })}</small>
         {this.castInfoList.map((cast, ix) => {
           const header = (
             <>
@@ -371,9 +381,7 @@ class CelestialConduit extends Analyzer {
               {(() => {
                 const count = this.cancelledCasts;
                 return (
-                  <Trans id="monk.shared.cc.cancelled_casts">
-                    Casts cancelled early: {count}
-                  </Trans>
+                  <Trans id="monk.shared.cc.cancelled_casts">Casts cancelled early: {count}</Trans>
                 );
               })()}
             </li>

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import getFightName from 'common/getFightName';
 import makeAnalyzerUrl from 'interface/makeAnalyzerUrl';
 import OldExpansionWarning from 'interface/report/OldExpansionWarning';
@@ -56,13 +57,16 @@ const FightSelectionList = () => {
                 <span className="glyphicon glyphicon-chevron-left" aria-hidden="true" />
                 <label>
                   {' '}
-                  <Trans id="interface.report.fightSelection.tooltip.home">Home</Trans>
+                  {t({ id: 'interface.report.fightSelection.tooltip.home', message: 'Home' })}
                 </label>
               </Link>
             </Tooltip>
           </div>
           <h1 style={{ lineHeight: 1.4, margin: 0 }}>
-            <Trans id="interface.report.fightSelection.fightSelection">Fight selection</Trans>
+            {t({
+              id: 'interface.report.fightSelection.fightSelection',
+              message: 'Fight selection',
+            })}
           </h1>
           <small style={{ marginTop: -5 }}>
             <Trans id="interface.report.fightSelection.fightSelectionDetails">
@@ -84,7 +88,7 @@ const FightSelectionList = () => {
             >
               <Link to={makeAnalyzerUrl(report)} onClick={refreshReport}>
                 <span className="glyphicon glyphicon-refresh" aria-hidden="true" />{' '}
-                <Trans id="interface.report.fightSelection.refresh">Refresh</Trans>
+                {t({ id: 'interface.report.fightSelection.refresh', message: 'Refresh' })}
               </Link>
             </Tooltip>
             <span className="toggle-control" style={{ marginLeft: 5 }}>
@@ -96,7 +100,7 @@ const FightSelectionList = () => {
               />
               <label htmlFor="kills-only-toggle">
                 {' '}
-                <Trans id="interface.report.fightSelection.killsOnly">Kills only</Trans>
+                {t({ id: 'interface.report.fightSelection.killsOnly', message: 'Kills only' })}
               </label>
             </span>
           </div>

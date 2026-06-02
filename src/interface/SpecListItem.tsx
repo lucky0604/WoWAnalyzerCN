@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import classColor from 'game/classColor';
 import Contributor from 'interface/ContributorButton';
 import ReadableListing from 'interface/ReadableListing';
@@ -42,13 +43,14 @@ const SpecListItem = ({
     maintainerDescription = (
       <small>
         <em>
-          <Trans id="interface.specListItem.unmaintained">CURRENTLY UNMAINTAINED</Trans>
+          {t({ id: 'interface.specListItem.unmaintained', message: 'CURRENTLY UNMAINTAINED' })}
         </em>
       </small>
     );
-    supportDescription = (
-      <Trans id="interface.specListItem.notSupported">Not currently supported</Trans>
-    );
+    supportDescription = defineMessage({
+      id: 'interface.specListItem.notSupported',
+      message: 'Not currently supported',
+    });
   } else if (supportLevel === SupportLevel.Foundation) {
     supportDescription = (
       <Trans id="interface.specListItem.coreSupport">
@@ -58,7 +60,10 @@ const SpecListItem = ({
     maintainerDescription = (
       <small>
         <em>
-          <Trans id="interface.specListItem.communityMaintenance">No Dedicated Maintainer</Trans>
+          {t({
+            id: 'interface.specListItem.communityMaintenance',
+            message: 'No Dedicated Maintainer',
+          })}
         </em>
       </small>
     );

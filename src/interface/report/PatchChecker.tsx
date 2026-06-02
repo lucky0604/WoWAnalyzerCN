@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import DiscordButton from 'interface/DiscordButton';
 import GitHubButton from 'interface/GitHubButton';
 import Icon from 'interface/Icon';
@@ -109,7 +110,7 @@ const PatchCheckerContents = ({
                   onClick={handleClickContinue}
                   style={{ fontSize: '1.1em' }}
                 >
-                  <Trans id="interface.report.patchChecker.clickHere">click here</Trans>
+                  {t({ id: 'interface.report.patchChecker.clickHere', message: 'click here' })}
                 </a>
                 .{/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
@@ -140,7 +141,10 @@ const PatchCheckerContents = ({
                 style={{ fontSize: '1.1em' }}
               >
                 <Icon icon="quest_khadgar" />{' '}
-                <Trans id="interface.report.patchChecker.continueAnyway">Continue anyway</Trans>
+                {t({
+                  id: 'interface.report.patchChecker.continueAnyway',
+                  message: 'Continue anyway',
+                })}
               </Link>
             </Tooltip>
           </div>

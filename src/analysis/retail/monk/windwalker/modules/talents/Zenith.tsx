@@ -311,7 +311,10 @@ class Zenith extends Analyzer.withDependencies({
             />{' '}
             {formatNumber(this.blackoutKicksDuringZenith)}{' '}
             <small>
-              <Trans id="monk.windwalker.zenith.bok_during">Blackout Kicks during Zenith</Trans>
+              {t({
+                id: 'monk.windwalker.zenith.bok_during',
+                message: 'Blackout Kicks during Zenith',
+              })}
             </small>
           </div>
           <div>
@@ -324,7 +327,10 @@ class Zenith extends Analyzer.withDependencies({
             />{' '}
             {formatNumber(this.zenithStompsDuringZenith)}{' '}
             <small>
-              <Trans id="monk.windwalker.zenith.stomp_during">Zenith Stomps during Zenith</Trans>
+              {t({
+                id: 'monk.windwalker.zenith.stomp_during',
+                message: 'Zenith Stomps during Zenith',
+              })}
             </small>
           </div>
           <div>
@@ -342,7 +348,7 @@ class Zenith extends Analyzer.withDependencies({
             )}{' '}
             <small>
               {this.hasObsidianSpiral ? (
-                <Trans id="monk.windwalker.zenith.chi_gen">Chi generated during Zenith</Trans>
+                t({ id: 'monk.windwalker.zenith.chi_gen', message: 'Chi generated during Zenith' })
               ) : (
                 <Trans id="monk.windwalker.zenith.chi_gen_potential">
                   Chi that would have been generated during Zenith (requires Obsidian Spiral)

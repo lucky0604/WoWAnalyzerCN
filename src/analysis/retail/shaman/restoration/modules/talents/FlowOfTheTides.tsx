@@ -4,6 +4,7 @@ import talents from 'common/TALENTS/shaman';
 import UnleashLife from './UnleashLife';
 import Events, { BeginCastEvent, CastEvent, HealEvent } from 'parser/core/Events';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import {
   CHAIN_HEAL_TARGETS,
   FLOW_OF_THE_TIDES_INCREASE,
@@ -211,7 +212,7 @@ class FlowOfTheTides extends Analyzer {
           <br />
           {this.buffIcon} {this.missedJumps}{' '}
           <small>
-            <Trans id="shaman.restoration.fott.missed_jumps"> missed jumps</Trans>
+            {t({ id: 'shaman.restoration.fott.missed_jumps', message: 'missed jumps' })}
           </small>
         </TalentSpellText>
       </Statistic>

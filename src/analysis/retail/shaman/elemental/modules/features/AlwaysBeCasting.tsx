@@ -30,17 +30,17 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
           <Trans id="shaman.elemental.abc.explanation">
             As long as you have a target, there is <strong>always</strong> something you can cast as
             an Elemental shaman. This means that you should try to be on global cooldown for as much
-            as you possibly can throughout the entire encounter. Any time you are not casting is time
-            that you are not doing damage.
+            as you possibly can throughout the entire encounter. Any time you are not casting is
+            time that you are not doing damage.
           </Trans>
         </p>
 
         <p>
           <Trans id="shaman.elemental.abc.positioning">
             A key factor to achieving high uptime as a caster is correct positioning and movement.
-            Throughout the fight, it is very important that you proactively anticipate where you need
-            to stand and/or move for mechanics. Doing this properly will minimize forced downtime of
-            having to move longer distances.
+            Throughout the fight, it is very important that you proactively anticipate where you
+            need to stand and/or move for mechanics. Doing this properly will minimize forced
+            downtime of having to move longer distances.
           </Trans>
         </p>
 
@@ -70,7 +70,8 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
         <Expandable
           header={
             <SectionHeader>
-              <Statistics /> <Trans id="shaman.elemental.abc.graph">Active time timeline graph</Trans>
+              <Statistics />{' '}
+              {t({ id: 'shaman.elemental.abc.graph', message: 'Active time timeline graph' })}
             </SectionHeader>
           }
           element="section"

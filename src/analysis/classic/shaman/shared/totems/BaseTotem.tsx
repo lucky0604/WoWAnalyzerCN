@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import { SpellIcon, SpellLink } from 'interface';
 import UptimeIcon from 'interface/icons/Uptime';
@@ -74,11 +74,9 @@ export default class BaseTotem extends Analyzer {
           <table className="table table-condensed">
             <thead>
               <tr>
+                <th>{t({ id: 'classic.shaman.TotemTracker.TotemElement', message: 'Totem' })}</th>
                 <th>
-                  <Trans id="classic.shaman.TotemTracker.TotemElement">Totem</Trans>
-                </th>
-                <th>
-                  <Trans id="classic.shaman.TotemTracker.TotemElementUptime">Uptime</Trans>
+                  {t({ id: 'classic.shaman.TotemTracker.TotemElementUptime', message: 'Uptime' })}
                 </th>
               </tr>
             </thead>

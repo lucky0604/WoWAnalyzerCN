@@ -82,7 +82,8 @@ class MaelstromDetails extends Analyzer {
           <Trans id="shaman.elemental.maelstrom_details.explanation">
             The gameplay loop of Elemental Shaman is centered around casting spells to generate{' '}
             <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />, then spending it. Wasting any{' '}
-            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> by overcapping will result in lost dps.
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> by overcapping will result in lost
+            dps.
           </Trans>
         </p>
         <p>
@@ -100,7 +101,11 @@ class MaelstromDetails extends Analyzer {
           <Expandable
             header={
               <SectionHeader>
-                <Statistics /> <Trans id="shaman.elemental.maelstrom_details.graph">Maelstrom timeline graph</Trans>
+                <Statistics />{' '}
+                {t({
+                  id: 'shaman.elemental.maelstrom_details.graph',
+                  message: 'Maelstrom timeline graph',
+                })}
               </SectionHeader>
             }
             element="section"
@@ -119,14 +124,22 @@ class MaelstromDetails extends Analyzer {
         position={STATISTIC_ORDER.CORE(1)}
         icon={<Icon icon="spell_shadow_mindflay" />}
         value={`${formatPercentage(this.wastedPercent)} %`}
-        label={t({ id: 'shaman.elemental.maelstrom_details.overcapped', message: 'Overcapped Maelstrom' })}
+        label={t({
+          id: 'shaman.elemental.maelstrom_details.overcapped',
+          message: 'Overcapped Maelstrom',
+        })}
         tooltip={
           <Trans id="shaman.elemental.maelstrom_details.tooltip">
             {this.wasted} out of {this.total} Maelstrom wasted.
           </Trans>
         }
       />,
-      <Panel key="Panel" title={t({ id: 'shaman.elemental.maelstrom_details.usage', message: 'Maelstrom usage' })} position={200} pad={false}>
+      <Panel
+        key="Panel"
+        title={t({ id: 'shaman.elemental.maelstrom_details.usage', message: 'Maelstrom usage' })}
+        position={200}
+        pad={false}
+      >
         <ResourceBreakdown tracker={this.maelstromTracker} showSpenders />
       </Panel>,
     ];

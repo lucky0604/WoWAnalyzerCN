@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { useEffect, useMemo } from 'react';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import getFightName from 'common/getFightName';
 import { isUnsupportedClassicVersion, wclGameVersionToBranch } from 'game/VERSIONS';
@@ -104,9 +104,10 @@ const PlayerLoader = ({ children }: Props) => {
     return (
       <div className="container offset">
         <Panel
-          title={
-            <Trans id="interface.report.oldLogWarning.title">Unsupported encounters detected</Trans>
-          }
+          title={t({
+            id: 'interface.report.oldLogWarning.title',
+            message: 'Unsupported encounters detected',
+          })}
         >
           <div className="flex wrapable">
             <div className="flex-main" style={{ minWidth: 400 }}>
@@ -188,7 +189,10 @@ const PlayerLoader = ({ children }: Props) => {
                 <span className="glyphicon glyphicon-chevron-left" aria-hidden="true" />
                 <label>
                   {' '}
-                  <Trans id="interface.report.render.labelFightSelection">Fight selection</Trans>
+                  {t({
+                    id: 'interface.report.render.labelFightSelection',
+                    message: 'Fight selection',
+                  })}
                 </label>
               </Link>
             </Tooltip>
@@ -196,7 +200,7 @@ const PlayerLoader = ({ children }: Props) => {
           <div className="flex wrapable" style={{ marginBottom: 15 }}>
             <div className="flex-main">
               <h1 style={{ lineHeight: 1.4, margin: 0 }}>
-                <Trans id="interface.report.render.playerSelection">Player selection</Trans>
+                {t({ id: 'interface.report.render.playerSelection', message: 'Player selection' })}
               </h1>
               <small style={{ marginTop: -5 }}>
                 <Trans id="interface.report.render.playerSelectionDetails">

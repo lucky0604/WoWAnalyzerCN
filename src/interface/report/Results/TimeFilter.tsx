@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Fight from 'parser/core/Fight';
 import type { FormEvent, MouseEvent } from 'react';
 import { useEffect, useState } from 'react';
@@ -96,11 +96,11 @@ const TimeFilter = (props: Props) => {
       </div>
       <div style={{ display: 'flex', gap: '1rem' }}>
         <ResetButton onClick={handleReset} name="reset" disabled={isLoading || isReset()}>
-          <Trans id="interface.report.results.timeFilter.reset">Reset Filter</Trans>
+          {t({ id: 'interface.report.results.timeFilter.reset', message: 'Reset Filter' })}
           <span className="glyphicon glyphicon-chevron-right" aria-hidden />
         </ResetButton>
         <SubmitButton type="submit" name="filter" disabled={isLoading || invalidTimes()}>
-          <Trans id="interface.report.results.timeFilter.filter">Filter</Trans>
+          {t({ id: 'interface.report.results.timeFilter.filter', message: 'Filter' })}
           <span className="glyphicon glyphicon-chevron-right" aria-hidden />
         </SubmitButton>
       </div>

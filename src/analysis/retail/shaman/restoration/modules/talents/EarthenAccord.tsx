@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -170,28 +170,31 @@ class EarthenAccord extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.UNLEASH_LIFE,
-        label: <Trans id="shaman.restoration.spell.unleashLifeDirect">Unleash Life (Direct)</Trans>,
+        label: defineMessage({
+          id: 'shaman.restoration.spell.unleashLifeDirect',
+          message: 'Unleash Life (Direct)',
+        }),
         spellId: TALENTS.UNLEASH_LIFE_TALENT.id,
         value: getAmount(TALENTS.UNLEASH_LIFE_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(TALENTS.UNLEASH_LIFE_TALENT.id)} />,
       },
       {
         color: RESTORATION_COLORS.RIPTIDE,
-        label: <Trans id="shaman.restoration.spell.riptide">Riptide</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.riptide', message: 'Riptide' }),
         spellId: TALENTS.RIPTIDE_TALENT.id,
         value: getAmount(TALENTS.RIPTIDE_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(TALENTS.RIPTIDE_TALENT.id)} />,
       },
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: <Trans id="shaman.restoration.spell.chainHeal">Chain Heal</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: TALENTS.CHAIN_HEAL_TALENT.id,
         value: getAmount(TALENTS.CHAIN_HEAL_TALENT.id),
         valueTooltip: <ItemHealingDone amount={getAmount(TALENTS.CHAIN_HEAL_TALENT.id)} />,
       },
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: <Trans id="shaman.restoration.spell.healingWave">Healing Wave</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: getAmount(SPELLS.HEALING_WAVE.id),
         valueTooltip: <ItemHealingDone amount={getAmount(SPELLS.HEALING_WAVE.id)} />,
@@ -217,7 +220,10 @@ class EarthenAccord extends Analyzer {
           <hr />
           <header>
             <label>
-              <Trans id="shaman.restoration.earthen_accord.sources">Earthen Accord Healing Sources</Trans>
+              {t({
+                id: 'shaman.restoration.earthen_accord.sources',
+                message: 'Earthen Accord Healing Sources',
+              })}
             </label>
           </header>
           {this.earthenAccordCastRatioChart}

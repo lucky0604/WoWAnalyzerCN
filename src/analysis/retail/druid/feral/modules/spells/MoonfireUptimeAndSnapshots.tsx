@@ -86,7 +86,8 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
         <div>
           @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>{' '}
           <Trans id="druid.feral.moonfire.targetting">
-            targetting <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
+            targetting{' '}
+            <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
           </Trans>
         </div>
         {prevSnapshotNames !== null && (
@@ -153,10 +154,16 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
           <RoundedPanel>
             <div>
               <strong>
-                <Trans id="druid.feral.moonfire.uptime_snapshots_title">Moonfire uptime / snapshots</Trans>
+                {t({
+                  id: 'druid.feral.moonfire.uptime_snapshots_title',
+                  message: 'Moonfire uptime / snapshots',
+                })}
               </strong>
               <small>
-                <Trans id="druid.feral.moonfire.uptime_snapshots_sub"> - Try to get as close to 100% as the encounter allows!</Trans>
+                {t({
+                  id: 'druid.feral.moonfire.uptime_snapshots_sub',
+                  message: '- Try to get as close to 100% as the encounter allows!',
+                })}
               </small>
             </div>
             {this.subStatistic()}
@@ -166,8 +173,14 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
           <CastSummaryAndBreakdown
             spell={SPELLS.MOONFIRE_FERAL}
             castEntries={this.castEntries}
-            okExtraExplanation={<Trans id="druid.feral.moonfire.ok_reason">clipped duration but upgraded snapshot</Trans>}
-            badExtraExplanation={<Trans id="druid.feral.moonfire.bad_reason">clipped duration or downgraded snapshot w/ &gt;2s remaining</Trans>}
+            okExtraExplanation={t({
+              id: 'druid.feral.moonfire.ok_reason',
+              message: 'clipped duration but upgraded snapshot',
+            })}
+            badExtraExplanation={t({
+              id: 'druid.feral.moonfire.bad_reason',
+              message: 'clipped duration or downgraded snapshot w/ &gt;2s remaining',
+            })}
           />
         </div>
       </div>

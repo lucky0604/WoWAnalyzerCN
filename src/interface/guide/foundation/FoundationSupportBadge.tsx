@@ -2,8 +2,7 @@ import type { JSX } from 'react';
 import styled from '@emotion/styled';
 import { OkMark } from '../index';
 import { TooltipElement } from 'interface/Tooltip';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { i18n } from '@lingui/core';
 
 const BadgeContainer = styled.span`
@@ -30,7 +29,10 @@ export default function FoundationSupportBadge({
   const badge = (
     <BadgeContainer>
       <OkMark />{' '}
-      <Trans id="interface.guide.foundation.foundational-support">Foundational Support</Trans>
+      {t({
+        id: 'interface.guide.foundation.foundational-support',
+        message: 'Foundational Support',
+      })}
     </BadgeContainer>
   );
 

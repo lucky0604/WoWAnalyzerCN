@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import CyclingVideo from 'interface/CyclingVideo';
 import GitHubMarkIcon from 'interface/icons/GitHubMarkLarge';
 import LogoutIcon from 'interface/icons/Logout';
@@ -98,7 +99,10 @@ const LoggedIn = ({
                     style={{ display: 'block' }}
                     href={`${import.meta.env.VITE_SERVER_BASE}login/wcl`}
                   >
-                    <Trans id="interface.premiumLoginPanel.logged-in.continue">Continue</Trans>
+                    {t({
+                      id: 'interface.premiumLoginPanel.logged-in.continue',
+                      message: 'Continue',
+                    })}
                   </a>
                 </div>
               </div>
@@ -118,7 +122,8 @@ const LoggedIn = ({
           )}
           <div className="logout">
             <a href="/logout" onClick={handleClick}>
-              <LogoutIcon /> <Trans id="interface.premiumLoginPanel.logged-in.logout">Logout</Trans>
+              <LogoutIcon />{' '}
+              {t({ id: 'interface.premiumLoginPanel.logged-in.logout', message: 'Logout' })}
             </a>
           </div>
         </div>
@@ -165,7 +170,7 @@ const PremiumLoginPanel = () => {
           </div>
           <div className="col-md-12">
             <h1>
-              <Trans id="interface.premiumLoginPanel.panel.sign-in">Premium sign in</Trans>
+              {t({ id: 'interface.premiumLoginPanel.panel.sign-in', message: 'Premium sign in' })}
             </h1>
             <div className="description">
               <Trans id="interface.premiumLoginPanel.panel.sign-in.description">

@@ -2,6 +2,7 @@ import { formatNumber, formatPercentage } from 'common/format';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, TooltipElement } from 'interface';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import Statistic from 'parser/ui/Statistic';
@@ -91,45 +92,41 @@ class TranquilTea extends Analyzer.withDependencies({
         position={STATISTIC_ORDER.OPTIONAL(4)}
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
-        tooltip={
-          (() => {
-            const total = formatNumber(this.totalHealing);
-            const wasted = this.wastedClouds;
-            return (
-              <>
-                <div>
-                  <Trans id="monk.mistweaver.tranquil_tea.total_healing">
-                    Total healing from extra clouds: {total}
-                  </Trans>
-                </div>
-                <div>
-                  <Trans id="monk.mistweaver.tranquil_tea.wasted">
-                    Wasted clouds from overdrinking: {wasted}
-                  </Trans>
-                </div>
-              </>
-            );
-          })()
-        }
+        tooltip={(() => {
+          const total = formatNumber(this.totalHealing);
+          const wasted = this.wastedClouds;
+          return (
+            <>
+              <div>
+                <Trans id="monk.mistweaver.tranquil_tea.total_healing">
+                  Total healing from extra clouds: {total}
+                </Trans>
+              </div>
+              <div>
+                <Trans id="monk.mistweaver.tranquil_tea.wasted">
+                  Wasted clouds from overdrinking: {wasted}
+                </Trans>
+              </div>
+            </>
+          );
+        })()}
       >
         <TalentSpellText talent={TALENTS_MONK.TRANQUIL_TEA_TALENT}>
           <ItemHealingDone amount={this.totalHealing} />
           <div>
             <TooltipElement
-              content={
-                (() => {
-                  const avg = (this.totalExtraClouds / this.totalSGCasts || 0).toFixed(1);
-                  return (
-                    <Trans id="monk.mistweaver.tranquil_tea.avg_extra">
-                      {avg} <small>average extra clouds per cast</small>
-                    </Trans>
-                  );
-                })()
-              }
+              content={(() => {
+                const avg = (this.totalExtraClouds / this.totalSGCasts || 0).toFixed(1);
+                return (
+                  <Trans id="monk.mistweaver.tranquil_tea.avg_extra">
+                    {avg} <small>average extra clouds per cast</small>
+                  </Trans>
+                );
+              })()}
             >
               {this.totalExtraClouds}{' '}
               <small>
-                <Trans id="monk.mistweaver.tranquil_tea.extra_clouds">extra clouds</Trans>
+                {t({ id: 'monk.mistweaver.tranquil_tea.extra_clouds', message: 'extra clouds' })}
               </small>
             </TooltipElement>
           </div>

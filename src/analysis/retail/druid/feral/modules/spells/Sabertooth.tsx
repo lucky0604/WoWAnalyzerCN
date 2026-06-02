@@ -1,5 +1,5 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Options } from 'parser/core/Module';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
@@ -72,14 +72,17 @@ class Sabertooth extends Analyzer.withDependencies(deps) {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <Trans id="druid.feral.sabertooth.breakdown_by_source">Breakdown by source:</Trans>
+            {t({
+              id: 'druid.feral.sabertooth.breakdown_by_source',
+              message: 'Breakdown by source:',
+            })}
             <ul>
               <li>
                 <SpellLink spell={SPELLS.FEROCIOUS_BITE} />:{' '}
                 <strong>{this.owner.formatItemDamageDone(this.fbBoostDamage)}</strong>
               </li>
               <li>
-                <Trans id="druid.feral.sabertooth.dots">DoTs:</Trans>{' '}
+                {t({ id: 'druid.feral.sabertooth.dots', message: 'DoTs:' })}{' '}
                 <strong>{this.owner.formatItemDamageDone(this.dotBoostDamage)}</strong>
               </li>
             </ul>

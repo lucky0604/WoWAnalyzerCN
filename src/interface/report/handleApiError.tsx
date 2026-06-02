@@ -38,14 +38,14 @@ export default function handleApiError(error: Error, onBack: () => void) {
         </div>
         <div>
           <button type="button" className="btn btn-primary" onClick={onBack}>
-            &lt; <Trans id="interface.report.handleApiError.back">Back</Trans>
+            &lt; {t({ id: 'interface.report.handleApiError.back', message: 'Back' })}
           </button>
           <a
             className="btn btn-primary"
             style={{ marginLeft: 20 }}
             href={`${import.meta.env.VITE_SERVER_BASE}login/wcl?redirect=${encodeURIComponent(window.location.pathname + window.location.search)}`}
           >
-            <Trans id="interface.report.handleApiError.continue">Continue</Trans>
+            {t({ id: 'interface.report.handleApiError.continue', message: 'Continue' })}
           </a>
         </div>
       </FullscreenError>
@@ -92,7 +92,7 @@ export default function handleApiError(error: Error, onBack: () => void) {
       >
         <div>
           <button type="button" className="btn btn-primary" onClick={onBack}>
-            &lt; <Trans id="interface.report.handleApiError.back">Back</Trans>
+            &lt; {t({ id: 'interface.report.handleApiError.back', message: 'Back' })}
           </button>
         </div>
       </FullscreenError>
@@ -112,7 +112,7 @@ export default function handleApiError(error: Error, onBack: () => void) {
       >
         <div>
           <button type="button" className="btn btn-primary" onClick={onBack}>
-            &lt; <Trans id="interface.report.handleApiError.back">Back</Trans>
+            &lt; {t({ id: 'interface.report.handleApiError.back', message: 'Back' })}
           </button>
         </div>
       </FullscreenError>
@@ -132,7 +132,7 @@ export default function handleApiError(error: Error, onBack: () => void) {
       >
         <div>
           <button type="button" className="btn btn-primary" onClick={onBack}>
-            &lt; <Trans id="interface.report.handleApiError.back">Back</Trans>
+            &lt; {t({ id: 'interface.report.handleApiError.back', message: 'Back' })}
           </button>
         </div>
       </FullscreenError>
@@ -154,7 +154,7 @@ export default function handleApiError(error: Error, onBack: () => void) {
         <div className="text-muted">{error.message}</div>
         <div>
           <a className="btn btn-primary" href={window.location.href}>
-            <Trans id="interface.report.handleApiError.refresh">Refresh</Trans>
+            {t({ id: 'interface.report.handleApiError.refresh', message: 'Refresh' })}
           </a>
         </div>
       </FullscreenError>

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
 import { SpellLink } from 'interface';
@@ -41,25 +42,28 @@ class CastBehavior extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: <Trans id="shaman.restoration.spell.healingWave">Healing Wave</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: twHealingWaves,
       },
       {
         color: RESTORATION_COLORS.HEALING_SURGE,
-        label: <Trans id="shaman.restoration.spell.healingSurge">Healing Surge</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
         spellId: SPELLS.HEALING_SURGE.id,
         value: twHealingSurges,
       },
       {
         color: RESTORATION_COLORS.CHAIN_HEAL,
-        label: <Trans id="shaman.restoration.spell.chainHeal">Chain Heal</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: TALENTS.CHAIN_HEAL_TALENT.id,
         value: twChainHeals,
       },
       {
         color: RESTORATION_COLORS.UNUSED,
-        label: <Trans id="shaman.restoration.castBehaviour.unusedTW">Unused Tidal Waves</Trans>,
+        label: defineMessage({
+          id: 'shaman.restoration.castBehaviour.unusedTW',
+          message: 'Unused Tidal Waves',
+        }),
         tooltip: (
           <Trans id="shaman.restoration.castBehaviour.unusedTW.tooltip">
             The amount of Tidal Waves you did not use out of the total available. You cast{' '}
@@ -88,13 +92,13 @@ class CastBehavior extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.HEALING_WAVE,
-        label: <Trans id="shaman.restoration.spell.healingWave">Healing Wave</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: fillerHealingWaves,
       },
       {
         color: RESTORATION_COLORS.HEALING_SURGE,
-        label: <Trans id="shaman.restoration.spell.healingSurge">Healing Surge</Trans>,
+        label: defineMessage({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
         spellId: SPELLS.HEALING_SURGE.id,
         value: fillerHealingSurges,
       },

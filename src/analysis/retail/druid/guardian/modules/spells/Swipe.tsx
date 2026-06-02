@@ -102,9 +102,9 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
             <strong>
               <SpellLink spell={SPELLS.SWIPE_BEAR} />
             </strong>{' '}
-            is your filler spell. It does not generate rage and does very weak damage. Swipe is barely
-            better than an empty GCD and shouldn't be used if it delays another ability - even by a
-            little.
+            is your filler spell. It does not generate rage and does very weak damage. Swipe is
+            barely better than an empty GCD and shouldn't be used if it delays another ability -
+            even by a little.
           </Trans>
         </p>
         <p>
@@ -120,12 +120,11 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
     const data =
       this.castEntries.length !== 0 ? (
         <div>
-          <strong>
-            <Trans id="druid.guardian.swipe.casts_title">Swipe casts</Trans>
-          </strong>
+          <strong>{t({ id: 'druid.guardian.swipe.casts_title', message: 'Swipe casts' })}</strong>
           <small>
             <Trans id="druid.guardian.swipe.casts_legend">
-              - Green is an acceptable cast, Red is when another spell was available or almost available
+              - Green is an acceptable cast, Red is when another spell was available or almost
+              available
             </Trans>
           </small>
           <PerformanceBoxRow values={this.castEntries} />
@@ -133,9 +132,7 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
       ) : (
         <div>
           <strong>
-            <Trans id="druid.guardian.swipe.never_used">
-              You never used Swipe this encounter.
-            </Trans>
+            <Trans id="druid.guardian.swipe.never_used">You never used Swipe this encounter.</Trans>
           </strong>
         </div>
       );

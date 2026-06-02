@@ -1,5 +1,6 @@
 import SPELLS from 'common/SPELLS';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ApplyBuffEvent, RemoveBuffEvent } from 'parser/core/Events';
@@ -89,19 +90,19 @@ class ElementalBlast extends Analyzer {
     const items = [
       {
         color: '#9256ff',
-        label: <Trans id="shaman.elemental.eb.mastery">Mastery</Trans>,
+        label: defineMessage({ id: 'shaman.elemental.eb.mastery', message: 'Mastery' }),
         spellId: SPELLS.ELEMENTAL_BLAST_MASTERY.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_MASTERY.id],
       },
       {
         color: '#0ed59b',
-        label: <Trans id="shaman.elemental.eb.haste">Haste</Trans>,
+        label: defineMessage({ id: 'shaman.elemental.eb.haste', message: 'Haste' }),
         spellId: SPELLS.ELEMENTAL_BLAST_HASTE.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_HASTE.id],
       },
       {
         color: '#e01c1c',
-        label: <Trans id="shaman.elemental.eb.crit">Crit</Trans>,
+        label: defineMessage({ id: 'shaman.elemental.eb.crit', message: 'Crit' }),
         spellId: SPELLS.ELEMENTAL_BLAST_CRIT.id,
         value: this.buffAmounts[SPELLS.ELEMENTAL_BLAST_CRIT.id],
       },

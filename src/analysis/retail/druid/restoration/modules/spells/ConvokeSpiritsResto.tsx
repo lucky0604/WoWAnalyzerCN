@@ -1,5 +1,6 @@
 import { ConvokeSpirits } from 'analysis/retail/druid/shared';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink, Tooltip } from 'interface';
@@ -153,8 +154,8 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             <>
               Due to <SpellLink spell={TALENTS_DRUID.CENARIUS_GUIDANCE_TALENT} />, it also has a 50%
               chance of proccing <SpellLink spell={TALENTS_DRUID.TRANQUILITY_TALENT} />. If you have
-              <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} /> talented, this Tranquility tick will
-              extend all HoTs by 2 seconds.
+              <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} /> talented, this Tranquility tick
+              will extend all HoTs by 2 seconds.
             </>
           )}{' '}
           A lot of your gameplay revolves around ramping into either{' '}
@@ -171,11 +172,9 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
     const data = (
       <div>
         <strong>
-          <Trans id="restoration.convoke.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'restoration.convoke.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
-        <small>
-          <Trans id="restoration.convoke.click_expand"> - click to expand</Trans>
-        </small>
+        <small>{t({ id: 'restoration.convoke.click_expand', message: '- click to expand' })}</small>
         {this.convokeTracker.map((cast, ix) => {
           const restoCast = this.restoConvokeTracker[ix];
           const castTotalHealing =
@@ -208,9 +207,7 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
             details: (
-              <Trans id="restoration.convoke.wg_active">
-                ({restoCast.wgsOnCast} HoTs active)
-              </Trans>
+              <Trans id="restoration.convoke.wg_active">({restoCast.wgsOnCast} HoTs active)</Trans>
             ),
           });
           checklistItems.push({
@@ -292,11 +289,14 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             <br />
             {hasCenariusGuidance ? (
               <Trans id="restoration.convoke.tooltip_with_cg">
-                Healing amount is attributed by tracking the healing spells cast by Convoke, including possible Flourish Tranquility procs. This amount includes mastery benefit from the procced HoTs.
+                Healing amount is attributed by tracking the healing spells cast by Convoke,
+                including possible Flourish Tranquility procs. This amount includes mastery benefit
+                from the procced HoTs.
               </Trans>
             ) : (
               <Trans id="restoration.convoke.tooltip_without_cg">
-                Healing amount is attributed by tracking the healing spells cast by Convoke. This amount includes mastery benefit from the procced HoTs.
+                Healing amount is attributed by tracking the healing spells cast by Convoke. This
+                amount includes mastery benefit from the procced HoTs.
               </Trans>
             )}
           </>
@@ -306,20 +306,15 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             <table className="table table-condensed">
               <thead>
                 <tr>
+                  <th>{t({ id: 'restoration.convoke.cast_num', message: 'Cast #' })}</th>
+                  <th>{t({ id: 'restoration.convoke.time_header', message: 'Time' })}</th>
+                  <th>{t({ id: 'restoration.convoke.form_header', message: 'Form' })}</th>
+                  <th>{t({ id: 'restoration.convoke.healing_header', message: 'Healing' })}</th>
                   <th>
-                    <Trans id="restoration.convoke.cast_num">Cast #</Trans>
-                  </th>
-                  <th>
-                    <Trans id="restoration.convoke.time_header">Time</Trans>
-                  </th>
-                  <th>
-                    <Trans id="restoration.convoke.form_header">Form</Trans>
-                  </th>
-                  <th>
-                    <Trans id="restoration.convoke.healing_header">Healing</Trans>
-                  </th>
-                  <th>
-                    <Trans id="restoration.convoke.spells_in_cast_header">Spells In Cast</Trans>
+                    {t({
+                      id: 'restoration.convoke.spells_in_cast_header',
+                      message: 'Spells In Cast',
+                    })}
                   </th>
                 </tr>
               </thead>

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import DiscordBotGif from 'interface/images/discord-bot.gif';
 import ChangelogPanel from 'interface/ChangelogPanel';
 import DiscordButton from 'interface/DiscordButton';
@@ -17,7 +18,7 @@ export function Component() {
     <>
       <DocumentTitle title="About WoWAnalyzer" />
 
-      <Panel title={<Trans id="interface.aboutPage.title">About WoWAnalyzer</Trans>}>
+      <Panel title={t({ id: 'interface.aboutPage.title', message: 'About WoWAnalyzer' })}>
         <img
           src={MasteryRadiusImage}
           alt="Mastery radius"
@@ -119,12 +120,12 @@ export function Component() {
                   style={{ borderRadius: 0 }}
                   href="https://discordapp.com/oauth2/authorize?&client_id=368144406181838861&scope=bot&permissions=3072"
                 >
-                  <Trans id="interface.aboutPage.addBot">Add to Discord</Trans>
+                  {t({ id: 'interface.aboutPage.addBot', message: 'Add to Discord' })}
                 </a>
               </div>
 
               <a href="https://github.com/WoWAnalyzer/DiscordBot#wowanalyzer-discord-bot-">
-                <Trans id="interface.aboutPage.moreInfo">More info</Trans>
+                {t({ id: 'interface.aboutPage.moreInfo', message: 'More info' })}
               </a>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import fetchWcl from 'common/fetchWclApi';
 import { formatDuration, formatPercentage, formatThousands } from 'common/format';
 import ITEMS from 'common/ITEMS';
@@ -185,9 +185,10 @@ class EncounterStats extends PureComponent<Props, State> {
       })
       .catch(() => {
         this.setState({
-          message: (
-            <Trans id="interface.report.results.encounterStats.eeek">Something went wrong.</Trans>
-          ),
+          message: defineMessage({
+            id: 'interface.report.results.encounterStats.eeek',
+            message: 'Something went wrong.',
+          }),
         });
       });
   }

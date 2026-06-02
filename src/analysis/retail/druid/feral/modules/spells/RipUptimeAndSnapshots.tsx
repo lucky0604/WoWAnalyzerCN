@@ -222,7 +222,10 @@ class RipUptimeAndSnapshots extends Snapshots {
         <RoundedPanel>
           <div>
             <strong>
-              <Trans id="druid.feral.rip.uptime_snapshots_title">Rip uptime / snapshots</Trans>
+              {t({
+                id: 'druid.feral.rip.uptime_snapshots_title',
+                message: 'Rip uptime / snapshots',
+              })}
             </strong>
             <small>
               <Trans id="druid.feral.moonfire.uptime_snapshots_sub">
@@ -236,10 +239,14 @@ class RipUptimeAndSnapshots extends Snapshots {
         <CastSummaryAndBreakdown
           spell={SPELLS.RIP}
           castEntries={this.castEntries}
-          okExtraExplanation={<Trans id="druid.feral.rip.ok_reason">slightly early refresh</Trans>}
-          badExtraExplanation={
-            <Trans id="druid.feral.rip.bad_reason">refreshed outside pandemic or low CPs</Trans>
-          }
+          okExtraExplanation={t({
+            id: 'druid.feral.rip.ok_reason',
+            message: 'slightly early refresh',
+          })}
+          badExtraExplanation={t({
+            id: 'druid.feral.rip.bad_reason',
+            message: 'refreshed outside pandemic or low CPs',
+          })}
         />
       </div>
     );

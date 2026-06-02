@@ -1,13 +1,11 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Race } from 'game/RACES';
 
 const CharacterRace = ({ race }: { race: Race }) => (
   <>
     <div className="row">
       <div className="col-md-12">
-        <h2>
-          <Trans id="common.race">Race</Trans>
-        </h2>
+        <h2>{t({ id: 'common.race', message: 'Race' })}</h2>
       </div>
     </div>
     <div className="row">

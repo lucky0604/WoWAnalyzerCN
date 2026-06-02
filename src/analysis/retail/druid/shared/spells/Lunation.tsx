@@ -152,7 +152,7 @@ export default class Lunation extends Analyzer.withDependencies({ spellUsable: S
           <>
             <SpellIcon spell={this.spell} /> {this.cdrPerCast}{' '}
             <small>
-              <Trans id="druid.shared.lunation.avg_cdr_per_cast">avg CDR per cast</Trans>
+              {t({ id: 'druid.shared.lunation.avg_cdr_per_cast', message: 'avg CDR per cast' })}
             </small>
           </>
         </TalentSpellText>

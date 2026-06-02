@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { SpellLink } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 import { Ability } from 'parser/core/Events';
@@ -49,11 +49,9 @@ class GroundingTotem extends Analyzer {
           <table className="table table-condensed">
             <thead>
               <tr>
+                <th>{t({ id: 'common.groundingtotem.cast', message: 'Cast' })}</th>
                 <th>
-                  <Trans id="common.groundingtotem.cast">Cast</Trans>
-                </th>
-                <th>
-                  <Trans id="common.groundingtotem.spellgrounded">Spell Grounded</Trans>
+                  {t({ id: 'common.groundingtotem.spellgrounded', message: 'Spell Grounded' })}
                 </th>
               </tr>
             </thead>

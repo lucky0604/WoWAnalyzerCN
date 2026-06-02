@@ -207,7 +207,7 @@ class RushingWindKick extends Analyzer {
         <BoringSpellValueText spell={TALENTS_MONK.RUSHING_WIND_KICK_WINDWALKER_TALENT}>
           {formatPercentage(this.usedProcs, 0)}%{' '}
           <small>
-            <Trans id="monk.windwalker.rwk.proc_utilization">Proc utilization</Trans>
+            {t({ id: 'monk.windwalker.rwk.proc_utilization', message: 'Proc utilization' })}
           </small>
         </BoringSpellValueText>
       </Statistic>

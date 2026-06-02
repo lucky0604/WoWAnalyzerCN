@@ -227,9 +227,7 @@ const Results = (props: PassedProps) => {
                   <SupportProvidedBy config={props.config} aboutUrl={props.makeTabUrl('about')} />
                 </div>
                 <div className="col-md-3">
-                  <small>
-                    <Trans id="interface.report.results.viewOn">View on</Trans>
-                  </small>
+                  <small>{t({ id: 'interface.report.results.viewOn', message: 'View on' })}</small>
                   {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                   <br />
                   <Tooltip
@@ -349,9 +347,7 @@ const SupportProvidedBy = ({
 
   return (
     <>
-      <small>
-        <Trans id="interface.report.results.providedBy">Provided by</Trans>
-      </small>
+      <small>{t({ id: 'interface.report.results.providedBy', message: 'Provided by' })}</small>
       <div style={{ fontSize: 16 }}>{description}</div>
     </>
   );

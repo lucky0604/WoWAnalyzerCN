@@ -137,8 +137,8 @@ class Berserk extends Analyzer {
           <strong>
             <SpellLink spell={this.cdSpell} />
           </strong>{' '}
-          is our primary damage cooldown. It's best used as soon as it's available, but can be held to
-          ensure you'll have full target uptime during its duration (don't use it when it will be
+          is our primary damage cooldown. It's best used as soon as it's available, but can be held
+          to ensure you'll have full target uptime during its duration (don't use it when it will be
           interrupted by a fight mechanic).{' '}
         </Trans>
       </p>
@@ -147,11 +147,9 @@ class Berserk extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="druid.feral.berserk.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'druid.feral.berserk.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
-        <small>
-          <Trans id="druid.feral.berserk.click_expand"> - click to expand</Trans>
-        </small>
+        <small>{t({ id: 'druid.feral.berserk.click_expand', message: '- click to expand' })}</small>
         {this.berserkTrackers.map((cast, ix) => {
           // get energy cap stats now that it's end of fight...
           const cdEnd = Math.min(this.owner.fight.end_time, cast.timestamp + this.hardcastDuration);
@@ -174,9 +172,10 @@ class Berserk extends Analyzer {
 
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
-            label: (
-              <Trans id="druid.feral.berserk.cast_as_much">Cast as much as possible</Trans>
-            ),
+            label: t({
+              id: 'druid.feral.berserk.cast_as_much',
+              message: 'Cast as much as possible',
+            }),
             result: <PerformanceMark perf={activityPerf} />,
             details: (
               <Trans id="druid.feral.berserk.active_and_energy_capped">

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer from 'parser/core/Analyzer';
 import StatisticsListBox, { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
@@ -63,7 +64,7 @@ class TalentStatisticBox extends Analyzer {
   statistic() {
     return (
       <StatisticsListBox
-        title={<Trans id="shaman.restoration.talentBox.title">Healing Contribution</Trans>}
+        title={t({ id: 'shaman.restoration.talentBox.title', message: 'Healing Contribution' })}
         tooltip={
           <Trans id="shaman.restoration.talentBox.tooltip">
             The purpose of this is to show the overall HPS impact of each talent. So not only what

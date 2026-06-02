@@ -1,5 +1,6 @@
 import { formatNumber } from 'common/format';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import { PassFailCheckmark } from 'interface/guide';
@@ -151,9 +152,9 @@ class Flourish extends Analyzer {
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
           <p>
             <Trans id="restoration.flourish.explanation_p2">
-              When pairing this with <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />, the Convoke should
-              ALWAYS be cast first. This is because the Convoke will produce many HoTs which can be
-              extended.
+              When pairing this with <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />, the Convoke
+              should ALWAYS be cast first. This is because the Convoke will produce many HoTs which
+              can be extended.
             </Trans>
           </p>
         )}
@@ -163,10 +164,10 @@ class Flourish extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="restoration.flourish.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'restoration.flourish.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="restoration.flourish.click_expand"> - click to expand</Trans>
+          {t({ id: 'restoration.flourish.click_expand', message: '- click to expand' })}
         </small>
         {this.rampTrackers.map((cast, ix) => {
           const castTotalHealing = cast.extensionAttribution.healing;
@@ -193,9 +194,7 @@ class Flourish extends Analyzer {
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
             details: (
-              <Trans id="restoration.flourish.wg_active">
-                ({cast.wgsOnCast} HoTs active)
-              </Trans>
+              <Trans id="restoration.flourish.wg_active">({cast.wgsOnCast} HoTs active)</Trans>
             ),
           });
           checklistItems.push({
@@ -281,9 +280,9 @@ class Flourish extends Analyzer {
             </ul>
             <br />
             <Trans id="restoration.flourish.tooltip_p3">
-              For the included table, note that extension healing for a flourish cast near the end of
-              a fight might have lower than expected numbers because extension healing isn't tallied
-              until the HoT has ticked past its original duration.
+              For the included table, note that extension healing for a flourish cast near the end
+              of a fight might have lower than expected numbers because extension healing isn't
+              tallied until the HoT has ticked past its original duration.
             </Trans>
           </>
         }
@@ -292,14 +291,18 @@ class Flourish extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
+                  <th>{t({ id: 'restoration.flourish.cast_header', message: 'Cast' })}</th>
                   <th>
-                    <Trans id="restoration.flourish.cast_header">Cast</Trans>
+                    {t({
+                      id: 'restoration.flourish.hots_extended_header',
+                      message: 'HoTs Extended',
+                    })}
                   </th>
                   <th>
-                    <Trans id="restoration.flourish.hots_extended_header">HoTs Extended</Trans>
-                  </th>
-                  <th>
-                    <Trans id="restoration.flourish.extension_healing_header">Extension Healing</Trans>
+                    {t({
+                      id: 'restoration.flourish.extension_healing_header',
+                      message: 'Extension Healing',
+                    })}
                   </th>
                 </tr>
               </thead>

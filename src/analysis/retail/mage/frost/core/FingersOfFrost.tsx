@@ -177,9 +177,7 @@ class FingersOfFrost extends Analyzer {
             {fingersOfFrostIcon}{' '}
             <TooltipElement content={utilizationTooltip}>
               {formatPercentage(this.utilizationPercentage, 0)} %{' '}
-              <small>
-                <Trans id="mage.frost.fingersOfFrost.utilized">utilized</Trans>
-              </small>
+              <small>{t({ id: 'mage.frost.fingersOfFrost.utilized', message: 'utilized' })}</small>
             </TooltipElement>
           </div>
           <div
@@ -191,9 +189,7 @@ class FingersOfFrost extends Analyzer {
             {fingersOfFrostIcon}{' '}
             <TooltipElement content={expiredTooltip}>
               {formatPercentage(this.expiredPercent, 0)} %{' '}
-              <small>
-                <Trans id="mage.frost.fingersOfFrost.expired">expired</Trans>
-              </small>
+              <small>{t({ id: 'mage.frost.fingersOfFrost.expired', message: 'expired' })}</small>
             </TooltipElement>
           </div>
           <div
@@ -206,7 +202,7 @@ class FingersOfFrost extends Analyzer {
             <TooltipElement content={overcappedTooltip}>
               {formatPercentage(this.overcappedPercent, 0)} %{' '}
               <small>
-                <Trans id="mage.frost.fingersOfFrost.overcapped">overcapped</Trans>
+                {t({ id: 'mage.frost.fingersOfFrost.overcapped', message: 'overcapped' })}
               </small>
             </TooltipElement>
           </div>

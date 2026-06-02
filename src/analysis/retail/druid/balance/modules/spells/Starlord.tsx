@@ -15,6 +15,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { SpellIcon, SpellLink } from 'interface';
 import UptimeStackBar, { getStackUptimesFromBuffHistory } from 'parser/ui/UptimeStackBar';
@@ -110,10 +111,10 @@ class Starlord extends Analyzer {
           <strong>
             <SpellLink spell={TALENTS_DRUID.STARLORD_TALENT} />
           </strong>{' '}
-          grants a significant haste bonus that increases with each stack, try to maximize time spent
-          at 3 stacks. Since gaining a stack does <i>not</i> refresh the duration, 100% uptime is
-          impossible. Plan ahead by pooling Astral Power as Starlord is about to expire so you can
-          quickly rebuild to 3 stacks.
+          grants a significant haste bonus that increases with each stack, try to maximize time
+          spent at 3 stacks. Since gaining a stack does <i>not</i> refresh the duration, 100% uptime
+          is impossible. Plan ahead by pooling Astral Power as Starlord is about to expire so you
+          can quickly rebuild to 3 stacks.
         </Trans>
       </>
     );
@@ -121,9 +122,7 @@ class Starlord extends Analyzer {
     const data = (
       <div>
         <RoundedPanel>
-          <strong>
-            <Trans id="balance.starlord.uptime_title">Starlord Uptime</Trans>
-          </strong>
+          <strong>{t({ id: 'balance.starlord.uptime_title', message: 'Starlord Uptime' })}</strong>
           {this.subStatistic()}
         </RoundedPanel>
       </div>
@@ -152,7 +151,8 @@ class Starlord extends Analyzer {
             </div>
             <div style={{ color: STARLORD_BG_COLOR }}>
               <Trans id="balance.starlord.max_stacks_label">
-                {formatPercentage(this.threeStackUptimePercent, 0)}% <small>Max Stacks Uptime</small>
+                {formatPercentage(this.threeStackUptimePercent, 0)}%{' '}
+                <small>Max Stacks Uptime</small>
               </Trans>
             </div>
             <Trans id="balance.starlord.avg_stacks_label">
@@ -186,15 +186,9 @@ class Starlord extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>
-                    <Trans id="balance.starlord.haste_bonus">Haste-Bonus</Trans>
-                  </th>
-                  <th>
-                    <Trans id="balance.starlord.time_s">Time (s)</Trans>
-                  </th>
-                  <th>
-                    <Trans id="balance.starlord.time_pct">Time (%)</Trans>
-                  </th>
+                  <th>{t({ id: 'balance.starlord.haste_bonus', message: 'Haste-Bonus' })}</th>
+                  <th>{t({ id: 'balance.starlord.time_s', message: 'Time (s)' })}</th>
+                  <th>{t({ id: 'balance.starlord.time_pct', message: 'Time (%)' })}</th>
                 </tr>
               </thead>
               <tbody>
@@ -216,7 +210,7 @@ class Starlord extends Analyzer {
           <>
             <HasteIcon /> {this.averageHaste.toFixed(2)} %{' '}
             <small>
-              <Trans id="balance.starlord.avg_haste_label">average haste gained</Trans>
+              {t({ id: 'balance.starlord.avg_haste_label', message: 'average haste gained' })}
             </small>
           </>
         </TalentSpellText>

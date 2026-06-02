@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
 import { SpellLink } from 'interface';
@@ -10,7 +11,7 @@ class HealingEfficiencyDetails extends CoreHealingEfficiencyDetails {
   statistic() {
     return (
       <Panel
-        title={<Trans id="shared.healingEfficiency.title">Mana Efficiency</Trans>}
+        title={t({ id: 'shared.healingEfficiency.title', message: 'Mana Efficiency' })}
         explanation={
           <>
             <Trans id="shaman.restoration.healingEfficiencyDetails">

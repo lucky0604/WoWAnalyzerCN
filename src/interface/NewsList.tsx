@@ -3,7 +3,7 @@ import Logo from 'interface/images/logo.svg?react';
 import ReadableListing from 'interface/ReadableListing';
 import SpecIcon from 'interface/SpecIcon';
 import mergeAllChangelogs, { ChangeLogItem } from 'mergeAllChangelogs';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { useCallback, useState } from 'react';
 import { useLingui } from '@lingui/react';
 
@@ -84,14 +84,14 @@ const NewsList = ({ topAnchor }: Props) => {
         <div className="col-xs-6">
           {hasOlder(page) && (
             <a role="button" onClick={handleOlderClick} style={{ fontSize: '1.3em' }}>
-              &lt; <Trans id="interface.news.older">Older</Trans>
+              &lt; {t({ id: 'interface.news.older', message: 'Older' })}
             </a>
           )}
         </div>
         <div className="col-xs-6 text-right">
           {hasNewer(page) && (
             <a role="button" onClick={handleNewerClick} style={{ fontSize: '1.3em' }}>
-              <Trans id="interface.news.newer">Newer</Trans> &gt;
+              {t({ id: 'interface.news.newer', message: 'Newer' })} &gt;
             </a>
           )}
         </div>

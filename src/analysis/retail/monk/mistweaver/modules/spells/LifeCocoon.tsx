@@ -19,6 +19,7 @@ import { explanationAndDataSubsection } from 'interface/guide/components/Explana
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 class LifeCocoon extends Analyzer {
   static dependencies = {
     combatants: Combatants,
@@ -70,7 +71,7 @@ class LifeCocoon extends Analyzer {
         <RoundedPanel>
           <strong>
             <SpellLink spell={TALENTS_MONK.LIFE_COCOON_TALENT} />{' '}
-            <Trans id="monk.mistweaver.lifeCocoon.castEfficiency">cast efficiency</Trans>
+            {t({ id: 'monk.mistweaver.lifeCocoon.castEfficiency', message: 'cast efficiency' })}
           </strong>
           {this.subStatistic()}
         </RoundedPanel>
@@ -108,7 +109,7 @@ class LifeCocoon extends Analyzer {
           </div>
           <div>
             <small>
-              <Trans id="monk.mistweaver.life_cocoon.label">Increased HoT Healing</Trans>
+              {t({ id: 'monk.mistweaver.life_cocoon.label', message: 'Increased HoT Healing' })}
             </small>
           </div>
         </TalentSpellText>

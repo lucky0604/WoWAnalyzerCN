@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_SHAMAN } from 'common/TALENTS';
@@ -136,8 +137,8 @@ class EarthShield extends Analyzer {
               <b>
                 <SpellLink spell={TALENTS_SHAMAN.ELEMENTAL_ORBIT_TALENT} />
               </b>{' '}
-              allows you to place <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> on yourself
-              as well as an ally, and you should aim to maintain high uptime on both.
+              allows you to place <SpellLink spell={TALENTS_SHAMAN.EARTH_SHIELD_TALENT} /> on
+              yourself as well as an ally, and you should aim to maintain high uptime on both.
             </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
@@ -157,9 +158,9 @@ class EarthShield extends Analyzer {
             </Trans>
           </>
         )}
-        {hasReactiveWarding && hasEarthenHarmony && (
-          <Trans id="shaman.shared.earthshield.while">while </Trans>
-        )}
+        {hasReactiveWarding &&
+          hasEarthenHarmony &&
+          t({ id: 'shaman.shared.earthshield.while', message: 'while' })}
         {hasReactiveWarding && (
           <>
             <Trans id="shaman.shared.earthshield.explanation_reactive_warding">

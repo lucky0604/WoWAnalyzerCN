@@ -1,5 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
 import Events, { DamageEvent } from 'parser/core/Events';
@@ -112,11 +113,12 @@ class RampantFerocity extends Analyzer {
             {(hasApex || hasConvoke) && (
               <>
                 <div>
-                  <Trans id="druid.feral.rf.breakdown">Breakdown per Bite source:</Trans>
+                  {t({ id: 'druid.feral.rf.breakdown', message: 'Breakdown per Bite source:' })}
                 </div>
                 <ul>
                   <li>
-                    <Trans id="druid.feral.rf.hardcast">Hardcast:</Trans> {this._formattedPercentDamage(this.hardcastRfDamage)}
+                    {t({ id: 'druid.feral.rf.hardcast', message: 'Hardcast:' })}{' '}
+                    {this._formattedPercentDamage(this.hardcastRfDamage)}
                   </li>
                   {hasApex && (
                     <li>
@@ -126,7 +128,7 @@ class RampantFerocity extends Analyzer {
                   )}
                   {hasConvoke && (
                     <li>
-                      <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />:{ ' ' }
+                      <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />:{' '}
                       {this._formattedPercentDamage(this.convokeRfDamage)}
                     </li>
                   )}

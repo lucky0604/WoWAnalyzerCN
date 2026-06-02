@@ -1,5 +1,4 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { makeCharacterApiUrl, makeGuildApiUrl } from 'common/makeApiUrl';
 import makeCharacterPageUrl from 'common/makeCharacterPageUrl';
 import makeGuildPageUrl from 'common/makeGuildPageUrl';
@@ -196,7 +195,7 @@ const NameSearch = ({ type }: Props) => {
       >
         <option value="" disabled>
           {i18n._(
-            t({
+            defineMessage({
               id: 'interface.nameSearch.realm',
               message: `Realm`,
             }),
@@ -227,7 +226,7 @@ const NameSearch = ({ type }: Props) => {
         type="submit"
         className={`btn btn-primary analyze animated-button ${loading ? 'fill-button' : ''}`}
       >
-        <Trans id="interface.nameSearch.search">Search</Trans>{' '}
+        {t({ id: 'interface.nameSearch.search', message: 'Search' })}{' '}
         <span className="glyphicon glyphicon-chevron-right" aria-hidden />
       </button>
     </form>

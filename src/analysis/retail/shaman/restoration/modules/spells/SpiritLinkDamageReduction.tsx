@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import fetchWcl from 'common/fetchWclApi';
 import { formatThousands, formatNumber } from 'common/format';
 import makeWclUrl from 'common/makeWclUrl';
@@ -90,7 +91,7 @@ class SpiritLinkDamageReduction extends Analyzer {
         value={
           <Trans id="shaman.restoration.slt.statistic.value">≈{formatNumber(this.drps)} DRPS</Trans>
         }
-        label={<Trans id="shaman.restoration.slt.statistic.label">Damage reduction</Trans>}
+        label={t({ id: 'shaman.restoration.slt.statistic.label', message: 'Damage reduction' })}
         tooltip={tooltip}
         drilldown={makeWclUrl(this.owner.report.code, {
           fight: this.owner.fightId,

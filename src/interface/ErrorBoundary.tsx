@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { ErrorBoundary as SentryErrorBoundary } from '@sentry/react';
 import { ReactNode } from 'react';
 
@@ -35,9 +36,7 @@ const Fallback = ({
       </Trans>
     </p>
 
-    <h1>
-      <Trans id="interface.common.errorBoundary.theError">The error</Trans>
-    </h1>
+    <h1>{t({ id: 'interface.common.errorBoundary.theError', message: 'The error' })}</h1>
     <p className="text-muted">
       <Trans id="interface.common.errorBoundary.technicalInformation">
         Technical information to help you fix it. Or us if not you. Technical information to help

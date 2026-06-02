@@ -141,7 +141,10 @@ class RootErrorBoundary extends PureComponent<Props, State> {
       // TODO: Instead of hiding the entire app, show a small toaster instead. Not all uncaught errors are fatal.
       return (
         <FullscreenError
-          error={<Trans id="interface.rootErrorBoundary.errorOccurred">An error occurred.</Trans>}
+          error={t({
+            id: 'interface.rootErrorBoundary.errorOccurred',
+            message: 'An error occurred.',
+          })}
           details={
             <Trans id="interface.rootErrorBoundary.errorOccurredDetails">
               An unexpected error occurred in the app. Please try again.

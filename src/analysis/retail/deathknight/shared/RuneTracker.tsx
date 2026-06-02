@@ -352,7 +352,10 @@ class RuneTracker extends ResourceTracker {
             <thead>
               <tr>
                 <th>
-                  <Trans id="deathknight.shared.runeTracker.statistic.header.runes">Runes</Trans>
+                  {t({
+                    id: 'deathknight.shared.runeTracker.statistic.header.runes',
+                    message: 'Runes',
+                  })}
                 </th>
                 <th>
                   <Trans id="deathknight.shared.runeTracker.statistic.header.timeAbs">

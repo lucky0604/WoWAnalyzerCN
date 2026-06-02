@@ -4,7 +4,7 @@ import Events, { DamageEvent, ResourceChangeEvent } from 'parser/core/Events';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import ItemPercentDamageDone from 'parser/ui/ItemPercentDamageDone';
 import SPELLS from 'common/SPELLS';
 import TalentSpellText from 'parser/ui/TalentSpellText';
@@ -54,7 +54,7 @@ export default class SunderedFirmament extends Analyzer {
             <ResourceIcon id={RESOURCE_TYPES.ASTRAL_POWER.id} />{' '}
             {formatNumber(this.owner.getPerMinute(this.gainedAP))}{' '}
             <small>
-              <Trans id="balance.sundered_firmament.ap_pm">Astral Power per minute</Trans>
+              {t({ id: 'balance.sundered_firmament.ap_pm', message: 'Astral Power per minute' })}
             </small>
           </div>
           <div>

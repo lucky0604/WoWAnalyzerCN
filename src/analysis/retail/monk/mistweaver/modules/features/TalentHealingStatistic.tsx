@@ -1,5 +1,6 @@
 import { cloneElement } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import StatisticsListBox, { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
@@ -187,7 +188,7 @@ class TalentHealingStatistic extends Analyzer {
   statistic() {
     return (
       <StatisticsListBox
-        title={<Trans id="monk.mistweaver.talentBox.title">Talent Summary</Trans>}
+        title={t({ id: 'monk.mistweaver.talentBox.title', message: 'Talent Summary' })}
         tooltip={
           <Trans id="monk.mistweaver.talentBox.tooltip">
             <p>

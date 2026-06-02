@@ -32,7 +32,7 @@ export default function CooldownSection({ modules, info }: GuideProps<typeof Com
         </Trans>
       </p>
       <div>
-        <Trans id="guide.hunter.survival.sections.cooldowns.legend">Legend</Trans>
+        {t({ id: 'guide.hunter.survival.sections.cooldowns.legend', message: 'Legend' })}
         <ul>
           <li>
             <Trans id="guide.hunter.survival.sections.cooldowns.legend.available">

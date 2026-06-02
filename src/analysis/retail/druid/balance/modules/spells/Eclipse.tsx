@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { SpellIcon, SpellLink } from 'interface';
 import { formatPercentage } from 'common/format';
@@ -109,14 +110,14 @@ export default class Eclipse extends Analyzer {
         </p>
         <p>
           <Trans id="balance.eclipse.explanation_p3">
-            <SpellLink spell={SPELLS.WRATH} /> is single target. <SpellLink spell={SPELLS.STARFIRE} />{' '}
-            cleaves.{' '}
+            <SpellLink spell={SPELLS.WRATH} /> is single target.{' '}
+            <SpellLink spell={SPELLS.STARFIRE} /> cleaves.{' '}
           </Trans>
         </p>
         <p>
           <Trans id="balance.eclipse.explanation_p4">
-            Choose <SpellLink spell={SPELLS.ECLIPSE_LUNAR} /> when hitting 3 or more stacked targets.
-            Choose <SpellLink spell={SPELLS.ECLIPSE_SOLAR} /> for 1 to 2 targets.
+            Choose <SpellLink spell={SPELLS.ECLIPSE_LUNAR} /> when hitting 3 or more stacked
+            targets. Choose <SpellLink spell={SPELLS.ECLIPSE_SOLAR} /> for 1 to 2 targets.
           </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.LUNAR_CALLING_TALENT) && (
@@ -137,17 +138,17 @@ export default class Eclipse extends Analyzer {
         <RoundedPanel>
           <div>
             <strong>
-              <Trans id="balance.eclipse.uptimes_title">Eclipse uptimes</Trans>
+              {t({ id: 'balance.eclipse.uptimes_title', message: 'Eclipse uptimes' })}
             </strong>{' '}
             -{' '}
             <Highlight color={SOLAR_ECLIPSE_COLOR} textColor="black">
-              <Trans id="balance.eclipse.solar_legend">Solar</Trans>
+              {t({ id: 'balance.eclipse.solar_legend', message: 'Solar' })}
             </Highlight>{' '}
             <Highlight color={LUNAR_ECLIPSE_COLOR} textColor="white">
-              <Trans id="balance.eclipse.lunar_legend">Lunar</Trans>
+              {t({ id: 'balance.eclipse.lunar_legend', message: 'Lunar' })}
             </Highlight>{' '}
             <Highlight color={CA_COLOR} textColor="black">
-              <Trans id="balance.eclipse.ca_legend">Both (Celestial Alignment)</Trans>
+              {t({ id: 'balance.eclipse.ca_legend', message: 'Both (Celestial Alignment)' })}
             </Highlight>
           </div>
           {this.uptimeBar}

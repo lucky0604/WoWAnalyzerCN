@@ -110,7 +110,7 @@ class ComboStrikes extends Analyzer {
                 <thead>
                   <tr>
                     <th>
-                      <Trans id="monk.windwalker.combostrikes.timestamp">Timestamp</Trans>
+                      {t({ id: 'monk.windwalker.combostrikes.timestamp', message: 'Timestamp' })}
                     </th>
                     <th>1</th>
                     <th>2</th>
@@ -149,7 +149,10 @@ class ComboStrikes extends Analyzer {
         <BoringSpellValueText spell={SPELLS.COMBO_STRIKES}>
           {formatNumber(this.masteryDropEvents)}{' '}
           <small>
-            <Trans id="monk.windwalker.combostrikes.mistakes">Mastery benefit mistakes</Trans>
+            {t({
+              id: 'monk.windwalker.combostrikes.mistakes',
+              message: 'Mastery benefit mistakes',
+            })}
           </small>
         </BoringSpellValueText>
       </Statistic>
@@ -161,7 +164,7 @@ class ComboStrikes extends Analyzer {
       <>
         {formatNumber(this.masteryDropEvents)}{' '}
         <small>
-          <Trans id="monk.windwalker.combostrikes.mistakes">Mastery benefit mistakes</Trans>
+          {t({ id: 'monk.windwalker.combostrikes.mistakes', message: 'Mastery benefit mistakes' })}
         </small>
       </>
     );

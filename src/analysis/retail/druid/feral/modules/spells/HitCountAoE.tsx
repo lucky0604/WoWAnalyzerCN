@@ -98,7 +98,7 @@ class HitCountAoE extends Analyzer {
     if (this.swipeTracker!.casts === 0) {
       return (
         <strong>
-          <Trans id="druid.shared.spell_never_used">You never used this spell!</Trans>
+          {t({ id: 'druid.shared.spell_never_used', message: 'You never used this spell!' })}
         </strong>
       );
     }
@@ -106,17 +106,17 @@ class HitCountAoE extends Analyzer {
     const items = [
       {
         color: PerfectColor,
-        label: <Trans id="druid.feral.aoe.hit_multi_targets">Hit 2+ Targets</Trans>,
+        label: defineMessage({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
         value: this.swipeTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: <Trans id="druid.feral.aoe.hit_one_target">Hit 1 Target</Trans>,
+        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
         value: this.swipeTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: <Trans id="druid.feral.aoe.hit_zero_targets">Hit 0 Targets</Trans>,
+        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
         value: this.swipeTracker!.zeroHitCasts,
       },
     ];
@@ -127,7 +127,7 @@ class HitCountAoE extends Analyzer {
     if (this.pwTracker!.casts === 0) {
       return (
         <strong>
-          <Trans id="druid.shared.spell_never_used">You never used this spell!</Trans>
+          {t({ id: 'druid.shared.spell_never_used', message: 'You never used this spell!' })}
         </strong>
       );
     }
@@ -135,17 +135,17 @@ class HitCountAoE extends Analyzer {
     const items = [
       {
         color: PerfectColor,
-        label: <Trans id="druid.feral.aoe.hit_multi_targets">Hit 2+ Targets</Trans>,
+        label: defineMessage({ id: 'druid.feral.aoe.hit_multi_targets', message: 'Hit 2+ Targets' }),
         value: this.pwTracker!.multiHitCasts,
       },
       {
         color: BadColor,
-        label: <Trans id="druid.feral.aoe.hit_one_target">Hit 1 Target</Trans>,
+        label: defineMessage({ id: 'druid.feral.aoe.hit_one_target', message: 'Hit 1 Target' }),
         value: this.pwTracker!.oneHitCasts,
       },
       {
         color: VeryBadColor,
-        label: <Trans id="druid.feral.aoe.hit_zero_targets">Hit 0 Targets</Trans>,
+        label: defineMessage({ id: 'druid.feral.aoe.hit_zero_targets', message: 'Hit 0 Targets' }),
         value: this.pwTracker!.zeroHitCasts,
       },
     ];
@@ -210,9 +210,7 @@ class HitCountAoE extends Analyzer {
         position={STATISTIC_ORDER.CORE(10)}
       >
         <div className="pad boring-text">
-          <label>
-            <Trans id="druid.feral.aoe.label">AoE Ability Usage</Trans>
-          </label>
+          <label>{t({ id: 'druid.feral.aoe.label', message: 'AoE Ability Usage' })}</label>
           <div className="value">
             {this.allTrackers.map((tracker) => (
               <div key={tracker.spell.id}>
@@ -247,7 +245,7 @@ class HitCountAoE extends Analyzer {
                   {(tracker.casts === 0 ? 0 : tracker.hits / tracker.casts).toFixed(1)}{' '}
                 </TooltipElement>
                 <small>
-                  <Trans id="druid.feral.aoe.avg_targets_hit">avg targets hit</Trans>
+                  {t({ id: 'druid.feral.aoe.avg_targets_hit', message: 'avg targets hit' })}
                 </small>
               </div>
             ))}

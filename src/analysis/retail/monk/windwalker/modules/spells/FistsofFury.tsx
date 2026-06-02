@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -148,16 +149,14 @@ class FistsofFury extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(4)}
         size="flexible"
-        tooltip={
-          (() => {
-            const expectedTicks = this.expectedTicks;
-            return (
-              <Trans id="monk.windwalker.fof.ticks_tooltip">
-                Fists of Fury ticks {expectedTicks} times over the duration of the channel.
-              </Trans>
-            );
-          })()
-        }
+        tooltip={(() => {
+          const expectedTicks = this.expectedTicks;
+          return (
+            <Trans id="monk.windwalker.fof.ticks_tooltip">
+              Fists of Fury ticks {expectedTicks} times over the duration of the channel.
+            </Trans>
+          );
+        })()}
         dropdown={
           <div className="pad">
             <DonutChart items={this.donutChart(this.ticksHit)} />
@@ -167,7 +166,7 @@ class FistsofFury extends Analyzer {
         <BoringSpellValueText spell={SPELLS.FISTS_OF_FURY_CAST}>
           {this.averageTicks.toFixed(2)}{' '}
           <small>
-            <Trans id="monk.windwalker.fof.avg_ticks">Average ticks per cast</Trans>
+            {t({ id: 'monk.windwalker.fof.avg_ticks', message: 'Average ticks per cast' })}
           </small>
         </BoringSpellValueText>
       </Statistic>
@@ -191,9 +190,9 @@ class FistsofFury extends Analyzer {
         <p>
           <Trans id="monk.windwalker.fof.explanation2">
             With <SpellLink spell={TALENTS_MONK.MOMENTUM_BOOST_TALENT} />, each tick of{' '}
-            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> ramps the damage of the next tick.
-            That means the back half of the channel is worth significantly more than the front half,
-            so clipping it early is especially punishing.
+            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> ramps the damage of the next
+            tick. That means the back half of the channel is worth significantly more than the front
+            half, so clipping it early is especially punishing.
           </Trans>
         </p>
       </>
@@ -222,11 +221,9 @@ class FistsofFury extends Analyzer {
             <table className="table table-condensed" style={{ flex: 1 }}>
               <thead>
                 <tr>
+                  <th>{t({ id: 'monk.windwalker.fof.ability', message: 'Ability' })}</th>
                   <th>
-                    <Trans id="monk.windwalker.fof.ability">Ability</Trans>
-                  </th>
-                  <th>
-                    <Trans id="monk.windwalker.fof.times_clipped">Times Clipped</Trans>
+                    {t({ id: 'monk.windwalker.fof.times_clipped', message: 'Times Clipped' })}
                   </th>
                 </tr>
               </thead>

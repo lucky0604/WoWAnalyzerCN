@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import ArmoryIcon from 'interface/icons/Armory';
 import WoWAnalyzerIcon from 'interface/icons/WoWAnalyzer';
 import { makeCharacterUrl, makeArmoryUrl } from 'interface/makeAnalyzerUrl';
@@ -45,14 +45,15 @@ const CharacterTab = (props: Props) => {
                   {combatant.characterProfile ? (
                     <>
                       <Link to={makeCharacterUrl(combatant)}>
-                        <WoWAnalyzerIcon mainColor="#FAB700" arrowColor="transparent" /> 角色分析记录
+                        <WoWAnalyzerIcon mainColor="#FAB700" arrowColor="transparent" />{' '}
+                        角色分析记录
                       </Link>
                       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                       <br />
                       <a href={makeArmoryUrl(combatant)} target="_blank" rel="noopener noreferrer">
                         <ArmoryIcon />
                         &nbsp;
-                        <Trans id="interface.armory.text">Armory</Trans>
+                        {t({ id: 'interface.armory.text', message: 'Armory' })}
                       </a>
                     </>
                   ) : (

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import DocumentTitle from 'interface/DocumentTitle';
 import GitHubButton from 'interface/GitHubButton';
@@ -30,7 +31,7 @@ export function Component() {
           <LoginPanel />
         </div>
         <div className="col-md-8 col-sm-7">
-          <Panel title={<Trans id="interface.premiumPage.premium">WoWAnalyzer Premium</Trans>}>
+          <Panel title={t({ id: 'interface.premiumPage.premium', message: 'WoWAnalyzer Premium' })}>
             <PremiumIcon
               style={{ fontSize: '6em', float: 'right', color: '#fab700', marginTop: 0 }}
             />
@@ -172,7 +173,7 @@ export function Component() {
             </div>
           </Panel>
           {user && (
-            <Panel title={<Trans id="interface.premiumPage.you">You</Trans>}>
+            <Panel title={t({ id: 'interface.premiumPage.you', message: 'You' })}>
               <Trans id="interface.premiumPage.status">
                 Hello {user.name}. Your Premium is currently{' '}
                 {user.premium ? (

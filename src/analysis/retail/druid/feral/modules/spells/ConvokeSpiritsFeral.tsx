@@ -46,13 +46,13 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
             <p>
               <strong>
                 <Trans id="druid.feral.convoke.damage_caveat_p1">
-                  Damage amount listed considers only the direct damage and non-refreshable DoT damage
-                  done by convoked abilities!{' '}
+                  Damage amount listed considers only the direct damage and non-refreshable DoT
+                  damage done by convoked abilities!{' '}
                 </Trans>
               </strong>
               <Trans id="druid.feral.convoke.damage_caveat_p2">
-                (Non-refreshable DoTs are Starfall and Feral Frenzy) Refreshable DoTs, heals, and the
-                energy and damage boost from Tiger's Fury are all not considered by this number,
+                (Non-refreshable DoTs are Starfall and Feral Frenzy) Refreshable DoTs, heals, and
+                the energy and damage boost from Tiger's Fury are all not considered by this number,
                 making it almost certainly an undercount of Convoke's true value.
               </Trans>
             </p>
@@ -88,11 +88,9 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
     const data = (
       <div>
         <strong>
-          <Trans id="druid.feral.convoke.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'druid.feral.convoke.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
-        <small>
-          <Trans id="druid.feral.convoke.click_expand"> - click to expand</Trans>
-        </small>
+        <small>{t({ id: 'druid.feral.convoke.click_expand', message: '- click to expand' })}</small>
         {this.convokeTracker.map((cast, ix) => {
           const feralCast = this.feralConvokeTracker[ix];
 

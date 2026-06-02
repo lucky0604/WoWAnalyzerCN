@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 import DocumentTitle from 'interface/DocumentTitle';
 import Panel from 'interface/Panel';
@@ -15,7 +16,7 @@ export function Component() {
       <DocumentTitle title="Help wanted" />
 
       <Panel
-        title={<Trans id="interface.helpWantedPage.helpWantedTitle">Help wanted</Trans>}
+        title={t({ id: 'interface.helpWantedPage.helpWantedTitle', message: 'Help wanted' })}
         bodyStyle={{
           textAlign: 'justify',
           padding: 0,

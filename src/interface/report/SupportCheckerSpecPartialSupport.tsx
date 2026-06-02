@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Config from 'parser/Config';
 import { WCLFight } from 'parser/core/Fight';
 import { PlayerDetails } from 'parser/core/Player';
@@ -20,7 +21,10 @@ const SupportCheckerSpecPartialSupport = ({ config, ...others }: Props) => {
 
   return (
     <SupportCheckerIssue
-      title={<Trans id="interface.report.supportChecker.specPartialSupport">Partial support</Trans>}
+      title={t({
+        id: 'interface.report.supportChecker.specPartialSupport',
+        message: 'Partial support',
+      })}
       config={config}
       {...others}
     >
@@ -31,8 +35,8 @@ const SupportCheckerSpecPartialSupport = ({ config, ...others }: Props) => {
         <br />
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
-        We recommend reading the Wowhead{' '}
-        and <a href="https://www.icy-veins.com/wow/class-guides">Icy Veins</a> guides to gain more
+        We recommend reading the Wowhead and{' '}
+        <a href="https://www.icy-veins.com/wow/class-guides">Icy Veins</a> guides to gain more
         knowledge about your spec and use this when analyzing yourself. You can also try asking for
         help in a <a href="https://www.reddit.com/r/wow/wiki/discord">class Discord</a>.
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}

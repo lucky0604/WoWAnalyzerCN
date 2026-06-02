@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_SHAMAN } from 'common/TALENTS';
@@ -51,7 +52,7 @@ class SpiritWolf extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         icon={<SpellIcon spell={TALENTS_SHAMAN.SPIRIT_WOLF_TALENT} />}
         value={`≈${formatNumber(this.totalDrps)} DRPS`}
-        label={<Trans id="shaman.shared.damageReduced.label">Estimated damage reduced</Trans>}
+        label={t({ id: 'shaman.shared.damageReduced.label', message: 'Estimated damage reduced' })}
         tooltip={
           <Trans id="shaman.shared.damageReduced.tooltip">
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}

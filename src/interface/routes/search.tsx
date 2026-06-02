@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import DocumentTitle from 'interface/DocumentTitle';
 import { constructURL } from 'interface/ReportSelecter';
 import { useEffect, useState } from 'react';
@@ -23,16 +24,15 @@ export function Component() {
   return (
     <div className="container">
       <DocumentTitle title="Search" />
-      <h1>
-        <Trans id="interface.search.reportSearch">Report Search</Trans>
-      </h1>
+      <h1>{t({ id: 'interface.search.reportSearch', message: 'Report Search' })}</h1>
       {valid ? (
-        <>
-          <Trans id="interface.search.searchingFor">Searching for</Trans>{' '}
-        </>
+        <>{t({ id: 'interface.search.searchingFor', message: 'Searching for' })} </>
       ) : (
         <>
-          <Trans id="interface.search.invalidSearchParameter">Invalid search parameter:</Trans>{' '}
+          {t({
+            id: 'interface.search.invalidSearchParameter',
+            message: 'Invalid search parameter:',
+          })}{' '}
         </>
       )}
       <b>{query}</b>
@@ -55,9 +55,7 @@ export function Component() {
       </Trans>
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
-      <Link to="/">
-        <Trans id="interface.search.goBackHome">Go back home</Trans>
-      </Link>
+      <Link to="/">{t({ id: 'interface.search.goBackHome', message: 'Go back home' })}</Link>
     </div>
   );
 }

@@ -160,8 +160,8 @@ class ApexPredatorsCraving extends Analyzer {
         tooltip={
           <>
             <Trans id="druid.feral.apc.tooltip_p1">
-              This is the damage done by the free <SpellLink spell={SPELLS.FEROCIOUS_BITE} /> procced
-              by Apex Predator's Craving
+              This is the damage done by the free <SpellLink spell={SPELLS.FEROCIOUS_BITE} />{' '}
+              procced by Apex Predator's Craving
             </Trans>
             {this.hasRf && (
               <>
@@ -271,9 +271,7 @@ class ApexPredatorsCraving extends Analyzer {
           </div>
           <div>
             <UptimeIcon /> {formatPercentage(this.buffUptime, 1)}%{' '}
-            <small>
-              <Trans id="druid.feral.apc.buff_uptime_label">buff uptime</Trans>
-            </small>
+            <small>{t({ id: 'druid.feral.apc.buff_uptime_label', message: 'buff uptime' })}</small>
           </div>
 
           {this.hasSotf && (
@@ -281,7 +279,7 @@ class ApexPredatorsCraving extends Analyzer {
               <SpellIcon spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} />{' '}
               {this.sotfEnergyEffectivePerMinute.toFixed(0)}{' '}
               <small>
-                <Trans id="druid.feral.apc.energy_per_min">energy per minute</Trans>
+                {t({ id: 'druid.feral.apc.energy_per_min', message: 'energy per minute' })}
               </small>
             </div>
           )}
