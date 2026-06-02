@@ -1,0 +1,29 @@
+# Files that use upstream's defineMessage pattern or module-level <Trans>/<t()>.
+# Do not change t()/defineMessage/Trans usage in these files;
+# add Chinese translations only in src/localization/zh/messages.json.
+#
+# CONFIG.tsx files define module-level objects with JSX — <Trans> is safe here
+# but t() is NOT (executes before locale activation). Keep them as-is.
+src/analysis/retail/druid/balance/CONFIG.tsx
+src/analysis/retail/druid/feral/CONFIG.tsx
+src/analysis/retail/druid/guardian/CONFIG.tsx
+src/analysis/retail/druid/restoration/CONFIG.tsx
+src/analysis/retail/shaman/elemental/CONFIG.tsx
+src/analysis/retail/deathknight/blood/modules/features/MarrowrendUsage.tsx
+src/analysis/retail/deathknight/blood/modules/features/Ossuary.tsx
+src/analysis/retail/deathknight/shared/RuneDetails.tsx
+src/analysis/retail/shaman/restoration/modules/Abilities.ts
+src/common/getBossName.ts
+src/common/getFightName.ts
+src/game/DIFFICULTIES.ts
+src/game/SPECS.ts
+src/interface/CharacterParses.tsx
+src/interface/GuildReports.tsx
+src/interface/NameSearch.tsx
+src/interface/RootErrorBoundary.tsx
+src/interface/guide/foundation/FoundationSupportBadge.tsx
+src/interface/report/PlayerLoader.tsx
+src/interface/report/Results/Header/index.tsx
+src/interface/report/Results/ReportStatistics.tsx
+src/parser/core/SPELL_CATEGORY.ts
+src/parser/shared/modules/CooldownThroughputTracker.tsx
