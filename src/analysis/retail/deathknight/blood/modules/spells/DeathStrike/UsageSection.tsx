@@ -451,7 +451,10 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
           <tbody>
             <tr>
               <td>
-                <Trans id="deathknight.blood.deathStrikeSection.healingDone">Healing Done</Trans>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.healingDone',
+                  message: 'Healing Done',
+                })}
               </td>
               <td>
                 {formatNumber(healedDamage)} /{' '}
@@ -531,7 +534,10 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
                     </Trans>
                   }
                 >
-                  <Trans id="deathknight.blood.deathStrikeSection.runesSpent">Runes Spent</Trans>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.runesSpent',
+                    message: 'Runes Spent',
+                  })}
                 </TooltipElement>
               </td>
               <td>
