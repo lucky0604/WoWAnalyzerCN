@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Ad, { AdErrorBoundary, Location } from 'interface/Ad';
 import ErrorBoundary from 'interface/ErrorBoundary';
 import FingerprintFilledIcon from 'interface/icons/FingerprintFilled';
@@ -15,35 +15,34 @@ import './HomeLayout.scss';
 import LanguageSwitcher from '../LanguageSwitcher';
 import ReportSelectionHeader from '../ReportSelectionHeader';
 
-const pages = [
-  {
-    icon: NewsIcon,
-    name: <Trans id="interface.home.page.news">News</Trans>,
-    url: 'news',
-  },
-  {
-    icon: FingerprintFilledIcon,
-    name: <Trans id="interface.home.page.specs">Specs</Trans>,
-    url: 'specs',
-  },
-  {
-    icon: Logo,
-    name: <Trans id="interface.home.page.about">About</Trans>,
-    url: 'about',
-  },
-  {
-    icon: PremiumIcon,
-    name: <Trans id="interface.home.page.premium">Premium</Trans>,
-    url: 'premium',
-  },
-  {
-    icon: HelpWantedIcon,
-    name: <Trans id="interface.home.page.helpWanted">Help wanted</Trans>,
-    url: 'help-wanted',
-  },
-];
-
 export function HomeLayout() {
+  const pages = [
+    {
+      icon: NewsIcon,
+      name: defineMessage({ id: 'interface.home.page.news', message: 'News' }),
+      url: 'news',
+    },
+    {
+      icon: FingerprintFilledIcon,
+      name: defineMessage({ id: 'interface.home.page.specs', message: 'Specs' }),
+      url: 'specs',
+    },
+    {
+      icon: Logo,
+      name: defineMessage({ id: 'interface.home.page.about', message: 'About' }),
+      url: 'about',
+    },
+    {
+      icon: PremiumIcon,
+      name: defineMessage({ id: 'interface.home.page.premium', message: 'Premium' }),
+      url: 'premium',
+    },
+    {
+      icon: HelpWantedIcon,
+      name: defineMessage({ id: 'interface.home.page.helpWanted', message: 'Help wanted' }),
+      url: 'help-wanted',
+    },
+  ];
   const premium = useWaSelector((state) => hasPremium(state));
   const location = useLocation();
 

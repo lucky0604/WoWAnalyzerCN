@@ -28,10 +28,10 @@ const config: Config = {
           WoWAnalyzer team on{' '}
           <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>, on{' '}
           <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
-          <a href="/contributor/squided">squided</a>) directly on Discord. We're always interested in
-          improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
-          easier to understand. The whole project is open source and welcomes contributions so you can
-          directly improve it too!
+          <a href="/contributor/squided">squided</a>) directly on Discord. We're always interested
+          in improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
+          easier to understand. The whole project is open source and welcomes contributions so you
+          can directly improve it too!
         </Trans>
       </p>
       <p>
@@ -51,7 +51,9 @@ const config: Config = {
           </li>
           <li>
             <a href="https://discord.gg/dreamgrove" target="_blank" rel="noopener noreferrer">
-              <Trans id="restoration.config.dreamgrove_discord">Dreamgrove - the Druid community Discord</Trans>
+              <Trans id="restoration.config.dreamgrove_discord">
+                Dreamgrove - the Druid community Discord
+              </Trans>
             </a>
           </li>
         </ul>

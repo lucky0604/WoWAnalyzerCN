@@ -35,8 +35,8 @@ const config: Config = {
           <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
           <a href="/contributor/Sref">Sref</a>) directly on Discord. We're always interested in
           improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
-          easier to understand. The whole project is open source and welcomes contributions so you can
-          directly improve it too!
+          easier to understand. The whole project is open source and welcomes contributions so you
+          can directly improve it too!
         </Trans>
       </p>
       <p>

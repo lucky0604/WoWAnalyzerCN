@@ -30,14 +30,12 @@ const config: Config = {
           <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
           <a href="/contributor/Sref">Sref</a>) directly on Discord. We're always interested in
           improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
-          easier to understand. The whole project is open source and welcomes contributions so you can
-          directly improve it too!
+          easier to understand. The whole project is open source and welcomes contributions so you
+          can directly improve it too!
         </Trans>
       </p>
       <p>
-        <Trans id="balance.config.description.p3">
-          If you have gameplay questions, check out:
-        </Trans>
+        <Trans id="balance.config.description.p3">If you have gameplay questions, check out:</Trans>
         <ul>
           <li>
             <a href="https://www.wowhead.com/balance-druid-guide">
@@ -51,7 +49,9 @@ const config: Config = {
           </li>
           <li>
             <a href="https://discord.gg/dreamgrove" target="_blank" rel="noopener noreferrer">
-              <Trans id="balance.config.dreamgrove_discord">Dreamgrove - the Druid community Discord</Trans>
+              <Trans id="balance.config.dreamgrove_discord">
+                Dreamgrove - the Druid community Discord
+              </Trans>
             </a>
           </li>
         </ul>
