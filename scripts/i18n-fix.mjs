@@ -161,17 +161,15 @@ for (const file of walk('src')) {
     stats.importFixed++;
   }
 
-  // --- Pass 4: Ensure t import if t() is used ---
-  if (content.includes('t({') && !/import\s*\{[^}]*\bt\b/.test(content)) {
+  // --- Pass 4: Ensure t import if t() or t`...` is used ---
+  const usesTMacro = /\bt\(\{/.test(content) || /\bt`/.test(content);
+  if (usesTMacro && !/import\s*\{[^}]*\bt\b/.test(content)) {
     content = ensureTImport(content);
     stats.importFixed++;
   }
 
   // --- Pass 4b: Remove standalone unused t import ---
-  if (
-    /^import \{ t \} from '@lingui\/core\/macro';?\n/m.test(content) &&
-    !/\bt\(\{/.test(content)
-  ) {
+  if (/^import \{ t \} from '@lingui\/core\/macro';?\n/m.test(content) && !usesTMacro) {
     content = content.replace(/^import \{ t \} from '@lingui\/core\/macro';?\n/m, '');
     stats.importFixed++;
   }
