@@ -315,13 +315,16 @@ import CombustionSection from './modules/combustion/CombustionSection';
 
 `scripts/upstream-i18n-core-files.txt` 中列出的文件使用上游的 `defineMessage()` 模式。只在 `zh/messages.json` 填翻译，不要改成 `t()`。
 
-这些文件包括：
+这些文件包括（完整清单见 `scripts/upstream-i18n-core-files.txt`）：
 
 - `src/game/SPECS.ts` — 职业专精名称
 - `src/game/DIFFICULTIES.ts` — 难度名称
+- `src/game/GEAR_SLOTS.tsx` — 装备部位名称（模块顶层 `Record<number, JSX.Element>`）
 - `src/parser/core/SPELL_CATEGORY.ts` — 技能分类名称
 - `src/common/getBossName.ts` — Boss 名称
-- 部分 `src/interface/` UI 组件
+- 各职业 `CONFIG.tsx` — 模块顶层对象，使用 `<Trans>` 返回 JSX.Element
+- 部分 `src/interface/` UI 组件（CharacterParses、GuildReports、PlayerLoader 等）
+- 部分 spec 分析模块（MarrowrendUsage、Ossuary、RuneDetails 等）
 
 ### 规则 2：`t()` 不能在模块顶层调用
 
