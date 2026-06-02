@@ -8,6 +8,7 @@ import Events, { CastEvent } from 'parser/core/Events';
 import { Options } from 'parser/core/Module';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import type { JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 
 class MasterTheDarkness extends Analyzer {
   wastedPenanceCasts: CastEvent[] = [];
@@ -43,12 +44,15 @@ class MasterTheDarkness extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} />
-          </strong>{' '}
-          gives your <SpellLink spell={SPELLS.PENANCE_CAST} /> a chance to upgrade your {''}
-          <SpellLink spell={SPELLS.POWER_WORD_SHIELD} /> to <SpellLink spell={SPELLS.VOID_SHIELD} />
-          . Casting Penance while the upgrade is already active wastes a potential new proc.
+          <Trans id="priest.discipline.masterTheDarkness.explanation">
+            <strong>
+              <SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} />
+            </strong>{' '}
+            gives your <SpellLink spell={SPELLS.PENANCE_CAST} /> a chance to upgrade your {''}
+            <SpellLink spell={SPELLS.POWER_WORD_SHIELD} /> to{' '}
+            <SpellLink spell={SPELLS.VOID_SHIELD} />. Casting Penance while the upgrade is already
+            active wastes a potential new proc.
+          </Trans>
         </p>
       </>
     );
@@ -56,25 +60,32 @@ class MasterTheDarkness extends Analyzer {
     const boxes = this.wastedPenanceCasts.map((event) => ({
       value: QualitativePerformance.Fail,
       tooltip: (
-        <>
+        <Trans id="priest.discipline.masterTheDarkness.tooltip.wastedCast">
           {this.owner.formatTimestamp(event.timestamp)}: <SpellLink spell={SPELLS.PENANCE_CAST} />
           {''}
           cast while <SpellLink spell={SPELLS.MASTER_THE_DARKNESS_BUFF} /> was already active.
-        </>
+        </Trans>
       ),
     }));
 
     const data = (
       <div>
         <p>
-          Wasted <SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} /> procs:
-          {''}
-          <strong>{this.wastedPenanceCasts.length}</strong>
+          <Trans id="priest.discipline.masterTheDarkness.data.wastedProcs">
+            Wasted <SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} />{' '}
+            procs:
+            {''}
+            <strong>{this.wastedPenanceCasts.length}</strong>
+          </Trans>
         </p>
         {this.wastedPenanceCasts.length > 0 ? (
           <PerformanceBoxRow values={boxes} />
         ) : (
-          <p>Well done, no potential procs were missed!</p>
+          <p>
+            <Trans id="priest.discipline.masterTheDarkness.data.wellDone">
+              Well done, no potential procs were missed!
+            </Trans>
+          </p>
         )}
       </div>
     );

@@ -1,4 +1,30 @@
 {
   "priest.discipline.section.shortCooldowns": "短冷却技能",
-  "priest.discipline.section.dots": "持续伤害"
+  "priest.discipline.section.dots": "持续伤害",
+
+  "priest.discipline.penance.explanation.base": "<0><1>苦修</1></0> 对你的治疗输出贡献很大。务必完成全部弹道的引导。",
+  "priest.discipline.penance.explanation.oracle": "<0>神谕者</0>的 <1>苦修</1> 施放将是防御性的，可进行单体治疗，并通过 <3>暗影契约</3> 的 <2>额外弹道</2> 造成的额外伤害进行全团治疗。",
+  "priest.discipline.penance.explanation.voidweaver": "<0>虚空编织者</0>的 <1>苦修</1> 施放应是进攻性的，以最大化治疗输出。你仍可将其用于单体治疗和施加 <2>暗影契约</2>。",
+  "priest.discipline.penance.tooltip.targetNotFriendly": "你的目标不是友方。",
+  "priest.discipline.penance.tooltip.targetFriendly": "你的目标是友方。",
+  "priest.discipline.penance.tooltip.boltsFired": "已发射 <0>{0}</0> / <1>{1}</1> 发弹道。",
+  "priest.discipline.penance.data.legend": "- 蓝色表示所有弹道均已发射且目标正确。绿色表示你的目标不适合你的英雄天赋。红色表示你在所有弹道发射前停止了引导。",
+
+  "priest.discipline.masterTheDarkness.explanation": "<0><1>暗影掌控</1></0> 使你的 <2>苦修</2> 有机率将 <3>真言术：盾</3> 升级为 <4>虚空之盾</4>。在升级已激活时施放苦修会浪费新的触发机会。",
+  "priest.discipline.masterTheDarkness.tooltip.wastedCast": "{0}: <1>苦修</1> 在 <2>暗影掌控增益</2> 已激活时施放。",
+  "priest.discipline.masterTheDarkness.data.wastedProcs": "浪费的 <0>暗影掌控</0> 触发：<1>{0}</1>",
+  "priest.discipline.masterTheDarkness.data.wellDone": "很好，没有潜在的触发被浪费！",
+
+  "priest.discipline.powerWordRadiance.explanation": "<0><1>真言术：辉</1></0> 是施加大量暗影契约的最快方式，高效施放它对于最大化有/无 <2>福音</2> 的爆发收益至关重要。尽量确保每次施放都施加 5 个暗影契约，且不要对已有暗影契约的目标施放。",
+  "priest.discipline.powerWordRadiance.tooltip.onAtoned": "真言术：辉施放给了已有暗影契约的目标。",
+  "priest.discipline.powerWordRadiance.tooltip.lessThanFive": "真言术：辉施加的暗影契约少于五个目标。",
+  "priest.discipline.powerWordRadiance.data.legend": "- 绿色表示正确的施放。黄色表示施放给了已有 <0>暗影契约</0> 的目标，或施放施加的暗影契约少于五个。红色表示黄色中的两种情况同时发生。",
+
+  "priest.discipline.selfAtonementAnalysis.explanation": "<0><1>快速治疗</1></0> 在使用 <2>联结治疗</2> 时对他人施放会同时为你施加 <3>暗影契约</3>。这是最高效的暗影契约施加方式，你应避免手动为自己施加 <4>暗影契约</4>。",
+  "priest.discipline.selfAtonementAnalysis.data.label": "施加方式占比",
+  "priest.discipline.selfAtonementAnalysis.data.legend": "- 绿色表示未对自己施放，红色表示手动对自己施加暗影契约。",
+
+  "priest.discipline.dotUptimes.explanation.title": "保持你的持续伤害效果。",
+  "priest.discipline.dotUptimes.explanation.swp": "保持 <0>暗言术：痛</0> 活跃，通过 <1>暗影契约</1> 提高你的持续治疗输出。",
+  "priest.discipline.dotUptimes.explanation.synergies": "如已点出天赋，<0>暗影之力</0>、<1>暗影愈合</1> 和 <2>净化邪恶</2> 将与 <3>暗言术：痛</3> 产生协同，提升你的整体输出。"
 }

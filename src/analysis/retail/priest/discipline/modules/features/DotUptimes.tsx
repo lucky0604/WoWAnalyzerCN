@@ -7,6 +7,7 @@ import { explanationAndDataSubsection } from 'interface/guide/components/Explana
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import ShadowWordPain from 'analysis/retail/priest/shared/ShadowWordPain';
 import { TALENTS_PRIEST } from 'common/TALENTS';
+import { Trans } from '@lingui/react/macro';
 
 class DotUptimes extends Analyzer {
   static dependencies = {
@@ -18,17 +19,25 @@ class DotUptimes extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>Keep your DoTs up on the boss.</b>
+          <b>
+            <Trans id="priest.discipline.dotUptimes.explanation.title">
+              Keep your DoTs up on the boss.
+            </Trans>
+          </b>
         </p>
         <p>
-          By keeping <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} /> active, your over time healing
-          through <SpellLink spell={SPELLS.ATONEMENT_BUFF} /> is increased.
+          <Trans id="priest.discipline.dotUptimes.explanation.swp">
+            By keeping <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} /> active, your over time healing
+            through <SpellLink spell={SPELLS.ATONEMENT_BUFF} /> is increased.
+          </Trans>
         </p>
         <p>
-          If talented, <SpellLink spell={TALENTS_PRIEST.POWER_OF_THE_DARK_SIDE_TALENT} />,{' '}
-          <SpellLink spell={TALENTS_PRIEST.SHADOW_MEND_TALENT} />, and{' '}
-          <SpellLink spell={TALENTS_PRIEST.EXPIATION_TALENT} /> will synergize with{' '}
-          <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} /> and increase your overall output.
+          <Trans id="priest.discipline.dotUptimes.explanation.synergies">
+            If talented, <SpellLink spell={TALENTS_PRIEST.POWER_OF_THE_DARK_SIDE_TALENT} />,{' '}
+            <SpellLink spell={TALENTS_PRIEST.SHADOW_MEND_TALENT} />, and{' '}
+            <SpellLink spell={TALENTS_PRIEST.EXPIATION_TALENT} /> will synergize with{' '}
+            <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} /> and increase your overall output.
+          </Trans>
         </p>
       </>
     );

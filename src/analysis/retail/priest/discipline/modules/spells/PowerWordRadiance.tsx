@@ -10,6 +10,9 @@ import Combatants from 'parser/shared/modules/Combatants';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import Atonement from './Atonement';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
+import { defineMessage } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
+import { i18n } from '@lingui/core';
 
 interface RadianceInfo {
   cast: CastEvent;
@@ -76,13 +79,15 @@ class PowerWordRadiance extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS_PRIEST.POWER_WORD_RADIANCE_TALENT} />
-        </strong>{' '}
-        is the fastest way to apply lots of atonements, and casting it effectively is an important
-        part of maximising the value of ramps with and without{' '}
-        <SpellLink spell={TALENTS_PRIEST.EVANGELISM_TALENT} />. Try to make sure every cast applies
-        5 atonements, and that it isn't cast on a target which already has atonement.
+        <Trans id="priest.discipline.powerWordRadiance.explanation">
+          <strong>
+            <SpellLink spell={TALENTS_PRIEST.POWER_WORD_RADIANCE_TALENT} />
+          </strong>{' '}
+          is the fastest way to apply lots of atonements, and casting it effectively is an important
+          part of maximising the value of ramps with and without{' '}
+          <SpellLink spell={TALENTS_PRIEST.EVANGELISM_TALENT} />. Try to make sure every cast
+          applies 5 atonements, and that it isn't cast on a target which already has atonement.
+        </Trans>
       </p>
     );
 
@@ -101,13 +106,23 @@ class PowerWordRadiance extends Analyzer {
         tooltip: `@ ${this.owner.formatTimestamp(radianceCast.cast.timestamp)}.
         ${
           radianceCast.onAtoned
-            ? 'Power Word: Radiance cast on a target that already has atonement.'
+            ? i18n._(
+                defineMessage({
+                  id: 'priest.discipline.powerWordRadiance.tooltip.onAtoned',
+                  message: 'Power Word: Radiance cast on a target that already has atonement.',
+                }),
+              )
             : ''
         }
         ${
           radianceCast.goodCast
             ? ''
-            : 'Power Word: Radiance applied atonement to less than five targets.'
+            : i18n._(
+                defineMessage({
+                  id: 'priest.discipline.powerWordRadiance.tooltip.lessThanFive',
+                  message: 'Power Word: Radiance applied atonement to less than five targets.',
+                }),
+              )
         }
         `,
       };
@@ -119,9 +134,11 @@ class PowerWordRadiance extends Analyzer {
         </strong>
         <small>
           {' '}
-          - Green means a good cast. Yellow means a cast was either used on a target which already
-          had <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> or a cast applied less than five
-          atonements. Red means both of the yellow cases occured.
+          <Trans id="priest.discipline.powerWordRadiance.data.legend">
+            - Green means a good cast. Yellow means a cast was either used on a target which already
+            had <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> or a cast applied less than
+            five atonements. Red means both of the yellow cases occured.
+          </Trans>
         </small>
         <PerformanceBoxRow values={castPerfBoxes} />
       </div>
