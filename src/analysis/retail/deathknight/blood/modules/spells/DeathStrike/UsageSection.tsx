@@ -42,7 +42,8 @@ import {
   timeAxis,
 } from 'analysis/retail/monk/brewmaster/modules/charts';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 import { ActualCastDescription } from 'interface/guide/components/Apl/violations/claims';
 import { StringFieldDefWithCondition } from 'vega-lite/build/src/channeldef';
 import { MitigationSegments } from 'interface/guide/components/MajorDefensives/MitigationSegments';
@@ -56,7 +57,9 @@ import AlertWarning from 'interface/AlertWarning';
 const reasonLabel = (reason: DeathStrikeReason) => {
   switch (reason) {
     case DeathStrikeReason.GoodHealing:
-      return defineMessage({ id: 'deathknight.blood.usageSection.largeHeal', message: 'Large Heal' });
+      return i18n._(
+        defineMessage({ id: 'deathknight.blood.usageSection.largeHeal', message: 'Large Heal' }),
+      );
     case DeathStrikeReason.LowHealth:
       return (
         <Trans id="deathknight.blood.usageSection.lowHpAt">
@@ -85,7 +88,9 @@ const reasonLabel = (reason: DeathStrikeReason) => {
         </Trans>
       );
     case DeathStrikeReason.Other:
-      return defineMessage({ id: 'deathknight.blood.usageSection.other', message: 'Other' });
+      return i18n._(
+        defineMessage({ id: 'deathknight.blood.usageSection.other', message: 'Other' }),
+      );
   }
 };
 

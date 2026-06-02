@@ -29,6 +29,7 @@ import * as cnd from 'parser/shared/metrics/apl/conditions';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { useMemo, type JSX } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const RunicPowerColor = 'hsl(191, 60%, 50%)';
 
@@ -204,7 +205,8 @@ const DescribeBoneShieldWaste: ViolationExplainer<any>['describe'] = ({ violatio
           You could have generated <strong>{isMarrowrend ? 10 : 5}+</strong> additional{' '}
           <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> by casting{' '}
           <SpellLink spell={talents.HEART_STRIKE_TALENT} />{' '}
-          {isMarrowrend ? <Trans id="deathknight.blood.runeWaste.twice">twice</Trans> : ''} instead.
+          {isMarrowrend ? t({ id: 'deathknight.blood.runeWaste.twice', message: 'twice' }) : ''}{' '}
+          instead.
         </Trans>
       </p>
     </>

@@ -245,7 +245,7 @@ function RunicPowerTable() {
         );
       })}
       <RunicPowerTableRow
-        label={<Trans id="deathknight.blood.deathStrikeSection.other">Other</Trans>}
+        label={<>{t({ id: 'deathknight.blood.deathStrikeSection.other', message: 'Other' })}</>}
         maxRp={maxRp}
         runesSpent={0}
         rpBonus={otherRp}
@@ -326,7 +326,7 @@ function RunicPowerTableRow({
                 Converted {formatNumber(runesSpent)} runes into
               </Trans>
             ) : (
-              <Trans id="deathknight.blood.deathStrikeSection.generated">Generated</Trans>
+              t({ id: 'deathknight.blood.deathStrikeSection.generated', message: 'Generated' })
             )}{' '}
             <Highlight color={RuneColor}>
               {formatNumber(baseRp)}

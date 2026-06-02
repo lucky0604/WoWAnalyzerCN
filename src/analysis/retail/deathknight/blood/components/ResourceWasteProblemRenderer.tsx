@@ -16,6 +16,7 @@ import { AnyEvent, CastEvent, EventMeta, EventType } from 'parser/core/Events';
 import { useMemo, type JSX } from 'react';
 import { replace } from 'parser/core/EventMetaLib';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 interface WastedMeta extends EventMeta {
   _wastedRp: number;
@@ -126,11 +127,9 @@ export function ResourceWasteProblemRenderer({
             <SpellLink spell={talents.DEATH_STRIKE_TALENT} />{' '}
             <strong>
               {extraCasts} additional time
-              {extraCasts === 1 ? (
-                <Trans id="deathknight.blood.resourceWaste.extraTimeSuffix">s</Trans>
-              ) : (
-                ''
-              )}
+              {extraCasts === 1
+                ? t({ id: 'deathknight.blood.resourceWaste.extraTimeSuffix', message: 's' })
+                : ''}
             </strong>{' '}
             and end this sequence with the same amount of{' '}
             <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
