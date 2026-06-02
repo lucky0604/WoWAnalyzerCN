@@ -204,12 +204,11 @@ export default function FoundationDowntimeSectionV2(): JSX.Element | null {
             <ByRole>
               在<em>魔兽世界</em>中，良好操作的基础是保持较高的<HL>活跃时间。</HL>{' '}
               <Role.Melee>
-                一次<GCD />结束与下一次开始之间不应有空档。
+                一次
+                <GCD />
+                结束与下一次开始之间不应有空档。
               </Role.Melee>
-              <Role.Caster>
-                一次施法结束与下一次施法开始之间不应有空档。
-              </Role.Caster>{' '}
-              此图表以{' '}
+              <Role.Caster>一次施法结束与下一次施法开始之间不应有空档。</Role.Caster> 此图表以{' '}
               <Highlight color={BadColor} textColor="white">
                 {t({ id: 'guide.foundation.downtime.color.red', message: '红色' })}
               </Highlight>
@@ -566,23 +565,25 @@ function BossAbilityOverlay({ info }: { info?: Info }) {
 
   return (
     <svg width="100%" height="75px">
-      {bossAbilities?.map((castEvent, i) => (
-        <g key={i}>
-          <line
-            x1={x(castEvent.timestamp)}
-            x2={x(castEvent.timestamp)}
-            y1={1}
-            y2="100%"
-            stroke="#999"
-          />
-          <TimelineAbility
-            x={x(castEvent.timestamp) - 1}
-            y={0}
-            size={18}
-            spell={castEvent.ability.guid}
-          />
-        </g>
-      ))}
+      {bossAbilities
+        ?.filter((castEvent) => castEvent.ability?.guid != null)
+        .map((castEvent, i) => (
+          <g key={i}>
+            <line
+              x1={x(castEvent.timestamp)}
+              x2={x(castEvent.timestamp)}
+              y1={1}
+              y2="100%"
+              stroke="#999"
+            />
+            <TimelineAbility
+              x={x(castEvent.timestamp) - 1}
+              y={0}
+              size={18}
+              spell={castEvent.ability.guid}
+            />
+          </g>
+        ))}
     </svg>
   );
 }
@@ -699,7 +700,8 @@ const GCD = () => (
   <TooltipElement
     content={
       <>
-        大多数技能共享<strong>1.5秒</strong>的<em>公共冷却时间</em>，受急速影响而缩短。使用能量的专精通常固定为
+        大多数技能共享<strong>1.5秒</strong>的<em>公共冷却时间</em>
+        ，受急速影响而缩短。使用能量的专精通常固定为
         <strong>1秒</strong>公共CD。
       </>
     }

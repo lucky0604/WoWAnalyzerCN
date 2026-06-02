@@ -28,6 +28,7 @@ import aplCheck, {
 import * as cnd from 'parser/shared/metrics/apl/conditions';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { useMemo, type JSX } from 'react';
+import { Trans } from '@lingui/react/macro';
 
 const RunicPowerColor = 'hsl(191, 60%, 50%)';
 
@@ -192,13 +193,19 @@ const DescribeBoneShieldWaste: ViolationExplainer<any>['describe'] = ({ violatio
   return (
     <>
       <p>
-        <ActualCastDescription event={violation.actualCast} /> when{' '}
-        <SpellLink spell={SPELLS.BONE_SHIELD} /> was present and did not need to be refreshed.
+        <ActualCastDescription event={violation.actualCast} />{' '}
+        <Trans id="deathknight.blood.runeWaste.boneShieldPresent">
+          when <SpellLink spell={SPELLS.BONE_SHIELD} /> was present and did not need to be
+          refreshed.
+        </Trans>
       </p>
       <p>
-        You could have generated <strong>{isMarrowrend ? 10 : 5}+</strong> additional{' '}
-        <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> by casting{' '}
-        <SpellLink spell={talents.HEART_STRIKE_TALENT} /> {isMarrowrend ? 'twice' : ''} instead.
+        <Trans id="deathknight.blood.runeWaste.couldHaveGenerated">
+          You could have generated <strong>{isMarrowrend ? 10 : 5}+</strong> additional{' '}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> by casting{' '}
+          <SpellLink spell={talents.HEART_STRIKE_TALENT} />{' '}
+          {isMarrowrend ? <Trans id="deathknight.blood.runeWaste.twice">twice</Trans> : ''} instead.
+        </Trans>
       </p>
     </>
   );
@@ -232,28 +239,30 @@ export function RuneWaste(): JSX.Element | null {
     <SuggestionBox
       performance={perf}
       title={
-        <>
+        <Trans id="deathknight.blood.runeWaste.title">
           <SpellLink spell={talents.HEART_STRIKE_TALENT} /> should be your primary source of RP.
-        </>
+        </Trans>
       }
       description={
-        <>
+        <Trans id="deathknight.blood.runeWaste.description">
           Heart Strike generates a lot more{' '}
           <Highlight textColor="#111" color={RunicPowerColor}>
             Bonus
           </Highlight>{' '}
           RP than other abilities.
-        </>
+        </Trans>
       }
     >
       <div>
         <p>
-          Using <SpellLink spell={talents.MARROWREND_TALENT} /> too much is one of the most common
-          problems. <SpellLink spell={talents.MARROWREND_TALENT} /> generates less{' '}
-          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> and does less damage per Rune than{' '}
-          <SpellLink spell={talents.HEART_STRIKE_TALENT} />.{' '}
-          <SpellLink spell={talents.MARROWREND_TALENT} /> should <em>only</em> be used to apply and
-          refresh <SpellLink spell={SPELLS.BONE_SHIELD} />!
+          <Trans id="deathknight.blood.runeWaste.explanation">
+            Using <SpellLink spell={talents.MARROWREND_TALENT} /> too much is one of the most common
+            problems. <SpellLink spell={talents.MARROWREND_TALENT} /> generates less{' '}
+            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> and does less damage per Rune than{' '}
+            <SpellLink spell={talents.HEART_STRIKE_TALENT} />.{' '}
+            <SpellLink spell={talents.MARROWREND_TALENT} /> should <em>only</em> be used to apply
+            and refresh <SpellLink spell={SPELLS.BONE_SHIELD} />!
+          </Trans>
         </p>
         <ViolationProblemList
           describer={DescribeBoneShieldWaste}

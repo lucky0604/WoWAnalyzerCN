@@ -76,7 +76,12 @@ class RunicPowerDetails extends Analyzer {
 
   get guideSubsection() {
     return (
-      <SubSection title="Runic Power Usage">
+      <SubSection
+        title={t({
+          id: 'deathknight.blood.runicPowerDetails.usageTitle',
+          message: 'Runic Power Usage',
+        })}
+      >
         <ResourceBreakdown tracker={this.runicPowerTracker} showSpenders />
       </SubSection>
     );

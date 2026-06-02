@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
+import { t } from '@lingui/core/macro';
 
 interface RawRunesReady {
   x: number; // timestamp
@@ -30,9 +31,27 @@ export default function RuneCooldownBar({
   }
   return (
     <GradiatedPerformanceBar
-      good={{ count: Math.round(counts.good), label: 'Seconds with 3+ Runes Recharging' }}
-      bad={{ count: Math.round(counts.bad), label: 'Seconds with 0 or 1 Runes Recharging' }}
-      ok={{ count: Math.round(counts.ok), label: 'Seconds with 2 Runes Recharging' }}
+      good={{
+        count: Math.round(counts.good),
+        label: t({
+          id: 'deathknight.blood.runeCooldownBar.seconds3plus',
+          message: 'Seconds with 3+ Runes Recharging',
+        }),
+      }}
+      bad={{
+        count: Math.round(counts.bad),
+        label: t({
+          id: 'deathknight.blood.runeCooldownBar.seconds0or1',
+          message: 'Seconds with 0 or 1 Runes Recharging',
+        }),
+      }}
+      ok={{
+        count: Math.round(counts.ok),
+        label: t({
+          id: 'deathknight.blood.runeCooldownBar.seconds2',
+          message: 'Seconds with 2 Runes Recharging',
+        }),
+      }}
     />
   );
 }

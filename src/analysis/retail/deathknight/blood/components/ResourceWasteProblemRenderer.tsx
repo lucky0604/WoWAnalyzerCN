@@ -15,6 +15,7 @@ import {
 import { AnyEvent, CastEvent, EventMeta, EventType } from 'parser/core/Events';
 import { useMemo, type JSX } from 'react';
 import { replace } from 'parser/core/EventMetaLib';
+import { Trans } from '@lingui/react/macro';
 
 interface WastedMeta extends EventMeta {
   _wastedRp: number;
@@ -44,7 +45,11 @@ export function ResourceWasteProblemRenderer({
             _wastedRp: event.waste,
             isInefficientCast: true,
             get inefficientCastReason() {
-              return <>This cast wasted {this._wastedRp} RP.</>;
+              return (
+                <Trans id="deathknight.blood.resourceWaste.wastedRpCast">
+                  This cast wasted {this._wastedRp} RP.
+                </Trans>
+              );
             },
           };
           replace(lastCast, meta);
@@ -72,7 +77,11 @@ export function ResourceWasteProblemRenderer({
           meta: {
             isInefficientCast: event.waste > 0,
             inefficientCastReason:
-              event.waste > 0 ? <>This proc wasted {event.waste} RP.</> : undefined,
+              event.waste > 0 ? (
+                <Trans id="deathknight.blood.resourceWaste.wastedRpProc">
+                  This proc wasted {event.waste} RP.
+                </Trans>
+              ) : undefined,
           },
         } as CastEvent;
         result.push(newEvent);
@@ -91,11 +100,13 @@ export function ResourceWasteProblemRenderer({
   return (
     <Container>
       <div>
-        From {formatDuration(problem.range.start - info.fightStart)} to{' '}
-        {formatDuration(problem.range.end - info.fightStart)}, you wasted{' '}
-        <strong>{problem.severity}</strong> <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />,
-        equivalent to <strong>{((problem.severity ?? 0) / deathStrikeCost).toFixed(1)}</strong>{' '}
-        casts of <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> without any buffs.
+        <Trans id="deathknight.blood.resourceWaste.wastedRpRange">
+          From {formatDuration(problem.range.start - info.fightStart)} to{' '}
+          {formatDuration(problem.range.end - info.fightStart)}, you wasted{' '}
+          <strong>{problem.severity}</strong> <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />,
+          equivalent to <strong>{((problem.severity ?? 0) / deathStrikeCost).toFixed(1)}</strong>{' '}
+          casts of <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> without any buffs.
+        </Trans>
       </div>
       <EmbeddedTimelineContainer secondWidth={60} secondsShown={9} style={{ alignSelf: 'center' }}>
         <SpellTimeline>
@@ -110,13 +121,20 @@ export function ResourceWasteProblemRenderer({
       </EmbeddedTimelineContainer>
       {(problem.severity ?? 0) >= ossuaryCost && (
         <div>
-          With <SpellLink spell={talents.OSSUARY_TALENT} />, you would be able to cast{' '}
-          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />{' '}
-          <strong>
-            {extraCasts} additional time{extraCasts === 1 ? '' : 's'}
-          </strong>{' '}
-          and end this sequence with the same amount of{' '}
-          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
+          <Trans id="deathknight.blood.resourceWaste.ossuaryBenefit">
+            With <SpellLink spell={talents.OSSUARY_TALENT} />, you would be able to cast{' '}
+            <SpellLink spell={talents.DEATH_STRIKE_TALENT} />{' '}
+            <strong>
+              {extraCasts} additional time
+              {extraCasts === 1 ? (
+                <Trans id="deathknight.blood.resourceWaste.extraTimeSuffix">s</Trans>
+              ) : (
+                ''
+              )}
+            </strong>{' '}
+            and end this sequence with the same amount of{' '}
+            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
+          </Trans>
         </div>
       )}
     </Container>
