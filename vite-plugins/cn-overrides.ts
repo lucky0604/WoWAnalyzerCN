@@ -72,7 +72,20 @@ export function cnOverridesPlugin(): Plugin {
         return null;
       }
 
-      return toOverridePath(sourceFile);
+      const overridePath = toOverridePath(sourceFile);
+      if (overridePath) {
+        return overridePath;
+      }
+
+      // When the importer is an override file, relative imports resolve
+      // against the original source tree. If no override exists for the
+      // resolved module, return the original source path so Vite imports
+      // from the real file instead of failing in the override directory.
+      if (importer.includes(OVERRIDES_SEGMENT)) {
+        return sourceFile;
+      }
+
+      return null;
     },
   };
 }
