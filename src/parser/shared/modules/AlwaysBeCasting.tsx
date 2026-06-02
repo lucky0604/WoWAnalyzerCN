@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Icon, Tooltip } from 'interface';
 import Analyzer, { Options } from 'parser/core/Analyzer';
 import Events, { EndChannelEvent, GlobalCooldownEvent } from 'parser/core/Events';
@@ -373,7 +374,7 @@ class AlwaysBeCasting extends Analyzer {
         position={this.position}
         icon={<Icon icon="spell_mage_altertime" alt="Downtime" />}
         value={`${formatPercentage(this.downtimePercentage)} %`}
-        label={<Trans id="shared.alwaysBeCasting.statistic.label">Downtime</Trans>}
+        label={t({ id: 'shared.alwaysBeCasting.statistic.label', message: 'Downtime' })}
         tooltip={
           <Trans id="shared.alwaysBeCasting.statistic.tooltip">
             Downtime is available time not used to cast anything (including not having your GCD

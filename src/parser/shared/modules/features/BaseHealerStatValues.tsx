@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import HIT_TYPES from 'game/HIT_TYPES';
@@ -563,7 +564,10 @@ abstract class BaseHealerStatValues extends Analyzer {
                           </Trans>
                         }
                       >
-                        <Trans id="shared.healerStatValues.statistic.title">Stat Values</Trans>
+                        {t({
+                          id: 'shared.healerStatValues.statistic.title',
+                          message: 'Stat Values',
+                        })}
                       </TooltipElement>
                       {this.qeLive && this.selectedCombatant.characterProfile && (
                         <Tooltip content="Opens in a new tab. Leverage the QE Live Tool to directly compare gear and trinkets based on your stat values.">
@@ -596,7 +600,10 @@ abstract class BaseHealerStatValues extends Analyzer {
                           </Trans>
                         }
                       >
-                        <Trans id="shared.healerStatValues.statistic.title.value">Value</Trans>
+                        {t({
+                          id: 'shared.healerStatValues.statistic.title.value',
+                          message: 'Value',
+                        })}
                       </TooltipElement>
                     </th>
                   </tr>

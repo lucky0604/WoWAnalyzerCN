@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import AgilityIcon from 'interface/icons/Agility';
 import ArmorIcon from 'interface/icons/Armor';
 import AvoidanceIcon from 'interface/icons/Avoidance';
@@ -98,39 +98,39 @@ export function getNameTranslated(stat: STAT) {
   // there's stuff using getName with string functions which Trans breaks
   switch (stat) {
     case STAT.HEALTH:
-      return <Trans id="common.stat.health">Health</Trans>;
+      return defineMessage({ id: 'common.stat.health', message: 'Health' });
     case STAT.STAMINA:
-      return <Trans id="common.stat.stamina">Stamina</Trans>;
+      return defineMessage({ id: 'common.stat.stamina', message: 'Stamina' });
     case STAT.MANA:
-      return <Trans id="common.stat.mana">Mana</Trans>;
+      return defineMessage({ id: 'common.stat.mana', message: 'Mana' });
     case STAT.STRENGTH:
-      return <Trans id="common.stat.strength">Strength</Trans>;
+      return defineMessage({ id: 'common.stat.strength', message: 'Strength' });
     case STAT.AGILITY:
-      return <Trans id="common.stat.agility">Agility</Trans>;
+      return defineMessage({ id: 'common.stat.agility', message: 'Agility' });
     case STAT.INTELLECT:
-      return <Trans id="common.stat.intellect">Intellect</Trans>;
+      return defineMessage({ id: 'common.stat.intellect', message: 'Intellect' });
     case STAT.CRITICAL_STRIKE:
-      return <Trans id="common.stat.criticalStrike">Critical Strike</Trans>;
+      return defineMessage({ id: 'common.stat.criticalStrike', message: 'Critical Strike' });
     case STAT.HASTE:
-      return <Trans id="common.stat.haste">Haste</Trans>;
+      return defineMessage({ id: 'common.stat.haste', message: 'Haste' });
     case STAT.HASTE_HPCT:
-      return <Trans id="common.stat.hasteHPCT">Haste (HPCT)</Trans>;
+      return defineMessage({ id: 'common.stat.hasteHPCT', message: 'Haste (HPCT)' });
     case STAT.HASTE_HPM:
-      return <Trans id="common.stat.hasteHPM">Haste (HPM)</Trans>;
+      return defineMessage({ id: 'common.stat.hasteHPM', message: 'Haste (HPM)' });
     case STAT.MASTERY:
-      return <Trans id="common.stat.mastery">Mastery</Trans>;
+      return defineMessage({ id: 'common.stat.mastery', message: 'Mastery' });
     case STAT.VERSATILITY:
-      return <Trans id="common.stat.versatility">Versatility</Trans>;
+      return defineMessage({ id: 'common.stat.versatility', message: 'Versatility' });
     case STAT.VERSATILITY_DR:
-      return <Trans id="common.stat.versatilityDR">Versatility (with DR)</Trans>;
+      return defineMessage({ id: 'common.stat.versatilityDR', message: 'Versatility (with DR)' });
     case STAT.LEECH:
-      return <Trans id="common.stat.leech">Leech</Trans>;
+      return defineMessage({ id: 'common.stat.leech', message: 'Leech' });
     case STAT.AVOIDANCE:
-      return <Trans id="common.stat.avoidance">Avoidance</Trans>;
+      return defineMessage({ id: 'common.stat.avoidance', message: 'Avoidance' });
     case STAT.SPEED:
-      return <Trans id="common.stat.speed">Speed</Trans>;
+      return defineMessage({ id: 'common.stat.speed', message: 'Speed' });
     case STAT.ARMOR:
-      return <Trans id="common.stat.armor">Armor</Trans>;
+      return defineMessage({ id: 'common.stat.armor', message: 'Armor' });
     default:
       return null;
   }

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage, formatDuration } from 'common/format';
 import { SpellLink } from 'interface';
 import { SpecIcon } from 'interface';
@@ -155,7 +156,7 @@ class LowHealthHealing extends PureComponent<LowHealthHealingProps, LowHealthHea
     return (
       <div>
         <div style={{ padding: '15px 30px' }}>
-          <Trans id="shared.lowHealthHealing.slider.maxHealth">Max health of target:</Trans>{' '}
+          {t({ id: 'shared.lowHealthHealing.slider.maxHealth', message: 'Max health of target:' })}{' '}
           <Slider
             {...sliderProps}
             defaultValue={this.state.maxPlayerHealthPercentage}
@@ -184,18 +185,10 @@ class LowHealthHealing extends PureComponent<LowHealthHealingProps, LowHealthHea
         <table className="data-table">
           <thead>
             <tr>
-              <th>
-                <Trans id="common.time">Time</Trans>
-              </th>
-              <th>
-                <Trans id="common.ability">Ability</Trans>
-              </th>
-              <th>
-                <Trans id="common.target">Target</Trans>
-              </th>
-              <th colSpan={2}>
-                <Trans id="common.healingDone">Healing done</Trans>
-              </th>
+              <th>{t({ id: 'common.time', message: 'Time' })}</th>
+              <th>{t({ id: 'common.ability', message: 'Ability' })}</th>
+              <th>{t({ id: 'common.target', message: 'Target' })}</th>
+              <th colSpan={2}>{t({ id: 'common.healingDone', message: 'Healing done' })}</th>
             </tr>
           </thead>
           <tbody>

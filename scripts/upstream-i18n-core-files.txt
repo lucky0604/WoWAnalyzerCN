@@ -27,3 +27,7 @@ src/interface/report/Results/Header/index.tsx
 src/interface/report/Results/ReportStatistics.tsx
 src/parser/core/SPELL_CATEGORY.ts
 src/parser/shared/modules/CooldownThroughputTracker.tsx
+# Module-level objects typed as Record<number, JSX.Element> — Trans returns JSX.Element, t() returns string
+src/game/GEAR_SLOTS.tsx
+src/parser/retail/modules/items/EnchantChecker.tsx
+src/parser/shared/modules/items/WeaponEnhancementChecker.tsx

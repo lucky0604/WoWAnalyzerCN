@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import Abilities from 'parser/core/modules/Abilities';
 import Haste from 'parser/shared/modules/Haste';
@@ -380,7 +380,7 @@ class CastEfficiency extends Analyzer {
 
   statistic() {
     return (
-      <Panel title={<Trans id="common.abilities">Abilities</Trans>} position={500} pad={false}>
+      <Panel title={t({ id: 'common.abilities', message: 'Abilities' })} position={500} pad={false}>
         <CastEfficiencyComponent abilities={this.getCastEfficiency()} />
       </Panel>
     );

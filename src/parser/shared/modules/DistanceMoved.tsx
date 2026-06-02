@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatDurationMillisMinSec, formatPercentage, formatThousands } from 'common/format';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, DamageEvent, ResourceChangeEvent, HealEvent } from 'parser/core/Events';
@@ -138,7 +139,7 @@ class DistanceMoved extends Analyzer {
       >
         <div className="pad">
           <label>
-            <Trans id="shared.distanceMoved.statistic.label">Distance moved</Trans>
+            {t({ id: 'shared.distanceMoved.statistic.label', message: 'Distance moved' })}
           </label>
 
           <div className="value">

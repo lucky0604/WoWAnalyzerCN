@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { SpellLink, TooltipElement } from 'interface';
 import SPELL_CATEGORY, { getSpellCategoryName } from 'parser/core/SPELL_CATEGORY';
 import { AbilityCastEfficiency } from 'parser/shared/modules/CastEfficiency';
@@ -21,9 +22,12 @@ const CastEfficiency = ({ abilities }: Props) => (
               </th>
               <th className="text-center">
                 <TooltipElement
-                  content={<Trans id="shared.castEfficiency.cpm.tooltip">Casts Per Minute</Trans>}
+                  content={t({
+                    id: 'shared.castEfficiency.cpm.tooltip',
+                    message: 'Casts Per Minute',
+                  })}
                 >
-                  <Trans id="shared.castEfficiency.cpm">CPM</Trans>
+                  {t({ id: 'shared.castEfficiency.cpm', message: 'CPM' })}
                 </TooltipElement>
               </th>
               <th className="text-right">
@@ -37,7 +41,7 @@ const CastEfficiency = ({ abilities }: Props) => (
                     </Trans>
                   }
                 >
-                  <Trans id="shared.castEfficiency.casts">Casts</Trans>
+                  {t({ id: 'shared.castEfficiency.casts', message: 'Casts' })}
                 </TooltipElement>
               </th>
               <th className="text-center">
@@ -53,7 +57,7 @@ const CastEfficiency = ({ abilities }: Props) => (
                     </Trans>
                   }
                 >
-                  <Trans id="shared.castEfficiency.timeOnCooldown">Time on Cooldown</Trans>
+                  {t({ id: 'shared.castEfficiency.timeOnCooldown', message: 'Time on Cooldown' })}
                 </TooltipElement>
               </th>
               <th />
@@ -111,9 +115,11 @@ const CastEfficiency = ({ abilities }: Props) => (
                     <td style={{ width: '25%', color: 'orange' }}>
                       {canBeImproved &&
                         ability.castEfficiency &&
-                        ability.castEfficiency.suggestion && (
-                          <Trans id="shared.castEfficiency.canBeImproved">Can be improved.</Trans>
-                        )}
+                        ability.castEfficiency.suggestion &&
+                        t({
+                          id: 'shared.castEfficiency.canBeImproved',
+                          message: 'Can be improved.',
+                        })}
                     </td>
                   </tr>
                 );

@@ -132,7 +132,10 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
       ) : (
         <div>
           <strong>
-            <Trans id="druid.guardian.swipe.never_used">You never used Swipe this encounter.</Trans>
+            {t({
+              id: 'druid.guardian.swipe.never_used',
+              message: 'You never used Swipe this encounter.',
+            })}
           </strong>
         </div>
       );

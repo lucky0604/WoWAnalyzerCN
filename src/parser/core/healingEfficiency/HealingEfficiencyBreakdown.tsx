@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage, formatDuration } from 'common/format';
 import { SpellLink } from 'interface';
 import { TooltipElement } from 'interface';
@@ -16,13 +17,11 @@ interface Props<T extends HealingEfficiencyTracker = HealingEfficiencyTracker> {
 
 export const BarHeader = ({ showHealing }: { showHealing: boolean }) => (
   <>
-    <th>
-      <Trans id="shared.healingEfficiency.tableHeader.manaSpent">Mana Spent</Trans>
-    </th>
+    <th>{t({ id: 'shared.healingEfficiency.tableHeader.manaSpent', message: 'Mana Spent' })}</th>
     {showHealing && (
       <>
         <th colSpan={2} className="text-center">
-          <Trans id="common.stat.healingPerMana">Healing per mana spent</Trans>
+          {t({ id: 'common.stat.healingPerMana', message: 'Healing per mana spent' })}
         </th>
         <th colSpan={2} className="text-center">
           <TooltipElement
@@ -32,7 +31,10 @@ export const BarHeader = ({ showHealing }: { showHealing: boolean }) => (
               </Trans>
             }
           >
-            <Trans id="common.stat.healingPerExecutionTime">Healing per second spent casting</Trans>
+            {t({
+              id: 'common.stat.healingPerExecutionTime',
+              message: 'Healing per second spent casting',
+            })}
           </TooltipElement>
         </th>
       </>
@@ -40,7 +42,7 @@ export const BarHeader = ({ showHealing }: { showHealing: boolean }) => (
     {!showHealing && (
       <>
         <th colSpan={2} className="text-center">
-          <Trans id="common.stat.damagePerMana">Damage per mana spent</Trans>
+          {t({ id: 'common.stat.damagePerMana', message: 'Damage per mana spent' })}
         </th>
         <th colSpan={2} className="text-center">
           <Trans id="common.stat.damagePerExecutionTime.long">
@@ -62,22 +64,21 @@ export const DetailHeader = ({ showHealing }: { showHealing: boolean }) => (
           </Trans>
         }
       >
-        <Trans id="shared.healingEfficiency.tableHeader.casts">Casts</Trans>
+        {t({ id: 'shared.healingEfficiency.tableHeader.casts', message: 'Casts' })}
       </TooltipElement>
     </th>
-    <th>
-      <Trans id="shared.healingEfficiency.tableHeader.manaSpent">Mana Spent</Trans>
-    </th>
-    <th>
-      <Trans id="shared.healingEfficiency.tableHeader.timeSpent">Time Spent</Trans>
-    </th>
+    <th>{t({ id: 'shared.healingEfficiency.tableHeader.manaSpent', message: 'Mana Spent' })}</th>
+    <th>{t({ id: 'shared.healingEfficiency.tableHeader.timeSpent', message: 'Time Spent' })}</th>
     {showHealing && (
       <>
         <th>
-          <Trans id="shared.healingEfficiency.tableHeader.healingDone">Healing Done</Trans>
+          {t({ id: 'shared.healingEfficiency.tableHeader.healingDone', message: 'Healing Done' })}
         </th>
         <th>
-          <Trans id="shared.healingEfficiency.tableHeader.overhealingDone">Overhealing</Trans>
+          {t({
+            id: 'shared.healingEfficiency.tableHeader.overhealingDone',
+            message: 'Overhealing',
+          })}
         </th>
         <th>
           <TooltipElement
@@ -87,7 +88,7 @@ export const DetailHeader = ({ showHealing }: { showHealing: boolean }) => (
               </Trans>
             }
           >
-            <Trans id="common.stat.healingPerMana.short">HPM</Trans>
+            {t({ id: 'common.stat.healingPerMana.short', message: 'HPM' })}
           </TooltipElement>
         </th>
         <th>
@@ -98,7 +99,7 @@ export const DetailHeader = ({ showHealing }: { showHealing: boolean }) => (
               </Trans>
             }
           >
-            <Trans id="common.stat.healingPerExecutionTime.short">HPET</Trans>
+            {t({ id: 'common.stat.healingPerExecutionTime.short', message: 'HPET' })}
           </TooltipElement>
         </th>
       </>
@@ -106,7 +107,7 @@ export const DetailHeader = ({ showHealing }: { showHealing: boolean }) => (
     {!showHealing && (
       <>
         <th>
-          <Trans id="shared.healingEfficiency.tableHeader.damageDone">Damage Done</Trans>
+          {t({ id: 'shared.healingEfficiency.tableHeader.damageDone', message: 'Damage Done' })}
         </th>
         <th>
           <TooltipElement
@@ -116,7 +117,7 @@ export const DetailHeader = ({ showHealing }: { showHealing: boolean }) => (
               </Trans>
             }
           >
-            <Trans id="common.stat.damagePerMana.short">DPM</Trans>
+            {t({ id: 'common.stat.damagePerMana.short', message: 'DPM' })}
           </TooltipElement>
         </th>
         <th>
@@ -127,7 +128,7 @@ export const DetailHeader = ({ showHealing }: { showHealing: boolean }) => (
               </Trans>
             }
           >
-            <Trans id="common.stat.damagePerExecutionTime.short">DPET</Trans>
+            {t({ id: 'common.stat.damagePerExecutionTime.short', message: 'DPET' })}
           </TooltipElement>
         </th>
       </>
@@ -327,7 +328,7 @@ const HealingEfficiencyBreakdown = ({ tracker, disableDamageToggle }: Props) => 
               id="detailed-toggle"
             />
             <label htmlFor="detailed-toggle" style={{ marginLeft: '0.5em' }}>
-              <Trans id="shared.healingEfficiency.toggle.detailed">Detailed View</Trans>
+              {t({ id: 'shared.healingEfficiency.toggle.detailed', message: 'Detailed View' })}
             </label>
           </div>
         </div>
@@ -343,13 +344,13 @@ const HealingEfficiencyBreakdown = ({ tracker, disableDamageToggle }: Props) => 
               id="cooldown-toggle"
             />
             <label htmlFor="cooldown-toggle" style={{ marginLeft: '0.5em' }}>
-              <Trans id="shared.healingEfficiency.toggle.cooldowns">Show Cooldowns</Trans>
+              {t({ id: 'shared.healingEfficiency.toggle.cooldowns', message: 'Show Cooldowns' })}
             </label>
           </div>
           {!disableDamageToggle && (
             <div className="toggle-control pull-left" style={{ marginLeft: '.5em' }}>
               <label htmlFor="healing-toggle" style={{ marginLeft: '0.5em', marginRight: '1em' }}>
-                <Trans id="shared.healingEfficiency.toggle.damage">Show Damage</Trans>
+                {t({ id: 'shared.healingEfficiency.toggle.damage', message: 'Show Damage' })}
               </label>
               <Toggle
                 defaultChecked
@@ -358,7 +359,7 @@ const HealingEfficiencyBreakdown = ({ tracker, disableDamageToggle }: Props) => 
                 id="healing-toggle"
               />
               <label htmlFor="healing-toggle" style={{ marginLeft: '0.5em' }}>
-                <Trans id="shared.healingEfficiency.toggle.healing">Show Healing</Trans>
+                {t({ id: 'shared.healingEfficiency.toggle.healing', message: 'Show Healing' })}
               </label>
             </div>
           )}
@@ -367,9 +368,7 @@ const HealingEfficiencyBreakdown = ({ tracker, disableDamageToggle }: Props) => 
       <table className="data-table">
         <thead>
           <tr>
-            <th>
-              <Trans id="common.ability">Ability</Trans>
-            </th>
+            <th>{t({ id: 'common.ability', message: 'Ability' })}</th>
             {detailedView ? (
               <DetailHeader showHealing={showHealing} />
             ) : (

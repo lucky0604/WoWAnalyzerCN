@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber, formatPercentage, formatDuration } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
@@ -218,7 +219,10 @@ class CooldownComponent extends Component<Props, State> {
                   <div className="row">
                     <div className="col-xs-12">
                       <a href="#" onClick={this.handleExpandClick} style={{ marginTop: '.2em' }}>
-                        <Trans id="shared.cooldownThroughputTracker.cooldown.expand">More</Trans>
+                        {t({
+                          id: 'shared.cooldownThroughputTracker.cooldown.expand',
+                          message: 'More',
+                        })}
                       </a>
                     </div>
                   </div>
@@ -327,12 +331,18 @@ class CooldownComponent extends Component<Props, State> {
                     );
                   })}
                   <a href="#" onClick={this.handleShowHealsClick} style={{ marginTop: '.2em' }}>
-                    <Trans id="shared.cooldownThroughputTracker.cooldown.shrink">Show less</Trans>
+                    {t({
+                      id: 'shared.cooldownThroughputTracker.cooldown.shrink',
+                      message: 'Show less',
+                    })}
                   </a>
                   {' | '}
 
                   <a href="#" onClick={this.handleExpandClick} style={{ marginTop: '.2em' }}>
-                    <Trans id="shared.cooldownThroughputTracker.cooldown.simple">Show simple</Trans>
+                    {t({
+                      id: 'shared.cooldownThroughputTracker.cooldown.simple',
+                      message: 'Show simple',
+                    })}
                   </a>
                 </div>
               )}

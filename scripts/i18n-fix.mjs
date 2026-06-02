@@ -31,7 +31,7 @@ function walk(dir, files = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(full, files);
-    else if (/\.tsx?$/.test(entry.name)) files.push(full);
+    else if (/\.[jt]sx?$/.test(entry.name)) files.push(full);
   }
   return files;
 }
@@ -108,11 +108,12 @@ for (const file of walk('src')) {
       /<Trans\s+id="([^"]+)"\s*>([^<{\n]+)<\/Trans>/g,
       (full, id, message, offset) => {
         stats.transToT++;
-        const before = content.slice(Math.max(0, offset - 4), offset);
-        const inExpression = /[=,{]\s*$/.test(before);
+        const before = content.slice(Math.max(0, offset - 10), offset);
+        const inExpression = /[=,(]\s*$/.test(before) || /return\s+$/.test(before);
+        const inJsxAttr = /=\{\s*$/.test(before);
         const escaped = message.trim().replace(/\\/g, '\\\\').replace(/'/g, "\\'");
         const replacement = `t({ id: '${id}', message: '${escaped}' })`;
-        return inExpression ? replacement : `{${replacement}}`;
+        return inExpression || inJsxAttr ? replacement : `{${replacement}}`;
       },
     );
   }
@@ -124,10 +125,18 @@ for (const file of walk('src')) {
   if (!isCore && content.includes('defineMessage(')) {
     const lines = content.split('\n');
     let depth = 0;
+    let inImport = false;
     let changed = false;
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      if (/^\s*import\s/.test(line)) continue;
+      if (/^\s*import\s/.test(line)) {
+        inImport = !line.includes(' from ');
+        continue;
+      }
+      if (inImport) {
+        if (/\bfrom\s+['"]/.test(line)) inImport = false;
+        continue;
+      }
       for (const ch of line) {
         if (ch === '{') depth++;
         else if (ch === '}') depth--;
@@ -166,8 +175,8 @@ for (const file of walk('src')) {
   content = content.replace(/message: '([^']*)' \}\)\},/g, "message: '$1' }),");
   // 5c: JSX prop value  ={ {t({  →  ={t({
   content = content.replace(/(=\{\s*)\n\s*\{t\(\{/g, '$1t({');
-  // 5d: return {t({  →  return t({
-  content = content.replace(/return \{t\(\{/g, 'return t({');
+  // 5d: return {t({...})}  →  return t({...})
+  content = content.replace(/return \{(t\(\{[^}]+\}\))\}/g, 'return $1');
 
   if (content !== original) {
     stats.files++;

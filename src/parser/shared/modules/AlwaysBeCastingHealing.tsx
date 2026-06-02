@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import { EndChannelEvent, GlobalCooldownEvent } from 'parser/core/Events';
 import { ThresholdStyle } from 'parser/core/ParseResults';
@@ -117,7 +118,7 @@ class AlwaysBeCastingHealing extends CoreAlwaysBeCasting {
       >
         <div className="pad">
           <label>
-            <Trans id="shared.alwaysBeCastingHealing.statistic">Active time</Trans>
+            {t({ id: 'shared.alwaysBeCastingHealing.statistic', message: 'Active time' })}
           </label>
 
           <Gauge value={this.activeTimePercentage} />

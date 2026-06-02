@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 
 interface Props {
@@ -9,7 +9,7 @@ const Gauge = ({ value }: Props) => (
   <div className="flex" style={{ textAlign: 'center', marginTop: 12 }}>
     <div style={{ paddingTop: 23, paddingRight: 8, fontSize: 12 }}>
       <div className="flex-main text-right text-muted">
-        <Trans id="interface.statistics.components.gauge.low">Low</Trans>
+        {t({ id: 'interface.statistics.components.gauge.low', message: 'Low' })}
       </div>
     </div>
     <div className="flex-sub" style={{ position: 'relative' }}>
@@ -124,7 +124,7 @@ const Gauge = ({ value }: Props) => (
       className="flex-main text-left text-muted"
       style={{ paddingTop: 23, paddingLeft: 8, fontSize: 12 }}
     >
-      <Trans id="interface.statistics.components.gauge.high">High</Trans>
+      {t({ id: 'interface.statistics.components.gauge.high', message: 'High' })}
     </div>
   </div>
 );

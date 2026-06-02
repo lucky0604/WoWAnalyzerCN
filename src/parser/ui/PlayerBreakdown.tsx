@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import indexByProperty from 'common/indexByProperty';
 import { TooltipElement } from 'interface';
@@ -124,7 +125,7 @@ class PlayerBreakdown extends Component<Props, State> {
                   htmlFor="playerbreakdown-toggle"
                   style={{ marginLeft: '0.5em', marginRight: '1em' }}
                 >
-                  <Trans id="interface.playerBreakdown.toggle.spells">Spells</Trans>
+                  {t({ id: 'interface.playerBreakdown.toggle.spells', message: 'Spells' })}
                 </label>
                 <Toggle
                   defaultChecked
@@ -133,7 +134,7 @@ class PlayerBreakdown extends Component<Props, State> {
                   id="playerbreakdown-toggle"
                 />
                 <label htmlFor="playerbreakdown-toggle" style={{ marginLeft: '0.5em' }}>
-                  <Trans id="interface.playerBreakdown.toggle.players">Players</Trans>
+                  {t({ id: 'interface.playerBreakdown.toggle.players', message: 'Players' })}
                 </label>
               </div>
             </div>
@@ -142,9 +143,7 @@ class PlayerBreakdown extends Component<Props, State> {
         <table className="data-table">
           <thead>
             <tr style={{ textTransform: 'uppercase' }}>
-              <th>
-                <Trans id="interface.playerBreakdown.name">Name</Trans>
-              </th>
+              <th>{t({ id: 'interface.playerBreakdown.name', message: 'Name' })}</th>
               <th colSpan={2}>
                 <Trans id="interface.playerBreakdown.masteryEffectiveness">
                   Mastery effectiveness
@@ -159,7 +158,7 @@ class PlayerBreakdown extends Component<Props, State> {
                     </Trans>
                   }
                 >
-                  <Trans id="interface.playerBreakdown.healingDone">Healing done</Trans>
+                  {t({ id: 'interface.playerBreakdown.healingDone', message: 'Healing done' })}
                 </TooltipElement>
               </th>
             </tr>

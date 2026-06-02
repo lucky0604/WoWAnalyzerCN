@@ -110,9 +110,7 @@ const ResourceBreakdown = ({
         {!hideGenerated && (
           <thead>
             <tr>
-              <th>
-                <Trans id="shared.resourceBreakdown.ability">Ability</Trans>
-              </th>
+              <th>{t({ id: 'shared.resourceBreakdown.ability', message: 'Ability' })}</th>
               <th colSpan={2}>
                 <Trans id="shared.resourceBreakdown.generatedHeader">
                   {resourceName} generated
@@ -135,9 +133,7 @@ const ResourceBreakdown = ({
         <tbody>
           {!hideGenerated && (
             <tr className="poor">
-              <td>
-                <Trans id="shared.resourceBreakdown.total">Total</Trans>
-              </td>
+              <td>{t({ id: 'shared.resourceBreakdown.total', message: 'Total' })}</td>
               <td style={numberColumnStyle}>{totalGenerated.toFixed(0)}</td>
               <td></td>
               <td style={numberColumnStyle}>{totalWasted.toFixed(0)}</td>
@@ -182,9 +178,7 @@ const ResourceBreakdown = ({
         <table className="data-table">
           <thead>
             <tr>
-              <th>
-                <Trans id="shared.resourceBreakdown.ability">Ability</Trans>
-              </th>
+              <th>{t({ id: 'shared.resourceBreakdown.ability', message: 'Ability' })}</th>
               <th colSpan={2}>
                 <Trans id="shared.resourceBreakdown.spentHeader">{resourceName} spent</Trans>
               </th>
@@ -192,16 +186,14 @@ const ResourceBreakdown = ({
                 {showMaxSpenders ? (
                   <>Max {resourceName} Casts / Total</>
                 ) : (
-                  <Trans id="shared.resourceBreakdown.castsHeader">Casts</Trans>
+                  t({ id: 'shared.resourceBreakdown.castsHeader', message: 'Casts' })
                 )}
               </th>
             </tr>
           </thead>
           <tbody>
             <tr className="poor">
-              <td>
-                <Trans id="shared.resourceBreakdown.total">Total</Trans>
-              </td>
+              <td>{t({ id: 'shared.resourceBreakdown.total', message: 'Total' })}</td>
               <td style={numberColumnStyle}>{totalSpent.toFixed(0)}</td>
               <td></td>
               <td style={numberColumnStyle}>{tracker.spendersCasts}</td>

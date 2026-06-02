@@ -106,7 +106,10 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
         size="flexible"
         tooltip={
           <>
-            <Trans id="monk.brewmaster.cdr.reduced_by">Your cooldowns were reduced by:</Trans>
+            {t({
+              id: 'monk.brewmaster.cdr.reduced_by',
+              message: 'Your cooldowns were reduced by:',
+            })}
             <ul>
               <li>
                 {(() => {

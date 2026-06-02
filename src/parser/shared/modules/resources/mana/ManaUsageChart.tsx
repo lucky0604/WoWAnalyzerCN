@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import ManaValues from 'parser/shared/modules/ManaValues';
 import HealingDone from 'parser/shared/modules/throughput/HealingDone';
@@ -26,7 +27,7 @@ class ManaUsageChart extends Analyzer {
 
     return (
       <Panel
-        title={<Trans id="shared.manaUsageChart.statistic.title">Mana usage</Trans>}
+        title={t({ id: 'shared.manaUsageChart.statistic.title', message: 'Mana usage' })}
         explanation={
           <Trans id="shared.manaUsageChart.statistic.explanation">
             This shows you your mana usage in correlation with your throughput. Big spikes in mana

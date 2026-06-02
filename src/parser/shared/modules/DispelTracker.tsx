@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -45,9 +45,7 @@ class DispelTracker extends Analyzer {
     return (
       <Statistic position={STATISTIC_ORDER.OPTIONAL(1)} size="flexible">
         <div className="pad">
-          <label>
-            <Trans id="shared.dispelTracker.label">Dispels</Trans>
-          </label>
+          <label>{t({ id: 'shared.dispelTracker.label', message: 'Dispels' })}</label>
           {Array.from(this.dispelEvents).map(([dispelledId, count]) => (
             <div className="flex" key={dispelledId}>
               <div className="flex-sub" style={{ flex: 3 }}>
@@ -60,7 +58,7 @@ class DispelTracker extends Analyzer {
           ))}
           <div className="flex">
             <div className="flex-sub value" style={{ flex: 3 }}>
-              <Trans id="common.total">Total</Trans>
+              {t({ id: 'common.total', message: 'Total' })}
             </div>
             <div className="flex-sub value" style={{ flex: 1, textAlign: 'right' }}>
               {this.dispelCount}

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 import { EventType, HealEvent } from 'parser/core/Events';
@@ -19,7 +20,7 @@ class LowHealthHealing extends Analyzer {
       url: 'triage',
       render: () => (
         <Panel
-          title={<Trans id="shared.lowHealthHealing.tab.title">Triage healing</Trans>}
+          title={t({ id: 'shared.lowHealthHealing.tab.title', message: 'Triage healing' })}
           explanation={
             <Trans id="shared.lowHealthHealing.tab.explanation">
               This shows all instances of healing people below a certain health threshold.
