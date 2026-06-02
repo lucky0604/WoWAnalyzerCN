@@ -139,7 +139,7 @@ class DeathRecapTracker extends Analyzer {
     }
 
     return {
-      title: defineMessage({
+      title: t({
         id: 'interface.report.results.navigationBar.deathRecap',
         message: 'Death Recap',
       }),

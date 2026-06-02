@@ -111,7 +111,7 @@ class FrenziedRegeneration extends Analyzer {
         )
           .icon(SPELLS.FRENZIED_REGENERATION.icon)
           .actual(
-            defineMessage({
+            t({
               id: 'druid.guardian.suggestions.frenziedRegeneration.efficiency',
               message: `${formatPercentage(
                 actual,

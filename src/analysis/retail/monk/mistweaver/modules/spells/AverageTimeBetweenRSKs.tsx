@@ -48,12 +48,12 @@ class TimeBetweenRSKs extends Analyzer {
 
   get averageTimeBetweenRSKSeconds() {
     if (this.totalRSKCasts === 0) {
-      return defineMessage({
+      return t({
         id: 'monk.mistweaver.time_between_rsks.not_cast',
         message: 'Rising Sun Kick was not cast',
       });
     } else if (this.totalRSKCasts === 1) {
-      return defineMessage({
+      return t({
         id: 'monk.mistweaver.time_between_rsks.cast_once',
         message: 'Rising Sun Kick was only cast once',
       });

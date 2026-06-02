@@ -108,7 +108,7 @@ class GuardianOfElune extends Analyzer {
         )
           .icon(SPELLS.GUARDIAN_OF_ELUNE.icon)
           .actual(
-            defineMessage({
+            t({
               id: 'druid.guardian.suggestions.guardianOfElune.unused',
               message: `${formatPercentage(unusedGoEProcs)}% unused`,
             }),

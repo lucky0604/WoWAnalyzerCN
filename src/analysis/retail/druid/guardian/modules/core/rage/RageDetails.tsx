@@ -15,7 +15,7 @@ export default class RageDetails extends Analyzer {
 
   tab() {
     return {
-      title: defineMessage({ id: 'guardian.rage_details.title', message: 'Rage usage' }),
+      title: t({ id: 'guardian.rage_details.title', message: 'Rage usage' }),
       url: 'rage-usage',
       render: () => (
         <Panel>

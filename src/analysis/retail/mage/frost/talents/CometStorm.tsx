@@ -90,7 +90,7 @@ class CometStorm extends Analyzer {
         cs.shatteredHits < MIN_SHATTERED_PROJECTILES_PER_CAST,
     );
 
-    const tooltip = defineMessage({
+    const tooltip = t({
       id: 'mage.frost.cometStorm.badCastTooltip',
       message: 'This Comet Storm was not shattered and did not hit multiple enemies.',
     });
@@ -173,7 +173,7 @@ class CometStorm extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      defineMessage({ id: 'mage.frost.cometStorm.title', message: 'Comet Storm' }),
+      t({ id: 'mage.frost.cometStorm.title', message: 'Comet Storm' }),
     );
   }
 

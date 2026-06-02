@@ -196,11 +196,11 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                 }),
                 summary:
                   spend.estimatedVitality > spend.maxHp
-                    ? defineMessage({
+                    ? t({
                         id: 'monk.brewmaster.aoh.cap.summary.overcapped',
                         message: 'Overcapped Vitality',
                       })
-                    : defineMessage({
+                    : t({
                         id: 'monk.brewmaster.aoh.cap.summary.not_overcapped',
                         message: 'Did Not Overcap Vitality',
                       }),

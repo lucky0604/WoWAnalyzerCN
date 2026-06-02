@@ -64,7 +64,7 @@ export default class SpenderUsage extends Analyzer {
       this.noEclipseStarsurges += 1;
       addInefficientCastReason(
         event,
-        defineMessage({
+        t({
           id: 'balance.spender.starsurge_outside_eclipse',
           message: 'Starsurge cast outside eclipse without being near AP cap.',
         }),
@@ -79,7 +79,7 @@ export default class SpenderUsage extends Analyzer {
       this.noEclipseStarfalls += 1;
       addInefficientCastReason(
         event,
-        defineMessage({
+        t({
           id: 'balance.spender.starfall_outside_eclipse',
           message: 'Starfall cast outside eclipse without being near AP cap.',
         }),
@@ -109,7 +109,7 @@ export default class SpenderUsage extends Analyzer {
       this.lowTargetStarfalls += 1;
       addInefficientCastReason(
         this.lastStarfallCast,
-        defineMessage({
+        t({
           id: 'balance.spender.starfall_too_few_targets',
           message: 'This Starfall hit too few targets!',
         }),

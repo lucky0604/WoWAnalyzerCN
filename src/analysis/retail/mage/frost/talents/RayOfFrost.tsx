@@ -145,7 +145,7 @@ class RayOfFrost extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      defineMessage({ id: 'mage.frost.rayOfFrost.title', message: 'Ray Of Frost' }),
+      t({ id: 'mage.frost.rayOfFrost.title', message: 'Ray Of Frost' }),
     );
   }
 

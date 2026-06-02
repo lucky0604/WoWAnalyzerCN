@@ -271,7 +271,7 @@ class BrainFreeze extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      defineMessage({ id: 'mage.frost.brainFreeze.title', message: 'Brain Freeze' }),
+      t({ id: 'mage.frost.brainFreeze.title', message: 'Brain Freeze' }),
     );
   }
 }

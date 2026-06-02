@@ -68,7 +68,7 @@ class BuilderUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: defineMessage({
+        label: t({
           id: 'druid.feral.builder_use.effective_builders',
           message: 'Effective Builders',
         }),
@@ -84,7 +84,7 @@ class BuilderUse extends Analyzer {
       },
       {
         color: BadColor,
-        label: defineMessage({ id: 'druid.feral.builder_use.wasted_builders', message: 'Wasted Builders' }),
+        label: t({ id: 'druid.feral.builder_use.wasted_builders', message: 'Wasted Builders' }),
         value: this.wastedBuilderCasts,
         tooltip: (
           <>

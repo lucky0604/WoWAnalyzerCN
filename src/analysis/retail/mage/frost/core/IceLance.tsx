@@ -257,7 +257,7 @@ class IceLance extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      defineMessage({ id: 'mage.frost.iceLance.title', message: 'Ice Lance' }),
+      t({ id: 'mage.frost.iceLance.title', message: 'Ice Lance' }),
     );
   }
 

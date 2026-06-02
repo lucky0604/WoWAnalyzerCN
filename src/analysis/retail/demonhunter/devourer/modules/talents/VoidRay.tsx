@@ -32,7 +32,7 @@ class VoidRay extends Analyzer {
     const damageEvents = getVoidRayDamageEvents(event);
 
     let value = QualitativePerformance.Good;
-    let tooltip: ReactNode = defineMessage({
+    let tooltip: ReactNode = t({
       id: 'guide.demonhunter.devourer.voidRay.goodCast',
       message: 'Great! Fully channeled cast.',
     });

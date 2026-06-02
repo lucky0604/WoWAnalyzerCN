@@ -101,7 +101,7 @@ class StrengthOfTheBlackOx extends Analyzer {
     const stats = [
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: defineMessage({ id: 'monk.mistweaver.sotbo.wastedBuffs', message: 'Wasted Buffs' }),
+        label: t({ id: 'monk.mistweaver.sotbo.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
           <Trans id="monk.mistweaver.sotbo.wastedBuffsTooltip">
             <div>{this.expiredBuffs} expired</div>

@@ -52,7 +52,7 @@ export default class FillerUsage extends Analyzer {
     if (eclipse === 'solar') {
       addInefficientCastReason(
         event,
-        defineMessage({
+        t({
           id: 'balance.filler.solar_starfire_reason',
           message: 'Use Wrath instead of Starfire in Solar Eclipse, regardless of target count',
         }),
@@ -62,7 +62,7 @@ export default class FillerUsage extends Analyzer {
       if (targetsHit < MIN_STARFIRE_TARGETS_LUNAR) {
         addInefficientCastReason(
           event,
-          defineMessage({
+          t({
             id: 'balance.filler.too_few_targets',
             message: `You hit too few targets: ${targetsHit} - use Wrath instead`,
           }),
@@ -73,7 +73,7 @@ export default class FillerUsage extends Analyzer {
       if (targetsHit < MIN_STARFIRE_TARGETS_CA) {
         addInefficientCastReason(
           event,
-          defineMessage({
+          t({
             id: 'balance.filler.too_few_targets_ca',
             message: `You hit too few targets: ${targetsHit} - use Wrath instead`,
           }),
@@ -83,7 +83,7 @@ export default class FillerUsage extends Analyzer {
     } else if (eclipse === 'none' && this.hasLunarCalling) {
       addInefficientCastReason(
         event,
-        defineMessage({
+        t({
           id: 'balance.filler.no_eclipse_lc_reason',
           message:
             'You cast Starfire while not in eclipse. Because you took Lunar Calling, you need to use Wrath to reenter eclipse.',
@@ -175,7 +175,7 @@ export default class FillerUsage extends Analyzer {
 
     const goodFillerData = {
       count: this.goodFillers,
-      label: defineMessage({ id: 'balance.filler.good_label', message: 'Good Fillers' }),
+      label: t({ id: 'balance.filler.good_label', message: 'Good Fillers' }),
     };
     const okFillerData = {
       count: this.okFillers,

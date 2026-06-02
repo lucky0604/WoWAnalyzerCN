@@ -56,7 +56,7 @@ import AlertWarning from 'interface/AlertWarning';
 const reasonLabel = (reason: DeathStrikeReason) => {
   switch (reason) {
     case DeathStrikeReason.GoodHealing:
-      return defineMessage({ id: 'blood.guide.death-strike.good-healing', message: 'Large Heal' });
+      return t({ id: 'blood.guide.death-strike.good-healing', message: 'Large Heal' });
     case DeathStrikeReason.LowHealth:
       return (
         <Trans id="blood.guide.death-strike.low-hp">
@@ -85,7 +85,7 @@ const reasonLabel = (reason: DeathStrikeReason) => {
         </Trans>
       );
     case DeathStrikeReason.Other:
-      return defineMessage({ id: 'guide.unknown-reason', message: 'Other' });
+      return t({ id: 'guide.unknown-reason', message: 'Other' });
   }
 };
 

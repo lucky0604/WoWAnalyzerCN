@@ -231,7 +231,7 @@ class ComboBreaker extends Analyzer {
     if (window.resolution !== 'consumed' || window.spentCastAt === undefined) {
       return {
         performance: QualitativePerformance.Fail,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.cb.classify.not_consumed',
           message: 'Proc was not consumed',
         }),
@@ -250,7 +250,7 @@ class ComboBreaker extends Analyzer {
     ) {
       return {
         performance: QualitativePerformance.Perfect,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.cb.classify.first_top',
           message: 'Blackout Kick was consumed the first time the APL expected it',
         }),
@@ -260,7 +260,7 @@ class ComboBreaker extends Analyzer {
     if (window.resolveExpected.some((spell) => spell.id === SPELLS.BLACKOUT_KICK.id)) {
       return {
         performance: QualitativePerformance.Good,
-        summary: defineMessage({
+        summary: t({
           id: 'monk.windwalker.cb.classify.acceptable',
           message: 'Blackout Kick was consumed in an acceptable APL spot',
         }),
@@ -269,7 +269,7 @@ class ComboBreaker extends Analyzer {
 
     return {
       performance: QualitativePerformance.Ok,
-      summary: defineMessage({
+      summary: t({
         id: 'monk.windwalker.cb.classify.not_preferred',
         message: 'Blackout Kick was consumed, even though the APL did not prefer it yet',
       }),

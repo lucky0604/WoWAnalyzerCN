@@ -52,14 +52,14 @@ class ChiDetails extends Analyzer {
       // eslint-disable-next-line typescript-eslint/no-explicit-any -- dead API
       (suggest: any, actual: number, recommended: number) =>
         suggest(
-          defineMessage({
+          t({
             id: 'monk.windwalker.chi_details.suggest',
             message: 'You are wasting Chi. Try to use it and not let it cap and go to waste',
           }),
         )
           .icon('creatureportrait_bubble')
           .actual(
-            defineMessage({
+            t({
               id: 'monk.windwalker.suggestions.chi.wastedPerMinute',
               message: '{chiWasted, number} Chi wasted ({perMinute, number} per minute)',
             }),
@@ -91,7 +91,7 @@ class ChiDetails extends Analyzer {
 
   tab() {
     return {
-      title: defineMessage({ id: 'monk.windwalker.chi_details.tab', message: 'Chi' }),
+      title: t({ id: 'monk.windwalker.chi_details.tab', message: 'Chi' }),
       url: 'chi',
       render: () => (
         <Panel>

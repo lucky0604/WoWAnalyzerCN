@@ -145,7 +145,7 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.6,
-          extraSuggestion: defineMessage({
+          extraSuggestion: t({
             id: 'monk.windwalker.abilities.karma_suggestion',
             message:
               'Touch of Karma is typically used offensively as often as possible, but use changes a lot varying on the encounter',

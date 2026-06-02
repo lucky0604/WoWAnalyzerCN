@@ -231,7 +231,7 @@ class CelestialConduit extends Analyzer {
       ? QualitativePerformance.Fail
       : QualitativePerformance.Good;
     const cancelledItem: CooldownExpandableItem = {
-      label: defineMessage({ id: 'monk.shared.cc.fully_channeled', message: 'Fully channeled cast' }),
+      label: t({ id: 'monk.shared.cc.fully_channeled', message: 'Fully channeled cast' }),
       result: (
         <>
           <PerformanceMark perf={cancelPerf} />
@@ -285,7 +285,7 @@ class CelestialConduit extends Analyzer {
 
     const targetHitPerf = this.getTargetsHitPerf(avgTargetsHit);
     const targetsHitItem: CooldownExpandableItem = {
-      label: defineMessage({ id: 'monk.shared.cc.avg_targets_hit', message: 'Average targets hit per pulse' }),
+      label: t({ id: 'monk.shared.cc.avg_targets_hit', message: 'Average targets hit per pulse' }),
       result: (
         <>
           <PerformanceMark perf={targetHitPerf} />

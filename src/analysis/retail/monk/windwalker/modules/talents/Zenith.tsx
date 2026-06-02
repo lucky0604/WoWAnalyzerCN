@@ -244,11 +244,11 @@ class Zenith extends Analyzer.withDependencies({
     );
 
     const chiLabel = this.hasObsidianSpiral
-      ? defineMessage({
+      ? t({
           id: 'monk.windwalker.zenith.chi_label',
           message: 'Chi generated with Obsidian Spiral',
         })
-      : defineMessage({
+      : t({
           id: 'monk.windwalker.zenith.chi_label_potential',
           message: 'Chi that would have been generated with Obsidian Spiral',
         });

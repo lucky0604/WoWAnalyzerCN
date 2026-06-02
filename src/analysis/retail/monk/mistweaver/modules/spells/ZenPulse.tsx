@@ -248,7 +248,7 @@ class ZenPulse extends Analyzer {
     const stats = [
       {
         value: this.avgHitsPerConsume.toFixed(2),
-        label: defineMessage({
+        label: t({
           id: 'monk.mistweaver.zenPulse.avgHitsPerBuff',
           message: 'Avg Hits Per Buff',
         }),
@@ -268,7 +268,7 @@ class ZenPulse extends Analyzer {
       },
       {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
-        label: defineMessage({
+        label: t({
           id: 'monk.mistweaver.zenPulse.wastedBuffs',
           message: 'Wasted Buffs',
         }),

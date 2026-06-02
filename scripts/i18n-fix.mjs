@@ -95,7 +95,7 @@ function removeDefineMessageFromImport(content) {
 const stats = { transToT: 0, defineMessageToT: 0, importFixed: 0, jsxFixed: 0, files: 0 };
 
 for (const file of walk('src')) {
-  if (file.includes(OVERRIDES_PREFIX)) continue;
+  const isOverride = file.includes(OVERRIDES_PREFIX);
 
   let content = fs.readFileSync(file, 'utf8');
   const original = content;
@@ -103,7 +103,7 @@ for (const file of walk('src')) {
   const isCore = isCoreFile(file);
 
   // --- Pass 1: Simple <Trans id="x">plain text</Trans> → t() (non-core files only) ---
-  if (!isCore && file.endsWith('.tsx')) {
+  if (!isOverride && !isCore && file.endsWith('.tsx')) {
     content = content.replace(
       /<Trans\s+id="([^"]+)"\s*>([^<{\n]+)<\/Trans>/g,
       (full, id, message, offset) => {
@@ -122,7 +122,7 @@ for (const file of walk('src')) {
   // t() executes immediately, so it must NOT be called at module top level
   // (before i18n.activate). defineMessage() is safe at top level because it only
   // creates a descriptor. We track brace depth to skip top-level occurrences.
-  if (!isCore && content.includes('defineMessage(')) {
+  if (!isOverride && !isCore && content.includes('defineMessage(')) {
     const lines = content.split('\n');
     let depth = 0;
     let inImport = false;
@@ -148,35 +148,43 @@ for (const file of walk('src')) {
     }
     if (changed) {
       stats.defineMessageToT++;
-      content = removeDefineMessageFromImport(lines.join('\n'));
+      content = lines.join('\n');
+      if (!content.includes('defineMessage(')) {
+        content = removeDefineMessageFromImport(content);
+      }
     }
   }
 
-  // --- Pass 3: Fix missing defineMessage import (core files only) ---
-  if (
-    isCore &&
-    content.includes('defineMessage(') &&
-    !/import\s*\{[^}]*defineMessage/.test(content)
-  ) {
+  // --- Pass 3: Fix missing defineMessage import (any file that still uses it) ---
+  if (content.includes('defineMessage(') && !/import\s*\{[^}]*defineMessage/.test(content)) {
     content = ensureDefineMessageImport(content);
     stats.importFixed++;
   }
 
-  // --- Pass 4: Ensure t import if t() is used ---
-  if (content.includes('t({') && !/import\s*\{[^}]*\bt\b/.test(content)) {
+  // --- Pass 4: Ensure t import if t() or t`...` is used ---
+  const usesTMacro = /\bt\(\{/.test(content) || /\bt`/.test(content);
+  if (usesTMacro && !/import\s*\{[^}]*\bt\b/.test(content)) {
     content = ensureTImport(content);
     stats.importFixed++;
   }
 
+  // --- Pass 4b: Remove standalone unused t import ---
+  if (/^import \{ t \} from '@lingui\/core\/macro';?\n/m.test(content) && !usesTMacro) {
+    content = content.replace(/^import \{ t \} from '@lingui\/core\/macro';?\n/m, '');
+    stats.importFixed++;
+  }
+
   // --- Pass 5: Fix JSX syntax issues from conversion ---
-  // 5a: Object property value  label: {t({  →  label: t({
-  content = content.replace(/(:\s*)\{t\(\{/g, '$1t({');
-  // 5b: Object property trailing  }) },  →  }),
-  content = content.replace(/message: '([^']*)' \}\)\},/g, "message: '$1' }),");
-  // 5c: JSX prop value  ={ {t({  →  ={t({
-  content = content.replace(/(=\{\s*)\n\s*\{t\(\{/g, '$1t({');
-  // 5d: return {t({...})}  →  return t({...})
-  content = content.replace(/return \{(t\(\{[^}]+\}\))\}/g, 'return $1');
+  if (!isOverride) {
+    // 5a: Object property value  label: {t({  →  label: t({
+    content = content.replace(/(:\s*)\{t\(\{/g, '$1t({');
+    // 5b: Object property trailing  }) },  →  }),
+    content = content.replace(/message: '([^']*)' \}\)\},/g, "message: '$1' }),");
+    // 5c: JSX prop value  ={ {t({  →  ={t({
+    content = content.replace(/(=\{\s*)\n\s*\{t\(\{/g, '$1t({');
+    // 5d: return {t({...})}  →  return t({...})
+    content = content.replace(/return \{(t\(\{[^}]+\}\))\}/g, 'return $1');
+  }
 
   if (content !== original) {
     stats.files++;

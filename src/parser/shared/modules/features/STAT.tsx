@@ -98,39 +98,39 @@ export function getNameTranslated(stat: STAT) {
   // there's stuff using getName with string functions which Trans breaks
   switch (stat) {
     case STAT.HEALTH:
-      return defineMessage({ id: 'common.stat.health', message: 'Health' });
+      return t({ id: 'common.stat.health', message: 'Health' });
     case STAT.STAMINA:
-      return defineMessage({ id: 'common.stat.stamina', message: 'Stamina' });
+      return t({ id: 'common.stat.stamina', message: 'Stamina' });
     case STAT.MANA:
-      return defineMessage({ id: 'common.stat.mana', message: 'Mana' });
+      return t({ id: 'common.stat.mana', message: 'Mana' });
     case STAT.STRENGTH:
-      return defineMessage({ id: 'common.stat.strength', message: 'Strength' });
+      return t({ id: 'common.stat.strength', message: 'Strength' });
     case STAT.AGILITY:
-      return defineMessage({ id: 'common.stat.agility', message: 'Agility' });
+      return t({ id: 'common.stat.agility', message: 'Agility' });
     case STAT.INTELLECT:
-      return defineMessage({ id: 'common.stat.intellect', message: 'Intellect' });
+      return t({ id: 'common.stat.intellect', message: 'Intellect' });
     case STAT.CRITICAL_STRIKE:
-      return defineMessage({ id: 'common.stat.criticalStrike', message: 'Critical Strike' });
+      return t({ id: 'common.stat.criticalStrike', message: 'Critical Strike' });
     case STAT.HASTE:
-      return defineMessage({ id: 'common.stat.haste', message: 'Haste' });
+      return t({ id: 'common.stat.haste', message: 'Haste' });
     case STAT.HASTE_HPCT:
-      return defineMessage({ id: 'common.stat.hasteHPCT', message: 'Haste (HPCT)' });
+      return t({ id: 'common.stat.hasteHPCT', message: 'Haste (HPCT)' });
     case STAT.HASTE_HPM:
-      return defineMessage({ id: 'common.stat.hasteHPM', message: 'Haste (HPM)' });
+      return t({ id: 'common.stat.hasteHPM', message: 'Haste (HPM)' });
     case STAT.MASTERY:
-      return defineMessage({ id: 'common.stat.mastery', message: 'Mastery' });
+      return t({ id: 'common.stat.mastery', message: 'Mastery' });
     case STAT.VERSATILITY:
-      return defineMessage({ id: 'common.stat.versatility', message: 'Versatility' });
+      return t({ id: 'common.stat.versatility', message: 'Versatility' });
     case STAT.VERSATILITY_DR:
-      return defineMessage({ id: 'common.stat.versatilityDR', message: 'Versatility (with DR)' });
+      return t({ id: 'common.stat.versatilityDR', message: 'Versatility (with DR)' });
     case STAT.LEECH:
-      return defineMessage({ id: 'common.stat.leech', message: 'Leech' });
+      return t({ id: 'common.stat.leech', message: 'Leech' });
     case STAT.AVOIDANCE:
-      return defineMessage({ id: 'common.stat.avoidance', message: 'Avoidance' });
+      return t({ id: 'common.stat.avoidance', message: 'Avoidance' });
     case STAT.SPEED:
-      return defineMessage({ id: 'common.stat.speed', message: 'Speed' });
+      return t({ id: 'common.stat.speed', message: 'Speed' });
     case STAT.ARMOR:
-      return defineMessage({ id: 'common.stat.armor', message: 'Armor' });
+      return t({ id: 'common.stat.armor', message: 'Armor' });
     default:
       return null;
   }
