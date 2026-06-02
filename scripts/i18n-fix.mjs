@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /**
- * Unified i18n fix script. Replaces 5 separate scripts:
+ * Unified i18n fix script. Replaces 4 separate scripts:
  *   - convert-simple-trans-to-t.mjs
- *   - cn-defineMessage-to-t.mjs
  *   - fix-define-message-imports.mjs
  *   - fix-t-expression-context.mjs
  *   - fix-trans-to-t-jsx.mjs
@@ -80,18 +79,6 @@ function ensureDefineMessageImport(content) {
   return `import { defineMessage } from '@lingui/core/macro';\n${content}`;
 }
 
-function removeDefineMessageFromImport(content) {
-  return content.replace(/import\s*\{([^}]+)\}\s*from\s*'@lingui\/core\/macro'/, (_, imports) => {
-    let parts = imports
-      .split(',')
-      .map((s) => s.trim())
-      .filter(Boolean);
-    parts = parts.filter((p) => p !== 'defineMessage');
-    if (!parts.includes('t')) parts.unshift('t');
-    return `import { ${parts.join(', ')} } from '@lingui/core/macro'`;
-  });
-}
-
 const stats = { transToT: 0, defineMessageToT: 0, importFixed: 0, jsxFixed: 0, files: 0 };
 
 for (const file of walk('src')) {
@@ -118,42 +105,13 @@ for (const file of walk('src')) {
     );
   }
 
-  // --- Pass 2: defineMessage() → t() in CN files (only inside functions/classes) ---
-  // t() executes immediately, so it must NOT be called at module top level
-  // (before i18n.activate). defineMessage() is safe at top level because it only
-  // creates a descriptor. We track brace depth to skip top-level occurrences.
-  if (!isOverride && !isCore && content.includes('defineMessage(')) {
-    const lines = content.split('\n');
-    let depth = 0;
-    let inImport = false;
-    let changed = false;
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      if (/^\s*import\s/.test(line)) {
-        inImport = !line.includes(' from ');
-        continue;
-      }
-      if (inImport) {
-        if (/\bfrom\s+['"]/.test(line)) inImport = false;
-        continue;
-      }
-      for (const ch of line) {
-        if (ch === '{') depth++;
-        else if (ch === '}') depth--;
-      }
-      if (depth > 0 && line.includes('defineMessage(')) {
-        lines[i] = line.replaceAll('defineMessage(', 't(');
-        changed = true;
-      }
-    }
-    if (changed) {
-      stats.defineMessageToT++;
-      content = lines.join('\n');
-      if (!content.includes('defineMessage(')) {
-        content = removeDefineMessageFromImport(content);
-      }
-    }
-  }
+  // --- Pass 2: defineMessage() import fix only ---
+  // NOTE: We no longer convert defineMessage() → t() because the lint rule
+  // (lingui-t-macro-outside-jsx) enforces the opposite convention: t() is
+  // only valid inside JSX. Outside JSX, defineMessage() is required.
+  // Converting defineMessage → t() would be reverted by lint:fix on next
+  // commit, creating a loop. Instead, just ensure the import exists.
+  // (Pass 3 below handles that.)
 
   // --- Pass 3: Fix missing defineMessage import (any file that still uses it) ---
   if (content.includes('defineMessage(') && !/import\s*\{[^}]*defineMessage/.test(content)) {
