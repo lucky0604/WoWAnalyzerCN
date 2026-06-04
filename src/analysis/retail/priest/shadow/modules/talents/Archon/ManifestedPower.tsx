@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Options } from 'parser/core/Module';
 import Statistic from 'parser/ui/Statistic';
@@ -41,7 +42,8 @@ class ManifestedPower extends Analyzer {
         <BoringSpellValueText spell={TALENTS.MANIFESTED_POWER_TALENT}>
           <InsanityIcon /> <>{this.gainSurgeofInsanity}</>{' '}
           <small>
-            <SpellLink spell={TALENTS.SURGE_OF_INSANITY_TALENT} /> procs
+            <SpellLink spell={TALENTS.SURGE_OF_INSANITY_TALENT} />{' '}
+            {t({ id: 'priest.shadow.manifestedPower.procs', message: 'procs' })}
           </small>
         </BoringSpellValueText>
       </Statistic>

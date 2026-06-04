@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import TALENTS from 'common/TALENTS/rogue';
 import { SpellIcon } from 'interface';
@@ -6,7 +7,6 @@ import Enemies from 'parser/shared/modules/Enemies';
 import BoringValueText from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
-import { t } from '@lingui/core/macro';
 
 class ShadowBladesUptime extends Analyzer {
   static dependencies = {
@@ -25,10 +25,7 @@ class ShadowBladesUptime extends Analyzer {
           label={
             <>
               <SpellIcon spell={TALENTS.SHADOW_BLADES_TALENT} />{' '}
-              {t({
-                id: 'rogue.subtlety.shadowBladesUptime.label',
-                message: 'Shadow Blades Uptime',
-              })}
+              {t({ id: 'rogue.subtlety.shadowBladesUptime.shadowBladesUptime', message: 'Shadow Blades Uptime' })}
             </>
           }
         >

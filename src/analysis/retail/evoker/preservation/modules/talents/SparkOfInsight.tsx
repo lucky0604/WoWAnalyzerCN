@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import { SpellLink } from 'interface';
@@ -110,20 +111,20 @@ class SparkOfInsight extends Analyzer {
           <div>
             {this.totalSparkProcs}{' '}
             <small>
-              extra <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> procs
+              {t({ id: 'evoker.preservation.sparkOfInsight.extraProcs', message: 'extra Essence Burst procs' })}
             </small>
           </div>
           <div>
             {this.wastedProcs}{' '}
             <small>
-              wasted <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> procs
+              {t({ id: 'evoker.preservation.sparkOfInsight.wastedProcs', message: 'wasted Essence Burst procs' })}
             </small>
           </div>
           <div>
-            {this.wastedStacks} <small>wasted stacks</small>
+            {this.wastedStacks} <small>{t({ id: 'evoker.preservation.sparkOfInsight.wastedStacks', message: 'wasted stacks' })}</small>
           </div>
           <div>
-            {this.essenceSaved} <small>essence saved</small>
+            {this.essenceSaved} <small>{t({ id: 'evoker.preservation.sparkOfInsight.essenceSaved', message: 'essence saved' })}</small>
           </div>
           <div>
             <ItemManaGained amount={this.manaSaved} useAbbrev />

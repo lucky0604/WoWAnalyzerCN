@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -121,11 +122,11 @@ class TyrsDeliverance extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <div>Direct Healing Done: {formatNumber(this.healing)}</div>
-            <div>Direct Overhealing Done: {formatNumber(this.overhealing)}</div>
+            <div>{t({ id: 'paladin.holy.talents.tyrsDeliverance.directHealingDone', message: 'Direct Healing Done' })}: {formatNumber(this.healing)}</div>
+            <div>{t({ id: 'paladin.holy.talents.tyrsDeliverance.directOverhealingDone', message: 'Direct Overhealing Done' })}: {formatNumber(this.overhealing)}</div>
             {BUFFED_SPELLS.map((spell) => (
               <div key={spell.id}>
-                <SpellLink spell={spell} /> healing increased:{' '}
+                <SpellLink spell={spell} /> {t({ id: 'paladin.holy.talents.tyrsDeliverance.healingIncreased', message: 'healing increased' })}:{' '}
                 {formatNumber(this.incHealing[spell.id])}
               </div>
             ))}

@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, ResourceChangeEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS/classic/druid';
@@ -124,35 +125,43 @@ class Lifebloom extends Analyzer {
     delete this.lifeBloomPerPlayer[lifeBloomEvent.targetID];
   }
 
-  /** Guide subsectopm describing the proper usage of Swiftmend */
+  /** Guide subsection describing the proper usage of Lifebloom */
   get guideSubsection(): JSX.Element {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.LIFEBLOOM} />
-          </b>{' '}
-          is a heal-over-time effect that heals every second for 7 seconds and stacks up to 3 times.
-          When it expires it heals for an additional amount and refunds half the mana cost.
+          {t({
+            id: 'classic.druid.restoration.lifebloom.explanation1',
+            message:
+              'Lifebloom is a heal-over-time effect that heals every second for 7 seconds and stacks up to 3 times. When it expires it heals for an additional amount and refunds half the mana cost.',
+          })}
         </p>
         <p>
-          Casting this during a <SpellLink spell={SPELLS.CLEARCASTING} /> or{' '}
-          <ItemLink id={ITEMS.SOUL_PRESERVER.id} /> proc, will generate mana.
+          {t({
+            id: 'classic.druid.restoration.lifebloom.explanation2',
+            message:
+              'Casting this during a Clearcasting or Soul Preserver proc will generate mana.',
+          })}
         </p>
       </>
     );
 
     // Build up description of chart, which varies based on talents
-    let chartDescription = ' - ';
-    // no procs
-    chartDescription +=
-      'Green is a cast while Clearcasting is active, Yellow is a full cost Lifebloom cast.';
-    chartDescription += ' Mouseover for more details.';
+    const chartDescription = t({
+      id: 'classic.druid.restoration.lifebloom.chartDescription',
+      message:
+        'Green is a cast while Clearcasting is active, Yellow is a full cost Lifebloom cast. Mouseover for more details.',
+    });
 
     const data = (
       <div>
-        <strong>Lifebloom casts</strong>
-        <small>{chartDescription}</small>
+        <strong>
+          {t({
+            id: 'classic.druid.restoration.lifebloom.castsTitle',
+            message: 'Lifebloom casts',
+          })}
+        </strong>
+        <small> - {chartDescription}</small>
         <PerformanceBoxRow values={this.castEntries} />
       </div>
     );
@@ -165,11 +174,20 @@ class Lifebloom extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(52)} // chosen for fixed ordering of general stats
         size="flexible"
-        tooltip="Mana returned during clearcasting procs (no mana cost)."
+        tooltip={t({
+          id: 'classic.druid.restoration.lifebloom.statisticTooltip',
+          message: 'Mana returned during clearcasting procs (no mana cost).',
+        })}
       >
         <BoringValue label={<SpellLink spell={SPELLS.LIFEBLOOM_REGEN} />}>
           <div>
-            <ManaIcon /> {formatNumber(this.manaFromLifebloom)} <small>mana returned</small>
+            <ManaIcon /> {formatNumber(this.manaFromLifebloom)}{' '}
+            <small>
+              {t({
+                id: 'classic.druid.restoration.lifebloom.manaReturned',
+                message: 'mana returned',
+              })}
+            </small>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             <ManaIcon /> {formatNumber(this.mp5FromLifebloom)}

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { getLifesparkLivingFlame } from '../../normalizers/EventLinking/helpers';
 import Statistic from 'parser/ui/Statistic';
@@ -85,24 +86,23 @@ class Lifespark extends Analyzer {
     const items = [
       {
         color: '#02b30e',
-        label: 'Healing',
+        label: t({ id: 'evoker.preservation.lifespark.healing', message: 'Healing' }),
         value: this.lifesparksToHeal,
         valueTooltip: <ItemHealingDone amount={this.totalLifesparkHealing} />,
       },
       {
         color: '#e32214',
-        label: 'Damage',
+        label: t({ id: 'evoker.preservation.lifespark.damage', message: 'Damage' }),
         value: this.lifesparksToDamage,
         valueTooltip: <ItemDamageDone amount={this.totalLifesparkDamage} />,
       },
       {
         color: '#888a88',
-        label: 'Wasted Procs',
+        label: t({ id: 'evoker.preservation.lifespark.wastedProcs', message: 'Wasted Procs' }),
         value: wastedLifesparks,
         valueTooltip: (
           <>
-            {this.lifesparksLostRefresh} lost to early refresh,{' '}
-            {wastedLifesparks - this.lifesparksLostRefresh} expired
+            {this.lifesparksLostRefresh} {t({ id: 'evoker.preservation.lifespark.lostToEarlyRefresh', message: 'lost to early refresh,' })} {wastedLifesparks - this.lifesparksLostRefresh} {t({ id: 'evoker.preservation.lifespark.expired', message: 'expired' })}
           </>
         ),
       },
@@ -126,7 +126,7 @@ class Lifespark extends Analyzer {
         <div>
           <TalentSpellText talent={TALENTS_EVOKER.LIFESPARK_TALENT}>
             <div>
-              <Flask /> {this.totalLifesparkGenerated} <small>total procs generated</small>
+              <Flask /> {this.totalLifesparkGenerated} <small>{t({ id: 'evoker.preservation.lifespark.totalProcsGenerated', message: 'total procs generated' })}</small>
             </div>
           </TalentSpellText>
           <div className="pad">{this.renderDonutChart()}</div>

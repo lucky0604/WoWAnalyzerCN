@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
@@ -86,7 +87,11 @@ class DarkAscension extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.GENERAL}
         size="flexible"
-        tooltip="This is the bonus damage to nonperiodic spells from Dark Ascension"
+        tooltip={t({
+          id: 'priest.shadow.darkAscension.tooltip',
+          message:
+            'This is the bonus damage to nonperiodic spells from Dark Ascension',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.VOIDFORM_TALENT}>
           <ItemDamageDone amount={this.totalDamage} />

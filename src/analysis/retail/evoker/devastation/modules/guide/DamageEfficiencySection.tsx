@@ -12,6 +12,8 @@ import { IMMINENT_DESTRUCTION_INITIAL_STACKS_DEVA } from 'analysis/retail/evoker
 import { STRAFING_RUN_DURATION } from 'analysis/retail/evoker/devastation/constants';
 import { formatDurationMillisMinSec } from 'common/format';
 import { InformationIcon } from 'interface/icons';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const EXPLANATION_PERCENTAGE = 70;
 function PassFail({
@@ -38,7 +40,12 @@ function PassFail({
 
 export function DamageEfficiency(props: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Damage Efficiency">
+    <Section
+      title={t({
+        id: 'guide.evoker.devastation.sections.damageEfficiency.title',
+        message: 'Damage Efficiency',
+      })}
+    >
       <DisintegrateSubsection {...props} />
       <NoWastedProcsSubsection {...props} />
       <NoWastedBuffsSubsection {...props} />
@@ -55,42 +62,61 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
   const isEarlyChainingOptimal = false;
 
   return (
-    <SubSection title="Clipping/Chaining Disintegrate">
+    <SubSection
+      title={t({
+        id: 'guide.evoker.devastation.sections.damageEfficiency.disintegrate.title',
+        message: 'Clipping/Chaining Disintegrate',
+      })}
+    >
       <p>
-        You should always aim to chain <SpellLink spell={SPELLS.DISINTEGRATE} />. Chaining refers to
-        recasting <SpellLink spell={SPELLS.DISINTEGRATE} /> while already channeling a{' '}
-        <SpellLink spell={SPELLS.DISINTEGRATE} /> after the penultimate (second to last) tick in
-        order to channel two <SpellLink spell={SPELLS.DISINTEGRATE} /> in a row without downtime or
-        losing a tick. This is essentially just the same Pandemic effect that DoTs have since{' '}
-        <SpellLink spell={SPELLS.DISINTEGRATE} /> functions as a DoT.
+        <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary">
+          You should always aim to chain <SpellLink spell={SPELLS.DISINTEGRATE} />. Chaining refers
+          to recasting <SpellLink spell={SPELLS.DISINTEGRATE} /> while already channeling a{' '}
+          <SpellLink spell={SPELLS.DISINTEGRATE} /> after the penultimate (second to last) tick in
+          order to channel two <SpellLink spell={SPELLS.DISINTEGRATE} /> in a row without downtime or
+          losing a tick. This is essentially just the same Pandemic effect that DoTs have since{' '}
+          <SpellLink spell={SPELLS.DISINTEGRATE} /> functions as a DoT.
+        </Trans>
       </p>
       {isEarlyChainingOptimal && (
         <p>
-          Inside of <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /> you should be clipping{' '}
-          <SpellLink spell={SPELLS.DISINTEGRATE} /> after the third tick with more important spells
-          such <SpellLink spell={SPELLS.FIRE_BREATH} />, <SpellLink spell={SPELLS.ETERNITY_SURGE} />
-          , <SpellLink spell={SPELLS.SHATTERING_STAR} /> or{' '}
-          <SpellLink spell={SPELLS.BURNOUT_BUFF} />. As well as early chaining your{' '}
-          <SpellLink spell={SPELLS.DISINTEGRATE} /> after the third tick to maximize resources
-          generation and expenditure.
+          <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining">
+            Inside of <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /> you should be clipping{' '}
+            <SpellLink spell={SPELLS.DISINTEGRATE} /> after the third tick with more important spells
+            such <SpellLink spell={SPELLS.FIRE_BREATH} />,{' '}
+            <SpellLink spell={SPELLS.ETERNITY_SURGE} />,{' '}
+            <SpellLink spell={SPELLS.SHATTERING_STAR} /> or{' '}
+            <SpellLink spell={SPELLS.BURNOUT_BUFF} />. As well as early chaining your{' '}
+            <SpellLink spell={SPELLS.DISINTEGRATE} /> after the third tick to maximize resources
+            generation and expenditure.
+          </Trans>
         </p>
       )}
       <p>
-        See the{' '}
-        <a href="https://www.wowhead.com/guide/classes/evoker/devastation/rotation-cooldowns-pve-dps#advanced-disintegrate-chaining-and-clipping">
-          Disintegrate Chaining and Clipping
-        </a>{' '}
-        section on wowhead for a more in-depth explanation.
+        <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.wowhead">
+          See the{' '}
+          <a href="https://www.wowhead.com/guide/classes/evoker/devastation/rotation-cooldowns-pve-dps#advanced-disintegrate-chaining-and-clipping">
+            Disintegrate Chaining and Clipping
+          </a>{' '}
+          section on wowhead for a more in-depth explanation.
+        </Trans>
       </p>
       <ExplanationAndDataSubSection
         explanationPercent={EXPLANATION_PERCENTAGE}
         explanation={
           <div>
             <p>
-              <SpellLink spell={SPELLS.DISINTEGRATE} /> efficiency outside of{' '}
-              <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
+              <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.outsideDR">
+                <SpellLink spell={SPELLS.DISINTEGRATE} /> efficiency outside of{' '}
+                <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
+              </Trans>
             </p>
-            <p>You should not be dropping any ticks here.</p>
+            <p>
+              {t({
+                id: 'guide.evoker.devastation.sections.damageEfficiency.disintegrate.noDropTicks',
+                message: 'You should not be dropping any ticks here.',
+              })}
+            </p>
           </div>
         }
         data={
@@ -106,12 +132,17 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
         explanation={
           <div>
             <p>
-              <SpellLink spell={SPELLS.DISINTEGRATE} /> efficiency during{' '}
-              <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
+              <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.duringDR">
+                <SpellLink spell={SPELLS.DISINTEGRATE} /> efficiency during{' '}
+                <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
+              </Trans>
             </p>
             <p>
-              It can sometimes be beneficial to clip <SpellLink spell={SPELLS.DISINTEGRATE} /> early
-              in order to to cast more important spells.
+              {t({
+                id: 'guide.evoker.devastation.sections.damageEfficiency.disintegrate.clipBeneficial',
+                message:
+                  'It can sometimes be beneficial to clip Disintegrate early in order to cast more important spells.',
+              })}
             </p>
           </div>
         }
@@ -131,9 +162,16 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
           explanation={
             <div>
               <p>
-                <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} /> efficiency
+                <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.massDisintegrate">
+                  <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} /> efficiency
+                </Trans>
               </p>
-              <p>You should not be dropping any ticks here.</p>
+              <p>
+                {t({
+                  id: 'guide.evoker.devastation.sections.damageEfficiency.disintegrate.noDropTicks',
+                  message: 'You should not be dropping any ticks here.',
+                })}
+              </p>
             </div>
           }
           data={
@@ -156,22 +194,33 @@ function NoWastedProcsSubsection({ modules, info }: GuideProps<typeof CombatLogP
   const hasMID1TierSet = info.combatant.has2PieceByTier(TIERS.MID1);
 
   return (
-    <SubSection title="No Wasted Procs">
+    <SubSection
+      title={t({
+        id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.title',
+        message: 'No Wasted Procs',
+      })}
+    >
       <p>
-        <InformationIcon /> Note that procs that weren't used by the time the fight ended are
-        counted as wasted.
+        <InformationIcon />{' '}
+        {t({
+          id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.note',
+          message:
+            "Note that procs that weren't used by the time the fight ended are counted as wasted.",
+        })}
       </p>
       <ExplanationAndDataSubSection
         explanationPercent={EXPLANATION_PERCENTAGE}
         explanation={
           <p>
-            <SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} /> procs are essential because they help
-            you cast your primary damaging spells,
-            <SpellLink spell={SPELLS.DISINTEGRATE} /> and{' '}
-            <SpellLink spell={TALENTS_EVOKER.PYRE_TALENT} />, for free.
-            <div>
-              <strong>None should go to waste.</strong>
-            </div>
+            <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.essenceBurst">
+              <SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} /> procs are essential because they help
+              you cast your primary damaging spells,
+              <SpellLink spell={SPELLS.DISINTEGRATE} /> and{' '}
+              <SpellLink spell={TALENTS_EVOKER.PYRE_TALENT} />, for free.
+              <div>
+                <strong>None should go to waste.</strong>
+              </div>
+            </Trans>
           </p>
         }
         data={
@@ -190,14 +239,16 @@ function NoWastedProcsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <SpellLink spell={TALENTS_EVOKER.BURNOUT_TALENT} /> procs allow you to cast{' '}
-              <SpellLink spell={SPELLS.LIVING_FLAME_CAST} /> instantly.
-              <div>
-                <strong>
-                  Ideally none should go to waste, but some may drop during an intense{' '}
-                  <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /> window.
-                </strong>
-              </div>
+              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.burnout">
+                <SpellLink spell={TALENTS_EVOKER.BURNOUT_TALENT} /> procs allow you to cast{' '}
+                <SpellLink spell={SPELLS.LIVING_FLAME_CAST} /> instantly.
+                <div>
+                  <strong>
+                    Ideally none should go to waste, but some may drop during an intense{' '}
+                    <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /> window.
+                  </strong>
+                </div>
+              </Trans>
             </p>
           }
           data={
@@ -231,10 +282,19 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
   console.log(modules.azureSweep.buffRatio);
 
   return (
-    <SubSection title="No Wasted Buffs">
+    <SubSection
+      title={t({
+        id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.title',
+        message: 'No Wasted Buffs',
+      })}
+    >
       <p>
-        <InformationIcon /> Note that buffs that weren't used by the time the fight ended are
-        counted as wasted.
+        <InformationIcon />{' '}
+        {t({
+          id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.note',
+          message:
+            "Note that buffs that weren't used by the time the fight ended are counted as wasted.",
+        })}
       </p>
       {hasMassDisintegrate && (
         <ExplanationAndDataSubSection
@@ -244,10 +304,18 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
               <strong>
                 <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />
               </strong>{' '}
-              is a powerful buff gained by casting Empowers which increases the damage of{' '}
-              <SpellLink spell={SPELLS.DISINTEGRATE} /> and allows it to strike multiple targets.
+              {t({
+                id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.massDisintegrate',
+                message:
+                  'is a powerful buff gained by casting Empowers which increases the damage of Disintegrate and allows it to strike multiple targets.',
+              })}
               <div>
-                <strong>None should go to waste.</strong>
+                <strong>
+                  {t({
+                    id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.noneToWaste',
+                    message: 'None should go to waste.',
+                  })}
+                </strong>
               </div>
             </p>
           }
@@ -265,14 +333,23 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <strong>
-                <SpellLink spell={TALENTS_EVOKER.IMMINENT_DESTRUCTION_DEVASTATION_TALENT} />
-              </strong>{' '}
-              reduces the <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> cost of your next{' '}
-              <strong>{IMMINENT_DESTRUCTION_INITIAL_STACKS_DEVA}</strong>{' '}
-              <SpellLink spell={SPELLS.DISINTEGRATE} /> and <SpellLink spell={SPELLS.PYRE} />.
+              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.imminentDestruction">
+                <strong>
+                  <SpellLink
+                    spell={TALENTS_EVOKER.IMMINENT_DESTRUCTION_DEVASTATION_TALENT}
+                  />
+                </strong>{' '}
+                reduces the <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> cost of your next{' '}
+                <strong>{IMMINENT_DESTRUCTION_INITIAL_STACKS_DEVA}</strong>{' '}
+                <SpellLink spell={SPELLS.DISINTEGRATE} /> and <SpellLink spell={SPELLS.PYRE} />.
+              </Trans>
               <div>
-                <strong>None should go to waste.</strong>
+                <strong>
+                  {t({
+                    id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.noneToWaste',
+                    message: 'None should go to waste.',
+                  })}
+                </strong>
               </div>
             </p>
           }
@@ -290,20 +367,29 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <strong>
-                <SpellLink spell={TALENTS_EVOKER.STRAFING_RUN_TALENT} />
-              </strong>{' '}
-              allows <SpellLink spell={SPELLS.DEEP_BREATH} /> to be cast again within{' '}
-              {formatDurationMillisMinSec(STRAFING_RUN_DURATION, 0)} of being used.
+              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun">
+                <strong>
+                  <SpellLink spell={TALENTS_EVOKER.STRAFING_RUN_TALENT} />
+                </strong>{' '}
+                allows <SpellLink spell={SPELLS.DEEP_BREATH} /> to be cast again within{' '}
+                {formatDurationMillisMinSec(STRAFING_RUN_DURATION, 0)} of being used.
+              </Trans>
               {hasMassDisintegrate && (
                 <div>
-                  When playing as Scalecommander, you should wait with re-casting{' '}
-                  <SpellLink spell={SPELLS.DEEP_BREATH} /> until{' '}
-                  <SpellLink spell={TALENTS_EVOKER.MELT_ARMOR_TALENT} /> runs out.
+                  <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.scalecommander">
+                    When playing as Scalecommander, you should wait with re-casting{' '}
+                    <SpellLink spell={SPELLS.DEEP_BREATH} /> until{' '}
+                    <SpellLink spell={TALENTS_EVOKER.MELT_ARMOR_TALENT} /> runs out.
+                  </Trans>
                 </div>
               )}
               <div>
-                <strong>None should go to waste.</strong>
+                <strong>
+                  {t({
+                    id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.noneToWaste',
+                    message: 'None should go to waste.',
+                  })}
+                </strong>
               </div>
             </p>
           }
@@ -321,15 +407,20 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <strong>
-                <SpellLink spell={TALENTS_EVOKER.AZURE_SWEEP_TALENT} />
-              </strong>{' '}
-              is an upgraded version of <SpellLink spell={SPELLS.AZURE_STRIKE} /> that is gained
-              after casting <SpellLink spell={SPELLS.ETERNITY_SURGE} />.
+              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.azureSweep">
+                <strong>
+                  <SpellLink spell={TALENTS_EVOKER.AZURE_SWEEP_TALENT} />
+                </strong>{' '}
+                is an upgraded version of <SpellLink spell={SPELLS.AZURE_STRIKE} /> that is gained
+                after casting <SpellLink spell={SPELLS.ETERNITY_SURGE} />.
+              </Trans>
               <div>
                 <strong>
-                  Ideally none should go to waste, but some may be wasted due to having to cast
-                  higher priority spells.
+                  {t({
+                    id: 'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.azureSweep.note',
+                    message:
+                      'Ideally none should go to waste, but some may be wasted due to having to cast higher priority spells.',
+                  })}
                 </strong>
               </div>
             </p>

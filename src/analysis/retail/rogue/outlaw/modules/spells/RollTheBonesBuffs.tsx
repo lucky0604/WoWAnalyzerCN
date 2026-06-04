@@ -11,6 +11,8 @@ import { ROLL_THE_BONES_BUFFS } from '../../constants';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import uptimeBarSubStatistic, { UptimeBarSpec } from 'parser/ui/UptimeBarSubStatistic';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 class RollTheBonesBuffs extends Analyzer {
   /**
@@ -44,59 +46,69 @@ class RollTheBonesBuffs extends Analyzer {
           <b>
             <SpellLink spell={SPELLS.ROLL_THE_BONES} />{' '}
           </b>
-          <p>
-            This is one of the most important spells for efficient gameplay. When pressed it has a
-            chance of giving a buff that goes from stage 1 to stage 4. Most of the power is baked
-            into the first 2 stages whom are the most accessible to maintain.
-          </p>
-          <p>
-            Depending on which stage you enter, you will also receive all the buffs of the previous
-            stages.
-          </p>
-          <p>
-            For example, if you gain Stage 3, you will not only gain the cooldown reduction increase
-            from Restless Blades, but also gain the bonuses to Sinister Strike and Ambush from
-            Stages 1 and 2.
-          </p>
-          <p>
-            The current odds of receiving the buffs seem to be 55% chance to gain Stage 1, 30%
-            chance to gain Stage 2, 10% chance to gain Stage 3, and a 5% chance to gain Stage 4.
-          </p>
-          <p>
-            (Source:{' '}
-            <a href="https://www.icy-veins.com/wow/outlaw-rogue-pve-dps-rotation-cooldowns-abilities">
-              Icy veins
-            </a>
-            )
-          </p>
+          <Trans id="rogue.outlaw.rollTheBonesBuffs.explanation1">
+            <p>
+              This is one of the most important spells for efficient gameplay. When pressed it has a
+              chance of giving a buff that goes from stage 1 to stage 4. Most of the power is baked
+              into the first 2 stages whom are the most accessible to maintain.
+            </p>
+            <p>
+              Depending on which stage you enter, you will also receive all the buffs of the previous
+              stages.
+            </p>
+            <p>
+              For example, if you gain Stage 3, you will not only gain the cooldown reduction increase
+              from Restless Blades, but also gain the bonuses to Sinister Strike and Ambush from
+              Stages 1 and 2.
+            </p>
+            <p>
+              The current odds of receiving the buffs seem to be 55% chance to gain Stage 1, 30%
+              chance to gain Stage 2, 10% chance to gain Stage 3, and a 5% chance to gain Stage 4.
+            </p>
+            <p>
+              (Source:{' '}
+              <a href="https://www.icy-veins.com/wow/outlaw-rogue-pve-dps-rotation-cooldowns-abilities">
+                Icy veins
+              </a>
+              )
+            </p>
+          </Trans>
         </p>
         <ul>
           <li>
-            <b>
-              <SpellLink spell={SPELLS.ONE_OF_A_KIND} />
-            </b>{' '}
-            - <SpellLink spell={SPELLS.SINISTER_STRIKE} /> has a 20% increased chance to strike
-            twice and grant <SpellLink spell={SPELLS.OPPORTUNITY} />
+            <Trans id="rogue.outlaw.rollTheBonesBuffs.oneOfAKindDesc">
+              <b>
+                <SpellLink spell={SPELLS.ONE_OF_A_KIND} />
+              </b>{' '}
+              - <SpellLink spell={SPELLS.SINISTER_STRIKE} /> has a 20% increased chance to strike
+              twice and grant <SpellLink spell={SPELLS.OPPORTUNITY} />
+            </Trans>
           </li>
           <li>
-            <b>
-              <SpellLink spell={SPELLS.DOUBLE_TROUBLE} />
-            </b>{' '}
-            - <SpellLink spell={SPELLS.SINISTER_STRIKE} /> and <SpellLink spell={SPELLS.AMBUSH} />{' '}
-            generate 1 additional combo point and deal 15% increased damage
+            <Trans id="rogue.outlaw.rollTheBonesBuffs.doubleTroubleDesc">
+              <b>
+                <SpellLink spell={SPELLS.DOUBLE_TROUBLE} />
+              </b>{' '}
+              - <SpellLink spell={SPELLS.SINISTER_STRIKE} /> and <SpellLink spell={SPELLS.AMBUSH} />{' '}
+              generate 1 additional combo point and deal 15% increased damage
+            </Trans>
           </li>
           <li>
-            <b>
-              <SpellLink spell={SPELLS.TRIPLE_THREAT} />
-            </b>{' '}
-            - <SpellLink spell={SPELLS.RESTLESS_BLADES_TALENT} /> cooldown reduction increased by
-            30%.
+            <Trans id="rogue.outlaw.rollTheBonesBuffs.tripleThreatDesc">
+              <b>
+                <SpellLink spell={SPELLS.TRIPLE_THREAT} />
+              </b>{' '}
+              - <SpellLink spell={SPELLS.RESTLESS_BLADES_TALENT} /> cooldown reduction increased by
+              30%.
+            </Trans>
           </li>
           <li>
-            <b>
-              <SpellLink spell={SPELLS.JACKPOT} />
-            </b>{' '}
-            - Critical strike chance increased by 10%.
+            <Trans id="rogue.outlaw.rollTheBonesBuffs.jackpotDesc">
+              <b>
+                <SpellLink spell={SPELLS.JACKPOT} />
+              </b>{' '}
+              - Critical strike chance increased by 10%.
+            </Trans>
           </li>
         </ul>
       </>
@@ -126,7 +138,9 @@ class RollTheBonesBuffs extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={SPELLS.ROLL_THE_BONES} /> uptime
+            <Trans id="rogue.outlaw.rollTheBonesBuffs.uptime">
+              <SpellLink spell={SPELLS.ROLL_THE_BONES} /> uptime
+            </Trans>
           </strong>
           {uptimeBarSubStatistic(this.owner.fight, rollTheBonesBarSpec, subBuffsBarSpecs)}
         </RoundedPanel>
@@ -143,7 +157,8 @@ class RollTheBonesBuffs extends Analyzer {
         icon={<SpellIcon spell={SPELLS.ROLL_THE_BONES} />}
         value={
           <>
-            <UptimeIcon /> {formatPercentage(this.totalPercentUptime)}% <small>uptime</small>
+            <UptimeIcon /> {formatPercentage(this.totalPercentUptime)}%{' '}
+            <small>{t({ id: 'rogue.outlaw.rollTheBonesBuffs.uptimeShort', message: 'uptime' })}</small>
             <br />
           </>
         }
@@ -152,8 +167,8 @@ class RollTheBonesBuffs extends Analyzer {
         <table className="table table-condensed">
           <thead>
             <tr>
-              <th>Buff</th>
-              <th>Time (%)</th>
+              <th>{t({ id: 'rogue.outlaw.rollTheBonesBuffs.buff', message: 'Buff' })}</th>
+              <th>{t({ id: 'rogue.outlaw.rollTheBonesBuffs.timePct', message: 'Time (%)' })}</th>
             </tr>
           </thead>
           <tbody>

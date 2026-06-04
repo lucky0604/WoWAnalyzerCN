@@ -18,6 +18,7 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import SpellLink from 'interface/SpellLink';
 import { TIERS } from 'game/TIERS';
 import DonutChart from 'parser/ui/DonutChart';
+import { t } from '@lingui/core/macro';
 
 /** Eternity Surge upgrades your next Azure Strike to Azure Sweep,
  * damaging all nearby enemies and dealing 75% additional damage. */
@@ -114,20 +115,35 @@ class AzureSweep extends Analyzer {
     const items = [
       {
         color: 'rgb(123,188,93)',
-        label: 'Used',
-        valueTooltip: this.buffsUsed + ' used',
+        label: t({ id: 'evoker.devastation.azureSweep.used', message: 'Used' }),
+        valueTooltip:
+          this.buffsUsed +
+          ' ' +
+          t({ id: 'evoker.devastation.azureSweep.used', message: 'Used' }),
         value: this.buffsUsed,
       },
       {
         color: 'rgb(216,59,59)',
-        label: 'Overcapped',
-        valueTooltip: this.buffsOvercapped + ' stacks overcapped',
+        label: t({ id: 'evoker.devastation.azureSweep.overcapped', message: 'Overcapped' }),
+        valueTooltip:
+          this.buffsOvercapped +
+          ' ' +
+          t({
+            id: 'evoker.devastation.azureSweep.stacksOvercapped',
+            message: 'stacks overcapped',
+          }),
         value: this.buffsOvercapped,
       },
       {
         color: 'rgb(153, 102, 255)',
-        label: 'Wasted',
-        valueTooltip: this.buffsWasted + ' stacks wasted to buff running out',
+        label: t({ id: 'evoker.devastation.azureSweep.wasted', message: 'Wasted' }),
+        valueTooltip:
+          this.buffsWasted +
+          ' ' +
+          t({
+            id: 'evoker.devastation.azureSweep.stacksWasted',
+            message: 'stacks wasted to buff running out',
+          }),
         value: this.buffsWasted,
       },
     ];
@@ -140,7 +156,8 @@ class AzureSweep extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS.AZURE_SWEEP_TALENT} /> buff usage
+            <SpellLink spell={TALENTS.AZURE_SWEEP_TALENT} />{' '}
+            {t({ id: 'evoker.devastation.azureSweep.buffUsage', message: 'buff usage' })}
           </label>
           <DonutChart items={items} />
         </div>

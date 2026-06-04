@@ -10,6 +10,7 @@ import { formatPercentage } from 'common/format';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 const BUFF_DURATION_MS = 30000;
 const EXPIRE_BUFFER_MS = 100;
@@ -99,15 +100,29 @@ class LesserGhoul extends Analyzer {
         tooltip={
           <>
             <div>
-              You consumed {this.stacksConsumed} out of {this.stacksGained} Lesser Ghoul stacks.
+              {t({
+                id: 'deathknight.unholy.lesserGhoul.tooltipConsumed',
+                message: `You consumed ${this.stacksConsumed} out of ${this.stacksGained} Lesser Ghoul stacks.`,
+              })}
             </div>
-            <div>{this.stacksExpired} stacks expired without being used.</div>
+            <div>
+              {t({
+                id: 'deathknight.unholy.lesserGhoul.tooltipExpired',
+                message: `${this.stacksExpired} stacks expired without being used.`,
+              })}
+            </div>
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.LESSER_GHOUL_BUFF}>
           <>
-            {formatPercentage(this.efficiency)} % <small>stack efficiency</small>
+            {formatPercentage(this.efficiency)} %{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.lesserGhoul.labelStackEfficiency',
+                message: 'stack efficiency',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

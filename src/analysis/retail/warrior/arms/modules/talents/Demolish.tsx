@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER, Options } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/warrior';
 import SPELLS from 'common/SPELLS/warrior';
@@ -89,7 +90,11 @@ class Demolish extends Analyzer {
       if (demolishCastEvent) {
         addInefficientCastReason(
           demolishCastEvent,
-          'Demolish was used within execute range without the Colossus Smash debuff',
+          t({
+            id: 'warrior.arms.demolish.execRangeNoCS',
+            message:
+              'Demolish was used within execute range without the Colossus Smash debuff',
+          }),
         );
       }
     }

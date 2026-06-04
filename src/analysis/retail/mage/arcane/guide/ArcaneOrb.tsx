@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { type JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -188,45 +190,67 @@ class ArcaneOrbGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneOrb}</b>'s primary purpose is to quickly generate {arcaneCharge}s, generating at
-          least 2 charges per cast with an additional charge per target hit. The way you utilize{' '}
-          {arcaneOrb} is heavily dependent on your talent build, so refer to the below guidelines
-          based on your chosen talents.
+          <Trans id="mage.arcane.arcaneOrb.guide.explanation1">
+            <b>{arcaneOrb}</b>'s primary purpose is to quickly generate {arcaneCharge}s, generating at
+            least 2 charges per cast with an additional charge per target hit. The way you utilize{' '}
+            {arcaneOrb} is heavily dependent on your talent build, so refer to the below guidelines
+            based on your chosen talents.
+          </Trans>
         </p>
         {this.isSunfury && (
           <p>
             <ul>
-              <li>You have less than 2 {arcaneCharge}s</li>
+              <li>
+                <Trans id="mage.arcane.arcaneOrb.guide.conditionSunfury1">
+                  You have less than 2 {arcaneCharge}s
+                </Trans>
+              </li>
             </ul>
           </p>
         )}
         {this.isSpellslingerMissile && (
           <p>
-            {touchOfTheMagi} will not be available in the next 10 seconds, you have &lt; 3{' '}
-            {arcaneCharge}s (&lt; 4 if it will hit 2 or more enemies), and one of the below are
-            true.
+            <Trans id="mage.arcane.arcaneOrb.guide.conditionMissileIntro">
+              {touchOfTheMagi} will not be available in the next 10 seconds, you have &lt; 3{' '}
+              {arcaneCharge}s (&lt; 4 if it will hit 2 or more enemies), and one of the below are
+              true.
+            </Trans>
             <ul>
               <li>
-                You don't have {clearcasting} and have {highVoltage} talented.
+                <Trans id="mage.arcane.arcaneOrb.guide.conditionMissile1">
+                  You don't have {clearcasting} and have {highVoltage} talented.
+                </Trans>
               </li>
               <li>
-                You have {clearcasting} and 12 or more {arcaneSalvo} stacks.
+                <Trans id="mage.arcane.arcaneOrb.guide.conditionMissile2">
+                  You have {clearcasting} and 12 or more {arcaneSalvo} stacks.
+                </Trans>
               </li>
-              <li>{arcaneOrb} will hit 2 or more enemies.</li>
+              <li>
+                <Trans id="mage.arcane.arcaneOrb.guide.conditionMissile3">
+                  {arcaneOrb} will hit 2 or more enemies.
+                </Trans>
+              </li>
             </ul>
           </p>
         )}
         {this.isSpellslingerOrb && (
           <p>
-            Your last cast was {arcaneBarrage} or {arcaneOrb} will hit 4 or more enemies, and also
-            one of the below are true:
+            <Trans id="mage.arcane.arcaneOrb.guide.conditionOrbIntro">
+              Your last cast was {arcaneBarrage} or {arcaneOrb} will hit 4 or more enemies, and also
+              one of the below are true:
+            </Trans>
             <ul>
               <li>
-                You have {clearcasting} and 14 or less {arcaneSalvo} stacks.
+                <Trans id="mage.arcane.arcaneOrb.guide.conditionOrb1">
+                  You have {clearcasting} and 14 or less {arcaneSalvo} stacks.
+                </Trans>
               </li>
               <li>
-                You don't have {clearcasting}, you are capped (or almost capped) on {arcaneOrb}{' '}
-                charges, and have 18 or less {arcaneSalvo} stacks.
+                <Trans id="mage.arcane.arcaneOrb.guide.conditionOrb2">
+                  You don't have {clearcasting}, you are capped (or almost capped) on {arcaneOrb}{' '}
+                  charges, and have 18 or less {arcaneSalvo} stacks.
+                </Trans>
               </li>
             </ul>
           </p>
@@ -239,10 +263,15 @@ class ArcaneOrbGuide extends Analyzer {
         <GuideSection
           spell={SPELLS.ARCANE_ORB}
           explanation={explanation}
-          title="Arcane Orb (Overview)"
+          title={t({
+            id: 'mage.arcane.arcaneOrb.guide.overviewTitle',
+            message: 'Arcane Orb (Overview)',
+          })}
         >
           <div style={{ fontSize: '2em', color: '#999', textAlign: 'center', padding: '20px' }}>
-            No Arcane Orb casts recorded
+            <Trans id="mage.arcane.arcaneOrb.guide.noCasts">
+              No Arcane Orb casts recorded
+            </Trans>
           </div>
         </GuideSection>
       );
@@ -253,8 +282,15 @@ class ArcaneOrbGuide extends Analyzer {
     const overviewStats = [
       {
         value: averageTargetsHit.toFixed(1),
-        label: 'Avg Targets Hit',
-        tooltip: <>Average number of targets hit per Arcane Orb cast.</>,
+        label: t({
+          id: 'mage.arcane.arcaneOrb.guide.stat.avgTargetsHit',
+          message: 'Avg Targets Hit',
+        }),
+        tooltip: (
+          <Trans id="mage.arcane.arcaneOrb.guide.stat.avgTargetsHitTooltip">
+            Average number of targets hit per Arcane Orb cast.
+          </Trans>
+        ),
       },
     ];
 
@@ -267,29 +303,64 @@ class ArcaneOrbGuide extends Analyzer {
         stats: [
           {
             value: cast.targetsHit,
-            label: 'Targets Hit',
-            tooltip: <>The number of enemies hit by the Arcane Orb.</>,
+            label: t({
+              id: 'mage.arcane.arcaneOrb.guide.stat.targetsHit',
+              message: 'Targets Hit',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneOrb.guide.stat.targetsHitTooltip">
+                The number of enemies hit by the Arcane Orb.
+              </Trans>
+            ),
           },
           {
             value: cast.clearcasting ? 'Yes' : 'No',
-            label: 'Had Clearcasting',
-            tooltip: <>Whether the player had Clearcasting or not.</>,
+            label: t({
+              id: 'mage.arcane.arcaneOrb.guide.stat.hadClearcasting',
+              message: 'Had Clearcasting',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneOrb.guide.stat.hadClearcastingTooltip">
+                Whether the player had Clearcasting or not.
+              </Trans>
+            ),
           },
           {
             value: cast.chargesBefore,
-            label: 'Arcane Charges',
-            tooltip: <>The number of Arcane Charges the player had before Arcane Orb.</>,
+            label: t({
+              id: 'mage.arcane.arcaneOrb.guide.stat.arcaneCharges',
+              message: 'Arcane Charges',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneOrb.guide.stat.arcaneChargesTooltip">
+                The number of Arcane Charges the player had before Arcane Orb.
+              </Trans>
+            ),
           },
           {
             value: formatDurationMillisMinSec(cast.touchCD),
-            label: 'Touch CD',
-            tooltip: <>Cooldown remaining on Touch of the Magi.</>,
+            label: t({
+              id: 'mage.arcane.arcaneOrb.guide.stat.touchCd',
+              message: 'Touch CD',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneOrb.guide.stat.touchCdTooltip">
+                Cooldown remaining on Touch of the Magi.
+              </Trans>
+            ),
           },
           this.selectedCombatant.hasTalent(TALENTS.ARCANE_SALVO_TALENT)
             ? {
                 value: cast.salvoStacks,
-                label: 'Arcane Salvo Stacks',
-                tooltip: <>The number of Arcane Salvo stacks the player had.</>,
+                label: t({
+                  id: 'mage.arcane.arcaneOrb.guide.stat.arcaneSalvoStacks',
+                  message: 'Arcane Salvo Stacks',
+                }),
+                tooltip: (
+                  <Trans id="mage.arcane.arcaneOrb.guide.stat.arcaneSalvoStacksTooltip">
+                    The number of Arcane Salvo stacks the player had.
+                  </Trans>
+                ),
               }
             : undefined,
         ].filter(Boolean) as PerCastStat[],
@@ -298,9 +369,19 @@ class ArcaneOrbGuide extends Analyzer {
     });
 
     return (
-      <GuideSection spell={SPELLS.ARCANE_ORB} explanation={explanation} title="Arcane Orb">
+      <GuideSection
+        spell={SPELLS.ARCANE_ORB}
+        explanation={explanation}
+        title={t({ id: 'mage.arcane.arcaneOrb.guide.title', message: 'Arcane Orb' })}
+      >
         <CastOverview spell={SPELLS.ARCANE_ORB} stats={overviewStats} />
-        <CastDetail title="Arcane Orb Casts" casts={perCastData} />
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.arcaneOrb.guide.castDetailTitle',
+            message: 'Arcane Orb Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

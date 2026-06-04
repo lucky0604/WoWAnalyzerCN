@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -76,13 +77,19 @@ class Havoc extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            You cleaved {formatThousands(this.damage)} damage to targets afflicted by your Havoc.
+            {t({
+              id: 'warlock.destruction.havoc.cleavedDamage',
+              message: `You cleaved ${formatThousands(this.damage)} damage to targets afflicted by your Havoc.`,
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Note: This number is probably higher than it should be, as it also counts the damage you
-            did directly to the Havoc target (not just the cleaved damage).
+            {t({
+              id: 'warlock.destruction.havoc.note',
+              message:
+                'Note: This number is probably higher than it should be, as it also counts the damage you did directly to the Havoc target (not just the cleaved damage).',
+            })}
           </>
         }
       >
@@ -93,7 +100,7 @@ class Havoc extends Analyzer {
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />
               <UptimeIcon />
-              {formatPercentage(this.uptime, 0)}%<small> uptime</small>
+              {formatPercentage(this.uptime, 0)}%<small> {t({ id: 'warlock.destruction.havoc.uptime', message: 'uptime' })}</small>
             </>
           )}
         </TalentSpellText>

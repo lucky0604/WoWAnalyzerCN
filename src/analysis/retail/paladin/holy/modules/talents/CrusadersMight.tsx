@@ -1,3 +1,5 @@
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import { SpellIcon } from 'interface';
@@ -69,11 +71,11 @@ class CrusadersMight extends Analyzer {
 
       addInefficientCastReason(
         event,
-        <>
+        <Trans id="paladin.holy.talents.crusadersMight.inefficientCast">
           You cast <SpellLink spell={event.ability.guid} /> while{' '}
           <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> was available, losing cooldown reduction
           from <SpellLink spell={TALENTS.CRUSADERS_MIGHT_TALENT} />.
-        </>,
+        </Trans>,
       );
     }
   }
@@ -104,19 +106,21 @@ class CrusadersMight extends Analyzer {
           <>
             <ul>
               <li>
-                Wasted <b>{formatDuration(this.wastedReductionMs)}</b> of CDR
+                {t({ id: 'paladin.holy.talents.crusadersMight.wastedPrefix', message: 'Wasted' })} <b>{formatDuration(this.wastedReductionMs)}</b> {t({ id: 'paladin.holy.talents.crusadersMight.ofCDR', message: 'of CDR' })}
               </li>
               <li>
-                {Math.floor(this.castsLost)} additional casts lost from:{' '}
+                <Trans id="paladin.holy.talents.crusadersMight.castsLost">
+                  {Math.floor(this.castsLost)} additional casts lost from:{' '}
+                </Trans>
                 <ul>
                   <li>
                     <SpellLink spell={TALENTS.HOLY_SHOCK_TALENT} />: {this.wastedHolyShockCDRCount}{' '}
-                    casts with <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> available
+                    <Trans id="paladin.holy.talents.crusadersMight.castsWithJudgmentAvailable">casts with <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> available</Trans>
                   </li>
                   <li>
                     <SpellLink spell={SPELLS.CRUSADER_STRIKE} />:{' '}
-                    {this.wastedCrusaderStrikeCDRCount} casts with{' '}
-                    <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> available
+                    {this.wastedCrusaderStrikeCDRCount}{' '}
+                    <Trans id="paladin.holy.talents.crusadersMight.castsWithJudgmentAvailable">casts with <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> available</Trans>
                   </li>
                 </ul>
               </li>
@@ -131,7 +135,7 @@ class CrusadersMight extends Analyzer {
           </div>
           {Math.floor(this.castsLost)}{' '}
           <small>
-            additional <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> casts lost
+            <Trans id="paladin.holy.talents.crusadersMight.additionalCastsLost">additional <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> casts lost</Trans>
           </small>
         </TalentSpellText>
       </Statistic>

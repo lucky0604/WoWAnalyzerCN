@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -43,13 +44,20 @@ class AbsoluteCorruption extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatThousands(this.bonusDmg)} bonus damage
+            {formatThousands(this.bonusDmg)}{' '}
+            {t({
+              id: 'warlock.affliction.absoluteCorruption.bonusDamage',
+              message: 'bonus damage',
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Note: This only accounts for the passive 15% increased damage of Corruption. Actual
-            bonus damage should be higher due to saved GCDs.
+            {t({
+              id: 'warlock.affliction.absoluteCorruption.note',
+              message:
+                'Note: This only accounts for the passive 15% increased damage of Corruption. Actual bonus damage should be higher due to saved GCDs.',
+            })}
           </>
         }
       >

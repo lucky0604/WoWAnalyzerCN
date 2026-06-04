@@ -6,6 +6,8 @@ import Analyzer from 'parser/core/Analyzer';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import CastSummary, { type CastEvaluation } from 'interface/guide/components/CastSummary';
 import GuideSection from 'interface/guide/components/GuideSection';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import HeatingUp, { HeatingUpCrits } from '../core/HeatingUp';
 import Spell from 'common/SPELLS/Spell';
@@ -25,14 +27,25 @@ class HeatingUpGuide extends Analyzer {
 
     stats.push({
       value: `${formatPercentage(this.heatingUp.fireBlastUtilPercent, 1)}%`,
-      label: 'Fire Blast Utilization',
-      tooltip: <>Fire Blast Utilization Percent.</>,
+      label: t({ id: 'mage.fire.heatingUpGuide.fireBlastUtilization', message: 'Fire Blast Utilization' }),
+      tooltip: (
+        <Trans id="mage.fire.heatingUpGuide.fireBlastUtilizationTooltip">
+          Fire Blast Utilization Percent.
+        </Trans>
+      ),
       performance: this.heatingUp.fireBlastUtilPerformance,
     });
     stats.push({
       value: `${formatPercentage(this.heatingUp.convertedHeatingUpPercent, 1)}%`,
-      label: 'Converted Heating Up Buffs',
-      tooltip: <>Percent of Heating Up buffs that were converted into Hot Streak.</>,
+      label: t({
+        id: 'mage.fire.heatingUpGuide.convertedHeatingUpBuffs',
+        message: 'Converted Heating Up Buffs',
+      }),
+      tooltip: (
+        <Trans id="mage.fire.heatingUpGuide.convertedHeatingUpBuffsTooltip">
+          Percent of Heating Up buffs that were converted into Hot Streak.
+        </Trans>
+      ),
       performance: this.heatingUp.convertedBuffPerformance,
     });
 
@@ -57,7 +70,10 @@ class HeatingUpGuide extends Analyzer {
       return {
         timestamp: hu.cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: `Fire Blast cast without Heating Up or a crit buff`,
+        reason: t({
+          id: 'mage.fire.heatingUpGuide.fireBlastWithoutHeatingUp',
+          message: 'Fire Blast cast without Heating Up or a crit buff',
+        }),
       };
     }
 
@@ -65,7 +81,10 @@ class HeatingUpGuide extends Analyzer {
       return {
         timestamp: hu.cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: `Fire Blast cast while Hot Streak was active.`,
+        reason: t({
+          id: 'mage.fire.heatingUpGuide.fireBlastDuringHotStreak',
+          message: 'Fire Blast cast while Hot Streak was active.',
+        }),
       };
     }
 
@@ -74,7 +93,10 @@ class HeatingUpGuide extends Analyzer {
       return {
         timestamp: hu.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: 'Fire Blast cast while capped, or close to capped, on charges',
+        reason: t({
+          id: 'mage.fire.heatingUpGuide.fireBlastCapped',
+          message: 'Fire Blast cast while capped, or close to capped, on charges',
+        }),
       };
     }
 
@@ -91,7 +113,10 @@ class HeatingUpGuide extends Analyzer {
       return {
         timestamp: hu.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: 'Fire Blast cast with Heating Up.',
+        reason: t({
+          id: 'mage.fire.heatingUpGuide.fireBlastWithHeatingUp',
+          message: 'Fire Blast cast with Heating Up.',
+        }),
       };
     }
 
@@ -99,7 +124,10 @@ class HeatingUpGuide extends Analyzer {
     return {
       timestamp: hu.cast.timestamp,
       performance: QualitativePerformance.Fail,
-      reason: 'Unknown Performance Condition (Please report this).',
+      reason: t({
+        id: 'mage.fire.heatingUpGuide.unknownPerformance',
+        message: 'Unknown Performance Condition (Please report this).',
+      }),
     };
   }
 
@@ -112,7 +140,7 @@ class HeatingUpGuide extends Analyzer {
     const scorch = <SpellLink spell={TALENTS.SCORCH_TALENT} />;
 
     const explanation = (
-      <>
+      <Trans id="mage.fire.heatingUpGuide.explanation">
         Managing your <b>{heatingUp}</b> procs and your {fireBlast} charges are very important to{' '}
         ensure you are converting as many procs into {hotStreak} as possible throughout the fight.
         <ul>
@@ -124,7 +152,7 @@ class HeatingUpGuide extends Analyzer {
             etc.), or are capped/about to cap on charges, don't use {fireBlast} without {heatingUp}.
           </li>
         </ul>
-      </>
+      </Trans>
     );
 
     return (

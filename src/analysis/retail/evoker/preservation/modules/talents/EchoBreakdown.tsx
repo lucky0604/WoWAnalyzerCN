@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import Echo from './Echo';
 import TalentAggregateBars, { TalentAggregateBarSpec } from 'parser/ui/TalentAggregateStatistic';
@@ -153,7 +154,8 @@ class EchoBreakdown extends Analyzer {
   genericTooltipForSpell(isHardcast: boolean, spell: number, amount: number) {
     const linkTooltip = isHardcast ? (
       <>
-        hardcasted <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />
+        {t({ id: 'evoker.preservation.echoBreakdown.hardcasted', message: 'hardcasted' })}{' '}
+        <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />
       </>
     ) : (
       <>
@@ -162,7 +164,7 @@ class EchoBreakdown extends Analyzer {
     );
     return (
       <>
-        <SpellLink spell={spell} /> healing from {linkTooltip}: {formatNumber(amount)}
+        <SpellLink spell={spell} /> {t({ id: 'evoker.preservation.echoBreakdown.healingFrom', message: 'healing from' })} {linkTooltip}: {formatNumber(amount)}
       </>
     );
   }
@@ -170,7 +172,8 @@ class EchoBreakdown extends Analyzer {
   reversionTooltip(isHardcast: boolean) {
     const linkTooltip = isHardcast ? (
       <>
-        hardcasted <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />
+        {t({ id: 'evoker.preservation.echoBreakdown.hardcasted', message: 'hardcasted' })}{' '}
+        <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />
       </>
     ) : (
       <>
@@ -195,8 +198,8 @@ class EchoBreakdown extends Analyzer {
     ];
     return (
       <>
-        <SpellLink spell={TALENTS_EVOKER.REVERSION_TALENT} /> and{' '}
-        <SpellLink spell={TALENTS_EVOKER.GOLDEN_HOUR_TALENT} /> healing from {linkTooltip}:{' '}
+        <SpellLink spell={TALENTS_EVOKER.REVERSION_TALENT} /> {t({ id: 'evoker.preservation.echoBreakdown.and', message: 'and' })}{' '}
+        <SpellLink spell={TALENTS_EVOKER.GOLDEN_HOUR_TALENT} /> {t({ id: 'evoker.preservation.echoBreakdown.healingFrom', message: 'healing from' })} {linkTooltip}:{' '}
         {formatNumber(
           this.echo.getEchoHealingForSpell(isHardcast, SPELLS.REVERSION_ECHO.id) +
             this.echo.getEchoHealingForSpell(isHardcast, SPELLS.GOLDEN_HOUR_HEAL.id),
@@ -210,7 +213,8 @@ class EchoBreakdown extends Analyzer {
   verdantEmbraceTooltip(isHardcast: boolean) {
     const linkTooltip = isHardcast ? (
       <>
-        hardcasted <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />
+        {t({ id: 'evoker.preservation.echoBreakdown.hardcasted', message: 'hardcasted' })}{' '}
+        <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />
       </>
     ) : (
       <>
@@ -235,8 +239,8 @@ class EchoBreakdown extends Analyzer {
     ];
     return (
       <>
-        <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> and{' '}
-        <SpellLink spell={TALENTS_EVOKER.LIFEBIND_TALENT} /> healing from {linkTooltip}:{' '}
+        <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> {t({ id: 'evoker.preservation.echoBreakdown.and', message: 'and' })}{' '}
+        <SpellLink spell={TALENTS_EVOKER.LIFEBIND_TALENT} /> {t({ id: 'evoker.preservation.echoBreakdown.healingFrom', message: 'healing from' })} {linkTooltip}:{' '}
         {formatNumber(
           this.echo.getEchoHealingForSpell(isHardcast, SPELLS.VERDANT_EMBRACE_HEAL.id) +
             this.echo.getEchoHealingForSpell(isHardcast, SPELLS.LIFEBIND_HEAL.id),
@@ -256,7 +260,7 @@ class EchoBreakdown extends Analyzer {
       <TalentAggregateStatisticContainer
         title={
           <>
-            <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> <small>breakdown by spell</small>
+            <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> <small>{t({ id: 'evoker.preservation.echoBreakdown.breakdownBySpell', message: 'breakdown by spell' })}</small>
           </>
         }
         position={STATISTIC_ORDER.CORE(1)}

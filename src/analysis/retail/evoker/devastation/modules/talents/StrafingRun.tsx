@@ -13,6 +13,7 @@ import { formatNumber } from 'common/format';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import SpellLink from 'interface/SpellLink';
 import { getPrimaryDeepBreathEvent, isFromStrafingRunConsume } from '../normalizers/StrafingRun';
+import { t } from '@lingui/core/macro';
 
 /** Deep Breath deals 20% increased damage and can be cast again within 18 sec of being used. */
 class StrafingRun extends Analyzer {
@@ -81,8 +82,17 @@ class StrafingRun extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <li>Damage from amp: {formatNumber(this.damageFromAmp)}</li>
-            <li>Damage from extra casts: {formatNumber(this.damageFromExtraCasts)}</li>
+            <li>
+              {t({ id: 'evoker.devastation.strafingRun.damageFromAmp', message: 'Damage from amp:' })}{' '}
+              {formatNumber(this.damageFromAmp)}
+            </li>
+            <li>
+              {t({
+                id: 'evoker.devastation.strafingRun.damageFromExtraCasts',
+                message: 'Damage from extra casts:',
+              })}{' '}
+              {formatNumber(this.damageFromExtraCasts)}
+            </li>
           </>
         }
       >
@@ -91,12 +101,19 @@ class StrafingRun extends Analyzer {
             <SpellLink spell={TALENTS.STRAFING_RUN_TALENT} />
           </label>
 
-          <strong>Damage from amp:</strong>
+          <strong>
+            {t({ id: 'evoker.devastation.strafingRun.damageFromAmp', message: 'Damage from amp:' })}
+          </strong>
           <div className="value">
             <ItemDamageDone amount={this.damageFromAmp} />
           </div>
 
-          <strong>Damage from extra casts:</strong>
+          <strong>
+            {t({
+              id: 'evoker.devastation.strafingRun.damageFromExtraCasts',
+              message: 'Damage from extra casts:',
+            })}
+          </strong>
           <div className="value">
             <ItemDamageDone amount={this.damageFromExtraCasts} />
           </div>

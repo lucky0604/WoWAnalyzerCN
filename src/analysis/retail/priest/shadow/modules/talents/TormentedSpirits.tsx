@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -65,7 +66,18 @@ class TormentedSpirits extends Analyzer {
     return (
       <BoringSpellValueText spell={TALENTS.TORMENTED_SPIRITS_TALENT}>
         <div>
-          <>{this.tormentedSpirits}</> <small>extra spirits out of {this.castSA} total</small>
+          <>{this.tormentedSpirits}</>{' '}
+          <small>
+            {t({
+              id: 'priest.shadow.tormentedSpirits.extraSpirits',
+              message: 'extra spirits out of',
+            })}{' '}
+            {this.castSA}{' '}
+            {t({
+              id: 'priest.shadow.tormentedSpirits.total',
+              message: 'total',
+            })}
+          </small>
         </div>
       </BoringSpellValueText>
     );

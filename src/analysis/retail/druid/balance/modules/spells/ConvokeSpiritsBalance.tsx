@@ -21,7 +21,7 @@ class ConvokeSpiritsBalance extends ConvokeSpirits {
         tooltip={
           <>
             <p>
-              <Trans id="balance.convoke.damage_caveat">
+              <Trans id="druid.balance.convoke.damage_caveat">
                 <strong>
                   Damage amount listed considers only the direct damage and non-refreshable DoT damage
                   done by convoked abilities!{' '}

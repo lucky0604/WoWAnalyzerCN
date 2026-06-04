@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS/rogue';
@@ -8,8 +9,6 @@ import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
 import { createSpellUse } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { SpellUse } from 'parser/core/SpellUsage/core';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export default class Eviscerate extends Analyzer {
   private cooldownUses: SpellUse[] = [];
@@ -22,13 +21,12 @@ export default class Eviscerate extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="rogue.subtlety.eviscerate.explanation">
-          <strong>
-            <SpellLink spell={SPELLS.EVISCERATE} />
-          </strong>{' '}
-          is your primary single-target finisher. Always aim to cast it at{' '}
-          <strong>5+ Combo Points</strong> to maximize damage efficiency.
-        </Trans>
+        <strong>
+          <SpellLink spell={SPELLS.EVISCERATE} />
+        </strong>{' '}
+        {t({ id: 'rogue.subtlety.eviscerate.explanation', message: 'is your primary single-target finisher. Always aim to cast it at' })}{' '}
+        <strong>5+ Combo Points</strong>{' '}
+        {t({ id: 'rogue.subtlety.eviscerate.explanationSuffix', message: 'to maximize damage efficiency.' })}
       </p>
     );
 
@@ -42,9 +40,7 @@ export default class Eviscerate extends Analyzer {
         hideGoodCasts
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={
-          <> - {t({ id: 'rogue.subtlety.eviscerate.redBadCast', message: 'Red is a bad cast.' })}</>
-        }
+        castBreakdownSmallText={<> - {t({ id: 'rogue.subtlety.eviscerate.redIsBadCast', message: 'Red is a bad cast.' })}</>}
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -57,10 +53,7 @@ export default class Eviscerate extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: t({
-            id: 'rogue.subtlety.eviscerate.allCorrect',
-            message: 'All of your casts of this spell were good!',
-          }),
+          noCastsOverride: t({ id: 'rogue.subtlety.eviscerate.allGoodCasts', message: 'All of your casts of this spell were good!' }),
         }}
       />
     );

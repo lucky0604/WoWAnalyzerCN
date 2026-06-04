@@ -16,6 +16,7 @@ import AtonementApplicationSource from '../features/AtonementApplicationSource';
 import Statistic from 'parser/ui/Statistic';
 import { TALENTS_PRIEST } from 'common/TALENTS';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
 
 const debug = false;
 
@@ -219,18 +220,10 @@ class Atonement extends Analyzer {
     return (
       <Statistic
         size="flexible"
-        tooltip={
-          <>
-            The amount of Atonement instances that were refreshed earlier than within 3 seconds of
-            the buff expiring. You applied Atonement {totalAtones} times in total,
-            {totalAtonementRefreshes} ({formatPercentage(totalAtonementRefreshes / totalAtones, 2)}
-            %) of them were refreshes of existing Atonement instances, and {improperLength} (
-            {formatPercentage(improperLength / totalAtones, 2)}%) of them were considered early.
-          </>
-        }
+        tooltip={(() => { const refreshPct = formatPercentage(totalAtonementRefreshes / totalAtones, 2); const earlyPct = formatPercentage(improperLength / totalAtones, 2); return t({ id: 'priest.discipline.atonement.tooltip', message: `The amount of Atonement instances that were refreshed earlier than within 3 seconds of the buff expiring. You applied Atonement ${{totalAtones}} times in total, ${{totalAtonementRefreshes}} (${{refreshPct}}) of them were refreshes of existing Atonement instances, and ${{improperLength}} (${{earlyPct}}) of them were considered early.` }); })()}
       >
         <TalentSpellText talent={TALENTS_PRIEST.ATONEMENT_TALENT}>
-          {improperLength} <small>early refreshes</small>
+          {improperLength} <small>{t({ id: 'priest.discipline.atonement.earlyRefreshes', message: 'early refreshes' })}</small>
         </TalentSpellText>
       </Statistic>
     );

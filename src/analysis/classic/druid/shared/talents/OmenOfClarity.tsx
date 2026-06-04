@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/classic/druid';
 import { SpellIcon, SpellLink } from 'interface';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -54,21 +55,24 @@ class OmenOfClarity extends Analyzer {
     return this._clearcasts.length;
   }
 
-  /** Guide subsection describing the proper usage of Rejuvenation */
+  /** Guide subsection describing the proper usage of Clearcasting procs */
   get guideSubsection(): JSX.Element {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.CLEARCASTING} />
-          </b>{' '}
-          procs reduce the cost of your next spell by 100%. It should ideally be used on high cost
-          abilities.
+          {t({
+            id: 'classic.druid.restoration.omenOfClarity.explanation1',
+            message:
+              'Clearcasting procs reduce the cost of your next spell by 100%. It should ideally be used on high cost abilities.',
+          })}
         </p>
         {this._isResto && (
           <p>
-            The best option for Restoration Druids being a <SpellLink spell={SPELLS.LIFEBLOOM} />{' '}
-            which will cost nothing but return 50% of the cost of the spell, gaining you mana.
+            {t({
+              id: 'classic.druid.restoration.omenOfClarity.explanation2',
+              message:
+                'The best option for Restoration Druids is a Lifebloom which will cost nothing but return 50% of the cost of the spell, gaining you mana.',
+            })}
           </p>
         )}
       </>
@@ -76,7 +80,12 @@ class OmenOfClarity extends Analyzer {
 
     const data = (
       <div>
-        <strong>Per-Proc Breakdown</strong>
+        <strong>
+          {t({
+            id: 'classic.druid.restoration.omenOfClarity.perProcBreakdown',
+            message: 'Per-Proc Breakdown',
+          })}
+        </strong>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {this._clearcasts.map((cast, ix) =>
@@ -92,8 +101,13 @@ class OmenOfClarity extends Analyzer {
     return (
       <div key={`${event.timestamp}`}>
         @ {this.owner.formatTimestamp(event.timestamp)} &mdash;{' '}
-        <SpellLink spell={abilityToSpell(event.ability)} /> ({(delay / 1000).toFixed(1)}sec
-        hesitation)
+        <SpellLink spell={abilityToSpell(event.ability)} /> (
+        {(delay / 1000).toFixed(1)}
+        {t({
+          id: 'classic.druid.restoration.omenOfClarity.secHesitation',
+          message: 'sec hesitation',
+        })}
+        )
       </div>
     );
   }
@@ -107,12 +121,22 @@ class OmenOfClarity extends Analyzer {
         <BoringValue
           label={
             <>
-              <SpellIcon spell={SPELLS.CLEARCASTING} /> Omen of Clarity
+              <SpellIcon spell={SPELLS.CLEARCASTING} />{' '}
+              {t({
+                id: 'classic.druid.restoration.omenOfClarity.statisticLabel',
+                message: 'Omen of Clarity',
+              })}
             </>
           }
         >
           <>
-            {this.numberOfClearcasts} <small>procs</small>
+            {this.numberOfClearcasts}{' '}
+            <small>
+              {t({
+                id: 'classic.druid.restoration.omenOfClarity.procs',
+                message: 'procs',
+              })}
+            </small>
           </>
         </BoringValue>
       </Statistic>

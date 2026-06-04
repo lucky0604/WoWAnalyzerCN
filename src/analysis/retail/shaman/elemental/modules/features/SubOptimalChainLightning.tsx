@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, DamageEvent } from 'parser/core/Events';
@@ -49,7 +50,10 @@ class SubOptimalChainLightning extends Analyzer {
     this.badCasts += 1;
     addInefficientCastReason(
       this.lastCast,
-      `Chain Lightning hit less than ${TARGETS_FOR_GOOD_CAST} targets.`,
+      t({
+        id: 'shaman.elemental.cl.bad_casts',
+        message: `Chain Lightning hit less than ${TARGETS_FOR_GOOD_CAST} targets.`,
+      }),
     );
   }
 

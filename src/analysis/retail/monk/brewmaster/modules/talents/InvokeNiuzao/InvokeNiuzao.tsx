@@ -21,6 +21,8 @@ import { formatDurationMillisMinSec } from 'common/format';
 import Spell from 'common/SPELLS/Spell';
 import styles from './InvokeNiuzao.module.scss';
 import Abilities from 'parser/core/modules/Abilities';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * @internal
@@ -184,9 +186,9 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       overallPerf = wotwPerf; // WotW is more important than Stomp, overwrite the overall value.
       items.push({
         label: (
-          <>
+          <Trans id="monk.brewmaster.niuzao.wotw_triggers">
             <SpellLink spell={SPELLS.WISDOM_OF_THE_WALL_TALENT}>WotW</SpellLink> triggers
-          </>
+          </Trans>
         ),
         details: (
           <>
@@ -197,19 +199,23 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       });
       items.push({
         label: (
-          <>
+          <Trans id="monk.brewmaster.niuzao.available_immediately">
             <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT} /> available immediately
-          </>
+          </Trans>
         ),
         result:
           initialBoFCooldown > 1000 ? (
             <TooltipElement
-              content={
-                <>
-                  On CD (<SpellLink spell={SPELLS.KEG_SMASH_TALENT}>KS</SpellLink>{' '}
-                  {initialKSCharges >= 1 ? 'available' : 'unavailable'})
-                </>
-              }
+              content={(() => {
+                  const status = initialKSCharges >= 1
+                    ? t({ id: 'monk.brewmaster.niuzao.status.available', message: 'available' })
+                    : t({ id: 'monk.brewmaster.niuzao.status.unavailable', message: 'unavailable' });
+                  return (
+                    <Trans id="monk.brewmaster.niuzao.on_cd">
+                      On CD (<SpellLink spell={SPELLS.KEG_SMASH_TALENT}>KS</SpellLink> {status})
+                    </Trans>
+                  );
+                })()}
             >
               <PerformanceMark
                 perf={
@@ -223,10 +229,10 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       });
       items.push({
         label: (
-          <>
+          <Trans id="monk.brewmaster.niuzao.bof_resets">
             Deterministic <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT}>BoF</SpellLink> resets
             available
-          </>
+          </Trans>
         ),
         result: (
           <PerformanceMark
@@ -275,9 +281,9 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       const initialBoKCooldown = cast.cooldowns.get(SPELLS.BLACKOUT_KICK.id) ?? 0;
       items.push({
         label: (
-          <>
+          <Trans id="monk.brewmaster.niuzao.available_immediately">
             <SpellLink spell={SPELLS.BLACKOUT_KICK} /> available immediately
-          </>
+          </Trans>
         ),
         result: (
           <PerformanceMark
@@ -287,9 +293,16 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
           />
         ),
         details:
-          initialBoKCooldown > 1000 ? (
-            <>{formatDurationMillisMinSec(initialBoKCooldown, 1)} remaining on cooldown</>
-          ) : null,
+          initialBoKCooldown > 1000
+            ? (() => {
+                const remaining = formatDurationMillisMinSec(initialBoKCooldown, 1);
+                return (
+                  <Trans id="monk.brewmaster.niuzao.remaining_cooldown">
+                    {remaining} remaining on cooldown
+                  </Trans>
+                );
+              })()
+            : null,
       });
 
       const stompPerf = evaluateQualitativePerformanceByThreshold({
@@ -304,9 +317,9 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       overallPerf = stompPerf;
       items.push({
         label: (
-          <>
-            <SpellLink spell={SPELLS_COMMON.NIUZAO_STOMP_DAMAGE} /> triggers{' '}
-          </>
+          <Trans id="monk.brewmaster.niuzao.stomp_triggers">
+            <SpellLink spell={SPELLS_COMMON.NIUZAO_STOMP_DAMAGE} /> triggers
+          </Trans>
         ),
         details: (
           <>

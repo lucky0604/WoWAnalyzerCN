@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { CastEvent, DamageEvent } from 'parser/core/Events';
@@ -46,14 +47,23 @@ class DistortedReality extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="Amount of extra Insanity used due to the increased cost"
+        tooltip={t({
+          id: 'priest.shadow.distortedReality.tooltip',
+          message: 'Amount of extra Insanity used due to the increased cost',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.DISTORTED_REALITY_TALENT}>
           <div>
             <ItemDamageDone amount={this.damage} />
           </div>
           <div>
-            <InsanityIcon /> {formatNumber(this.insanitySpent)} <small> Extra Insanity Cost</small>
+            <InsanityIcon /> {formatNumber(this.insanitySpent)}{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.distortedReality.extraInsanityCost',
+                message: 'Extra Insanity Cost',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -104,23 +105,43 @@ class SacrificedSouls extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatThousands(this.totalBonusDamage)} bonus damage
+            {(() => {
+              const damage = formatThousands(this.totalBonusDamage);
+              return t({
+                id: 'warlock.demonology.sacrificedSouls.bonusDamage',
+                message: `${{ damage }} bonus damage`,
+              });
+            })()}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Bonus Shadow Bolt damage: {formatThousands(this._shadowBoltDamage)} (
+            {(() => {
+              const damage = formatThousands(this._shadowBoltDamage);
+              const percent = this.owner.formatItemDamageDone(this._shadowBoltDamage);
+              return t({
+                id: 'warlock.demonology.sacrificedSouls.bonusShadowBolt',
+                message: `Bonus Shadow Bolt damage: ${{ damage }} (${{ percent }})`,
+              });
+            })()}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            {this.owner.formatItemDamageDone(this._shadowBoltDamage)})<br />
-            Bonus Demonbolt damage: {formatThousands(this._demonboltDamage)} (
-            {this.owner.formatItemDamageDone(this._demonboltDamage)})
+            <br />
+            {(() => {
+              const damage = formatThousands(this._demonboltDamage);
+              const percent = this.owner.formatItemDamageDone(this._demonboltDamage);
+              return t({
+                id: 'warlock.demonology.sacrificedSouls.bonusDemonbolt',
+                message: `Bonus Demonbolt damage: ${{ damage }} (${{ percent }})`,
+              });
+            })()}
             {hasPS && (
               <>
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-                <br />* Since you have Power Siphon talent, it's highly likely that it messes up
-                getting current pets at certain time because sometimes the number of Imps we
-                sacrifice in code doesn't agree with what happens in logs. Therefore, this value is
-                most likely a little wrong.
+                <br />
+                {t({
+                  id: 'warlock.demonology.sacrificedSouls.powerSiphonNote',
+                  message: `* Since you have Power Siphon talent, it's highly likely that it messes up getting current pets at certain time because sometimes the number of Imps we sacrifice in code doesn't agree with what happens in logs. Therefore, this value is most likely a little wrong.`,
+                })}
               </>
             )}
           </>

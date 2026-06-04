@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import {
   DAMAGE_HOLY_POWER_SPENDERS,
   HEALING_HOLY_POWER_SPENDERS,
@@ -88,9 +89,9 @@ class GleamingRays extends Analyzer {
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
           <>
-            <li>Effective Healing: {formatNumber(this.healingDone)}</li>
-            <li>Overhealing: {formatNumber(this.overhealing)}</li>
-            <li>Effective Damage: {formatNumber(this.damageDone)}</li>
+            <li>{t({ id: 'paladin.holy.herald.gleamingRays.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(this.healingDone)}</li>
+            <li>{t({ id: 'paladin.holy.herald.gleamingRays.overhealing', message: 'Overhealing' })}: {formatNumber(this.overhealing)}</li>
+            <li>{t({ id: 'paladin.holy.herald.gleamingRays.effectiveDamage', message: 'Effective Damage' })}: {formatNumber(this.damageDone)}</li>
           </>
         }
       >

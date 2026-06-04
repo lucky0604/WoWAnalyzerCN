@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS';
@@ -43,10 +44,10 @@ export default class Splitstream extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
-          <>
+          <Trans id="shaman.restoration.splitstream.tooltip">
             <strong>{formatNumber(this.healingDoneFromTalent)}</strong> bonus healing (
             {formatNumber(this.overhealingDoneFromTalent)} overhealing)
-          </>
+          </Trans>
         }
       >
         <TalentSpellText talent={TALENTS.SPLITSTREAM_TALENT}>

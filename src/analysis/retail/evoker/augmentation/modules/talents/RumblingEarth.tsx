@@ -9,6 +9,7 @@ import { formatNumber } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import { UPHEAVAL_RUMBLING_EARTH_LINK } from '../normalizers/CastLinkNormalizer';
+import { t } from '@lingui/core/macro';
 
 /**
  * Upheaval causes an aftershock at its location, dealing 50% of its damage 2 additional time.
@@ -40,7 +41,7 @@ class RumblingEarth extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <li>Damage: {formatNumber(this.totalRumblingEarthDamage)}</li>
+            <li>{t({ id: 'evoker.augmentation.rumblingEarth.damage', message: 'Damage' })}: {formatNumber(this.totalRumblingEarthDamage)}</li>
           </>
         }
       >

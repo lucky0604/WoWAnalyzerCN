@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import GuideSection from 'interface/guide/components/GuideSection';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
@@ -158,7 +158,9 @@ class DANCE_OF_CHI_JI extends Analyzer {
       addEnhancedCastReason(
         event,
         <>
-          This cast was empowered by <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+          <Trans id="monk.windwalker.docj.empowered_cast">
+            This cast was empowered by <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+          </Trans>
         </>,
       );
     } else {

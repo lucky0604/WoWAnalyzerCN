@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -56,10 +57,10 @@ class DivineGuidance extends Analyzer {
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
           <>
-            <li>Effective Healing: {formatNumber(this.healingDone)}</li>
-            <li>Overhealing: {formatNumber(this.overhealing)}</li>
-            <li>Damage Done: {formatNumber(this.damageDone)}</li>
-            <li>Wasted Stacks: {formatNumber(this.wastedStacks)}</li>
+            <li>{t({ id: 'paladin.holy.lightsmith.divineGuidance.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(this.healingDone)}</li>
+            <li>{t({ id: 'paladin.holy.lightsmith.divineGuidance.overhealing', message: 'Overhealing' })}: {formatNumber(this.overhealing)}</li>
+            <li>{t({ id: 'paladin.holy.lightsmith.divineGuidance.damageDone', message: 'Damage Done' })}: {formatNumber(this.damageDone)}</li>
+            <li>{t({ id: 'paladin.holy.lightsmith.divineGuidance.wastedStacks', message: 'Wasted Stacks' })}: {formatNumber(this.wastedStacks)}</li>
           </>
         }
       >

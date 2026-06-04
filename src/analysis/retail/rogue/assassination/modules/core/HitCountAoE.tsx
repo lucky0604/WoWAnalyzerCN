@@ -1,4 +1,6 @@
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import CoreHitCountAoE, { SpellAoeTracker } from 'parser/core/HitCountAoE';
 import Events, { CastEvent } from 'parser/core/Events';
 import { ReactNode, type JSX } from 'react';
@@ -32,7 +34,14 @@ export default class HitCountAoE extends CoreHitCountAoE {
 
   get fanOfKnivesChart() {
     if (this.fanOfKnivesTracker.casts === 0) {
-      return <strong>You never used this spell!</strong>;
+      return (
+        <strong>
+          {t({
+            id: 'rogue.assassination.hitcountaoe.neverUsed',
+            message: 'You never used this spell!',
+          })}
+        </strong>
+      );
     }
 
     const items = [];
@@ -42,12 +51,18 @@ export default class HitCountAoE extends CoreHitCountAoE {
       items.push(
         {
           color: PerfectColor,
-          label: 'Hit 3+ Targets',
+          label: t({
+            id: 'rogue.assassination.hitcountaoe.hit3PlusTargets',
+            message: 'Hit 3+ Targets',
+          }),
           value: this.fanOfKnivesTracker.multiHitCasts - this.fanOfKnivesTracker.twoHitCasts,
         },
         {
           color: BadColor,
-          label: 'Hit 1-2 Targets',
+          label: t({
+            id: 'rogue.assassination.hitcountaoe.hit1To2Targets',
+            message: 'Hit 1-2 Targets',
+          }),
           value: this.fanOfKnivesTracker.oneHitCasts + this.fanOfKnivesTracker.twoHitCasts,
         },
       );
@@ -55,12 +70,18 @@ export default class HitCountAoE extends CoreHitCountAoE {
       items.push(
         {
           color: PerfectColor,
-          label: 'Hit 2+ Targets',
+          label: t({
+            id: 'rogue.assassination.hitcountaoe.hit2PlusTargets',
+            message: 'Hit 2+ Targets',
+          }),
           value: this.fanOfKnivesTracker.multiHitCasts,
         },
         {
           color: BadColor,
-          label: 'Hit 1 Targets',
+          label: t({
+            id: 'rogue.assassination.hitcountaoe.hit1Target',
+            message: 'Hit 1 Targets',
+          }),
           value: this.fanOfKnivesTracker.oneHitCasts + this.fanOfKnivesTracker.twoHitCasts,
         },
       );
@@ -68,7 +89,10 @@ export default class HitCountAoE extends CoreHitCountAoE {
 
     items.push({
       color: VeryBadColor,
-      label: 'Hit 0 Targets',
+      label: t({
+        id: 'rogue.assassination.hitcountaoe.hit0Targets',
+        message: 'Hit 0 Targets',
+      }),
       value: this.fanOfKnivesTracker.zeroHitCasts,
     });
 
@@ -79,19 +103,23 @@ export default class HitCountAoE extends CoreHitCountAoE {
     return (
       <SubSection>
         <p>
-          <strong>AoE Abilities</strong> should only be used when you can hit more than one target.
+          <Trans id="rogue.assassination.hitcountaoe.guideDescription">
+            <strong>AoE Abilities</strong> should only be used when you can hit more than one target.
+          </Trans>
         </p>
         <SideBySidePanels>
           <RoundedPanel>
             <div>
-              <strong>
-                <SpellLink spell={SPELLS.FAN_OF_KNIVES} />{' '}
-              </strong>{' '}
-              should only be used on two or more targets.
-              <p>
-                If you're talented into <SpellLink spell={TALENTS.BLINDSIDE_TALENT} />, you should
-                be casting on three or more targets instead.
-              </p>
+              <Trans id="rogue.assassination.hitcountaoe.fanOfKnivesUsage">
+                <strong>
+                  <SpellLink spell={SPELLS.FAN_OF_KNIVES} />{' '}
+                </strong>{' '}
+                should only be used on two or more targets.
+                <p>
+                  If you're talented into <SpellLink spell={TALENTS.BLINDSIDE_TALENT} />, you should
+                  be casting on three or more targets instead.
+                </p>
+              </Trans>
             </div>
             {this.fanOfKnivesChart}
           </RoundedPanel>
@@ -108,27 +136,39 @@ export default class HitCountAoE extends CoreHitCountAoE {
   protected statisticTrackerTooltip(tracker: SpellAoeTracker): ReactNode {
     return (
       <>
-        You cast {tracker.spell.name} <strong>{tracker.casts}</strong> times.
+        <Trans id="rogue.assassination.hitcountaoe.tooltip">
+          You cast {tracker.spell.name} <strong>{tracker.casts}</strong> times.
+        </Trans>
         <ul>
           <li>
-            <strong>{tracker.zeroHitCasts}</strong> hit nothing
+            <Trans id="rogue.assassination.hitcountaoe.hitNothing">
+              <strong>{tracker.zeroHitCasts}</strong> hit nothing
+            </Trans>
           </li>
           <li>
-            <strong>{tracker.oneHitCasts}</strong> hit one target
+            <Trans id="rogue.assassination.hitcountaoe.hitOneTarget">
+              <strong>{tracker.oneHitCasts}</strong> hit one target
+            </Trans>
           </li>
           {isFanOfKnivesAoETracker(tracker) ? (
             <>
               <li>
-                <strong>{tracker.twoHitCasts}</strong> hit two targets
+                <Trans id="rogue.assassination.hitcountaoe.hitTwoTargets">
+                  <strong>{tracker.twoHitCasts}</strong> hit two targets
+                </Trans>
               </li>
               <li>
-                <strong>{tracker.multiHitCasts - tracker.twoHitCasts}</strong> hit three-plus
-                targets
+                <Trans id="rogue.assassination.hitcountaoe.hitThreePlusTargets">
+                  <strong>{tracker.multiHitCasts - tracker.twoHitCasts}</strong> hit three-plus
+                  targets
+                </Trans>
               </li>
             </>
           ) : (
             <li>
-              <strong>{tracker.multiHitCasts}</strong> hit multiple targets
+              <Trans id="rogue.assassination.hitcountaoe.hitMultipleTargets">
+                <strong>{tracker.multiHitCasts}</strong> hit multiple targets
+              </Trans>
             </li>
           )}
         </ul>

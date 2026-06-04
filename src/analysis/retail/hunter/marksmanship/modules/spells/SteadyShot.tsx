@@ -7,6 +7,7 @@ import SpellUsable from 'parser/shared/modules/SpellUsable';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 class SteadyShot extends Analyzer {
   static dependencies = {
@@ -46,7 +47,12 @@ class SteadyShot extends Analyzer {
         <BoringSpellValueText spell={SPELLS.STEADY_SHOT}>
           <>
             {this.effectiveFocusGain}/{this.focusWasted + this.effectiveFocusGain}{' '}
-            <small>possible focus gained</small>
+            <small>
+              {t({
+                id: 'hunter.marksmanship.steadyShot.possibleFocusGained',
+                message: 'possible focus gained',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

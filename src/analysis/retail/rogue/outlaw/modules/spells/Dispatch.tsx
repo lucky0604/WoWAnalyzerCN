@@ -6,6 +6,7 @@ import DamageTracker from 'parser/shared/modules/AbilityTracker';
 
 import BetweenTheEyesDamageTracker from './BetweenTheEyesDamageTracker';
 import talents from 'common/TALENTS/rogue';
+import { Trans } from '@lingui/react/macro';
 
 class Dispatch extends Analyzer {
   get thresholds(): NumberThreshold {
@@ -25,11 +26,11 @@ class Dispatch extends Analyzer {
 
   get delayedCastSuggestion() {
     return (
-      <>
+      <Trans id="rogue.outlaw.dispatch.delayedCastSuggestion">
         You should delay Dispatch whenever <SpellLink spell={talents.GRAVEDIGGER_3_OUTLAW_TALENT} />{' '}
         or <SpellLink spell={talents.ACE_UP_YOUR_SLEEVE_TALENT} /> procs and prioritize{' '}
         <SpellLink spell={SPELLS.BETWEEN_THE_EYES} /> as your damaging spender.
-      </>
+      </Trans>
     );
   }
 

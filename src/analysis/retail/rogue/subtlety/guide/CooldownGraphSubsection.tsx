@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { isTalent, Talent } from 'common/TALENTS/types';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
@@ -6,7 +7,6 @@ import { GapHighlight } from 'parser/ui/CooldownBar';
 import SPELLS from 'common/SPELLS/rogue';
 import TALENTS from 'common/TALENTS/rogue';
 import Spell from 'common/SPELLS/Spell';
-import { Trans } from '@lingui/react/macro';
 
 export interface Cooldown {
   spell: Spell;
@@ -44,23 +44,25 @@ const CooldownGraphSubsection = () => {
   return (
     <SubSection>
       <div>
-        <Trans id="rogue.subtlety.cooldownGraph.description">
-          <strong>Cooldown Graph</strong> - This graph visualizes the usage of your cooldowns and
-          highlights areas where optimizations can be made.
-          <ul>
-            <li>
-              <strong>Grey segments</strong> indicate availability.
-            </li>
-            <li>
-              <strong>Yellow segments</strong> indicate cooldown time.
-            </li>
-            <li>
-              <strong>Red segments</strong> highlight areas where an extra cooldown could have fit.
-            </li>
-          </ul>
-          For Subtlety, <strong>Shadow Dance</strong> usage is crucial, as they define your burst
-          windows.
-        </Trans>
+        <strong>{t({ id: 'rogue.subtlety.cooldownGraph.cooldownGraph', message: 'Cooldown Graph' })}</strong>{' '}
+        - {t({ id: 'rogue.subtlety.cooldownGraph.description', message: 'This graph visualizes the usage of your cooldowns and highlights areas where optimizations can be made.' })}
+        <ul>
+          <li>
+            <strong>{t({ id: 'rogue.subtlety.cooldownGraph.greySegments', message: 'Grey segments' })}</strong>{' '}
+            {t({ id: 'rogue.subtlety.cooldownGraph.greySegmentsDescription', message: 'indicate availability.' })}
+          </li>
+          <li>
+            <strong>{t({ id: 'rogue.subtlety.cooldownGraph.yellowSegments', message: 'Yellow segments' })}</strong>{' '}
+            {t({ id: 'rogue.subtlety.cooldownGraph.yellowSegmentsDescription', message: 'indicate cooldown time.' })}
+          </li>
+          <li>
+            <strong>{t({ id: 'rogue.subtlety.cooldownGraph.redSegments', message: 'Red segments' })}</strong>{' '}
+            {t({ id: 'rogue.subtlety.cooldownGraph.redSegmentsDescription', message: 'highlight areas where an extra cooldown could have fit.' })}
+          </li>
+        </ul>
+        {t({ id: 'rogue.subtlety.cooldownGraph.shadowDanceNote', message: 'For Subtlety,' })}{' '}
+        <strong>Shadow Dance</strong>{' '}
+        {t({ id: 'rogue.subtlety.cooldownGraph.shadowDanceUsageCrucial', message: 'usage is crucial, as they define your burst windows.' })}
       </div>
       {cooldowns.map((cooldownCheck) => (
         <CastEfficiencyBar

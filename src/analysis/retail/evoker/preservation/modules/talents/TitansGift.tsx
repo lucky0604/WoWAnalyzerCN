@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import Statistic from 'parser/ui/Statistic';
@@ -148,7 +149,7 @@ class TitansGift extends Analyzer {
               <TooltipElement
                 content={
                   <>
-                    {this.buffedBlossoms} casts buffed ({formatPercentage(percentBuffedBlossoms)}%)
+                    {this.buffedBlossoms} {t({ id: 'evoker.preservation.titansGift.castsBuffed', message: 'casts buffed' })} ({formatPercentage(percentBuffedBlossoms)}%)
                   </>
                 }
               >

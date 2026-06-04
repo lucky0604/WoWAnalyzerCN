@@ -21,6 +21,8 @@ import DonutChart from 'parser/ui/DonutChart';
 import Statistic from 'parser/ui/Statistic';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
 import { TALENTS_PRIEST } from 'common/TALENTS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 // Needed to count healing for the rare situations where atonement heal events happens at the exact moment it expires
 const FAIL_SAFE_MS = 300;
@@ -310,11 +312,13 @@ class AtonementApplicatorBreakdown extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(20)}
         size="flexible"
-        tooltip="The Atonement healing contributed by each Atonement applicator."
+        tooltip={t({ id: 'priest.discipline.atonementApplicatorBreakdown.tooltip', message: 'The Atonement healing contributed by each Atonement applicator.' })}
       >
         <div className="pad">
           <label>
-            <SpellLink spell={SPELLS.ATONEMENT_BUFF}>Atonement</SpellLink> applicators breakdown
+            <Trans id="priest.discipline.atonementApplicatorBreakdown.applicatorsBreakdown">
+              <SpellLink spell={SPELLS.ATONEMENT_BUFF} /> applicators breakdown
+            </Trans>
           </label>
           {this.renderAtonementApplicatorChart()}
         </div>

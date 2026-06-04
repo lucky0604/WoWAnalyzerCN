@@ -11,6 +11,8 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 class SoulBarrier extends Analyzer {
   static dependencies = {
@@ -88,21 +90,33 @@ class SoulBarrier extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            Average Buff Length: <strong>{formatNumber(avgBuffLength)} seconds</strong>
+            <Trans id="demonhunter.vengeance.soulBarrier.avgBuffLength">
+              Average Buff Length: <strong>{formatNumber(avgBuffLength)} seconds</strong>
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Total Damage Absorbed: <strong>{formatNumber(this.totalAbsorbed)}</strong>
+            <Trans id="demonhunter.vengeance.soulBarrier.totalDamageAbsorbed">
+              Total Damage Absorbed: <strong>{formatNumber(this.totalAbsorbed)}</strong>
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Healing <strong>{this.owner.formatItemHealingDone(this.totalAbsorbed)}</strong>
+            <Trans id="demonhunter.vengeance.soulBarrier.healing">
+              Healing{' '}
+              <strong>{this.owner.formatItemHealingDone(this.totalAbsorbed)}</strong>
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Total Casts: <strong>{this.casts}</strong>
+            <Trans id="demonhunter.vengeance.soulBarrier.totalCasts">
+              Total Casts: <strong>{this.casts}</strong>
+            </Trans>
           </>
         }
       >
         <TalentSpellText talent={TALENTS_DEMON_HUNTER.SOUL_BARRIER_TALENT}>
-          <Uptime /> {formatPercentage(this.uptime)}% <small>Uptime</small>
+          <Uptime /> {formatPercentage(this.uptime)}%{' '}
+          <small>
+            <Trans id="demonhunter.vengeance.soulBarrier.uptime">Uptime</Trans>
+          </small>
         </TalentSpellText>
       </Statistic>
     );

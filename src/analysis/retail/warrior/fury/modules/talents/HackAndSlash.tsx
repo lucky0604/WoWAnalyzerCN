@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
 import { formatDuration, formatPercentage } from 'common/format';
@@ -99,15 +100,24 @@ class HackAndSlash extends Analyzer.withDependencies({
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            Casting <strong>Rampage</strong> {this.rampageCasts} times caused {this.rampageStrikes}{' '}
-            strikes which triggered <strong>Hack and Slash</strong> {this.hackAndSlashCasts} times (
-            {formatPercentage(this.hackAndSlashCasts / this.rampageStrikes, 0)}%) refunding a total
-            of {this.chargesGained} charges.
+            {t({ id: 'warrior.fury.hackAndSlash.tooltip1', message: 'Casting' })}{' '}
+            <strong>Rampage</strong>{' '}
+            {this.rampageCasts}{' '}
+            {t({ id: 'warrior.fury.hackAndSlash.tooltip2', message: 'times caused' })}{' '}
+            {this.rampageStrikes}{' '}
+            {t({ id: 'warrior.fury.hackAndSlash.tooltip3', message: 'strikes which triggered' })}{' '}
+            <strong>Hack and Slash</strong>{' '}
+            {this.hackAndSlashCasts}{' '}
+            {t({ id: 'warrior.fury.hackAndSlash.tooltip4', message: 'times' })}{' '}
+            ({formatPercentage(this.hackAndSlashCasts / this.rampageStrikes, 0)}%){' '}
+            {t({ id: 'warrior.fury.hackAndSlash.tooltip5', message: 'refunding a total of' })}{' '}
+            {this.chargesGained}{' '}
+            {t({ id: 'warrior.fury.hackAndSlash.tooltip6', message: 'charges.' })}
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.HACK_AND_SLASH}>
-          {formatDuration(this.totalReduction)} <small>cooldown reduction</small>
+          {formatDuration(this.totalReduction)} <small>{t({ id: 'warrior.fury.hackAndSlash.cooldownReduction', message: 'cooldown reduction' })}</small>
         </BoringSpellValueText>
       </Statistic>
     );

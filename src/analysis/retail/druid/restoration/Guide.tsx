@@ -1,4 +1,6 @@
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import { GuideProps, Section, SubSection } from 'interface/guide';
 import { GapHighlight } from 'parser/ui/CooldownBar';
@@ -15,10 +17,10 @@ export const GUIDE_CORE_EXPLANATION_PERCENT = 40;
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section title="Always Be Casting">
+      <Section title={t({ id: 'restoration.guide.alwaysBeCasting', message: 'Always Be Casting' })}>
         <FoundationDowntimeSectionV2 />
       </Section>
-      <Section title="Core Spells and Buffs">
+      <Section title={t({ id: 'restoration.guide.coreSpells', message: 'Core Spells and Buffs' })}>
         {modules.swiftmend.guideSubsection}
         {modules.wildGrowth.guideSubsection}
         {info.combatant.hasTalent(TALENTS_DRUID.ABUNDANCE_TALENT) && (
@@ -31,15 +33,23 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         {modules.rejuvenation.guideSubsection}
         {modules.regrowthAndClearcasting.guideSubsection}
       </Section>
-      <Section title="Healing Cooldowns">
+      <Section
+        title={t({
+          id: 'restoration.guide.healingCooldowns',
+          message: 'Healing Cooldowns',
+        })}
+      >
         <p>
-          Resto Druids have access to a variety of powerful healing cooldowns. These cooldowns are
-          mana efficient and powerful, you should aim to use them frequently. The power of your
-          cooldowns will be greatly increased by <strong>ramping</strong> or pre-casting many{' '}
-          <SpellLink spell={SPELLS.REJUVENATION} /> and a <SpellLink spell={SPELLS.WILD_GROWTH} />{' '}
-          in order to maximize the number of HoTs present when you activate your cooldown. Plan
-          ahead by starting your ramp in the seconds before major raid damage hits. You should
-          always have a Wild Growth out before activating one of your cooldowns.
+          <Trans id="restoration.guide.healingCooldownsDesc">
+            Resto Druids have access to a variety of powerful healing cooldowns. These cooldowns are
+            mana efficient and powerful, you should aim to use them frequently. The power of your
+            cooldowns will be greatly increased by <strong>ramping</strong> or pre-casting many{' '}
+            <SpellLink spell={SPELLS.REJUVENATION} /> and a{' '}
+            <SpellLink spell={SPELLS.WILD_GROWTH} /> in order to maximize the number of HoTs present
+            when you activate your cooldown. Plan ahead by starting your ramp in the seconds before
+            major raid damage hits. You should always have a Wild Growth out before activating one of
+            your cooldowns.
+          </Trans>
         </p>
         <HotGraphSubsection modules={modules} events={events} info={info} />
         <CooldownGraphSubsection modules={modules} events={events} info={info} />
@@ -53,10 +63,12 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>HoT Graph</strong> - this graph shows how many Rejuvenation and Wild Growths you had
-      active over the course of the encounter, with rule lines showing when you activated your
-      healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp
-      Rejuvenations well before big damage?
+      <Trans id="restoration.guide.hotGraph">
+        <strong>HoT Graph</strong> - this graph shows how many Rejuvenation and Wild Growths you had
+        active over the course of the encounter, with rule lines showing when you activated your
+        healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp
+        Rejuvenations well before big damage?
+      </Trans>
       {modules.hotCountGraph.plot}
     </SubSection>
   );
@@ -65,10 +77,12 @@ function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatL
 function CooldownGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
-      you waited to use them again. Grey segments show when the spell was available, yellow segments
-      show when the spell was cooling down. Red segments highlight times when you could have fit a
-      whole extra use of the cooldown.
+      <Trans id="restoration.guide.cooldownGraph">
+        <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
+        you waited to use them again. Grey segments show when the spell was available, yellow segments
+        show when the spell was cooling down. Red segments highlight times when you could have fit a
+        whole extra use of the cooldown.
+      </Trans>
       {info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
         <CastEfficiencyBar
           spell={SPELLS.CONVOKE_SPIRITS}
@@ -108,7 +122,9 @@ function CooldownBreakdownSubsection({
 }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>Spell Breakdowns</strong>
+      <strong>
+        <Trans id="restoration.guide.spellBreakdowns">Spell Breakdowns</Trans>
+      </strong>
       <p />
       {info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) &&
         modules.convokeSpirits.guideCastBreakdown}

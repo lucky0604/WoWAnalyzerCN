@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Options } from 'parser/core/Module';
 import Statistic from 'parser/ui/Statistic';
@@ -63,14 +64,17 @@ class DepthOfShadows extends Analyzer {
           <div>
             {this.petsSummoned - this.casts}{' '}
             <small>
-              extra{' '}
+              {t({ id: 'priest.shadow.depthOfShadows.extra', message: 'extra' })}{' '}
               {this.owner.selectedCombatant.hasTalent(TALENTS.MINDBENDER_SHADOW_TALENT) && (
                 <SpellLink spell={TALENTS.MINDBENDER_SHADOW_TALENT} />
               )}
               {!this.owner.selectedCombatant.hasTalent(TALENTS.MINDBENDER_SHADOW_TALENT) && (
                 <SpellLink spell={TALENTS.SHADOWFIEND_TALENT} />
               )}{' '}
-              summoned
+              {t({
+                id: 'priest.shadow.depthOfShadows.summoned',
+                message: 'summoned',
+              })}
             </small>{' '}
           </div>
         </BoringSpellValueText>

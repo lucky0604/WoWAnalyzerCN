@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import TALENTS from 'common/TALENTS/paladin';
 import { SpellLink } from 'interface';
@@ -95,22 +97,23 @@ class FirstAvenger extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="paladin.protection.firstAvenger.tooltip">
             You hit on average <b>{formatNumber(this.averageHitsPerCast)}</b> enemies per cast of{' '}
             <SpellLink spell={TALENTS.SOARING_SHIELD_TALENT} />
             <br />
             The extra hits from taking First Avenger contributed{' '}
             <b>{formatNumber(this.totalExtraDamage)}</b> total extra damage.
-          </>
+          </Trans>
         }
       >
         <BoringSpellValue
           spell={TALENTS.SOARING_SHIELD_TALENT.id}
           value={formatNumber(this.averageExtraDamage)}
           label={
-            <>
-              Average extra damage per cast of <SpellLink spell={TALENTS.SOARING_SHIELD_TALENT} />.
-            </>
+            <Trans id="paladin.protection.firstAvenger.avgExtraDamage">
+              Average extra damage per cast of{' '}
+              <SpellLink spell={TALENTS.SOARING_SHIELD_TALENT} />.
+            </Trans>
           }
         />
       </Statistic>

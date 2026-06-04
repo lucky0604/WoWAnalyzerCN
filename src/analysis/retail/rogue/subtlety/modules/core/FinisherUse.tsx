@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
 import { BadColor, GoodColor, OkColor } from 'interface/guide';
@@ -11,8 +12,6 @@ import SPELLS from 'common/SPELLS/rogue';
 import { formatDurationMillisMinSec } from 'common/format';
 
 import { getTargetComboPoints, isInOpener, OPENER_MAX_DURATION_MS } from '../../constants';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export default class FinisherUse extends Analyzer {
   totalFinisherCasts = 0;
@@ -37,41 +36,38 @@ export default class FinisherUse extends Analyzer {
   }
 
   get chart() {
-    return (
-      <DonutChart
-        items={[
-          {
-            color: GoodColor,
-            label: t({ id: 'rogue.subtlety.finisherUse.maxCp', message: 'Max CP Finishers' }),
-            value: this.maxCpFinishers,
-            tooltip: (
-              <Trans id="rogue.subtlety.finisherUse.maxCpTooltip">
-                This includes finishers cast at {getTargetComboPoints(this.selectedCombatant)}+ CPs.
-              </Trans>
-            ),
-          },
-          {
-            color: OkColor,
-            label: t({
-              id: 'rogue.subtlety.finisherUse.lowCpOpener',
-              message: 'Low CP Opener Finishers',
-            }),
-            value: this.openerLowCpFinisherCasts,
-            tooltip: (
-              <Trans id="rogue.subtlety.finisherUse.lowCpOpenerTooltip">
-                This includes low CP finisher casts in the first{' '}
-                {formatDurationMillisMinSec(OPENER_MAX_DURATION_MS)} of an encounter.
-              </Trans>
-            ),
-          },
-          {
-            color: BadColor,
-            label: t({ id: 'rogue.subtlety.finisherUse.lowCp', message: 'Low CP Finishers' }),
-            value: this.lowCpFinisherCasts,
-          },
-        ]}
-      />
-    );
+    const items = [
+      {
+        color: GoodColor,
+        label: t({ id: 'rogue.subtlety.finisherUse.maxCpFinishers', message: 'Max CP Finishers' }),
+        value: this.maxCpFinishers,
+        tooltip: (
+          <>
+            {t({ id: 'rogue.subtlety.finisherUse.maxCpFinishersTooltip', message: 'This includes finishers cast at' })}{' '}
+            {getTargetComboPoints(this.selectedCombatant)}+ CPs.
+          </>
+        ),
+      },
+      {
+        color: OkColor,
+        label: t({ id: 'rogue.subtlety.finisherUse.lowCpOpenerFinishers', message: 'Low CP Opener Finishers' }),
+        value: this.openerLowCpFinisherCasts,
+        tooltip: (
+          <>
+            {t({ id: 'rogue.subtlety.finisherUse.lowCpOpenerFinishersTooltip', message: 'This includes low CP finisher casts in the first' })}{' '}
+            {formatDurationMillisMinSec(OPENER_MAX_DURATION_MS)}{' '}
+            {t({ id: 'rogue.subtlety.finisherUse.ofAnEncounter', message: 'of an encounter.' })}
+          </>
+        ),
+      },
+      {
+        color: BadColor,
+        label: t({ id: 'rogue.subtlety.finisherUse.lowCpFinishers', message: 'Low CP Finishers' }),
+        value: this.lowCpFinisherCasts,
+      },
+    ];
+
+    return <DonutChart items={items} />;
   }
 
   statistic() {
@@ -80,7 +76,7 @@ export default class FinisherUse extends Analyzer {
         <div className="pad">
           <label>
             <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
-            {t({ id: 'rogue.subtlety.finisherUse.label', message: 'spender usage' })}
+            {t({ id: 'rogue.subtlety.finisherUse.spenderUsage', message: 'spender usage' })}
           </label>
           {this.chart}
         </div>

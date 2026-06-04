@@ -12,6 +12,7 @@ import SpellUsable from 'parser/shared/modules/SpellUsable';
 import TALENTS from 'common/TALENTS/evoker';
 import { MID1_4P_CDR_MS } from 'analysis/retail/evoker/devastation/constants';
 import DonutChart from 'parser/ui/DonutChart';
+import { t } from '@lingui/core/macro';
 
 /**
  * (4) Set Devastation: Eternity Surge grants 1 additional charge of Azure Sweep.
@@ -51,14 +52,24 @@ class MID1Devastation2P extends Analyzer.withDependencies({
     const effectiveCDRItems = [
       {
         color: 'rgb(123,188,93)',
-        label: 'Effetive CDR',
-        valueTooltip: this.effectiveCDR.toFixed(2) + 's effective CDR',
+        label: t({ id: 'evoker.devastation.mid14p.effectiveCDR', message: 'Effetive CDR' }),
+        valueTooltip:
+          this.effectiveCDR.toFixed(2) +
+          t({
+            id: 'evoker.devastation.mid14p.effectiveCDRSeconds',
+            message: 's effective CDR',
+          }),
         value: this.effectiveCDR,
       },
       {
         color: 'rgb(216,59,59)',
-        label: 'Wasted CDR',
-        valueTooltip: this.wastedCDR.toFixed(2) + 's CDR wasted whilst Eternity Surge was ready',
+        label: t({ id: 'evoker.devastation.mid14p.wastedCDR', message: 'Wasted CDR' }),
+        valueTooltip:
+          this.wastedCDR.toFixed(2) +
+          t({
+            id: 'evoker.devastation.mid14p.wastedCDRSeconds',
+            message: 's CDR wasted whilst Eternity Surge was ready',
+          }),
         value: this.wastedCDR,
       },
     ];
@@ -77,7 +88,9 @@ class MID1Devastation2P extends Analyzer.withDependencies({
             <ItemSetLink id={EVOKER_MID1_ID}>MID Season 1 Tier Set 4-piece</ItemSetLink>
           </small>
           <div>
-            <strong>CDR effeciency:</strong>
+            <strong>
+              {t({ id: 'evoker.devastation.mid14p.cdrEfficiency', message: 'CDR effeciency:' })}
+            </strong>
             <DonutChart items={effectiveCDRItems} />
           </div>
         </div>

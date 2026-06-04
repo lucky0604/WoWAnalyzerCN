@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import TALENTS from 'common/TALENTS/mage';
 import { SELECTED_PLAYER, Options } from 'parser/core/Analyzer';
@@ -52,13 +54,16 @@ export default class ArcaneEcho extends Analyzer {
         spell={TALENTS.ARCANE_ECHO_TALENT}
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="mage.arcane.arcaneEcho.tooltip">
             On average you did {formatNumber(this.averageDamagePerTouch)} damage per Touch of the
             Magi cast.
-          </>
+          </Trans>
         }
       >
-        <MageStatistic.Number value={this.averageDamagePerTouch} label="Average Damage" />
+        <MageStatistic.Number
+          value={this.averageDamagePerTouch}
+          label={t({ id: 'mage.arcane.arcaneEcho.label', message: 'Average Damage' })}
+        />
       </MageStatistic>
     );
   }

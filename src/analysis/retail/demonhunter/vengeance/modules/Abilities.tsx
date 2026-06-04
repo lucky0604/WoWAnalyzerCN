@@ -16,6 +16,7 @@ import {
   PERFECTLY_BALANCED_GLAIVE_SCALING_FRACTURE,
   CYCLE_OF_BINDING_SIGIL_CDR,
 } from 'analysis/retail/demonhunter/vengeance/constants';
+import { Trans } from '@lingui/react/macro';
 
 class Abilities extends SharedAbilities {
   spellbook(): SpellbookAbility[] {
@@ -33,11 +34,11 @@ class Abilities extends SharedAbilities {
           suggestion: true,
           recommendedEfficiency: 0.9,
           extraSuggestion: (
-            <>
+            <Trans id="guide.demonhunter.vengeance.abilities.immolationAuraSuggestion">
               This is a great Fury filler spell. Try to always cast it on cooldown, specially when
               using the <SpellLink spell={TALENTS.FALLOUT_TALENT} /> talent in order to maximize
               your <SpellLink spell={SPELLS.SOUL_FRAGMENT} /> generation.
-            </>
+            </Trans>
           ),
         },
         damageSpellIds: [
@@ -79,7 +80,11 @@ class Abilities extends SharedAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.9,
-          extraSuggestion: `Cast on cooldown for a dps increase.`,
+          extraSuggestion: (
+            <Trans id="guide.demonhunter.vengeance.abilities.sigilOfFlameSuggestion">
+              Cast on cooldown for a dps increase.
+            </Trans>
+          ),
         },
         damageSpellIds: [SPELLS.SIGIL_OF_FLAME_DEBUFF.id],
       },
@@ -123,7 +128,11 @@ class Abilities extends SharedAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.5,
-          extraSuggestion: <>Powerful CD. Use it during high damage moments.</>,
+          extraSuggestion: (
+            <Trans id="guide.demonhunter.vengeance.abilities.fieryBrandSuggestion">
+              Powerful CD. Use it during high damage moments.
+            </Trans>
+          ),
         },
         isDefensive: true,
       },
@@ -202,7 +211,11 @@ class Abilities extends SharedAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.8,
-          extraSuggestion: <>This is a great healing and AoE damage burst spell.</>,
+          extraSuggestion: (
+            <Trans id="guide.demonhunter.vengeance.abilities.felDevastationSuggestion">
+              This is a great healing and AoE damage burst spell.
+            </Trans>
+          ),
         },
         isDefensive: true,
       },
@@ -219,7 +232,11 @@ class Abilities extends SharedAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.8,
-          extraSuggestion: <>This is a great healing and AoE damage burst spell.</>,
+          extraSuggestion: (
+            <Trans id="guide.demonhunter.vengeance.abilities.felDevastationSuggestion">
+              This is a great healing and AoE damage burst spell.
+            </Trans>
+          ),
         },
         isDefensive: true,
       },
@@ -235,11 +252,11 @@ class Abilities extends SharedAbilities {
           suggestion: true,
           recommendedEfficiency: 0.8,
           extraSuggestion: (
-            <>
+            <Trans id="guide.demonhunter.vengeance.abilities.soulCarverSuggestion">
               The only time you should delay casting{' '}
               <SpellLink spell={TALENTS.SOUL_CARVER_TALENT} /> is when you're expecting are
               preparing for a burst window.
-            </>
+            </Trans>
           ),
         },
       },
@@ -260,11 +277,11 @@ class Abilities extends SharedAbilities {
           suggestion: true,
           recommendedEfficiency: 0.9,
           extraSuggestion: (
-            <>
+            <Trans id="guide.demonhunter.vengeance.abilities.sigilOfSpiteSuggestion">
               The only time you should delay casting{' '}
               <SpellLink spell={TALENTS_DEMON_HUNTER.SIGIL_OF_SPITE_TALENT} /> is when you're
               expecting adds to spawn soon.
-            </>
+            </Trans>
           ),
         },
       },

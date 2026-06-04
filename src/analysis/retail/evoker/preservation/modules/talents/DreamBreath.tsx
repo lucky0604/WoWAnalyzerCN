@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -128,9 +129,11 @@ class DreamBreath extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} />
         </b>{' '}
-        is your empowered healing ability and a very strong part of your kit. You should aim to use
-        it at Empower rank 1 in most scenarios, with the rare exception when you desperately need a
-        burst AoE heal.
+        {t({
+          id: 'evoker.preservation.dreamBreath.guideExplanation',
+          message:
+            'is your empowered healing ability and a very strong part of your kit. You should aim to use it at Empower rank 1 in most scenarios, with the rare exception when you desperately need a burst AoE heal.',
+        })}
       </p>
     );
 
@@ -150,7 +153,7 @@ class DreamBreath extends Analyzer {
             <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> @{' '}
             {this.owner.formatTimestamp(cast.timestamp)}
           </div>
-          <div>{cast.targetsHit} targets hit</div>
+          <div>{cast.targetsHit} {t({ id: 'evoker.preservation.dreamBreath.targetsHit', message: 'targets hit' })}</div>
         </>
       );
       entries.push({ value, tooltip });
@@ -160,7 +163,7 @@ class DreamBreath extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> cast efficiency
+            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> {t({ id: 'evoker.preservation.dreamBreath.castEfficiency', message: 'cast efficiency' })}
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
@@ -168,7 +171,7 @@ class DreamBreath extends Analyzer {
           <GuideContainer>
             <div style={{ marginLeft: '1em' }}>
               {this.averageTargetsHit.toFixed(1)}
-              <small> avg targets hit</small>
+              <small> {t({ id: 'evoker.preservation.dreamBreath.avgTargetsHit', message: 'avg targets hit' })}</small>
             </div>
             <PerformanceBoxRow values={entries} />
           </GuideContainer>

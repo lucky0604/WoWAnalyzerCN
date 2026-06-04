@@ -9,6 +9,8 @@ import { GapHighlight } from 'parser/ui/CooldownBar';
 import CombatLogParser from '../../CombatLogParser';
 import { SpellLink } from 'interface';
 import TALENTS from 'common/TALENTS/evoker';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   const castEfficiency = useAnalyzer(CastEfficiency);
@@ -19,18 +21,38 @@ export function CooldownSection({ modules, info }: GuideProps<typeof CombatLogPa
   const hasFontTalent = info.combatant.hasTalent(TALENTS_EVOKER.FONT_OF_MAGIC_DEVASTATION_TALENT);
 
   return (
-    <Section title="Cooldowns">
+    <Section
+      title={t({
+        id: 'guide.evoker.devastation.sections.cooldowns.title',
+        message: 'Cooldowns',
+      })}
+    >
       <p>
-        These cooldowns are essential for maximizing your damage output. Top performing Evokers are
-        able to acheive 100% efficiency with <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />,{' '}
-        <SpellLink spell={SPELLS.FIRE_BREATH} />, and <SpellLink spell={SPELLS.ETERNITY_SURGE} />.
+        <Trans id="guide.evoker.devastation.sections.cooldowns.summary">
+          These cooldowns are essential for maximizing your damage output. Top performing Evokers are
+          able to acheive 100% efficiency with{' '}
+          <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />,{' '}
+          <SpellLink spell={SPELLS.FIRE_BREATH} />, and <SpellLink spell={SPELLS.ETERNITY_SURGE} />.
+        </Trans>
       </p>
       <div>
-        Legend
+        <Trans id="guide.evoker.devastation.sections.cooldowns.legend">Legend</Trans>
         <ul>
-          <li>Gray - Spell was available</li>
-          <li>Yellow - Spell was on cooldown</li>
-          <li>Red - Spell was available and potentially affected your effieciency</li>
+          <li>
+            <Trans id="guide.evoker.devastation.sections.cooldowns.legend.gray">
+              Gray - Spell was available
+            </Trans>
+          </li>
+          <li>
+            <Trans id="guide.evoker.devastation.sections.cooldowns.legend.yellow">
+              Yellow - Spell was on cooldown
+            </Trans>
+          </li>
+          <li>
+            <Trans id="guide.evoker.devastation.sections.cooldowns.legend.red">
+              Red - Spell was available and potentially affected your effieciency
+            </Trans>
+          </li>
         </ul>
       </div>
       <CastEfficiencyBar spell={TALENTS.DRAGONRAGE_TALENT} gapHighlightMode={GapHighlight.All} />

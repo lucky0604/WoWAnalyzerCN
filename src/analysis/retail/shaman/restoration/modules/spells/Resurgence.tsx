@@ -89,11 +89,11 @@ class Resurgence extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="shaman.restoration.resurgence.statistic.tooltip">
             <SpellLink spell={SPELLS.RESURGENCE} iconStyle={{ height: '1.25em' }} /> accounted for{' '}
             {formatPercentage(this.totalResurgenceGain / this.totalMana, 0)}% of your total
             available mana over the fight ({formatNumber(this.totalMana)} mana).
-          </>
+          </Trans>
         }
         dropdown={
           <>

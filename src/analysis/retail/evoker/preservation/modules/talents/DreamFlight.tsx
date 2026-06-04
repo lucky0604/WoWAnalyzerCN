@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -96,17 +97,18 @@ class DreamFlight extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} />
         </b>{' '}
-        is a powerful healing CD that does an initial heal and leaves a powerful HoT on all targets
-        hit. You should try to use it to cover high damage periods where your raid is clumped up in
-        order to maximize its effectiveness. If used when your allies are spread out, it will do
-        very little healing to the point where spread out fights make this talent unusable.
+        {t({
+          id: 'evoker.preservation.dreamFlight.guideExplanation',
+          message:
+            'is a powerful healing CD that does an initial heal and leaves a powerful HoT on all targets hit. You should try to use it to cover high damage periods where your raid is clumped up in order to maximize its effectiveness. If used when your allies are spread out, it will do very little healing to the point where spread out fights make this talent unusable.',
+        })}
       </p>
     );
     const data = (
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} /> cast efficiency
+            <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} /> {t({ id: 'evoker.preservation.dreamFlight.castEfficiency', message: 'cast efficiency' })}
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
@@ -130,11 +132,12 @@ class DreamFlight extends Analyzer {
             checklistItems.push({
               label: (
                 <>
-                  # of targets hit <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} />
+                  {t({ id: 'evoker.preservation.dreamFlight.targetsHitLabel', message: '# of targets hit' })}{' '}
+                  <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} />
                 </>
               ),
               result: <PerformanceMark perf={targetsHitPerf} />,
-              details: `${info.totalHit}/${this.combatants.playerCount} targets hit`,
+              details: `${info.totalHit}/${this.combatants.playerCount} ${t({ id: 'evoker.preservation.dreamFlight.targetsHit', message: 'targets hit' })}`,
             });
             const overhealPercent = info.overhealing / (info.overhealing + info.healing);
             if (overhealPercent > 0.5) {
@@ -143,7 +146,7 @@ class DreamFlight extends Analyzer {
               overhealingPerf = QualitativePerformance.Ok;
             }
             checklistItems.push({
-              label: <>% overhealing</>,
+              label: <>{t({ id: 'evoker.preservation.dreamFlight.overhealingPercent', message: '% overhealing' })}</>,
               result: <PerformanceMark perf={overhealingPerf} />,
               details: <>{formatPercentage(overhealPercent)}%</>,
             });

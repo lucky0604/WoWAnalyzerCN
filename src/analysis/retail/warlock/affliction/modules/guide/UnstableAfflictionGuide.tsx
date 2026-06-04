@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { SpellLink } from 'interface';
 import SPELLS from 'common/SPELLS';
@@ -14,14 +15,19 @@ function UnstableAfflictionGuide({ unstableAffliction }: Props): JSX.Element {
     <>
       <p>
         <b>
-          Keep <SpellLink spell={SPELLS.UNSTABLE_AFFLICTION} /> as much as possible.
+          {t({
+            id: 'warlock.affliction.unstableAfflictionGuide.keepAsMuchAsPossible',
+            message: 'Keep Unstable Affliction as much as possible.',
+          })}
         </b>
       </p>
 
       <p>
-        Maintain <SpellLink spell={SPELLS.UNSTABLE_AFFLICTION} /> on the boss at all times. This DoT
-        contributes significant damage and enables rotational synergies with{' '}
-        <SpellLink spell={TALENTS_WARLOCK.CULL_THE_WEAK_TALENT} /> and other Affliction talents.
+        {t({
+          id: 'warlock.affliction.unstableAfflictionGuide.maintainOnBoss',
+          message:
+            'Maintain Unstable Affliction on the boss at all times. This DoT contributes significant damage and enables rotational synergies with Cull the Weak and other Affliction talents.',
+        })}
       </p>
     </>
   );

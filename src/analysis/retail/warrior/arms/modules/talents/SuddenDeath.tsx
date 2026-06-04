@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -48,12 +49,25 @@ class SuddenDeath extends Analyzer {
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={SPELLS.EXECUTE_DAMAGE} /> with{' '}
-            <SpellLink spell={TALENTS.SUDDEN_DEATH_TALENT} /> damage
+            <SpellLink spell={SPELLS.EXECUTE_DAMAGE} />{' '}
+            {t({
+              id: 'warrior.arms.suddenDeath.with',
+              message: 'with',
+            })}{' '}
+            <SpellLink spell={TALENTS.SUDDEN_DEATH_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.suddenDeath.damage',
+              message: 'damage',
+            })}
           </>
         }
         value={formatNumber(this.totalDamages)}
-        valueTooltip={`Total Execute damage while Sudden Death was active (${this.totalProc} proc)`}
+        valueTooltip={t({
+          id: 'warrior.arms.suddenDeath.tooltip',
+          message:
+            'Total Execute damage while Sudden Death was active ({count} proc)',
+          values: { count: this.totalProc },
+        })}
       />
     );
   }

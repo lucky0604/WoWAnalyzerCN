@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section, SubSection, useInfo } from 'interface/guide';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS/demonhunter';
 import SPELLS from 'common/SPELLS/demonhunter';
@@ -41,12 +43,24 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   const furyWasted = modules.furyTracker.wasted;
 
   return (
-    <Section title="Core">
-      <SubSection title="Fury">
+    <Section
+      title={t({
+        id: 'guide.demonhunter.vengeance.sections.core.title',
+        message: 'Core',
+      })}
+    >
+      <SubSection
+        title={t({
+          id: 'guide.demonhunter.vengeance.sections.core.fury.title',
+          message: 'Fury',
+        })}
+      >
         <p>
-          Vengeance's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should
-          avoid capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
-          <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
+          <Trans id="guide.demonhunter.vengeance.sections.core.fury.summary">
+            Vengeance's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should
+            avoid capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
+          </Trans>
         </p>
         <FuryCapWaste
           percentAtCap={percentAtFuryCap}
@@ -58,32 +72,50 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
         />
         {modules.furyGraph.plot}
       </SubSection>
-      <SubSection title="Soul Fragments">
+      <SubSection
+        title={t({
+          id: 'guide.demonhunter.vengeance.sections.core.soulFragments.title',
+          message: 'Soul Fragments',
+        })}
+      >
         <p>
-          Most of your abilities either <strong>build</strong> or <strong>spend</strong> Soul
-          Fragments. Never use a builder at max <SpellLink spell={SPELLS.SOUL_FRAGMENT} />s or when
-          doing so will cause you to overcap on <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
-          s.
+          <Trans id="guide.demonhunter.vengeance.sections.core.soulFragments.summary">
+            Most of your abilities either <strong>build</strong> or <strong>spend</strong> Soul
+            Fragments. Never use a builder at max <SpellLink spell={SPELLS.SOUL_FRAGMENT} />s or when
+            doing so will cause you to overcap on <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
+            s.
+          </Trans>
         </p>
         <p>
-          The chart below shows your <SpellLink spell={SPELLS.SOUL_FRAGMENT} />s over the course of
-          the encounter.
+          <Trans id="guide.demonhunter.vengeance.sections.core.soulFragments.chart">
+            The chart below shows your <SpellLink spell={SPELLS.SOUL_FRAGMENT} />s over the course of
+            the encounter.
+          </Trans>
         </p>
         {modules.soulFragmentsGraph.plot}
       </SubSection>
-      <SubSection title="Active Time">
+      <SubSection
+        title={t({
+          id: 'guide.demonhunter.vengeance.sections.core.activeTime.title',
+          message: 'Active Time',
+        })}
+      >
         <p>
-          <b>
-            Continuously casting throughout an encounter is the single most important thing for
-            achieving good DPS.
-          </b>
-          {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-          <br />
-          Some fights have unavoidable downtime due to phase transitions and the like, so in these
-          cases 0% downtime will not be possible - do the best you can.
+          <Trans id="guide.demonhunter.vengeance.sections.core.activeTime.summary">
+            <b>
+              Continuously casting throughout an encounter is the single most important thing for
+              achieving good DPS.
+            </b>
+            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+            <br />
+            Some fights have unavoidable downtime due to phase transitions and the like, so in these
+            cases 0% downtime will not be possible - do the best you can.
+          </Trans>
         </p>
         <p>
-          Active Time:{' '}
+          <Trans id="guide.demonhunter.vengeance.sections.core.activeTime.value">
+            Active Time:{' '}
+          </Trans>
           <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
             {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
           </PerformanceStrong>{' '}
@@ -105,7 +137,12 @@ function MitigationSection() {
   }
 
   return (
-    <Section title="Defensive Cooldowns and Mitigation">
+    <Section
+      title={t({
+        id: 'guide.demonhunter.vengeance.sections.mitigation.title',
+        message: 'Defensive Cooldowns and Mitigation',
+      })}
+    >
       <MajorDefensives />
     </Section>
   );
@@ -113,12 +150,19 @@ function MitigationSection() {
 
 function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Rotation">
+    <Section
+      title={t({
+        id: 'guide.demonhunter.vengeance.sections.rotation.title',
+        message: 'Rotation',
+      })}
+    >
       <p>
-        Vengeance's core rotation involves <strong>building</strong> and then{' '}
-        <strong>spending</strong> <ResourceLink id={RESOURCE_TYPES.FURY.id} /> and{' '}
-        <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
-        s, which heal for 6% of damage taken in the 5 seconds before they are absorbed.
+        <Trans id="guide.demonhunter.vengeance.sections.rotation.summary">
+          Vengeance's core rotation involves <strong>building</strong> and then{' '}
+          <strong>spending</strong> <ResourceLink id={RESOURCE_TYPES.FURY.id} /> and{' '}
+          <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
+          s, which heal for 6% of damage taken in the 5 seconds before they are absorbed.
+        </Trans>
       </p>
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
@@ -155,13 +199,20 @@ const cooldowns: Cooldown[] = [
 ];
 function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Cooldowns">
+    <Section
+      title={t({
+        id: 'guide.demonhunter.vengeance.sections.cooldowns.title',
+        message: 'Cooldowns',
+      })}
+    >
       <p>
-        Vengeance has multiple cooldowns that it can use to increase survivability or do large
-        amounts of damage. In order to maximize usages over the course of an encounter, you should
-        aim to send the cooldown as soon as it becomes available (as long as it can do damage on
-        target) if you won't need it for an upcoming mechanic. It is particularly important to use{' '}
-        <SpellLink spell={TALENTS_DEMON_HUNTER.FEL_DEVASTATION_TALENT} /> as often as possible.
+        <Trans id="guide.demonhunter.vengeance.sections.cooldowns.summary">
+          Vengeance has multiple cooldowns that it can use to increase survivability or do large
+          amounts of damage. In order to maximize usages over the course of an encounter, you should
+          aim to send the cooldown as soon as it becomes available (as long as it can do damage on
+          target) if you won't need it for an upcoming mechanic. It is particularly important to use{' '}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.FEL_DEVASTATION_TALENT} /> as often as possible.
+        </Trans>
       </p>
       <HideExplanationsToggle id="hide-explanations-cooldowns" />
       <HideGoodCastsToggle id="hide-good-casts-cooldowns" />

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -71,14 +72,14 @@ class FireAndBrimstone extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={`${formatThousands(this.bonusDmg)} bonus cleaved damage`}
+        tooltip={`${formatThousands(this.bonusDmg)} ${t({ id: 'warlock.destruction.fireAndBrimstone.bonusCleavedDamage', message: 'bonus cleaved damage' })}`}
       >
         <BoringSpellValueText spell={TALENTS.FIRE_AND_BRIMSTONE_TALENT}>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-          {this.bonusFragments} <small>bonus Soul Shard Fragments</small> <br />
+          {this.bonusFragments} <small>{t({ id: 'warlock.destruction.fireAndBrimstone.bonusSoulShardFragments', message: 'bonus Soul Shard Fragments' })}</small> <br />
           {formatNumber(this.dps)} DPS{' '}
           <small>
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.bonusDmg))} % of total
+            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.bonusDmg))} % {t({ id: 'warlock.destruction.fireAndBrimstone.ofTotal', message: 'of total' })}
           </small>
         </BoringSpellValueText>
       </Statistic>

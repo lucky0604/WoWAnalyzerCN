@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import { ThresholdStyle } from 'parser/core/ParseResults';
 import CoreAlwaysBeCasting from 'parser/shared/modules/AlwaysBeCasting';
@@ -27,26 +28,41 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
         position={STATISTIC_ORDER.CORE(10)}
         tooltip={
           <>
-            Downtime is available time not used to cast anything (including not having your GCD
-            rolling). This can be caused by delays between casting spells, latency, cast
-            interrupting or just simply not casting anything (e.g. due to movement/stunned).
+            {t({
+              id: 'warlock.affliction.alwaysBeCasting.downtimeExplanation',
+              message:
+                'Downtime is available time not used to cast anything (including not having your GCD rolling). This can be caused by delays between casting spells, latency, cast interrupting or just simply not casting anything (e.g. due to movement/stunned).',
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             <ul>
               <li>
-                You spent <strong>{formatPercentage(this.activeTimePercentage)}%</strong> of your
-                time casting something.
+                {t({
+                  id: 'warlock.affliction.alwaysBeCasting.timeSpentCasting',
+                  message:
+                    'You spent {activeTimePercentage}% of your time casting something.',
+                  values: { activeTimePercentage: formatPercentage(this.activeTimePercentage) },
+                })}
               </li>
               <li>
-                You spent <strong>{formatPercentage(this.downtimePercentage)}%</strong> of your time
-                casting nothing at all.
+                {t({
+                  id: 'warlock.affliction.alwaysBeCasting.timeSpentInactive',
+                  message:
+                    'You spent {downtimePercentage}% of your time casting nothing at all.',
+                  values: { downtimePercentage: formatPercentage(this.downtimePercentage) },
+                })}
               </li>
             </ul>
           </>
         }
       >
         <div className="pad">
-          <label>Active time</label>
+          <label>
+            {t({
+              id: 'warlock.affliction.alwaysBeCasting.activeTimeLabel',
+              message: 'Active time',
+            })}
+          </label>
           <Gauge value={this.activeTimePercentage} />
         </div>
       </Statistic>
@@ -55,9 +71,17 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
 
   get GuideSubSection() {
     return (
-      <SubSection title="Always Be Casting">
-        Try to minimize downtime between spells. Your active casting time was{' '}
-        <strong>{formatPercentage(this.activeTimePercentage)}%</strong>.
+      <SubSection
+        title={t({
+          id: 'warlock.affliction.alwaysBeCasting.title',
+          message: 'Always Be Casting',
+        })}
+      >
+        {t({
+          id: 'warlock.affliction.alwaysBeCasting.description',
+          message: 'Try to minimize downtime between spells. Your active casting time was {activeTimePercentage}%.',
+          values: { activeTimePercentage: formatPercentage(this.activeTimePercentage) },
+        })}
       </SubSection>
     );
   }

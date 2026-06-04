@@ -2,6 +2,7 @@ import SPELLS, { maybeGetSpell } from 'common/SPELLS';
 import { formatThousands } from 'common/format';
 import { Ability } from 'parser/core/Events';
 import DonutChart from 'parser/ui/DonutChart';
+import { t } from '@lingui/core/macro';
 
 interface BlazeOfLightSourceDonutProps {
   abilityMap: Map<number, Ability>;
@@ -47,7 +48,7 @@ function BlazeOfLightSourceDonut(props: BlazeOfLightSourceDonutProps) {
     <aside className="pad">
       <hr />
       <header>
-        <label>Breakdown of Atonement Healing</label>
+        <label>{t({ id: 'priest.discipline.blazeOfLight.breakdownLabel', message: 'Breakdown of Atonement Healing' })}</label>
       </header>
       <DonutChart
         items={generateHealingItems(abilities, props.healingMap).filter((item) => item.value !== 0)}

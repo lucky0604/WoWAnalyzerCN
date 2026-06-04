@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/hunter';
@@ -94,24 +96,28 @@ class WildfireBomb extends Analyzer.withDependencies({
     const isPrePull =
       this.casts === 1 && !wasTipped && event.timestamp - this.owner.fight.start_time <= 5_000;
     let value: QualitativePerformance;
-    let header: string;
+    let header: JSX.Element;
     let color: string;
 
     if (isPrePull) {
       value = QualitativePerformance.Good;
-      header = 'Good: pre-pull cast.';
+      header = <Trans id="hunter.survival.wildfireBomb.goodPrePull">Good: pre-pull cast.</Trans>;
       color = GoodColor;
     } else if (wasTipped && hadSentinelProc) {
       value = QualitativePerformance.Perfect;
-      header = "Perfect: tipped and proc'd Sentinel's Mark.";
+      header = (
+        <Trans id="hunter.survival.wildfireBomb.perfectTippedSentinel">
+          Perfect: tipped and proc'd Sentinel's Mark.
+        </Trans>
+      );
       color = PerfectColor;
     } else if (wasTipped) {
       value = QualitativePerformance.Good;
-      header = 'Good cast: tipped.';
+      header = <Trans id="hunter.survival.wildfireBomb.goodTipped">Good cast: tipped.</Trans>;
       color = GoodColor;
     } else {
       value = QualitativePerformance.Fail;
-      header = 'Bad cast: no tip.';
+      header = <Trans id="hunter.survival.wildfireBomb.badNoTip">Bad cast: no tip.</Trans>;
       color = BadColor;
     }
 
@@ -119,14 +125,20 @@ class WildfireBomb extends Analyzer.withDependencies({
     const tooltip = (
       <div>
         <h5 style={{ color }}>{header}</h5>
-        <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
-        <strong>{targetName || 'unknown'}</strong>
+        <Trans id="hunter.survival.wildfireBomb.tooltipTargeting">
+          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
+          <strong>{targetName || 'unknown'}</strong>
+        </Trans>
         <div>
-          <strong>{targetsHit}</strong> targets hit{' '}
-          <small>({formatNumber(castDamage)} damage)</small>
+          <Trans id="hunter.survival.wildfireBomb.tooltipTargetsHit">
+            <strong>{targetsHit}</strong> targets hit{' '}
+            <small>({formatNumber(castDamage)} damage)</small>
+          </Trans>
         </div>
         <div>
-          <strong>Total Damage:</strong> {formatNumber(castDamage)}
+          <Trans id="hunter.survival.wildfireBomb.tooltipTotalDamage">
+            <strong>Total Damage:</strong> {formatNumber(castDamage)}
+          </Trans>
         </div>
       </div>
     );
@@ -137,15 +149,19 @@ class WildfireBomb extends Analyzer.withDependencies({
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
-        </strong>{' '}
-        should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} />.
+        <Trans id="hunter.survival.wildfireBomb.guideExplanation">
+          <strong>
+            <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
+          </strong>{' '}
+          should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} />.
+        </Trans>
         {this.selectedCombatant.hasTalent(TALENTS.SENTINEL_TALENT) && (
           <>
             {' '}
-            Bombs that hit a target with <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} /> are
-            perfect casts.
+            <Trans id="hunter.survival.wildfireBomb.guideSentinelNote">
+              Bombs that hit a target with <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} /> are
+              perfect casts.
+            </Trans>
           </>
         )}
       </p>
@@ -156,7 +172,11 @@ class WildfireBomb extends Analyzer.withDependencies({
         <CastSummaryAndBreakdown
           spell={TALENTS.WILDFIRE_BOMB_TALENT}
           castEntries={this.useEntries}
-          badExtraExplanation={<>without Tip of the Spear</>}
+          badExtraExplanation={
+            <Trans id="hunter.survival.wildfireBomb.badExtraExplanation">
+              without Tip of the Spear
+            </Trans>
+          }
           usesInsteadOfCasts
         />
       </div>
@@ -182,17 +202,32 @@ class WildfireBomb extends Analyzer.withDependencies({
               <ItemDamageDone amount={this.totalDamage} />
             </div>
             <p>
-              {this.casts} <small>casts</small>
+              {this.casts}{' '}
+              <small>
+                <Trans id="hunter.survival.wildfireBomb.casts">casts</Trans>
+              </small>
             </p>
             <p>
-              {this.tippedCasts} <small>tipped casts ({tippedPercentage.toFixed(1)}%)</small>
+              {this.tippedCasts}{' '}
+              <small>
+                <Trans id="hunter.survival.wildfireBomb.tippedCasts">
+                  tipped casts ({tippedPercentage.toFixed(1)}%)
+                </Trans>
+              </small>
             </p>
             <p>
               {this.sentinelProcs}{' '}
-              <small>Sentinel's Mark procs ({sentinelPercentage.toFixed(1)}%)</small>
+              <small>
+                <Trans id="hunter.survival.wildfireBomb.sentinelProcs">
+                  Sentinel's Mark procs ({sentinelPercentage.toFixed(1)}%)
+                </Trans>
+              </small>
             </p>
             <p>
-              {avgTargetsHit.toFixed(2)} <small>avg targets hit</small>
+              {avgTargetsHit.toFixed(2)}{' '}
+              <small>
+                <Trans id="hunter.survival.wildfireBomb.avgTargetsHit">avg targets hit</Trans>
+              </small>
             </p>
           </>
         </BoringSpellValueText>

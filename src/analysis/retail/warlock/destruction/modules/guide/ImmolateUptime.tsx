@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer from 'parser/core/Analyzer';
 import StatisticBar from 'parser/ui/StatisticBar';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
@@ -22,22 +24,26 @@ class ImmolateUptime extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>Keep your primary DoT active.</b>
+          <b>{t({ id: 'warlock.destruction.immolateUptime.keepDotActive', message: 'Keep your primary DoT active.' })}</b>
         </p>
 
         {!this.selectedCombatant.hasTalent(TALENTS_WARLOCK.WITHER_TALENT) && (
           <p>
-            Maintain <SpellLink spell={SPELLS.IMMOLATE} /> on the boss at all times. This DoT
-            contributes significant damage and enables rotational synergies with{' '}
-            <SpellLink spell={SPELLS.CONFLAGRATE} /> and other Destruction talents.
+            <Trans id="warlock.destruction.immolateUptime.maintainImmolate">
+              Maintain <SpellLink spell={SPELLS.IMMOLATE} /> on the boss at all times. This DoT
+              contributes significant damage and enables rotational synergies with{' '}
+              <SpellLink spell={SPELLS.CONFLAGRATE} /> and other Destruction talents.
+            </Trans>
           </p>
         )}
 
         {this.selectedCombatant.hasTalent(TALENTS_WARLOCK.WITHER_TALENT) && (
           <p>
-            When playing Hellcaller, maintain <SpellLink spell={SPELLS.WITHER_DEBUFF} />. This DoT
-            contributes a massive amount of damage and nables rotational synergies with{' '}
-            <SpellLink spell={SPELLS.CONFLAGRATE} /> and other Destruction talents.
+            <Trans id="warlock.destruction.immolateUptime.maintainWither">
+              When playing Hellcaller, maintain <SpellLink spell={SPELLS.WITHER_DEBUFF} />. This DoT
+              contributes a massive amount of damage and enables rotational synergies with{' '}
+              <SpellLink spell={SPELLS.CONFLAGRATE} /> and other Destruction talents.
+            </Trans>
           </p>
         )}
       </>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
@@ -88,12 +89,22 @@ class DeathAndMadness extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="Number of casts where the target was killed and insanity generated from it."
+        tooltip={t({
+          id: 'priest.shadow.deathAndMadness.tooltip',
+          message:
+            'Number of casts where the target was killed and insanity generated from it.',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.DEATH_AND_MADNESS_TALENT}>
           <>
-            <div>{formatNumber(this.resets)} Resets</div>
-            <div>{formatNumber(this.kills)} Kills</div>
+            <div>
+              {formatNumber(this.resets)}{' '}
+              {t({ id: 'priest.shadow.deathAndMadness.resets', message: 'Resets' })}
+            </div>
+            <div>
+              {formatNumber(this.kills)}{' '}
+              {t({ id: 'priest.shadow.deathAndMadness.kills', message: 'Kills' })}
+            </div>
             <div>
               <ItemInsanityGained amount={this.insanityGained} />
             </div>

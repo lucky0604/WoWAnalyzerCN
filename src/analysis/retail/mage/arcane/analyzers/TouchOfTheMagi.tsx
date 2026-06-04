@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -108,7 +109,10 @@ export default class TouchOfTheMagi extends Analyzer {
   statistic() {
     return (
       <MageStatistic spell={TALENTS.TOUCH_OF_THE_MAGI_TALENT}>
-        <MageStatistic.Damage value={this.averageDamage} label="Average Damage" />
+        <MageStatistic.Damage
+          value={this.averageDamage}
+          label={t({ id: 'mage.arcane.touchOfTheMagi.label', message: 'Average Damage' })}
+        />
       </MageStatistic>
     );
   }

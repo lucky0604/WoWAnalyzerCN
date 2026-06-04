@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -59,14 +60,33 @@ class Dreadlash extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatThousands(total)} bonus damage
+            {(() => {
+              const damage = formatThousands(total);
+              return t({
+                id: 'warlock.demonology.dreadlash.bonusDamage',
+                message: `${{ damage }} bonus damage`,
+              });
+            })()}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Bonus damage on primary target hits: {formatThousands(this.bonusDamage)} (
+            {(() => {
+              const damage = formatThousands(this.bonusDamage);
+              const percent = this.owner.formatItemDamageDone(this.bonusDamage);
+              return t({
+                id: 'warlock.demonology.dreadlash.primaryTarget',
+                message: `Bonus damage on primary target hits: ${{ damage }} (${{ percent }})`,
+              });
+            })()}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            {this.owner.formatItemDamageDone(this.bonusDamage)})<br />
-            Bonus cleaved damage: {formatThousands(this.cleavedDamage)} (
-            {this.owner.formatItemDamageDone(this.cleavedDamage)})
+            <br />
+            {(() => {
+              const damage = formatThousands(this.cleavedDamage);
+              const percent = this.owner.formatItemDamageDone(this.cleavedDamage);
+              return t({
+                id: 'warlock.demonology.dreadlash.cleavedDamage',
+                message: `Bonus cleaved damage: ${{ damage }} (${{ percent }})`,
+              });
+            })()}
           </>
         }
       >

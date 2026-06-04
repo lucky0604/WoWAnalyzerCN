@@ -9,6 +9,7 @@ import StatisticBox, { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import { TALENTS_PALADIN } from 'common/TALENTS';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
 
 const SHIELD_OF_VENGEANCE_HEALTH_SCALING = 0.3;
 
@@ -72,8 +73,15 @@ class ShieldOfVengeance extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         icon={<SpellIcon spell={TALENTS_PALADIN.SHIELD_OF_VENGEANCE_TALENT} />}
         value={`${formatPercentage(this.pctAbsorbUsed)}%`}
-        label="Shield of Vengeance Absorb Used"
-        tooltip="This does not account for possible absorb from missed Shield of Vengeance casts."
+        label={t({
+          id: 'paladin.retribution.shieldOfVengeance.absorbUsed',
+          message: 'Shield of Vengeance Absorb Used',
+        })}
+        tooltip={t({
+          id: 'paladin.retribution.shieldOfVengeance.tooltip',
+          message:
+            'This does not account for possible absorb from missed Shield of Vengeance casts.',
+        })}
       />
     );
   }

@@ -12,6 +12,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { getConsumeFlameDamageLinkEvent } from '../normalizers/CastLinkNormalizer';
 import DonutChart from 'parser/ui/DonutChart';
+import { t } from '@lingui/core/macro';
 
 class ConsumeFlame extends Analyzer {
   totalDamage = 0;
@@ -70,7 +71,9 @@ class ConsumeFlame extends Analyzer {
         </TalentSpellText>
 
         <div className="pad">
-          <label>Damage sources</label>
+          <label>
+            {t({ id: 'evoker.devastation.consumeFlame.damageSources', message: 'Damage sources' })}
+          </label>
           <DonutChart items={damageItems} />
         </div>
       </Statistic>

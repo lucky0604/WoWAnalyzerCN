@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -84,13 +86,16 @@ export default class ArcaneOrb extends Analyzer {
   }
 
   statistic() {
-    const tooltipText = `You averaged ${formatNumber(
-      this.averageHitsPerCast,
-    )} hits per cast of Arcane Orb. ${
-      this.missedOrbs > 0
-        ? `Additionally, you cast Arcane Orb ${this.missedOrbs} times without hitting anything.`
-        : ''
-    } Casting Arcane Orb when it will only hit one target is still beneficial and acceptable, but if you can aim it so that it hits multiple enemies then you should.`;
+    const tooltipText = (
+      <Trans id="mage.arcane.arcaneOrb.statTooltip">
+        You averaged {formatNumber(this.averageHitsPerCast)} hits per cast of Arcane Orb.{' '}
+        {this.missedOrbs > 0
+          ? `Additionally, you cast Arcane Orb ${this.missedOrbs} times without hitting anything.`
+          : ''}{' '}
+        Casting Arcane Orb when it will only hit one target is still beneficial and acceptable, but
+        if you can aim it so that it hits multiple enemies then you should.
+      </Trans>
+    );
 
     return (
       <MageStatistic
@@ -100,10 +105,13 @@ export default class ArcaneOrb extends Analyzer {
       >
         <MageStatistic.Number
           value={this.averageHitsPerCast}
-          label="Average hits per cast"
+          label={t({ id: 'mage.arcane.arcaneOrb.label.averageHits', message: 'Average hits per cast' })}
           precision={2}
         />
-        <MageStatistic.Number value={this.missedOrbs} label="Orbs cast with no targets hit" />
+        <MageStatistic.Number
+          value={this.missedOrbs}
+          label={t({ id: 'mage.arcane.arcaneOrb.label.missedOrbs', message: 'Orbs cast with no targets hit' })}
+        />
       </MageStatistic>
     );
   }

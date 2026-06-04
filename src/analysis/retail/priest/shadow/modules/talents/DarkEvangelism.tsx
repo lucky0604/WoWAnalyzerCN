@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { DamageEvent } from 'parser/core/Events';
@@ -53,7 +54,11 @@ class DarkEvangelism extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="This talent buffs the periodic damage from Vampiric Touch, Shadow Word: Pain, Devouring Plague, Mind Flay, Mind Flay: Insanity and Void Torrent"
+        tooltip={t({
+          id: 'priest.shadow.darkEvangelism.tooltip',
+          message:
+            'This talent buffs the periodic damage from Vampiric Touch, Shadow Word: Pain, Devouring Plague, Mind Flay, Mind Flay: Insanity and Void Torrent',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.DARK_EVANGELISM_TALENT}>
           <div>

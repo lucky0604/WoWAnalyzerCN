@@ -18,10 +18,11 @@ import {
 } from 'analysis/retail/priest/discipline/modules/spells/PenanceHelper';
 import { SpellLink } from 'interface';
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { BoxRowEntry, PerformanceBoxRow } from 'interface/guide/components/PerformanceBoxRow';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const HARSH_DISCIPLINE_BUFFER_MS = 100;
 
@@ -127,10 +128,10 @@ class Penance extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="priest.discipline.penance.explanation.base">
+          <Trans id="priest.discipline.penance.importance">
             <strong>
-              <SpellLink spell={SPELLS.PENANCE_CAST} />{' '}
-            </strong>
+              <SpellLink spell={SPELLS.PENANCE_CAST} />
+            </strong>{' '}
             has a large contribution to your through-put. Its important to finish channeling all its
             bolts.
           </Trans>
@@ -138,21 +139,21 @@ class Penance extends Analyzer {
 
         {this.hasTwinsight && (
           <p>
-            <Trans id="priest.discipline.penance.explanation.oracle">
+            <Trans id="priest.discipline.penance.oracleNote">
               An <strong>Oracle</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will be
               defensive in nature. Allowing for single target healing, and raid-wide healing through
-              your <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> by the extra damage from
-              the extra bolts fired by <SpellLink spell={TALENTS_PRIEST.TWINSIGHT_TALENT} />.
+              your <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> by the extra damage from the
+              extra bolts fired by <SpellLink spell={TALENTS_PRIEST.TWINSIGHT_TALENT} />.
             </Trans>
           </p>
         )}
 
         {!this.hasTwinsight && (
           <p>
-            <Trans id="priest.discipline.penance.explanation.voidweaver">
-              A <strong>Voidweaver</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will
-              be offensive in order to maximize throughput. You can still use it as a single target
-              heal and to apply <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />.
+            <Trans id="priest.discipline.penance.voidweaverNote">
+              A <strong>Voidweaver</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will be
+              offensive in order to maximize throughput. You can still use it as a single target heal
+              and to apply <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />.
             </Trans>
           </p>
         )}
@@ -176,25 +177,14 @@ class Penance extends Analyzer {
           <>
             @ {this.owner.formatTimestamp(penanceCast.event.timestamp)}
             {this.hasTwinsight && !penanceCast.favourableTarget && (
-              <p>
-                <Trans id="priest.discipline.penance.tooltip.targetNotFriendly">
-                  Your target was not friendly.
-                </Trans>
-              </p>
+              <p>{t({ id: 'priest.discipline.penance.targetNotFriendly', message: 'Your target was not friendly.' })}</p>
             )}
             {!this.hasTwinsight && !penanceCast.favourableTarget && (
-              <p>
-                <Trans id="priest.discipline.penance.tooltip.targetFriendly">
-                  Your target was friendly.
-                </Trans>
-              </p>
+              <p>{t({ id: 'priest.discipline.penance.targetFriendly', message: 'Your target was friendly.' })}</p>
             )}
             {value === QualitativePerformance.Fail && (
               <p>
-                <Trans id="priest.discipline.penance.tooltip.boltsFired">
-                  <strong>{penanceCast.firedBolts}</strong> out of{' '}
-                  <strong>{penanceCast.expectedBolts}</strong> bolts were fired.
-                </Trans>
+                {(() => { const fired = penanceCast.firedBolts; const expected = penanceCast.expectedBolts; return t({ id: 'priest.discipline.penance.boltsFired', message: `${{fired}} out of ${{expected}} bolts were fired.` }); })()}
               </p>
             )}
           </>
@@ -206,10 +196,10 @@ class Penance extends Analyzer {
       <div>
         <SpellLink spell={SPELLS.PENANCE_CAST} />{' '}
         <small>
-          <Trans id="priest.discipline.penance.data.legend">
-            - Blue indicates that all bolts were fired and your target was favorable. Green
-            indicates your target was not favorable for your hero spec. Red means that you stopped
-            channeling before all bolts were fired.
+          <Trans id="priest.discipline.penance.legend">
+            - Blue indicates that all bolts were fired and your target was favorable. Green indicates
+            your target was not favorable for your hero spec. Red means that you stopped channeling
+            before all bolts were fired.
           </Trans>
         </small>
         <PerformanceBoxRow values={boxes} />

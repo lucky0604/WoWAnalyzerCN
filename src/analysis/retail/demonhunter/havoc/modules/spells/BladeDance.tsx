@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/demonhunter';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS/demonhunter';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -87,7 +88,11 @@ class BladeDance extends Analyzer {
     if (this.hitCount < 5 && this.hitCount > 1) {
       //Check last strike
       this.badCast += 1;
-      addInefficientCastReason(this.lastCastEvent, `Bad cast on single target`);
+      const reason = t({
+        id: 'demonhunter.havoc.bladeDance.badCast',
+        message: 'Bad cast on single target',
+      });
+      addInefficientCastReason(this.lastCastEvent, reason);
     }
   }
 }

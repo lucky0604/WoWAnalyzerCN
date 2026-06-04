@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -31,7 +32,15 @@ class SiphonLife extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={<>{formatThousands(this.bonusDmg)} bonus damage</>}
+        tooltip={
+          <>
+            {formatThousands(this.bonusDmg)}{' '}
+            {t({
+              id: 'warlock.affliction.siphonLife.bonusDamage',
+              message: 'bonus damage',
+            })}
+          </>
+        }
       >
         <BoringSpellValueText spell={TALENTS.SIPHON_LIFE_TALENT}>
           <ItemDamageDone amount={this.bonusDmg} />

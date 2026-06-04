@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
@@ -50,10 +51,10 @@ class EnergyLoop extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <ul>
-            <li>Raw mana gained: {formatNumber(this.rawManaGained)}</li>
+            <li>{t({ id: 'evoker.preservation.energyLoop.rawManaGained', message: 'Raw mana gained' })}: {formatNumber(this.rawManaGained)}</li>
             <li>
-              Potential mana lost from using{' '}
-              <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> on{' '}
+              {t({ id: 'evoker.preservation.energyLoop.potentialManaLost', message: 'Potential mana lost from using' })}{' '}
+              <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.energyLoop.on', message: 'on' })}{' '}
               <SpellLink spell={SPELLS.DISINTEGRATE} />: {formatNumber(this.potentialManaLost)}
             </li>
           </ul>

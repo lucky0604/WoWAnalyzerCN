@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -153,27 +154,35 @@ class ArcaneSurgeGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneSurge}</b> is your primary damage cooldown and will essentially convert all of
-          your mana into damage and then gives you a massive damage and mana regeneration buff that
-          lasts for 15 seconds. There is not much to play around with this cooldown, but casting it
-          does begin your major burn phase, so you should ensure you are ready to execute that burn
-          phase uninterupted.
+          <Trans id="mage.arcane.arcaneSurge.guide.explanation1">
+            <b>{arcaneSurge}</b> is your primary damage cooldown and will essentially convert all of
+            your mana into damage and then gives you a massive damage and mana regeneration buff that
+            lasts for 15 seconds. There is not much to play around with this cooldown, but casting it
+            does begin your major burn phase, so you should ensure you are ready to execute that burn
+            phase uninterupted.
+          </Trans>
         </p>
         {this.isSpellslinger && (
           <p>
-            For Spellslinger, you should spam {arcaneBlast} or {arcanePulse} to ensure you have max
-            stacks of {arcaneSalvo} before you cast {arcaneSurge}.
+            <Trans id="mage.arcane.arcaneSurge.guide.explanationSpellslinger">
+              For Spellslinger, you should spam {arcaneBlast} or {arcanePulse} to ensure you have max
+              stacks of {arcaneSalvo} before you cast {arcaneSurge}.
+            </Trans>
           </p>
         )}
         {this.isSunfury && (
           <p>
-            For Sunfury, you should spam {arcaneBlast} or {arcanePulse} after {arcaneSurge} to get
-            as many {arcaneSalvo} stacks as possible, and then cast {touchOfTheMagi} in the last 4-6
-            seconds of {arcaneSurge}.
+            <Trans id="mage.arcane.arcaneSurge.guide.explanationSunfury">
+              For Sunfury, you should spam {arcaneBlast} or {arcanePulse} after {arcaneSurge} to get
+              as many {arcaneSalvo} stacks as possible, and then cast {touchOfTheMagi} in the last 4-6
+              seconds of {arcaneSurge}.
+            </Trans>
           </p>
         )}
         <p>
-          Below is a sample of what your Major Burn Phase will likely look like:
+          <Trans id="mage.arcane.arcaneSurge.guide.sampleBurnPhase">
+            Below is a sample of what your Major Burn Phase will likely look like:
+          </Trans>
           {this.isSpellslinger && (
             <SpellSeq
               spells={[
@@ -196,8 +205,10 @@ class ArcaneSurgeGuide extends Analyzer {
           )}
         </p>
         <TipBox type="info">
-          While it may seem beneficial to have a high amount of mana before casting {arcaneSurge},
-          this is not enough of a meaningful benefit to play around.
+          <Trans id="mage.arcane.arcaneSurge.guide.manaTip">
+            While it may seem beneficial to have a high amount of mana before casting {arcaneSurge},
+            this is not enough of a meaningful benefit to play around.
+          </Trans>
         </TipBox>
       </>
     );

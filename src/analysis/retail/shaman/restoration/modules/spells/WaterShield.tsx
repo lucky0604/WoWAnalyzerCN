@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -87,8 +88,8 @@ class WaterShield extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <ul>
-            <li>{formatNumber(this.regenOnPlayer)} from passive regen</li>
-            <li>{formatNumber(this.manaGain)} from hits taken</li>
+            <li>{formatNumber(this.regenOnPlayer)} {t({ id: 'shaman.restoration.waterShield.passiveRegen', message: 'from passive regen' })}</li>
+            <li>{formatNumber(this.manaGain)} {t({ id: 'shaman.restoration.waterShield.hitsTaken', message: 'from hits taken' })}</li>
           </ul>
         }
       >

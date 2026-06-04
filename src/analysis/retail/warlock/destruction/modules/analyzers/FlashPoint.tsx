@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -28,7 +29,7 @@ class FlashPoint extends Analyzer {
     return (
       <Statistic category={STATISTIC_CATEGORY.TALENTS} size="flexible">
         <TalentSpellText talent={FlashPoint.talent}>
-          <UptimeIcon /> {formatPercentage(this.uptime)}% <small>uptime</small>
+          <UptimeIcon /> {formatPercentage(this.uptime)}% <small>{t({ id: 'warlock.destruction.flashPoint.uptime', message: 'uptime' })}</small>
         </TalentSpellText>
       </Statistic>
     );

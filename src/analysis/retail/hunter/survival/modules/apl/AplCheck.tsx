@@ -3,6 +3,8 @@ import TALENTS from 'common/TALENTS/hunter';
 import { Section, useInfo } from 'interface/guide';
 import { AplSectionData } from 'interface/guide/components/Apl';
 import SpellLink from 'interface/SpellLink';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { AnyEvent } from 'parser/core/Events';
 import aplCheck, {
@@ -37,10 +39,10 @@ const sentinelRules: Rule[] = [
     spell: TALENTS.BOOMSTICK_TALENT,
     condition: debuffMissing(SPELLS.SENTINELS_MARK_DEBUFF),
     description: (
-      <>
+      <Trans id="hunter.survival.apl.sentinelBoomstick">
         Cast <SpellLink spell={TALENTS.BOOMSTICK_TALENT} /> if{' '}
         <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} /> is not present.
-      </>
+      </Trans>
     ),
   },
   {
@@ -50,21 +52,21 @@ const sentinelRules: Rule[] = [
       spellFractionalCharges(TALENTS.WILDFIRE_BOMB_TALENT, { atLeast: 1.7 }),
     ),
     description: (
-      <>
+      <Trans id="hunter.survival.apl.sentinelWildfireBomb">
         Cast <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} /> if{' '}
         <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} /> is present or you are about to cap
         charges.
-      </>
+      </Trans>
     ),
   },
   {
     spell: TALENTS.TAKEDOWN_TALENT,
     condition: buffMissing(SPELLS.TIP_OF_THE_SPEAR_CAST),
     description: (
-      <>
+      <Trans id="hunter.survival.apl.sentinelTakedown">
         Cast <SpellLink spell={TALENTS.TAKEDOWN_TALENT} /> if{' '}
         <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> is not present.
-      </>
+      </Trans>
     ),
   },
   SPELLS.MOONLIGHT_CHAKRAM_CAST,
@@ -72,18 +74,18 @@ const sentinelRules: Rule[] = [
     spell: SPELLS.RAPTOR_SWIPE_DAMAGE,
     condition: buffPresent(SPELLS.RAPTOR_SWIPE_BUFF),
     description: (
-      <>
+      <Trans id="hunter.survival.apl.sentinelRaptorSwipe">
         Cast <SpellLink spell={SPELLS.RAPTOR_SWIPE_DAMAGE} />
-      </>
+      </Trans>
     ),
   },
   TALENTS.RAPTOR_STRIKE_TALENT,
   {
     spell: SPELLS.HATCHET_TOSS,
     description: (
-      <>
+      <Trans id="hunter.survival.apl.neverCastHatchetToss">
         Never cast <SpellLink spell={SPELLS.HATCHET_TOSS} />.
-      </>
+      </Trans>
     ),
   },
 ];
@@ -99,22 +101,21 @@ const packLeaderRules: Rule[] = [
       ),
     ),
     description: (
-      <>
+      <Trans id="hunter.survival.apl.packLeaderKillCommand">
         Cast <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} /> if{' '}
         <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> is missing, or if{' '}
         <SpellLink spell={SPELLS.HOWL_OF_THE_PACKLEADER_BUFF} /> is ready and Tip is at 0-1 stacks.
-        stacks.
-      </>
+      </Trans>
     ),
   },
   {
     spell: TALENTS.TAKEDOWN_TALENT,
     condition: buffMissing(SPELLS.TIP_OF_THE_SPEAR_CAST),
     description: (
-      <>
-        Cast <SpellLink spell={TALENTS.TAKEDOWN_TALENT} /> if not stacks of{' '}
+      <Trans id="hunter.survival.apl.packLeaderTakedown">
+        Cast <SpellLink spell={TALENTS.TAKEDOWN_TALENT} /> if no stacks of{' '}
         <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> to maximise Twin Fangs.
-      </>
+      </Trans>
     ),
   },
   TALENTS.BOOMSTICK_TALENT,
@@ -125,10 +126,10 @@ const packLeaderRules: Rule[] = [
       spellFractionalCharges(TALENTS.WILDFIRE_BOMB_TALENT, { atLeast: 1 }),
     ),
     description: (
-      <>
+      <Trans id="hunter.survival.apl.packLeaderWildfireBomb">
         Cast <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} /> if{' '}
         <SpellLink spell={SPELLS.HOWL_WYVERN_BUFF} /> can be extended.
-      </>
+      </Trans>
     ),
   },
   {
@@ -142,9 +143,9 @@ const packLeaderRules: Rule[] = [
   {
     spell: SPELLS.HATCHET_TOSS,
     description: (
-      <>
+      <Trans id="hunter.survival.apl.neverCastHatchetToss">
         Never cast <SpellLink spell={SPELLS.HATCHET_TOSS} />.
-      </>
+      </Trans>
     ),
   },
 ];
@@ -178,7 +179,9 @@ function KillCommandTipStackNote({ violation }: { violation: Violation }) {
 
   return (
     <p>
-      Tip of the Spear stacks on cast: <strong>{tipStacksOnCast}</strong>
+      <Trans id="hunter.survival.apl.tipStacksOnCast">
+        Tip of the Spear stacks on cast: <strong>{tipStacksOnCast}</strong>
+      </Trans>
     </p>
   );
 }
@@ -205,15 +208,22 @@ export function AplSection() {
   }
 
   return (
-    <Section title="Action Priority List">
+    <Section
+      title={t({
+        id: 'hunter.survival.apl.title',
+        message: 'Action Priority List',
+      })}
+    >
       <p>
-        The general priority for Survival Hunter is to ensure every ability is tipped and that major
-        rotational cooldowns are used before filler. The APL Checker cannot account for every
-        situation in a fight, so use this as a general guideline rather than a strict rule-set. For
-        example, normal priorty is to use Boomstick on cooldown but if the fight is going to end
-        before you can get two more uses out of it, ie in less than 1.5 minutes then you can hold
-        Boomstick to use during takedown's 20% damage amp for a DPS gain as holding it won't result
-        in a lost use like it would in a longer fight.
+        <Trans id="hunter.survival.apl.description">
+          The general priority for Survival Hunter is to ensure every ability is tipped and that
+          major rotational cooldowns are used before filler. The APL Checker cannot account for every
+          situation in a fight, so use this as a general guideline rather than a strict rule-set. For
+          example, normal priority is to use Boomstick on cooldown but if the fight is going to end
+          before you can get two more uses out of it, ie in less than 1.5 minutes then you can hold
+          Boomstick to use during Takedown's 20% damage amp for a DPS gain as holding it won't result
+          in a lost use like it would in a longer fight.
+        </Trans>
       </p>
       <AplSectionData checker={check} apl={apl(info)} violationExplainers={survivalExplainers} />
     </Section>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
 import ISSUE_IMPORTANCE from 'parser/core/ISSUE_IMPORTANCE';
@@ -250,8 +251,11 @@ class Abilities extends CoreAbilities {
           suggestion: true,
           recommendedEfficiency: 0.6,
           importance: ISSUE_IMPORTANCE.MINOR,
-          extraSuggestion:
-            'Use it preemptively as a buffer against large AOE, or reactively if you notice your raid is getting dangerously low on health.',
+          extraSuggestion: t({
+            id: 'warrior.arms.abilities.rallyingCry',
+            message:
+              'Use it preemptively as a buffer against large AOE, or reactively if you notice your raid is getting dangerously low on health.',
+          }),
         },
         enabled: combatant.hasTalent(TALENTS.RALLYING_CRY_TALENT),
         buffSpellId: SPELLS.RALLYING_CRY_BUFF.id,
@@ -284,8 +288,11 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.01,
-          extraSuggestion:
-            'Use it to get back into range after moving out to avoid mechanics. Not only does this allow you to get back to DPSing faster, it also generates rage for you to DPS with.',
+          extraSuggestion: t({
+            id: 'warrior.arms.abilities.charge',
+            message:
+              'Use it to get back into range after moving out to avoid mechanics. Not only does this allow you to get back to DPSing faster, it also generates rage for you to DPS with.',
+          }),
         },
       },
       {
@@ -297,8 +304,11 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.01,
-          extraSuggestion:
-            'Use it to escape mechanics at the last moment, allowing you more time to DPS.',
+          extraSuggestion: t({
+            id: 'warrior.arms.abilities.heroicLeap',
+            message:
+              'Use it to escape mechanics at the last moment, allowing you more time to DPS.',
+          }),
         },
         enabled: combatant.hasTalent(TALENTS.HEROIC_LEAP_TALENT),
       },
@@ -319,8 +329,11 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: false,
           recommendedEfficiency: 0.4,
-          extraSuggestion:
-            "If you're picking a utility talent over something that increases your mobility or survivability, you better use it.",
+          extraSuggestion: t({
+            id: 'warrior.arms.abilities.stormBolt',
+            message:
+              "If you're picking a utility talent over something that increases your mobility or survivability, you better use it.",
+          }),
         },
         enabled: combatant.hasTalent(TALENTS.STORM_BOLT_TALENT),
       },

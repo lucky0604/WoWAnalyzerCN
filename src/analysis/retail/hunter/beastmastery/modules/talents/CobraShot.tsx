@@ -12,6 +12,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { COBRA_SHOT_KC_CDR_MS, COBRA_SHOT_FOCUS_THRESHOLD_TO_WAIT } from '../../constants';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import GlobalCooldown from 'parser/shared/modules/GlobalCooldown';
+import { defineMessage, t } from '@lingui/core/macro';
 
 /**
  * A quick shot causing Physical damage.
@@ -82,7 +83,13 @@ class CobraShot extends Analyzer {
     if (!this.spellUsable.isOnCooldown(TALENTS.KILL_COMMAND_BEAST_MASTERY_TALENT.id)) {
       this.wastedCasts += 1;
       this.wastedKCReductionMs += this.cobraShotCDR;
-      addInefficientCastReason(event, 'Cobra Shot cast while Kill Command is not on cooldown.');
+      addInefficientCastReason(
+        event,
+        defineMessage({
+          id: 'hunter.beastmastery.cobraShot.inefficientCastKcNotOnCd',
+          message: 'Cobra Shot cast while Kill Command is not on cooldown.',
+        }),
+      );
       return;
     }
     const globalCooldown = this.globalCooldown.getGlobalCooldownDuration(
@@ -108,11 +115,7 @@ class CobraShot extends Analyzer {
       if (resource.amount < COBRA_SHOT_FOCUS_THRESHOLD_TO_WAIT) {
         addInefficientCastReason(
           event,
-          "Cobra Shot cast while Kill Command's cooldown was under " +
-            (globalCooldown + this.cobraShotCDR / 1000).toFixed(1) +
-            's remaining and you were not close to capping focus as you only had ' +
-            resource.amount +
-            ' focus.',
+          `Cobra Shot cast while Kill Command's cooldown was under ${(globalCooldown + this.cobraShotCDR / 1000).toFixed(1)}s remaining and you were not close to capping focus as you only had ${resource.amount} focus.`,
         );
       }
     } else {
@@ -131,8 +134,19 @@ class CobraShot extends Analyzer {
         tooltip={
           this.wastedCasts > 0 && (
             <>
-              You had {this.wastedCasts} {this.wastedCasts > 1 ? 'casts' : 'cast'} of Cobra Shot
-              when Kill Command wasn't on cooldown.
+              {this.wastedCasts > 1
+                ? t({
+                    id: 'hunter.beastmastery.cobraShot.wastedCastsTooltipPlural',
+                    message:
+                      "You had {count} casts of Cobra Shot when Kill Command wasn't on cooldown.",
+                    values: { count: this.wastedCasts },
+                  })
+                : t({
+                    id: 'hunter.beastmastery.cobraShot.wastedCastsTooltipSingular',
+                    message:
+                      "You had {count} cast of Cobra Shot when Kill Command wasn't on cooldown.",
+                    values: { count: this.wastedCasts },
+                  })}
             </>
           )
         }
@@ -140,10 +154,20 @@ class CobraShot extends Analyzer {
         <BoringSpellValueText spell={TALENTS.COBRA_SHOT_TALENT}>
           <>
             {formatNumber(this.effectiveKCReductionMs / 1000)}s / {this.totalPossibleCDR / 1000}s{' '}
-            <small>effective CDR</small>
+            <small>
+              {t({
+                id: 'hunter.beastmastery.cobraShot.effectiveCdr',
+                message: 'effective CDR',
+              })}
+            </small>
             <p />
             {formatPercentage(this.effectiveKCReductionMs / this.totalPossibleCDR)}%{' '}
-            <small>effectiveness</small>
+            <small>
+              {t({
+                id: 'hunter.beastmastery.cobraShot.effectiveness',
+                message: 'effectiveness',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

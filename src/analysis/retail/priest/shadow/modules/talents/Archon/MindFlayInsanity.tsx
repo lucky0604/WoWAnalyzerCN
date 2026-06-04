@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
@@ -149,12 +150,21 @@ class MindFlayInsanity extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={<>{this.ticksWasted} ticks wasted by cancelling the channel early.</>}
+        tooltip={
+          `${this.ticksWasted} ${t({ id: 'priest.shadow.mindFlayInsanity.ticksWastedTooltip', message: 'ticks wasted by cancelling the channel early.' })}`
+        }
       >
         <BoringSpellValueText spell={SPELLS.MIND_FLAY_INSANITY_TALENT_BUFF}>
           <>
             <div>
-              <UptimeIcon /> {this.casts} <small>buffs used out of {this.procsGained} </small>{' '}
+              <UptimeIcon /> {this.casts}{' '}
+              <small>
+                {t({
+                  id: 'priest.shadow.mindFlayInsanity.buffsUsed',
+                  message: 'buffs used out of',
+                })}{' '}
+                {this.procsGained}
+              </small>{' '}
             </div>
             <div>
               <ItemDamageDone amount={this.damage} />{' '}
@@ -171,27 +181,42 @@ class MindFlayInsanity extends Analyzer {
   get guideSubsection(): JSX.Element {
     const goodMFI = {
       count: this.ticks,
-      label: 'Used Ticks',
+      label: t({
+        id: 'priest.shadow.mindFlayInsanity.usedTicks',
+        message: 'Used Ticks',
+      }),
     };
 
     const badMFI = {
       count: this.ticksWasted,
-      label: 'Canceled Ticks',
+      label: t({
+        id: 'priest.shadow.mindFlayInsanity.canceledTicks',
+        message: 'Canceled Ticks',
+      }),
     };
 
     const usedMFI = {
       count: this.casts,
-      label: 'Buffs Used',
+      label: t({
+        id: 'priest.shadow.mindFlayInsanity.buffsUsedLabel',
+        message: 'Buffs Used',
+      }),
     };
 
     const overMFI = {
       count: this.procsOver,
-      label: 'Buffs Overwritten',
+      label: t({
+        id: 'priest.shadow.mindFlayInsanity.buffsOverwritten',
+        message: 'Buffs Overwritten',
+      }),
     };
 
     const expiredMFI = {
       count: this.procsExpired,
-      label: 'Buffs Expired',
+      label: t({
+        id: 'priest.shadow.mindFlayInsanity.buffsExpired',
+        message: 'Buffs Expired',
+      }),
     };
 
     const explanation = (
@@ -199,15 +224,33 @@ class MindFlayInsanity extends Analyzer {
         <b>
           <SpellLink spell={SPELLS.MIND_FLAY_INSANITY_TALENT_BUFF} />
         </b>{' '}
-        is gained every <SpellLink spell={TALENTS.HALO_SHADOW_TALENT} />.<div />
-        This buff can stack four times. Try to use these procs before they are overwritten
+        {t({
+          id: 'priest.shadow.mindFlayInsanity.gainedEvery',
+          message: 'is gained every',
+        })}{' '}
+        <SpellLink spell={TALENTS.HALO_SHADOW_TALENT} />.<div />
+        {t({
+          id: 'priest.shadow.mindFlayInsanity.procAdvice',
+          message:
+            'This buff can stack four times. Try to use these procs before they are overwritten.',
+        })}
       </p>
     );
     const data = (
       <div>
-        <strong>Mind Flay Insanity Channels</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.mindFlayInsanity.channelsTitle',
+            message: 'Mind Flay Insanity Channels',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={goodMFI} bad={badMFI} />
-        <strong>Mind Flay Insanity Procs</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.mindFlayInsanity.procsTitle',
+            message: 'Mind Flay Insanity Procs',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={usedMFI} ok={overMFI} bad={expiredMFI} />
       </div>
     );

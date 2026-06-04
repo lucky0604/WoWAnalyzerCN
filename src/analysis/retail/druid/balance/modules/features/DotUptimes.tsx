@@ -1,6 +1,5 @@
 import UptimeIcon from 'interface/icons/Uptime';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
 import UptimeMultiBarStatistic from 'parser/ui/UptimeMultiBarStatistic';
@@ -30,34 +29,42 @@ class DotUptimes extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.MOONFIRE_CAST} />
-          </b>{' '}
-          and{' '}
-          <b>
-            <SpellLink spell={SPELLS.SUNFIRE} />
-          </b>{' '}
-          are high damage-per-cast-time DoTs that synergize well with many talents like{' '}
-          <SpellLink spell={TALENTS_DRUID.SHOOTING_STARS_TALENT} />.
+          <Trans id="druid.balance.dotUptimes.explanation">
+            <b>
+              <SpellLink spell={SPELLS.MOONFIRE_CAST} />
+            </b>{' '}
+            and{' '}
+            <b>
+              <SpellLink spell={SPELLS.SUNFIRE} />
+            </b>{' '}
+            are high damage-per-cast-time DoTs that synergize well with many talents like{' '}
+            <SpellLink spell={TALENTS_DRUID.SHOOTING_STARS_TALENT} />.
+          </Trans>
         </p>
         <ul>
           <li>
-            <strong>Priority:</strong> Maintain 100% uptime, but only if the target will live long
-            enough for the DoT to deal more damage than a cast of <SpellLink spell={SPELLS.WRATH} />{' '}
-            or <SpellLink spell={SPELLS.STARFIRE} />.
+            <Trans id="druid.balance.dotUptimes.priority">
+              <strong>Priority:</strong> Maintain 100% uptime, but only if the target will live long
+              enough for the DoT to deal more damage than a cast of <SpellLink spell={SPELLS.WRATH} />{' '}
+              or <SpellLink spell={SPELLS.STARFIRE} />.
+            </Trans>
           </li>
           <li>
-            <strong>Efficiency:</strong> Refresh DoTs during the Pandemic window (last 30%) to
-            extend the duration without wasting Global Cooldowns. If your Useful Casts score is low,
-            you may be over-refreshing DoTs while moving. To optimize movement, pool{' '}
-            <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> ahead of time and cast{' '}
-            <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} /> or{' '}
-            <SpellLink spell={SPELLS.STARFALL_CAST} /> while moving.
+            <Trans id="druid.balance.dotUptimes.efficiency">
+              <strong>Efficiency:</strong> Refresh DoTs during the Pandemic window (last 30%) to
+              extend the duration without wasting Global Cooldowns. If your Useful Casts score is
+              low, you may be over-refreshing DoTs while moving. To optimize movement, pool{' '}
+              <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> ahead of time and cast{' '}
+              <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} /> or{' '}
+              <SpellLink spell={SPELLS.STARFALL_CAST} /> while moving.
+            </Trans>
           </li>
           <li>
-            <strong>Uptime benchmark:</strong> Total uptime often drops during transitions or
-            intermissions. Use top-ranking reports as a benchmark for what is realistic on a
-            per-fight basis.
+            <Trans id="druid.balance.dotUptimes.benchmark">
+              <strong>Uptime benchmark:</strong> Total uptime often drops during transitions or
+              intermissions. Use top-ranking reports as a benchmark for what is realistic on a
+              per-fight basis.
+            </Trans>
           </li>
         </ul>
       </>
@@ -79,12 +86,13 @@ class DotUptimes extends Analyzer {
       <UptimeMultiBarStatistic
         title={
           <>
-            <UptimeIcon /> {t({ id: 'balance.dotUptimes.title', message: 'DoT Uptimes' })}
+            <UptimeIcon />{' '}
+            <Trans id="druid.balance.dotUptimes.title">DoT Uptimes</Trans>
           </>
         }
         position={STATISTIC_ORDER.CORE(1)}
         tooltip={
-          <Trans id="balance.dotUptimes.tooltip">
+          <Trans id="druid.balance.dotUptimes.tooltip">
             These uptime bars show the times your DoT was active on at least one target.
           </Trans>
         }

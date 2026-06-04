@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -57,13 +58,13 @@ class FieldOfDreams extends Analyzer {
           <>
             <SpellLink spell={SPELLS.EMERALD_BLOSSOM} />
             <ul>
-              <li>{formatNumber(this.totalBlossomHealing)} effective healing</li>
-              <li>{formatNumber(this.totalBlossomOverhealing)} overheal</li>
+              <li>{formatNumber(this.totalBlossomHealing)} {t({ id: 'evoker.preservation.fieldOfDreams.effectiveHealing', message: 'effective healing' })}</li>
+              <li>{formatNumber(this.totalBlossomOverhealing)} {t({ id: 'evoker.preservation.fieldOfDreams.overheal', message: 'overheal' })}</li>
             </ul>
             <SpellLink spell={TALENTS_EVOKER.FLUTTERING_SEEDLINGS_TALENT} />
             <ul>
-              <li>{formatNumber(this.totalSeedlingsHealing)} effective healing</li>
-              <li>{formatNumber(this.totalSeedlingsOverhealing)} overheal</li>
+              <li>{formatNumber(this.totalSeedlingsHealing)} {t({ id: 'evoker.preservation.fieldOfDreams.effectiveHealing', message: 'effective healing' })}</li>
+              <li>{formatNumber(this.totalSeedlingsOverhealing)} {t({ id: 'evoker.preservation.fieldOfDreams.overheal', message: 'overheal' })}</li>
             </ul>
           </>
         }
@@ -83,7 +84,7 @@ class FieldOfDreams extends Analyzer {
           <ItemHealingDone amount={this.totalSeedlingsHealing} />
           <div>
             <small>
-              {this.numProcs} extra <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> procs
+              {this.numProcs} {t({ id: 'evoker.preservation.fieldOfDreams.extraProcs', message: 'extra' })} <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> {t({ id: 'evoker.preservation.fieldOfDreams.procs', message: 'procs' })}
             </small>
           </div>
         </TalentSpellText>

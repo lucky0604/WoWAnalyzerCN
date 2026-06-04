@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent, HealEvent } from 'parser/core/Events';
@@ -112,9 +113,9 @@ class RisingSunlight extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <ul>
-            <li>Effective Healing: {formatNumber(this.healing)}</li>
-            <li>Overhealing: {formatNumber(this.overheal)}</li>
-            <li>Average Healing Increase: {formatPercentage(this.averageHealingIncrease())}%</li>
+            <li>{t({ id: 'paladin.holy.talents.risingSunlight.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(this.healing)}</li>
+            <li>{t({ id: 'paladin.holy.talents.risingSunlight.overhealing', message: 'Overhealing' })}: {formatNumber(this.overheal)}</li>
+            <li>{t({ id: 'paladin.holy.talents.risingSunlight.averageHealingIncrease', message: 'Average Healing Increase' })}: {formatPercentage(this.averageHealingIncrease())}%</li>
           </ul>
         }
       >

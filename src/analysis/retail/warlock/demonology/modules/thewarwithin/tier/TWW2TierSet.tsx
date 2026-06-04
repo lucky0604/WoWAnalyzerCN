@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
 import { TIERS } from 'game/TIERS';
@@ -110,51 +111,121 @@ class TWW2TierSet extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <strong>2-Set Bonus (Jackpot!):</strong>
+            <strong>
+              {t({
+                id: 'warlock.demonology.tww2.twoSetBonus',
+                message: '2-Set Bonus (Jackpot!):',
+              })}
+            </strong>
             <ul>
-              <li>Total Jackpot! procs: {this.jackpotProcs}</li>
-              <li>Random procs: {this.jackpotProcs - this.tyrantCasts}</li>
-              <li>Tyrant procs: {this.tyrantCasts}</li>
-              <li>Summons Greater Dreadstalkers at 265% effectiveness</li>
+              <li>
+                {(() => {
+                  const count = this.jackpotProcs;
+                  return t({
+                    id: 'warlock.demonology.tww2.totalJackpotProcs',
+                    message: `Total Jackpot! procs: ${{ count }}`,
+                  });
+                })()}
+              </li>
+              <li>
+                {(() => {
+                  const count = this.jackpotProcs - this.tyrantCasts;
+                  return t({
+                    id: 'warlock.demonology.tww2.randomProcs',
+                    message: `Random procs: ${{ count }}`,
+                  });
+                })()}
+              </li>
+              <li>
+                {(() => {
+                  const count = this.tyrantCasts;
+                  return t({
+                    id: 'warlock.demonology.tww2.tyrantProcs',
+                    message: `Tyrant procs: ${{ count }}`,
+                  });
+                })()}
+              </li>
+              <li>
+                {t({
+                  id: 'warlock.demonology.tww2.summonsGreaterDreadstalkers',
+                  message: 'Summons Greater Dreadstalkers at 265% effectiveness',
+                })}
+              </li>
             </ul>
             {this.has4Piece && (
               <>
-                <strong>4-Set Bonus (Enhanced Dreadbite):</strong>
+                <strong>
+                  {t({
+                    id: 'warlock.demonology.tww2.fourSetBonus',
+                    message: '4-Set Bonus (Enhanced Dreadbite):',
+                  })}
+                </strong>
                 <ul>
                   <li>
-                    <SpellLink spell={SPELLS.HAND_OF_GULDAN_CAST} /> casts: {this.handOfGuldanCasts}
+                    <SpellLink spell={SPELLS.HAND_OF_GULDAN_CAST} />{' '}
+                    {(() => {
+                      const count = this.handOfGuldanCasts;
+                      return t({
+                        id: 'warlock.demonology.tww2.hogCasts',
+                        message: `casts: ${{ count }}`,
+                      });
+                    })()}
                   </li>
                   <li>
-                    Empowered <SpellLink spell={SPELLS.HAND_OF_GULDAN_CAST} /> casts:{' '}
-                    {this.empoweredHandOfGuldanCasts}
+                    {(() => {
+                      const count = this.empoweredHandOfGuldanCasts;
+                      return t({
+                        id: 'warlock.demonology.tww2.empoweredHoGCasts',
+                        message: `Empowered casts: ${{ count }}`,
+                      });
+                    })()}
                   </li>
-                  <li>Only counts casts when Dreadstalkers were active</li>
+                  <li>
+                    {t({
+                      id: 'warlock.demonology.tww2.onlyCountsActive',
+                      message: 'Only counts casts when Dreadstalkers were active',
+                    })}
+                  </li>
                 </ul>
               </>
             )}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             <small>
-              Note: Tracks tier set procs and empowered abilities. Damage attribution between
-              Greater and regular Dreadstalkers is complex.
+              {t({
+                id: 'warlock.demonology.tww2.note',
+                message:
+                  'Note: Tracks tier set procs and empowered abilities. Damage attribution between Greater and regular Dreadstalkers is complex.',
+              })}
             </small>
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.CALL_GREATER_DREADSTALKER}>
           <small>
-            <ItemSetLink id={WARLOCK_TWW2_ID}>TWW Season 2 Tier Set</ItemSetLink>
+            <ItemSetLink id={WARLOCK_TWW2_ID}>
+              {t({
+                id: 'warlock.demonology.tww2.tierSetName',
+                message: 'TWW Season 2 Tier Set',
+              })}
+            </ItemSetLink>
           </small>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {this.jackpotProcs} <small>procs</small>
+          {this.jackpotProcs}{' '}
+          <small>
+            {t({ id: 'warlock.demonology.tww2.procs', message: 'procs' })}
+          </small>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {this.has4Piece && (
             <>
               {this.empoweredHandOfGuldanCasts}{' '}
               <small>
-                empowered <SpellLink spell={SPELLS.HAND_OF_GULDAN_CAST} /> casts
+                {t({
+                  id: 'warlock.demonology.tww2.empoweredCasts',
+                  message: 'empowered casts',
+                })}
               </small>
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />

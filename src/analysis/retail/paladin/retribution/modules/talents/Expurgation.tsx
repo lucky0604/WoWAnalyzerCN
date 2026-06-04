@@ -8,6 +8,7 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
 import SpellLink from 'interface/SpellLink';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
+import { Trans } from '@lingui/react/macro';
 
 const BAR_COLOR = '#C27217';
 const GUIDE_EXPLANATION_PERCENT = 30;
@@ -51,12 +52,16 @@ class Expurgation extends Analyzer {
     const explanation = (
       <>
         <strong>
-          Maintain <SpellLink spell={SPELLS.EXPURGATION_DEBUFF} /> on the boss.
+          <Trans id="paladin.retribution.expurgation.maintainDebuff">
+            Maintain <SpellLink spell={SPELLS.EXPURGATION_DEBUFF} /> on the boss.
+          </Trans>
         </strong>
         <p>
-          It is applied by <SpellLink spell={TALENTS_PALADIN.BLADE_OF_JUSTICE_TALENT} /> and it
-          increases your damage done to the boss through{' '}
-          <SpellLink spell={TALENTS_PALADIN.HOLY_FLAMES_TALENT} />.
+          <Trans id="paladin.retribution.expurgation.explanation">
+            It is applied by <SpellLink spell={TALENTS_PALADIN.BLADE_OF_JUSTICE_TALENT} /> and it
+            increases your damage done to the boss through{' '}
+            <SpellLink spell={TALENTS_PALADIN.HOLY_FLAMES_TALENT} />.
+          </Trans>
         </p>
       </>
     );
@@ -64,7 +69,9 @@ class Expurgation extends Analyzer {
     const data = (
       <RoundedPanel>
         <strong>
-          <SpellLink spell={SPELLS.EXPURGATION_DEBUFF.id} /> uptime
+          <Trans id="paladin.retribution.expurgation.uptime">
+            <SpellLink spell={SPELLS.EXPURGATION_DEBUFF.id} /> uptime
+          </Trans>
         </strong>
         {this.subStatistic()}
       </RoundedPanel>

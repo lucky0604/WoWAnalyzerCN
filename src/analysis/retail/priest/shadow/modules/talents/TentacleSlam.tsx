@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import AbilityTracker from 'analysis/retail/priest/shadow/modules/core/AbilityTracker';
 import SPELLS from 'common/SPELLS';
@@ -92,7 +93,8 @@ class TentacleSlam extends Analyzer {
     const value = this.recentHits >= 1 ? QualitativePerformance.Good : QualitativePerformance.Fail;
     const tooltip = (
       <>
-        @ <strong>{this.owner.formatTimestamp(this.recentSCTimestamp)}</strong>, Hits:{' '}
+        @ <strong>{this.owner.formatTimestamp(this.recentSCTimestamp)}</strong>,{' '}
+        {t({ id: 'priest.shadow.tentacleSlam.hits', message: 'Hits' })}:{' '}
         <strong>{this.recentHits}</strong>
       </>
     );
@@ -104,7 +106,7 @@ class TentacleSlam extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={`Average targets hit: ${this.averageTargetsHit.toFixed(1)}`}
+        tooltip={`${t({ id: 'priest.shadow.tentacleSlam.averageTargets', message: 'Average targets hit:' })} ${this.averageTargetsHit.toFixed(1)}`}
       >
         <BoringSpellValueText spell={TALENTS.TENTACLE_SLAM_TALENT}>
           <>
@@ -131,19 +133,40 @@ class TentacleSlam extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.TENTACLE_SLAM_TALENT} />
         </b>{' '}
-        deals damage and applies <SpellLink spell={SPELLS.VAMPIRIC_TOUCH} /> to targets it hits.
+        {t({
+          id: 'priest.shadow.tentacleSlam.dealsDamageApplies',
+          message: 'deals damage and applies',
+        })}{' '}
+        <SpellLink spell={SPELLS.VAMPIRIC_TOUCH} />{' '}
+        {t({
+          id: 'priest.shadow.tentacleSlam.toTargets',
+          message: 'to targets it hits.',
+        })}
         <div />
-        Use <SpellLink spell={TALENTS.TENTACLE_SLAM_TALENT} /> to apply your DoTs, and generate
-        insanity. You may want to hold this ability if it will allow you to hit more targets.
+        {t({
+          id: 'priest.shadow.tentacleSlam.useToApply',
+          message:
+            'Use Tentacle Slam to apply your DoTs, and generate insanity. You may want to hold this ability if it will allow you to hit more targets.',
+        })}
       </p>
     );
 
     const data = (
       <div>
-        <strong>Tentacle Slam Casts</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.tentacleSlam.castsTitle',
+            message: 'Tentacle Slam Casts',
+          })}
+        </strong>
         <small>
           {' '}
-          - Shows number of targets hit for each Tentacle Slam. Mouseover boxes for details.
+          -{' '}
+          {t({
+            id: 'priest.shadow.tentacleSlam.castsDescription',
+            message:
+              'Shows number of targets hit for each Tentacle Slam. Mouseover boxes for details.',
+          })}
         </small>
         <PerformanceBoxRow values={this.castEntries} />
       </div>

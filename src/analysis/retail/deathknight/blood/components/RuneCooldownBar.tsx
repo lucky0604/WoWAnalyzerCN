@@ -34,21 +34,21 @@ export default function RuneCooldownBar({
       good={{
         count: Math.round(counts.good),
         label: t({
-          id: 'deathknight.blood.runeCooldownBar.seconds3plus',
+          id: 'deathknight.blood.runeCooldownBar.good',
           message: 'Seconds with 3+ Runes Recharging',
         }),
       }}
       bad={{
         count: Math.round(counts.bad),
         label: t({
-          id: 'deathknight.blood.runeCooldownBar.seconds0or1',
+          id: 'deathknight.blood.runeCooldownBar.bad',
           message: 'Seconds with 0 or 1 Runes Recharging',
         }),
       }}
       ok={{
         count: Math.round(counts.ok),
         label: t({
-          id: 'deathknight.blood.runeCooldownBar.seconds2',
+          id: 'deathknight.blood.runeCooldownBar.ok',
           message: 'Seconds with 2 Runes Recharging',
         }),
       }}

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import SPELLS from 'common/SPELLS/demonhunter';
 import TALENTS from 'common/TALENTS/demonhunter';
@@ -42,15 +44,19 @@ export default class EyeBeam extends MajorCooldown<EyeBeamCooldownCast> {
     return (
       <>
         <section style={{ marginBottom: 20 }}>
-          <strong>
-            <SpellLink spell={TALENTS.EYE_BEAM_TALENT} />
-          </strong>{' '}
-          is a channeled ability that deals heavy chaos damage to all enemies in front of you.
+          <Trans id="demonhunter.havoc.eyeBeam.description">
+            <strong>
+              <SpellLink spell={TALENTS.EYE_BEAM_TALENT} />
+            </strong>{' '}
+            is a channeled ability that deals heavy chaos damage to all enemies in front of you.
+          </Trans>
           {this.selectedCombatant.hasTalent(TALENTS.INERTIA_TALENT) && (
             <>
               {' '}
-              For optimal usage with <SpellLink spell={TALENTS.INERTIA_TALENT} />, the full channel
-              should fit inside the <SpellLink spell={SPELLS.INERTIA_BUFF} /> buff window.
+              <Trans id="demonhunter.havoc.eyeBeam.inertia.description">
+                For optimal usage with <SpellLink spell={TALENTS.INERTIA_TALENT} />, the full channel
+                should fit inside the <SpellLink spell={SPELLS.INERTIA_BUFF} /> buff window.
+              </Trans>
             </>
           )}
         </section>
@@ -99,7 +105,14 @@ export default class EyeBeam extends MajorCooldown<EyeBeamCooldownCast> {
       return undefined;
     }
 
-    const summary = <div>Trigger Furious Gaze</div>;
+    const summary = (
+      <div>
+        {t({
+          id: 'demonhunter.havoc.eyeBeam.triggerFuriousGaze',
+          message: 'Trigger Furious Gaze',
+        })}
+      </div>
+    );
 
     if (cast.triggeredFuriousGaze) {
       return {
@@ -107,8 +120,10 @@ export default class EyeBeam extends MajorCooldown<EyeBeamCooldownCast> {
         summary,
         details: (
           <div>
-            You triggered <SpellLink spell={SPELLS.FURIOUS_GAZE} /> by fully channeling your{' '}
-            <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> cast. Good job!
+            <Trans id="demonhunter.havoc.eyeBeam.goodFuriousGaze">
+              You triggered <SpellLink spell={SPELLS.FURIOUS_GAZE} /> by fully channeling your{' '}
+              <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> cast. Good job!
+            </Trans>
           </div>
         ),
       };
@@ -118,9 +133,11 @@ export default class EyeBeam extends MajorCooldown<EyeBeamCooldownCast> {
       summary,
       details: (
         <div>
-          You did not trigger <SpellLink spell={SPELLS.FURIOUS_GAZE} /> due to not fully channeling
-          your <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> cast. Always try to fully channel so
-          that you get the Haste buff.
+          <Trans id="demonhunter.havoc.eyeBeam.badFuriousGaze">
+            You did not trigger <SpellLink spell={SPELLS.FURIOUS_GAZE} /> due to not fully channeling
+            your <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> cast. Always try to fully channel so
+            that you get the Haste buff.
+          </Trans>
         </div>
       ),
     };
@@ -133,11 +150,20 @@ export default class EyeBeam extends MajorCooldown<EyeBeamCooldownCast> {
     if (cast.fullyDuringInertia) {
       return {
         performance: QualitativePerformance.Good,
-        summary: <div>Fully channeled during Inertia</div>,
+        summary: (
+          <div>
+            {t({
+              id: 'demonhunter.havoc.eyeBeam.fullyDuringInertia',
+              message: 'Fully channeled during Inertia',
+            })}
+          </div>
+        ),
         details: (
           <div>
-            You fully channeled <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> during{' '}
-            <SpellLink spell={SPELLS.INERTIA_BUFF} />. Good job!
+            <Trans id="demonhunter.havoc.eyeBeam.goodInertia">
+              You fully channeled <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> during{' '}
+              <SpellLink spell={SPELLS.INERTIA_BUFF} />. Good job!
+            </Trans>
           </div>
         ),
       };
@@ -145,24 +171,42 @@ export default class EyeBeam extends MajorCooldown<EyeBeamCooldownCast> {
     if (cast.startedDuringInertia) {
       return {
         performance: QualitativePerformance.Ok,
-        summary: <div>Started during Inertia</div>,
+        summary: (
+          <div>
+            {t({
+              id: 'demonhunter.havoc.eyeBeam.startedDuringInertia',
+              message: 'Started during Inertia',
+            })}
+          </div>
+        ),
         details: (
           <div>
-            You started <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> during{' '}
-            <SpellLink spell={SPELLS.INERTIA_BUFF} />, but the full channel did not fit inside the
-            buff window.
+            <Trans id="demonhunter.havoc.eyeBeam.okInertia">
+              You started <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> during{' '}
+              <SpellLink spell={SPELLS.INERTIA_BUFF} />, but the full channel did not fit inside the
+              buff window.
+            </Trans>
           </div>
         ),
       };
     }
     return {
       performance: QualitativePerformance.Fail,
-      summary: <div>Cast outside Inertia</div>,
+      summary: (
+        <div>
+          {t({
+            id: 'demonhunter.havoc.eyeBeam.outsideInertia',
+            message: 'Cast outside Inertia',
+          })}
+        </div>
+      ),
       details: (
         <div>
-          You cast <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> without{' '}
-          <SpellLink spell={SPELLS.INERTIA_BUFF} /> covering the full channel. Try to line up the
-          entire channel inside the buff window.
+          <Trans id="demonhunter.havoc.eyeBeam.badInertia">
+            You cast <SpellLink spell={TALENTS.EYE_BEAM_TALENT} /> without{' '}
+            <SpellLink spell={SPELLS.INERTIA_BUFF} /> covering the full channel. Try to line up the
+            entire channel inside the buff window.
+          </Trans>
         </div>
       ),
     };

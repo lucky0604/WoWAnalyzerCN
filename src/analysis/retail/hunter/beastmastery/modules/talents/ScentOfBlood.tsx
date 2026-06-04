@@ -6,6 +6,7 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 /**
  * Activating Bestial Wrath grants 1/2 charges of Barbed Shot. (depending on points)
@@ -51,7 +52,12 @@ class ScentOfBlood extends Analyzer {
         <BoringSpellValueText spell={TALENTS.SCENT_OF_BLOOD_TALENT}>
           <>
             {this.chargesGained}/{this.chargesGained + this.chargesWasted}{' '}
-            <small>charges gained</small>
+            <small>
+              {t({
+                id: 'hunter.beastmastery.scentOfBlood.chargesGained',
+                message: 'charges gained',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

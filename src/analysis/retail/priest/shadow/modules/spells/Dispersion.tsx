@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
@@ -46,19 +47,39 @@ class Dispersion extends MajorDefensiveBuff {
     return (
       <>
         <p>
-          <SpellLink spell={SPELLS.DISPERSION} /> reduces the damage you take by{' '}
-          {formatPercentage(DISPERSION_DAMAGE_REDUCTION, 0)}% for {duration} seconds.
+          <SpellLink spell={SPELLS.DISPERSION} />{' '}
+          {t({
+            id: 'priest.shadow.dispersion.reducesDamage',
+            message: 'reduces the damage you take by',
+          })}{' '}
+          {formatPercentage(DISPERSION_DAMAGE_REDUCTION, 0)}%{' '}
+          {t({
+            id: 'priest.shadow.dispersion.forDuration',
+            message: 'for',
+          })}{' '}
+          {duration}{' '}
+          {t({
+            id: 'priest.shadow.dispersion.seconds',
+            message: 'seconds.',
+          })}
         </p>
         {this.hasHeightenedAlteration && (
           <p>
-            <SpellLink spell={TALENTS.HEIGHTENED_ALTERATION_TALENT} /> extends its duration by 2
-            seconds.
+            <SpellLink spell={TALENTS.HEIGHTENED_ALTERATION_TALENT} />{' '}
+            {t({
+              id: 'priest.shadow.dispersion.extendsDuration',
+              message: 'extends its duration by 2 seconds.',
+            })}
           </p>
         )}
         {this.hasIntangibility && (
           <p>
-            <SpellLink spell={TALENTS.INTANGIBILITY_TALENT} /> also heals you for 25% of your
-            maximum health over its duration and reduces its cooldown by 30 seconds.
+            <SpellLink spell={TALENTS.INTANGIBILITY_TALENT} />{' '}
+            {t({
+              id: 'priest.shadow.dispersion.intangibilityEffect',
+              message:
+                'also heals you for 25% of your maximum health over its duration and reduces its cooldown by 30 seconds.',
+            })}
           </p>
         )}
       </>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -45,21 +46,21 @@ class SoulFire extends Analyzer {
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            If fragments generated with Soul Fire were used on Chaos Bolts, they would deal an
-            estimated {formatThousands(estimatedDamage)} damage (
-            {this.owner.formatItemDamageDone(estimatedDamage)}). This is estimated using average
-            Chaos Bolt damage over the fight.
+            {t({
+              id: 'warlock.destruction.soulFire.fragmentEstimate',
+              message: `If fragments generated with Soul Fire were used on Chaos Bolts, they would deal an estimated ${formatThousands(estimatedDamage)} damage (${this.owner.formatItemDamageDone(estimatedDamage)}). This is estimated using average Chaos Bolt damage over the fight.`,
+            })}
           </>
         }
       >
         <BoringSpellValueText spell={TALENTS.SOUL_FIRE_TALENT}>
           {formatNumber(dps)} DPS{' '}
           <small>
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(damage))} % of total
+            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(damage))} % {t({ id: 'warlock.destruction.soulFire.ofTotal', message: 'of total' })}
           </small>{' '}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {fragments} <small>generated Fragments</small>
+          {fragments} <small>{t({ id: 'warlock.destruction.soulFire.generatedFragments', message: 'generated Fragments' })}</small>
         </BoringSpellValueText>
       </Statistic>
     );

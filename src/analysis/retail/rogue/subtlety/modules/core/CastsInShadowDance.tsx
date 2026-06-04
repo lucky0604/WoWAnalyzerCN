@@ -8,9 +8,8 @@ import DamageTracker from 'parser/shared/modules/AbilityTracker';
 import BoringValueText from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
-import { defineMessage, t } from '@lingui/core/macro';
-import { i18n } from '@lingui/core';
 
+import { t } from '@lingui/core/macro';
 import CastsInStealthBase from './CastsInStealthBase';
 import DanceDamageTracker from './DanceDamageTracker';
 
@@ -38,13 +37,10 @@ class CastsInShadowDance extends CastsInStealthBase {
 
     this.stealthCondition = 'Shadow Dance';
 
-    options.danceDamageTracker.subscribeInefficientCast(this.badStealthSpells, (s: Spell) =>
-      i18n._(
-        defineMessage({
-          id: 'rogue.subtlety.castsInShadowDance.inefficientCast',
-          message: `Cast Shadowstrike instead of ${s.name} when you are in ${this.stealthCondition} window`,
-        }),
-      ),
+    options.danceDamageTracker.subscribeInefficientCast(
+      this.badStealthSpells,
+      (s: Spell) =>
+        `Cast Shadowstrike instead of ${s.name} when you are in ${this.stealthCondition} window`,
     );
   }
 
@@ -77,10 +73,7 @@ class CastsInShadowDance extends CastsInStealthBase {
           label={
             <>
               <SpellIcon spell={SPELLS.SHADOW_DANCE_BUFF} />{' '}
-              {t({
-                id: 'rogue.subtlety.castsInShadowDance.uptimeLabel',
-                message: 'Shadow Dance Uptime',
-              })}{' '}
+              {t({ id: 'rogue.subtlety.castsInShadowDance.shadowDanceUptime', message: 'Shadow Dance Uptime' })}{' '}
             </>
           }
         >

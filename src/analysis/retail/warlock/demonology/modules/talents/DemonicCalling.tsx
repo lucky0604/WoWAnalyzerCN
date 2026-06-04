@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -75,7 +76,13 @@ class DemonicCalling extends Analyzer {
     return (
       <Statistic category={STATISTIC_CATEGORY.TALENTS} size="flexible">
         <BoringSpellValueText spell={TALENTS.DEMONIC_CALLING_TALENT}>
-          {this.wastedProcs} <small>Wasted procs</small>
+          {this.wastedProcs}{' '}
+          <small>
+            {t({
+              id: 'warlock.demonology.demonicCalling.wastedProcs',
+              message: 'Wasted procs',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

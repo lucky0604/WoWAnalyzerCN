@@ -23,6 +23,8 @@ import {
   isFromAfterimageDamage,
 } from 'analysis/retail/evoker/shared/modules/normalizers/ChronowardenCastLinkNormalizer';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * Eruption reduces the remaining cooldown of Upheaval by 1.0 sec.
@@ -198,21 +200,21 @@ class Accretion extends Analyzer {
     const damageSources = [
       {
         color: 'rgb(255, 255, 0)',
-        label: 'Shifting Sands',
+        label: t({ id: 'evoker.augmentation.accretion.shiftingSands', message: 'Shifting Sands' }),
         spellId: SPELLS.SHIFTING_SANDS_BUFF.id,
         valueTooltip: formatNumber(this.accretionShiftingSands),
         value: this.accretionShiftingSands,
       },
       {
         color: 'rgb(129, 52, 5)',
-        label: 'Upheaval',
+        label: t({ id: 'evoker.augmentation.accretion.upheaval', message: 'Upheaval' }),
         spellId: SPELLS.UPHEAVAL.id,
         valueTooltip: formatNumber(this.accretionUpheaval),
         value: this.accretionUpheaval,
       },
       {
         color: 'rgb(212, 81, 19)',
-        label: 'Ebon Might',
+        label: t({ id: 'evoker.augmentation.accretion.ebonMight', message: 'Ebon Might' }),
         spellId: SPELLS.EBON_MIGHT_BUFF_EXTERNAL.id,
         valueTooltip: formatNumber(this.accretionEbonMight),
         value: this.accretionEbonMight,
@@ -221,7 +223,7 @@ class Accretion extends Analyzer {
     if (this.selectedCombatant.hasTalent(TALENTS.AFTERIMAGE_TALENT)) {
       damageSources.push({
         color: 'rgb(255, 0, 0)',
-        label: 'Afterimage',
+        label: t({ id: 'evoker.augmentation.accretion.afterimage', message: 'Afterimage' }),
         spellId: TALENTS.AFTERIMAGE_TALENT.id,
         valueTooltip: formatNumber(this.accretionAfterimage),
         value: this.accretionAfterimage,
@@ -230,7 +232,7 @@ class Accretion extends Analyzer {
     if (this.selectedCombatant.hasTalent(TALENTS.DUPLICATE_1_AUGMENTATION_TALENT)) {
       damageSources.push({
         color: 'rgb(200, 200, 0)',
-        label: 'Duplicate',
+        label: t({ id: 'evoker.augmentation.accretion.duplicate', message: 'Duplicate' }),
         spellId: TALENTS.DUPLICATE_1_AUGMENTATION_TALENT.id,
         valueTooltip: formatNumber(this.accretionDuplicate),
         value: this.accretionDuplicate,
@@ -244,16 +246,22 @@ class Accretion extends Analyzer {
         tooltip={
           <>
             <p>
-              These values are averaged gain from extra casts of{' '}
-              <SpellLink spell={TALENTS.UPHEAVAL_TALENT} />, based on your overall damage.
+              <Trans id="evoker.augmentation.accretion.averagedGain">
+                These values are averaged gain from extra casts of{' '}
+                <SpellLink spell={TALENTS.UPHEAVAL_TALENT} />, based on your overall damage.
+              </Trans>
             </p>
             <p>
-              Realistically these values can, and will, range more broadly in actual gameplay since
-              when you get the extra casts off will matter a lot. eg. extra casts inside of{' '}
-              <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} /> , or alongside your allies big CDs
-              for <SpellLink spell={SPELLS.SHIFTING_SANDS_BUFF} /> will increase the value provided.
+              <Trans id="evoker.augmentation.accretion.realisticRange">
+                Realistically these values can, and will, range more broadly in actual gameplay since
+                when you get the extra casts off will matter a lot. eg. extra casts inside of{' '}
+                <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} /> , or alongside your allies big CDs
+                for <SpellLink spell={SPELLS.SHIFTING_SANDS_BUFF} /> will increase the value provided.
+              </Trans>
             </p>
-            <p>This also doesn't take opportunity cost into account.</p>
+            <Trans id="evoker.augmentation.accretion.opportunityCost">
+              This also doesn't take opportunity cost into account.
+            </Trans>
           </>
         }
       >
@@ -267,7 +275,7 @@ class Accretion extends Analyzer {
               />
             </TalentSpellText>
             <div className="pad">
-              <label>Damage sources</label>
+              <label>{t({ id: 'evoker.augmentation.accretion.damageSources', message: 'Damage sources' })}</label>
               <DonutChart items={damageSources} />
             </div>
           </div>
@@ -277,12 +285,16 @@ class Accretion extends Analyzer {
               <SpellLink spell={TALENTS.ACCRETION_TALENT} />
             </label>
             <p>
-              You didn't gain enough CDR to get any extra casts of{' '}
-              <SpellLink spell={TALENTS.UPHEAVAL_TALENT} />.
+              <Trans id="evoker.augmentation.accretion.notEnoughCDR">
+                You didn't gain enough CDR to get any extra casts of{' '}
+                <SpellLink spell={TALENTS.UPHEAVAL_TALENT} />.
+              </Trans>
             </p>
             <p>
-              This is either caused by you not casting <SpellLink spell={TALENTS.ERUPTION_TALENT} />{' '}
-              enough, or the fight being too short.
+              <Trans id="evoker.augmentation.accretion.notEnoughCDRReason">
+                This is either caused by you not casting{' '}
+                <SpellLink spell={TALENTS.ERUPTION_TALENT} /> enough, or the fight being too short.
+              </Trans>
             </p>
           </div>
         )}

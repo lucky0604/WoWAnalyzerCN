@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import SPELLS from 'common/SPELLS/demonhunter';
@@ -55,24 +57,48 @@ export default class ThrowGlaive extends Analyzer {
     const items: Item[] = [
       {
         color: GoodColor,
-        label: '0 Charges',
+        label: t({
+          id: 'demonhunter.havoc.throwGlaive.zeroChargesLabel',
+          message: '0 Charges',
+        }),
         value: zeroChargesSeconds,
-        valueTooltip: <>{zeroChargesSeconds} seconds</>,
+        valueTooltip: (
+          <>
+            {zeroChargesSeconds}{' '}
+            {t({ id: 'demonhunter.havoc.throwGlaive.seconds', message: '{seconds} seconds' })}
+          </>
+        ),
       },
       {
         color: OkColor,
-        label: '1 Charge',
+        label: t({
+          id: 'demonhunter.havoc.throwGlaive.oneChargeLabel',
+          message: '1 Charge',
+        }),
         value: oneChargeSeconds,
-        valueTooltip: <>{oneChargeSeconds} seconds</>,
+        valueTooltip: (
+          <>
+            {oneChargeSeconds}{' '}
+            {t({ id: 'demonhunter.havoc.throwGlaive.seconds', message: '{seconds} seconds' })}
+          </>
+        ),
       },
     ];
     if (this.selectedCombatant.hasTalent(TALENTS.MASTER_OF_THE_GLAIVE_TALENT)) {
       const twoChargesSeconds = Math.round((timeAtSpecific[2] ?? 0) / 1000);
       items.push({
         color: BadColor,
-        label: '2 Charges',
+        label: t({
+          id: 'demonhunter.havoc.throwGlaive.twoChargesLabel',
+          message: '2 Charges',
+        }),
         value: twoChargesSeconds,
-        valueTooltip: <>{twoChargesSeconds} seconds</>,
+        valueTooltip: (
+          <>
+            {twoChargesSeconds}{' '}
+            {t({ id: 'demonhunter.havoc.throwGlaive.seconds', message: '{seconds} seconds' })}
+          </>
+        ),
       });
     }
 
@@ -87,19 +113,23 @@ export default class ThrowGlaive extends Analyzer {
       <>
         <ExplanationSection>
           <p>
-            <strong>
-              <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} />
-            </strong>{' '}
-            throws a glaive at an enemy within 30 yards for a small amount of physical damage and
-            then bounces to the nearest enemy within 10 yards of the target.
+            <Trans id="demonhunter.havoc.throwGlaive.description">
+              <strong>
+                <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} />
+              </strong>{' '}
+              throws a glaive at an enemy within 30 yards for a small amount of physical damage and
+              then bounces to the nearest enemy within 10 yards of the target.
+            </Trans>
           </p>
         </ExplanationSection>
         <ExplanationSection>
           <p>
-            <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} /> gains significant value in your rotation
-            when you take <SpellLink spell={TALENTS.SOULSCAR_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS.FURIOUS_THROWS_TALENT} />. It also gains value from the below
-            talents.
+            <Trans id="demonhunter.havoc.throwGlaive.value">
+              <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} /> gains significant value in your
+              rotation when you take <SpellLink spell={TALENTS.SOULSCAR_TALENT} /> and{' '}
+              <SpellLink spell={TALENTS.FURIOUS_THROWS_TALENT} />. It also gains value from the below
+              talents.
+            </Trans>
           </p>
           <ul>
             {this.selectedCombatant.hasTalent(TALENTS.BOUNCING_GLAIVES_TALENT) && (
@@ -131,11 +161,13 @@ export default class ThrowGlaive extends Analyzer {
       <div>
         <RoundedPanel>
           <p>
-            Time spent at{' '}
-            <strong>
-              <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} />
-            </strong>{' '}
-            charges
+            <Trans id="demonhunter.havoc.throwGlaive.timeAtCharges">
+              Time spent at{' '}
+              <strong>
+                <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} />
+              </strong>{' '}
+              charges
+            </Trans>
           </p>
           {this.chart}
         </RoundedPanel>

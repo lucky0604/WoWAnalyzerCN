@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options } from 'parser/core/Analyzer';
@@ -52,12 +53,12 @@ class SolarGrace extends Analyzer {
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
           <>
-            Average Stacks: {this.averageStacks.toFixed(2)}
+            {t({ id: 'paladin.holy.herald.solarGrace.averageStacks', message: 'Average Stacks' })}: {this.averageStacks.toFixed(2)}
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Stacks</th>
-                  <th>Uptime</th>
+                  <th>{t({ id: 'paladin.holy.herald.solarGrace.stacks', message: 'Stacks' })}</th>
+                  <th>{t({ id: 'paladin.holy.herald.solarGrace.uptime', message: 'Uptime' })}</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,7 +75,7 @@ class SolarGrace extends Analyzer {
       >
         <TalentSpellText talent={TALENTS.SOLAR_GRACE_TALENT}>
           <img alt="" src="/img/wheelchair.png" className="icon" />{' '}
-          {formatPercentage(this.averageHasteIncrease, 1)}% <small>average haste increase</small>
+          {formatPercentage(this.averageHasteIncrease, 1)}% <small>{t({ id: 'paladin.holy.herald.solarGrace.averageHasteIncrease', message: 'average haste increase' })}</small>
         </TalentSpellText>
       </Statistic>
     );

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import talents from 'common/TALENTS/deathknight';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import CooldownExpandable, {
@@ -102,22 +104,25 @@ export default class EmpowerRuneWeapon extends Analyzer {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={talents.EMPOWER_RUNE_WEAPON_TALENT} />
-        </strong>{' '}
-        is an off-gcd <SpellLink spell={talents.KILLING_MACHINE_TALENT} /> and Runic Power
-        generator. It helps us reduce the number of no-KM{' '}
-        <SpellLink spell={talents.OBLITERATE_TALENT} />s we cast in a fight, as well as providing a
-        ton of resources. Furthermore, during <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} />{' '}
-        with <SpellLink spell={talents.OBLITERATION_TALENT} />, it gives a lot of free casts of{' '}
-        <SpellLink spell={talents.OBLITERATE_TALENT} /> which is a lot of value.
+        <Trans id="deathknight.frost.empowerRuneWeapon.guide.explanation">
+          <strong>
+            <SpellLink spell={talents.EMPOWER_RUNE_WEAPON_TALENT} />
+          </strong>{' '}
+          is an off-gcd <SpellLink spell={talents.KILLING_MACHINE_TALENT} /> and Runic Power
+          generator. It helps us reduce the number of no-KM{' '}
+          <SpellLink spell={talents.OBLITERATE_TALENT} />s we cast in a fight, as well as providing
+          a ton of resources. Furthermore, during{' '}
+          <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} /> with{' '}
+          <SpellLink spell={talents.OBLITERATION_TALENT} />, it gives a lot of free casts of{' '}
+          <SpellLink spell={talents.OBLITERATE_TALENT} /> which is a lot of value.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>{t({ id: 'deathknight.frost.empowerRuneWeapon.guide.perCastBreakdown', message: 'Per-Cast Breakdown' })}</strong>
+        <small>{t({ id: 'deathknight.frost.empowerRuneWeapon.guide.clickToExpand', message: ' - click to expand' })}</small>
         {this.erwTracker.map((cast, idx) => {
           const header = (
             <>
@@ -130,7 +135,7 @@ export default class EmpowerRuneWeapon extends Analyzer {
             ? QualitativePerformance.Fail
             : QualitativePerformance.Good;
           checklistItems.push({
-            label: 'Runic Power Gained',
+            label: t({ id: 'deathknight.frost.empowerRuneWeapon.guide.runicPowerGained', message: 'Runic Power Gained' }),
             result: <PerformanceMark perf={runicPowerPerf} />,
             details: <>{cast.gainedRp - cast.wastedRp}</>,
           });
@@ -139,7 +144,7 @@ export default class EmpowerRuneWeapon extends Analyzer {
             ? QualitativePerformance.Fail
             : QualitativePerformance.Good;
           checklistItems.push({
-            label: 'Runes Gained',
+            label: t({ id: 'deathknight.frost.empowerRuneWeapon.guide.runesGained', message: 'Runes Gained' }),
             result: <PerformanceMark perf={runesPerf} />,
             details: <>{cast.gainedRunes - cast.wastedRunes}</>,
           });

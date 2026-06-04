@@ -9,6 +9,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { Trans } from '@lingui/react/macro';
 
 const FURY_NEEDED_FOR_CDR = 20;
 const COOLDOWN_REDUCTION_MS = 1000;
@@ -88,16 +89,22 @@ class FeedTheDemon extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatNumber(this.reduction)} sec total effective reduction.
+            <Trans id="demonhunter.vengeance.feedTheDemon.effectiveReduction">
+              {formatNumber(this.reduction)} sec total effective reduction.
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            {formatNumber(this.wastedReduction)} sec ({formatPercentage(this.wastedPercent)}%)
-            wasted reduction.
+            <Trans id="demonhunter.vengeance.feedTheDemon.wastedReduction">
+              {formatNumber(this.wastedReduction)} sec ({formatPercentage(this.wastedPercent)}%)
+              wasted reduction.
+            </Trans>
           </>
         }
       >
         <TalentSpellText talent={TALENTS_DEMON_HUNTER.FEED_THE_DEMON_TALENT}>
-          {formatNumber(this.averageReduction)} sec average reduction
+          <Trans id="demonhunter.vengeance.feedTheDemon.averageReduction">
+            {formatNumber(this.averageReduction)} sec average reduction
+          </Trans>
         </TalentSpellText>
       </Statistic>
     );

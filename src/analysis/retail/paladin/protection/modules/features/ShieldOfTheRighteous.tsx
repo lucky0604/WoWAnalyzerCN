@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon } from 'interface';
@@ -59,28 +61,35 @@ class ShieldOfTheRighteous extends Analyzer {
         position={STATISTIC_ORDER.CORE(10)}
         icon={<SpellIcon spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} />}
         value={`${formatPercentage(this.sotrHits / this.totalHits)}%`}
-        label="Physical Hits Mitigated"
+        label={t({
+          id: 'paladin.protection.shieldOfTheRighteous.physicalHitsMitigated',
+          message: 'Physical Hits Mitigated',
+        })}
         tooltip={
           <>
-            Shield of the Righteous usage breakdown:
-            <ul>
-              <li>
-                You were hit <strong>{this.sotrHits}</strong> times with your Shield of the
-                Righteous buff (<strong>{formatThousands(this.sotrDamageTaken)}</strong> damage).
-              </li>
-              <li>
-                You were hit <strong>{this.totalHits - this.sotrHits}</strong> times{' '}
-                <strong>
-                  <em>without</em>
-                </strong>{' '}
-                your Shield of the Righteous buff (
-                <strong>{formatThousands(this.totalDamageTaken - this.sotrDamageTaken)}</strong>{' '}
-                damage).
-              </li>
-            </ul>
-            <strong>{formatPercentage(this.sotrHits / this.totalHits)}%</strong> of physical attacks
-            were mitigated with Shield of the Righteous.
-            <br />
+            <Trans id="paladin.protection.shieldOfTheRighteous.tooltip">
+              Shield of the Righteous usage breakdown:
+              <ul>
+                <li>
+                  You were hit <strong>{this.sotrHits}</strong> times with your Shield of the
+                  Righteous buff (<strong>{formatThousands(this.sotrDamageTaken)}</strong> damage).
+                </li>
+                <li>
+                  You were hit <strong>{this.totalHits - this.sotrHits}</strong> times{' '}
+                  <strong>
+                    <em>without</em>
+                  </strong>{' '}
+                  your Shield of the Righteous buff (
+                  <strong>
+                    {formatThousands(this.totalDamageTaken - this.sotrDamageTaken)}
+                  </strong>{' '}
+                  damage).
+                </li>
+              </ul>
+              <strong>{formatPercentage(this.sotrHits / this.totalHits)}%</strong> of physical attacks
+              were mitigated with Shield of the Righteous.
+              <br />
+            </Trans>
           </>
         }
       />

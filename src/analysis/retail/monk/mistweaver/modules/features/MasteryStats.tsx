@@ -12,6 +12,7 @@ import RenewingMist from '../spells/RenewingMist';
 import SheilunsGift from '../spells/SheilunsGift';
 import Vivify from '../spells/Vivify';
 import CraneStyle from '../spells/CraneStyle';
+import { Trans } from '@lingui/react/macro';
 
 class MasteryStats extends Analyzer {
   static dependencies = {
@@ -93,7 +94,9 @@ class MasteryStats extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(2)} size="flexible">
         <div className="pad">
           <label>
-            <SpellLink spell={SPELLS.GUSTS_OF_MISTS}>Gusts of Mists</SpellLink> breakdown
+            <Trans id="monk.mistweaver.masteryStats.breakdown">
+              <SpellLink spell={SPELLS.GUSTS_OF_MISTS}>Gusts of Mists</SpellLink> breakdown
+            </Trans>
           </label>
           {this.renderMasterySourceChart()}
         </div>

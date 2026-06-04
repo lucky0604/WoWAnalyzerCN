@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -28,7 +29,11 @@ class SecondWind extends Analyzer {
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={TALENTS.SECOND_WIND_TALENT} /> health restored
+            <SpellLink spell={TALENTS.SECOND_WIND_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.secondWind.healthRestored',
+              message: 'health restored',
+            })}
           </>
         }
         value={formatThousands(heal)}

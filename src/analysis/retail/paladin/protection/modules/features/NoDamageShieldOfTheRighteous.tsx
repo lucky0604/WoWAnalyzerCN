@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -75,7 +76,10 @@ class NoDamageShieldOfTheRighteous extends Analyzer {
         <BoringSpellValue
           spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS.id}
           value={`${formatPercentage(this.sotrCastToHitRatio)} %`}
-          label={<>SotR Casts That Hit An Enemy</>}
+          label={t({
+            id: 'paladin.protection.noDamageSotr.castsHitEnemy',
+            message: 'SotR Casts That Hit An Enemy',
+          })}
         />
       </Statistic>
     );

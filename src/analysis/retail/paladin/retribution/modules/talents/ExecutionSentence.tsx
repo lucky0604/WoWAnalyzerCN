@@ -7,6 +7,7 @@ import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { TALENTS_PALADIN } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
 
 export default class ExecutionSentence extends Analyzer {
   damage = 0;
@@ -32,7 +33,12 @@ export default class ExecutionSentence extends Analyzer {
       <Statistic
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
-        tooltip={`${formatThousands(this.damage)} Total damage`}
+        tooltip={
+          <>
+            {formatThousands(this.damage)}{' '}
+            {t({ id: 'paladin.retribution.executionSentence.totalDamage', message: 'Total damage' })}
+          </>
+        }
       >
         <TalentSpellText talent={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT}>
           <ItemDamageDone amount={this.damage} />

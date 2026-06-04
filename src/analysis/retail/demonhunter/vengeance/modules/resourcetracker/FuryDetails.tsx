@@ -7,6 +7,8 @@ import ResourceBreakdown from 'parser/shared/modules/resources/resourcetracker/R
 import BoringResourceValue from 'parser/ui/BoringResourceValue';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import FuryTracker from './FuryTracker';
 
@@ -52,12 +54,12 @@ class FuryDetails extends Analyzer {
         size="small"
         tooltip={`${this.furyTracker.wasted} out of ${
           this.furyTracker.wasted + this.furyTracker.generated
-        } fury wasted.`}
+        } ${t({ id: 'demonhunter.vengeance.furyDetails.furyWasted', message: 'fury wasted' })}.`}
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.FURY}
           value={`${formatPercentage(this.wastedPercent)} %`}
-          label="Fury wasted"
+          label={t({ id: 'demonhunter.vengeance.furyDetails.furyWastedLabel', message: 'Fury wasted' })}
         />
       </Statistic>
     );
@@ -65,7 +67,7 @@ class FuryDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Fury Usage',
+      title: t({ id: 'demonhunter.vengeance.furyDetails.furyUsage', message: 'Fury Usage' }),
       url: 'fury-usage',
       render: () => (
         <Panel>

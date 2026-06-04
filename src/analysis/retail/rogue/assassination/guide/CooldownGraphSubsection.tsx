@@ -1,5 +1,7 @@
 import { isTalent, Talent } from 'common/TALENTS/types';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
@@ -42,10 +44,12 @@ const CooldownGraphSubsection = () => {
   return (
     <SubSection>
       <p>
-        <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
-        you waited to use them again. Grey segments show when the spell was available, yellow
-        segments show when the spell was cooling down. Red segments highlight times when you could
-        have fit a whole extra use of the cooldown.
+        <Trans id="rogue.assassination.cooldowngraph.description">
+          <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
+          you waited to use them again. Grey segments show when the spell was available, yellow
+          segments show when the spell was cooling down. Red segments highlight times when you could
+          have fit a whole extra use of the cooldown.
+        </Trans>
       </p>
       {cooldowns.map((cooldownCheck) => (
         <CastEfficiencyBar

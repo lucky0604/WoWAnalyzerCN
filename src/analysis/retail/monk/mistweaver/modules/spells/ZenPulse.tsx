@@ -19,7 +19,7 @@ import { TooltipElement } from 'interface/Tooltip';
 import { formatNumber, formatPercentage } from 'common/format';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   getSelectedPrimaryHeal,
@@ -131,7 +131,11 @@ class ZenPulse extends Analyzer {
         timestamp: this.owner.formatTimestamp(event.timestamp),
         performance: QualitativePerformance.Fail,
         stats: [],
-        details: `Buff refreshed at ${MAX_STACKS} stacks`,
+        details: t({
+          id: 'monk.mistweaver.zenPulse.buffRefreshedAtStacks',
+          message: 'Buff refreshed at {stacks} stacks',
+          values: { stacks: MAX_STACKS },
+        }),
       });
     }
   }
@@ -148,7 +152,10 @@ class ZenPulse extends Analyzer {
         timestamp: this.owner.formatTimestamp(event.timestamp),
         performance: QualitativePerformance.Fail,
         stats: [],
-        details: 'Buff expired before being consumed',
+        details: t({
+          id: 'monk.mistweaver.zenPulse.buffExpired',
+          message: 'Buff expired before being consumed',
+        }),
       });
     }
   }
@@ -194,7 +201,10 @@ class ZenPulse extends Analyzer {
       stats: [
         {
           value: `${zenPulseHits.length}`,
-          label: 'Hits',
+          label: defineMessage({
+            id: 'monk.mistweaver.zenPulse.hits',
+            message: 'Hits',
+          }),
           performance: evaluateQualitativePerformanceByThreshold({
             actual: zenPulseHits.length,
             isGreaterThanOrEqual: {
@@ -206,11 +216,17 @@ class ZenPulse extends Analyzer {
         },
         {
           value: `${formatPercentage(perfInfo.overheal)}%`,
-          label: 'Avg Overheal',
+          label: defineMessage({
+            id: 'monk.mistweaver.zenPulse.avgOverheal',
+            message: 'Avg Overheal',
+          }),
         },
         {
           value: `${formatPercentage(percentInc)}%`,
-          label: 'Healing Increase',
+          label: defineMessage({
+            id: 'monk.mistweaver.zenPulse.healingIncrease',
+            message: 'Healing Increase',
+          }),
         },
       ],
     });
@@ -325,17 +341,55 @@ class ZenPulse extends Analyzer {
         tooltip={
           <>
             <ul>
-              <li>Procs per minute: {this.ppm}</li>
-              <li>Effective healing: {formatNumber(this.healing)}</li>
-              <li>Overhealing: {formatNumber(this.overhealing)}</li>
-              <li>Average increase: {formatPercentage(this.avgIncrease)}%</li>
               <li>
-                Buffs used below {ZEN_PULSE_MAX_HITS_FOR_BOOST}{' '}
-                <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-                s: {this.badCasts}
+                {t({
+                  id: 'monk.mistweaver.zenPulse.procsPerMinute',
+                  message: 'Procs per minute: {ppm}',
+                  values: { ppm: this.ppm },
+                })}
               </li>
-              <li>Expired Buffs: {this.expiredBuffs}</li>
-              <li>Refreshed Buffs: {this.refreshedBuffs}</li>
+              <li>
+                {t({
+                  id: 'monk.mistweaver.zenPulse.effectiveHealing',
+                  message: 'Effective healing: {healing}',
+                  values: { healing: formatNumber(this.healing) },
+                })}
+              </li>
+              <li>
+                {t({
+                  id: 'monk.mistweaver.zenPulse.overhealing',
+                  message: 'Overhealing: {overhealing}',
+                  values: { overhealing: formatNumber(this.overhealing) },
+                })}
+              </li>
+              <li>
+                {t({
+                  id: 'monk.mistweaver.zenPulse.averageIncrease',
+                  message: 'Average increase: {pct}%',
+                  values: { pct: formatPercentage(this.avgIncrease) },
+                })}
+              </li>
+              <li>
+                <Trans id="monk.mistweaver.zenPulse.buffsBelowThreshold">
+                  Buffs used below {ZEN_PULSE_MAX_HITS_FOR_BOOST}{' '}
+                  <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+                  s: {this.badCasts}
+                </Trans>
+              </li>
+              <li>
+                {t({
+                  id: 'monk.mistweaver.zenPulse.expiredBuffs',
+                  message: 'Expired Buffs: {count}',
+                  values: { count: this.expiredBuffs },
+                })}
+              </li>
+              <li>
+                {t({
+                  id: 'monk.mistweaver.zenPulse.refreshedBuffs',
+                  message: 'Refreshed Buffs: {count}',
+                  values: { count: this.refreshedBuffs },
+                })}
+              </li>
             </ul>
           </>
         }
@@ -345,17 +399,32 @@ class ZenPulse extends Analyzer {
           <hr />
           {this.avgHitsPerConsume.toFixed(2)}{' '}
           <small>
-            Average hits per <SpellLink spell={getSelectedPrimaryHeal(this.selectedCombatant)} />
+            <Trans id="monk.mistweaver.zenPulse.averageHitsPer">
+              Average hits per{' '}
+              <SpellLink spell={getSelectedPrimaryHeal(this.selectedCombatant)} />
+            </Trans>
           </small>
           <div></div>
           <TooltipElement
             content={
               <>
-                {formatNumber(this.avgRawHealingPerCast)} <small>raw healing per cast</small>
+                {formatNumber(this.avgRawHealingPerCast)}{' '}
+                <small>
+                  {t({
+                    id: 'monk.mistweaver.zenPulse.rawHealingPerCast',
+                    message: 'raw healing per cast',
+                  })}
+                </small>
               </>
             }
           >
-            {formatNumber(this.avgHealingPerCast)} <small>healing per cast</small>
+            {formatNumber(this.avgHealingPerCast)}{' '}
+            <small>
+              {t({
+                id: 'monk.mistweaver.zenPulse.healingPerCast',
+                message: 'healing per cast',
+              })}
+            </small>
           </TooltipElement>
         </TalentSpellText>
       </Statistic>

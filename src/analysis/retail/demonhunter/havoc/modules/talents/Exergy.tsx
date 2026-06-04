@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import { formatDuration, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS/demonhunter';
@@ -55,29 +57,33 @@ class Exergy extends Analyzer {
 
     const explanation = (
       <section>
-        <strong>
-          <SpellLink spell={TALENTS.EXERGY_TALENT} />
-        </strong>{' '}
-        provides an{' '}
-        {formatPercentage(
-          EXERGY_SCALING[this.selectedCombatant.getTalentRank(TALENTS.EXERGY_TALENT)],
-          0,
-        )}
-        % damage increase for 20 seconds after casting{' '}
-        <SpellLink spell={TALENTS.THE_HUNT_HAVOC_TALENT} /> and{' '}
-        <SpellLink spell={TALENTS.VENGEFUL_RETREAT_TALENT} />. This should be treated as a
-        maintenance buff with almost 100% uptime, since{' '}
-        <SpellLink spell={TALENTS.VENGEFUL_RETREAT_TALENT} /> has a 20 seconds cooldown itself with{' '}
-        <SpellLink spell={TALENTS.TACTICAL_RETREAT_TALENT} /> taken.
+        <Trans id="demonhunter.havoc.exergy.guide">
+          <strong>
+            <SpellLink spell={TALENTS.EXERGY_TALENT} />
+          </strong>{' '}
+          provides an{' '}
+          {formatPercentage(
+            EXERGY_SCALING[this.selectedCombatant.getTalentRank(TALENTS.EXERGY_TALENT)],
+            0,
+          )}
+          % damage increase for 20 seconds after casting{' '}
+          <SpellLink spell={TALENTS.THE_HUNT_HAVOC_TALENT} /> and{' '}
+          <SpellLink spell={TALENTS.VENGEFUL_RETREAT_TALENT} />. This should be treated as a
+          maintenance buff with almost 100% uptime, since{' '}
+          <SpellLink spell={TALENTS.VENGEFUL_RETREAT_TALENT} /> has a 20 seconds cooldown itself with{' '}
+          <SpellLink spell={TALENTS.TACTICAL_RETREAT_TALENT} /> taken.
+        </Trans>
       </section>
     );
     const data = (
       <RoundedPanel>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS.EXERGY_TALENT} />
-          </strong>{' '}
-          uptime
+          <Trans id="demonhunter.havoc.exergy.uptime">
+            <strong>
+              <SpellLink spell={TALENTS.EXERGY_TALENT} />
+            </strong>{' '}
+            uptime
+          </Trans>
         </p>
         {uptimeBarSubStatistic(this.owner.fight, {
           spells: [SPELLS.EXERGY_BUFF],

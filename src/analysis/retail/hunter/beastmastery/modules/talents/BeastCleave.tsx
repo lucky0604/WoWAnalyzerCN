@@ -15,6 +15,7 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 /**
  * After you Wild Thrash, your pet's melee attacks also strike all nearby enemies for 40% of the damage for the next 8.0 sec. Deals reduced damage beyond 8 targets.
@@ -114,7 +115,13 @@ class BeastCleave extends Analyzer {
             <>
               <ItemDamageDone amount={this.damage} />
               <p />
-              <UptimeIcon /> {formatPercentage(this.uptime)}% <small>uptime</small>
+              <UptimeIcon /> {formatPercentage(this.uptime)}%{' '}
+              <small>
+                {t({
+                  id: 'hunter.beastmastery.beastCleave.uptime',
+                  message: 'uptime',
+                })}
+              </small>
             </>
           </BoringSpellValueText>
         </Statistic>

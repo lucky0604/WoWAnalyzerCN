@@ -3,7 +3,6 @@ import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { cdDuration, cdSpell } from 'analysis/retail/druid/balance/constants';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
 import SpellLink from 'interface/SpellLink';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import Spell from 'common/SPELLS/Spell';
@@ -72,12 +71,12 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
 
     const explanation = (
       <p>
-        <Trans id="balance.ca.explanation">
+        <Trans id="druid.balance.ca.explanation">
           <strong>
             <SpellLink spell={this.cdSpell} />
           </strong>{' '}
-          is our primary damage cooldown. It's best used as soon as it's available, but can be held
-          to ensure you'll have full target uptime during its duration (don't use it when it will be
+          is our primary damage cooldown. It's best used as soon as it's available, but can be held to
+          ensure you'll have full target uptime during its duration (don't use it when it will be
           interrupted by a fight mechanic).
         </Trans>
       </p>
@@ -85,8 +84,12 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
 
     const data = (
       <div>
-        <strong>{t({ id: 'balance.ca.per_cast_breakdown', message: 'Per-Cast Breakdown' })}</strong>
-        <small>{t({ id: 'balance.ca.click_expand', message: '- click to expand' })}</small>
+        <strong>
+          <Trans id="druid.balance.ca.per_cast_breakdown">Per-Cast Breakdown</Trans>
+        </strong>
+        <small>
+          <Trans id="druid.balance.ca.click_expand"> - click to expand</Trans>
+        </small>
         {this.caTrackers.map((cast, idx) => {
           const header = (
             <>
@@ -109,10 +112,10 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
 
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
-            label: t({ id: 'balance.ca.stay_active', message: 'Stay Active!' }),
+            label: <Trans id="druid.balance.ca.stay_active">Stay Active!</Trans>,
             result: <PerformanceMark perf={percentActivePerf} />,
             details: (
-              <Trans id="balance.ca.active_time">
+              <Trans id="druid.balance.ca.active_time">
                 ({formatPercentage(cast.activeTimePercentage ?? 0, 0)}% active time)
               </Trans>
             ),

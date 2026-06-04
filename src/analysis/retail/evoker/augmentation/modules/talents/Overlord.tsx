@@ -10,6 +10,7 @@ import TalentSpellText from 'parser/ui/TalentSpellText';
 import { VersatilityIcon } from 'interface/icons';
 import { SpellLink } from 'interface';
 import { hasEruptionCastLink } from '../normalizers/CastLinkNormalizer';
+import { t } from '@lingui/core/macro';
 
 /**
  * Triggers an Eruption at the first 3 enemies hit by Breath of Eons / Deep Breath. These Eruptions are guaranteed to spawn a Mote of Possibility.
@@ -91,7 +92,7 @@ class Overlord extends Analyzer {
             <VersatilityIcon /> {this.motesSpawned}
             <small>
               {' '}
-              <SpellLink spell={TALENTS.MOTES_OF_POSSIBILITY_TALENT} /> generated
+              <SpellLink spell={TALENTS.MOTES_OF_POSSIBILITY_TALENT} /> {t({ id: 'evoker.augmentation.overlord.generated', message: 'generated' })}
             </small>
           </div>
         </TalentSpellText>

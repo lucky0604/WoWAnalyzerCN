@@ -1,4 +1,6 @@
 import Analyzer from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import UptimeMultiBarStatistic from 'parser/ui/UptimeMultiBarStatistic';
 import UptimeIcon from 'interface/icons/Uptime';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
@@ -20,16 +22,20 @@ export default class DotUptimesAndSnapshots extends Analyzer {
       <UptimeMultiBarStatistic
         title={
           <>
-            <UptimeIcon /> DoT Uptimes and Snapshots
+            <UptimeIcon />{' '}
+            {t({
+              id: 'rogue.assassination.dotuptimes.title',
+              message: 'DoT Uptimes and Snapshots',
+            })}
           </>
         }
         position={STATISTIC_ORDER.CORE(1)}
         tooltip={
-          <>
+          <Trans id="rogue.assassination.dotuptimes.tooltip">
             These uptime bars show the times your DoT was active on at least one target. The
             snapshot percent is the percentage of the DoT's uptime the snapshot was active on at
             least one target (not the percent of the whole fight).
-          </>
+          </Trans>
         }
       >
         {this.garroteUptimeAndSnapshots.subStatistic()}

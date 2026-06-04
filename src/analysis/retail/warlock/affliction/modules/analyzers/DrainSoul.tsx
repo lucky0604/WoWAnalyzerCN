@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -99,16 +100,20 @@ class DrainSoul extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={`${formatThousands(damage)} total damage`}
+        tooltip={`${formatThousands(damage)} ${t({ id: 'warlock.affliction.drainSoul.totalDamage', message: 'total damage' })}`}
       >
         <BoringSpellValueText spell={TALENTS.DRAIN_SOUL_TALENT}>
           {formatNumber(dps)} DPS{' '}
           <small>
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(damage))} % of total
+            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(damage))} %
+            {t({ id: 'warlock.affliction.drainSoul.ofTotal', message: 'of total' })}
           </small>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          <CriticalStrikeIcon /> {this._shardsGained} <small>shards sniped</small>
+          <CriticalStrikeIcon /> {this._shardsGained}{' '}
+          <small>
+            {t({ id: 'warlock.affliction.drainSoul.shardsSniped', message: 'shards sniped' })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

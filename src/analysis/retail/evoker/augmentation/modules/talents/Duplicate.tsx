@@ -18,6 +18,7 @@ import DonutChart from 'parser/ui/DonutChart';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import { formatNumber } from 'common/format';
 import { UPHEAVAL_REVERBERATION_DAM_LINK } from '../normalizers/CastLinkNormalizer';
+import { t } from '@lingui/core/macro';
 /**
  * R1: Deep Breath / Breath of Eons summons Future Self for 20 sec, which will cast Eruption frequently and occasionally empower spells.
  * R2/R3: Sands of Time also extends the duration of Duplicate by 50%/100% of its value.
@@ -107,21 +108,21 @@ class Duplicate extends Analyzer {
     const damageSources = [
       {
         color: 'rgb(255, 255, 0)',
-        label: 'Future Self damage',
+        label: t({ id: 'evoker.augmentation.duplicate.futureSelfDamage', message: 'Future Self damage' }),
         spellId: TALENTS_EVOKER.DUPLICATE_1_AUGMENTATION_TALENT.id,
         valueTooltip: formatNumber(this.petDamage),
         value: this.petDamage,
       },
       {
         color: 'rgb(129, 52, 5)',
-        label: 'Personal damage',
+        label: t({ id: 'evoker.augmentation.duplicate.personalDamage', message: 'Personal damage' }),
         spellId: TALENTS_EVOKER.DUPLICATE_3_AUGMENTATION_TALENT.id,
         valueTooltip: formatNumber(this.personalDamage),
         value: this.personalDamage,
       },
       {
         color: 'rgb(212, 81, 19)',
-        label: 'Ebon Might damage',
+        label: t({ id: 'evoker.augmentation.duplicate.ebonMightDamage', message: 'Ebon Might damage' }),
         spellId: SPELLS.EBON_MIGHT_BUFF_EXTERNAL.id,
         valueTooltip: formatNumber(this.externalDamage),
         value: this.externalDamage,
@@ -139,11 +140,11 @@ class Duplicate extends Analyzer {
               <ItemDamageDone amount={this.petDamage + this.personalDamage + this.externalDamage} />
             </div>
             <div>
-              <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> Duplicate uptime</small>
+              <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> {t({ id: 'evoker.augmentation.duplicate.uptime', message: 'Duplicate uptime' })}</small>
             </div>
           </TalentSpellText>
           <div className="pad">
-            <label>Damage sources</label>
+            <label>{t({ id: 'evoker.augmentation.duplicate.damageSources', message: 'Damage sources' })}</label>
             <DonutChart items={damageSources} />
           </div>
         </Statistic>
@@ -160,7 +161,7 @@ class Duplicate extends Analyzer {
               <ItemDamageDone amount={this.petDamage} />
             </div>
             <div>
-              <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> Duplicate uptime</small>
+              <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> {t({ id: 'evoker.augmentation.duplicate.uptime', message: 'Duplicate uptime' })}</small>
             </div>
           </TalentSpellText>
         </Statistic>

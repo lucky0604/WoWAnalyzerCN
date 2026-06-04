@@ -9,6 +9,7 @@ import LazyLoadStatisticBox from 'parser/ui/LazyLoadStatisticBox';
 import { TALENTS_PRIEST } from 'common/TALENTS';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { WCLDamageTakenTableResponse } from 'common/WCL_TYPES';
+import { t } from '@lingui/core/macro';
 
 const LENIENCE_DR = 0.02;
 
@@ -48,12 +49,8 @@ class Lenience extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         icon={<SpellIcon spell={TALENTS_PRIEST.LENIENCE_TALENT} />}
         value={`>=${formatNumber((this.damageReducedDuringLenience / fightDuration) * 1000)} DRPS`}
-        label="Damage reduced"
-        tooltip={`The estimated damage reduced by Lenience's damage reduction was ${formatThousands(
-          this.damageReducedDuringLenience,
-        )} (${formatNumber(
-          (this.damageReducedDuringLenience / fightDuration) * 1000,
-        )} per second average). This is the lowest possible value. This value is 100% accurate for this log if you are looking at the actual gain over not having the Lenience bonus at all, but the gain may end up higher when taking interactions with other damage reductions into account.`}
+        label={t({ id: 'priest.discipline.lenience.label', message: 'Damage reduced' })}
+        tooltip={(() => { const totalDmg = formatThousands(this.damageReducedDuringLenience); const perSecond = formatNumber((this.damageReducedDuringLenience / fightDuration) * 1000); return t({ id: 'priest.discipline.lenience.tooltip', message: `The estimated damage reduced by Lenience's damage reduction was ${{totalDmg}} (${{perSecond}} per second average). This is the lowest possible value. This value is 100% accurate for this log if you are looking at the actual gain over not having the Lenience bonus at all, but the gain may end up higher when taking interactions with other damage reductions into account.` }); })()}
       />
     );
   }

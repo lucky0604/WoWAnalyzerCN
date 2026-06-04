@@ -11,6 +11,8 @@ import { ExplanationSection } from 'analysis/retail/demonhunter/shared/guide/Com
 import { TALENTS_PALADIN } from 'common/TALENTS';
 import { getCastsDuringWake } from '../../normalizers/WakeOfAshesNormalizer';
 import { TIERS } from 'game/TIERS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 interface WakeOfAshesCooldownCast extends CooldownTrigger<CastEvent> {
   hammerOfLightCasts: number;
   targetHasExecutionSentenceOnCast: boolean;
@@ -44,27 +46,35 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
       <>
         <ExplanationSection>
           <p>
-            Thanks to <SpellLink spell={TALENTS_PALADIN.RADIANT_GLORY_TALENT} />,{' '}
-            <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> becomes your main offensive
-            cooldown.
+            <Trans id="paladin.retribution.wakeOfAshes.description1">
+              Thanks to <SpellLink spell={TALENTS_PALADIN.RADIANT_GLORY_TALENT} />,{' '}
+              <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> becomes your main offensive
+              cooldown.
+            </Trans>
           </p>
           {this.hasExecutionSentenceTalented && (
             <p>
-              You want to press <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />{' '}
-              before <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> and fit as much
-              damage as possible during that window.
+              <Trans id="paladin.retribution.wakeOfAshes.executionSentenceDescription">
+                You want to press <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />{' '}
+                before <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> and fit as much
+                damage as possible during that window.
+              </Trans>
             </p>
           )}
           {this.isTemplar && (
             <p>
-              <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} /> is your highest damage ability. It is
-              available right after every <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} />{' '}
-              casts.
+              <Trans id="paladin.retribution.wakeOfAshes.templarDescription">
+                <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} /> is your highest damage ability. It is
+                available right after every <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} />{' '}
+                casts.
+              </Trans>
               {playerHasTWW3_4Piece && (
                 <>
                   {' '}
-                  With the season 3 Tier Set, you will be able to use it a second time each{' '}
-                  <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> cast.
+                  <Trans id="paladin.retribution.wakeOfAshes.tierSetDescription">
+                    With the season 3 Tier Set, you will be able to use it a second time each{' '}
+                    <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> cast.
+                  </Trans>
                 </>
               )}
             </p>
@@ -104,8 +114,8 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
       performance: combinedPerformance,
       performanceExplanation:
         combinedPerformance !== QualitativePerformance.Fail
-          ? `${combinedPerformance} Usage`
-          : 'Bad Usage',
+          ? `${combinedPerformance} ${t({ id: 'paladin.retribution.wakeOfAshes.usage', message: 'Usage' })}`
+          : t({ id: 'paladin.retribution.wakeOfAshes.badUsage', message: 'Bad Usage' }),
       checklistItems: checklistItems,
     };
   }
@@ -113,23 +123,23 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
   private executionSentencePerformance(cast: WakeOfAshesCooldownCast): UsageInfo {
     let performance = QualitativePerformance.Perfect;
     const summary = (
-      <>
+      <Trans id="paladin.retribution.wakeOfAshes.targetHadExecutionSentence">
         Target had <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} /> applied.
-      </>
+      </Trans>
     );
     let details = (
-      <>
+      <Trans id="paladin.retribution.wakeOfAshes.targetAlreadyHadExecutionSentence">
         Target already had <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} /> applied.
-      </>
+      </Trans>
     );
 
     if (!cast.targetHasExecutionSentenceOnCast) {
       performance = QualitativePerformance.Fail;
       details = (
-        <>
+        <Trans id="paladin.retribution.wakeOfAshes.targetDidNotHaveExecutionSentence">
           Target did not have <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />{' '}
           applied.
-        </>
+        </Trans>
       );
     }
 
@@ -156,10 +166,10 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
         performance: QualitativePerformance.Good,
         summary: summary,
         details: (
-          <>
+          <Trans id="paladin.retribution.wakeOfAshes.hammerOfLightGood">
             You cast <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} /> {numberOfHammerOfLightCast} time
             {numberOfHammerOfLightCast > 1 ? 's' : ''} during your cooldowns, nice !
-          </>
+          </Trans>
         ),
       };
     }
@@ -170,16 +180,16 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
       details: (
         <>
           {numberOfHammerOfLightCast === 0 ? (
-            <>
+            <Trans id="paladin.retribution.wakeOfAshes.hammerOfLightNone">
               You did not cast {<SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />} during your cooldowns.
               Expected casts : {expectedNumberOfHammerOfLightCast}+
-            </>
+            </Trans>
           ) : (
-            <>
+            <Trans id="paladin.retribution.wakeOfAshes.hammerOfLightFew">
               You only cast {<SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />}{' '}
               {numberOfHammerOfLightCast} time{numberOfHammerOfLightCast > 1 ? 's' : ''} during your
               cooldowns. Expected casts : {expectedNumberOfHammerOfLightCast}+
-            </>
+            </Trans>
           )}
         </>
       ),

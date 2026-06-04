@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import SPELLS from 'common/SPELLS/paladin';
 import Events, { DamageEvent } from 'parser/core/Events';
@@ -48,8 +49,10 @@ export default class ConsecrationDefensives extends MajorDefensiveBuff {
   description(): ReactNode {
     return (
       <p>
-        <SpellLink spell={SPELLS.CONSECRATION_BUFF} /> nearly <strong>doubles</strong> the amount of
-        armor that you have and is critical to have up while actively tanking melee hits.
+        <Trans id="paladin.protection.consecrationDefensives.description">
+          <SpellLink spell={SPELLS.CONSECRATION_BUFF} /> nearly <strong>doubles</strong> the amount
+          of armor that you have and is critical to have up while actively tanking melee hits.
+        </Trans>
       </p>
     );
   }

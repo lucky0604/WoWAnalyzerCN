@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/warrior';
 import TALENTS from 'common/TALENTS/warrior';
 import { formatNumber, formatPercentage, formatThousands } from 'common/format';
@@ -77,18 +78,19 @@ class Enrage extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            You did{' '}
+            {t({ id: 'warrior.fury.enrage.damageWhileEnraged', message: 'You did' })}{' '}
             <strong>
               {formatThousands(this.damage)} ({formatPercentage(this.damageTotalPercent)}%)
             </strong>{' '}
-            damage while enraged, contributing <strong>{formatNumber(this.dpsIncrease)}</strong>{' '}
-            DPS.
+            {t({ id: 'warrior.fury.enrage.damageWhileEnragedSuffix', message: 'damage while enraged, contributing' })}{' '}
+            <strong>{formatNumber(this.dpsIncrease)}</strong>{' '}
+            {t({ id: 'warrior.fury.enrage.dps', message: 'DPS.' })}
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.ENRAGE}>
           <>
-            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>uptime</small>
+            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>{t({ id: 'warrior.fury.enrage.uptime', message: 'uptime' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

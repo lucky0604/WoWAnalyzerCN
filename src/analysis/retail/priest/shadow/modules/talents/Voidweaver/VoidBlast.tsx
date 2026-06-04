@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
@@ -162,7 +163,8 @@ class VoidBlast extends ExecuteHelper {
     );
     const tooltip = (
       <>
-        @<strong>{this.owner.formatTimestamp(event.timestamp)}</strong>, Charges:
+        @<strong>{this.owner.formatTimestamp(event.timestamp)}</strong>,{' '}
+        {t({ id: 'priest.shadow.voidBlast.charges', message: 'Charges' })}:{' '}
         <strong>{charges.toFixed(2)}</strong>
       </>
     );
@@ -263,22 +265,30 @@ class VoidBlast extends ExecuteHelper {
           <b>
             <SpellLink spell={TALENTS.VOID_BLAST_TALENT} />
           </b>{' '}
-          replaces <SpellLink spell={TALENTS.MIND_BLAST_TALENT} /> with Void Blast, a significantly
-          more powerful spell for the duration of the{' '}
-          <SpellLink spell={TALENTS.ENTROPIC_RIFT_TALENT} />.
+          {t({
+            id: 'priest.shadow.voidBlast.replaces',
+            message:
+              'replaces Mind Blast with Void Blast, a significantly more powerful spell for the duration of the Entropic Rift.',
+          })}
         </p>
         <p>
-          It is important to cast <SpellLink spell={SPELLS.SHADOW_PRIEST_VOIDWEAVER_VOID_BLAST} />{' '}
-          as much as possible while it is available. To do so, you should save charges of Mind Blast
-          before casting <SpellLink spell={TALENTS.VOID_TORRENT_TALENT} /> in order to have charges
-          of Void Blast at the end of Void Torrent's channel.
+          {t({
+            id: 'priest.shadow.voidBlast.castAsMuchAsPossible',
+            message:
+              'It is important to cast Void Blast as much as possible while it is available. To do so, you should save charges of Mind Blast before casting Void Torrent in order to have charges of Void Blast at the end of Void Torrent\'s channel.',
+          })}
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Void Blast Charges</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.voidBlast.chargesTitle',
+            message: 'Void Blast Charges',
+          })}
+        </strong>
         <PerformanceBoxRow values={this.VBCharges} />
       </div>
     );

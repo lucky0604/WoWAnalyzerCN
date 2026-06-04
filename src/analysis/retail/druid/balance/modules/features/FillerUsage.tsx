@@ -1,5 +1,5 @@
 import SPELLS from 'common/SPELLS';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -52,8 +52,8 @@ export default class FillerUsage extends Analyzer {
     if (eclipse === 'solar') {
       addInefficientCastReason(
         event,
-        t({
-          id: 'balance.filler.solar_starfire_reason',
+        defineMessage({
+          id: 'druid.balance.filler.solar_starfire_reason',
           message: 'Use Wrath instead of Starfire in Solar Eclipse, regardless of target count',
         }),
       );
@@ -62,8 +62,8 @@ export default class FillerUsage extends Analyzer {
       if (targetsHit < MIN_STARFIRE_TARGETS_LUNAR) {
         addInefficientCastReason(
           event,
-          t({
-            id: 'balance.filler.too_few_targets',
+          defineMessage({
+            id: 'druid.balance.filler.too_few_targets',
             message: `You hit too few targets: ${targetsHit} - use Wrath instead`,
           }),
         );
@@ -73,8 +73,8 @@ export default class FillerUsage extends Analyzer {
       if (targetsHit < MIN_STARFIRE_TARGETS_CA) {
         addInefficientCastReason(
           event,
-          t({
-            id: 'balance.filler.too_few_targets_ca',
+          defineMessage({
+            id: 'druid.balance.filler.too_few_targets_ca',
             message: `You hit too few targets: ${targetsHit} - use Wrath instead`,
           }),
         );
@@ -83,8 +83,8 @@ export default class FillerUsage extends Analyzer {
     } else if (eclipse === 'none' && this.hasLunarCalling) {
       addInefficientCastReason(
         event,
-        t({
-          id: 'balance.filler.no_eclipse_lc_reason',
+        defineMessage({
+          id: 'druid.balance.filler.no_eclipse_lc_reason',
           message:
             'You cast Starfire while not in eclipse. Because you took Lunar Calling, you need to use Wrath to reenter eclipse.',
         }),
@@ -125,7 +125,7 @@ export default class FillerUsage extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="balance.filler.explanation_p1">
+          <Trans id="druid.balance.filler.explanation_p1">
             <strong>Filler spells</strong> are{' '}
             <strong>
               <SpellLink spell={SPELLS.WRATH} />
@@ -138,14 +138,14 @@ export default class FillerUsage extends Analyzer {
           </Trans>
         </p>
         <p>
-          <Trans id="balance.filler.explanation_p2">
+          <Trans id="druid.balance.filler.explanation_p2">
             They are spammable and generate Astral Power. Use <SpellLink spell={SPELLS.WRATH} /> in
             single target and <SpellLink spell={SPELLS.STARFIRE} /> against multiple stacked
             targets.
           </Trans>
         </p>
         <p>
-          <Trans id="balance.filler.explanation_p3">
+          <Trans id="druid.balance.filler.explanation_p3">
             Your fillers are greatly buffed by their corresponding{' '}
             <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> - aim to enter an Eclipse that
             matches your current target count.
@@ -154,7 +154,7 @@ export default class FillerUsage extends Analyzer {
         {this.hasLunarCalling && (
           <p>
             <i>
-              <Trans id="balance.filler.explanation_lc">
+              <Trans id="druid.balance.filler.explanation_lc">
                 However, because you took <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} />,
                 you can only enter Lunar Eclipse. When Eclipse drops you must use Wrath to reenter
                 Eclipse.
@@ -164,7 +164,7 @@ export default class FillerUsage extends Analyzer {
         )}
         {!this.hasLunarCalling && (
           <p>
-            <Trans id="balance.filler.explanation_no_lc">
+            <Trans id="druid.balance.filler.explanation_no_lc">
               If you make a mistake and find yourself in Lunar Eclipse with no stacked targets or in
               Solar Eclipse with stacked targets, you should use <SpellLink spell={SPELLS.WRATH} />.
             </Trans>
@@ -175,12 +175,12 @@ export default class FillerUsage extends Analyzer {
 
     const goodFillerData = {
       count: this.goodFillers,
-      label: t({ id: 'balance.filler.good_label', message: 'Good Fillers' }),
+      label: <Trans id="druid.balance.filler.good_label">Good Fillers</Trans>,
     };
     const okFillerData = {
       count: this.okFillers,
       label: (
-        <Trans id="balance.filler.ok_label">
+        <Trans id="druid.balance.filler.ok_label">
           Wraths during Lunar Eclipse (did you enter the wrong Eclipse?)
         </Trans>
       ),
@@ -188,11 +188,11 @@ export default class FillerUsage extends Analyzer {
     const badFillerData = {
       count: this.badFillers,
       label: this.hasLunarCalling ? (
-        <Trans id="balance.filler.bad_lc_label">
+        <Trans id="druid.balance.filler.bad_lc_label">
           Starfire when out of Eclipse (with Lunar Calling, you must Wrath to enter eclipse)
         </Trans>
       ) : (
-        <Trans id="balance.filler.bad_no_lc_label">
+        <Trans id="druid.balance.filler.bad_no_lc_label">
           Starfires during Solar Eclipse or that hit too few targets
         </Trans>
       ),
@@ -201,11 +201,11 @@ export default class FillerUsage extends Analyzer {
     const data = (
       <div>
         <strong>
-          {t({ id: 'balance.filler.breakdown_title', message: 'Filler cast breakdown' })}
+          <Trans id="druid.balance.filler.breakdown_title">Filler cast breakdown</Trans>
         </strong>
         <small>
           {' '}
-          <Trans id="balance.filler.breakdown_desc">
+          <Trans id="druid.balance.filler.breakdown_desc">
             - Green is a good cast, Yellow is a Wrath during Lunar Eclipse, Red is a bad Starfire.
             Mouseover for more details.
           </Trans>

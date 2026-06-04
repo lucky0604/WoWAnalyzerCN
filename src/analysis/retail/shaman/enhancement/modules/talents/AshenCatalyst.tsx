@@ -10,6 +10,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { Trans } from '@lingui/react/macro';
 
 const ASHEN_CATALYST_COOLDOWN_REDUCTION_MS = 2000;
 
@@ -57,7 +58,7 @@ class AshenCatalyst extends Analyzer.withDependencies({
         <TalentSpellText talent={TALENTS.ASHEN_CATALYST_TALENT}>
           <>
             <UptimeIcon /> {formatNumber(this.effectiveCooldownReduction / 1000)}{' '}
-            <small>sec cooldown reduction</small>
+            <small><Trans id="shaman.enhancement.ashencatalyst.cdr">sec cooldown reduction</Trans></small>
           </>
         </TalentSpellText>
       </Statistic>

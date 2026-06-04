@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS/hunter';
 import TALENTS from 'common/TALENTS/hunter';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -58,18 +60,24 @@ class WildfireShells extends Analyzer.withDependencies({ spellUsable: SpellUsabl
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            <p>Wildfire Shells reduced Wildfire Bomb's cooldown by </p>
+          <Trans id="hunter.survival.wildfireShells.statisticTooltip">
+            <p>
+              Wildfire Shells reduced Wildfire Bomb's cooldown by{' '}
+              <strong>{(this.effectiveCDR / 1000).toFixed(1)}s</strong>.
+            </p>
             <p>
               <strong>{(this.wastedCDR / 1000).toFixed(1)}s</strong> was wasted (Wildfire Bomb not
               on cooldown).
             </p>
-          </>
+          </Trans>
         }
       >
         <BoringSpellValueText spell={TALENTS.WILDFIRE_SHELLS_TALENT}>
           <>
-            {(this.effectiveCDR / 1000).toFixed(1)}s <small>CDR gained</small>
+            {(this.effectiveCDR / 1000).toFixed(1)}s{' '}
+            <small>
+              <Trans id="hunter.survival.wildfireShells.cdrGained">CDR gained</Trans>
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

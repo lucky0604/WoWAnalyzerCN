@@ -2,6 +2,7 @@ import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, ResourceChangeEvent } from 'parser/core/Events';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
+import { t } from '@lingui/core/macro';
 
 class CrusaderStrike extends Analyzer {
   wasteHP = false;
@@ -28,7 +29,11 @@ class CrusaderStrike extends Analyzer {
     if (this.wasteHP) {
       addInefficientCastReason(
         event,
-        'Crusader Strike was cast while at max Holy Power. Make sure to use a Holy Power spender first to avoid overcapping.',
+        t({
+          id: 'paladin.retribution.crusaderStrike.inefficientCast',
+          message:
+            'Crusader Strike was cast while at max Holy Power. Make sure to use a Holy Power spender first to avoid overcapping.',
+        }),
       );
       this.wasteHP = false;
     }

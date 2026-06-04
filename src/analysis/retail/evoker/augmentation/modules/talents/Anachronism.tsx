@@ -11,6 +11,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { SpellLink } from 'interface';
 import { plotOneVariableBinomChart } from 'parser/shared/modules/helpers/Probability';
+import { t } from '@lingui/core/macro';
 import {
   EBSource,
   eventGeneratedEB,
@@ -56,7 +57,7 @@ class Anachronism extends Analyzer {
         <TalentSpellText talent={TALENTS.ANACHRONISM_TALENT}>
           {this.essenceBurstGenerated}{' '}
           <small>
-            <SpellLink spell={SPELLS.ESSENCE_BURST_AUGMENTATION_BUFF} /> generated
+            <SpellLink spell={SPELLS.ESSENCE_BURST_AUGMENTATION_BUFF} /> {t({ id: 'evoker.augmentation.anachronism.generated', message: 'generated' })}
           </small>
         </TalentSpellText>
         {plotOneVariableBinomChart(

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { Panel } from 'interface';
@@ -57,14 +58,19 @@ class RunicPowerDetails extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(11)}
         size="small"
-        tooltip={`${this.runicPowerTracker.wasted} out of ${
-          this.runicPowerTracker.wasted + this.runicPowerTracker.generated
-        } runic power wasted.`}
+        tooltip={t({
+          id: 'deathknight.frost.runicPowerDetails.tooltip',
+          message: '{wasted} out of {total} runic power wasted.',
+          values: {
+            wasted: this.runicPowerTracker.wasted,
+            total: this.runicPowerTracker.wasted + this.runicPowerTracker.generated,
+          },
+        })}
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.RUNIC_POWER}
           value={`${formatPercentage(this.wastedPercent)} %`}
-          label="Runic Power wasted"
+          label={t({ id: 'deathknight.frost.runicPowerDetails.wasted', message: 'Runic Power wasted' })}
         />
       </Statistic>
     );
@@ -72,7 +78,7 @@ class RunicPowerDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Runic Power usage',
+      title: t({ id: 'deathknight.frost.runicPowerDetails.tabTitle', message: 'Runic Power usage' }),
       url: 'runic-power-usage',
       render: () => (
         <Panel>

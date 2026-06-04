@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -60,21 +61,21 @@ class Shadowburn extends Analyzer {
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            If fragments generated with Shadowburn were used on Chaos Bolts, they would deal an
-            estimated {formatThousands(estimatedDamage)} damage (
-            {this.owner.formatItemDamageDone(estimatedDamage)}). This is estimated using average
-            Chaos Bolt damage over the fight.
+            {t({
+              id: 'warlock.destruction.shadowburn.fragmentEstimate',
+              message: `If fragments generated with Shadowburn were used on Chaos Bolts, they would deal an estimated ${formatThousands(estimatedDamage)} damage (${this.owner.formatItemDamageDone(estimatedDamage)}). This is estimated using average Chaos Bolt damage over the fight.`,
+            })}
           </>
         }
       >
         <BoringSpellValueText spell={TALENTS.SHADOWBURN_TALENT}>
           {formatNumber(this.dps)} DPS{' '}
           <small>
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.damage))} % of total
+            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.damage))} % {t({ id: 'warlock.destruction.shadowburn.ofTotal', message: 'of total' })}
           </small>{' '}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {fragments} <small>generated Fragments</small>
+          {fragments} <small>{t({ id: 'warlock.destruction.shadowburn.generatedFragments', message: 'generated Fragments' })}</small>
         </BoringSpellValueText>
       </Statistic>
     );

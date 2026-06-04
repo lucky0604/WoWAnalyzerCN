@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -105,15 +106,18 @@ class MerithrasBlessing extends Analyzer {
           <b>
             <SpellLink spell={SPELLS.MERITHRAS_BLESSING_CAST} />
           </b>{' '}
-          is your apex talent and most important spell to consume{' '}
-          <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> with. You aim should be to consume your
-          procs into as many <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />
-          es as possible right as damage hits the group
+          {t({
+            id: 'evoker.preservation.merithrasBlessing.guideExplanation1',
+            message:
+              'is your apex talent and most important spell to consume Echo with. Your aim should be to consume your procs into as many Echoes as possible right as damage hits the group.',
+          })}
         </p>
         <p>
-          It is important that you use your <SpellLink spell={SPELLS.MERITHRAS_BLESSING_CAST} />{' '}
-          procs before <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> becomes available,
-          as casting it would overwrite the buff with a new one making you miss out on a cast of it.
+          {t({
+            id: 'evoker.preservation.merithrasBlessing.guideExplanation2',
+            message:
+              'It is important that you use your Merithras Blessing procs before Dream Breath becomes available, as casting it would overwrite the buff with a new one making you miss out on a cast of it.',
+          })}
         </p>
       </div>
     );
@@ -145,8 +149,10 @@ class MerithrasBlessing extends Analyzer {
           <>
             <div>{tooltip}</div>
             <div>
-              <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> was used while{' '}
-              <SpellLink spell={SPELLS.MERITHRAS_BLESSING_CAST} /> was already active.
+              {t({
+                id: 'evoker.preservation.merithrasBlessing.dreamBreathOverwrite',
+                message: 'Dream Breath was used while Merithras Blessing was already active.',
+              })}
             </div>
           </>
         );
@@ -159,11 +165,10 @@ class MerithrasBlessing extends Analyzer {
           <>
             <div>{tooltip}</div>
             <div>
-              <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />s consumed:{' '}
-              {castInfo.echoConsumptions}{' '}
+              {t({ id: 'evoker.preservation.merithrasBlessing.echoesConsumed', message: 'Echoes consumed' })}: {castInfo.echoConsumptions}
             </div>
-            <div>Effective Healing: {formatNumber(castInfo.effectiveHealing)}</div>
-            <div>Overhealing: {formatPercentage(overhealPercent, 1)}%</div>
+            <div>{t({ id: 'evoker.preservation.merithrasBlessing.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(castInfo.effectiveHealing)}</div>
+            <div>{t({ id: 'evoker.preservation.merithrasBlessing.overhealing', message: 'Overhealing' })}: {formatPercentage(overhealPercent, 1)}%</div>
           </>
         );
       }
@@ -175,7 +180,7 @@ class MerithrasBlessing extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.MERITHRAS_BLESSING_1_PRESERVATION_TALENT} /> usages
+            <SpellLink spell={TALENTS_EVOKER.MERITHRAS_BLESSING_1_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.merithrasBlessing.usages', message: 'usages' })}
           </strong>
           <PerformanceBoxRow values={entries} />
         </RoundedPanel>

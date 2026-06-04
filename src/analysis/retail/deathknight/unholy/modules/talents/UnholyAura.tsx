@@ -8,6 +8,7 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import HasteIcon from 'interface/icons/Haste';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
 
 class UnholyAura extends Analyzer {
   static dependencies = {
@@ -64,9 +65,24 @@ class UnholyAura extends Analyzer {
           <table className="table table-condensed">
             <thead>
               <tr>
-                <th>Stacks</th>
-                <th>Time (s)</th>
-                <th>Time (%)</th>
+                <th>
+                  {t({
+                    id: 'deathknight.unholy.unholyAura.tableStacks',
+                    message: 'Stacks',
+                  })}
+                </th>
+                <th>
+                  {t({
+                    id: 'deathknight.unholy.unholyAura.tableTimeS',
+                    message: 'Time (s)',
+                  })}
+                </th>
+                <th>
+                  {t({
+                    id: 'deathknight.unholy.unholyAura.tableTimePct',
+                    message: 'Time (%)',
+                  })}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -90,13 +106,31 @@ class UnholyAura extends Analyzer {
       >
         <TalentSpellText talent={TALENTS.UNHOLY_AURA_TALENT}>
           <div>
-            <HasteIcon /> {this.averageHaste.toFixed(2)}% <small>average haste gained</small>
+            <HasteIcon /> {this.averageHaste.toFixed(2)}%{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.unholyAura.labelAvgHaste',
+                message: 'average haste gained',
+              })}
+            </small>
           </div>
           <div>
-            {formatPercentage(this.uptimePercent, 0)}% <small>uptime</small>
+            {formatPercentage(this.uptimePercent, 0)}%{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.unholyAura.labelUptime',
+                message: 'uptime',
+              })}
+            </small>
           </div>
           <div>
-            {this.averageStacks.toFixed(1)} <small>average stacks</small>
+            {this.averageStacks.toFixed(1)}{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.unholyAura.labelAvgStacks',
+                message: 'average stacks',
+              })}
+            </small>
           </div>
         </TalentSpellText>
       </Statistic>

@@ -106,7 +106,7 @@ function BlisteringScalesSection({ modules, info }: GuideProps<typeof CombatLogP
             <strong>
               <SpellLink spell={TALENTS_EVOKER.BLISTERING_SCALES_TALENT} />
             </strong>{' '}
-            uptime
+            {t({ id: 'evoker.augmentation.coreRotation.uptime', message: 'uptime' })}
           </p>
           {modules.blisteringScalesGraph.plot}
         </RoundedPanel>
@@ -203,7 +203,7 @@ function AlwaysBeCastingSection({ modules, events, info }: GuideProps<typeof Com
         <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
           {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
         </PerformanceStrong>{' '}
-        Cancelled Casts:{' '}
+        {t({ id: 'evoker.augmentation.coreRotation.cancelledCasts', message: 'Cancelled Casts' })}:{' '}
         <PerformanceStrong performance={modules.cancelledCasts.CancelledPerformance}>
           {formatPercentage(modules.cancelledCasts.cancelledPercentage, 1)}%
         </PerformanceStrong>{' '}

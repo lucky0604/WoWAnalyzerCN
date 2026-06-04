@@ -7,6 +7,7 @@ import Events from 'parser/core/Events';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 /**
  * Critical strike chance increased by 10% and critical strike damage increased by 20%. The cooldown of Aimed Shot and Rapid Fire is reduced by 60%.
@@ -59,7 +60,10 @@ class Trueshot extends Analyzer {
       <Statistic position={STATISTIC_ORDER.OPTIONAL(1)} size="flexible">
         <BoringSpellValueText spell={TALENTS_HUNTER.TRUESHOT_TALENT}>
           <SpellIcon spell={TALENTS_HUNTER.AIMED_SHOT_TALENT} noLink />{' '}
-          {this.averageAimedShots.toFixed(1)} <small>per Trueshot</small>
+          {this.averageAimedShots.toFixed(1)}{' '}
+          <small>
+            {t({ id: 'hunter.marksmanship.trueshot.perTrueshot', message: 'per Trueshot' })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

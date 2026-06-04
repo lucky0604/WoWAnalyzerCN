@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Events, { CastEvent } from 'parser/core/Events';
 import { BadColor, GoodColor, OkColor } from 'interface/guide';
 import { ResourceLink, SpellLink } from 'interface';
@@ -42,26 +44,37 @@ export default class FinisherUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: 'Max CP Finishers',
+        label: t({
+          id: 'rogue.assassination.finisher.maxCpFinishers',
+          message: 'Max CP Finishers',
+        }),
         value: this.maxCpFinishers,
         tooltip: (
-          <>This includes finishers cast at {getTargetComboPoints(this.selectedCombatant)}+ CPs.</>
+          <Trans id="rogue.assassination.finisher.maxCpFinishersTooltip">
+            This includes finishers cast at {getTargetComboPoints(this.selectedCombatant)}+ CPs.
+          </Trans>
         ),
       },
       {
         color: OkColor,
-        label: 'Low CP Opener Finishers',
+        label: t({
+          id: 'rogue.assassination.finisher.lowCpOpenerFinishers',
+          message: 'Low CP Opener Finishers',
+        }),
         value: this.openerLowCpFinisherCasts,
         tooltip: (
-          <>
+          <Trans id="rogue.assassination.finisher.lowCpOpenerFinishersTooltip">
             This includes low CP finisher casts in the first{' '}
             {formatDurationMillisMinSec(OPENER_MAX_DURATION_MS)} of an encounter.
-          </>
+          </Trans>
         ),
       },
       {
         color: BadColor,
-        label: 'Low CP Finishers',
+        label: t({
+          id: 'rogue.assassination.finisher.lowCpFinishers',
+          message: 'Low CP Finishers',
+        }),
         value: this.lowCpFinisherCasts,
       },
     ];
@@ -69,13 +82,16 @@ export default class FinisherUse extends Analyzer {
     if (this.selectedCombatant.hasTalent(TALENTS.ECHOING_REPRIMAND_TALENT)) {
       items.push({
         color: '#40DDF9',
-        label: 'Animacharged Finishers',
+        label: t({
+          id: 'rogue.assassination.finisher.animachargedFinishers',
+          message: 'Animacharged Finishers',
+        }),
         value: this.animachargedCasts,
         tooltip: (
-          <>
+          <Trans id="rogue.assassination.finisher.animachargedFinishersTooltip">
             This includes finishers cast using an Animacharged CP from{' '}
             <SpellLink spell={TALENTS.ECHOING_REPRIMAND_TALENT} />.
-          </>
+          </Trans>
         ),
       });
     }
@@ -88,7 +104,11 @@ export default class FinisherUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(6)}>
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> spender usage
+            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
+            {t({
+              id: 'rogue.assassination.finisher.spenderUsage',
+              message: 'spender usage',
+            })}
           </label>
           {this.chart}
         </div>

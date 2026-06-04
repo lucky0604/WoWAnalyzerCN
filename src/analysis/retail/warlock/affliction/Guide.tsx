@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { GuideProps, Section } from 'interface/guide';
 import CombatLogParser from './CombatLogParser';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
@@ -11,25 +12,25 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
   return (
     <>
       {/* DoT Uptime Section */}
-      <Section title="Dot Uptimes">
+      <Section title={t({ id: 'warlock.affliction.section.dotUptimes', message: 'Dot Uptimes' })}>
         {modules.agony.guideSubsection}
         {modules.corruptionUptime.guideSubsection}
         {modules.haunt.guideSubsection}
       </Section>
 
       {/* Unstable Affliction Section */}
-      <Section title="Unstable Affliction">
+      <Section title={t({ id: 'warlock.affliction.section.unstableAffliction', message: 'Unstable Affliction' })}>
         <UnstableAfflictionGuide unstableAffliction={modules.unstableaffliction} />
       </Section>
 
       {/* Cooldowns Section */}
-      <Section title="Cooldown Usage">
+      <Section title={t({ id: 'warlock.affliction.section.cooldownUsage', message: 'Cooldown Usage' })}>
         <CooldownSubsection />
       </Section>
 
       {/* Defensives Section with Healthstone Tracker */}
-      <Section title="Defensives">
-        <Section title="Healthstone Tracker">
+      <Section title={t({ id: 'warlock.affliction.section.defensives', message: 'Defensives' })}>
+        <Section title={t({ id: 'warlock.affliction.section.healthstoneTracker', message: 'Healthstone Tracker' })}>
           {modules.demonicHealthstone?.active && (
             <DemonicHealthstoneGuide
               analyzer={modules.demonicHealthstone}
@@ -43,7 +44,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       </Section>
 
       {/* Resource Usage Section */}
-      <Section title="Resource Usage">
+      <Section title={t({ id: 'warlock.affliction.section.resourceUsage', message: 'Resource Usage' })}>
         <ResourceUsage modules={modules} events={events} info={info} />
       </Section>
 

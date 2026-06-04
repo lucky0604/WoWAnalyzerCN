@@ -8,6 +8,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 
 import { ReactNode } from 'react';
+import { t } from '@lingui/core/macro';
 import SharedBrews from '../core/SharedBrews';
 import spells from '../../spell-list_Monk_Brewmaster.retail';
 import { encodeEventSourceString } from 'parser/shared/modules/Enemies';
@@ -124,7 +125,7 @@ export default class AnvilStave extends Analyzer {
         <BoringValue
           label={
             <>
-              <SpellLink spell={spells.ANVIL_AND_STAVE_TALENT} /> Cooldown Reduction
+              <SpellLink spell={spells.ANVIL_AND_STAVE_TALENT} /> {t({ id: 'monk.brewmaster.anvilStave.cooldownReduction', message: 'Cooldown Reduction' })}
             </>
           }
         >

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { getTimeOfNeedHealing } from '../../normalizers/EventLinking/helpers';
 import { TALENTS_EVOKER } from 'common/TALENTS';
@@ -14,17 +15,34 @@ import Combatants from 'parser/shared/modules/Combatants';
 
 //All possible results from a Time of Need proc
 const Result = {
-  Proc: (
-    <>
-      Saved by <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} />
-    </>
-  ),
-  Long: 'Saved by all the healing',
-  Not: 'Was not in danger of death',
-  Dead: 'Died anyway',
-  Bug: 'Time of Need fizzled out',
+  Proc: 'proc',
+  Long: 'long',
+  Not: 'not',
+  Dead: 'dead',
+  Bug: 'bug',
 } as const;
 type Results = (typeof Result)[keyof typeof Result];
+
+function getResultDisplay(result: Results): React.ReactNode {
+  switch (result) {
+    case Result.Proc:
+      return (
+        <>
+          {t({ id: 'evoker.preservation.timeOfNeed.savedByVe', message: 'Saved by Verdant Embrace' })}
+        </>
+      );
+    case Result.Long:
+      return t({ id: 'evoker.preservation.timeOfNeed.savedByAll', message: 'Saved by all the healing' });
+    case Result.Not:
+      return t({ id: 'evoker.preservation.timeOfNeed.notInDanger', message: 'Was not in danger of death' });
+    case Result.Dead:
+      return t({ id: 'evoker.preservation.timeOfNeed.diedAnyway', message: 'Died anyway' });
+    case Result.Bug:
+      return t({ id: 'evoker.preservation.timeOfNeed.fizzledOut', message: 'Time of Need fizzled out' });
+    default:
+      return result;
+  }
+}
 
 interface TonEvent {
   summon: SummonEvent;
@@ -151,58 +169,63 @@ class TimeOfNeed extends Analyzer {
         loader={this.load.bind(this)}
         label={
           <>
-            <SpellLink spell={TALENTS_EVOKER.TIME_OF_NEED_TALENT} /> events
+            <SpellLink spell={TALENTS_EVOKER.TIME_OF_NEED_TALENT} /> {t({ id: 'evoker.preservation.timeOfNeed.events', message: 'events' })}
           </>
         }
         tooltip={
           <div>
-            <SpellLink spell={TALENTS_EVOKER.TIME_OF_NEED_TALENT} /> will cast one{' '}
-            <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> and several
-            <SpellLink spell={SPELLS.LIVING_FLAME_HEAL} />s on the player that caused the proc.
-            Depending on the amount of damage that player took during the 8 seconds
-            <SpellLink spell={TALENTS_EVOKER.TIME_OF_NEED_TALENT} /> is active the event is
-            classified as one of the following:
+            {t({
+              id: 'evoker.preservation.timeOfNeed.tooltipDescription',
+              message:
+                'Time of Need will cast one Verdant Embrace and several Living Flames on the player that caused the proc. Depending on the amount of damage that player took during the 8 seconds Time of Need is active, the event is classified as one of the following:',
+            })}
             <ul>
               <li>
-                <b>
-                  Saved by <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} />:
-                </b>{' '}
-                If the player would've died from damage after the{' '}
-                <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> but before any{' '}
-                <SpellLink spell={SPELLS.LIVING_FLAME_HEAL} />
-                s.
+                <b>{t({ id: 'evoker.preservation.timeOfNeed.savedByVe', message: 'Saved by Verdant Embrace' })}:</b>{' '}
+                {t({
+                  id: 'evoker.preservation.timeOfNeed.savedByVeDetail',
+                  message: "If the player would've died from damage after the Verdant Embrace but before any Living Flames.",
+                })}
               </li>
               <li>
-                <b>Saved by all the healing:</b> If the player was saved by a combination of the{' '}
-                <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> and some{' '}
-                <SpellLink spell={SPELLS.LIVING_FLAME_HEAL} /> healing.
+                <b>{t({ id: 'evoker.preservation.timeOfNeed.savedByAll', message: 'Saved by all the healing' })}:</b>{' '}
+                {t({
+                  id: 'evoker.preservation.timeOfNeed.savedByAllDetail',
+                  message: 'If the player was saved by a combination of the Verdant Embrace and some Living Flame healing.',
+                })}
               </li>
               <li>
-                <b>Was not in danger of death:</b> If there wasn't any damage event big enough to
-                kill the player even without the{' '}
-                <SpellLink spell={TALENTS_EVOKER.TIME_OF_NEED_TALENT} /> healing.
+                <b>{t({ id: 'evoker.preservation.timeOfNeed.notInDanger', message: 'Was not in danger of death' })}:</b>{' '}
+                {t({
+                  id: 'evoker.preservation.timeOfNeed.notInDangerDetail',
+                  message: "If there wasn't any damage event big enough to kill the player even without the Time of Need healing.",
+                })}
               </li>
               <li>
-                <b>Died anyway:</b> If they died anyway regardless of the{' '}
-                <SpellLink spell={TALENTS_EVOKER.TIME_OF_NEED_TALENT} /> healing.
+                <b>{t({ id: 'evoker.preservation.timeOfNeed.diedAnyway', message: 'Died anyway' })}:</b>{' '}
+                {t({
+                  id: 'evoker.preservation.timeOfNeed.diedAnywayDetail',
+                  message: 'If they died anyway regardless of the Time of Need healing.',
+                })}
               </li>
               <li>
-                <b>Time of Need fizzled out:</b> The player might have died before{' '}
-                <SpellLink spell={TALENTS_EVOKER.TIME_OF_NEED_TALENT} /> had time to land the{' '}
-                <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} />, and thus did no healing
-                at all.
+                <b>{t({ id: 'evoker.preservation.timeOfNeed.fizzledOut', message: 'Time of Need fizzled out' })}:</b>{' '}
+                {t({
+                  id: 'evoker.preservation.timeOfNeed.fizzledOutDetail',
+                  message: 'The player might have died before Time of Need had time to land the Verdant Embrace, and thus did no healing at all.',
+                })}
               </li>
             </ul>
           </div>
         }
-        value={<>Total of {this.spawns.length} events</>}
+        value={<>{t({ id: 'evoker.preservation.timeOfNeed.totalOf', message: 'Total of' })} {this.spawns.length} {t({ id: 'evoker.preservation.timeOfNeed.events', message: 'events' })}</>}
       >
         <table className="table table-condensed">
           <thead>
             <tr>
-              <th>Event Time</th>
-              <th>Healing (Overhealing)</th>
-              <th>Result</th>
+              <th>{t({ id: 'evoker.preservation.timeOfNeed.eventTime', message: 'Event Time' })}</th>
+              <th>{t({ id: 'evoker.preservation.timeOfNeed.healingOverhealing', message: 'Healing (Overhealing)' })}</th>
+              <th>{t({ id: 'evoker.preservation.timeOfNeed.result', message: 'Result' })}</th>
             </tr>
           </thead>
           <tbody>
@@ -222,9 +245,9 @@ class TimeOfNeed extends Analyzer {
                     {formatNumber(info.livingFlameTotalOverheal)}){' '}
                     <SpellIcon spell={SPELLS.TIME_OF_NEED_LIVING_FLAME} />
                   </div>
-                  <div>on {info.livingFlames.length} casts</div>
+                  <div>{t({ id: 'evoker.preservation.timeOfNeed.on', message: 'on' })} {info.livingFlames.length} {t({ id: 'evoker.preservation.timeOfNeed.casts', message: 'casts' })}</div>
                 </td>
-                <td>{info.result}</td>
+                <td>{getResultDisplay(info.result)}</td>
               </tr>
             ))}
           </tbody>

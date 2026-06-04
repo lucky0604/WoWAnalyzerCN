@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
@@ -89,22 +90,21 @@ class GracePeriod extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <SpellLink spell={TALENTS_EVOKER.GRACE_PERIOD_TALENT} /> provided the following:
+            <SpellLink spell={TALENTS_EVOKER.GRACE_PERIOD_TALENT} /> {t({ id: 'evoker.preservation.gracePeriod.providedFollowing', message: 'provided the following' })}:
             <ul>
               <li>
-                {formatNumber(this.healingFromIncrease + this.lifebindIncrease)} total effective
-                healing
+                {formatNumber(this.healingFromIncrease + this.lifebindIncrease)} {t({ id: 'evoker.preservation.gracePeriod.totalEffectiveHealing', message: 'total effective healing' })}
               </li>
               <li>
-                {formatNumber(this.overhealFromIncrease + this.lifebindOverheal)} total overheal
+                {formatNumber(this.overhealFromIncrease + this.lifebindOverheal)} {t({ id: 'evoker.preservation.gracePeriod.totalOverheal', message: 'total overheal' })}
               </li>
               <li>
                 {formatNumber(this.lifebindIncrease)}{' '}
-                <SpellLink spell={TALENTS_EVOKER.LIFEBIND_TALENT} /> effective healing
+                <SpellLink spell={TALENTS_EVOKER.LIFEBIND_TALENT} /> {t({ id: 'evoker.preservation.gracePeriod.effectiveHealing', message: 'effective healing' })}
               </li>
               <li>
                 {formatNumber(this.lifebindOverheal)}{' '}
-                <SpellLink spell={TALENTS_EVOKER.LIFEBIND_TALENT} /> overheal
+                <SpellLink spell={TALENTS_EVOKER.LIFEBIND_TALENT} /> {t({ id: 'evoker.preservation.gracePeriod.overheal', message: 'overheal' })}
               </li>
             </ul>
           </>

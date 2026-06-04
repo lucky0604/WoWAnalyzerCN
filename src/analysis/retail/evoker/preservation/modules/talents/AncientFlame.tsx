@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { formatDuration } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -47,14 +48,14 @@ class AncientFlame extends Analyzer {
       tooltip = (
         <>
           <div>
-            <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> applied @{' '}
-            {this.owner.formatTimestamp(applyEvent.timestamp ?? this.owner.fight.start_time)}
+            <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> {t({ id: 'evoker.preservation.ancientFlame.applied', message: 'applied @' })} {this.owner.formatTimestamp(applyEvent.timestamp ?? this.owner.fight.start_time)}
           </div>
           <div>
-            You refreshed this buff by casting <SpellLink spell={SPELLS.EMERALD_BLOSSOM_CAST} /> but
-            you were capped on{' '}
-            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> stacks, which
-            makes this refresh not a misplay.
+            {t({
+              id: 'evoker.preservation.ancientFlame.refreshedWhileCapped',
+              message:
+                'You refreshed this buff by casting Emerald Blossom but you were capped on Essence Burst stacks, which makes this refresh not a misplay.',
+            })}
           </div>
         </>
       );
@@ -62,13 +63,16 @@ class AncientFlame extends Analyzer {
       tooltip = (
         <>
           <div>
-            <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> applied @{' '}
-            {this.owner.formatTimestamp(applyEvent.timestamp ?? this.owner.fight.start_time)}
+            <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> {t({ id: 'evoker.preservation.ancientFlame.applied', message: 'applied @' })} {this.owner.formatTimestamp(applyEvent.timestamp ?? this.owner.fight.start_time)}
           </div>
           <div>
-            You wasted this buff by casting another <SpellLink spell={applyEvent.ability.guid} /> @{' '}
-            {this.owner.formatTimestamp(event.timestamp)} before casting{' '}
-            <SpellLink spell={SPELLS.LIVING_FLAME_CAST} />
+            {t({
+              id: 'evoker.preservation.ancientFlame.wastedBuffPart1',
+              message: 'You wasted this buff by casting another spell @',
+            })} {this.owner.formatTimestamp(event.timestamp)} {t({
+              id: 'evoker.preservation.ancientFlame.wastedBuffPart2',
+              message: 'before casting Living Flame.',
+            })}
           </div>
         </>
       );
@@ -82,10 +86,9 @@ class AncientFlame extends Analyzer {
     const tooltip = (
       <>
         <div>
-          <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> applied @{' '}
-          {this.owner.formatTimestamp(applyEvent.timestamp ?? this.owner.fight.start_time)}
+          <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> {t({ id: 'evoker.preservation.ancientFlame.applied', message: 'applied @' })} {this.owner.formatTimestamp(applyEvent.timestamp ?? this.owner.fight.start_time)}
         </div>
-        <div>Consumed @ {this.owner.formatTimestamp(event.timestamp)}</div>
+        <div>{t({ id: 'evoker.preservation.ancientFlame.consumed', message: 'Consumed @' })} {this.owner.formatTimestamp(event.timestamp)}</div>
       </>
     );
     const value = QualitativePerformance.Good;
@@ -112,15 +115,11 @@ class AncientFlame extends Analyzer {
     };
     const explanation = (
       <p>
-        When playing an <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> focused build, it is extremely
-        important to weave in casts of <SpellLink spell={SPELLS.LIVING_FLAME_CAST} /> between casts
-        of <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> and{' '}
-        <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> in order to generate{' '}
-        <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />. Not utilizing this
-        talent will reduce your HPS, DPS, and mana efficiency. It is okay to refresh the buff during
-        times of high damage intake where casting <SpellLink spell={SPELLS.EMERALD_BLOSSOM_CAST} />{' '}
-        multiple times in a row is needed to keep the raid alive or when you are capped on{' '}
-        <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> stacks.
+        {t({
+          id: 'evoker.preservation.ancientFlame.guideExplanation',
+          message:
+            'When playing an Emerald Blossom focused build, it is extremely important to weave in casts of Living Flame between casts of Emerald Blossom and Verdant Embrace in order to generate Essence Burst. Not utilizing this talent will reduce your HPS, DPS, and mana efficiency. It is okay to refresh the buff during times of high damage intake where casting Emerald Blossom multiple times in a row is needed to keep the raid alive or when you are capped on Essence Burst stacks.',
+        })}
       </p>
     );
     const data = (
@@ -128,12 +127,15 @@ class AncientFlame extends Analyzer {
         <RoundedPanel>
           <div>
             <strong>
-              <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> consumptions
+              <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> {t({ id: 'evoker.preservation.ancientFlame.consumptions', message: 'consumptions' })}
             </strong>{' '}
             <small>
               {' '}
-              - Green indicates a buff that was consumed, while red indicates a buff that was wasted
-              by refreshing.
+              {t({
+                id: 'evoker.preservation.ancientFlame.consumptionLegend',
+                message:
+                  '- Green indicates a buff that was consumed, while red indicates a buff that was wasted by refreshing.',
+              })}
             </small>
             <PerformanceBoxRow values={this.consumptions} />
           </div>
@@ -141,7 +143,7 @@ class AncientFlame extends Analyzer {
             <small style={styleObjInner}>
               <SpellLink spell={TALENTS_EVOKER.ANCIENT_FLAME_TALENT} /> -{' '}
             </small>
-            <strong>{this.averageTimeToConsume}s</strong> <small>avg time to consume buff</small>
+            <strong>{this.averageTimeToConsume}s</strong> <small>{t({ id: 'evoker.preservation.ancientFlame.avgTimeToConsume', message: 'avg time to consume buff' })}</small>
           </div>
         </RoundedPanel>
       </div>

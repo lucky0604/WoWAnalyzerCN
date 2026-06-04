@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { SubSection, GuideProps } from 'interface/guide';
 import { PerformanceStrong } from './ExtraComponents';
 import TALENTS from 'common/TALENTS/priest';
@@ -17,24 +18,37 @@ function ResourceSubsection({ modules }: GuideProps<typeof CombatLogParser>) {
       <p>
         {perfect && (
           <b>
-            Good job! You avoided overcapping insanity by using{' '}
-            <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />.
+            {t({
+              id: 'priest.shadow.resourceSubsection.goodJob',
+              message: 'Good job! You avoided overcapping insanity.',
+            })}{' '}
+            <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />
           </b>
         )}
         {!perfect && (
           <b>
-            You should avoid capping insanity by using{' '}
-            <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />.
+            {t({
+              id: 'priest.shadow.resourceSubsection.avoidCapping',
+              message: 'You should avoid capping insanity.',
+            })}{' '}
+            <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />
           </b>
         )}
       </p>
       <p>
-        You wasted{' '}
+        {t({
+          id: 'priest.shadow.resourceSubsection.wastedPrefix',
+          message: 'You wasted',
+        })}{' '}
         <PerformanceStrong performance={modules.insanityTracker.WastedInsanityPerformance}>
           {modules.insanityUsage.wasted} (
           {formatPercentage(modules.insanityUsage.wastePercentage, 1)}%)
         </PerformanceStrong>{' '}
-        of your Insanity. The chart below shows your Insanity over the course of the encounter.
+        {t({
+          id: 'priest.shadow.resourceSubsection.wastedSuffix',
+          message:
+            'of your Insanity. The chart below shows your Insanity over the course of the encounter.',
+        })}
       </p>
       {modules.insanityGraph.plot}
     </SubSection>

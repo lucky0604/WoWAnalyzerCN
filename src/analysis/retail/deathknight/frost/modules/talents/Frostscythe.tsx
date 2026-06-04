@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import talents from 'common/TALENTS/deathknight';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -76,11 +77,15 @@ class Frostscythe extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.OPTIONAL()}
         size="flexible"
-        tooltip={`A good cast is one where you hit 3+ targets. You had ${this.goodCasts} / ${this.casts} good casts`}
+        tooltip={t({
+          id: 'deathknight.frost.frostscythe.tooltip',
+          message: 'A good cast is one where you hit 3+ targets. You had {goodCasts} / {totalCasts} good casts',
+          values: { goodCasts: this.goodCasts, totalCasts: this.casts },
+        })}
       >
         <BoringSpellValueText spell={talents.FROSTSCYTHE_TALENT}>
           <>
-            {formatPercentage(this.efficiency)} % <small>efficiency</small>
+            {formatPercentage(this.efficiency)} % <small>{t({ id: 'deathknight.frost.frostscythe.efficiency', message: 'efficiency' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

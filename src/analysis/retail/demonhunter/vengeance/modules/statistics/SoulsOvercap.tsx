@@ -7,6 +7,8 @@ import AbilityTracker from 'parser/shared/modules/AbilityTracker';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import SoulFragmentsTracker from '../features/SoulFragmentsTracker';
 
@@ -49,26 +51,39 @@ class SoulsOvercap extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            You generated {formatNumber(this.soulFragmentsTracker.overcap)} souls at cap. These are
-            absorbed automatically and aren't avalible to boost Spirit Bomb's damage.
+            <Trans id="demonhunter.vengeance.soulsOvercap.tooltip">
+              You generated {formatNumber(this.soulFragmentsTracker.overcap)} souls at cap. These are
+              absorbed automatically and aren't avalible to boost Spirit Bomb's damage.
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Total Soul Fragments generated: {formatNumber(this.soulFragmentsTracker.soulsGenerated)}
+            <Trans id="demonhunter.vengeance.soulsOvercap.totalGenerated">
+              Total Soul Fragments generated:{' '}
+              {formatNumber(this.soulFragmentsTracker.soulsGenerated)}
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Total Soul Fragments spent: {formatNumber(this.soulFragmentsTracker.soulsSpent)}
+            <Trans id="demonhunter.vengeance.soulsOvercap.totalSpent">
+              Total Soul Fragments spent:{' '}
+              {formatNumber(this.soulFragmentsTracker.soulsSpent)}
+            </Trans>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            At the end of the fight, you had {formatNumber(
-              this.soulFragmentsTracker.currentSouls,
-            )}{' '}
-            unused Soul Fragments.
+            <Trans id="demonhunter.vengeance.soulsOvercap.endOfFight">
+              At the end of the fight, you had{' '}
+              {formatNumber(this.soulFragmentsTracker.currentSouls)} unused Soul Fragments.
+            </Trans>
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.SOUL_FRAGMENT}>
           <>
-            {formatPercentage(this.wastePerGenerated())}% <small>souls over cap</small>
+            {formatPercentage(this.wastePerGenerated())}%{' '}
+            <small>
+              <Trans id="demonhunter.vengeance.soulsOvercap.soulsOverCapLabel">
+                souls over cap
+              </Trans>
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

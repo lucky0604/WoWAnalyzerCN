@@ -16,6 +16,7 @@ import Events, { ApplyBuffEvent, HasRelatedEvent, RefreshBuffEvent } from 'parse
 import { VersatilityIcon } from 'interface/icons';
 import DonutChart from 'parser/ui/DonutChart';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 /**
  * Eruption has a 25% chance to create a Mote of Possibility. Motes of Possibility can be consumed to grant a player Shifting Sands, Inferno's Blessing, or Symbiotic Bloom at random.
  * Clairvoyant: Chance increased to 35%, and can instead grant Prescience.
@@ -208,12 +209,12 @@ class MotesOfPossibility extends Analyzer {
             {this.sandsMotes + this.infernoMotes + this.blossomMotes + this.prescienceMotes}
             <small>
               {' '}
-              <SpellLink spell={TALENTS.MOTES_OF_POSSIBILITY_TALENT} /> used
+              <SpellLink spell={TALENTS.MOTES_OF_POSSIBILITY_TALENT} /> {t({ id: 'evoker.augmentation.motesOfPossibility.used', message: 'used' })}
             </small>
           </div>
         </TalentSpellText>
         <div className="pad">
-          <label>Motes of Possibility breakdown</label>
+          <label>{t({ id: 'evoker.augmentation.motesOfPossibility.breakdown', message: 'Motes of Possibility breakdown' })}</label>
           <DonutChart items={moteChart} />
         </div>
       </Statistic>

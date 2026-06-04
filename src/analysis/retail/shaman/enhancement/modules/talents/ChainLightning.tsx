@@ -12,6 +12,7 @@ import TALENTS from 'common/TALENTS/shaman';
 import { SpellLink } from 'interface';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import { EnhancementEventLinks } from '../../constants';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * Hurls a lightning bolt at the enemy, dealing (63.5% of Spell power) Nature damage and then jumping to additional nearby enemies. Affects 3 total targets.
@@ -55,9 +56,9 @@ class ChainLightning extends Analyzer.withDependencies({ spellUsable: SpellUsabl
       }
       addInefficientCastReason(
         castEvent,
-        <>
+        <Trans id="shaman.enhancement.chainlightning.only_one_target">
           <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> only hit one target
-        </>,
+        </Trans>,
       );
     }
   }

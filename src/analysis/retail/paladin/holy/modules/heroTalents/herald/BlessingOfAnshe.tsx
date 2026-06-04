@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -80,11 +81,11 @@ class BlessingOfAnshe extends Analyzer {
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
           <ul>
-            <li>Effective Healing: {formatNumber(this.healingDone)}</li>
-            <li>Overhealing: {formatNumber(this.overhealing)}</li>
-            <li>Effective Damage: {formatNumber(this.damageDone)}</li>
-            <li>Total Procs: {this.procs}</li>
-            <li>Wasted Procs: {this.refreshes}</li>
+            <li>{t({ id: 'paladin.holy.herald.blessingOfAnshe.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(this.healingDone)}</li>
+            <li>{t({ id: 'paladin.holy.herald.blessingOfAnshe.overhealing', message: 'Overhealing' })}: {formatNumber(this.overhealing)}</li>
+            <li>{t({ id: 'paladin.holy.herald.blessingOfAnshe.effectiveDamage', message: 'Effective Damage' })}: {formatNumber(this.damageDone)}</li>
+            <li>{t({ id: 'paladin.holy.herald.blessingOfAnshe.totalProcs', message: 'Total Procs' })}: {this.procs}</li>
+            <li>{t({ id: 'paladin.holy.herald.blessingOfAnshe.wastedProcs', message: 'Wasted Procs' })}: {this.refreshes}</li>
           </ul>
         }
       >

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -29,7 +30,11 @@ class WarMachine extends Analyzer {
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={TALENTS.WAR_MACHINE_TALENT} /> uptime
+            <SpellLink spell={TALENTS.WAR_MACHINE_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.warMachine.uptime',
+              message: 'uptime',
+            })}
           </>
         }
         value={`${formatPercentage(this.uptime)} %`}

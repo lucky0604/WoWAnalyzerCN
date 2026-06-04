@@ -118,8 +118,24 @@ export const isAnimachargedFinisherCast = (c: Combatant, event: CastEvent): bool
   return false;
 };
 
-const AnimachargedFinisherSummary = () => <div>Consumed Animacharged CP</div>;
-const AnimachargedFinisherDetails = () => <div>You consumed an Animacharged CP.</div>;
+import { t } from '@lingui/core/macro';
+
+const AnimachargedFinisherSummary = () => (
+  <div>
+    {t({
+      id: 'rogue.assassination.constants.animachargedSummary',
+      message: 'Consumed Animacharged CP',
+    })}
+  </div>
+);
+const AnimachargedFinisherDetails = () => (
+  <div>
+    {t({
+      id: 'rogue.assassination.constants.animachargedDetails',
+      message: 'You consumed an Animacharged CP.',
+    })}
+  </div>
+);
 
 export const animachargedCheckedUsageInfo = (
   c: Combatant,

@@ -100,7 +100,10 @@ export function CoreSection({ modules, events, info }: GuideProps<typeof CombatL
           <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
             {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
           </PerformanceStrong>{' '}
-          Cancelled Casts:{' '}
+          {t({
+            id: 'guide.evoker.devastation.sections.core.alwaysBeCasting.cancelledCasts',
+            message: 'Cancelled Casts:',
+          })}{' '}
           <PerformanceStrong performance={modules.cancelledCasts.CancelledPerformance}>
             {formatPercentage(modules.cancelledCasts.cancelledPercentage, 1)}%
           </PerformanceStrong>{' '}

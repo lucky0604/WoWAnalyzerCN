@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -68,10 +69,10 @@ class TirionsDevotion extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="paladin.holy.talents.tirionsDevotion.tooltip">
             Holy Power spent while <SpellLink spell={TALENTS.LAY_ON_HANDS_TALENT} /> was not on CD:{' '}
             {formatNumber(this.wastedCDR / TIRIONS_DEVOTION_REDUCTION)}
-          </>
+          </Trans>
         }
       >
         <TalentSpellText talent={TALENTS.TIRIONS_DEVOTION_HOLY_TALENT}>

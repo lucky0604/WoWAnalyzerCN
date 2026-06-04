@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -41,7 +42,7 @@ class InternalCombustion extends Analyzer {
         <BoringSpellValueText spell={TALENTS.INTERNAL_COMBUSTION_TALENT}>
           {formatNumber(this.dps)} DPS{' '}
           <small>
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.damage))} % of total
+            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.damage))} % {t({ id: 'warlock.destruction.internalCombustion.ofTotal', message: 'of total' })}
           </small>
         </BoringSpellValueText>
       </Statistic>

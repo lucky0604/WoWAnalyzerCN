@@ -17,6 +17,8 @@ import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { BoxRowEntry, PerformanceBoxRow } from 'interface/guide/components/PerformanceBoxRow';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const MIN_ENERGY_THRESHOLD = 70;
 const MAX_ENERGY_THRESHOLD = 90;
@@ -86,10 +88,10 @@ class BladeRush extends Analyzer {
       return;
     }
     const tooltip = (
-      <>
+      <Trans id="rogue.outlaw.bladeRush.castTooltip">
         At {this.owner.formatTimestamp(event.timestamp)} you cast{' '}
         <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> at {energy!.amount} energy
-      </>
+      </Trans>
     );
 
     if (energy!.amount > MAX_ENERGY_THRESHOLD) {
@@ -134,12 +136,14 @@ class BladeRush extends Analyzer {
   get guide(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />
-        </strong>{' '}
-        should be used whenever your energy drop under 70-80, this energy threshold increase with
-        target count. At around 9 targets it is safe to use{' '}
-        <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> on cooldown regardless of energy.
+        <Trans id="rogue.outlaw.bladeRush.guideExplanation">
+          <strong>
+            <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />
+          </strong>{' '}
+          should be used whenever your energy drop under 70-80, this energy threshold increase with
+          target count. At around 9 targets it is safe to use{' '}
+          <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> on cooldown regardless of energy.
+        </Trans>
       </p>
     );
 
@@ -147,12 +151,16 @@ class BladeRush extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> utilization
+            <Trans id="rogue.outlaw.bladeRush.utilization">
+              <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> utilization
+            </Trans>
           </strong>
           <div>
             <small>
-              Grey periods indicate periods where your energy went under the recommended energy
-              threshold but you did not use <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />.
+              <Trans id="rogue.outlaw.bladeRush.greyPeriodsDescription">
+                Grey periods indicate periods where your energy went under the recommended energy
+                threshold but you did not use <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />.
+              </Trans>
             </small>
             {uptimeBarSubStatistic(
               this.owner.fight,
@@ -165,12 +173,14 @@ class BladeRush extends Analyzer {
               undefined,
               'utilization',
             )}
-            <strong>Casts </strong>
+            <strong>{t({ id: 'rogue.outlaw.bladeRush.casts', message: 'Casts' })} </strong>
             <small>
-              - Green indicates an efficient cast under {ACCEPTABLE_ENERGY_THRESHOLD} energy, yellow
-              indicate a cast slighlty above the recommended energy threshold, while red indicates a
-              "wasted" cast above the recommended energy threshold (Ignore this section in aoe for
-              now)
+              <Trans id="rogue.outlaw.bladeRush.castColorDescription">
+                - Green indicates an efficient cast under {ACCEPTABLE_ENERGY_THRESHOLD} energy, yellow
+                indicate a cast slighlty above the recommended energy threshold, while red indicates a
+                "wasted" cast above the recommended energy threshold (Ignore this section in aoe for
+                now)
+              </Trans>
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>

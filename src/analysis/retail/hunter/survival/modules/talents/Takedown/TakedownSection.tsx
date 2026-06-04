@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide';
 import { JSX } from 'react';
 import Takedown from './Takedown';
@@ -29,16 +30,20 @@ export default function TakedownSection(): JSX.Element | null {
       <Explanation>
         {hasTwinFangs ? (
           <p>
-            With <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />, Takedown generates{' '}
-            <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks on its own. Aim to enter
-            Takedown with 0 stacks to maximise effectiveness of Twin Fangs.
+            <Trans id="hunter.survival.takedownSection.withTwinFangs">
+              With <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />, Takedown generates{' '}
+              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks on its own. Aim to enter
+              Takedown with 0 stacks to maximise effectiveness of Twin Fangs.
+            </Trans>
           </p>
         ) : (
           <p>
-            Without <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />, Takedown does not generate{' '}
-            <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks on its own. Use{' '}
-            <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} /> before Takedown to maximise
-            stacks during Takedown.
+            <Trans id="hunter.survival.takedownSection.withoutTwinFangs">
+              Without <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />, Takedown does not generate{' '}
+              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks on its own. Use{' '}
+              <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} /> before Takedown to maximise
+              stacks during Takedown.
+            </Trans>
           </p>
         )}
       </Explanation>

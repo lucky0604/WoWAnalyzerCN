@@ -14,6 +14,7 @@ import Events, { CastEvent } from 'parser/core/Events';
 import Soup from 'interface/icons/Soup';
 import DonutChart from 'parser/ui/DonutChart';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 /**
  * Essence Burst has a 20% chance not to be consumed.
  */
@@ -82,13 +83,13 @@ class HoardedPower extends Analyzer {
           <div>
             <Soup /> {this.eruptionHoardedPowerProcs + this.blossomHoardedPowerProcs}{' '}
             <small>
-              <SpellLink spell={SPELLS.ESSENCE_BURST_AUGMENTATION_BUFF} /> saved
+              <SpellLink spell={SPELLS.ESSENCE_BURST_AUGMENTATION_BUFF} /> {t({ id: 'evoker.augmentation.hoardedPower.saved', message: 'saved' })}
             </small>
           </div>
         </TalentSpellText>
         {this.selectedCombatant.hasTalent(TALENTS_EVOKER.DREAM_OF_SPRING_TALENT) ? (
           <div className="pad">
-            <label>Hoarded Power procs</label>
+            <label>{t({ id: 'evoker.augmentation.hoardedPower.procs', message: 'Hoarded Power procs' })}</label>
             <DonutChart items={hoardedProcs} />
           </div>
         ) : (

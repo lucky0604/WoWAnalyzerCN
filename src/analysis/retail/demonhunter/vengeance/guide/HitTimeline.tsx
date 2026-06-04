@@ -15,6 +15,8 @@ import HitBasedAnalyzer, {
 import Spell from 'common/SPELLS/Spell';
 import useTooltip from 'interface/useTooltip';
 import { abilityToSpell } from 'common/abilityToSpell';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const HitTimelineContainer = styled.div`
   display: grid;
@@ -61,11 +63,19 @@ function HitTooltipContent({ hit, unmitigatedContent }: HitTooltipContentProps) 
   return (
     <div>
       <div>
-        <strong>Time:</strong> {formatDuration(hit.event.timestamp - info.fightStart)}
+        <strong>
+          <Trans id="demonhunter.vengeance.hitTimeline.time">Time:</Trans>
+        </strong>{' '}
+        {formatDuration(hit.event.timestamp - info.fightStart)}
       </div>
       <div>
-        You took <strong>{formatNumber(hit.event.amount)}</strong> from{' '}
-        <SpellLink spell={abilityToSpell(hit.event.ability)}>{hit.event.ability.name}</SpellLink>.
+        <Trans id="demonhunter.vengeance.hitTimeline.youTook">
+          You took <strong>{formatNumber(hit.event.amount)}</strong> from{' '}
+          <SpellLink spell={abilityToSpell(hit.event.ability)}>
+            {hit.event.ability.name}
+          </SpellLink>
+          .
+        </Trans>
       </div>
       {!hit.mitigated && unmitigatedContent}
     </div>
@@ -109,7 +119,7 @@ function HitTimeline({ hits, showSourceName, unmitigatedContent }: HitTimelinePr
 
   const link = showSourceName ? (
     <a href={npcTooltip(enemy?.guid ?? 0)} style={style}>
-      {enemy?.name ?? 'Unknown'} ({abilityName})
+      {enemy?.name ?? t({ id: 'demonhunter.vengeance.hitTimeline.unknown', message: 'Unknown' })} ({abilityName})
     </a>
   ) : (
     <SpellLink spell={abilityToSpell(ability)} style={style}>
@@ -207,7 +217,9 @@ export function HitBasedOverview({
     <div>
       <strong>{spell.name} Uptime</strong>
       {uptime}
-      <strong>Damage Taken</strong>{' '}
+      <strong>
+        <Trans id="demonhunter.vengeance.hitTimeline.damageTaken">Damage Taken</Trans>
+      </strong>{' '}
       <small>
         - Hits without {spell.name} are shown in{' '}
         <Highlight color={red} textColor="white">

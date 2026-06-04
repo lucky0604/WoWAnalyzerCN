@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_PALADIN } from 'common/TALENTS/paladin';
@@ -84,14 +86,20 @@ class Reclamation extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <div>Healing Done: {formatNumber(this.healing)}</div>
-            <div>Damage Done: {formatNumber(this.damageDone)}</div>
+            <div><Trans id="paladin.holy.talents.reclamation.healingDone">Healing Done</Trans>: {formatNumber(this.healing)}</div>
+            <div><Trans id="paladin.holy.talents.reclamation.damageDone">Damage Done</Trans>: {formatNumber(this.damageDone)}</div>
             <div>
-              Mana from <SpellLink spell={TALENTS_PALADIN.HOLY_SHOCK_TALENT} />:{' '}
+              <Trans id="paladin.holy.talents.reclamation.manaFromHolyShock">
+                Mana from <SpellLink spell={TALENTS_PALADIN.HOLY_SHOCK_TALENT} />
+              </Trans>
+              :{' '}
               {formatNumber(this.resourceGained.get(TALENTS.HOLY_SHOCK_TALENT.id) || 0)}
             </div>
             <div>
-              Mana from <SpellLink spell={SPELLS.CRUSADER_STRIKE} />:{' '}
+              <Trans id="paladin.holy.talents.reclamation.manaFromCrusaderStrike">
+                Mana from <SpellLink spell={SPELLS.CRUSADER_STRIKE} />
+              </Trans>
+              :{' '}
               {formatNumber(this.resourceGained.get(SPELLS.CRUSADER_STRIKE.id) || 0)}
             </div>
           </>
@@ -105,7 +113,7 @@ class Reclamation extends Analyzer {
             <ItemDamageDone amount={this.damageDone} />
           </div>
           <div>
-            <ItemManaGained amount={totalMana} useAbbrev customLabel="mana" />
+            <ItemManaGained amount={totalMana} useAbbrev customLabel={t({ id: 'paladin.holy.talents.reclamation.mana', message: 'mana' })} />
           </div>
         </TalentSpellText>
       </Statistic>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -69,7 +70,7 @@ class SecondSunrise extends Analyzer {
         position={STATISTIC_ORDER.CORE(12)}
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
-        tooltip={<>Holy Power Wasted: {this.wastedResource}</>}
+        tooltip={<>{t({ id: 'paladin.holy.herald.secondSunrise.holyPowerWasted', message: 'Holy Power Wasted' })}: {this.wastedResource}</>}
       >
         <TalentSpellText talent={TALENTS.SECOND_SUNRISE_TALENT}>
           <div>
@@ -83,7 +84,7 @@ class SecondSunrise extends Analyzer {
             </>
           )}
           <div>
-            {this.resourceChange} <small>extra Holy Power generated</small>
+            {this.resourceChange} <small>{t({ id: 'paladin.holy.herald.secondSunrise.extraHolyPower', message: 'extra Holy Power generated' })}</small>
           </div>
         </TalentSpellText>
         {plotOneVariableBinomChart(

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -49,23 +50,37 @@ class ColossusSmash extends Analyzer.withDependencies({
   }
 
   subStatistic() {
+    const totalDamage = formatThousands(this.totalDamages);
+    const pct = formatPercentage(
+      this.owner.getPercentageOfTotalDamageDone(this.totalDamages),
+    );
     return (
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={TALENTS.COLOSSUS_SMASH_TALENT} /> bonus damage
+            <SpellLink spell={TALENTS.COLOSSUS_SMASH_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.colossusSmash.bonusDamage',
+              message: 'bonus damage',
+            })}
           </>
         }
         value={`${formatThousands(this.dps)} DPS`}
         valueTooltip={
           <>
-            Your <SpellLink spell={TALENTS.COLOSSUS_SMASH_TALENT} /> contributed{' '}
-            {formatThousands(this.totalDamages)} total damage (
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.totalDamages))} %).
+            {t({
+              id: 'warrior.arms.colossusSmash.tooltip',
+              message:
+                'Your Colossus Smash contributed {totalDamage} total damage ({pct} %).',
+              values: { totalDamage, pct },
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            This accounts for the hit damage dealt by{' '}
-            <SpellLink spell={TALENTS.COLOSSUS_SMASH_TALENT} /> and the 30% increased damage debuff.
+            {t({
+              id: 'warrior.arms.colossusSmash.tooltipNote',
+              message:
+                'This accounts for the hit damage dealt by Colossus Smash and the 30% increased damage debuff.',
+            })}
           </>
         }
       />

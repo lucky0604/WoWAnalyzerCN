@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Options } from 'parser/core/Module';
@@ -123,7 +124,11 @@ class EntropicRift extends Analyzer {
       const tooltip = (
         <>
           @<strong>{this.owner.formatTimestamp(this.castTime)}</strong>,{' '}
-          <strong>{this.currentDP}</strong> Shadow Word: Madness
+          <strong>{this.currentDP}</strong>{' '}
+          {t({
+            id: 'priest.shadow.entropicRift.swMadness',
+            message: 'Shadow Word: Madness',
+          })}
         </>
       );
 
@@ -144,7 +149,11 @@ class EntropicRift extends Analyzer {
       const tooltip = (
         <>
           @<strong>{this.owner.formatTimestamp(this.castTime)}</strong>,{' '}
-          <strong>{this.currentVB}</strong> sec of increased duration
+          <strong>{this.currentVB}</strong>{' '}
+          {t({
+            id: 'priest.shadow.entropicRift.secOfIncreasedDuration',
+            message: 'sec of increased duration',
+          })}
         </>
       );
 
@@ -167,8 +176,16 @@ class EntropicRift extends Analyzer {
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
           <>
-            {formatNumber((this.damageAmpTotal / this.owner.fightDuration) * 1000)} DPS is from the
-            increase due to {this.totalDP} casts of Devouring Plauge
+            {formatNumber((this.damageAmpTotal / this.owner.fightDuration) * 1000)}{' '}
+            {t({
+              id: 'priest.shadow.entropicRift.dpsFromIncrease',
+              message: 'DPS is from the increase due to',
+            })}{' '}
+            {this.totalDP}{' '}
+            {t({
+              id: 'priest.shadow.entropicRift.castsOfDevouringPlague',
+              message: 'casts of Devouring Plague',
+            })}
           </>
         }
       >
@@ -180,7 +197,13 @@ class EntropicRift extends Analyzer {
         </BoringSpellValueText>
         {this.selectedCombatant.hasTalent(TALENTS.DARKENING_HORIZON_TALENT) && (
           <BoringSpellValueText spell={TALENTS.DARKENING_HORIZON_TALENT}>
-            <UptimeIcon /> {this.totalVB.toFixed(1)}s <small>of rift extension</small>{' '}
+            <UptimeIcon /> {this.totalVB.toFixed(1)}s{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.entropicRift.ofRiftExtension',
+                message: 'of rift extension',
+              })}
+            </small>{' '}
           </BoringSpellValueText>
         )}
       </Statistic>
@@ -193,18 +216,29 @@ class EntropicRift extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.COLLAPSING_VOID_TALENT} />
         </b>{' '}
-        deals damage to all targets in the area at the end of{' '}
+        {t({
+          id: 'priest.shadow.entropicRift.collapsingVoidDeals',
+          message: 'deals damage to all targets in the area at the end of',
+        })}{' '}
         <SpellLink spell={TALENTS.ENTROPIC_RIFT_TALENT} />.
         <div />
-        This damage is increased by 20% per cast of{' '}
-        <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} /> while the rift is active.
+        {t({
+          id: 'priest.shadow.entropicRift.collapsingVoidIncreased',
+          message:
+            'This damage is increased by 20% per cast of Devouring Plague while the rift is active.',
+        })}
         <div />
       </p>
     );
 
     const data = (
       <div>
-        <strong>Rift Damage Increase</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.entropicRift.riftDamageIncrease',
+            message: 'Rift Damage Increase',
+          })}
+        </strong>
         <div />
         <PerformanceBoxRow values={this.RiftDamageIncrease} />
       </div>
@@ -218,17 +252,29 @@ class EntropicRift extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.DARKENING_HORIZON_TALENT} />
         </b>{' '}
-        increases the duration of <SpellLink spell={TALENTS.ENTROPIC_RIFT_TALENT} />.
+        {t({
+          id: 'priest.shadow.entropicRift.darkeningHorizonIncreases',
+          message: 'increases the duration of',
+        })}{' '}
+        <SpellLink spell={TALENTS.ENTROPIC_RIFT_TALENT} />.
         <div />
-        The duration is increased by 1 second per cast of{' '}
-        <SpellLink spell={TALENTS.VOID_BLAST_TALENT} />, up to 3 seconds.
+        {t({
+          id: 'priest.shadow.entropicRift.darkeningHorizonDescription',
+          message:
+            'The duration is increased by 1 second per cast of Void Blast, up to 3 seconds.',
+        })}
         <div />
       </p>
     );
 
     const data = (
       <div>
-        <strong>Rift Duration Increase</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.entropicRift.riftDurationIncrease',
+            message: 'Rift Duration Increase',
+          })}
+        </strong>
         <div />
         <PerformanceBoxRow values={this.RiftDurationIncrease} />
       </div>

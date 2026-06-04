@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -117,7 +118,10 @@ class PsychicLink extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="Contribution by each spell"
+        tooltip={t({
+          id: 'priest.shadow.psychicLink.tooltip',
+          message: 'Contribution by each spell',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.PSYCHIC_LINK_TALENT}>
           <ItemDamageDone amount={this.damageTotal} />

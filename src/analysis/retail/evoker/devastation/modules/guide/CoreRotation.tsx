@@ -6,13 +6,22 @@ import { TALENTS_EVOKER } from 'common/TALENTS';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import SPELLS from 'common/SPELLS';
 import CombatLogParser from '../../CombatLogParser'; */
+import { t } from '@lingui/core/macro';
 
 export function CoreRotation(/* { modules, info }: GuideProps<typeof CombatLogParser> */) {
   return (
-    <Section title="Core Rotation (Experimental)">
+    <Section
+      title={t({
+        id: 'guide.evoker.devastation.sections.coreRotation.title',
+        message: 'Core Rotation (Experimental)',
+      })}
+    >
       <h4>
-        The APL module has been disabled for now. It will return once it has been updated for
-        Midnight.
+        {t({
+          id: 'guide.evoker.devastation.sections.coreRotation.disabled',
+          message:
+            'The APL module has been disabled for now. It will return once it has been updated for Midnight.',
+        })}
       </h4>
       {/*  <p>
         The Devastation rotation is driven by a priority list. The priority list is primarily around

@@ -8,6 +8,7 @@ import SPELLS from 'common/SPELLS';
 import { IntellectIcon, InformationIcon } from 'interface/icons';
 import { formatPercentage } from 'common/format';
 import { MOMENTUM_SHIFT_INTELLECT_PER_STACK } from '../../constants';
+import { t } from '@lingui/core/macro';
 /**
  * Consuming Essence Burst grants 5% Intellect for 6 seconds, stacking up to 2 times.
  */
@@ -39,9 +40,9 @@ class MomentumShift extends Analyzer {
         <TalentSpellText talent={TALENTS_EVOKER.MOMENTUM_SHIFT_TALENT}>
           <div>
             <IntellectIcon /> {intellectBuffPercentage.toFixed(2)}%
-            <small> average Intellect gained</small>
+            <small> {t({ id: 'evoker.augmentation.momentumShift.averageIntellect', message: 'average Intellect gained' })}</small>
             <p></p>
-            <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> buff uptime</small>
+            <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> {t({ id: 'evoker.augmentation.momentumShift.buffUptime', message: 'buff uptime' })}</small>
           </div>
         </TalentSpellText>
       </Statistic>

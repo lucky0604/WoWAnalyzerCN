@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -122,7 +123,10 @@ class Backdraft extends Analyzer {
         event: event as unknown as CastEvent,
         performance: QualitativePerformance.Fail,
         checklistItems: [],
-        performanceExplanation: `Overcapped Backdraft by ${this._maxStacks} stack${this._maxStacks > 1 ? 's' : ''}`,
+        performanceExplanation: t({
+          id: 'warlock.destruction.backdraft.overcapped',
+          message: `Overcapped Backdraft by ${this._maxStacks} stack${this._maxStacks > 1 ? 's' : ''}`,
+        }),
       });
     }
   }
@@ -145,7 +149,10 @@ class Backdraft extends Analyzer {
         event: event as unknown as CastEvent,
         performance: QualitativePerformance.Fail,
         checklistItems: [],
-        performanceExplanation: `Backdraft expired with ${this._currentStacks} stack${this._currentStacks > 1 ? 's' : ''} remaining`,
+        performanceExplanation: t({
+          id: 'warlock.destruction.backdraft.expiredWithStacks',
+          message: `Backdraft expired with ${this._currentStacks} stack${this._currentStacks > 1 ? 's' : ''} remaining`,
+        }),
       });
     }
     this._currentStacks = 0;
@@ -200,7 +207,10 @@ class Backdraft extends Analyzer {
       event,
       performance,
       checklistItems: [],
-      performanceExplanation: `Consumed Backdraft with ${spellName}`,
+      performanceExplanation: t({
+        id: 'warlock.destruction.backdraft.consumed',
+        message: `Consumed Backdraft with ${spellName}`,
+      }),
     });
   }
 
@@ -250,37 +260,41 @@ class Backdraft extends Analyzer {
                 content={
                   <div>
                     <div>
-                      <strong>Backdraft waste breakdown</strong>
+                      <strong>{t({ id: 'warlock.destruction.backdraft.wasteBreakdown', message: 'Backdraft waste breakdown' })}</strong>
                     </div>
 
                     <div style={{ marginTop: 6 }}>
                       <div>
-                        <strong>Overcap:</strong> {this.wastedOvercapStacks}
+                        <strong>{t({ id: 'warlock.destruction.backdraft.overcap', message: 'Overcap:' })}</strong> {this.wastedOvercapStacks}
                       </div>
-                      <div style={{ marginLeft: 8 }}>You generated stacks at max charges</div>
+                      <div style={{ marginLeft: 8 }}>
+                        {t({ id: 'warlock.destruction.backdraft.overcapDesc', message: 'You generated stacks at max charges' })}
+                      </div>
                     </div>
 
                     <div style={{ marginTop: 6 }}>
                       <div>
-                        <strong>Expired:</strong> {this.wastedExpiredStacks}
+                        <strong>{t({ id: 'warlock.destruction.backdraft.expiredLabel', message: 'Expired:' })}</strong> {this.wastedExpiredStacks}
                       </div>
-                      <div style={{ marginLeft: 8 }}>Buff ended before full consumption</div>
+                      <div style={{ marginLeft: 8 }}>
+                        {t({ id: 'warlock.destruction.backdraft.expiredDesc', message: 'Buff ended before full consumption' })}
+                      </div>
                     </div>
 
                     <div style={{ marginTop: 6 }}>
-                      <strong>Total:</strong> {totalWasted}
+                      <strong>{t({ id: 'warlock.destruction.backdraft.total', message: 'Total:' })}</strong> {totalWasted}
                     </div>
                   </div>
                 }
               >
-                <small>Wasted procs</small>
+                <small>{t({ id: 'warlock.destruction.backdraft.wastedProcs', message: 'Wasted procs' })}</small>
               </TooltipElement>
             </div>
 
             <div>
               {formatPercentage(this.percentageOfChaosBoltAmongBuffedCasts, 0)}%
               <TooltipElement content={`${this.buffedChaosBoltCasts}/${this.totalBuffedCasts}`}>
-                <small> buffed casts - Chaos Bolt</small>
+                <small> {t({ id: 'warlock.destruction.backdraft.buffedChaosBolt', message: 'buffed casts - Chaos Bolt' })}</small>
               </TooltipElement>
             </div>
 
@@ -288,7 +302,7 @@ class Backdraft extends Analyzer {
               <div>
                 {formatPercentage(this.percentageOfSoulFireAmongBuffedCasts, 0)}%
                 <TooltipElement content={`${this.buffedSoulFireCasts}/${this.totalBuffedCasts}`}>
-                  <small> buffed casts - Soul Fire</small>
+                  <small> {t({ id: 'warlock.destruction.backdraft.buffedSoulFire', message: 'buffed casts - Soul Fire' })}</small>
                 </TooltipElement>
               </div>
             )}

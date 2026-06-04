@@ -8,6 +8,8 @@ import { ThresholdStyle } from 'parser/core/ParseResults';
 import BoringValue from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import { SPELLS_WHICH_REMOVE_BOC } from '../../../constants';
 
@@ -93,24 +95,38 @@ class BlackoutCombo extends Analyzer {
         tooltip={
           <div>
             <p>
-              You got total <strong>{this.blackoutComboBuffs}</strong> Blackout Combo procs and used{' '}
-              <strong>{this.blackoutComboConsumed}</strong> of them.
+              {(() => {
+                const totalProcs = this.blackoutComboBuffs;
+                const usedProcs = this.blackoutComboConsumed;
+                return (
+                  <Trans id="monk.brewmaster.blackoutCombo.tooltipLine1">
+                    You got total <strong>{totalProcs}</strong> Blackout Combo procs and used{' '}
+                    <strong>{usedProcs}</strong> of them.
+                  </Trans>
+                );
+              })()}
             </p>
             <p>
-              Blackout combo buff usage:
+              <Trans id="monk.brewmaster.blackoutCombo.buffUsage">
+                Blackout combo buff usage:
+              </Trans>
               <ul>
                 {Object.keys(this.spellsBOCWasUsedOn)
                   .map(Number)
                   .sort((a, b) => this.spellsBOCWasUsedOn[b] - this.spellsBOCWasUsedOn[a])
-                  .map((type) => (
-                    <li key={type}>
-                      <em>{SPELLS[type].name || 'Unknown'}</em> was used{' '}
-                      {this.spellsBOCWasUsedOn[type]} time
-                      {this.spellsBOCWasUsedOn[type] === 1 ? '' : 's'} (
-                      {formatPercentage(this.spellsBOCWasUsedOn[type] / this.blackoutComboConsumed)}
-                      %)
-                    </li>
-                  ))}
+                  .map((type) => {
+                    const count = this.spellsBOCWasUsedOn[type];
+                    const plural = count === 1 ? '' : 's';
+                    return (
+                      <li key={type}>
+                        <em>{SPELLS[type].name || 'Unknown'}</em>{' '}
+                        <Trans id="monk.brewmaster.blackoutCombo.usedTime">
+                          was used {count} time{plural}
+                        </Trans>{' '}
+                        ({formatPercentage(count / this.blackoutComboConsumed)}%)
+                      </li>
+                    );
+                  })}
               </ul>
             </p>
           </div>
@@ -119,7 +135,7 @@ class BlackoutCombo extends Analyzer {
         <BoringValue
           label={
             <>
-              <SpellIcon spell={SPELLS.BLACKOUT_COMBO_BUFF} /> Wasted Blackout Combo
+              <SpellIcon spell={SPELLS.BLACKOUT_COMBO_BUFF} /> {t({ id: 'monk.brewmaster.blackoutCombo.wastedBlackoutCombo', message: 'Wasted Blackout Combo' })}
             </>
           }
         >

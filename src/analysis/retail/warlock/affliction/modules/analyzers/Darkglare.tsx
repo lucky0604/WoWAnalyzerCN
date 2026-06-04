@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -240,44 +241,79 @@ class Darkglare extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            Damage from extended dots <sup>*</sup>: {formatThousands(this.bonusDotDamage)} (
+            {t({
+              id: 'warlock.affliction.darkglare.extendedDotsDamage',
+              message: 'Damage from extended dots',
+            })}{' '}
+            <sup>*</sup>: {formatThousands(this.bonusDotDamage)} (
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             {this.owner.formatItemDamageDone(this.bonusDotDamage)})<br />
-            Pet damage: {formatThousands(this.darkglareDamage)} (
+            {t({
+              id: 'warlock.affliction.darkglare.petDamage',
+              message: 'Pet damage',
+            })}
+            : {formatThousands(this.darkglareDamage)} (
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             {this.owner.formatItemDamageDone(this.darkglareDamage)})<br />
-            Combined damage: {formatThousands(totalDamage)} (
+            {t({
+              id: 'warlock.affliction.darkglare.combinedDamage',
+              message: 'Combined damage',
+            })}
+            : {formatThousands(totalDamage)} (
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             {this.owner.formatItemDamageDone(totalDamage)})<br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <sup>*</sup> This only counts the damage that happened after the dot{' '}
-            <u>should have fallen off</u> (but instead was extended with Darkglare).
+            <sup>*</sup>{' '}
+            {t({
+              id: 'warlock.affliction.darkglare.extendedDotsNote',
+              message:
+                'This only counts the damage that happened after the dot should have fallen off (but instead was extended with Darkglare).',
+            })}
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.SUMMON_DARKGLARE}>
           {formatDPS(this.bonusDotDamage)}{' '}
           <TooltipElement
-            content={
-              <>
-                damage from DoTs after they <u>should have fallen off</u>, but were extended instead
-              </>
-            }
+            content={t({
+              id: 'warlock.affliction.darkglare.extendedDotsTooltip',
+              message:
+                'damage from DoTs after they should have fallen off, but were extended instead',
+            })}
           >
             <small>
-              bonus damage <sup>*</sup>
+              {t({
+                id: 'warlock.affliction.darkglare.bonusDamageLabel',
+                message: 'bonus damage',
+              })}{' '}
+              <sup>*</sup>
             </small>
           </TooltipElement>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {averageExtendedDots.toFixed(1)} <small>average DoTs extended</small>
+          {averageExtendedDots.toFixed(1)}{' '}
+          <small>
+            {t({
+              id: 'warlock.affliction.darkglare.averageDotsExtended',
+              message: 'average DoTs extended',
+            })}
+          </small>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {formatDPS(totalDamage)}{' '}
-          <TooltipElement content="including pet damage">
+          <TooltipElement
+            content={t({
+              id: 'warlock.affliction.darkglare.includingPetDamage',
+              message: 'including pet damage',
+            })}
+          >
             <small>
-              total damage <sup>*</sup>
+              {t({
+                id: 'warlock.affliction.darkglare.totalDamageLabel',
+                message: 'total damage',
+              })}{' '}
+              <sup>*</sup>
             </small>
           </TooltipElement>
         </BoringSpellValueText>

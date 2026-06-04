@@ -11,6 +11,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { EnhancementEventLinks, STORMSTRIKE_CAST_SPELLS } from '../../constants';
 import Spell from 'common/SPELLS/Spell';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { Trans } from '@lingui/react/macro';
 
 const MAIN_HAND_DAMAGES = [SPELLS.STORMSTRIKE_DAMAGE.id, SPELLS.WINDSTRIKE_DAMAGE.id];
 
@@ -80,18 +81,22 @@ class Stormflurry extends Analyzer {
         tooltip={
           <>
             <p>
-              You had {this.extraHits} extra Stormstrike
-              {this.selectedCombatant.hasTalent(TALENTS_SHAMAN.ASCENDANCE_ENHANCEMENT_TALENT) ||
-              this.selectedCombatant.hasTalent(TALENTS_SHAMAN.DEEPLY_ROOTED_ELEMENTS_TALENT)
-                ? '/Windstrike'
-                : ''}{' '}
-              hits (+{formatPercentage(this.extraHits / this.totalStormstrikeCasts)}%).
+              <Trans id="shaman.enhancement.stormflurry.extra_hits">
+                You had {this.extraHits} extra Stormstrike
+                {this.selectedCombatant.hasTalent(TALENTS_SHAMAN.ASCENDANCE_ENHANCEMENT_TALENT) ||
+                this.selectedCombatant.hasTalent(TALENTS_SHAMAN.DEEPLY_ROOTED_ELEMENTS_TALENT)
+                  ? '/Windstrike'
+                  : ''}{' '}
+                hits (+{formatPercentage(this.extraHits / this.totalStormstrikeCasts)}%).
+              </Trans>
             </p>
             <p>
               <small>
-                This is the maximum possible value, however it is highly likely the actual damage
-                and number of hits are lower than displayed. This is a technical limitation due to
-                how the hits appear in logs.
+                <Trans id="shaman.enhancement.stormflurry.max_possible">
+                  This is the maximum possible value, however it is highly likely the actual damage
+                  and number of hits are lower than displayed. This is a technical limitation due to
+                  how the hits appear in logs.
+                </Trans>
               </small>
             </p>
           </>

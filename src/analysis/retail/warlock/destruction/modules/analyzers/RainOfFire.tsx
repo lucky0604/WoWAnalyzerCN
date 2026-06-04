@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, DamageEvent } from 'parser/core/Events';
@@ -134,10 +135,14 @@ class RainOfFire extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(6)}
         size="small"
-        tooltip="There's a possibility of a mistake in assigning targets hit to individual casts, when there are multiple Rains of Fire overlapping."
+        tooltip={t({
+          id: 'warlock.destruction.rainOfFire.tooltip',
+          message:
+            "There's a possibility of a mistake in assigning targets hit to individual casts, when there are multiple Rains of Fire overlapping.",
+        })}
       >
         <BoringSpellValueText spell={SPELLS.RAIN_OF_FIRE_CAST}>
-          {this.averageTargetsHit.toFixed(2)} <small>average targets hit</small>
+          {this.averageTargetsHit.toFixed(2)} <small>{t({ id: 'warlock.destruction.rainOfFire.averageTargetsHit', message: 'average targets hit' })}</small>
         </BoringSpellValueText>
       </Statistic>
     );

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section, SubSection } from 'interface/guide';
 
 import CombatLogParser from './CombatLogParser';
@@ -10,14 +12,28 @@ export const GUIDE_CORE_EXPLANATION_PERCENT = 40;
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section title="Core Spells">
+      <Section
+        title={t({
+          id: 'classic.druid.restoration.section.coreSpells',
+          message: 'Core Spells',
+        })}
+      >
         {modules.rejuvenation.guideSubsection}
         {modules.wildGrowth.guideSubsection}
         {modules.swiftmend.guideSubsection}
         {modules.lifebloom.guideSubsection}
       </Section>
-      <Section title="Procs">{modules.omenOfClarity.guideSubsection}</Section>
-      <Section title="Healing Cooldowns">
+      <Section
+        title={t({ id: 'classic.druid.restoration.section.procs', message: 'Procs' })}
+      >
+        {modules.omenOfClarity.guideSubsection}
+      </Section>
+      <Section
+        title={t({
+          id: 'classic.druid.restoration.section.healingCooldowns',
+          message: 'Healing Cooldowns',
+        })}
+      >
         <HotGraphSubsection modules={modules} events={events} info={info} />
         <PreparationSection expansion={Expansion.WrathOfTheLichKing} />
       </Section>
@@ -28,10 +44,12 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>HoT Graph</strong> - this graph shows how many Rejuvenation and Wild Growths you had
-      active over the course of the encounter, with rule lines showing when you activated your
-      healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp
-      Rejuvenations well before big damage?
+      <Trans id="classic.druid.restoration.hotGraph.description">
+        <strong>HoT Graph</strong> - this graph shows how many Rejuvenation and Wild Growths you had
+        active over the course of the encounter, with rule lines showing when you activated your
+        healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp
+        Rejuvenations well before big damage?
+      </Trans>
       {modules.hotCountGraph.plot}
     </SubSection>
   );

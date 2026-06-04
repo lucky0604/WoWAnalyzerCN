@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_PALADIN } from 'common/TALENTS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -31,7 +32,7 @@ class OverflowingLight extends Analyzer {
       <Statistic
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
-        tooltip={<>Damage Absorbed: {formatNumber(this.totalDamageAbsorbed)}</>}
+        tooltip={<>{t({ id: 'paladin.holy.talents.overflowingLight.damageAbsorbed', message: 'Damage Absorbed' })}: {formatNumber(this.totalDamageAbsorbed)}</>}
       >
         <TalentSpellText talent={TALENTS_PALADIN.OVERFLOWING_LIGHT_TALENT}>
           <ItemHealingDone amount={this.totalDamageAbsorbed} />

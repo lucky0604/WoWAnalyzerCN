@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/warrior';
 import SPELLS from 'common/SPELLS';
@@ -66,21 +67,45 @@ class FatalMark extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(10)}
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>Fatal Mark did damage to targets below 30% a total of {this.dmgUseCount} times.</>
+          <>
+            {t({
+              id: 'warrior.arms.fatalMark.tooltip',
+              message: 'Fatal Mark did damage to targets below 30% a total of {count} times.',
+              values: { count: this.dmgUseCount },
+            })}
+          </>
         }
       >
         <BoringValueText
           label={
             <>
-              <SpellLink spell={TALENTS.FATALITY_TALENT} /> Damage done
+              <SpellLink spell={TALENTS.FATALITY_TALENT} />{' '}
+              {t({
+                id: 'warrior.arms.fatalMark.damageDone',
+                message: 'Damage done',
+              })}
             </>
           }
         >
           <>
-            {formatNumber(this.totalDamage)} <small> Damage </small>
+            {formatNumber(this.totalDamage)}{' '}
+            <small>
+              {' '}
+              {t({
+                id: 'warrior.arms.fatalMark.damage',
+                message: 'Damage',
+              })}{' '}
+            </small>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            {this.totalStacks} <small> Stacks </small>
+            {this.totalStacks}{' '}
+            <small>
+              {' '}
+              {t({
+                id: 'warrior.arms.fatalMark.stacks',
+                message: 'Stacks',
+              })}{' '}
+            </small>
           </>
         </BoringValueText>
       </Statistic>

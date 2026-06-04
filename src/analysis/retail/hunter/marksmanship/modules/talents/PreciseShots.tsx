@@ -16,6 +16,8 @@ import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * Aimed Shot causes your next 1-2 Arcane Shots, Chimaera Shots or Multi-Shots to deal 100% more damage.
@@ -158,13 +160,13 @@ class PreciseShots extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(2)}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="hunter.marksmanship.preciseShots.tooltipWasted">
             You wasted {this.overwrittenProcs} Precise Shots procs by casting{' '}
             {this.selectedCombatant.hasTalent(TALENTS_HUNTER.WINDRUNNER_QUIVER_TALENT)
               ? 'Aimed Shot or Rapid Fire'
               : 'Aimed Shot'}{' '}
             when you already had Precise Shots active.
-          </>
+          </Trans>
         }
       >
         <BoringSpellValueText spell={SPELLS.PRECISE_SHOTS_BUFF}>
@@ -172,7 +174,10 @@ class PreciseShots extends Analyzer {
             <ItemDamageDone amount={this.damage} />
           </div>
           <div>
-            {this.buffsSpent} <small>buffs used</small>
+            {this.buffsSpent}{' '}
+            <small>
+              {t({ id: 'hunter.marksmanship.preciseShots.buffsUsed', message: 'buffs used' })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

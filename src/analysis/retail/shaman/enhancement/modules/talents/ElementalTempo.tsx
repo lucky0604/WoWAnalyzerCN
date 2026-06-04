@@ -20,6 +20,8 @@ import {
 } from 'parser/ui/WeightedPerformance';
 import { MAELSTROM_WEAPON_ELIGIBLE_SPELLS } from '../../constants';
 import { CastDetail, PerCastData } from 'interface/guide/components';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const CDR_MS_PER_STACK = 300;
 
@@ -245,17 +247,20 @@ class ElementalTempo extends Analyzer.withDependencies({
           @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>
         </div>
         <div>
-          <strong>{formatDurationMillisMinSec(cast.stacksSpent * CDR_MS_PER_STACK, 1)}</strong> of
-          CDR from <SpellLink spell={cast.spenderSpellId} /> @ {cast.stacksSpent}{' '}
+          <strong>{formatDurationMillisMinSec(cast.stacksSpent * CDR_MS_PER_STACK, 1)}</strong>{' '}
+          <Trans id="shaman.enhancement.elementaltempo.cdr_from">of CDR from</Trans>{' '}
+          <SpellLink spell={cast.spenderSpellId} /> @ {cast.stacksSpent}{' '}
           <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />
         </div>
         <div>
           <SpellLink spell={stormstrikeLabel} />:{' '}
-          {formatDurationMillisMinSec(cast.stormstrike.wastedMs, 1)} wasted
+          {formatDurationMillisMinSec(cast.stormstrike.wastedMs, 1)}{' '}
+          <Trans id="shaman.enhancement.elementaltempo.wasted">wasted</Trans>
         </div>
         <div>
           <SpellLink spell={TALENTS.LAVA_LASH_TALENT} />:{' '}
-          {formatDurationMillisMinSec(cast.lavaLash.wastedMs, 1)} wasted
+          {formatDurationMillisMinSec(cast.lavaLash.wastedMs, 1)}{' '}
+          <Trans id="shaman.enhancement.elementaltempo.wasted">wasted</Trans>
         </div>
       </>
     );
@@ -294,11 +299,12 @@ class ElementalTempo extends Analyzer.withDependencies({
         stats: [
           {
             value: `${cast.stacksSpent}`,
-            label: 'Stacks Spent',
+            label: t({ id: 'shaman.enhancement.elementaltempo.stacks_spent', message: 'Stacks Spent' }),
             tooltip: (
               <>
-                <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> stacks consumed, providing{' '}
-                {formatDurationMillisMinSec(totalCdr, 1)} of CDR to each ability.
+                <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />{' '}
+                <Trans id="shaman.enhancement.elementaltempo.stacks_consumed_tooltip">stacks consumed, providing{' '}
+                {formatDurationMillisMinSec(totalCdr, 1)} of CDR to each ability.</Trans>
               </>
             ),
           },
@@ -307,9 +313,10 @@ class ElementalTempo extends Analyzer.withDependencies({
             label: `${ssLabel} Waste`,
             tooltip: (
               <>
-                {formatDurationMillisMinSec(cast.stormstrike.effectiveMs, 1)} effective /{' '}
+                {formatDurationMillisMinSec(cast.stormstrike.effectiveMs, 1)}{' '}
+                <Trans id="shaman.enhancement.elementaltempo.effective_total_cdr">effective /{' '}
                 {formatDurationMillisMinSec(totalCdr, 1)} total CDR applied to{' '}
-                <SpellLink spell={stormstrikeLabel} />.
+                <SpellLink spell={stormstrikeLabel} />.</Trans>
               </>
             ),
             performance: scoreToQualitativePerformance(
@@ -321,9 +328,10 @@ class ElementalTempo extends Analyzer.withDependencies({
             label: 'Lava Lash Waste',
             tooltip: (
               <>
-                {formatDurationMillisMinSec(cast.lavaLash.effectiveMs, 1)} effective /{' '}
+                {formatDurationMillisMinSec(cast.lavaLash.effectiveMs, 1)}{' '}
+                <Trans id="shaman.enhancement.elementaltempo.effective_total_cdr_ll">effective /{' '}
                 {formatDurationMillisMinSec(totalCdr, 1)} total CDR applied to{' '}
-                <SpellLink spell={TALENTS.LAVA_LASH_TALENT} />.
+                <SpellLink spell={TALENTS.LAVA_LASH_TALENT} />.</Trans>
               </>
             ),
             performance: scoreToQualitativePerformance(
@@ -345,12 +353,12 @@ class ElementalTempo extends Analyzer.withDependencies({
     return [
       {
         value: `${this.casts.length}`,
-        label: 'Total Spenders',
+        label: t({ id: 'shaman.enhancement.elementaltempo.total_spenders', message: 'Total Spenders' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.elementaltempo.total_spenders_tooltip">
             Total <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> spender casts evaluated for{' '}
             <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />.
-          </>
+          </Trans>
         ),
       },
       {
@@ -358,12 +366,12 @@ class ElementalTempo extends Analyzer.withDependencies({
           this.casts.length > 0
             ? (overview.totalStacksSpent / this.casts.length).toFixed(1)
             : '0.0',
-        label: 'Avg Stacks Spent',
+        label: t({ id: 'shaman.enhancement.elementaltempo.avg_stacks_spent', message: 'Avg Stacks Spent' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.elementaltempo.avg_stacks_spent_tooltip">
             Average number of <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> stacks consumed per
             tracked spender cast.
-          </>
+          </Trans>
         ),
       },
       {
@@ -371,22 +379,22 @@ class ElementalTempo extends Analyzer.withDependencies({
           overview.totalPotentialMs > 0 ? overview.totalWastedMs / overview.totalPotentialMs : 0,
           1,
         )}%`,
-        label: 'Avg Waste',
+        label: t({ id: 'shaman.enhancement.elementaltempo.avg_waste', message: 'Avg Waste' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.elementaltempo.avg_waste_tooltip">
             Weighted average percentage of <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />{' '}
             cooldown reduction that was wasted.
-          </>
+          </Trans>
         ),
       },
       {
         value: `${perfectCasts}`,
-        label: 'Perfect Casts',
+        label: t({ id: 'shaman.enhancement.elementaltempo.perfect_casts', message: 'Perfect Casts' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.elementaltempo.perfect_casts_tooltip">
             Number of spender casts that wasted no{' '}
             <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} /> cooldown reduction.
-          </>
+          </Trans>
         ),
         performance: QualitativePerformance.Perfect,
       },
@@ -434,7 +442,7 @@ class ElementalTempo extends Analyzer.withDependencies({
               stacks efficiently.
             </strong>
           </HelperText>
-          <CastDetail title="Maelstrom Spender Casts" casts={this.buildCastEntries()} />
+          <CastDetail title={t({ id: 'shaman.enhancement.elementaltempo.maelstrom_spender_casts', message: 'Maelstrom Spender Casts' })} casts={this.buildCastEntries()} />
         </div>
       </GuideSection>
     );

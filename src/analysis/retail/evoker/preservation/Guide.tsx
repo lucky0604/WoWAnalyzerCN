@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import { GuideProps, Section } from 'interface/guide';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
@@ -22,7 +23,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
     */
   return (
     <>
-      <Section title="Core Spells and Buffs">
+      <Section title={t({ id: 'evoker.preservation.guide.coreSpells', message: 'Core Spells and Buffs' })}>
         {modules.merithrasBlessing.guideSubsection}
         {modules.dreamBreath.guideSubsection}
         {modules.essenceBurst.guideSubsection}
@@ -30,12 +31,12 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           modules.resonatingSphere.guideSubsection}
         {modules.emeraldBlossom.guideSubsection}
       </Section>
-      <Section title="Healing cooldowns">
+      <Section title={t({ id: 'evoker.preservation.guide.healingCooldowns', message: 'Healing cooldowns' })}>
         {info.combatant.hasTalent(TALENTS_EVOKER.DREAM_FLIGHT_TALENT) &&
           modules.dreamFlight.guideSubsection}
       </Section>
       {includeTalentSection && (
-        <Section title="Talents">
+        <Section title={t({ id: 'evoker.preservation.guide.talents', message: 'Talents' })}>
           {info.combatant.hasTalent(TALENTS_EVOKER.OUROBOROS_TALENT) &&
             modules.ouroboros.guideSubsection}
           {/*info.combatant.hasTalent(TALENTS_EVOKER.STASIS_TALENT) && modules.stasis.guideSubsection*/}

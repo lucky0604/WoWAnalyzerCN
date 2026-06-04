@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands, formatNumber, formatPercentage } from 'common/format';
 import TALENTS from 'common/TALENTS/warlock';
 import Analyzer, { SELECTED_PLAYER, Options } from 'parser/core/Analyzer';
@@ -74,11 +75,11 @@ class Cataclysm extends Analyzer {
         <BoringSpellValueText spell={TALENTS.CATACLYSM_TALENT}>
           {formatNumber(dps)} DPS{' '}
           <small>
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(damage))} % of total
+            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(damage))} % {t({ id: 'warlock.destruction.cataclysm.ofTotal', message: 'of total' })}
           </small>{' '}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {averageTargetsHit.toFixed(2)} <small>average targets hit</small>
+          {averageTargetsHit.toFixed(2)} <small>{t({ id: 'warlock.destruction.cataclysm.averageTargetsHit', message: 'average targets hit' })}</small>
         </BoringSpellValueText>
       </Statistic>
     );

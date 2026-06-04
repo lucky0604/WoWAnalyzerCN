@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import { useMemo } from 'react';
 import SPELLS from 'common/SPELLS';
@@ -25,13 +27,18 @@ export function HavocGuide({ havocAnalyzer, formatTimestamp }: HavocGuideProps):
   const explanation = (
     <>
       <p>
-        <b>{havoc}</b> duplicates your single target spells onto a second target. To maximize its
-        effectiveness, you should cast as many <SpellLink spell={SPELLS.CHAOS_BOLT} /> or{' '}
-        <SpellLink spell={TALENTS_WARLOCK.SHADOWBURN_TALENT} /> as possible during the Havoc window.
+        <b>{havoc}</b>{' '}
+        <Trans id="warlock.destruction.havocGuide.duplicatesSingleTarget">
+          duplicates your single target spells onto a second target. To maximize its effectiveness,
+          you should cast as many <SpellLink spell={SPELLS.CHAOS_BOLT} /> or{' '}
+          <SpellLink spell={TALENTS_WARLOCK.SHADOWBURN_TALENT} /> as possible during the Havoc window.
+        </Trans>
       </p>
       <p>
-        Ideally, you should enter Havoc with Soul Shards already pooled so you can immediately begin
-        casting <SpellLink spell={SPELLS.CHAOS_BOLT} />.
+        <Trans id="warlock.destruction.havocGuide.poolSoulShards">
+          Ideally, you should enter Havoc with Soul Shards already pooled so you can immediately begin
+          casting <SpellLink spell={SPELLS.CHAOS_BOLT} />.
+        </Trans>
       </p>
     </>
   );
@@ -85,40 +92,82 @@ export function HavocGuide({ havocAnalyzer, formatTimestamp }: HavocGuideProps):
 
     if (isImproved) {
       if (spenders >= 6)
-        feedback.push('Excellent Havoc usage. You maximized Chaos Bolt casts during the window.');
+        feedback.push(
+          t({
+            id: 'warlock.destruction.havocGuide.excellentUsage',
+            message: 'Excellent Havoc usage. You maximized Chaos Bolt casts during the window.',
+          }),
+        );
       else if (spenders === 5)
-        feedback.push('Good Havoc window. One additional Chaos Bolt would make this perfect.');
+        feedback.push(
+          t({
+            id: 'warlock.destruction.havocGuide.goodWindow',
+            message: 'Good Havoc window. One additional Chaos Bolt would make this perfect.',
+          }),
+        );
       else if (spenders === 4)
         feedback.push(
-          'Decent Havoc window, but you could likely fit another Chaos Bolt by pooling more Soul Shards beforehand.',
+          t({
+            id: 'warlock.destruction.havocGuide.decentWindow',
+            message:
+              'Decent Havoc window, but you could likely fit another Chaos Bolt by pooling more Soul Shards beforehand.',
+          }),
         );
       else
         feedback.push(
-          'Low Chaos Bolt count during Havoc. Try pooling Soul Shards before casting Havoc.',
+          t({
+            id: 'warlock.destruction.havocGuide.lowChaosBoltCount',
+            message: 'Low Chaos Bolt count during Havoc. Try pooling Soul Shards before casting Havoc.',
+          }),
         );
     } else {
       if (spenders >= 5)
-        feedback.push('Excellent Havoc usage. You maximized Chaos Bolt casts during the window.');
+        feedback.push(
+          t({
+            id: 'warlock.destruction.havocGuide.excellentUsage',
+            message: 'Excellent Havoc usage. You maximized Chaos Bolt casts during the window.',
+          }),
+        );
       else if (spenders === 4)
-        feedback.push('Good Havoc window. One additional Chaos Bolt would make this perfect.');
+        feedback.push(
+          t({
+            id: 'warlock.destruction.havocGuide.goodWindow',
+            message: 'Good Havoc window. One additional Chaos Bolt would make this perfect.',
+          }),
+        );
       else if (spenders === 3)
         feedback.push(
-          'Decent Havoc window, but you could likely fit another Chaos Bolt by pooling more Soul Shards beforehand.',
+          t({
+            id: 'warlock.destruction.havocGuide.decentWindow',
+            message:
+              'Decent Havoc window, but you could likely fit another Chaos Bolt by pooling more Soul Shards beforehand.',
+          }),
         );
       else
         feedback.push(
-          'Low Chaos Bolt count during Havoc. Try pooling Soul Shards before casting Havoc.',
+          t({
+            id: 'warlock.destruction.havocGuide.lowChaosBoltCount',
+            message: 'Low Chaos Bolt count during Havoc. Try pooling Soul Shards before casting Havoc.',
+          }),
         );
     }
 
     if (casts.length < 6) {
       feedback.push(
-        `Only ${casts.length} Havocable spell${casts.length !== 1 ? 's' : ''} were cast in this Havoc window. This may indicate movement, delayed casting, or missed opportunities.`,
+        t({
+          id: 'warlock.destruction.havocGuide.fewSpellsCast',
+          message: `Only ${casts.length} Havocable spell${casts.length !== 1 ? 's' : ''} were cast in this Havoc window. This may indicate movement, delayed casting, or missed opportunities.`,
+        }),
       );
     }
 
     if (targetDied)
-      feedback.push('The target died before the debuff expired, shortening your Havoc window.');
+      feedback.push(
+        t({
+          id: 'warlock.destruction.havocGuide.targetDied',
+          message: 'The target died before the debuff expired, shortening your Havoc window.',
+        }),
+      );
 
     return (
       <>
@@ -138,19 +187,28 @@ export function HavocGuide({ havocAnalyzer, formatTimestamp }: HavocGuideProps):
       performance: rateHavocWindow(spenders, havocAnalyzer.havocDuration),
       stats: [
         {
-          label: 'Chaos Bolts',
+          label: t({ id: 'warlock.destruction.havocGuide.chaosBolts', message: 'Chaos Bolts' }),
           value: window.chaosBolts,
-          tooltip: 'Chaos Bolts cast during the Havoc window',
+          tooltip: t({
+            id: 'warlock.destruction.havocGuide.chaosBoltsTooltip',
+            message: 'Chaos Bolts cast during the Havoc window',
+          }),
         },
         {
-          label: 'Shadowburns',
+          label: t({ id: 'warlock.destruction.havocGuide.shadowburns', message: 'Shadowburns' }),
           value: window.shadowburns,
-          tooltip: 'Shadowburn casts during the Havoc window',
+          tooltip: t({
+            id: 'warlock.destruction.havocGuide.shadowburnsTooltip',
+            message: 'Shadowburn casts during the Havoc window',
+          }),
         },
         {
-          label: 'Casts',
+          label: t({ id: 'warlock.destruction.havocGuide.casts', message: 'Casts' }),
           value: window.casts.length,
-          tooltip: 'Total Havocable spells cast during this Havoc window',
+          tooltip: t({
+            id: 'warlock.destruction.havocGuide.castsTooltip',
+            message: 'Total Havocable spells cast during this Havoc window',
+          }),
         },
       ],
       details: getHavocFeedback(
@@ -162,7 +220,7 @@ export function HavocGuide({ havocAnalyzer, formatTimestamp }: HavocGuideProps):
       ),
       additionalContent: sequenceEntry
         ? {
-            title: 'Cast Sequence',
+            title: t({ id: 'warlock.destruction.havocGuide.castSequence', message: 'Cast Sequence' }),
             content: <SpellSequence casts={sequenceEntry.casts} iconSize={40} />,
           }
         : undefined,
@@ -171,7 +229,7 @@ export function HavocGuide({ havocAnalyzer, formatTimestamp }: HavocGuideProps):
 
   return (
     <GuideSection spell={SPELLS.HAVOC} explanation={explanation}>
-      <CastDetail title="Havoc Windows" casts={perCastData} />
+      <CastDetail title={t({ id: 'warlock.destruction.havocGuide.havocWindows', message: 'Havoc Windows' })} casts={perCastData} />
     </GuideSection>
   );
 }

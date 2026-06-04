@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -86,7 +87,7 @@ class SplittingIce extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="mage.frost.splittingIce.statTooltip">
             This is all the secondary target damage summed with the portion of primary target damage
             attributable to Splitting Ice.
             <ul>
@@ -99,7 +100,7 @@ class SplittingIce extends Analyzer {
                 <strong>{formatPercentage(this.cleaveDamagePercent)}%</strong>
               </li>
             </ul>
-          </>
+          </Trans>
         }
       >
         <BoringSpellValueText spell={TALENTS.SPLITTING_ICE_TALENT}>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -24,7 +25,7 @@ class ReverseEntropy extends Analyzer {
     return (
       <Statistic category={STATISTIC_CATEGORY.TALENTS} size="small">
         <BoringSpellValueText spell={TALENTS.REVERSE_ENTROPY_TALENT}>
-          <UptimeIcon /> {formatPercentage(this.uptime, 0)} % <small>uptime</small>
+          <UptimeIcon /> {formatPercentage(this.uptime, 0)} % <small>{t({ id: 'warlock.destruction.reverseEntropy.uptime', message: 'uptime' })}</small>
         </BoringSpellValueText>
       </Statistic>
     );

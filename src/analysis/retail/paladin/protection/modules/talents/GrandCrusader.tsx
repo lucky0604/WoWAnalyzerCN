@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -110,12 +112,12 @@ class GrandCrusader extends Analyzer.withDependencies({
         position={STATISTIC_ORDER.DEFAULT}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="paladin.protection.grandCrusader.tooltip">
             Grand Crusader reset the cooldown of Avenger's Shield {this.gcProcs} times.
             <br />
             You had {this.resetChances} chances for Grand Crusader to trigger with a{' '}
             {formatPercentage(this.procChance, 0)}% chance to trigger.
-          </>
+          </Trans>
         }
         dropdown={
           <div style={{ padding: '8px' }}>
@@ -123,13 +125,15 @@ class GrandCrusader extends Analyzer.withDependencies({
               this.gcProcs,
               this.resetChances,
               this.procChance,
-              'Reset %',
-              'Actual Resets',
+              t({ id: 'paladin.protection.grandCrusader.resetPct', message: 'Reset %' }),
+              t({ id: 'paladin.protection.grandCrusader.actualResets', message: 'Actual Resets' }),
               [0, 0.2],
               binomChartXAxis,
             )}
             <p>
-              Likelihood of having <em>exactly</em> as many resets as you did with your talents.
+              <Trans id="paladin.protection.grandCrusader.likelihood">
+                Likelihood of having <em>exactly</em> as many resets as you did with your talents.
+              </Trans>
             </p>
           </div>
         }
@@ -137,7 +141,10 @@ class GrandCrusader extends Analyzer.withDependencies({
         <BoringSpellValue
           spell={TALENTS.GRAND_CRUSADER_TALENT.id}
           value={`${this.gcProcs} Resets`}
-          label="Grand Crusader"
+          label={t({
+            id: 'paladin.protection.grandCrusader.label',
+            message: 'Grand Crusader',
+          })}
         />
       </Statistic>
     );

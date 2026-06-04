@@ -9,6 +9,7 @@ import Statistic from 'parser/ui/Statistic';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 
 import { FuryTracker } from './FuryTracker';
+import { t } from '@lingui/core/macro';
 
 export class FuryDetails extends Analyzer {
   static dependencies = {
@@ -37,12 +38,18 @@ export class FuryDetails extends Analyzer {
       <Statistic
         size="small"
         position={STATISTIC_ORDER.CORE(4)}
-        tooltip={`${formatPercentage(this.wastedFuryPercent)}% wasted`}
+        tooltip={`${formatPercentage(this.wastedFuryPercent)}% ${t({
+          id: 'demonhunter.devourer.furyDetails.wasted',
+          message: 'wasted',
+        })}`}
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.FURY}
           value={formatNumber(this.furyTracker.wasted)}
-          label="Fury Wasted"
+          label={t({
+            id: 'demonhunter.devourer.furyDetails.furyWasted',
+            message: 'Fury Wasted',
+          })}
         />
       </Statistic>
     );
@@ -50,7 +57,10 @@ export class FuryDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Fury Usage',
+      title: t({
+        id: 'demonhunter.devourer.furyDetails.tabTitle',
+        message: 'Fury Usage',
+      }),
       url: 'fury-usage',
       render: () => (
         <Panel>

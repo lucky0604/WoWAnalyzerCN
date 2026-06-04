@@ -1,15 +1,11 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/hunter';
 import { SpellLink } from 'interface';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import Events, {
-  CastEvent,
-  BeginCastEvent,
-  ResourceChangeEvent,
-  GetRelatedEvent,
-  HasAbility,
-} from 'parser/core/Events';
-import { KC_FOCUS_LINK, KC_NEXT_CAST } from '../../normalizers/KillCommandNormalizer';
+import Events, { CastEvent } from 'parser/core/Events';
+import { KCFocusLink } from '../../normalizers/KillCommandNormalizer';
 import BuffStackTracker from 'parser/shared/modules/BuffStackTracker';
 import BoringValueText from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
@@ -20,7 +16,7 @@ import CastSummaryAndBreakdown from 'interface/guide/components/CastSummaryAndBr
 import { PerformanceBoxRow } from 'interface/guide/components/PerformanceBoxRow';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { BoxRowEntry } from 'interface/guide/components/PerformanceBoxRow';
-import { BadColor, GoodColor } from 'interface/guide';
+import { BadColor, GoodColor, OkColor } from 'interface/guide';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 
 const MAX_STACKS = 3;
@@ -88,16 +84,6 @@ class TipOfTheSpear extends BuffStackTracker {
     return event.classResources?.find((r) => r.type === RESOURCE_TYPES.FOCUS.id)?.amount ?? 0;
   }
 
-  // Check if the next ability cast after this Kill Command is Takedown
-  private isNextCastTakedown(event: CastEvent): boolean {
-    const nextCast = GetRelatedEvent<CastEvent | BeginCastEvent>(event, KC_NEXT_CAST);
-    return (
-      nextCast !== undefined &&
-      HasAbility(nextCast) &&
-      nextCast.ability.guid === TALENTS.TAKEDOWN_TALENT.id
-    );
-  }
-
   private onTippableCast = (event: CastEvent) => {
     const wasTipped = this.selectedCombatant.hasBuff(
       SPELLS.TIP_OF_THE_SPEAR_CAST.id,
@@ -140,9 +126,15 @@ class TipOfTheSpear extends BuffStackTracker {
     const targetName = this.owner.getTargetName(event);
     const tooltip = (
       <div>
-        <h5 style={{ color: BadColor }}>{event.ability.name} cast without Tip of the Spear.</h5>
-        <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
-        <strong>{targetName || 'unknown'}</strong>
+        <h5 style={{ color: BadColor }}>
+          <Trans id="hunter.survival.tipOfTheSpear.castWithoutTip">
+            {event.ability.name} cast without Tip of the Spear.
+          </Trans>
+        </h5>
+        <Trans id="hunter.survival.tipOfTheSpear.targeting">
+          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
+          <strong>{targetName || 'unknown'}</strong>
+        </Trans>
       </div>
     );
 
@@ -159,7 +151,7 @@ class TipOfTheSpear extends BuffStackTracker {
       this.wastedStacks += potentialStacks - MAX_STACKS;
     }
 
-    const focusEvent = GetRelatedEvent<ResourceChangeEvent>(event, KC_FOCUS_LINK);
+    const focusEvent = KCFocusLink.first(event);
     // amount is post-generation; subtract effective focus gained to recover pre-cast focus.
     const preCastFocus = focusEvent
       ? this.getFocus(event) - (focusEvent.resourceChange - focusEvent.waste)
@@ -177,7 +169,10 @@ class TipOfTheSpear extends BuffStackTracker {
     if (isLowFocus) {
       // Low focus is always an acceptable reason to Kill Command regardless of stacks.
       value = QualitativePerformance.Good;
-      header = `Good: low focus (${preCastFocus})`;
+      header = t({
+        id: 'hunter.survival.tipOfTheSpear.goodLowFocus',
+        message: `Good: low focus (${preCastFocus})`,
+      });
       color = GoodColor;
     } else if (this.isPackLeader) {
       // Pack Leader rules:
@@ -185,50 +180,57 @@ class TipOfTheSpear extends BuffStackTracker {
       // Without Howl buff: 0–2 stacks is acceptable (without Primal Surge 0-1 with Primal Surge
       if (hasHowlBuff && currentStacks <= 1) {
         value = QualitativePerformance.Good;
-        header = `Good: Howl of the Pack Leader active, ${currentStacks === 0 ? '0' : '1'} stack${currentStacks !== 1 ? 's' : ''}.`;
+        header = t({
+          id: 'hunter.survival.tipOfTheSpear.goodHowlActive',
+          message: `Good: Howl of the Pack Leader active, ${currentStacks === 0 ? '0' : '1'} stack${currentStacks !== 1 ? 's' : ''}.`,
+        });
         color = GoodColor;
       } else if (!hasHowlBuff && currentStacks === 0) {
         value = QualitativePerformance.Good;
-        header = 'Good: generated at 0 stacks.';
+        header = t({
+          id: 'hunter.survival.tipOfTheSpear.goodZeroStacks',
+          message: 'Good: generated at 0 stacks.',
+        });
         color = GoodColor;
-      } else if (!hasHowlBuff && currentStacks === 1) {
-        // 1 stack is acceptable if the next cast is Takedown (reactive ability)
-        if (this.isNextCastTakedown(event)) {
-          value = QualitativePerformance.Good;
-          header = 'Good: generated at 1 stack into Takedown.';
-          color = GoodColor;
-        } else {
-          value = QualitativePerformance.Fail;
-          header = `Bad: generated at ${currentStacks} stack${currentStacks !== 1 ? 's' : ''}.`;
-          color = BadColor;
-        }
+      } else if (!hasHowlBuff && currentStacks <= 2) {
+        value = QualitativePerformance.Ok;
+        header = t({
+          id: 'hunter.survival.tipOfTheSpear.okGenerated',
+          message: `Ok: generated at ${currentStacks} stack${currentStacks !== 1 ? 's' : ''}.`,
+        });
+        color = OkColor;
       } else {
         value = QualitativePerformance.Fail;
         const wastedAmount = potentialStacks - MAX_STACKS;
-        header = `Bad: generated at ${currentStacks} stacks, wasted ${wastedAmount} stack${wastedAmount !== 1 ? 's' : ''}.`;
+        header = t({
+          id: 'hunter.survival.tipOfTheSpear.badGeneratedWasted',
+          message: `Bad: generated at ${currentStacks} stacks, wasted ${wastedAmount} stack${wastedAmount !== 1 ? 's' : ''}.`,
+        });
         color = BadColor;
       }
     } else {
-      // Sentinel rules: 0 stacks = Good, 1 stack = Bad, 2+ = Bad (wastage).
+      // Sentinel rules: 0 stacks = Good, 1 stack = Ok, 2+ = Bad (wastage).
       if (currentStacks === 0) {
         value = QualitativePerformance.Good;
-        header = 'Good: generated at 0 stacks.';
+        header = t({
+          id: 'hunter.survival.tipOfTheSpear.goodZeroStacks',
+          message: 'Good: generated at 0 stacks.',
+        });
         color = GoodColor;
       } else if (currentStacks === 1) {
-        // 1 stack is acceptable if the next cast is Takedown (reactive ability)
-        if (this.isNextCastTakedown(event)) {
-          value = QualitativePerformance.Good;
-          header = 'Good: generated at 1 stack into Takedown.';
-          color = GoodColor;
-        } else {
-          value = QualitativePerformance.Fail;
-          header = 'Bad: generated at 1 stack.';
-          color = BadColor;
-        }
+        value = QualitativePerformance.Ok;
+        header = t({
+          id: 'hunter.survival.tipOfTheSpear.okOneStack',
+          message: 'Ok: generated at 1 stack.',
+        });
+        color = OkColor;
       } else {
         value = QualitativePerformance.Fail;
         const wastedAmount = potentialStacks - MAX_STACKS;
-        header = `Bad: generated at ${currentStacks} stacks, wasted ${wastedAmount} stack${wastedAmount !== 1 ? 's' : ''}.`;
+        header = t({
+          id: 'hunter.survival.tipOfTheSpear.badGeneratedWasted',
+          message: `Bad: generated at ${currentStacks} stacks, wasted ${wastedAmount} stack${wastedAmount !== 1 ? 's' : ''}.`,
+        });
         color = BadColor;
       }
     }
@@ -240,33 +242,45 @@ class TipOfTheSpear extends BuffStackTracker {
     const tooltip = (
       <div>
         <h5 style={{ color }}>{header}</h5>
-        <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
-        <strong>{targetName || 'unknown'}</strong>
+        <Trans id="hunter.survival.tipOfTheSpear.tooltipTargeting">
+          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
+          <strong>{targetName || 'unknown'}</strong>
+        </Trans>
         <div>
-          Current stacks: <strong>{currentStacks}</strong> →{' '}
-          <strong>{Math.min(potentialStacks, MAX_STACKS)}</strong>
+          <Trans id="hunter.survival.tipOfTheSpear.tooltipCurrentStacks">
+            Current stacks: <strong>{currentStacks}</strong> →{' '}
+            <strong>{Math.min(potentialStacks, MAX_STACKS)}</strong>
+          </Trans>
         </div>
         <div>
-          Focus before cast: <strong>{preCastFocus}</strong> | Gained:{' '}
-          <strong>{focusGained}</strong>
-          {focusWasted > 0 && (
-            <>
-              {' '}
-              | Wasted: <strong>{focusWasted}</strong>
-            </>
-          )}
+          <Trans id="hunter.survival.tipOfTheSpear.tooltipFocus">
+            Focus before cast: <strong>{preCastFocus}</strong> | Gained:{' '}
+            <strong>{focusGained}</strong>
+            {focusWasted > 0 && (
+              <>
+                {' '}
+                | Wasted: <strong>{focusWasted}</strong>
+              </>
+            )}
+          </Trans>
         </div>
         {this.hasPrimalSurge && (
           <div>
             <small>
-              (With <SpellLink spell={TALENTS.PRIMAL_SURGE_TALENT} />, generates {stacksGained}{' '}
-              stacks)
+              <Trans id="hunter.survival.tipOfTheSpear.tooltipPrimalSurge">
+                (With <SpellLink spell={TALENTS.PRIMAL_SURGE_TALENT} />, generates {stacksGained}{' '}
+                stacks)
+              </Trans>
             </small>
           </div>
         )}
         {hasHowlBuff && (
           <div>
-            <small>Howl of the Pack Leader buff active</small>
+            <small>
+              <Trans id="hunter.survival.tipOfTheSpear.tooltipHowlBuff">
+                Howl of the Pack Leader buff active
+              </Trans>
+            </small>
           </div>
         )}
       </div>
@@ -277,27 +291,34 @@ class TipOfTheSpear extends BuffStackTracker {
 
   get guideSubsectionKillCommand() {
     const packLeaderExplanation = (
-      <>
+      <Trans id="hunter.survival.tipOfTheSpear.guideKcPackLeader">
         {' '}
-        Aim to Kill Command only at 0 stacks, or at most 1 stack if
+        Aim to Kill Command only at 0 stacks, or at most 1 stack if{' '}
         <SpellLink spell={TALENTS.HOWL_OF_THE_PACK_LEADER_TALENT} /> is ready to spawn a beast.
-      </>
+      </Trans>
     );
     const sentinelExplanation = (
-      <> Aim to Kill Command only at 0 stacks. 1 stack is acceptable; 2+ stacks wastes potential.</>
+      <Trans id="hunter.survival.tipOfTheSpear.guideKcSentinel">
+        {' '}
+        Aim to Kill Command only at 0 stacks. 1 stack is acceptable; 2+ stacks wastes potential.
+      </Trans>
     );
 
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
-        </strong>{' '}
-        generates <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks.
+        <Trans id="hunter.survival.tipOfTheSpear.guideKcExplanation">
+          <strong>
+            <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
+          </strong>{' '}
+          generates <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks.
+        </Trans>
         {this.isPackLeader ? packLeaderExplanation : sentinelExplanation}
         <p>
-          {' '}
-          Low focus (&lt;
-          {LOW_FOCUS_THRESHOLD}) is always an acceptable reason to Kill Command.
+          <Trans id="hunter.survival.tipOfTheSpear.guideKcLowFocus">
+            {' '}
+            Low focus (&lt;
+            {LOW_FOCUS_THRESHOLD}) is always an acceptable reason to Kill Command.
+          </Trans>
         </p>
       </p>
     );
@@ -306,7 +327,11 @@ class TipOfTheSpear extends BuffStackTracker {
       <CastSummaryAndBreakdown
         spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT}
         castEntries={this.killCommandGenerationEntries}
-        badExtraExplanation={<>and wasted Tip of the Spear stacks</>}
+        badExtraExplanation={
+          <Trans id="hunter.survival.tipOfTheSpear.kcBadExtraExplanation">
+            and wasted Tip of the Spear stacks
+          </Trans>
+        }
       />
     );
 
@@ -315,43 +340,45 @@ class TipOfTheSpear extends BuffStackTracker {
 
   get guideSubsectionUntipped() {
     const takedownNote = this.hasTwinFangs ? (
-      <>
+      <Trans id="hunter.survival.tipOfTheSpear.guideUntippedTakedownTwinFangs">
         {' '}
         With <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />,{' '}
         <SpellLink spell={TALENTS.TAKEDOWN_TALENT} /> generates{' '}
         <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks but is excluded from this summary
-        as it is often cast in response to an event occuring.
-      </>
+        as it is often cast in response to an event occurring.
+      </Trans>
     ) : (
-      <>
+      <Trans id="hunter.survival.tipOfTheSpear.guideUntippedTakedownNoTwinFangs">
         {' '}
         <SpellLink spell={TALENTS.TAKEDOWN_TALENT} /> should be tipped in this build.
-      </>
+      </Trans>
     );
 
     const wfbPackLeaderNote = this.isPackLeader ? (
-      <>
+      <Trans id="hunter.survival.tipOfTheSpear.guideUntippedWfbPackLeader">
         {' '}
         <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} /> cast with &lt;{LOW_FOCUS_THRESHOLD} focus
         while in Pack Leader is excused (KC is likely unavailable too).
-      </>
+      </Trans>
     ) : null;
 
     const explanation = (
       <>
         <p>
-          Each entry below is a tippable ability cast <strong>without</strong>{' '}
-          <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />. These should be rare.{' '}
+          <Trans id="hunter.survival.tipOfTheSpear.guideUntippedExplanation">
+            Each entry below is a tippable ability cast <strong>without</strong>{' '}
+            <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />. These should be rare.{' '}
+          </Trans>
         </p>
         <p>
           {takedownNote}
           {wfbPackLeaderNote}
           {this.selectedCombatant.hasTalent(TALENTS.BOOMSTICK_TALENT) && (
-            <>
+            <Trans id="hunter.survival.tipOfTheSpear.guideUntippedBoomstickOpener">
               {' '}
               The opener <SpellLink spell={TALENTS.BOOMSTICK_TALENT} /> (within the first 10s) is
               excused. It is cast untipped to build Mongoose Fury stacks before Takedown.
-            </>
+            </Trans>
           )}
         </p>
       </>
@@ -359,11 +386,17 @@ class TipOfTheSpear extends BuffStackTracker {
 
     const data =
       this.untippedCastEntries.length === 0 ? (
-        <p>No untipped casts — nice work!</p>
+        <p>
+          <Trans id="hunter.survival.tipOfTheSpear.noUntippedCasts">
+            No untipped casts — nice work!
+          </Trans>
+        </p>
       ) : (
         <div>
           <p>
-            <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> not active when cast:
+            <Trans id="hunter.survival.tipOfTheSpear.notActiveWhenCast">
+              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> not active when cast:
+            </Trans>
           </p>
           <PerformanceBoxRow values={this.untippedCastEntries} />
         </div>
@@ -381,9 +414,9 @@ class TipOfTheSpear extends BuffStackTracker {
       >
         <BoringValueText
           label={
-            <>
+            <Trans id="hunter.survival.tipOfTheSpear.stacksWasted">
               <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks wasted
-            </>
+            </Trans>
           }
         >
           {this.wastedStacks} / {this.killCommandCasts}

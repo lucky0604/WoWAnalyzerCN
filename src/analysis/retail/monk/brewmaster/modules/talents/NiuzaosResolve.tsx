@@ -20,6 +20,7 @@ import SpellLink from 'interface/SpellLink';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import HealingDone from 'parser/shared/modules/throughput/HealingDone';
 import SPELLS from '../../spell-list_Monk_Brewmaster.retail';
+import { t } from '@lingui/core/macro';
 
 // 80% increase at 0% hp.
 const NIUZAOS_RESOLVE_RATIO = 0.8;
@@ -81,7 +82,7 @@ export default class NiuzaosResolve extends Analyzer.withDependencies({
         <BoringValue
           label={
             <>
-              <SpellLink spell={SPELLS_COMMON.NIUZAOS_RESOLVE} /> Total Healing
+              <SpellLink spell={SPELLS_COMMON.NIUZAOS_RESOLVE} /> {t({ id: 'monk.brewmaster.niuzaosResolve.totalHealing', message: 'Total Healing' })}
             </>
           }
         >
@@ -92,7 +93,7 @@ export default class NiuzaosResolve extends Analyzer.withDependencies({
         <BoringValue
           label={
             <>
-              <SpellLink spell={SPELLS_COMMON.NIUZAOS_RESOLVE} /> Bonus Healing
+              <SpellLink spell={SPELLS_COMMON.NIUZAOS_RESOLVE} /> {t({ id: 'monk.brewmaster.niuzaosResolve.bonusHealing', message: 'Bonus Healing' })}
             </>
           }
         >

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import * as cnd from 'parser/shared/metrics/apl/conditions';
 import TALENTS from 'common/TALENTS/rogue';
 import SPELLS from 'common/SPELLS';
@@ -39,5 +40,5 @@ export const maintainRupture = cnd.and(
 
 export const cooldownAlignment = cnd.describe(
   cnd.or(useSymbolsOfDeath, secretTechniqueDuringDance, majorCooldownsAvailable),
-  (tense) => <>{tenseAlt(tense, 'should', 'should have')} align cooldowns correctly with</>,
+  (tense) => <>{tenseAlt(tense, t({ id: 'rogue.subtlety.apl.shouldAlign', message: 'should' }), t({ id: 'rogue.subtlety.apl.shouldHaveAligned', message: 'should have' }))} {t({ id: 'rogue.subtlety.apl.alignCooldowns', message: 'align cooldowns correctly with' })}</>,
 );

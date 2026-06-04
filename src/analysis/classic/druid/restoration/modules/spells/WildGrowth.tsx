@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS/classic/druid';
 import { SpellIcon, SpellLink } from 'interface';
@@ -145,29 +147,36 @@ class WildGrowth extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.WILD_GROWTH} />
-          </b>{' '}
-          is your best healing spell when multiple raiders are injured. It quickly heals a lot of
-          damage, but has a high mana cost. Use Wild Growth over Rejuvenation if there are at least
-          3 injured targets. Remember that only allies within 15 yds of the primary target can be
-          hit - don't cast this on an isolated player!
+          {t({
+            id: 'classic.druid.restoration.wildGrowth.explanation1',
+            message:
+              "Wild Growth is your best healing spell when multiple raiders are injured. It quickly heals a lot of damage, but has a high mana cost. Use Wild Growth over Rejuvenation if there are at least 3 injured targets. Remember that only allies within 15 yds of the primary target can be hit - don't cast this on an isolated player!",
+          })}
         </p>
         <p>
-          Wild Growth can proc <SpellLink spell={SPELLS.REVITALIZE_MANA} />
+          {t({
+            id: 'classic.druid.restoration.wildGrowth.explanation2',
+            message: 'Wild Growth can proc Revitalize',
+          })}
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Wild Growth casts</strong>
+        <strong>
+          {t({
+            id: 'classic.druid.restoration.wildGrowth.castsTitle',
+            message: 'Wild Growth casts',
+          })}
+        </strong>
         <small>
           {' '}
-          - Green is a good cast, Yellow hit three targets or more, but was mostly ineffective for
-          healing, Red was effective on fewer than three targets. A hit is considered "ineffective"
-          if over the first {(OVERHEAL_BUFFER / 1000).toFixed(0)} seconds it did more than{' '}
-          {formatPercentage(OVERHEAL_THRESHOLD, 0)}% overhealing. Mouseover boxes for details.
+          {t({
+            id: 'classic.druid.restoration.wildGrowth.chartDescription',
+            message:
+              'Green is a good cast, Yellow hit three targets or more, but was mostly ineffective for healing, Red was effective on fewer than three targets. A hit is considered "ineffective" if over the first 3 seconds it did more than 60% overhealing. Mouseover boxes for details.',
+          })}
         </small>
         <PerformanceBoxRow values={this.castEntries} />
       </div>
@@ -183,17 +192,22 @@ class WildGrowth extends Analyzer {
         position={STATISTIC_ORDER.CORE(51)} // chosen for fixed ordering of general stats
         tooltip={
           <>
-            This is the average number of effective hits per Wild Growth cast. Because its healing
-            is so frontloaded, we consider a hit effective only if it does less than{' '}
-            {formatPercentage(OVERHEAL_THRESHOLD, 0)}% overhealing over its first{' '}
-            {(OVERHEAL_BUFFER / 1000).toFixed(0)} seconds.
+            {t({
+              id: 'classic.druid.restoration.wildGrowth.statisticTooltip',
+              message:
+                'This is the average number of effective hits per Wild Growth cast. Because its healing is so frontloaded, we consider a hit effective only if it does less than 60% overhealing over its first 3 seconds.',
+            })}
           </>
         }
       >
         <BoringValue
           label={
             <>
-              <SpellIcon spell={SPELLS.WILD_GROWTH} /> Average Effective Wild Growth Hits
+              <SpellIcon spell={SPELLS.WILD_GROWTH} />{' '}
+              {t({
+                id: 'classic.druid.restoration.wildGrowth.averageEffectiveHits',
+                message: 'Average Effective Wild Growth Hits',
+              })}
             </>
           }
         >

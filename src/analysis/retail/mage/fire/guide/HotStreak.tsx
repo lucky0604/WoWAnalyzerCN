@@ -7,6 +7,8 @@ import Analyzer from 'parser/core/Analyzer';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import CastSummary, { type CastEvaluation } from 'interface/guide/components/CastSummary';
 import GuideSection from 'interface/guide/components/GuideSection';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import HotStreak, { HotStreakProc } from '../core/HotStreak';
 import { CastOverview, StackedBar, type StackedBarSegment } from 'interface/guide/components';
@@ -29,25 +31,33 @@ class HotStreakGuide extends Analyzer {
 
     stats.push({
       value: `${this.hotStreak.expiredProcs}`,
-      label: 'Expired Procs',
-      tooltip: <>Number of Hot Streak procs that expired before they could be spent.</>,
+      label: t({ id: 'mage.fire.hotStreakGuide.expiredProcs', message: 'Expired Procs' }),
+      tooltip: (
+        <Trans id="mage.fire.hotStreakGuide.expiredProcsTooltip">
+          Number of Hot Streak procs that expired before they could be spent.
+        </Trans>
+      ),
       performance: this.hotStreak.expiredProcsPerformance,
     });
     stats.push({
       value: `${this.hotStreak.wastedCrits.length}`,
-      label: 'Wasted Crits',
+      label: t({ id: 'mage.fire.hotStreakGuide.wastedCrits', message: 'Wasted Crits' }),
       tooltip: (
-        <>
+        <Trans id="mage.fire.hotStreakGuide.wastedCritsTooltip">
           Number of times a direct damage fire spell crit against your target while you already had
           Hot Streak.
-        </>
+        </Trans>
       ),
       performance: this.hotStreak.wastedCritsPerformance,
     });
     stats.push({
       value: formatDurationMillisMinSec(averageUptime, 2),
-      label: 'Average Proc Uptime',
-      tooltip: <>Average amount of time Hot Streak was active before it was used (or expired).</>,
+      label: t({ id: 'mage.fire.hotStreakGuide.averageProcUptime', message: 'Average Proc Uptime' }),
+      tooltip: (
+        <Trans id="mage.fire.hotStreakGuide.averageProcUptimeTooltip">
+          Average amount of time Hot Streak was active before it was used (or expired).
+        </Trans>
+      ),
     });
 
     return stats;
@@ -65,16 +75,24 @@ class HotStreakGuide extends Analyzer {
 
     return [
       {
-        label: 'Pyroblast',
+        label: t({ id: 'mage.fire.hotStreakGuide.pyroblast', message: 'Pyroblast' }),
         value: pyroblastCount,
         color: '#e38d4b',
-        tooltip: <>{pyroblastCount} Hot Streak procs spent on Pyroblast</>,
+        tooltip: (
+          <Trans id="mage.fire.hotStreakGuide.pyroblastTooltip">
+            {pyroblastCount} Hot Streak procs spent on Pyroblast
+          </Trans>
+        ),
       },
       {
-        label: 'Flamestrike',
+        label: t({ id: 'mage.fire.hotStreakGuide.flamestrike', message: 'Flamestrike' }),
         value: flamestrikeCount,
         color: '#a84444',
-        tooltip: <>{flamestrikeCount} Hot Streak procs spent on Flamestrike</>,
+        tooltip: (
+          <Trans id="mage.fire.hotStreakGuide.flamestrikeTooltip">
+            {flamestrikeCount} Hot Streak procs spent on Flamestrike
+          </Trans>
+        ),
       },
     ];
   }
@@ -85,7 +103,10 @@ class HotStreakGuide extends Analyzer {
       return {
         timestamp: hs.remove.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: 'Hot Streak Proc Expired',
+        reason: t({
+          id: 'mage.fire.hotStreakGuide.procExpired',
+          message: 'Hot Streak Proc Expired',
+        }),
       };
     }
 
@@ -112,7 +133,10 @@ class HotStreakGuide extends Analyzer {
       return {
         timestamp: hs.remove.timestamp,
         performance: QualitativePerformance.Ok,
-        reason: 'Hot Streak used without a precast or guaranteed crit buff',
+        reason: t({
+          id: 'mage.fire.hotStreakGuide.noPrecastOrCritBuff',
+          message: 'Hot Streak used without a precast or guaranteed crit buff',
+        }),
       };
     }
 
@@ -120,7 +144,10 @@ class HotStreakGuide extends Analyzer {
     return {
       timestamp: hs.remove.timestamp,
       performance: QualitativePerformance.Fail,
-      reason: 'Unknown Performance Condition (Please report this).',
+      reason: t({
+        id: 'mage.fire.hotStreakGuide.unknownPerformance',
+        message: 'Unknown Performance Condition (Please report this).',
+      }),
     };
   }
 
@@ -136,7 +163,7 @@ class HotStreakGuide extends Analyzer {
     const ignite = <SpellLink spell={SPELLS.IGNITE} />;
 
     const explanation = (
-      <>
+      <Trans id="mage.fire.hotStreakGuide.explanation">
         <b>{hotStreak}</b> makes your next {pyroblast} or {flamestrike} instant cast, making it a
         large contributor to your direct damage and ticking {ignite} damage. The majority of your
         rotation revolves around getting as many of these procs as possible.
@@ -158,7 +185,7 @@ class HotStreakGuide extends Analyzer {
             immediately give you another {hotStreak}.
           </li>
         </ul>
-      </>
+      </Trans>
     );
 
     return (
@@ -167,7 +194,10 @@ class HotStreakGuide extends Analyzer {
           spell={SPELLS.HOT_STREAK}
           stats={this.buildStats()}
           additionalContent={{
-            title: 'Spender Breakdown',
+            title: t({
+              id: 'mage.fire.hotStreakGuide.spenderBreakdown',
+              message: 'Spender Breakdown',
+            }),
             content: <StackedBar segments={this.buildSpenderBar()} />,
           }}
         />

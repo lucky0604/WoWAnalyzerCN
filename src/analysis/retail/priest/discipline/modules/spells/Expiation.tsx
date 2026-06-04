@@ -12,6 +12,7 @@ import Events, { DamageEvent, HealEvent } from 'parser/core/Events';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import { getDamageEvent } from '../../normalizers/AtonementTracker';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
 
 const EXPIATION_RANK_INCREASE = 0.1;
 class Expiation extends Analyzer {
@@ -90,24 +91,22 @@ class Expiation extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            Healing Breakdown:
+            {t({ id: 'priest.discipline.expiation.healingBreakdown', message: 'Healing Breakdown:' })}
             <ul>
               <li>
                 <SpellLink spell={TALENTS_PRIEST.EXPIATION_TALENT} />:{' '}
-                {formatNumber(this.expiationHealing)}{' '}
+                {formatNumber(this.expiationHealing)}
               </li>
               <li>
                 <SpellLink spell={TALENTS_PRIEST.SHADOW_WORD_DEATH_TALENT} />:{' '}
-                {formatNumber(this.deathHealing)}{' '}
+                {formatNumber(this.deathHealing)}
               </li>
               <li>
-                <SpellLink spell={TALENTS_PRIEST.MIND_BLAST_TALENT} />:
-                {formatNumber(this.mindBlastHealing)}{' '}
+                <SpellLink spell={TALENTS_PRIEST.MIND_BLAST_TALENT} />:{' '}
+                {formatNumber(this.mindBlastHealing)}
               </li>
             </ul>
-            The bonus damage to <SpellLink spell={TALENTS_PRIEST.MIND_BLAST_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS_PRIEST.SHADOW_WORD_DEATH_TALENT} /> was:{' '}
-            {formatNumber(this.bonusDamage)}.
+            {(() => { const bonus = formatNumber(this.bonusDamage); return t({ id: 'priest.discipline.expiation.bonusDamage', message: `The bonus damage to Mind Blast and Shadow Word: Death was: ${{bonus}}.` }); })()}
           </>
         }
         category={STATISTIC_CATEGORY.TALENTS}

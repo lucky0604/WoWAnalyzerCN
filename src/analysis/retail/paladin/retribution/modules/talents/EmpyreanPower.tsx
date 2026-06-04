@@ -9,6 +9,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TALENTS from 'common/TALENTS/paladin';
+import { t } from '@lingui/core/macro';
 
 import { CRUSADING_STRIKE_EMPYREAN_POWER_CHANCE } from '../../constants';
 
@@ -93,11 +94,20 @@ class EmpyreanPower extends Analyzer {
           <>
             <ul>
               <li>
-                Average Time Till Buff Consumed:{' '}
+                {t({
+                  id: 'paladin.retribution.empyreanPower.averageTimeTillBuffConsumed',
+                  message: 'Average Time Till Buff Consumed:',
+                })}{' '}
                 {formatDuration(this.averageTimeTillBuffConsumed / this.procsGained)}
               </li>
-              <li>Total Buffs: {this.procsGained}</li>
-              <li>Damage: {formatNumber(this.damageDone)}</li>
+              <li>
+                {t({ id: 'paladin.retribution.empyreanPower.totalBuffs', message: 'Total Buffs:' })}{' '}
+                {this.procsGained}
+              </li>
+              <li>
+                {t({ id: 'paladin.retribution.empyreanPower.damage', message: 'Damage:' })}{' '}
+                {formatNumber(this.damageDone)}
+              </li>
             </ul>
           </>
         }

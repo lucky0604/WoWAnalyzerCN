@@ -1,4 +1,5 @@
 import useAssassinationFeatureFlag from 'analysis/retail/rogue/assassination/guide/useAssassinationFeatureFlag';
+import { t } from '@lingui/core/macro';
 import VerticallyAlignedToggle from 'interface/VerticallyAlignedToggle';
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
@@ -26,8 +27,15 @@ export const ExperimentalKingsbaneToggle = () => {
           id="experimental-kingsbane-explanation-toggle"
           enabled={isExplanationEnabled}
           setEnabled={setExplanationEnabled}
-          label="Enable Kingsbane analysis"
-          tooltipContent="Enabling this feature will turn on our Kingsbane analysis. It's still a work-in-progress, so don't worry too much about what it says."
+          label={t({
+            id: 'rogue.assassination.kingsbanecontext.enableAnalysis',
+            message: 'Enable Kingsbane analysis',
+          })}
+          tooltipContent={t({
+            id: 'rogue.assassination.kingsbanecontext.enableAnalysisTooltip',
+            message:
+              "Enabling this feature will turn on our Kingsbane analysis. It's still a work-in-progress, so don't worry too much about what it says.",
+          })}
         />
       </div>
     </div>

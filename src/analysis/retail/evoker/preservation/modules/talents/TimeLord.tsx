@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import { SpellLink } from 'interface';
@@ -47,13 +48,10 @@ class TimeLord extends Analyzer {
           <>
             <ul>
               <li>
-                {formatNumber(this.effectiveHealing)} increased{' '}
-                <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> healing from{' '}
-                <SpellLink spell={TALENTS_EVOKER.TIME_LORD_TALENT} />
+                {formatNumber(this.effectiveHealing)} {t({ id: 'evoker.preservation.timeLord.increasedEchoHealing', message: 'increased Echo healing from Time Lord' })}
               </li>
               <li>
-                {formatNumber(this.overhealing)} overhealing from{' '}
-                <SpellLink spell={TALENTS_EVOKER.TIME_LORD_TALENT} />
+                {formatNumber(this.overhealing)} {t({ id: 'evoker.preservation.timeLord.overhealingFrom', message: 'overhealing from Time Lord' })}
               </li>
             </ul>
           </>

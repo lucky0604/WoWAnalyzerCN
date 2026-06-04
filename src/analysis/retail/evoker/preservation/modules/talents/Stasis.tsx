@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import { ControlledExpandable, SpellLink, Tooltip } from 'interface';
@@ -86,7 +87,7 @@ class Stasis extends Analyzer {
 
   getSpellLink(key: number, spellPair: [number, number]) {
     if (spellPair[0] === 0) {
-      return <>Unknown spell cast before pull</>;
+      return <>{t({ id: 'evoker.preservation.stasis.unknownSpell', message: 'Unknown spell cast before pull' })}</>;
     }
     return (
       <div>
@@ -144,8 +145,7 @@ class Stasis extends Analyzer {
               hoverable
               content={
                 <>
-                  <SpellLink spell={TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT} /> is always good to
-                  store regardless of situation
+                  {t({ id: 'evoker.preservation.stasis.taAlwaysGood', message: 'Temporal Anomaly is always good to store regardless of situation' })}
                 </>
               }
             >
@@ -166,8 +166,7 @@ class Stasis extends Analyzer {
                 hoverable
                 content={
                   <>
-                    <SpellLink spell={SPELLS.EMERALD_BLOSSOM_CAST} /> is always good to store when
-                    talented into <SpellLink spell={TALENTS_EVOKER.FIELD_OF_DREAMS_TALENT} />
+                    {t({ id: 'evoker.preservation.stasis.ebGoodWithFod', message: 'Emerald Blossom is always good to store when talented into Field of Dreams' })}
                   </>
                 }
               >
@@ -187,8 +186,7 @@ class Stasis extends Analyzer {
                 hoverable
                 content={
                   <>
-                    You should never store <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> if not
-                    talented into <SpellLink spell={TALENTS_EVOKER.FIELD_OF_DREAMS_TALENT} />
+                    {t({ id: 'evoker.preservation.stasis.neverStoreEb', message: 'You should never store Emerald Blossom if not talented into Field of Dreams' })}
                   </>
                 }
               >
@@ -209,8 +207,7 @@ class Stasis extends Analyzer {
               hoverable
               content={
                 <>
-                  <SpellLink spell={TALENTS_EVOKER.CAUTERIZING_FLAME_TALENT} /> is not a good spell
-                  to store outside of very niche scenarios
+                  {t({ id: 'evoker.preservation.stasis.cauterizingFlameBad', message: 'Cauterizing Flame is not a good spell to store outside of very niche scenarios' })}
                 </>
               }
             >
@@ -229,8 +226,7 @@ class Stasis extends Analyzer {
               hoverable
               content={
                 <>
-                  <SpellLink spell={SPELLS.NATURALIZE} /> is not a good spell to store outside of
-                  very niche scenarios
+                  {t({ id: 'evoker.preservation.stasis.naturalizeBad', message: 'Naturalize is not a good spell to store outside of very niche scenarios' })}
                 </>
               }
             >
@@ -250,8 +246,7 @@ class Stasis extends Analyzer {
               hoverable
               content={
                 <>
-                  <SpellLink spell={TALENTS_EVOKER.REVERSION_TALENT} /> is not a good spell to store
-                  due to its very low mana cost and CD
+                  {t({ id: 'evoker.preservation.stasis.reversionBad', message: 'Reversion is not a good spell to store due to its very low mana cost and CD' })}
                 </>
               }
             >
@@ -274,8 +269,7 @@ class Stasis extends Analyzer {
               hoverable
               content={
                 <>
-                  <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> is a very high value
-                  spell to store when not in a ramp due to its high mana cost and CD.
+                  {t({ id: 'evoker.preservation.stasis.dbHighValue', message: 'Dream Breath is a very high value spell to store when not in a ramp due to its high mana cost and CD.' })}
                 </>
               }
             >
@@ -295,12 +289,7 @@ class Stasis extends Analyzer {
               hoverable
               content={
                 <>
-                  <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> is not a high value
-                  spell to store in general compared to other spells. If you are planning to use{' '}
-                  <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> inside{' '}
-                  <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} />, then consider using{' '}
-                  <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> prior to{' '}
-                  <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} />.
+                  {t({ id: 'evoker.preservation.stasis.veNotHighValue', message: 'Verdant Embrace is not a high value spell to store in general compared to other spells. If you are planning to use Dream Breath inside Stasis, then consider using Verdant Embrace prior to Stasis.' })}
                 </>
               }
             >
@@ -311,7 +300,7 @@ class Stasis extends Analyzer {
           </>
         );
       } else if (spell === 0) {
-        return <>Unknown spell cast before pull</>;
+        return <>{t({ id: 'evoker.preservation.stasis.unknownSpell', message: 'Unknown spell cast before pull' })}</>;
       }
     }
   }
@@ -322,25 +311,18 @@ class Stasis extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} />
         </b>{' '}
-        is a powerful talent that stores your 3 most recent healing spell that will be released with
-        identical targets. Notably, it can not store{' '}
-        <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} /> or{' '}
-        <SpellLink spell={TALENTS_EVOKER.REWIND_TALENT} />
-        {
-          <div>
-            In general, you should always store{' '}
-            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} />,{' '}
-            <SpellLink spell={TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT} />, and
-            <SpellLink spell={SPELLS.MERITHRAS_BLESSING_CAST} />.
-          </div>
-        }
+        {t({
+          id: 'evoker.preservation.stasis.guideExplanation',
+          message:
+            'is a powerful talent that stores your 3 most recent healing spells that will be released with identical targets. Notably, it can not store Dream Flight or Rewind. In general, you should always store Dream Breath, Temporal Anomaly, and Merithras Blessing.',
+        })}
       </p>
     );
     const data = (
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> cast efficiency
+            <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> {t({ id: 'evoker.preservation.stasis.castEfficiency', message: 'cast efficiency' })}
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
@@ -413,15 +395,15 @@ class Stasis extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         wide
       >
-        <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> <small>spell breakdown</small>
+        <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> <small>{t({ id: 'evoker.preservation.stasis.spellBreakdown', message: 'spell breakdown' })}</small>
         <div>
           <table className="table table-condensed">
             <thead>
               <tr>
-                <th>Cast #</th>
-                <th>Cast Time</th>
-                <th>Consume Time</th>
-                <th>Spells</th>
+                <th>{t({ id: 'evoker.preservation.stasis.castNumber', message: 'Cast #' })}</th>
+                <th>{t({ id: 'evoker.preservation.stasis.castTime', message: 'Cast Time' })}</th>
+                <th>{t({ id: 'evoker.preservation.stasis.consumeTime', message: 'Consume Time' })}</th>
+                <th>{t({ id: 'evoker.preservation.stasis.spells', message: 'Spells' })}</th>
               </tr>
             </thead>
             <tbody>

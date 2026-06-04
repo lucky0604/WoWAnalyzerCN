@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, TooltipElement } from 'interface';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ApplyBuffEvent, CastEvent, HealEvent, RefreshBuffEvent } from 'parser/core/Events';
@@ -122,7 +123,7 @@ class DancingMists extends Analyzer {
     return [
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: 'Hardcast',
+        label: t({ id: 'monk.mistweaver.dancing_mists.hardcastLabel', message: 'Hardcast' }),
         spellId: SPELLS.RENEWING_MIST_CAST.id,
         value: this.dancingMistHardCastCount,
         valuePercent: false,
@@ -143,7 +144,7 @@ class DancingMists extends Analyzer {
       },
       {
         color: SPELL_COLORS.DANCING_MISTS,
-        label: 'Bounces',
+        label: t({ id: 'monk.mistweaver.dancing_mists.bouncesLabel', message: 'Bounces' }),
         spellId: SPELLS.RENEWING_MIST_CAST.id,
         value: this.bounceProcs,
         valuePercent: false,
@@ -257,7 +258,7 @@ class DancingMists extends Analyzer {
       },
       {
         color: SPELL_COLORS.RENEWING_MIST,
-        label: 'Hardcast',
+        label: t({ id: 'monk.mistweaver.dancing_mists.hardcastLabel', message: 'Hardcast' }),
         spellId: SPELLS.RENEWING_MIST_CAST.id,
         value: hardcastSourceHealing,
         valuePercent: false,
@@ -271,7 +272,7 @@ class DancingMists extends Analyzer {
       },
       {
         color: SPELL_COLORS.DANCING_MIST,
-        label: 'Bounces',
+        label: t({ id: 'monk.mistweaver.dancing_mists.bouncesLabel', message: 'Bounces' }),
         spellId: SPELLS.RENEWING_MIST_CAST.id,
         value: bounceHealing,
         valuePercent: false,

@@ -1,4 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
 import Events, { ResourceChangeEvent } from 'parser/core/Events';
 import { BadColor, GoodColor } from 'interface/guide';
 import { ResourceLink } from 'interface';
@@ -28,12 +29,18 @@ export default class BuilderUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: 'Effective Builders',
+        label: t({
+          id: 'rogue.assassination.builder.effectiveBuilders',
+          message: 'Effective Builders',
+        }),
         value: this.effectiveBuilderCasts,
       },
       {
         color: BadColor,
-        label: 'Wasted Builders',
+        label: t({
+          id: 'rogue.assassination.builder.wastedBuilders',
+          message: 'Wasted Builders',
+        }),
         value: this.wastedBuilderCasts,
       },
     ];
@@ -46,7 +53,11 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)}>
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> builder usage
+            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
+            {t({
+              id: 'rogue.assassination.builder.builderUsage',
+              message: 'builder usage',
+            })}
           </label>
           {this.chart}
         </div>

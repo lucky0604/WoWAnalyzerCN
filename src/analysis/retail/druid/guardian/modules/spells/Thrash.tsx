@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon } from 'interface';
@@ -21,9 +22,11 @@ export default class Thrash extends Analyzer.withDependencies(deps) {
         <strong>
           <SpellLink spell={SPELLS.THRASH_BEAR} />
         </strong>{' '}
-        is AoE direct damage and a stacking bleed. It generates rage and should be used on cooldown.
-        The very short cooldown combined with jammed GCDs means 100% usage will be practically
-        impossible, but get as close as you can.
+        {t({
+          id: 'druid.guardian.thrash.explanation',
+          message:
+            'is AoE direct damage and a stacking bleed. It generates rage and should be used on cooldown. The very short cooldown combined with jammed GCDs means 100% usage will be practically impossible, but get as close as you can.',
+        })}
       </p>
     );
 
@@ -41,7 +44,8 @@ export default class Thrash extends Analyzer.withDependencies(deps) {
         <BoringValueText
           label={
             <>
-              <SpellIcon spell={SPELLS.THRASH_BEAR} /> Thrash uptime{' '}
+              <SpellIcon spell={SPELLS.THRASH_BEAR} />{' '}
+              {t({ id: 'druid.guardian.thrash.uptime', message: 'Thrash uptime' })}{' '}
             </>
           }
         >

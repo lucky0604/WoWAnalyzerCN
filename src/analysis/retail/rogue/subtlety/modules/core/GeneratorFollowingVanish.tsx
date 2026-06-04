@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import SpellIcon from 'interface/SpellIcon';
@@ -11,8 +12,6 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import type { ReactNode } from 'react';
 import { abilityToSpell } from 'common/abilityToSpell';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 class GeneratorFollowingVanish extends Analyzer {
   generatorSpells = [
@@ -71,32 +70,23 @@ class GeneratorFollowingVanish extends Analyzer {
           size="flexible"
           category={STATISTIC_CATEGORY.GENERAL}
           tooltip={
-            <Trans id="rogue.subtlety.generatorFollowingVanish.tooltip">
-              You cast non-generators following <SpellLink spell={SPELLS.VANISH} />{' '}
-              {formatNumber(this.badFollowingVanishCasts.length)} times and generators{' '}
-              {formatNumber(this.goodFollowingVanishCasts.length)} times.
-            </Trans>
+            <>
+              {t({ id: 'rogue.subtlety.generatorFollowingVanish.tooltipPrefix', message: 'You cast non-generators following' })}{' '}
+              <SpellLink spell={SPELLS.VANISH} />{' '}
+              {formatNumber(this.badFollowingVanishCasts.length)}{' '}
+              {t({ id: 'rogue.subtlety.generatorFollowingVanish.timesAndGenerators', message: 'times and generators' })}{' '}
+              {formatNumber(this.goodFollowingVanishCasts.length)}{' '}
+              {t({ id: 'rogue.subtlety.generatorFollowingVanish.times', message: 'times.' })}
+            </>
           }
           dropdown={
             <>
               <table className="table table-condensed">
                 <thead>
                   <tr>
-                    <th>
-                      <Trans id="rogue.subtlety.generatorFollowingVanish.table.vanishTimestamp">
-                        Vanish Timestamp
-                      </Trans>
-                    </th>
-                    <th>
-                      <Trans id="rogue.subtlety.generatorFollowingVanish.table.badSpellCast">
-                        Bad Spell Cast
-                      </Trans>
-                    </th>
-                    <th>
-                      <Trans id="rogue.subtlety.generatorFollowingVanish.table.badCastTimestamp">
-                        Bad Cast Timestamp
-                      </Trans>
-                    </th>
+                    <th>{t({ id: 'rogue.subtlety.generatorFollowingVanish.vanishTimestamp', message: 'Vanish Timestamp' })}</th>
+                    <th>{t({ id: 'rogue.subtlety.generatorFollowingVanish.badSpellCast', message: 'Bad Spell Cast' })}</th>
+                    <th>{t({ id: 'rogue.subtlety.generatorFollowingVanish.badCastTimestamp', message: 'Bad Cast Timestamp' })}</th>
                   </tr>
                 </thead>
                 <tbody>{tableEntries}</tbody>
@@ -106,14 +96,8 @@ class GeneratorFollowingVanish extends Analyzer {
         >
           <BoringSpellValue
             spell={SPELLS.VANISH.id}
-            value={t({
-              id: 'rogue.subtlety.generatorFollowingVanish.nonGeneratorsValue',
-              message: `${this.badFollowingVanishCasts.length} non-generators cast`,
-            })}
-            label={t({
-              id: 'rogue.subtlety.generatorFollowingVanish.nonGeneratorsLabel',
-              message: 'Non-generators Cast After Vanish',
-            })}
+            value={`${this.badFollowingVanishCasts.length} ${t({ id: 'rogue.subtlety.generatorFollowingVanish.nonGeneratorsCast', message: 'non-generators cast' })}`}
+            label={t({ id: 'rogue.subtlety.generatorFollowingVanish.nonGeneratorsCastAfterVanish', message: 'Non-generators Cast After Vanish' })}
           />
         </Statistic>
       </>

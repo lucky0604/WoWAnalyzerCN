@@ -8,6 +8,9 @@ export const META_CLASSES = {
   DESTROYED: 'inefficient',
 };
 
+// Note: These are used at module top level, but t() must be called inside function bodies.
+// The actual translation lookups happen in the UI components that consume these keys.
+// These constants serve as message keys for the translation system.
 export const META_TOOLTIPS = {
   EMPOWERED: 'This pet was empowered by Demonic Tyrant',
   IMPLODED: 'This Wild Imp was later Imploded',

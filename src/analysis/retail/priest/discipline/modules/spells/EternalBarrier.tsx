@@ -9,6 +9,7 @@ import PowerWordShield from './PowerWordShield';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import SpellIcon from 'interface/SpellIcon';
+import { t } from '@lingui/core/macro';
 
 class EternalBarrier extends Analyzer {
   static dependencies = {
@@ -30,14 +31,16 @@ class EternalBarrier extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            Healing Breakdown:
+            {t({ id: 'priest.discipline.eternalBarrier.healingBreakdown', message: 'Healing Breakdown:' })}
             <ul>
               <li>
-                <SpellIcon spell={SPELLS.POWER_WORD_SHIELD} /> Shield Strength Increase:{' '}
+                <SpellIcon spell={SPELLS.POWER_WORD_SHIELD} />{' '}
+                {t({ id: 'priest.discipline.eternalBarrier.shieldStrengthIncrease', message: 'Shield Strength Increase:' })}{' '}
                 {formatNumber(this.powerWordShield.eternalBarrierValue)}
               </li>
               <li>
-                <SpellIcon spell={SPELLS.POWER_WORD_SHIELD} /> Extended Duration Healing:{' '}
+                <SpellIcon spell={SPELLS.POWER_WORD_SHIELD} />{' '}
+                {t({ id: 'priest.discipline.eternalBarrier.extendedDurationHealing', message: 'Extended Duration Healing:' })}{' '}
                 {formatNumber(this.powerWordShield.eternalBarrierExtensionHealing)}
               </li>
             </ul>

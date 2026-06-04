@@ -17,6 +17,8 @@ import { ChecklistUsageInfo, SpellUse, spellUseToBoxRowEntry } from 'parser/core
 import SpellUsageSubSection from 'parser/core/SpellUsage/SpellUsageSubSection';
 import { createChecklistItem, createSpellUse } from 'parser/core/MajorCooldowns/MajorCooldown';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export default class FinisherUse extends Analyzer {
   static dependencies = {
@@ -49,12 +51,12 @@ export default class FinisherUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: 'Max CP Finishers',
+        label: t({ id: 'rogue.outlaw.finisherUse.maxCPFinishers', message: 'Max CP Finishers' }),
         value: this.maxCpFinishers,
       },
       {
         color: BadColor,
-        label: 'Low CP Finishers',
+        label: t({ id: 'rogue.outlaw.finisherUse.lowCPFinishers', message: 'Low CP Finishers' }),
         value: this.lowCpFinisherCasts,
       },
     ];
@@ -108,13 +110,15 @@ export default class FinisherUse extends Analyzer {
         { event },
         {
           performance: isInStealth ? QualitativePerformance.Good : QualitativePerformance.Fail,
-          summary: <div>Used inside of Stealth</div>,
+          summary: <div>{t({ id: 'rogue.outlaw.finisherUse.stealth.usedInside', message: 'Used inside of Stealth' })}</div>,
           details: isInStealth ? (
-            <div>You were in stealth.</div>
+            <div>{t({ id: 'rogue.outlaw.finisherUse.stealth.wereInStealth', message: 'You were in stealth.' })}</div>
           ) : (
             <div>
-              You were outside of stealth, <SpellLink spell={event.ability.guid} /> should only be
-              use inside of stealth.
+              <Trans id="rogue.outlaw.finisherUse.stealth.outsideShouldBeInside">
+                You were outside of stealth, <SpellLink spell={event.ability.guid} /> should only be
+                use inside of stealth.
+              </Trans>
             </div>
           ),
         },
@@ -126,13 +130,15 @@ export default class FinisherUse extends Analyzer {
       { event },
       {
         performance: !isInStealth ? QualitativePerformance.Good : QualitativePerformance.Fail,
-        summary: <div>Used outside of Stealth</div>,
+        summary: <div>{t({ id: 'rogue.outlaw.finisherUse.stealth.usedOutside', message: 'Used outside of Stealth' })}</div>,
         details: !isInStealth ? (
-          <div>You were outside of stealth.</div>
+          <div>{t({ id: 'rogue.outlaw.finisherUse.stealth.wereOutsideStealth', message: 'You were outside of stealth.' })}</div>
         ) : (
           <div>
-            You were inside of stealth, <SpellLink spell={event.ability.guid} /> should only be use
-            outside of stealth.
+            <Trans id="rogue.outlaw.finisherUse.stealth.insideShouldBeOutside">
+              You were inside of stealth, <SpellLink spell={event.ability.guid} /> should only be use
+              outside of stealth.
+            </Trans>
           </div>
         ),
       },
@@ -151,16 +157,16 @@ export default class FinisherUse extends Analyzer {
 
     const isGoodCP = cpsSpent >= targetCps;
 
-    let castSummary = (
-      <>
+    let castSummary: JSX.Element = (
+      <Trans id="rogue.outlaw.finisherUse.spentCasting">
         You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} />.
-      </>
+      </Trans>
     );
-    let badCastExplanation = (
-      <>
+    let badCastExplanation: JSX.Element = (
+      <Trans id="rogue.outlaw.finisherUse.outsideStealthMissingBothBuffs">
         outside of stealth, and with both <SpellLink spell={SPELLS.AUDACITY_TALENT_BUFF} /> and{' '}
         <SpellLink spell={SPELLS.OPPORTUNITY} /> missing
-      </>
+      </Trans>
     );
 
     if (this.finishers.hasHOLowCPFinisherCondition()) {
@@ -170,23 +176,23 @@ export default class FinisherUse extends Analyzer {
 
       if (activeBuff) {
         castSummary = (
-          <>
+          <Trans id="rogue.outlaw.finisherUse.spentCastingWithBuffActive">
             You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} /> with{' '}
             <SpellLink spell={activeBuff.ability.guid} /> active.
-          </>
+          </Trans>
         );
         badCastExplanation = (
-          <>
+          <Trans id="rogue.outlaw.finisherUse.buffIsActive">
             <SpellLink spell={activeBuff.ability.guid} /> is active
-          </>
+          </Trans>
         );
       } else {
         castSummary = (
-          <>
+          <Trans id="rogue.outlaw.finisherUse.spentCastingInStealth">
             You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} /> in stealth.
-          </>
+          </Trans>
         );
-        badCastExplanation = <>in stealth</>;
+        badCastExplanation = <Trans id="rogue.outlaw.finisherUse.inStealth">in stealth</Trans>;
       }
     }
 
@@ -197,15 +203,16 @@ export default class FinisherUse extends Analyzer {
         performance: isGoodCP ? QualitativePerformance.Good : QualitativePerformance.Fail,
         summary: (
           <div>
-            <SpellLink spell={event.ability.guid} /> Combo Point Management
+            <SpellLink spell={event.ability.guid} />{' '}
+            <Trans id="rogue.outlaw.finisherUse.comboPointManagement">Combo Point Management</Trans>
           </div>
         ),
         details: isGoodCP ? (
           castSummary
         ) : (
-          <>
+          <Trans id="rogue.outlaw.finisherUse.tryToSpendMoreCPs">
             {castSummary} Try to always spend at least {targetCps} CPs when {badCastExplanation}.
-          </>
+          </Trans>
         ),
       },
     );
@@ -234,11 +241,14 @@ export default class FinisherUse extends Analyzer {
     }
 
     const isInStealth = this.finishers.isInStealth();
-    const standardDetails = (
-      <>
-        You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} />{' '}
-        {isInStealth ? 'in stealth' : 'outside of stealth'}.
-      </>
+    const standardDetails = isInStealth ? (
+      <Trans id="rogue.outlaw.finisherUse.spentCPStealth">
+        You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} /> in stealth.
+      </Trans>
+    ) : (
+      <Trans id="rogue.outlaw.finisherUse.spentCPOutsideStealth">
+        You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} /> outside of stealth.
+      </Trans>
     );
 
     return createChecklistItem(
@@ -248,16 +258,20 @@ export default class FinisherUse extends Analyzer {
         performance: isGoodCP ? QualitativePerformance.Good : QualitativePerformance.Fail,
         summary: (
           <div>
-            <SpellLink spell={event.ability.guid} /> Combo Point Management
+            <SpellLink spell={event.ability.guid} />{' '}
+            <Trans id="rogue.outlaw.finisherUse.comboPointManagement">Combo Point Management</Trans>
           </div>
         ),
         details: isGoodCP ? (
           standardDetails
+        ) : isInStealth ? (
+          <Trans id="rogue.outlaw.finisherUse.tryToSpendMoreInStealth">
+            You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} /> in stealth. Try to always spend at least {targetCps} CPs when in stealth.
+          </Trans>
         ) : (
-          <>
-            {standardDetails} Try to always spend at least {targetCps} CPs when{' '}
-            {isInStealth ? 'in stealth' : 'not in stealth'}.
-          </>
+          <Trans id="rogue.outlaw.finisherUse.tryToSpendMoreOutsideStealth">
+            You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} /> outside of stealth. Try to always spend at least {targetCps} CPs when not in stealth.
+          </Trans>
         ),
       },
     );
@@ -267,21 +281,25 @@ export default class FinisherUse extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>Finishers</strong> should typically be used at <strong>6 or more</strong> combo
-          points.{' '}
+          <Trans id="rogue.outlaw.finisherUse.finishersBaseline">
+            <strong>Finishers</strong> should typically be used at <strong>6 or more</strong> combo
+            points.
+          </Trans>{' '}
           {this.selectedCombatant.hasTalent(TALENTS.SUBTERFUGE_TALENT) && (
-            <>
+            <Trans id="rogue.outlaw.finisherUse.finishersSubterfuge">
               When inside of <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} />,{' '}
               <strong>Finishers</strong> should be used at <strong>5 or more</strong> combo points.
-            </>
+            </Trans>
           )}
         </p>
         {this.hasHiddenOpportunity && (
           <p>
-            When playing <SpellLink spell={TALENTS.HIDDEN_OPPORTUNITY_TALENT} />{' '}
-            <strong>Finishers</strong> should be used at <strong>5 or more</strong> combo points
-            when either <SpellLink spell={SPELLS.AUDACITY_TALENT_BUFF} /> or{' '}
-            <SpellLink spell={SPELLS.OPPORTUNITY} /> is active.
+            <Trans id="rogue.outlaw.finisherUse.finishersHiddenOpportunity">
+              When playing <SpellLink spell={TALENTS.HIDDEN_OPPORTUNITY_TALENT} />{' '}
+              <strong>Finishers</strong> should be used at <strong>5 or more</strong> combo points
+              when either <SpellLink spell={SPELLS.AUDACITY_TALENT_BUFF} /> or{' '}
+              <SpellLink spell={SPELLS.OPPORTUNITY} /> is active.
+            </Trans>
           </p>
         )}
       </>
@@ -330,7 +348,9 @@ export default class FinisherUse extends Analyzer {
         performances={performances}
         uses={this.spellUses}
         castBreakdownSmallText={
-          <> - Green is a good cast, Yellow is an ok cast, Red is a bad cast.</>
+          <Trans id="rogue.outlaw.finisherUse.castBreakdownLegend">
+            - Green is a good cast, Yellow is an ok cast, Red is a bad cast.
+          </Trans>
         }
         abovePerformanceDetails={castPerformances}
       />

@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
 import TALENTS from 'common/TALENTS/warrior';
@@ -54,9 +55,9 @@ export const buildSlayerApl = (
         cnd.buffPresent(SPELLS.MASTER_OF_WARFARE),
       ),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castHeroicStrikeExecute">
           Cast <SpellLink spell={SPELLS.HEROIC_STRIKE} /> while in execute range
-        </>
+        </Trans>
       ),
     },
 
@@ -71,11 +72,11 @@ export const buildSlayerApl = (
         cnd.inExecute(executeThreshold),
       ),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castMSExecuteCS">
           Cast <SpellLink spell={SPELLS.MORTAL_STRIKE} /> while in execute range during{' '}
           <SpellLink spell={SPELLS.COLOSSUS_SMASH_DEBUFF} /> or with 2 stacks of{' '}
           <SpellLink spell={SPELLS.EXECUTIONERS_PRECISION_DEBUFF} />
-        </>
+        </Trans>
       ),
     },
 
@@ -84,9 +85,9 @@ export const buildSlayerApl = (
       spell: SPELLS.OVERPOWER,
       condition: cnd.and(cnd.hasResource(RESOURCE_TYPES.RAGE, { atMost: 800 }), executeUsable),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castOPExecuteLowRage">
           Cast <SpellLink spell={SPELLS.OVERPOWER} /> while in execute range with below 80 rage
-        </>
+        </Trans>
       ),
     },
 
@@ -95,9 +96,9 @@ export const buildSlayerApl = (
       spell: executeSpell,
       condition: cnd.and(executeUsable, cnd.inExecute(executeThreshold)),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castExecuteExecute">
           Cast <SpellLink spell={executeSpell} /> while in execute range
-        </>
+        </Trans>
       ),
     },
 
@@ -106,9 +107,9 @@ export const buildSlayerApl = (
       spell: SPELLS.OVERPOWER,
       condition: cnd.inExecute(executeThreshold),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castOPExecute">
           Cast <SpellLink spell={SPELLS.OVERPOWER} /> while in execute range
-        </>
+        </Trans>
       ),
     },
 
@@ -119,9 +120,9 @@ export const buildSlayerApl = (
       spell: SPELLS.HEROIC_STRIKE,
       condition: cnd.buffPresent(SPELLS.MASTER_OF_WARFARE),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castHS">
           Cast <SpellLink spell={SPELLS.HEROIC_STRIKE} />
-        </>
+        </Trans>
       ),
     },
 
@@ -130,9 +131,9 @@ export const buildSlayerApl = (
       spell: SPELLS.MORTAL_STRIKE,
       condition: cnd.not(cnd.inExecute(executeThreshold)),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castMS">
           Cast <SpellLink spell={SPELLS.MORTAL_STRIKE} />
-        </>
+        </Trans>
       ),
     },
 
@@ -141,9 +142,9 @@ export const buildSlayerApl = (
       spell: executeSpell,
       condition: cnd.and(executeUsable),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castExecute">
           Cast <SpellLink spell={executeSpell} />
-        </>
+        </Trans>
       ),
     },
 
@@ -152,9 +153,9 @@ export const buildSlayerApl = (
       spell: SPELLS.OVERPOWER,
       condition: cnd.not(cnd.inExecute(executeThreshold)),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castOP">
           Cast <SpellLink spell={SPELLS.OVERPOWER} />
-        </>
+        </Trans>
       ),
     },
 
@@ -163,9 +164,9 @@ export const buildSlayerApl = (
       spell: SPELLS.SLAM,
       condition: cnd.and(cnd.not(cnd.inExecute(executeThreshold))),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castSlam">
           Cast <SpellLink spell={SPELLS.SLAM} />
-        </>
+        </Trans>
       ),
     },
   ]);
@@ -187,9 +188,9 @@ export const buildColossusApl = (
         cnd.buffPresent(SPELLS.MASTER_OF_WARFARE),
       ),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castHeroicStrikeExecute">
           Cast <SpellLink spell={SPELLS.HEROIC_STRIKE} /> while in execute range
-        </>
+        </Trans>
       ),
     },
 
@@ -204,10 +205,10 @@ export const buildColossusApl = (
         ),
       ),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castMSExecuteEP">
           Cast <SpellLink spell={SPELLS.MORTAL_STRIKE} /> in execute range, with 2 stacks of{' '}
           <SpellLink spell={SPELLS.EXECUTIONERS_PRECISION_DEBUFF} /> if it is talented
-        </>
+        </Trans>
       ),
     },
 
@@ -219,10 +220,10 @@ export const buildColossusApl = (
         cnd.inExecute(executeThreshold),
       ),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castExecuteSDExecute">
           Cast <SpellLink spell={executeSpell} /> with{' '}
           <SpellLink spell={SPELLS.SUDDEN_DEATH_TALENT_BUFF} /> in execute range
-        </>
+        </Trans>
       ),
     },
 
@@ -235,10 +236,10 @@ export const buildColossusApl = (
         cnd.hasResource(RESOURCE_TYPES.RAGE, { atLeast: 750 }),
       ),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castExecuteHighRageDW">
           Cast <SpellLink spell={executeSpell} /> with above 75 rage if{' '}
           <SpellLink spell={TALENTS.DEEP_WOUNDS_TALENT} /> is talented
-        </>
+        </Trans>
       ),
     },
 
@@ -247,9 +248,9 @@ export const buildColossusApl = (
       spell: SPELLS.OVERPOWER,
       condition: cnd.inExecute(executeThreshold),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castOPExecuteColossus">
           Cast <SpellLink spell={SPELLS.OVERPOWER} /> in execute range
-        </>
+        </Trans>
       ),
     },
 
@@ -262,9 +263,9 @@ export const buildColossusApl = (
         cnd.hasResource(RESOURCE_TYPES.RAGE, { atLeast: 750 }),
       ),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castExecuteExecuteHighRage">
           Cast <SpellLink spell={executeSpell} /> in execute range while above 75 rage
-        </>
+        </Trans>
       ),
     },
 
@@ -273,9 +274,9 @@ export const buildColossusApl = (
       spell: SPELLS.SLAM,
       condition: cnd.inExecute(executeThreshold),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castSlamExecute">
           Cast <SpellLink spell={SPELLS.SLAM} /> in execute range
-        </>
+        </Trans>
       ),
     },
 
@@ -286,9 +287,9 @@ export const buildColossusApl = (
       spell: SPELLS.HEROIC_STRIKE,
       condition: cnd.buffPresent(SPELLS.MASTER_OF_WARFARE),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castHS">
           Cast <SpellLink spell={SPELLS.HEROIC_STRIKE} />
-        </>
+        </Trans>
       ),
     },
 
@@ -297,9 +298,9 @@ export const buildColossusApl = (
       spell: SPELLS.MORTAL_STRIKE,
       condition: cnd.not(cnd.inExecute(executeThreshold)),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castMS">
           Cast <SpellLink spell={SPELLS.MORTAL_STRIKE} />
-        </>
+        </Trans>
       ),
     },
 
@@ -308,9 +309,9 @@ export const buildColossusApl = (
       spell: SPELLS.OVERPOWER,
       condition: cnd.and(cnd.not(cnd.inExecute(executeThreshold))),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castOP">
           Cast <SpellLink spell={SPELLS.OVERPOWER} />
-        </>
+        </Trans>
       ),
     },
 
@@ -319,9 +320,9 @@ export const buildColossusApl = (
       spell: executeSpell,
       condition: executeUsable,
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castExecute">
           Cast <SpellLink spell={executeSpell} />
-        </>
+        </Trans>
       ),
     },
 
@@ -330,9 +331,9 @@ export const buildColossusApl = (
       spell: SPELLS.SLAM,
       condition: cnd.and(cnd.not(cnd.inExecute(executeThreshold))),
       description: (
-        <>
+        <Trans id="warrior.arms.aplCheck.castSlam">
           Cast <SpellLink spell={SPELLS.SLAM} />
-        </>
+        </Trans>
       ),
     },
   ]);

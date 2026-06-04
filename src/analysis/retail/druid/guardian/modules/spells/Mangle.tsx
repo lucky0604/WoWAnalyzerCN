@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer from 'parser/core/Analyzer';
 import SpellLink from 'interface/SpellLink';
@@ -11,9 +12,11 @@ export default class Mangle extends Analyzer {
         <strong>
           <SpellLink spell={SPELLS.MANGLE_BEAR} />
         </strong>{' '}
-        does direct damage and generates rage. Use it on cooldown. The very short cooldown combined
-        with jammed GCDs means 100% usage will be practically impossible, but get as close as you
-        can.
+        {t({
+          id: 'druid.guardian.mangle.explanation',
+          message:
+            'does direct damage and generates rage. Use it on cooldown. The very short cooldown combined with jammed GCDs means 100% usage will be practically impossible, but get as close as you can.',
+        })}
       </p>
     );
 

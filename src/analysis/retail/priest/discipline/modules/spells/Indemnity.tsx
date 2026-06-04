@@ -10,6 +10,7 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { POWER_WORD_SHIELD_ATONEMENT_DUR } from '../../constants';
 import AtonementAnalyzer, { AtonementAnalyzerEvent } from '../core/AtonementAnalyzer';
+import { t } from '@lingui/core/macro';
 
 const INDEMNITY_EXTENSION_DUR = 4000;
 
@@ -65,12 +66,7 @@ class Indemnity extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(13)}
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
-        tooltip={
-          <>
-            This value is calculated from the healing contributed from the last 2 seconds of the
-            applied <SpellLink spell={SPELLS.ATONEMENT_BUFF} />.
-          </>
-        }
+        tooltip={t({ id: 'priest.discipline.indemnity.tooltip', message: 'This value is calculated from the healing contributed from the last 2 seconds of the applied Atonement.' })}
       >
         <>
           <BoringSpellValueText spell={TALENTS_PRIEST.INDEMNITY_TALENT}>

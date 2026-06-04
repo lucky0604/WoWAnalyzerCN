@@ -8,6 +8,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { formatPercentage } from 'common/format';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
+import { t } from '@lingui/core/macro';
 
 class CommanderOfTheDead extends Analyzer {
   private commanderBuffs = 0;
@@ -71,7 +72,10 @@ class CommanderOfTheDead extends Analyzer {
   statistic() {
     return (
       <Statistic
-        tooltip={`You buffed ${this.commanderBuffs} out of ${this.petSummons} pets buffed with Commander of the Dead`}
+        tooltip={t({
+          id: 'deathknight.unholy.commanderOfTheDead.tooltipPetsBuffed',
+          message: `You buffed ${this.commanderBuffs} out of ${this.petSummons} pets buffed with Commander of the Dead`,
+        })}
         position={STATISTIC_ORDER.CORE(3)}
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
@@ -79,7 +83,12 @@ class CommanderOfTheDead extends Analyzer {
         <BoringSpellValueText spell={SPELLS.COMMANDER_OF_THE_DEAD_BUFF.id}>
           <>
             {formatPercentage(this.averageSummonBuffed)}%{' '}
-            <small>of pets buffed with Commander of the Dead</small>
+            <small>
+              {t({
+                id: 'deathknight.unholy.commanderOfTheDead.labelPetsBuffed',
+                message: 'of pets buffed with Commander of the Dead',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

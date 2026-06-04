@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -200,15 +201,32 @@ class SummonVilefiend extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatThousands(damage)} total damage
+            {(() => {
+              const dmg = formatThousands(damage);
+              return t({
+                id: 'warlock.demonology.summonVilefiend.totalDamage',
+                message: `${{ dmg }} total damage`,
+              });
+            })()}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            {summonCount} summons cast
+            {(() => {
+              const count = summonCount;
+              return t({
+                id: 'warlock.demonology.summonVilefiend.summonsCast',
+                message: `${{ count }} summons cast`,
+              });
+            })()}
             {abilityBreakdown.length > 0 && (
               <>
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
-                <strong>Pet Abilities:</strong>
+                <strong>
+                  {t({
+                    id: 'warlock.demonology.summonVilefiend.petAbilities',
+                    message: 'Pet Abilities:',
+                  })}
+                </strong>
                 {abilityBreakdown}
               </>
             )}
@@ -224,7 +242,13 @@ class SummonVilefiend extends Analyzer {
           <div>
             <ItemDamageDone amount={damage} />
           </div>
-          {summonCount} <small>summons</small>
+          {summonCount}{' '}
+          <small>
+            {t({
+              id: 'warlock.demonology.summonVilefiend.summons',
+              message: 'summons',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

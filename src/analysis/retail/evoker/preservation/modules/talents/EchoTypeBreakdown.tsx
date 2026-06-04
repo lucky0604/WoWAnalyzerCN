@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -62,7 +63,7 @@ class EchoTypeBreakdown extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> source breakdown
+            <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> {t({ id: 'evoker.preservation.echoTypeBreakdown.sourceBreakdown', message: 'source breakdown' })}
           </label>
           {this.renderDonutChart()}
         </div>

@@ -4,6 +4,7 @@ import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { Ability, AbsorbedEvent, DamageEvent, HealEvent } from 'parser/core/Events';
 import HealingValue from 'parser/shared/modules/HealingValue';
 import Panel from 'parser/ui/Panel';
+import { t } from '@lingui/core/macro';
 
 import AtonementHealingBreakdown from './AtonementHealingBreakdown';
 import { getDamageEvent, hasAtonementDamageEvent } from '../../normalizers/AtonementTracker';
@@ -65,13 +66,8 @@ class AtonementHealingDone extends Analyzer {
   statistic() {
     return (
       <Panel
-        title="Atonement sources"
-        explanation={
-          <>
-            This shows a breakdown of the damage that caused{' '}
-            <SpellLink spell={SPELLS.ATONEMENT_BUFF} /> healing.
-          </>
-        }
+        title={t({ id: 'priest.discipline.atonementHealingDone.title', message: 'Atonement sources' })}
+        explanation={t({ id: 'priest.discipline.atonementHealingDone.explanation', message: 'This shows a breakdown of the damage that caused Atonement healing.' })}
         position={90}
         pad={false}
       >

@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/evoker';
 import { SubSection } from 'interface/guide';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
 import Events, {
   ApplyBuffEvent,
   ApplyDebuffEvent,
@@ -562,45 +563,84 @@ class Disintegrate extends Analyzer {
     }
 
     return (
-      <SubSection title="Disintegrate">
+      <SubSection
+        title={t({
+          id: 'evoker.devastation.disintegrate.graph.title',
+          message: 'Disintegrate',
+        })}
+      >
         <div>
           <p>
-            Use the graph below to deep dive into your <SpellLink spell={DISINTEGRATE} /> casts.
+            {t({
+              id: 'evoker.devastation.disintegrate.graph.description',
+              message:
+                'Use the graph below to deep dive into your Disintegrate casts.',
+            })}
             <ul>
               <li>
-                Casts are highlighted in <span style={{ color: '#2ecc71' }}>green</span>
+                {t({
+                  id: 'evoker.devastation.disintegrate.graph.castsGreen',
+                  message: 'Casts are highlighted in',
+                })}{' '}
+                <span style={{ color: '#2ecc71' }}>{t({ id: 'evoker.devastation.disintegrate.graph.green', message: 'green' })}</span>
               </li>
               {this.massDisintegrateCasts.length > 0 && (
                 <>
                   <li>
-                    Mass Disintegrate Casts are highlighted in{' '}
-                    <span style={{ color: '#aa774f' }}>brown</span>
+                    {t({
+                      id: 'evoker.devastation.disintegrate.graph.massDisintegrateBrown',
+                      message: 'Mass Disintegrate Casts are highlighted in',
+                    })}{' '}
+                    <span style={{ color: '#aa774f' }}>{t({ id: 'evoker.devastation.disintegrate.graph.brown', message: 'brown' })}</span>
                   </li>
                 </>
               )}
               <li>
-                Chained casts are highlighted in <span style={{ color: 'orange' }}>orange</span>
+                {t({
+                  id: 'evoker.devastation.disintegrate.graph.chainedOrange',
+                  message: 'Chained casts are highlighted in',
+                })}{' '}
+                <span style={{ color: 'orange' }}>{t({ id: 'evoker.devastation.disintegrate.graph.orange', message: 'orange' })}</span>
               </li>
               <li>
-                Clipped casts are highlighted in <span style={{ color: '#9b59b6' }}>purple</span>
+                {t({
+                  id: 'evoker.devastation.disintegrate.graph.clippedPurple',
+                  message: 'Clipped casts are highlighted in',
+                })}{' '}
+                <span style={{ color: '#9b59b6' }}>{t({ id: 'evoker.devastation.disintegrate.graph.purple', message: 'purple' })}</span>
               </li>
               <li>
-                Problem points are highlighted in <span style={{ color: 'red' }}>red</span>
+                {t({
+                  id: 'evoker.devastation.disintegrate.graph.problemRed',
+                  message: 'Problem points are highlighted in',
+                })}{' '}
+                <span style={{ color: 'red' }}>{t({ id: 'evoker.devastation.disintegrate.graph.red', message: 'red' })}</span>
               </li>
               <li>
-                <SpellLink spell={DRAGONRAGE_TALENT} /> is shown as a filled in background.
+                {t({
+                  id: 'evoker.devastation.disintegrate.graph.dragonrageBackground',
+                  message: 'Dragonrage is shown as a filled in background.',
+                })}
               </li>
             </ul>
           </p>
           <b>
-            <InformationIcon /> Mouseover each point on the graph for more detailed explanations.
+            <InformationIcon />{' '}
+            {t({
+              id: 'evoker.devastation.disintegrate.graph.mouseover',
+              message:
+                'Mouseover each point on the graph for more detailed explanations.',
+            })}
           </b>
         </div>
         <ExplanationGraph
           fightStartTime={this.owner.fight.start_time}
           fightEndTime={this.owner.fight.end_time}
           graphData={this.graphData}
-          yAxisName="Ticks"
+          yAxisName={t({
+            id: 'evoker.devastation.disintegrate.graph.yAxis',
+            message: 'Ticks',
+          })}
         />
       </SubSection>
     );

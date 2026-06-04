@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import UptimeIcon from 'interface/icons/Uptime';
@@ -23,7 +24,7 @@ class FrostFeverUptime extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(20)} size="flexible">
         <BoringSpellValueText spell={SPELLS.FROST_FEVER}>
           <>
-            <UptimeIcon /> {formatPercentage(this.frostFeverUptime)}% <small>uptime</small>
+            <UptimeIcon /> {formatPercentage(this.frostFeverUptime)}% <small>{t({ id: 'deathknight.frost.frostFeverUptime.uptime', message: 'uptime' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

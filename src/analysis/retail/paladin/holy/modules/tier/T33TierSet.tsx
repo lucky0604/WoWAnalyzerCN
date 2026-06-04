@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { PALADIN_TWW2_ID } from 'common/ITEMS';
 import { TIERS } from 'game/TIERS';
 import ItemSetLink from 'interface/ItemSetLink';
@@ -87,14 +88,14 @@ class T33TierSet extends Analyzer {
     const items: Item[] = [
       {
         color: SPELL_COLORS.HOLY_SHOCK,
-        label: 'HoT',
+        label: t({ id: 'paladin.holy.tier.t33.hot', message: 'HoT' }),
         spellId: SPELLS.INSURANCE_HOT_PALADIN.id,
         value: hotHealing,
         valueTooltip: formatNumber(hotHealing),
       },
       {
         color: SPELL_COLORS.JUDGMENT,
-        label: 'Proc',
+        label: t({ id: 'paladin.holy.tier.t33.proc', message: 'Proc' }),
         spellId: SPELLS.INSURANCE_PROC_PALADIN.id,
         value: procHealing,
         valueTooltip: formatNumber(procHealing),
@@ -112,10 +113,10 @@ class T33TierSet extends Analyzer {
       >
         <div className="pad">
           <ItemSetLink id={PALADIN_TWW2_ID}>Oath of the Aureate Sentry</ItemSetLink> (T33 tier){' '}
-          <h4>2 Piece</h4>
+          <h4>{t({ id: 'paladin.holy.tier.t33.twoPiece', message: '2 Piece' })}</h4>
           <ItemHealingDone amount={this.insurance2pHotHealing + this.insurance2pProcHealing} />
           {this.renderDonutChart(this.insurance2pHotHealing, this.insurance2pProcHealing)}
-          <h4>4 piece</h4>
+          <h4>{t({ id: 'paladin.holy.tier.t33.fourPiece', message: '4 piece' })}</h4>
           <div>
             <ItemHealingDone amount={this.insurance4pHotHealing + this.insurance4pProcHealing} />
           </div>

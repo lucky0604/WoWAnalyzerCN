@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatDuration } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -41,14 +42,26 @@ class AngerManagement extends Analyzer {
   }
 
   get tooltip() {
-    return this.cooldownsAffected.map((id) => (
-      <Fragment key={id}>
-        {SPELLS[id].name}: {formatDuration(this.effectiveReduction.get(id) || 0)} reduction (
-        {formatDuration(this.wastedReduction.get(id) || 0)} wasted)
-        {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-        <br />
-      </Fragment>
-    ));
+    return this.cooldownsAffected.map((id) => {
+      const effectiveRed = formatDuration(this.effectiveReduction.get(id) || 0);
+      const wastedRed = formatDuration(this.wastedReduction.get(id) || 0);
+      const spellName = SPELLS[id].name;
+      return (
+        <Fragment key={id}>
+          {t({
+            id: 'warrior.arms.angerManagement.tooltip',
+            message: '{spellName}: {effectiveRed} reduction ({wastedRed} wasted)',
+            values: {
+              spellName,
+              effectiveRed,
+              wastedRed,
+            },
+          })}
+          {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+          <br />
+        </Fragment>
+      );
+    });
   }
 
   _onCast(event: CastEvent) {
@@ -82,13 +95,23 @@ class AngerManagement extends Analyzer {
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={TALENTS.ANGER_MANAGEMENT_TALENT} /> CDR
+            <SpellLink spell={TALENTS.ANGER_MANAGEMENT_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.angerManagement.cdr',
+              message: 'CDR',
+            })}
           </>
         }
-        value={`${formatDuration(
-          (this.effectiveReduction.get(TALENTS.BLADESTORM_TALENT.id) || 0) +
-            (this.wastedReduction.get(TALENTS.BLADESTORM_TALENT.id) || 0),
-        )} min`}
+        value={t({
+          id: 'warrior.arms.angerManagement.cdrValue',
+          message: '{duration} min',
+          values: {
+            duration: formatDuration(
+              (this.effectiveReduction.get(TALENTS.BLADESTORM_TALENT.id) || 0) +
+                (this.wastedReduction.get(TALENTS.BLADESTORM_TALENT.id) || 0),
+            ),
+          },
+        })}
         valueTooltip={<>{this.tooltip}</>}
       />
     );

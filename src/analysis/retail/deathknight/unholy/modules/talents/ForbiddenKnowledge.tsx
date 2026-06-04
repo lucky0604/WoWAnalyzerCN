@@ -15,6 +15,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import DonutChart from 'parser/ui/DonutChart';
+import { t } from '@lingui/core/macro';
 
 export default class ForbiddenKnowledge extends ExecuteHelper.withDependencies({
   abilities: Abilities,
@@ -91,7 +92,12 @@ export default class ForbiddenKnowledge extends ExecuteHelper.withDependencies({
           <div>
             <UptimeIcon />{' '}
             {formatPercentage(this.totalExecuteDuration / this.owner.fightDuration, 1)}%{' '}
-            <small>buff uptime</small>
+            <small>
+              {t({
+                id: 'deathknight.unholy.forbiddenKnowledge.labelBuffUptime',
+                message: 'buff uptime',
+              })}
+            </small>
           </div>
           <div>
             <ItemDamageDone amount={this.necroticCoilDamage + this.graveyardDamage} />
@@ -102,17 +108,29 @@ export default class ForbiddenKnowledge extends ExecuteHelper.withDependencies({
             items={[
               {
                 color: '#8b5cf6',
-                label: 'Necrotic Coil',
+                label: t({
+                  id: 'deathknight.unholy.forbiddenKnowledge.labelNecroticCoil',
+                  message: 'Necrotic Coil',
+                }),
                 spellId: SPELLS.NECROTIC_COIL.id,
                 value: this.necroticCoilDamage,
-                valueTooltip: `${formatNumber(necroticCoilDps)} DPS — ${formatNumber(this.necroticCoilDamage)} total`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.forbiddenKnowledge.tooltipNecroticCoil',
+                  message: `${formatNumber(necroticCoilDps)} DPS — ${formatNumber(this.necroticCoilDamage)} total`,
+                }),
               },
               {
                 color: '#22c55e',
-                label: 'Graveyard',
+                label: t({
+                  id: 'deathknight.unholy.forbiddenKnowledge.labelGraveyard',
+                  message: 'Graveyard',
+                }),
                 spellId: SPELLS.GRAVEYARD.id,
                 value: this.graveyardDamage,
-                valueTooltip: `${formatNumber(graveyardDps)} DPS — ${formatNumber(this.graveyardDamage)} total`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.forbiddenKnowledge.tooltipGraveyard',
+                  message: `${formatNumber(graveyardDps)} DPS — ${formatNumber(this.graveyardDamage)} total`,
+                }),
               },
             ]}
           />

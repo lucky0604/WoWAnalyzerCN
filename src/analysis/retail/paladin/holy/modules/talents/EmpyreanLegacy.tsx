@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -96,26 +97,28 @@ class EmpyreanLegacy extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <div>Effective Healing: {formatNumber(this.totalHealing)} </div>
-            <div>Overhealing: {formatNumber(this.totalOverhealing)} </div>
+            <div>{t({ id: 'paladin.holy.talents.empyreanLegacy.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(this.totalHealing)} </div>
+            <div>{t({ id: 'paladin.holy.talents.empyreanLegacy.overhealing', message: 'Overhealing' })}: {formatNumber(this.totalOverhealing)} </div>
             <div>
-              The number of <SpellLink spell={TALENTS.EMPYREAN_LEGACY_HOLY_TALENT} /> buffs you
-              receive is directly tied to your <SpellLink spell={SPELLS.JUDGMENT_CAST} />{' '}
-              casts.{' '}
+              {t({ id: 'paladin.holy.talents.empyreanLegacy.buffsTiedToJudgment', message: 'The number of' })}{' '}
+              <SpellLink spell={TALENTS.EMPYREAN_LEGACY_HOLY_TALENT} />{' '}
+              {t({ id: 'paladin.holy.talents.empyreanLegacy.buffsReceiveTiedTo', message: 'buffs you receive is directly tied to your' })}{' '}
+              <SpellLink spell={SPELLS.JUDGMENT_CAST} />{' '}
+              {t({ id: 'paladin.holy.talents.empyreanLegacy.castsSuffix', message: 'casts.' })}
             </div>
-            <div>Fight Duration: {fightDuration} seconds </div>
+            <div>{t({ id: 'paladin.holy.talents.empyreanLegacy.fightDuration', message: 'Fight Duration' })}: {fightDuration} {t({ id: 'paladin.holy.talents.empyreanLegacy.seconds', message: 'seconds' })} </div>
             <div>
-              <SpellLink spell={TALENTS.EMPYREAN_LEGACY_HOLY_TALENT} /> internal cooldown: 20
-              seconds
+              <SpellLink spell={TALENTS.EMPYREAN_LEGACY_HOLY_TALENT} /> {t({ id: 'paladin.holy.talents.empyreanLegacy.internalCooldown', message: 'internal cooldown' })}: 20{' '}
+              {t({ id: 'paladin.holy.talents.empyreanLegacy.seconds', message: 'seconds' })}
             </div>
             <div>
-              <SpellLink spell={SPELLS.JUDGMENT_CAST} /> casts: {judgmentCastEfficiency?.casts}/
+              <SpellLink spell={SPELLS.JUDGMENT_CAST} /> {t({ id: 'paladin.holy.talents.empyreanLegacy.casts', message: 'casts' })}: {judgmentCastEfficiency?.casts}/
               {judgmentCastEfficiency?.maxCasts}{' '}
             </div>
             <ul>
-              <li>Possible buffs: {possibleBuffs}</li>
-              <li>Actual buffs: {this.buffsGained}</li>
-              <li>Consumed buffs: {this.buffsUsed}</li>
+              <li>{t({ id: 'paladin.holy.talents.empyreanLegacy.possibleBuffs', message: 'Possible buffs' })}: {possibleBuffs}</li>
+              <li>{t({ id: 'paladin.holy.talents.empyreanLegacy.actualBuffs', message: 'Actual buffs' })}: {this.buffsGained}</li>
+              <li>{t({ id: 'paladin.holy.talents.empyreanLegacy.consumedBuffs', message: 'Consumed buffs' })}: {this.buffsUsed}</li>
             </ul>
           </>
         }
@@ -125,10 +128,10 @@ class EmpyreanLegacy extends Analyzer {
             <ItemHealingDone amount={this.totalHealing} />
           </div>
           <div>
-            {formatPercentage(consumed, 1)}% <small>buffs consumed</small>
+            {formatPercentage(consumed, 1)}% <small>{t({ id: 'paladin.holy.talents.empyreanLegacy.buffsConsumed', message: 'buffs consumed' })}</small>
           </div>
           <div>
-            {formatPercentage(possible, 1)}% <small>possible buffs gained</small>
+            {formatPercentage(possible, 1)}% <small>{t({ id: 'paladin.holy.talents.empyreanLegacy.possibleBuffsGained', message: 'possible buffs gained' })}</small>
           </div>
         </TalentSpellText>
       </Statistic>

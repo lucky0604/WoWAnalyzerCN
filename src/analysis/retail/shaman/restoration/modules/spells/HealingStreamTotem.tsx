@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_SHAMAN } from 'common/TALENTS/shaman';
 import { SpellLink } from 'interface';
@@ -27,26 +29,30 @@ class HealingStreamTotem extends Analyzer {
     if (this.selectedCombatant.hasTalent(TALENTS.SURGING_TOTEM_TALENT)) {
       explanation = (
         <p>
-          <b>
-            <SpellLink spell={TALENTS_SHAMAN.HEALING_STREAM_TOTEM_RESTORATION_TALENT} />
-          </b>{' '}
-          is a very efficient heal that should be used as much as possible. It costs very little
-          mana and does a considerable amount of healing over its duration. It will also cast a free{' '}
-          <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> every time you use it and has a chance to
-          apply <SpellLink spell={TALENTS.EARTHLIVING_WEAPON_TALENT} /> every time it heals a player
+          <Trans id="shaman.restoration.healingStreamTotem.totemicExplanation">
+            <b>
+              <SpellLink spell={TALENTS_SHAMAN.HEALING_STREAM_TOTEM_RESTORATION_TALENT} />
+            </b>{' '}
+            is a very efficient heal that should be used as much as possible. It costs very little
+            mana and does a considerable amount of healing over its duration. It will also cast a free{' '}
+            <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> every time you use it and has a chance to
+            apply <SpellLink spell={TALENTS.EARTHLIVING_WEAPON_TALENT} /> every time it heals a player
+          </Trans>
         </p>
       );
     } else {
       explanation = (
         <p>
-          <b>
-            <SpellLink spell={TALENTS_SHAMAN.HEALING_STREAM_TOTEM_RESTORATION_TALENT} />
-          </b>{' '}
-          is a very efficient heal that should be used as much as possible. It costs very little
-          mana and does a considerable amount of healing over its duration. Your active Farseer
-          ancestors will cast a <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_CHAIN_HEAL} /> every
-          time you use it. While it is not a very prominent source of healing for farseer it is
-          still very good due to the low mana cost for what it brings.
+          <Trans id="shaman.restoration.healingStreamTotem.farseerExplanation">
+            <b>
+              <SpellLink spell={TALENTS_SHAMAN.HEALING_STREAM_TOTEM_RESTORATION_TALENT} />
+            </b>{' '}
+            is a very efficient heal that should be used as much as possible. It costs very little
+            mana and does a considerable amount of healing over its duration. Your active Farseer
+            ancestors will cast a <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_CHAIN_HEAL} /> every
+            time you use it. While it is not a very prominent source of healing for farseer it is
+            still very good due to the low mana cost for what it brings.
+          </Trans>
         </p>
       );
     }
@@ -55,8 +61,10 @@ class HealingStreamTotem extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_SHAMAN.HEALING_STREAM_TOTEM_RESTORATION_TALENT} /> cast
-            efficiency
+            <Trans id="shaman.restoration.healingStreamTotem.castEfficiency">
+              <SpellLink spell={TALENTS_SHAMAN.HEALING_STREAM_TOTEM_RESTORATION_TALENT} /> cast
+              efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}

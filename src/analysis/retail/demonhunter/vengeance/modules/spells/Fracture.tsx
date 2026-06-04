@@ -29,6 +29,8 @@ import {
 import Combatant from 'parser/core/Combatant';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import { NumberThreshold, ThresholdStyle } from 'parser/core/ParseResults';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const DEFAULT_IN_META_FURY_LIMIT = 60;
 const DEFAULT_NOT_META_FURY_LIMIT = 75;
@@ -75,16 +77,19 @@ export default class Fracture extends Analyzer {
   guideSubsection() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.FRACTURE} />
-        </strong>{' '}
-        is your primary <strong>builder</strong> for <ResourceLink id={RESOURCE_TYPES.FURY.id} />{' '}
-        and <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
-        s. Cast it when you have less than 5 <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />s and
-        less than {this.#notMetaFuryLimit} <ResourceLink id={RESOURCE_TYPES.FURY.id} />. In{' '}
-        <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />, cast it when you have less than 4{' '}
-        <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />s and less than {this.#inMetaFuryLimit}{' '}
-        <ResourceLink id={RESOURCE_TYPES.FURY.id} />.
+        <Trans id="demonhunter.vengeance.fracture.guideExplanation">
+          <strong>
+            <SpellLink spell={SPELLS.FRACTURE} />
+          </strong>{' '}
+          is your primary <strong>builder</strong> for{' '}
+          <ResourceLink id={RESOURCE_TYPES.FURY.id} /> and{' '}
+          <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+          s. Cast it when you have less than 5 <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />s and
+          less than {this.#notMetaFuryLimit} <ResourceLink id={RESOURCE_TYPES.FURY.id}
+          />. In <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />, cast it when you have less than 4{' '}
+          <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />s and less than{' '}
+          {this.#inMetaFuryLimit} <ResourceLink id={RESOURCE_TYPES.FURY.id} />.
+        </Trans>
       </p>
     );
 
@@ -99,7 +104,15 @@ export default class Fracture extends Analyzer {
       <ContextualSpellUsageSubSection
         explanation={explanation}
         uses={this.#cooldownUses}
-        castBreakdownSmallText={<> - Green is a good cast, Red is a bad cast.</>}
+        castBreakdownSmallText={
+          <>
+            {' '}
+            -{' '}
+            <Trans id="demonhunter.vengeance.fracture.castBreakdown">
+              Green is a good cast, Red is a bad cast.
+            </Trans>
+          </>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <CastPerformanceSummary
@@ -163,8 +176,8 @@ export default class Fracture extends Analyzer {
       checklistItems,
       performanceExplanation:
         actualPerformance !== QualitativePerformance.Fail
-          ? `${actualPerformance} Usage`
-          : 'Bad Usage',
+          ? `${actualPerformance} ${t({ id: 'demonhunter.vengeance.shared.usage', message: 'Usage' })}`
+          : t({ id: 'demonhunter.vengeance.shared.badUsage', message: 'Bad Usage' }),
       extraDetails: hasExtraDetails ? extraDetails : undefined,
     });
   }
@@ -177,9 +190,19 @@ export default class Fracture extends Analyzer {
     const resourceChange = getResourceChange(event);
 
     const inMetamorphosisSummary = (
-      <div>Cast at &lt; {this.#inMetaFuryLimit} Fury during Metamorphosis</div>
+      <div>
+        <Trans id="demonhunter.vengeance.fracture.castDuringMeta">
+          Cast at &lt; {this.#inMetaFuryLimit} Fury during Metamorphosis
+        </Trans>
+      </div>
     );
-    const nonMetamorphosisSummary = <div>Cast at &lt; {this.#notMetaFuryLimit} Fury</div>;
+    const nonMetamorphosisSummary = (
+      <div>
+        <Trans id="demonhunter.vengeance.fracture.castOutsideMeta">
+          Cast at &lt; {this.#notMetaFuryLimit} Fury
+        </Trans>
+      </div>
+    );
 
     if (!resourceChange) {
       return {
@@ -187,8 +210,11 @@ export default class Fracture extends Analyzer {
         summary: hasMetamorphosis ? inMetamorphosisSummary : nonMetamorphosisSummary,
         details: (
           <div>
-            Unable to determine from logs how much <ResourceLink id={RESOURCE_TYPES.FURY.id} /> you
-            had when you cast <SpellLink spell={SPELLS.FRACTURE} />.
+            <Trans id="demonhunter.vengeance.fracture.unableToDetermine">
+              Unable to determine from logs how much{' '}
+              <ResourceLink id={RESOURCE_TYPES.FURY.id} /> you had when you cast{' '}
+              <SpellLink spell={SPELLS.FRACTURE} />.
+            </Trans>
           </div>
         ),
       };
@@ -269,10 +295,18 @@ export default class Fracture extends Analyzer {
     );
 
     const inMetamorphosisSummary = (
-      <div>Cast at &lt; {IN_META_SOUL_FRAGMENTS_LIMIT} Soul Fragments during Metamorphosis</div>
+      <div>
+        <Trans id="demonhunter.vengeance.fracture.soulFragmentCastDuringMeta">
+          Cast at &lt; {IN_META_SOUL_FRAGMENTS_LIMIT} Soul Fragments during Metamorphosis
+        </Trans>
+      </div>
     );
     const nonMetamorphosisSummary = (
-      <div>Cast at &lt; {NOT_META_SOUL_FRAGMENTS_LIMIT} Soul Fragments</div>
+      <div>
+        <Trans id="demonhunter.vengeance.fracture.soulFragmentCastOutsideMeta">
+          Cast at &lt; {NOT_META_SOUL_FRAGMENTS_LIMIT} Soul Fragments
+        </Trans>
+      </div>
     );
 
     if (hasMetamorphosis) {

@@ -1,4 +1,6 @@
 import type { JSX, ReactNode } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS/rogue';
@@ -6,7 +8,10 @@ import TALENTS from 'common/TALENTS/rogue';
 import { SpellLink } from 'interface';
 import { SpellUse, ChecklistUsageInfo } from 'parser/core/SpellUsage/core';
 import { createChecklistItem } from 'parser/core/MajorCooldowns/MajorCooldown';
-import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import {
+  QualitativePerformance,
+  getPerformanceExplanation,
+} from 'parser/ui/QualitativePerformance';
 import { HideGoodCastsSpellUsageSubSection } from 'parser/core/SpellUsage/HideGoodCastsSpellUsageSubSection';
 import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
@@ -40,17 +45,21 @@ export default class Deathmark extends Analyzer {
     const explanation = (
       <div>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS.DEATHMARK_TALENT} />
-          </strong>{' '}
-          is your major burst cooldown. It should be aligned with{' '}
-          <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> and, if possible, used while having an{' '}
-          <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active on your target.
+          <Trans id="rogue.assassination.deathmark.explanation">
+            <strong>
+              <SpellLink spell={TALENTS.DEATHMARK_TALENT} />
+            </strong>{' '}
+            is your major burst cooldown. It should be aligned with{' '}
+            <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> and, if possible, used while having an{' '}
+            <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active on your target.
+          </Trans>
         </p>
         <p>
-          <SpellLink spell={SPELLS.VANISH} /> can be used in sync with{' '}
-          <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> to apply{' '}
-          <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> and create a bigger damage window.
+          <Trans id="rogue.assassination.deathmark.vanishSync">
+            <SpellLink spell={SPELLS.VANISH} /> can be used in sync with{' '}
+            <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> to apply{' '}
+            <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> and create a bigger damage window.
+          </Trans>
         </p>
       </div>
     );
@@ -67,7 +76,12 @@ export default class Deathmark extends Analyzer {
         hideGoodCasts={false}
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Red indicates a wasted or poorly timed Deathmark.</>}
+        castBreakdownSmallText={
+          <Trans id="rogue.assassination.deathmark.castBreakdownLegend">
+            {' '}
+            - Red indicates a wasted or poorly timed Deathmark.
+          </Trans>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -80,7 +94,10 @@ export default class Deathmark extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: 'No Deathmark casts detected! This is a major mistake.',
+          noCastsOverride: t({
+            id: 'rogue.assassination.deathmark.noCasts',
+            message: 'No Deathmark casts detected! This is a major mistake.',
+          }),
         }}
       />
     );
@@ -105,10 +122,7 @@ export default class Deathmark extends Analyzer {
       event,
       performance: actualPerformance,
       checklistItems,
-      performanceExplanation:
-        actualPerformance !== QualitativePerformance.Fail
-          ? `${actualPerformance} Usage`
-          : 'Bad Usage',
+      performanceExplanation: getPerformanceExplanation(actualPerformance),
     });
   }
 
@@ -127,20 +141,27 @@ export default class Deathmark extends Analyzer {
       { event },
       {
         performance,
-        summary: <div>Kingsbane Alignment</div>,
+        summary: (
+          <div>
+            {t({
+              id: 'rogue.assassination.deathmark.kingsbaneAlignment',
+              message: 'Kingsbane Alignment',
+            })}
+          </div>
+        ),
         details: (
           <div>
             {matchingKingsbane ? (
-              <>
+              <Trans id="rogue.assassination.deathmark.kingsbaneAligned">
                 <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> was cast during your{' '}
                 <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> window. Good job!
-              </>
+              </Trans>
             ) : (
-              <>
+              <Trans id="rogue.assassination.deathmark.KingsbaneNotAligned">
                 You cast <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> but{' '}
                 <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> was not cast. Try to align them
                 together!
-              </>
+              </Trans>
             )}
           </div>
         ),
@@ -163,25 +184,31 @@ export default class Deathmark extends Analyzer {
     if (hadImprovedGarroteActive) {
       details = (
         <div>
-          You had <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active. Good job!
+          <Trans id="rogue.assassination.deathmark.garroteActive">
+            You had <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active. Good job!
+          </Trans>
         </div>
       );
     } else if (isVanishAvailable) {
       performance = QualitativePerformance.Ok;
       details = (
         <div>
-          You did not have <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active, but{' '}
-          <SpellLink spell={SPELLS.VANISH} /> was available. Try to use{' '}
-          <SpellLink spell={SPELLS.VANISH} /> to apply an Improved Garrote before{' '}
-          <SpellLink spell={TALENTS.DEATHMARK_TALENT} />!
+          <Trans id="rogue.assassination.deathmark.vanishAvailable">
+            You did not have <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active, but{' '}
+            <SpellLink spell={SPELLS.VANISH} /> was available. Try to use{' '}
+            <SpellLink spell={SPELLS.VANISH} /> to apply an Improved Garrote before{' '}
+            <SpellLink spell={TALENTS.DEATHMARK_TALENT} />!
+          </Trans>
         </div>
       );
     } else {
       performance = QualitativePerformance.Good;
       details = (
         <div>
-          You did not have <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active and{' '}
-          <SpellLink spell={SPELLS.VANISH} /> was not available!
+          <Trans id="rogue.assassination.deathmark.vanishNotAvailable">
+            You did not have <SpellLink spell={SPELLS.IMPROVED_GARROTE_BUFF} /> active and{' '}
+            <SpellLink spell={SPELLS.VANISH} /> was not available!
+          </Trans>
         </div>
       );
     }
@@ -191,7 +218,14 @@ export default class Deathmark extends Analyzer {
       { event },
       {
         performance,
-        summary: <div>Improved Garrote & Vanish availability</div>,
+        summary: (
+          <div>
+            {t({
+              id: 'rogue.assassination.deathmark.garroteVanishAvailability',
+              message: 'Improved Garrote & Vanish availability',
+            })}
+          </div>
+        ),
         details,
       },
     );

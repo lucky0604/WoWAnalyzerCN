@@ -8,6 +8,7 @@ import LazyLoadStatisticBox from 'parser/ui/LazyLoadStatisticBox';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { TALENTS_PRIEST } from 'common/TALENTS';
 import { WCLDamageTakenTableResponse } from 'common/WCL_TYPES';
+import { t } from '@lingui/core/macro';
 
 const POWER_WORD_BARRIER_REDUCTION = 0.2;
 
@@ -55,12 +56,8 @@ class PowerWordBarrier extends Analyzer {
         value={`≈${formatNumber(
           (this.damageReducedDuringPowerWordBarrier / fightDuration) * 1000,
         )} DRPS`}
-        label="Barrier DRPS"
-        tooltip={`The total Damage Reduced by Power Word: Barrier was ${formatThousands(
-          this.damageReducedDuringPowerWordBarrier,
-        )} (${formatNumber(
-          (this.damageReducedDuringPowerWordBarrier / fightDuration) * 1000,
-        )} per second average). This includes values from other priests in your raid due to technical limitations.`}
+        label={t({ id: 'priest.discipline.powerWordBarrier.label', message: 'Barrier DRPS' })}
+        tooltip={(() => { const totalDmg = formatThousands(this.damageReducedDuringPowerWordBarrier); const perSecond = formatNumber((this.damageReducedDuringPowerWordBarrier / fightDuration) * 1000); return t({ id: 'priest.discipline.powerWordBarrier.tooltip', message: `The total Damage Reduced by Power Word: Barrier was ${{totalDmg}} (${{perSecond}} per second average). This includes values from other priests in your raid due to technical limitations.` }); })()}
       />
     );
   }

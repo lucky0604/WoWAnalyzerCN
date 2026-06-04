@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
-import { defineMessage, t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, RemoveBuffEvent, RemoveBuffStackEvent } from 'parser/core/Events';
@@ -184,10 +184,7 @@ class BlackoutKick extends Analyzer {
             />{' '}
             {(this.effectiveRisingSunKickReductionMs / 1000).toFixed(1)}{' '}
             <small>
-              {t({
-                id: 'monk.windwalker.blackout_kick.seconds_reduced',
-                message: 'Seconds reduced',
-              })}
+              <Trans id="monk.windwalker.blackout_kick.seconds_reduced">Seconds reduced</Trans>
             </small>
           </p>
           <p>
@@ -200,10 +197,7 @@ class BlackoutKick extends Analyzer {
             />{' '}
             {(this.effectiveFistsOfFuryReductionMs / 1000).toFixed(1)}{' '}
             <small>
-              {t({
-                id: 'monk.windwalker.blackout_kick.seconds_reduced',
-                message: 'Seconds reduced',
-              })}
+              <Trans id="monk.windwalker.blackout_kick.seconds_reduced">Seconds reduced</Trans>
             </small>
           </p>
         </BoringSpellValueText>

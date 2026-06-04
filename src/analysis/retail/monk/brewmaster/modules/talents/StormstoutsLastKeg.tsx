@@ -13,6 +13,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { STORMSTOUTS_LK_MODIFIER } from '../../constants';
 import BrewCDR from '../core/BrewCDR';
 import { Abilities } from '../../gen';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * Keg Smash deals 30% additional damage, and has 1 additional charge.
@@ -80,6 +81,8 @@ class StormstoutsLastKeg extends Analyzer.withDependencies({
   }
 
   statistic() {
+    const preventedTime = formatDuration(this.extraCD);
+    const extraCasts = (this.extraCD / 1000 / this.avgCooldown()).toFixed(1);
     return (
       <Statistic
         position={STATISTIC_ORDER.OPTIONAL(1)}
@@ -87,13 +90,16 @@ class StormstoutsLastKeg extends Analyzer.withDependencies({
         tooltip={
           <>
             <p>
-              This statistic shows the damage gained from the increased Keg Smash damage. It does
-              not reflect the potential damage gain from having 2 charges of Keg Smashs.
+              <Trans id="monk.brewmaster.stormstoutsLastKeg.tooltipLine1">
+                This statistic shows the damage gained from the increased Keg Smash damage. It does
+                not reflect the potential damage gain from having 2 charges of Keg Smashs.
+              </Trans>
             </p>
             <p>
-              This effect prevented {formatDuration(this.extraCD)} of wasted cooldown time, equal to
-              about {(this.extraCD / 1000 / this.avgCooldown()).toFixed(1)} extra casts of Keg
-              Smash. This includes the initial extra cast.
+              <Trans id="monk.brewmaster.stormstoutsLastKeg.tooltipLine2">
+                This effect prevented {preventedTime} of wasted cooldown time, equal to about{' '}
+                {extraCasts} extra casts of Keg Smash. This includes the initial extra cast.
+              </Trans>
             </p>
           </>
         }

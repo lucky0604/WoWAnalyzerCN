@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { formatNumber } from 'common/format';
 import { TALENTS_EVOKER } from 'common/TALENTS';
@@ -33,8 +34,11 @@ class ResonatingSphere extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT} />
         </b>{' '}
-        is a powerful AoE projectile that shields all allies it passes through. You should aim to
-        cast it on cooldown to spread <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> on the raid.
+        {t({
+          id: 'evoker.preservation.resonatingSphere.guideExplanation',
+          message:
+            'is a powerful AoE projectile that shields all allies it passes through. You should aim to cast it on cooldown to spread Echo on the raid.',
+        })}
       </p>
     );
 
@@ -42,7 +46,7 @@ class ResonatingSphere extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT} /> cast efficiency
+            <SpellLink spell={TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT} /> {t({ id: 'evoker.preservation.resonatingSphere.castEfficiency', message: 'cast efficiency' })}
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
@@ -97,7 +101,7 @@ class ResonatingSphere extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> healing breakdown by type
+            <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> {t({ id: 'evoker.preservation.resonatingSphere.healingBreakdownByType', message: 'healing breakdown by type' })}
           </label>
           {this.renderDonutChart()}
         </div>

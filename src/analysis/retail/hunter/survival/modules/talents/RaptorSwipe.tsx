@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { encodeTargetString } from 'parser/shared/modules/Enemies';
@@ -67,20 +69,20 @@ class RaptorSwipe extends Analyzer {
     }
 
     let value: QualitativePerformance;
-    let header: string;
+    let header: JSX.Element;
     let color: string;
 
     if (!hitSomething) {
       value = QualitativePerformance.Fail;
-      header = 'Bad cast: missed all targets.';
+      header = <Trans id="hunter.survival.raptorSwipe.badMissedAll">Bad cast: missed all targets.</Trans>;
       color = BadColor;
     } else if (wasTipped) {
       value = QualitativePerformance.Good;
-      header = 'Good cast: tipped.';
+      header = <Trans id="hunter.survival.raptorSwipe.goodTipped">Good cast: tipped.</Trans>;
       color = GoodColor;
     } else {
       value = QualitativePerformance.Fail;
-      header = 'Bad cast: no tip.';
+      header = <Trans id="hunter.survival.raptorSwipe.badNoTip">Bad cast: no tip.</Trans>;
       color = BadColor;
     }
 
@@ -101,13 +103,17 @@ class RaptorSwipe extends Analyzer {
         <h5 style={{ color }}>{header}</h5>
         <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
         <div>
-          <SpellLink spell={SPELLS.RAPTOR_SWIPE_DAMAGE} />: <strong>{targetsHit}</strong> targets
-          hit <small>({formatNumber(swipeDamage)} damage)</small>
+          <Trans id="hunter.survival.raptorSwipe.tooltipSwipeDamage">
+            <SpellLink spell={SPELLS.RAPTOR_SWIPE_DAMAGE} />: <strong>{targetsHit}</strong> targets
+            hit <small>({formatNumber(swipeDamage)} damage)</small>
+          </Trans>
         </div>
         {strikeAsOneDamage > 0 && (
           <div>
-            <SpellLink spell={SPELLS.STRIKE_AS_ONE} />: <strong>{strikeAsOneTargets}</strong>{' '}
-            targets hit <small>({formatNumber(strikeAsOneDamage)} damage)</small>
+            <Trans id="hunter.survival.raptorSwipe.tooltipStrikeAsOne">
+              <SpellLink spell={SPELLS.STRIKE_AS_ONE} />: <strong>{strikeAsOneTargets}</strong>{' '}
+              targets hit <small>({formatNumber(strikeAsOneDamage)} damage)</small>
+            </Trans>
           </div>
         )}
       </div>
@@ -119,10 +125,12 @@ class RaptorSwipe extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS.RAPTOR_SWIPE_1_SURVIVAL_TALENT} />
-        </strong>{' '}
-        should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />.
+        <Trans id="hunter.survival.raptorSwipe.guideExplanation">
+          <strong>
+            <SpellLink spell={TALENTS.RAPTOR_SWIPE_1_SURVIVAL_TALENT} />
+          </strong>{' '}
+          should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />.
+        </Trans>
       </p>
     );
 
@@ -130,7 +138,11 @@ class RaptorSwipe extends Analyzer {
       <CastSummaryAndBreakdown
         spell={TALENTS.RAPTOR_SWIPE_1_SURVIVAL_TALENT}
         castEntries={this.useEntries}
-        badExtraExplanation={<>without Tip of the Spear</>}
+        badExtraExplanation={
+          <Trans id="hunter.survival.raptorSwipe.badExtraExplanation">
+            without Tip of the Spear
+          </Trans>
+        }
         usesInsteadOfCasts
       />
     );
@@ -149,14 +161,25 @@ class RaptorSwipe extends Analyzer {
       >
         <BoringSpellValueText spell={TALENTS.RAPTOR_SWIPE_1_SURVIVAL_TALENT}>
           <>
-            {this.casts} <small>casts</small>
+            {this.casts}{' '}
+            <small>
+              <Trans id="hunter.survival.raptorSwipe.casts">casts</Trans>
+            </small>
             <p>
-              {this.tippedCasts} <small>tipped casts ({tippedPercentage.toFixed(1)}%)</small>
+              {this.tippedCasts}{' '}
+              <small>
+                <Trans id="hunter.survival.raptorSwipe.tippedCasts">
+                  tipped casts ({tippedPercentage.toFixed(1)}%)
+                </Trans>
+              </small>
             </p>
             {this.missedCasts > 0 && (
               <>
                 <p>
-                  {this.missedCasts} <small>missed (hit no targets)</small>
+                  {this.missedCasts}{' '}
+                  <small>
+                    <Trans id="hunter.survival.raptorSwipe.missed">missed (hit no targets)</Trans>
+                  </small>
                 </p>
               </>
             )}

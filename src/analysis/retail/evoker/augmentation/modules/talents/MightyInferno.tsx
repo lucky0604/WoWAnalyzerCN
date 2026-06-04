@@ -23,6 +23,8 @@ import TALENTS from 'common/TALENTS/evoker';
 import StatTracker from 'parser/shared/modules/StatTracker';
 import { InformationIcon } from 'interface/icons';
 import { SpellLink } from 'interface/index';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 interface infernoApplication {
   playerID: number;
@@ -149,12 +151,14 @@ class MightyInferno extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <li>Damage from amp: {formatNumber(this.ampedDamage)}</li>
-            <li>Damage from extension: {formatNumber(this.extensionDamage)}</li>
+            <li>{t({ id: 'evoker.augmentation.mightyInferno.damageFromAmp', message: 'Damage from amp' })}: {formatNumber(this.ampedDamage)}</li>
+            <li>{t({ id: 'evoker.augmentation.mightyInferno.damageFromExtension', message: 'Damage from extension' })}: {formatNumber(this.extensionDamage)}</li>
             {this.hasReceivedExternalInfernos && (
               <li>
-                You received {<SpellLink spell={TALENTS.INFERNOS_BLESSING_TALENT} />} from another
-                Evoker, which can cause these damage numbers to be too large.
+                <Trans id="evoker.augmentation.mightyInferno.externalInfernos">
+                  You received <SpellLink spell={TALENTS.INFERNOS_BLESSING_TALENT} /> from another
+                  Evoker, which can cause these damage numbers to be too large.
+                </Trans>
               </li>
             )}
           </>
@@ -166,7 +170,7 @@ class MightyInferno extends Analyzer {
           </div>
           <div>
             <InformationIcon /> {formatNumber(this.totalInfernosExtension / 1000)} sec
-            <small> extra duration granted</small>
+            <small> {t({ id: 'evoker.augmentation.mightyInferno.extraDuration', message: 'extra duration granted' })}</small>
           </div>
         </TalentSpellText>
       </Statistic>

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS/demonhunter';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS/demonhunter';
@@ -99,21 +101,25 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
     if (isHavoc) {
       return (
         <>
-          <strong>
-            <SpellLink spell={this.spell} />
-          </strong>{' '}
-          is a powerful burst of damage that also provides some healing with the DoT that it
-          applies.
+          <Trans id="demonhunter.havoc.theHunt.description">
+            <strong>
+              <SpellLink spell={this.spell} />
+            </strong>{' '}
+            is a powerful burst of damage that also provides some healing with the DoT that it
+            applies.
+          </Trans>
           <InitiativeExplanation />
         </>
       );
     }
     return (
       <>
-        <strong>
-          <SpellLink spell={this.spell} />
-        </strong>{' '}
-        is a powerful burst of damage that also provides some healing with the DoT that it applies.
+        <Trans id="demonhunter.havoc.theHunt.description">
+          <strong>
+            <SpellLink spell={this.spell} />
+          </strong>{' '}
+          is a powerful burst of damage that also provides some healing with the DoT that it applies.
+        </Trans>
       </>
     );
   }
@@ -210,12 +216,16 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
         performance: QualitativePerformance.Perfect,
         summary: (
           <div>
-            Had <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff
+            <Trans id="demonhunter.havoc.theHunt.hadInitiativeBuff">
+              Had <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff
+            </Trans>
           </div>
         ),
         details: (
           <div>
-            Had <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff.
+            <Trans id="demonhunter.havoc.theHunt.hadInitiativeBuffDetails">
+              Had <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff.
+            </Trans>
           </div>
         ),
       };
@@ -225,16 +235,20 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
         performance: QualitativePerformance.Good,
         summary: (
           <div>
-            Cast shortly after casting{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+            <Trans id="demonhunter.havoc.theHunt.castAfterVR">
+              Cast shortly after casting{' '}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+            </Trans>
           </div>
         ),
         details: (
           <div>
-            Cast shortly after casting{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />. You might have been
-            damaged and lost your <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff,
-            but that's okay, you still did your rotation correctly.
+            <Trans id="demonhunter.havoc.theHunt.castAfterVRDetails">
+              Cast shortly after casting{' '}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />. You might have been
+              damaged and lost your <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff,
+              but that's okay, you still did your rotation correctly.
+            </Trans>
           </div>
         ),
       };
@@ -243,18 +257,22 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
       performance: QualitativePerformance.Fail,
       summary: (
         <div>
-          Cast without previously casting{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+          <Trans id="demonhunter.havoc.theHunt.castWithoutVR">
+            Cast without previously casting{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+          </Trans>
         </div>
       ),
       details: (
         <div>
-          Cast without previously casting{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />. Try casting{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> before casting for the
-          critical strike chance buff that it applies (courtesy of{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />
-          ).
+          <Trans id="demonhunter.havoc.theHunt.castWithoutVRDetails">
+            Cast without previously casting{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />. Try casting{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> before casting for the
+            critical strike chance buff that it applies (courtesy of{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />
+            ).
+          </Trans>
         </div>
       ),
     };

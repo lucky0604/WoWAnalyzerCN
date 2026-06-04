@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { PerformanceMark } from 'interface/guide';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { formatNumber, formatPercentage } from 'common/format';
@@ -84,15 +85,18 @@ const ThresoldPerformancePercentage = ({ threshold, percentage, flatAmount }: Pr
       tooltip={
         <ul>
           <li>
-            <PerformanceMark perf={QualitativePerformance.Perfect} /> Perfect usage {perfectSign}{' '}
+            <PerformanceMark perf={QualitativePerformance.Perfect} />{' '}
+            {t({ id: 'shaman.elemental.performance.perfect', message: 'Perfect usage' })} {perfectSign}{' '}
             {formatPercentage(threshold.perfect, 0)}%
           </li>
           <li>
-            <PerformanceMark perf={QualitativePerformance.Good} /> Good usage {signJsx}={' '}
+            <PerformanceMark perf={QualitativePerformance.Good} />{' '}
+            {t({ id: 'shaman.elemental.performance.good', message: 'Good usage' })} {signJsx}={' '}
             {formatPercentage(threshold.good, 0)}%
           </li>
           <li>
-            <PerformanceMark perf={QualitativePerformance.Ok} /> OK usage {signJsx}={' '}
+            <PerformanceMark perf={QualitativePerformance.Ok} />{' '}
+            {t({ id: 'shaman.elemental.performance.ok', message: 'OK usage' })} {signJsx}={' '}
             {formatPercentage(threshold.ok, 0)}%
           </li>
         </ul>

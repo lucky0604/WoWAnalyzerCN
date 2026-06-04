@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -95,20 +96,22 @@ class ProtectionOfTyr extends Analyzer {
         tooltip={
           <>
             <ul>
-              <li>Effective Healing: {formatNumber(this.healing)}</li>
-              <li>Overhealing: {formatNumber(this.overheal)}</li>
-              <li>Unique Healers: {formatNumber(this.uniqueCombatants.length)}</li>
+              <li>{t({ id: 'paladin.holy.talents.protectionOfTyr.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(this.healing)}</li>
+              <li>{t({ id: 'paladin.holy.talents.protectionOfTyr.overhealing', message: 'Overhealing' })}: {formatNumber(this.overheal)}</li>
+              <li>{t({ id: 'paladin.holy.talents.protectionOfTyr.uniqueHealers', message: 'Unique Healers' })}: {formatNumber(this.uniqueCombatants.length)}</li>
             </ul>
             <div>
               <p>
-                Healing During <SpellLink spell={SPELLS.AURA_MASTERY} /> Breakdown:{' '}
+                {t({ id: 'paladin.holy.talents.protectionOfTyr.healingDuring', message: 'Healing During' })}{' '}
+                <SpellLink spell={SPELLS.AURA_MASTERY} />{' '}
+                {t({ id: 'paladin.holy.talents.protectionOfTyr.breakdown', message: 'Breakdown:' })}
               </p>
               <table className="table table-condensed">
                 <thead>
                   <tr>
-                    <th>Cast</th>
-                    <th>Total Healing</th>
-                    <th>Amped Healing</th>
+                    <th>{t({ id: 'paladin.holy.talents.protectionOfTyr.cast', message: 'Cast' })}</th>
+                    <th>{t({ id: 'paladin.holy.talents.protectionOfTyr.totalHealing', message: 'Total Healing' })}</th>
+                    <th>{t({ id: 'paladin.holy.talents.protectionOfTyr.ampedHealing', message: 'Amped Healing' })}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -123,8 +126,8 @@ class ProtectionOfTyr extends Analyzer {
               </table>
             </div>
             <ul>
-              <li>Minimum Heal: {formatNumber(this.minHeal)}</li>
-              <li>Maximum Heal: {formatNumber(this.maxHeal)}</li>
+              <li>{t({ id: 'paladin.holy.talents.protectionOfTyr.minimumHeal', message: 'Minimum Heal' })}: {formatNumber(this.minHeal)}</li>
+              <li>{t({ id: 'paladin.holy.talents.protectionOfTyr.maximumHeal', message: 'Maximum Heal' })}: {formatNumber(this.maxHeal)}</li>
             </ul>
           </>
         }

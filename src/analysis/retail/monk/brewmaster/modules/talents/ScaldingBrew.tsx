@@ -12,6 +12,8 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const DAMAGE_AMP_PER_RANK = 0.0075;
 const BASE_DAMAGE_AMP = 0.075;
@@ -73,22 +75,28 @@ export default class ScaldingBrew extends Analyzer {
       if (this.lastCast) {
         addInefficientCastReason(
           this.lastCast,
-          <>
+          <Trans id="monk.brewmaster.scaldingBrew.inefficientCast">
             This cast did not benefit from <SpellLink spell={talents.SCALDING_BREW_TALENT} /> or
             freshly apply the <SpellLink spell={talents.KEG_SMASH_TALENT} /> debuff.
-          </>,
+          </Trans>,
         );
       }
     }
   }
 
   statistic() {
+    const missed = this.missedHits;
     return (
       <Statistic
         position={STATISTIC_ORDER.OPTIONAL(0)}
         size="flexible"
         category={STATISTIC_CATEGORY.ITEMS}
-        tooltip={`${this.missedHits} of your Keg Smash hits (besides the initial debuff application) were without the Breath of Fire debuff.`}
+        tooltip={
+          <Trans id="monk.brewmaster.scaldingBrew.tooltip">
+            {missed} of your Keg Smash hits (besides the initial debuff application) were without
+            the Breath of Fire debuff.
+          </Trans>
+        }
       >
         <BoringSpellValueText spell={talents.SCALDING_BREW_TALENT}>
           <>

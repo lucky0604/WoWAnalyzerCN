@@ -3,6 +3,7 @@ import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import type { ReactElement } from 'react';
 import TALENTS from 'common/TALENTS/rogue';
+import { t } from '@lingui/core/macro';
 
 //--TODO: Find a way to overridde? the suggest react part of the suggestion to have better phrasing ("Finish at max or max-1")
 
@@ -77,7 +78,14 @@ class Finishers extends FinisherTracker {
   }
 
   extraSuggestion(): ReactElement | string {
-    return <>You can, and should, finish at {this.maximumComboPoints - 1} whenever possible.</>;
+    return (
+      <>
+        {t({
+          id: 'rogue.outlaw.finishers.extraSuggestion',
+          message: `You can, and should, finish at ${this.maximumComboPoints - 1} whenever possible.`,
+        })}
+      </>
+    );
   }
 
   suggestionIcon() {

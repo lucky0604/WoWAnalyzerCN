@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -162,12 +163,20 @@ class VoidTorrent extends Analyzer {
         tooltip={
           <>
             <div>
-              {formatSeconds(this.totalWastedTime / 1000)} seconds wasted by cancelling the channel
-              early.{' '}
+              {formatSeconds(this.totalWastedTime / 1000)}{' '}
+              {t({
+                id: 'priest.shadow.voidTorrent.timeWastedTooltip',
+                message:
+                  'seconds wasted by cancelling the channel early.',
+              })}{' '}
             </div>
             <div>
-              {formatNumber(this.insanityWasted)} insanity wasted by cancelling the channel early or
-              overcapping.{' '}
+              {formatNumber(this.insanityWasted)}{' '}
+              {t({
+                id: 'priest.shadow.voidTorrent.insanityWastedTooltip',
+                message:
+                  'insanity wasted by cancelling the channel early or overcapping.',
+              })}{' '}
             </div>
           </>
         }
@@ -185,23 +194,35 @@ class VoidTorrent extends Analyzer {
   get guideSubsection(): JSX.Element {
     const channelTime = {
       count: formatSeconds(this.totalChannelingTime / 1000),
-      label: 'Cast Time',
+      label: t({
+        id: 'priest.shadow.voidTorrent.castTime',
+        message: 'Cast Time',
+      }),
     };
 
     const wastedTime = {
       count: formatSeconds(this.totalWastedTime / 1000),
-      label: 'Canceled Time',
+      label: t({
+        id: 'priest.shadow.voidTorrent.canceledTime',
+        message: 'Canceled Time',
+      }),
     };
 
     const insanityGained = {
       count: Math.round(this.insanityGained),
-      label: 'Gained Insanity',
+      label: t({
+        id: 'priest.shadow.voidTorrent.gainedInsanity',
+        message: 'Gained Insanity',
+      }),
     };
 
     const insanityMissed = {
       //this is both overcapped and from missed time currently.
       count: Math.round(this.insanityWasted),
-      label: 'Missed Insanity',
+      label: t({
+        id: 'priest.shadow.voidTorrent.missedInsanity',
+        message: 'Missed Insanity',
+      }),
     };
 
     const explanation = (
@@ -209,19 +230,35 @@ class VoidTorrent extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.VOID_TORRENT_TALENT} />
         </b>{' '}
-        deals damage and generates 24 insanity over its 3 second channel.
+        {t({
+          id: 'priest.shadow.voidTorrent.description',
+          message:
+            'deals damage and generates 24 insanity over its 3 second channel.',
+        })}
         <div />
-        You should cast this spell as often as you can, without overcapping insanity, with{' '}
-        <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} /> on your target. When you use this
-        spell, it should always be fully channeled.
+        {t({
+          id: 'priest.shadow.voidTorrent.usage',
+          message:
+            'You should cast this spell as often as you can, without overcapping insanity, with Devouring Plague on your target. When you use this spell, it should always be fully channeled.',
+        })}
       </p>
     );
 
     const dataVW = (
       <div>
-        <strong>Channel Time Lost</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.voidTorrent.channelTimeLost',
+            message: 'Channel Time Lost',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={channelTime} bad={wastedTime} />
-        <strong>Insanity Lost</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.voidTorrent.insanityLost',
+            message: 'Insanity Lost',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={insanityGained} bad={insanityMissed} />
       </div>
     );
@@ -229,9 +266,19 @@ class VoidTorrent extends Analyzer {
     const dataAR = //With Archon, skipping Void Torrent is OK
       (
         <div>
-          <strong>Channel Time Lost</strong>
+          <strong>
+            {t({
+              id: 'priest.shadow.voidTorrent.channelTimeLost',
+              message: 'Channel Time Lost',
+            })}
+          </strong>
           <GradiatedPerformanceBar good={channelTime} ok={wastedTime} />
-          <strong>Insanity Lost</strong>
+          <strong>
+            {t({
+              id: 'priest.shadow.voidTorrent.insanityLost',
+              message: 'Insanity Lost',
+            })}
+          </strong>
           <GradiatedPerformanceBar good={insanityGained} ok={insanityMissed} />
         </div>
       );

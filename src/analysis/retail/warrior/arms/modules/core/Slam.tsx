@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { SELECTED_PLAYER, Options } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
@@ -47,13 +48,22 @@ class Slam extends Analyzer {
     ) {
       addInefficientCastReason(
         event,
-        'This Slam was used on a target while Mortal Strike was off cooldown.',
+        t({
+          id: 'warrior.arms.slam.mortalStrikeAvailable',
+          message: 'This Slam was used on a target while Mortal Strike was off cooldown.',
+        }),
       );
       this.badCast += 1;
     } else if (
       this.executeRange.isTargetInExecuteRange(event.targetID || 0, event.targetInstance || 0)
     ) {
-      addEnhancedCastReason(event, 'This Slam consumed a Crushing Assasult buff.');
+      addEnhancedCastReason(
+        event,
+        t({
+          id: 'warrior.arms.slam.crushingAssaultBuff',
+          message: 'This Slam consumed a Crushing Assault buff.',
+        }),
+      );
     }
   }
 }

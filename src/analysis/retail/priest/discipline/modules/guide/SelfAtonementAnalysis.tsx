@@ -8,7 +8,6 @@ import { explanationAndDataSubsection } from 'interface/guide/components/Explana
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import { SpellLink } from 'interface';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 /*
@@ -47,30 +46,28 @@ class SelfAtonementAnalyzer extends Analyzer {
 
   get guideSubsection(): JSX.Element {
     const explanation = (
-      <p>
-        <Trans id="priest.discipline.selfAtonementAnalysis.explanation">
+      <Trans id="priest.discipline.selfAtonementAnalysis.explanation">
+        <p>
           <b>
             <SpellLink spell={SPELLS.FLASH_HEAL} />
           </b>{' '}
           applies <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> to yourself when used on
-          another target while using <SpellLink spell={TALENTS_PRIEST.BINDING_HEALS_TALENT} />. It
-          is the most mana efficient way to apply atonements and you should avoid to ever apply{' '}
+          another target while using <SpellLink spell={TALENTS_PRIEST.BINDING_HEALS_TALENT} />. It is
+          the most mana efficient way to apply atonements and you should avoid to ever apply{' '}
           <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> manually to yourself.
-        </Trans>
-      </p>
+        </p>
+      </Trans>
     );
     const data = (
       <div>
         <strong>
-          <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />{' '}
-          {t({
-            id: 'priest.discipline.selfAtonementAnalysis.data.label',
-            message: 'applicator breakdown',
-          })}
+          <Trans id="priest.discipline.selfAtonementAnalysis.applicatorBreakdown">
+            <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> applicator breakdown
+          </Trans>
         </strong>
         <small>
           {' '}
-          <Trans id="priest.discipline.selfAtonementAnalysis.data.legend">
+          <Trans id="priest.discipline.selfAtonementAnalysis.legend">
             - Green indicates casts which were not on yourself, while red indicates manual
             applications of atonement to yourself.
           </Trans>

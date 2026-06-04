@@ -7,7 +7,7 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { ConditionDescription } from 'parser/shared/metrics/apl/annotate';
 import type { AplProcWindow } from './aplProcWindows';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 
 interface WindowClassification {
   performance: QualitativePerformance;

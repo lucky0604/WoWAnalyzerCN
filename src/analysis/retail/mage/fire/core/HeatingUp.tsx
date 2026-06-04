@@ -25,6 +25,7 @@ import {
 } from 'parser/ui/QualitativePerformance';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { Trans } from '@lingui/react/macro';
 
 export default class HeatingUp extends Analyzer {
   static dependencies = {
@@ -166,7 +167,7 @@ export default class HeatingUp extends Analyzer {
         position={STATISTIC_ORDER.CORE(14)}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="mage.fire.heatingUp.statTooltip">
             Outside of Combustion & Firestarter, spells that are guaranteed to crit (like Fire
             Blast) should only be used to convert Heating Up into Hot Streak. While there are minor
             exceptions to this (like if you are about to cap on charges), the goal should be to
@@ -177,13 +178,13 @@ export default class HeatingUp extends Analyzer {
               <li>Fireblast used without Heating Up: {this.fireBlastWithoutHeatingUp}</li>
               <li>Fireblast used during Hot Streak: {this.fireBlastsDuringHotStreak}</li>
             </ul>
-          </>
+          </Trans>
         }
       >
         <BoringSpellValueText spell={SPELLS.HEATING_UP}>
           <>
             <SpellIcon spell={SPELLS.FIRE_BLAST} /> {formatPercentage(this.fireBlastUtilPercent, 0)}
-            % <small>Fire Blast Utilization</small>
+            % <small><Trans id="mage.fire.heatingUp.fireBlastUtilization">Fire Blast Utilization</Trans></small>
           </>
         </BoringSpellValueText>
       </Statistic>

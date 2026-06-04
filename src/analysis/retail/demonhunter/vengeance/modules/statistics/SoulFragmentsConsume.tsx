@@ -6,6 +6,8 @@ import EventEmitter from 'parser/core/modules/EventEmitter';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import SoulFragmentsTracker, { MAX_SOUL_FRAGMENTS } from '../features/SoulFragmentsTracker';
 
@@ -107,8 +109,14 @@ class SoulFragmentsConsume extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Souls Consumed</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.soulFragmentsConsume.name">Name</Trans>
+                  </th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.soulFragmentsConsume.soulsConsumed">
+                      Souls Consumed
+                    </Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -119,11 +127,17 @@ class SoulFragmentsConsume extends Analyzer {
                   </tr>
                 ))}
                 <tr>
-                  <th>Overcapped</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.soulFragmentsConsume.overcapped">
+                      Overcapped
+                    </Trans>
+                  </th>
                   <td>{this.soulFragmentsTracker.overcap}</td>
                 </tr>
                 <tr>
-                  <th>By Touch</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.soulFragmentsConsume.byTouch">By Touch</Trans>
+                  </th>
                   <td>{soulsByTouch}</td>
                 </tr>
               </tbody>
@@ -132,7 +146,10 @@ class SoulFragmentsConsume extends Analyzer {
         }
       >
         <BoringSpellValueText spell={SPELLS.SOUL_FRAGMENT_STACK}>
-          {this.soulFragmentsTracker.soulsSpent} <small>Souls</small>
+          {this.soulFragmentsTracker.soulsSpent}{' '}
+          <small>
+            <Trans id="demonhunter.vengeance.soulFragmentsConsume.souls">Souls</Trans>
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

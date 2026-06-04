@@ -1,6 +1,7 @@
 import { FilteredDamageTracker } from 'analysis/retail/rogue/shared';
 import SPELLS from 'common/SPELLS';
 import { Options } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
 
 class OpportunityDamageTracker extends FilteredDamageTracker {
   constructor(options: Options) {
@@ -8,7 +9,11 @@ class OpportunityDamageTracker extends FilteredDamageTracker {
 
     this.subscribeInefficientCast(
       [SPELLS.SINISTER_STRIKE],
-      () => `Pistol Shot should be used as your builder during Opportunity`,
+      () =>
+        t({
+          id: 'rogue.outlaw.opportunity.inefficientCast',
+          message: 'Pistol Shot should be used as your builder during Opportunity',
+        }),
     );
   }
 

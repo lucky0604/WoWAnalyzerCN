@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { EarthShield } from 'analysis/retail/shaman/shared';
 import EarthenHarmony from '../talents/EarthenHarmony';
 import ElementalOrbit from 'analysis/retail/shaman/shared/talents/ElementalOrbit';
@@ -100,10 +102,10 @@ class EarthShieldBreakdown extends Analyzer {
   baseTooltip(uptime: number, amount: number) {
     return (
       <>
-        <UptimeIcon /> {formatPercentage(uptime)}% uptime
+        <UptimeIcon /> {formatPercentage(uptime)}% {t({ id: 'shaman.restoration.earthShieldBreakdown.uptime', message: 'uptime' })}
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
-        {this.healingIcon()} <strong>{formatNumber(amount)}</strong> direct healing
+        {this.healingIcon()} <strong>{formatNumber(amount)}</strong> {t({ id: 'shaman.restoration.earthShieldBreakdown.directHealing', message: 'direct healing' })}
       </>
     );
   }
@@ -111,7 +113,7 @@ class EarthShieldBreakdown extends Analyzer {
   bonusHealingTooltip(amount: number) {
     return (
       <>
-        {this.healingIcon()} <strong>{formatNumber(amount)}</strong> bonus healing from the buff
+        {this.healingIcon()} <strong>{formatNumber(amount)}</strong> {t({ id: 'shaman.restoration.earthShieldBreakdown.bonusHealing', message: 'bonus healing from the buff' })}
       </>
     );
   }
@@ -123,12 +125,11 @@ class EarthShieldBreakdown extends Analyzer {
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {this.shieldIcon()}{' '}
-        <strong>{formatNumber(this.earthenHarmony.earthShielddamageReduced)}</strong> damage
-        mitigated
+        <strong>{formatNumber(this.earthenHarmony.earthShielddamageReduced)}</strong> {t({ id: 'shaman.restoration.earthShieldBreakdown.damageMitigated', message: 'damage mitigated' })}
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {this.healingIcon()} <strong>{formatNumber(this.earthenHarmony.earthShieldHealing)}</strong>{' '}
-        additional healing
+        {t({ id: 'shaman.restoration.earthShieldBreakdown.additionalHealing', message: 'additional healing' })}
       </>
     );
   }
@@ -141,13 +142,12 @@ class EarthShieldBreakdown extends Analyzer {
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {this.shieldIcon()}{' '}
-        <strong>{formatNumber(this.earthenHarmony.elementalOrbitDamageReduced)}</strong> damage
-        mitigated
+        <strong>{formatNumber(this.earthenHarmony.elementalOrbitDamageReduced)}</strong> {t({ id: 'shaman.restoration.earthShieldBreakdown.damageMitigated', message: 'damage mitigated' })}
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {this.healingIcon()}{' '}
         <strong>{formatNumber(this.earthenHarmony.elementalOrbitEarthShieldHealing)}</strong>{' '}
-        additional healing
+        {t({ id: 'shaman.restoration.earthShieldBreakdown.additionalHealing', message: 'additional healing' })}
       </>
     );
   }
@@ -172,7 +172,7 @@ class EarthShieldBreakdown extends Analyzer {
         smallTitle={!this.wide}
         category={STATISTIC_CATEGORY.TALENTS}
         position={STATISTIC_ORDER.CORE(1)}
-        footer={this.wide && <>Mouseover each section for additional details</>}
+        footer={this.wide && <Trans id="shaman.restoration.earthShieldBreakdown.mouseoverFooter">Mouseover each section for additional details</Trans>}
         smallFooter
         wide={this.wide}
       >

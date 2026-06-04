@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -240,13 +241,11 @@ class EssenceBurst extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />
         </b>{' '}
-        is a core buff that you should never let expire or refresh. In general, you should consume
-        all of them with <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> unless you already have two
-        stacks of <SpellLink spell={TALENTS_EVOKER.TWIN_ECHOES_TALENT} />, in which case you would
-        consume them on <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> instead. If you choose to
-        talent into <SpellLink spell={TALENTS_EVOKER.ENERGY_LOOP_TALENT} />, then you should use
-        some procs on <SpellLink spell={SPELLS.DISINTEGRATE} />, but this talent should only be
-        taken on scenarios where extra mana is really needed.
+        {t({
+          id: 'evoker.preservation.essenceBurst.guideExplanation',
+          message:
+            'is a core buff that you should never let expire or refresh. In general, you should consume all of them with Emerald Blossom unless you already have two stacks of Twin Echoes, in which case you would consume them on Echo instead. If you choose to talent into Energy Loop, then you should use some procs on Disintegrate, but this talent should only be taken on scenarios where extra mana is really needed.',
+        })}
       </p>
     );
 
@@ -272,15 +271,17 @@ class EssenceBurst extends Analyzer {
       }
       const spellString =
         info.spell === 0 ? (
-          `Wasted from ${info.expired ? 'expiration' : 'refresh'}`
+          info.expired
+            ? t({ id: 'evoker.preservation.essenceBurst.wastedFromExpiration', message: 'Wasted from expiration' })
+            : t({ id: 'evoker.preservation.essenceBurst.wastedFromRefresh', message: 'Wasted from refresh' })
         ) : (
           <>
-            Consume ability: <SpellLink spell={info.spell} />
+            {t({ id: 'evoker.preservation.essenceBurst.consumeAbility', message: 'Consume ability' })}: <SpellLink spell={info.spell} />
           </>
         );
       const tooltip = (
         <>
-          <p>Buff removed @ {this.owner.formatTimestamp(info.timestamp)}</p>
+          <p>{t({ id: 'evoker.preservation.essenceBurst.buffRemoved', message: 'Buff removed @' })} {this.owner.formatTimestamp(info.timestamp)}</p>
           {spellString}
         </>
       );
@@ -291,7 +292,7 @@ class EssenceBurst extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> consumptions
+            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.essenceBurst.consumptions', message: 'consumptions' })}
           </strong>
           <PerformanceBoxRow values={entries} />
         </RoundedPanel>
@@ -323,15 +324,16 @@ class EssenceBurst extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> consumption by
-            spell
+            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.essenceBurst.consumptionBySpell', message: 'consumption by spell' })}
           </label>
           {donutChart ? (
             donutChart
           ) : (
             <small>
-              You gained no <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />{' '}
-              buffs during the encounter
+              {t({
+                id: 'evoker.preservation.essenceBurst.noBuffs',
+                message: 'You gained no Essence Burst buffs during the encounter',
+              })}
             </small>
           )}
           <ItemManaGained amount={this.manaSaved} useAbbrev />
@@ -356,14 +358,16 @@ export class EssenceBurstSources extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> source breakdown
+            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.essenceBurst.sourceBreakdown', message: 'source breakdown' })}
           </label>
           {donutChart ? (
             donutChart
           ) : (
             <small>
-              You gained no <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />{' '}
-              buffs during the encounter
+              {t({
+                id: 'evoker.preservation.essenceBurst.noBuffs',
+                message: 'You gained no Essence Burst buffs during the encounter',
+              })}
             </small>
           )}
         </div>

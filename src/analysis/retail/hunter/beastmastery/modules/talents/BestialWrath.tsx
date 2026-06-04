@@ -8,6 +8,7 @@ import SpellUsable from 'parser/shared/modules/SpellUsable';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 import { BARBED_SHOT_BESTIAL_WRATH_CDR_MS, BESTIAL_WRATH_BASE_CD } from '../../constants';
 
@@ -91,7 +92,13 @@ class BestialWrath extends Analyzer {
       <Statistic position={STATISTIC_ORDER.OPTIONAL(2)} size="flexible">
         <BoringSpellValueText spell={TALENTS.BESTIAL_WRATH_TALENT}>
           <>
-            <UptimeIcon /> {this.percentUptime}% <small>uptime</small>
+            <UptimeIcon /> {this.percentUptime}%{' '}
+            <small>
+              {t({
+                id: 'hunter.beastmastery.bestialWrath.uptime',
+                message: 'uptime',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

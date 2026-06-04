@@ -1,4 +1,6 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS/hunter';
 import TALENTS from 'common/TALENTS/hunter';
@@ -189,27 +191,51 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
 
     if (!tipped) {
       value = QualitativePerformance.Fail;
-      header = <h5 style={{ color: BadColor }}>Bad cast: no Tip of the Spear.</h5>;
+      header = (
+        <h5 style={{ color: BadColor }}>
+          <Trans id="hunter.survival.boomstick.badNoTip">Bad cast: no Tip of the Spear.</Trans>
+        </h5>
+      );
     } else if (ticksHit === Boomstick.EXPECTED_TICKS) {
       value = QualitativePerformance.Good;
-      header = <h5 style={{ color: GoodColor }}>Good cast: tipped with all ticks.</h5>;
+      header = (
+        <h5 style={{ color: GoodColor }}>
+          <Trans id="hunter.survival.boomstick.goodAllTicks">Good cast: tipped with all ticks.</Trans>
+        </h5>
+      );
     } else if (wasClipped) {
       value = QualitativePerformance.Fail;
-      header = <h5 style={{ color: BadColor }}>Bad cast: channel clipped early.</h5>;
+      header = (
+        <h5 style={{ color: BadColor }}>
+          <Trans id="hunter.survival.boomstick.badClipped">Bad cast: channel clipped early.</Trans>
+        </h5>
+      );
       if (nextAbility && HasAbility(nextAbility)) {
         clippingInfo = (
           <div>
-            <strong>Clipped by:</strong> <SpellLink spell={nextAbility.ability.guid} />
+            <Trans id="hunter.survival.boomstick.clippedBy">
+              <strong>Clipped by:</strong> <SpellLink spell={nextAbility.ability.guid} />
+            </Trans>
           </div>
         );
       }
     } else if (ticksHit === 3) {
       value = QualitativePerformance.Ok;
-      header = <h5 style={{ color: OkColor }}>Acceptable: tipped but missed a tick.</h5>;
+      header = (
+        <h5 style={{ color: OkColor }}>
+          <Trans id="hunter.survival.boomstick.okMissedTick">
+            Acceptable: tipped but missed a tick.
+          </Trans>
+        </h5>
+      );
     } else {
       value = QualitativePerformance.Fail;
       header = (
-        <h5 style={{ color: BadColor }}>Bad cast: missed ticks {missedTicks.join(', ')}.</h5>
+        <h5 style={{ color: BadColor }}>
+          <Trans id="hunter.survival.boomstick.badMissedTicks">
+            Bad cast: missed ticks {missedTicks.join(', ')}.
+          </Trans>
+        </h5>
       );
     }
 
@@ -230,12 +256,16 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
     const tickLines = tickResults.map((tick) =>
       tick.hit ? (
         <div key={tick.tickNumber}>
-          Tick {tick.tickNumber}: <strong>{tick.targetsHit}</strong> targets{' '}
-          <small>({formatNumber(tick.damage)} damage)</small>
+          <Trans id="hunter.survival.boomstick.tickHit">
+            Tick {tick.tickNumber}: <strong>{tick.targetsHit}</strong> targets{' '}
+            <small>({formatNumber(tick.damage)} damage)</small>
+          </Trans>
         </div>
       ) : (
         <div key={tick.tickNumber} style={{ color: BadColor }}>
-          Tick {tick.tickNumber}: <em>Missed</em>
+          <Trans id="hunter.survival.boomstick.tickMissed">
+            Tick {tick.tickNumber}: <em>Missed</em>
+          </Trans>
         </div>
       ),
     );
@@ -246,17 +276,27 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
         <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>
         {ticksHit !== Boomstick.EXPECTED_TICKS && (
           <div>
-            Ticks: {ticksHit}/{Boomstick.EXPECTED_TICKS}{' '}
+            <Trans id="hunter.survival.boomstick.ticksCount">
+              Ticks: {ticksHit}/{Boomstick.EXPECTED_TICKS}{' '}
+            </Trans>
             <small>
               {wasClipped
-                ? '(clipped channel)'
-                : `(missed tick${missedTicks.length !== 1 ? 's' : ''} ${missedTicks.join(', ')})`}
+                ? t({
+                    id: 'hunter.survival.boomstick.clippedChannel',
+                    message: '(clipped channel)',
+                  })
+                : t({
+                    id: 'hunter.survival.boomstick.missedTick',
+                    message: `(missed tick${missedTicks.length !== 1 ? 's' : ''} ${missedTicks.join(', ')})`,
+                  })}
             </small>
           </div>
         )}
         {tickLines}
         <div>
-          <strong>Total Damage:</strong> {formatNumber(castDamage)}
+          <Trans id="hunter.survival.boomstick.totalDamage">
+            <strong>Total Damage:</strong> {formatNumber(castDamage)}
+          </Trans>
         </div>
         {clippingInfo}
       </div>
@@ -266,13 +306,15 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS.BOOMSTICK_TALENT} />
-        </strong>{' '}
-        should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} /> active.
-        Additionally, avoid interrupting the channel early - let it complete all 4 ticks for maximum
-        damage. Because Boomstick is a directional cone ability, ensure you're facing targets to
-        avoid missing ticks.
+        <Trans id="hunter.survival.boomstick.guideExplanation">
+          <strong>
+            <SpellLink spell={TALENTS.BOOMSTICK_TALENT} />
+          </strong>{' '}
+          should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} /> active.
+          Additionally, avoid interrupting the channel early - let it complete all 4 ticks for maximum
+          damage. Because Boomstick is a directional cone ability, ensure you're facing targets to
+          avoid missing ticks.
+        </Trans>
       </p>
     );
 
@@ -280,7 +322,11 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
       <CastSummaryAndBreakdown
         spell={TALENTS.BOOMSTICK_TALENT}
         castEntries={this.useEntries}
-        badExtraExplanation={<>missing Tip of the Spear or clipped channel</>}
+        badExtraExplanation={
+          <Trans id="hunter.survival.boomstick.badExtraExplanation">
+            missing Tip of the Spear or clipped channel
+          </Trans>
+        }
         usesInsteadOfCasts
       />
     );
@@ -301,15 +347,23 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
               <ItemDamageDone amount={this.totalDamage} />
             </div>
             <p>
-              {this.totalHits} <small>targets hit</small>
+              {this.totalHits}{' '}
+              <small>
+                <Trans id="hunter.survival.boomstick.targetsHit">targets hit</Trans>
+              </small>
             </p>
             <p>
               {(this.totalTicks > 0 ? this.totalHits / this.totalTicks : 0).toFixed(1)}{' '}
-              <small>avg targets/tick</small>
+              <small>
+                <Trans id="hunter.survival.boomstick.avgTargetsPerTick">avg targets/tick</Trans>
+              </small>
             </p>
             {this.clippedCasts > 0 && (
               <p>
-                {this.clippedCasts} <small>clipped casts</small>
+                {this.clippedCasts}{' '}
+                <small>
+                  <Trans id="hunter.survival.boomstick.clippedCasts">clipped casts</Trans>
+                </small>
               </p>
             )}
           </>

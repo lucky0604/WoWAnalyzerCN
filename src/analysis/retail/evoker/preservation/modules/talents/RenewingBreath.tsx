@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
@@ -41,8 +42,8 @@ class RenewingBreath extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <ul>
-            <li>Total effective healing: {formatNumber(this.effectiveHealing)}</li>
-            <li>Total overhealing: {formatNumber(this.overhealing)}</li>
+            <li>{t({ id: 'evoker.preservation.renewingBreath.totalEffectiveHealing', message: 'Total effective healing' })}: {formatNumber(this.effectiveHealing)}</li>
+            <li>{t({ id: 'evoker.preservation.renewingBreath.totalOverhealing', message: 'Total overhealing' })}: {formatNumber(this.overhealing)}</li>
           </ul>
         }
       >

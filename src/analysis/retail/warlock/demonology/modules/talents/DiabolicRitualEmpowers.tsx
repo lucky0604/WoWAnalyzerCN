@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -33,10 +34,21 @@ class DiabolicRitualEmpowers extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={`${formatThousands(this.damage)} damage`}
+        tooltip={(() => {
+          const damage = formatThousands(this.damage);
+          return t({
+            id: 'warlock.demonology.diabolicRitualEmpowers.tooltip',
+            message: `${{ damage }} damage`,
+          });
+        })()}
       >
         <BoringSpellValueText spell={TALENTS.DIABOLIC_RITUAL_TALENT}>
-          <small>Ruination, Infernal bolt damage</small>
+          <small>
+            {t({
+              id: 'warlock.demonology.diabolicRitualEmpowers.spellDamage',
+              message: 'Ruination, Infernal bolt damage',
+            })}
+          </small>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           <ItemDamageDone amount={this.damage} />

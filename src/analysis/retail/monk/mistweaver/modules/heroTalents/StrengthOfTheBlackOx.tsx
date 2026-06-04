@@ -6,7 +6,7 @@ import Events, { RefreshBuffEvent, RemoveBuffEvent } from 'parser/core/Events';
 import { isStrengthOfTheBlackOxConsumed } from '../../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,
@@ -48,7 +48,10 @@ class StrengthOfTheBlackOx extends Analyzer {
       timestamp: this.owner.formatTimestamp(event.timestamp),
       performance: QualitativePerformance.Fail,
       stats: [],
-      details: 'Buff refreshed before being consumed',
+      details: t({
+        id: 'monk.mistweaver.sotbo.buffRefreshedBeforeConsumed',
+        message: 'Buff refreshed before being consumed',
+      }),
     });
   }
 
@@ -73,12 +76,22 @@ class StrengthOfTheBlackOx extends Analyzer {
       performance,
       stats: [],
       details: isConsumed ? (
-        <>
-          Consumed {hasBuff ? 'with' : 'without'}{' '}
-          <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active
-        </>
+        hasBuff ? (
+          <Trans id="monk.mistweaver.sotbo.consumedWithCelestial">
+            Consumed with{' '}
+            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active
+          </Trans>
+        ) : (
+          <Trans id="monk.mistweaver.sotbo.consumedWithoutCelestial">
+            Consumed without{' '}
+            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active
+          </Trans>
+        )
       ) : (
-        'Buff expired before being consumed'
+        t({
+          id: 'monk.mistweaver.sotbo.buffExpiredBeforeConsumed',
+          message: 'Buff expired before being consumed',
+        })
       ),
     });
   }

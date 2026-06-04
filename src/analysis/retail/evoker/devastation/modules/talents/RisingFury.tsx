@@ -28,6 +28,7 @@ import {
 import Soup from 'interface/icons/Soup';
 import { InformationIcon } from 'interface/icons';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 
 /**
  * (1) While Dragonrage is active you gain Rising Fury every 6 sec, increasing your haste by 4%, stacking up to 5 times.
@@ -162,14 +163,16 @@ class RisingFury extends Analyzer {
             <div>
               <Soup /> {this.essenceBurstGenerated}{' '}
               <small>
-                <SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} /> generated
+                <SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} />{' '}
+                {t({ id: 'evoker.devastation.risingFury.generated', message: 'generated' })}
               </small>
             </div>
             {this.essenceBurstWasted > 0 && (
               <div>
                 <InformationIcon /> {this.essenceBurstWasted}{' '}
                 <small>
-                  <SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} /> wasted
+                  <SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} />{' '}
+                  {t({ id: 'evoker.devastation.risingFury.wasted', message: 'wasted' })}
                 </small>
               </div>
             )}

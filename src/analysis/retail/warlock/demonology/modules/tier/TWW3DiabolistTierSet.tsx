@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_WARLOCK } from 'common/TALENTS';
@@ -109,22 +110,70 @@ class TWW3DiabolistTierSet extends Analyzer {
         category={STATISTIC_CATEGORY.ITEMS}
         tooltip={
           <>
-            <strong>2-piece:</strong>
+            <strong>
+              {t({
+                id: 'warlock.demonology.tww3Diabolist.twoPiece',
+                message: '2-piece:',
+              })}
+            </strong>
             <ul>
-              <li>Hand of Gul'dan Casts: {this.handOfGuldanCasts}</li>
-              <li>Full Power (3-shard) Casts: {this.fullPowerHandOfGuldanCasts}</li>
-              <li>Oculus Summons: {this.oculusSummons}</li>
-              <li>Total Explosions: {this.oculusExplosions}</li>
+              <li>
+                {(() => {
+                  const count = this.handOfGuldanCasts;
+                  return t({
+                    id: 'warlock.demonology.tww3Diabolist.hogCasts',
+                    message: `Hand of Gul'dan Casts: ${{ count }}`,
+                  });
+                })()}
+              </li>
+              <li>
+                {(() => {
+                  const count = this.fullPowerHandOfGuldanCasts;
+                  return t({
+                    id: 'warlock.demonology.tww3Diabolist.fullPowerCasts',
+                    message: `Full Power (3-shard) Casts: ${{ count }}`,
+                  });
+                })()}
+              </li>
+              <li>
+                {(() => {
+                  const count = this.oculusSummons;
+                  return t({
+                    id: 'warlock.demonology.tww3Diabolist.oculusSummons',
+                    message: `Oculus Summons: ${{ count }}`,
+                  });
+                })()}
+              </li>
+              <li>
+                {(() => {
+                  const count = this.oculusExplosions;
+                  return t({
+                    id: 'warlock.demonology.tww3Diabolist.totalExplosions',
+                    message: `Total Explosions: ${{ count }}`,
+                  });
+                })()}
+              </li>
             </ul>
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.DEMONIC_OCULUS_BUFF}>
           <small>
-            <ItemSetLink id={WARLOCK_TWW3_ID}>TWW Season 3 Tier Set (Diabolist)</ItemSetLink>
+            <ItemSetLink id={WARLOCK_TWW3_ID}>
+              {t({
+                id: 'warlock.demonology.tww3Diabolist.tierSetName',
+                message: 'TWW Season 3 Tier Set (Diabolist)',
+              })}
+            </ItemSetLink>
           </small>
           <div>
-            {formatNumber(this.oculusDamage)} <small>total damage</small>
+            {formatNumber(this.oculusDamage)}{' '}
+            <small>
+              {t({
+                id: 'warlock.demonology.tww3Diabolist.totalDamage',
+                message: 'total damage',
+              })}
+            </small>
           </div>
           <div>
             <ItemDamageDone amount={this.oculusDamage} />

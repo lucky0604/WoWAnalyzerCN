@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS/shaman';
@@ -55,13 +56,13 @@ class OfferingFromBeyond extends Analyzer.withDependencies({
       >
         <TalentSpellText talent={TALENTS.OFFERING_FROM_BEYOND_TALENT}>
           <div>
-            <CooldownIcon /> {formatNumber(this.effectiveCooldownReduction / 1000)}s effective
-            CDR{' '}
+            <CooldownIcon /> {formatNumber(this.effectiveCooldownReduction / 1000)}s{' '}
+            {t({ id: 'shaman.elemental.offering.effective_cdr', message: 'effective CDR' })}{' '}
           </div>
           <div>
             <small>
               {formatNumber((this.totalCooldownReduction - this.effectiveCooldownReduction) / 1000)}{' '}
-              sec wasted
+              {t({ id: 'shaman.elemental.offering.wasted', message: 'sec wasted' })}
             </small>
           </div>
         </TalentSpellText>

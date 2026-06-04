@@ -32,6 +32,7 @@ import Combatants from 'parser/shared/modules/Combatants';
 import { SpellTracker } from 'analysis/retail/evoker/shared/modules/components/ExplanationGraph';
 import { BREATH_OF_EONS_SPELLS } from '../../constants';
 import Spell from 'common/SPELLS/Spell';
+import { t } from '@lingui/core/macro';
 
 export interface BreathOfEonsWindows {
   flightData: SpellTracker[];
@@ -415,7 +416,7 @@ class BreathOfEonsRotational extends Analyzer {
       const ebonMightProblem = {
         timestamp: event.timestamp,
         count: this.ebonMightCounter,
-        tooltip: 'You dropped Ebon Might',
+        tooltip: t({ id: 'evoker.augmentation.breathOfEonsRotational.droppedEbonMight', message: 'You dropped Ebon Might' }),
       };
 
       // If you drop multiple Ebon Mights at the same time, only push one Problem point
@@ -511,7 +512,7 @@ class BreathOfEonsRotational extends Analyzer {
       perfWindow.damageProblemPoints.push({
         timestamp: event.timestamp,
         count: this.activeDebuffs,
-        tooltip: 'Mob died early.',
+        tooltip: t({ id: 'evoker.augmentation.breathOfEonsRotational.mobDiedEarly', message: 'Mob died early.' }),
       });
       perfWindow.earlyDeaths += 1;
       perfWindow.earlyDeadMobs.push(event);

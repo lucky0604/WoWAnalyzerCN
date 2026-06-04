@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { Panel } from 'interface';
@@ -30,12 +31,15 @@ class InsanityUsage extends Analyzer {
     return (
       <Statistic
         size="flexible"
-        tooltip={`You wasted ${this.wasted} out of ${this.total} Insanity due to overcapping.`}
+        tooltip={`${t({ id: 'priest.shadow.insanityUsage.youWasted', message: 'You wasted' })} ${this.wasted} ${t({ id: 'priest.shadow.insanityUsage.outOf', message: 'out of' })} ${this.total} ${t({ id: 'priest.shadow.insanityUsage.insanityDueToOvercapping', message: 'Insanity due to overcapping.' })}`}
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.INSANITY}
           value={`${formatPercentage(this.wastePercentage)}%`}
-          label="Wasted Insanity"
+          label={t({
+            id: 'priest.shadow.insanityUsage.wastedInsanity',
+            message: 'Wasted Insanity',
+          })}
         />
       </Statistic>
     );

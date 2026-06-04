@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
@@ -93,7 +94,11 @@ class InsidiousIre extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="Number of casts where the target was affected by all 3 dots. Void torrent counts individual damage instances since a dot can fall off mid-channel."
+        tooltip={t({
+          id: 'priest.shadow.insidiousIre.statisticTooltip',
+          message:
+            'Number of casts where the target was affected by all 3 dots. Void torrent counts individual damage instances since a dot can fall off mid-channel.',
+        })}
       >
         <>
           <BoringSpellValueText
@@ -116,7 +121,7 @@ class InsidiousIre extends Analyzer {
             spell={TALENTS.MIND_BLAST_TALENT}
           >
             <div>
-              <UptimeIcon /> {formatPercentage(mindBlast.efficiency)} % <small>efficiency</small>
+              <UptimeIcon /> {formatPercentage(mindBlast.efficiency)} % <small>{t({ id: 'priest.shadow.insidiousIre.efficiency', message: 'efficiency' })}</small>
             </div>
             <ItemDamageDone amount={mindBlast.damageGained} />
           </BoringSpellValueText>
@@ -129,7 +134,7 @@ class InsidiousIre extends Analyzer {
               >
                 <div>
                   <UptimeIcon /> {formatPercentage(voidBlast.efficiency)} %{' '}
-                  <small>efficiency</small>
+                  <small>{t({ id: 'priest.shadow.insidiousIre.efficiency', message: 'efficiency' })}</small>
                 </div>
                 <ItemDamageDone amount={voidBlast.damageGained} />
               </BoringSpellValueText>
@@ -140,7 +145,7 @@ class InsidiousIre extends Analyzer {
               >
                 <div>
                   <UptimeIcon /> {formatPercentage(voidTorrent.efficiency)} %{' '}
-                  <small>efficiency</small>
+                  <small>{t({ id: 'priest.shadow.insidiousIre.efficiency', message: 'efficiency' })}</small>
                 </div>
                 <ItemDamageDone amount={voidTorrent.damageGained} />
               </BoringSpellValueText>
@@ -152,14 +157,14 @@ class InsidiousIre extends Analyzer {
             spell={SPELLS.VOID_VOLLEY_DAMAGE}
           >
             <div>
-              <UptimeIcon /> {formatPercentage(voidVolley.efficiency)} % <small>efficiency</small>
+              <UptimeIcon /> {formatPercentage(voidVolley.efficiency)} % <small>{t({ id: 'priest.shadow.insidiousIre.efficiency', message: 'efficiency' })}</small>
             </div>
             <ItemDamageDone amount={voidVolley.damageGained} />
           </BoringSpellValueText>
 
           <BoringSpellValueText key={SPELLS.MIND_FLAY.id} spell={SPELLS.MIND_FLAY}>
             <div>
-              <UptimeIcon /> {formatPercentage(mindFlay.efficiency)} % <small>efficiency</small>
+              <UptimeIcon /> {formatPercentage(mindFlay.efficiency)} % <small>{t({ id: 'priest.shadow.insidiousIre.efficiency', message: 'efficiency' })}</small>
             </div>
             <ItemDamageDone amount={mindFlay.damageGained} />
           </BoringSpellValueText>
@@ -171,7 +176,7 @@ class InsidiousIre extends Analyzer {
             >
               <div>
                 <UptimeIcon /> {formatPercentage(mindFlayInsanity.efficiency)} %{' '}
-                <small>efficiency</small>
+                <small>{t({ id: 'priest.shadow.insidiousIre.efficiency', message: 'efficiency' })}</small>
               </div>
               <ItemDamageDone amount={mindFlayInsanity.damageGained} />
             </BoringSpellValueText>
@@ -195,42 +200,79 @@ class InsidiousIre extends Analyzer {
           <b>
             <SpellLink spell={TALENTS.INSIDIOUS_IRE_TALENT} />
           </b>{' '}
-          is active when <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} />,{' '}
-          <SpellLink spell={SPELLS.VAMPIRIC_TOUCH} />, and{' '}
-          <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} /> are all on a target. <div />
-          This increases the damage of <SpellLink spell={SPELLS.MIND_FLAY} />,{' '}
+          {t({
+            id: 'priest.shadow.insidiousIre.activeWhen',
+            message: 'is active when',
+          })}{' '}
+          <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} />,{' '}
+          <SpellLink spell={SPELLS.VAMPIRIC_TOUCH} />,{' '}
+          {t({ id: 'priest.shadow.insidiousIre.and', message: 'and' })}{' '}
+          <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />{' '}
+          {t({
+            id: 'priest.shadow.insidiousIre.allOnTarget',
+            message: 'are all on a target.',
+          })}{' '}
+          <div />
+          {t({
+            id: 'priest.shadow.insidiousIre.increasesDamage',
+            message: 'This increases the damage of',
+          })}{' '}
+          <SpellLink spell={SPELLS.MIND_FLAY} />,{' '}
           <SpellLink spell={SPELLS.VOID_VOLLEY_CAST} />,{' '}
           <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />,{' '}
           {this.selectedCombatant.hasTalent(TALENTS.VOID_TORRENT_TALENT) && (
             <>
-              <SpellLink spell={TALENTS.VOID_BLAST_TALENT} /> and{' '}
+              <SpellLink spell={TALENTS.VOID_BLAST_TALENT} />{' '}
+              {t({ id: 'priest.shadow.insidiousIre.and', message: 'and' })}{' '}
               <SpellLink spell={TALENTS.VOID_TORRENT_TALENT} />
             </>
           )}
           {this.selectedCombatant.hasTalent(TALENTS.HALO_SHADOW_TALENT) && (
             <>
               {' '}
-              and <SpellLink spell={SPELLS.MIND_FLAY_INSANITY_TALENT_DAMAGE} />
+              {t({ id: 'priest.shadow.insidiousIre.and', message: 'and' })}{' '}
+              <SpellLink spell={SPELLS.MIND_FLAY_INSANITY_TALENT_DAMAGE} />
             </>
           )}
-          . <div>Try to make sure this buff is active when casting these powerful spells.</div>
+          . <div>
+            {t({
+              id: 'priest.shadow.insidiousIre.tryToEnsure',
+              message:
+                'Try to make sure this buff is active when casting these powerful spells.',
+            })}
+          </div>
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Mindblast breakdown</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.insidiousIre.mindBlastBreakdown',
+            message: 'Mindblast breakdown',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={mindBlast.instancesHit} bad={mindBlast.instancesMissed} />
 
         {this.selectedCombatant.hasTalent(TALENTS.VOID_TORRENT_TALENT) && (
           <>
-            <strong>VoidBlast breakdown</strong>
+            <strong>
+              {t({
+                id: 'priest.shadow.insidiousIre.voidBlastBreakdown',
+                message: 'VoidBlast breakdown',
+              })}
+            </strong>
             <GradiatedPerformanceBar
               good={voidBlast.instancesHit}
               bad={voidBlast.instancesMissed}
             />
-            <strong>Void Torrent breakdown</strong>
+            <strong>
+              {t({
+                id: 'priest.shadow.insidiousIre.voidTorrentBreakdown',
+                message: 'Void Torrent breakdown',
+              })}
+            </strong>
             <GradiatedPerformanceBar
               good={voidTorrent.instancesHit}
               bad={voidTorrent.instancesMissed}
@@ -238,13 +280,22 @@ class InsidiousIre extends Analyzer {
           </>
         )}
 
-        <strong>Void Volley breakdown</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.insidiousIre.voidVolleyBreakdown',
+            message: 'Void Volley breakdown',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={voidVolley.instancesHit} bad={voidVolley.instancesMissed} />
-        {/*<strong>Mind Flay breakdown</strong> <GradiatedPerformanceBar good={mindFlay.instancesHit} bad={mindFlay.instancesMissed} />*/}
 
         {this.selectedCombatant.hasTalent(TALENTS.HALO_SHADOW_TALENT) && (
           <>
-            <strong>Mind Flay Insanity breakdown</strong>
+            <strong>
+              {t({
+                id: 'priest.shadow.insidiousIre.mindFlayInsanityBreakdown',
+                message: 'Mind Flay Insanity breakdown',
+              })}
+            </strong>
             <GradiatedPerformanceBar
               good={mindFlayInsanity.instancesHit}
               bad={mindFlayInsanity.instancesMissed}

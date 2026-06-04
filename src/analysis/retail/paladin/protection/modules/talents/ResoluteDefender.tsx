@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -88,11 +89,21 @@ class ResoluteDefender extends Analyzer {
         <BoringSpellValueText spell={TALENTS.RESOLUTE_DEFENDER_TALENT}>
           <SpellIcon spell={TALENTS.ARDENT_DEFENDER_TALENT} />{' '}
           {formatNumber(this.ardentDefenderReduced / SECOND)}s{' '}
-          <small>CD Reduction ({formatNumber(this.ardentDefenderWasted / SECOND)}s wasted)</small>
+          <small>
+            {t({
+              id: 'paladin.protection.resoluteDefender.ardentDefenderCdReduction',
+              message: `CD Reduction (${formatNumber(this.ardentDefenderWasted / SECOND)}s wasted)`,
+            })}
+          </small>
           <br />
           <SpellIcon spell={SPELLS.DIVINE_SHIELD} />{' '}
           {formatNumber(this.divineShieldReduced / SECOND)}s{' '}
-          <small>CD Reduction ({formatNumber(this.divineShieldWasted / SECOND)}s wasted)</small>
+          <small>
+            {t({
+              id: 'paladin.protection.resoluteDefender.divineShieldCdReduction',
+              message: `CD Reduction (${formatNumber(this.divineShieldWasted / SECOND)}s wasted)`,
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );
