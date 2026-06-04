@@ -1,6 +1,8 @@
 import { Tooltip } from 'interface/index';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { ReactNode } from 'react';
+import { i18n, MessageDescriptor } from '@lingui/core';
+import { isMessageDescriptor } from 'localization/isMessageDescriptor';
 
 import './PerformanceBoxRow.scss';
 
@@ -9,7 +11,10 @@ export function PerformanceBoxRow({ values, onClickBox }: PerformanceBoxRowProps
   return (
     <div className="performance-block-row">
       {values.map((value, ix) => (
-        <Tooltip key={ix} content={value.tooltip}>
+        <Tooltip
+          key={ix}
+          content={isMessageDescriptor(value.tooltip) ? i18n._(value.tooltip) : value.tooltip}
+        >
           <div
             key={ix}
             className={`performance-block ${getBlockClassName(value)} ${value.className ?? ''}`}
@@ -29,7 +34,7 @@ interface PerformanceBoxRowProps {
 /** An entry for a PerformanceBoxRow */
 export interface BoxRowEntry {
   value: QualitativePerformance;
-  tooltip?: ReactNode | string;
+  tooltip?: ReactNode | string | MessageDescriptor;
   className?: string;
 }
 

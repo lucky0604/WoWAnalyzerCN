@@ -13,8 +13,9 @@ import Events, { DamageEvent, EventType } from 'parser/core/Events';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
+import { MessageDescriptor } from '@lingui/core';
 
 const TRANSLUCENT_IMAGE_DAMAGE_REDUCTION = 0.1;
 const PERFECT_MITIGATION_HP_FRACTION = 0.1;
@@ -47,7 +48,7 @@ class Fade extends MajorDefensiveBuff {
 
   explainPerformance(mit: Mitigation<EventType.ApplyBuff, EventType.RemoveBuff>): {
     perf: QualitativePerformance;
-    explanation?: ReactNode;
+    explanation?: ReactNode | MessageDescriptor;
   } {
     const perfectPct = formatPercentage(PERFECT_MITIGATION_HP_FRACTION, 0);
     const goodPct = formatPercentage(GOOD_MITIGATION_HP_FRACTION, 0);

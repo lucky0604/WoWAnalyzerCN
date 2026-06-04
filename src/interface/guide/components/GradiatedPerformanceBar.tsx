@@ -1,4 +1,13 @@
 import { Tooltip } from 'interface/index';
+import { i18n, MessageDescriptor } from '@lingui/core';
+import { isMessageDescriptor } from 'localization/isMessageDescriptor';
+
+function resolveMessageNode(node: React.ReactNode | MessageDescriptor): React.ReactNode {
+  if (isMessageDescriptor(node)) {
+    return i18n._(node);
+  }
+  return node;
+}
 
 /**
  * A slightly more complex form of the Checklist's success meters that allows for more than two outcomes.
@@ -33,7 +42,7 @@ export default function GradiatedPerformanceBar({
         <Tooltip
           content={
             <>
-              {perfectObj.label && <>{perfectObj.label} - </>}
+              {perfectObj.label && <>{resolveMessageNode(perfectObj.label)} - </>}
               <strong>
                 {perfectObj.count} / {total}
               </strong>
@@ -50,7 +59,7 @@ export default function GradiatedPerformanceBar({
         <Tooltip
           content={
             <>
-              {goodObj.label && <>{goodObj.label} - </>}
+              {goodObj.label && <>{resolveMessageNode(goodObj.label)} - </>}
               <strong>
                 {goodObj.count} / {total}
               </strong>
@@ -64,7 +73,7 @@ export default function GradiatedPerformanceBar({
         <Tooltip
           content={
             <>
-              {okObj.label && <>{okObj.label} - </>}
+              {okObj.label && <>{resolveMessageNode(okObj.label)} - </>}
               <strong>
                 {okObj.count} / {total}
               </strong>
@@ -78,7 +87,7 @@ export default function GradiatedPerformanceBar({
         <Tooltip
           content={
             <>
-              {badObj.label && <>{badObj.label} - </>}
+              {badObj.label && <>{resolveMessageNode(badObj.label)} - </>}
               <strong>
                 {badObj.count} / {total}
               </strong>
@@ -104,5 +113,5 @@ function getDefaultInfo(val?: number | GradiatedPerformanceBarInfo) {
 
 export interface GradiatedPerformanceBarInfo {
   count: number;
-  label: React.ReactNode;
+  label: React.ReactNode | MessageDescriptor;
 }

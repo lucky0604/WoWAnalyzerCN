@@ -3,6 +3,8 @@ import {
   QualitativePerformance,
 } from 'parser/ui/QualitativePerformance';
 import { createContext, ReactNode, use, useMemo } from 'react';
+import { MessageDescriptor, i18n } from '@lingui/core';
+import { isMessageDescriptor } from 'localization/isMessageDescriptor';
 import { AnyEvent } from 'parser/core/Events';
 import styled from '@emotion/styled';
 import { formatDuration } from 'common/format';
@@ -36,7 +38,7 @@ export interface SpellUse {
   checklistItems: ChecklistUsageInfo[];
   performance: QualitativePerformance;
   extraDetails?: ReactNode;
-  performanceExplanation?: ReactNode;
+  performanceExplanation?: ReactNode | MessageDescriptor;
 }
 
 const SpellTooltipBody = 'div';
@@ -87,7 +89,11 @@ export const spellUseToBoxRowEntry = (
       </div>
       <PerformanceUsageRow>
         <PerformanceMark perf={performance} />{' '}
-        {performanceExplanation ?? getPerformanceExplanation(performance)}
+        {performanceExplanation
+          ? isMessageDescriptor(performanceExplanation)
+            ? i18n._(performanceExplanation)
+            : performanceExplanation
+          : getPerformanceExplanation(performance)}
       </PerformanceUsageRow>
       {checklistItems.length > 0 ? (
         <SpellTooltipBody>

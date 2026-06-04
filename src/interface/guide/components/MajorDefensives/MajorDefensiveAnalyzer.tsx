@@ -18,6 +18,8 @@ import Events, {
 import { PerformanceUsageRow } from 'parser/core/SpellUsage/core';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { ComponentType, ReactNode } from 'react';
+import { i18n, MessageDescriptor } from '@lingui/core';
+import { isMessageDescriptor } from 'localization/isMessageDescriptor';
 import { BoxRowEntry } from '../PerformanceBoxRow';
 import { MitigationSegment, MitigationSegments } from './MitigationSegments';
 import { PerformanceMark } from 'interface/guide';
@@ -356,7 +358,7 @@ export default class MajorDefensive<
 
   explainPerformance(mit: Mitigation<Apply, Remove>): {
     perf: QualitativePerformance;
-    explanation?: ReactNode;
+    explanation?: ReactNode | MessageDescriptor;
   } {
     if (this.firstSeenMaxHp <= mit.amount) {
       return {
@@ -400,7 +402,8 @@ export default class MajorDefensive<
         tooltip: (
           <>
             <PerformanceUsageRow>
-              <PerformanceMark perf={perf} /> {explanation ?? '良好使用'}
+              <PerformanceMark perf={perf} />{' '}
+              {isMessageDescriptor(explanation) ? i18n._(explanation) : (explanation ?? '良好使用')}
             </PerformanceUsageRow>
             <div>
               <MitigationRowContainer>

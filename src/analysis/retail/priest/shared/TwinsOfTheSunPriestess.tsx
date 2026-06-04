@@ -13,7 +13,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 
 const BUFFER = 100; // ms between the two cast events
 
@@ -94,12 +94,18 @@ class TwinsOfTheSunPriestess extends Analyzer {
   get guideSubsection(): JSX.Element {
     const allyPI = {
       count: this.goodCasts,
-      label: defineMessage({ id: 'priest.shared.twinsOfTheSunPriestess.allyCasts', message: 'Ally Casts' }),
+      label: defineMessage({
+        id: 'priest.shared.twinsOfTheSunPriestess.allyCasts',
+        message: 'Ally Casts',
+      }),
     };
 
     const selfPI = {
       count: this.badCasts,
-      label: defineMessage({ id: 'priest.shared.twinsOfTheSunPriestess.selfCasts', message: 'Self Casts' }),
+      label: defineMessage({
+        id: 'priest.shared.twinsOfTheSunPriestess.selfCasts',
+        message: 'Self Casts',
+      }),
     };
 
     const explanation = (

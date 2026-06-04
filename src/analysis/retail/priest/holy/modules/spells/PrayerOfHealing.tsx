@@ -8,7 +8,7 @@ import { getPrayerOfHealingEvents } from '../../normalizers/CastLinkNormalizer';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { ChecklistUsageInfo, SpellUse } from 'parser/core/SpellUsage/core';
 import ContextualSpellUsageSubSection from 'parser/core/SpellUsage/HideGoodCastsSpellUsageSubSection';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import styles from '../Styling.module.scss';
 
@@ -131,7 +131,8 @@ class PrayerOfHealing extends Analyzer {
       performanceExplanation:
         overallPerformance === QualitativePerformance.Fail
           ? defineMessage({ id: 'priest.holy.prayerOfHealing.badUsage', message: 'Bad Usage' })
-          : `${overallPerformance} ` + defineMessage({ id: 'priest.holy.usageSuffix', message: 'Usage' }),
+          : `${overallPerformance} ` +
+            defineMessage({ id: 'priest.holy.usageSuffix', message: 'Usage' }),
     };
 
     this.spellUses.push(spellUse);

@@ -22,8 +22,9 @@ import Events, { DamageEvent, EventType, HealEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
+import { MessageDescriptor } from '@lingui/core';
 
 interface DesperatePrayerCast {
   timestamp: number;
@@ -146,7 +147,7 @@ class DesperatePrayer extends MajorDefensiveBuff.withDependencies({
 
   explainPerformance(mit: Mitigation<EventType.ApplyBuff, EventType.RemoveBuff>): {
     perf: QualitativePerformance;
-    explanation?: ReactNode;
+    explanation?: ReactNode | MessageDescriptor;
   } {
     const cast = this.castForMitigation(mit);
     if (!cast || cast.bonusHpPool <= 0) {

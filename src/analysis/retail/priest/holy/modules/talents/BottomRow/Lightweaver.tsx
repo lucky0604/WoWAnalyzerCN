@@ -13,7 +13,7 @@ import { explanationAndDataSubsection } from 'interface/guide/components/Explana
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../../Guide';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
+import { defineMessage, t } from '@lingui/core/macro';
 import { LW_CAST_TIME_DECREASE } from '../../../constants';
 import EOLAttrib from '../../core/EchoOfLightAttributor';
 import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
@@ -124,7 +124,7 @@ class Lightweaver extends Analyzer {
       <div>
         <strong>
           <SpellLink spell={SPELLS.FLASH_HEAL} />{' '}
-          <Trans id="priest.holy.lightweaver.castBreakdown">cast breakdown</Trans>
+          {t({ id: 'priest.holy.lightweaver.castBreakdown', message: 'cast breakdown' })}
         </strong>
         <small>
           {' '}

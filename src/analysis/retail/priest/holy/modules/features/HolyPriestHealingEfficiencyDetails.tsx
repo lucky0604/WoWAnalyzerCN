@@ -1,6 +1,6 @@
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
-import { t } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 
 import HealingEfficiencyBreakdown from './HolyPriestHealingEfficiencyBreakdown';
 import HealingEfficiencyTracker from './HolyPriestHealingEfficiencyTracker';
