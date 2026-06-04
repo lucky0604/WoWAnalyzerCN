@@ -1,0 +1,9 @@
+{
+  "classic.warrior.arms.alwaysBeCasting.description": "在大地的裂变版本中，武器战士没有足够的技能或<0>怒气</0>来填满每个GCD。因无技能可用而产生的空GCD也会被计入活跃时间。",
+  "classic.warrior.arms.section.coreSkills": "核心技能",
+  "classic.warrior.arms.subsection.alwaysBeCasting": "始终保持施法",
+  "classic.warrior.arms.suddenDeath.resetsLabel": "重置",
+  "classic.warrior.arms.suddenDeath.resets": "次重置",
+  "classic.warrior.arms.suddenDeath.wasted": "浪费",
+  "classic.warrior.arms.suddenDeath.wastedTooltip": "如果在巨人打击未处于冷却中时触发，则该次重置被浪费。"
+}

@@ -13,5 +13,88 @@
   "warrior.arms.rotation.inaccuracy2": "多个目标",
   "warrior.arms.rotation.inaccuracy3": "移动或停手期",
   "warrior.arms.rotation.note": "注意：",
-  "warrior.arms.rotation.noteDescription": "下面的优先级列表不包括"
+  "warrior.arms.rotation.noteDescription": "下面的优先级列表不包括",
+
+  "warrior.arms.cooldownGraph.title": "冷却技能图表",
+  "warrior.arms.cooldownGraph.description": "此图表显示你何时使用了冷却技能以及等待了多长时间才再次使用它们。灰色段表示该技能可用，黄色段表示该技能正在冷却中。红色段突出显示了你可以额外完整使用一次冷却技能的时间段。",
+
+  "warrior.arms.bladestorm.colossusSmashAvailable": "剑刃风暴在你有巨人打击/破战者可用或即将可用时使用了。",
+  "warrior.arms.bladestorm.avatarAvailable": "剑刃风暴在你有天神下凡可用或即将可用时使用了。",
+
+  "warrior.arms.slam.mortalStrikeAvailable": "这次猛击是在致死打击冷却完成时对目标使用的。",
+  "warrior.arms.slam.crushingAssaultBuff": "这次猛击消耗了粉碎强袭增益。",
+
+  "warrior.arms.overpower.label": "压制增益浪费",
+  "warrior.arms.overpower.wastedBuffs": "浪费的增益",
+  "warrior.arms.overpower.totalCasts": "总施法次数",
+  "warrior.arms.overpower.tooltip": "压制增益最多叠加两层。当达到上限时，施放压制会浪费一层增益。这在斩杀阶段不重要，因为致死打击被替换为斩杀，而斩杀不会消耗压制增益层数。",
+  "warrior.arms.overpower.wastedProc": "这次压制是在已有2层增益且致死打击可用时使用的",
+
+  "warrior.arms.abilities.rallyingCry": "提前使用作为应对大范围AOE的缓冲，或在你注意到团队血量危险下降时反应性使用。",
+  "warrior.arms.abilities.charge": "在移动躲避机制后用来回到范围内。这不仅让你更快恢复输出，还能为你产生怒气以进行输出。",
+  "warrior.arms.abilities.heroicLeap": "在最后一刻用来躲避机制，让你有更多时间输出。",
+  "warrior.arms.abilities.stormBolt": "如果你选择了一个功能性天赋而不是增加机动性或生存能力的天赋，那你最好多用它。",
+
+  "warrior.arms.demolish.execRangeNoCS": "毁灭打击在斩杀阶段没有巨人打击减益时使用了。",
+
+  "warrior.arms.fatalMark.damageDone": "造成的伤害",
+  "warrior.arms.fatalMark.damage": "伤害",
+  "warrior.arms.fatalMark.stacks": "层数",
+  "warrior.arms.fatalMark.tooltip": "致命印记对生命值低于30%的目标共造成了{count}次伤害。",
+
+  "warrior.arms.defensiveStance.label": "减少和损失伤害",
+  "warrior.arms.defensiveStance.total": "总计：",
+  "warrior.arms.defensiveStance.effectiveReduction": "有效伤害减免：{mitigated} 伤害 ({drps} DRPS)",
+  "warrior.arms.defensiveStance.effectiveLost": "有效伤害损失：{lost} 伤害 ({dlps} DLPS)",
+  "warrior.arms.defensiveStance.damageReducedTooltip": "你使用防御姿态有效地减少了总计{mitigated}点伤害（{drps} DRPS）。",
+  "warrior.arms.defensiveStance.damageReducedAlt": "减少的伤害",
+  "warrior.arms.defensiveStance.damageLostTooltip": "你因使用防御姿态损失了{lost}点伤害。（{dlps} DLPS）。",
+  "warrior.arms.defensiveStance.damageLostAlt": "损失的伤害",
+
+  "warrior.arms.avatar.bonusDamage": "额外伤害",
+  "warrior.arms.avatar.tooltip": "你的天神下凡贡献了{totalDamage}总伤害（{pct}%）。",
+  "warrior.arms.avatar.tooltipNote": "这仅计算天神下凡被动20%增伤。",
+
+  "warrior.arms.cleave.average": "平均",
+  "warrior.arms.cleave.damage": "伤害",
+  "warrior.arms.cleave.totalDamage": "横扫攻击总伤害：{total}",
+
+  "warrior.arms.colossusSmash.bonusDamage": "额外伤害",
+  "warrior.arms.colossusSmash.tooltip": "你的巨人打击贡献了{totalDamage}总伤害（{pct}%）。",
+  "warrior.arms.colossusSmash.tooltipNote": "这计算了巨人打击的直接伤害以及30%增伤减益。",
+
+  "warrior.arms.fervorOfBattle.bonusDamage": "额外伤害",
+  "warrior.arms.fervorOfBattle.tooltip": "你的战斗狂热贡献了{totalDamage}总伤害（{pct}%）。",
+
+  "warrior.arms.secondWind.healthRestored": "恢复的生命值",
+
+  "warrior.arms.stormBolt.stun": "昏迷",
+  "warrior.arms.stormBolt.totalDamage": "风暴之锤总伤害：{total}",
+
+  "warrior.arms.suddenDeath.with": "配合",
+  "warrior.arms.suddenDeath.damage": "伤害",
+  "warrior.arms.suddenDeath.tooltip": "猝死激活时的斩杀总伤害（{count}次触发）",
+
+  "warrior.arms.warMachine.uptime": "覆盖率",
+
+  "warrior.arms.angerManagement.cdr": "冷却缩减",
+  "warrior.arms.angerManagement.cdrValue": "{duration} 分钟",
+  "warrior.arms.angerManagement.tooltip": "{spellName}：{effectiveRed} 缩减（{wastedRed} 浪费）",
+
+  "warrior.arms.aplCheck.castHeroicStrikeExecute": "在斩杀阶段施放<0/>",
+  "warrior.arms.aplCheck.castMSExecuteCS": "在斩杀阶段施放<0/>，当有<1/>或2层<2/>时",
+  "warrior.arms.aplCheck.castOPExecuteLowRage": "在斩杀阶段且低于80怒气时施放<0/>",
+  "warrior.arms.aplCheck.castExecuteExecute": "在斩杀阶段施放<0/>",
+  "warrior.arms.aplCheck.castOPExecute": "在斩杀阶段施放<0/>",
+  "warrior.arms.aplCheck.castHS": "施放<0/>",
+  "warrior.arms.aplCheck.castMS": "施放<0/>",
+  "warrior.arms.aplCheck.castExecute": "施放<0/>",
+  "warrior.arms.aplCheck.castOP": "施放<0/>",
+  "warrior.arms.aplCheck.castSlam": "施放<0/>",
+  "warrior.arms.aplCheck.castMSExecuteEP": "在斩杀阶段施放<0/>，如果点了天赋则需2层<1/>",
+  "warrior.arms.aplCheck.castExecuteSDExecute": "在斩杀阶段施放<0/>配合<1/>",
+  "warrior.arms.aplCheck.castExecuteHighRageDW": "施放<0/>配合超过75怒气（如果点了<1/>天赋）",
+  "warrior.arms.aplCheck.castOPExecuteColossus": "在斩杀阶段施放<0/>",
+  "warrior.arms.aplCheck.castExecuteExecuteHighRage": "在斩杀阶段且超过75怒气时施放<0/>",
+  "warrior.arms.aplCheck.castSlamExecute": "在斩杀阶段施放<0/>"
 }

@@ -95,5 +95,12 @@
   "shaman.elemental.config.class_discord": "职业 Discord",
   "shaman.elemental.config.storm_earth_lava": "风暴、大地与熔岩 (Storm, Earth and Lava)",
   "shaman.elemental.config.wowhead_guide": "Wowhead 指南",
-  "shaman.elemental.config.icy_veins_guide": "Icy Veins 指南"
+  "shaman.elemental.config.icy_veins_guide": "Icy Veins 指南",
+  "shaman.elemental.offering.effective_cdr": "有效冷却缩减",
+  "shaman.elemental.offering.wasted": "秒浪费",
+  "shaman.elemental.maelstrom_graph.title": "漩涡值图表",
+  "shaman.elemental.performance.perfect": "完美使用",
+  "shaman.elemental.performance.good": "良好使用",
+  "shaman.elemental.performance.ok": "一般使用",
+  "shaman.elemental.cl.bad_casts": "闪电链击中目标少于 2 个。"
 }

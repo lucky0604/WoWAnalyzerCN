@@ -77,5 +77,10 @@
     "druid.shared.cotd.eff_cdr_label": " 有效 CDR",
     "druid.shared.lunation.avg_cdr_tooltip_p1": "这是每次施放 <0/> 获得的平均冷却缩减。在整个战斗中，总共减少了 <strong>{1}s</strong> 的有效 CDR。",
     "druid.shared.lunation.avg_cdr_tooltip_p2": "在整个战斗中，总共减少了 <strong>{1}s</strong> 的“原始” CDR（包括当 <0/> 没有处于冷却状态时施放的奥术技能）。",
-    "druid.shared.lunation.avg_cdr_per_cast": " 每次施法平均 CDR"
+    "druid.shared.lunation.avg_cdr_per_cast": " 每次施法平均 CDR",
+  "guardian.section.majorDefensives": "主要减伤",
+  "guardian.majorDefensives.damageSpikeTooltip": "<0>伤害尖峰</0>是指你在短时间内承受远高于正常水平的伤害。在下方的时间轴上，它们显示为高耸的尖峰。",
+  "druid.guardian.mangle.explanation": "造成直接伤害并产生怒气。卡 CD 使用它。极短的冷却时间加上密集的 GCD 意味着 100% 使用率几乎不可能实现，但应尽量接近。",
+  "druid.guardian.thrash.explanation": "是 AoE 直接伤害并附带可叠加的流血效果。它产生怒气，应卡 CD 使用。极短的冷却时间加上密集的 GCD 意味着 100% 使用率几乎不可能实现，但应尽量接近。",
+  "druid.guardian.thrash.uptime": "痛击覆盖率"
 }

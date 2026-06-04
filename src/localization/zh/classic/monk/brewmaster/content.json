@@ -1,0 +1,11 @@
+{
+  "classic.monk.brewmaster.section.coreSkills": "核心技能",
+  "classic.monk.brewmaster.section.rotation": "循环",
+  "classic.monk.brewmaster.rotation.description": "熊猫人之谜版本的酒仙武僧循环围绕高效产生<0>真气</0>展开，使用<1>醉酿投</1>和<2>移花接木</2>，然后用<3>幻灭踢</3>消耗真气。<4>酒醒入定</4>等防御技能不在此分析范围内，但你仍然应该使用它们！",
+  "classic.monk.brewmaster.rotation.vengeanceInfo": "在熊猫人之谜版本中，坦克的伤害输出高度依赖<0>复仇</0>！它非常强大，以至于即使你完美执行循环，伤害仍然可能低于拥有更高<1>复仇</1>的玩家。最优秀的玩家会同时拥有良好的<2>复仇</2>和良好的循环。",
+  "classic.monk.brewmaster.rotation.standardRotation": "标准循环",
+  "classic.monk.brewmaster.rotation.parsingRotation": "冲榜循环",
+  "classic.monk.brewmaster.rotation.parsingRotationActive": "该玩家似乎正在使用<0>冲榜循环</0>。",
+  "classic.monk.brewmaster.rotation.standardDescription": "标准循环专注于产生<0>真气</0>来驱动你的防御技能，如<1>净化酒</1>。作为副作用，它也会产生大量<2>酒醒入定</2>层数并被动维持<3>醉拳</3>。这不一定是最高伤害，但稳定可靠。",
+  "classic.monk.brewmaster.rotation.parsingDescription": "\"冲榜\"循环以牺牲防御能力为代价专注于伤害输出。<0>真气</0>产生大幅减少，因为优先使用<1>猛虎掌</1>和<2>碧玉疾风</2>，这可能导致你的防御技能无法使用。不过它<3>确实</3>能造成更高的伤害。"
+}
