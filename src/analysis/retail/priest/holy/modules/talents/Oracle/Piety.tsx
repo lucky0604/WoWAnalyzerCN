@@ -8,6 +8,8 @@ import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
 import { TALENTS_PRIEST } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
 
+import { t } from '@lingui/core/macro';
+
 /**
  * Piety (Oracle)
  * 20% of overhealing done is redistributed to up to 4 nearby injured allies.
@@ -35,7 +37,11 @@ class Piety extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(99)}
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
-        tooltip="Healing redistributed from overhealing (20% of overheal) to nearby injured allies."
+        tooltip={t({
+          id: 'priest.holy.piety.tooltip',
+          message:
+            'Healing redistributed from overhealing (20% of overheal) to nearby injured allies.',
+        })}
       >
         <TalentSpellText talent={TALENTS_PRIEST.PIETY_TALENT}>
           <ItemPercentHealingDone amount={this.redistributedHealing} />

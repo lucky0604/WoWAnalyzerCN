@@ -6,6 +6,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from '../../../../parser/ui/BoringSpellValueText';
+import { t } from '@lingui/core/macro';
 
 const TRANSLUCENT_IMAGE_DAMAGE_REDUCTION = 0.1;
 
@@ -43,9 +44,21 @@ class TranslucentImage extends Analyzer {
         <>
           <BoringSpellValueText spell={TALENTS.TRANSLUCENT_IMAGE_TALENT}>
             <div>
-              {formatNumber(this.damageReduced)} <small> damage reduced </small>
+              {formatNumber(this.damageReduced)}{' '}
+              <small>
+                {t({
+                  id: 'priest.shared.translucentImage.damageReduced',
+                  message: 'damage reduced',
+                })}
+              </small>
             </div>
-            <div>{formatNumber((this.damageReduced / fightDuration) * 1000)} DRPS</div>
+            <div>
+              {formatNumber((this.damageReduced / fightDuration) * 1000)}{' '}
+              {t({
+                id: 'priest.shared.translucentImage.drps',
+                message: 'DRPS',
+              })}
+            </div>
           </BoringSpellValueText>
         </>
       </Statistic>

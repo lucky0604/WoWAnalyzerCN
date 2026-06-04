@@ -17,6 +17,8 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import { formatPercentage } from 'common/format';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Abilities from 'parser/core/modules/Abilities';
 
 /**
@@ -82,23 +84,36 @@ class Epiphany extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.EPIPHANY_TALENT} />
         </b>{' '}
-        gives your Holy Word spells a 25% chance to make your next{' '}
-        <SpellLink spell={SPELLS.PRAYER_OF_MENDING_CAST} /> cost no cooldown. Use Prayer of Mending
-        immediately when you get a proc to avoid wasting it.
+        <Trans id="priest.holy.epiphany.description">
+          gives your Holy Word spells a 25% chance to make your next{' '}
+          <SpellLink spell={SPELLS.PRAYER_OF_MENDING_CAST} /> cost no cooldown. Use Prayer of
+          Mending immediately when you get a proc to avoid wasting it.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Epiphany usage</strong>
+        <strong>
+          {t({
+            id: 'priest.holy.epiphany.usage',
+            message: 'Epiphany usage',
+          })}
+        </strong>
         <GradiatedPerformanceBar
           good={{
             count: this.procsUsed,
-            label: 'Procs used',
+            label: t({
+              id: 'priest.holy.epiphany.procsUsed',
+              message: 'Procs used',
+            }),
           }}
           bad={{
             count: this.procsWasted,
-            label: 'Procs wasted',
+            label: t({
+              id: 'priest.holy.epiphany.procsWasted',
+              message: 'Procs wasted',
+            }),
           }}
         />
       </div>

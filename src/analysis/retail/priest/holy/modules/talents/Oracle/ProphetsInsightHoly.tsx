@@ -6,6 +6,7 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import ItemCooldownReduction from 'parser/ui/ItemCooldownReduction';
 import AbilityTracker from 'parser/shared/modules/AbilityTracker';
+import { t } from '@lingui/core/macro';
 
 const HOLY_WORDS = [
   TALENTS_PRIEST.HOLY_WORD_SERENITY_TALENT,
@@ -45,13 +46,22 @@ class ProphetsInsightHoly extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(99)}
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
-        tooltip="Total cooldown reduction from all Holy Word casts. Each cast effectively had 5 seconds less cooldown."
+        tooltip={t({
+          id: 'priest.holy.prophetsInsight.tooltip',
+          message:
+            'Total cooldown reduction from all Holy Word casts. Each cast effectively had 5 seconds less cooldown.',
+        })}
       >
         <BoringSpellValueText spell={TALENTS_PRIEST.PROPHETS_INSIGHT_TALENT}>
           <ItemCooldownReduction effective={this.totalCdr} />
           {/* oxlint-disable-next-line @wowanalyzer/no-br */}
           <br />
-          <small>total cooldown reduction</small>
+          <small>
+            {t({
+              id: 'priest.holy.prophetsInsight.totalCdr',
+              message: 'total cooldown reduction',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

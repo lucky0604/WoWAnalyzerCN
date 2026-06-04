@@ -9,6 +9,7 @@ import HolyWordCDR from './HolyWordCDR';
 import Events, { CastEvent, RemoveBuffEvent, RemoveBuffStackEvent } from 'parser/core/Events';
 import { buffedBySurgeOfLight, getSOLFlashCast } from '../../normalizers/CastLinkNormalizer';
 import { HOLY_ENERGY_CYCLE_PROC } from '../../constants';
+import { t } from '@lingui/core/macro';
 
 /**
  * this is just the display function for talents powered by the core of HolyWordCDR
@@ -147,10 +148,16 @@ class HolyWordCDRBySpell extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <td className="text-center">Cast Spell</td>
-                  <td className="text-center">Casts</td>
-                  <td className="text-center">Reduced Spell</td>
-                  <td>Base</td>
+                  <td className="text-center">
+                    {t({ id: 'priest.holy.holyWordCDR.castSpell', message: 'Cast Spell' })}
+                  </td>
+                  <td className="text-center">
+                    {t({ id: 'priest.holy.holyWordCDR.casts', message: 'Casts' })}
+                  </td>
+                  <td className="text-center">
+                    {t({ id: 'priest.holy.holyWordCDR.reducedSpell', message: 'Reduced Spell' })}
+                  </td>
+                  <td>{t({ id: 'priest.holy.holyWordCDR.base', message: 'Base' })}</td>
                   {this.apotheosisActive && (
                     <th>
                       <SpellIcon spell={TALENTS.APOTHEOSIS_TALENT} />
@@ -166,8 +173,8 @@ class HolyWordCDRBySpell extends Analyzer {
                       <SpellIcon spell={TALENTS.VOICE_OF_HARMONY_TALENT} />
                     </th>
                   )}
-                  <th> Total Used</th>
-                  <th> Wasted</th>
+                  <th>{t({ id: 'priest.holy.holyWordCDR.totalUsed', message: 'Total Used' })}</th>
+                  <th>{t({ id: 'priest.holy.holyWordCDR.wasted', message: 'Wasted' })}</th>
                 </tr>
               </thead>
               <tbody>
@@ -201,7 +208,10 @@ class HolyWordCDRBySpell extends Analyzer {
         }
       >
         <BoringSpellValueText spell={SPELLS.SERENDIPITY}>
-          Total holy word CDR from all sources.
+          {t({
+            id: 'priest.holy.holyWordCDR.total',
+            message: 'Total holy word CDR from all sources.',
+          })}
         </BoringSpellValueText>
       </Statistic>
     );

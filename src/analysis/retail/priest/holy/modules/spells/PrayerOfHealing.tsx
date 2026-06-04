@@ -8,6 +8,8 @@ import { getPrayerOfHealingEvents } from '../../normalizers/CastLinkNormalizer';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { ChecklistUsageInfo, SpellUse } from 'parser/core/SpellUsage/core';
 import ContextualSpellUsageSubSection from 'parser/core/SpellUsage/HideGoodCastsSpellUsageSubSection';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import styles from '../Styling.module.scss';
 
 class PrayerOfHealing extends Analyzer {
@@ -128,8 +130,8 @@ class PrayerOfHealing extends Analyzer {
       checklistItems,
       performanceExplanation:
         overallPerformance === QualitativePerformance.Fail
-          ? 'Bad Usage'
-          : `${overallPerformance} Usage`,
+          ? defineMessage({ id: 'priest.holy.prayerOfHealing.badUsage', message: 'Bad Usage' })
+          : `${overallPerformance} ` + defineMessage({ id: 'priest.holy.usageSuffix', message: 'Usage' }),
     };
 
     this.spellUses.push(spellUse);
@@ -191,7 +193,8 @@ class PrayerOfHealing extends Analyzer {
   ): ChecklistUsageInfo {
     const summary = (
       <div>
-        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff applied
+        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+        {t({ id: 'priest.holy.prayerOfHealing.surgeBuffApplied', message: 'buff applied' })}
       </div>
     );
 
@@ -203,14 +206,16 @@ class PrayerOfHealing extends Analyzer {
         performance = QualitativePerformance.Perfect;
         details = (
           <div>
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff was applied.
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+            {t({ id: 'priest.holy.prayerOfHealing.surgeWasApplied', message: 'buff was applied.' })}
           </div>
         );
       } else {
         performance = QualitativePerformance.Ok;
         details = (
           <div>
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff was applied.
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+            {t({ id: 'priest.holy.prayerOfHealing.surgeWasApplied', message: 'buff was applied.' })}
           </div>
         );
       }
@@ -219,16 +224,22 @@ class PrayerOfHealing extends Analyzer {
         performance = QualitativePerformance.Ok;
         details = (
           <div>
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff wasn't applied. Consider using
-            it for free casts.
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+            {t({
+              id: 'priest.holy.prayerOfHealing.surgeNotApplied',
+              message: "buff wasn't applied. Consider using it for free casts.",
+            })}
           </div>
         );
       } else {
         performance = QualitativePerformance.Fail;
         details = (
           <div>
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff wasn't applied. Consider using
-            it for free casts.
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+            {t({
+              id: 'priest.holy.prayerOfHealing.surgeNotApplied',
+              message: "buff wasn't applied. Consider using it for free casts.",
+            })}
           </div>
         );
       }
@@ -246,19 +257,24 @@ class PrayerOfHealing extends Analyzer {
   private getSurgeOnlyChecklistItem(event: CastEvent, hasSurgeBuff: boolean): ChecklistUsageInfo {
     const summary = (
       <div>
-        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff applied
+        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+        {t({ id: 'priest.holy.prayerOfHealing.surgeBuffApplied', message: 'buff applied' })}
       </div>
     );
 
     const performance = hasSurgeBuff ? QualitativePerformance.Good : QualitativePerformance.Fail;
     const details = hasSurgeBuff ? (
       <div>
-        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff was applied.
+        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+        {t({ id: 'priest.holy.prayerOfHealing.surgeWasApplied', message: 'buff was applied.' })}
       </div>
     ) : (
       <div>
-        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> buff wasn't applied. Consider using it
-        for free casts.
+        <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+        {t({
+          id: 'priest.holy.prayerOfHealing.surgeNotApplied',
+          message: "buff wasn't applied. Consider using it for free casts.",
+        })}
       </div>
     );
 
@@ -310,23 +326,27 @@ class PrayerOfHealing extends Analyzer {
         <strong>
           <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} />
         </strong>{' '}
-        is your primary healing tool. It provides substantial burst healing on its own and is the
-        most efficient way to reduce the cooldown of{' '}
-        <SpellLink spell={TALENTS.HOLY_WORD_SANCTIFY_TALENT} />.
+        <Trans id="priest.holy.prayerOfHealing.description">
+          is your primary healing tool. It provides substantial burst healing on its own and is the
+          most efficient way to reduce the cooldown of{' '}
+          <SpellLink spell={TALENTS.HOLY_WORD_SANCTIFY_TALENT} />.
+        </Trans>
         {this.hasLightweaverTalent && (
           <>
             {' '}
-            Try to cast it when you have stacks of <SpellLink
-              spell={TALENTS.LIGHTWEAVER_TALENT}
-            />{' '}
-            to reduce cast time and mana cost.
+            <Trans id="priest.holy.prayerOfHealing.lightweaverTip">
+              Try to cast it when you have stacks of{' '}
+              <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> to reduce cast time and mana cost.
+            </Trans>
           </>
         )}
         {this.hasSurgeTalent && this.hasSpiritwellTalent && (
           <p>
-            If talented into <SpellLink spell={TALENTS.SPIRITWELL_TALENT} />, you can cast{' '}
-            <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> when you have stacks of{' '}
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />.
+            <Trans id="priest.holy.prayerOfHealing.surgeTip">
+              If talented into <SpellLink spell={TALENTS.SPIRITWELL_TALENT} />, you can cast{' '}
+              <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> when you have stacks of{' '}
+              <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />.
+            </Trans>
           </p>
         )}
       </section>
@@ -360,71 +380,74 @@ class PrayerOfHealing extends Analyzer {
     switch (scenario) {
       case 'lightweaver-both':
         castBreakdownSmallText = (
-          <>
+          <Trans id="priest.holy.prayerOfHealing.castLegendPerfect">
             {' '}
-            - <span className={styles.perfectCast}>Blue</span> is a perfect cast with{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> active.{' '}
-            <span className={styles.goodCast}>Green</span> is a good cast with{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> active.{' '}
-            <span className={styles.okCast}>Yellow</span> is an OK cast with{' '}
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> or{' '}
-            <SpellLink spell={TALENTS.DIVINITY_TALENT} /> active without{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />.{' '}
-            <span className={styles.badCast}>Red</span> is a bad cast with no buffs active.
-          </>
+            - <span className={styles.perfectCast}>蓝色</span>表示完美施放（
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />和
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />
+            均激活）。 <span className={styles.goodCast}>绿色</span>表示良好施放（
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
+            激活）。 <span className={styles.okCast}>黄色</span>表示一般施放（
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />或
+            <SpellLink spell={TALENTS.DIVINITY_TALENT} />
+            激活，但无
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
+            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。
+          </Trans>
         );
         break;
       case 'lightweaver-surge':
         castBreakdownSmallText = (
-          <>
+          <Trans id="priest.holy.prayerOfHealing.castLegendPerfect">
             {' '}
-            - <span className={styles.perfectCast}>Blue</span> is a perfect cast with{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> active.{' '}
-            <span className={styles.goodCast}>Green</span> is a good cast with{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> active.{' '}
-            <span className={styles.okCast}>Yellow</span> is an OK cast with{' '}
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> active without{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />.{' '}
-            <span className={styles.badCast}>Red</span> is a bad cast with no buffs active.
-          </>
+            - <span className={styles.perfectCast}>蓝色</span>表示完美施放（
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />和
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />
+            均激活）。 <span className={styles.goodCast}>绿色</span>表示良好施放（
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
+            激活）。 <span className={styles.okCast}>黄色</span>表示一般施放（
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />
+            激活，但无
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
+            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。
+          </Trans>
         );
         break;
       case 'lightweaver-divinity':
         castBreakdownSmallText = (
-          <>
+          <Trans id="priest.holy.prayerOfHealing.castLegendGood">
             {' '}
-            <span className={styles.goodCast}>Green</span> is a good cast with{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> active.{' '}
-            <span className={styles.okCast}>Yellow</span> is an OK cast with{' '}
-            <SpellLink spell={TALENTS.DIVINITY_TALENT} /> active without{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />.{' '}
-            <span className={styles.badCast}>Red</span> is a bad cast with no buffs active.
-          </>
+            <span className={styles.goodCast}>绿色</span>表示良好施放（
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
+            激活）。 <span className={styles.okCast}>黄色</span>表示一般施放（
+            <SpellLink spell={TALENTS.DIVINITY_TALENT} />
+            激活，但无
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
+            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。
+          </Trans>
         );
         break;
       case 'lightweaver-only':
         castBreakdownSmallText = (
-          <>
+          <Trans id="priest.holy.prayerOfHealing.castLegendSimple">
             {' '}
-            - <span className={styles.goodCast}>Green</span> is a good cast with{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> active.{' '}
-            <span className={styles.badCast}>Red</span> is a bad cast without it.
-          </>
+            - <span className={styles.goodCast}>绿色</span>表示良好施放（
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
+            激活）。 <span className={styles.badCast}>红色</span>表示无增益的不良施放。
+          </Trans>
         );
         break;
       case 'surge-divinity':
       case 'surge-only':
       case 'divinity-only':
         castBreakdownSmallText = (
-          <>
+          <Trans id="priest.holy.prayerOfHealing.castLegendBuff">
             {' '}
-            - <span className={styles.goodCast}>Green</span> is a good cast with{' '}
-            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} /> or{' '}
-            <SpellLink spell={TALENTS.DIVINITY_TALENT} /> active.{' '}
-            <span className={styles.badCast}>Red</span> is a bad cast without it.
-          </>
+            - <span className={styles.goodCast}>绿色</span>表示良好施放（
+            <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />或
+            <SpellLink spell={TALENTS.DIVINITY_TALENT} />
+            激活）。 <span className={styles.badCast}>红色</span>表示无增益的不良施放。
+          </Trans>
         );
         break;
       default:
@@ -434,7 +457,10 @@ class PrayerOfHealing extends Analyzer {
 
     return (
       <ContextualSpellUsageSubSection
-        title="Prayer of Healing"
+        title={t({
+          id: 'priest.holy.prayerOfHealing.title',
+          message: 'Prayer of Healing',
+        })}
         explanation={explanation}
         uses={this.spellUses}
         castBreakdownSmallText={castBreakdownSmallText}

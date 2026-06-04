@@ -12,6 +12,8 @@ import { getHeal } from '../../../normalizers/CastLinkNormalizer';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../../Guide';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { LW_CAST_TIME_DECREASE } from '../../../constants';
 import EOLAttrib from '../../core/EchoOfLightAttributor';
 import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
@@ -85,39 +87,53 @@ class Lightweaver extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
         </b>{' '}
-        increases healing of <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> and reduces its
-        mana cost. Try to cast <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> more often to
-        consume <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> stacks and save mana in situations
-        when at least three party members are injured.
+        <Trans id="priest.holy.lightweaver.description">
+          increases healing of <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> and reduces
+          its mana cost. Try to cast <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> more
+          often to consume <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> stacks and save mana in
+          situations when at least three party members are injured.
+        </Trans>
       </p>
     );
 
     const goodFlashHeals = {
       count: this.goodFlashHeals,
-      label: 'Good Flash Heal casts',
+      label: defineMessage({
+        id: 'priest.holy.lightweaver.label.goodFlashHeals',
+        message: 'Good Flash Heal casts',
+      }),
     };
 
     const surgeFlashHeals = {
       count: this.surgeOfLightFlashHealCasts,
-      label: 'Surge of Light Flash Heal casts',
+      label: defineMessage({
+        id: 'priest.holy.lightweaver.label.surgeFlashHeals',
+        message: 'Surge of Light Flash Heal casts',
+      }),
     };
 
     const wastedFlashHeals = {
       count: this.wastedBuffFlashHealCasts,
-      label: 'Flash Heal casts with four stacks of Lightweaver already',
+      label: defineMessage({
+        id: 'priest.holy.lightweaver.label.wastedFlashHeals',
+        message: 'Flash Heal casts with four stacks of Lightweaver already',
+      }),
     };
 
     const data = (
       <div>
         <strong>
-          <SpellLink spell={SPELLS.FLASH_HEAL} /> cast breakdown
+          <SpellLink spell={SPELLS.FLASH_HEAL} />{' '}
+          <Trans id="priest.holy.lightweaver.castBreakdown">cast breakdown</Trans>
         </strong>
         <small>
           {' '}
-          – <span className={styles.goodCast}>Green</span> is a good cast.{' '}
-          <span className={styles.okCast}>Yellow</span> is a cast with Surge of Light buff.{' '}
-          <span className={styles.badCast}>Red</span> is a cast with four stacks of{' '}
-          <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> already active.
+          <Trans id="priest.holy.lightweaver.castBreakdownLegend">
+            – <span className={styles.goodCast}>Green</span> is a good cast.{' '}
+            <span className={styles.okCast}>Yellow</span> is a cast with Surge of Light buff.{' '}
+            <span className={styles.badCast}>Red</span> is a cast with four stacks of{' '}
+            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> already active.
+          </Trans>
         </small>
         <GradiatedPerformanceBar
           good={goodFlashHeals}
