@@ -3,6 +3,7 @@ import { Tooltip } from 'interface';
 import { qualitativePerformanceToColor } from 'interface/guide';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import type Spell from 'common/SPELLS/Spell';
+import { useSpellInfo } from 'interface';
 import {
   StatsGrid,
   StatCard,
@@ -33,9 +34,11 @@ export default function CastOverview({
   stats,
   additionalContent,
 }: CastOverviewProps) {
+  const spellInfo = useSpellInfo(spell);
+  const spellName = spellInfo?.name ?? spell.name;
   return (
     <div style={{ marginBottom: '18px' }}>
-      <GuideDataWrapper bare title={title ?? `${spell.name} Overview`}>
+      <GuideDataWrapper bare title={title ?? `${spellName} Overview`}>
         <StatsGrid>
           {stats.map((stat, index) => {
             const color = stat.performance

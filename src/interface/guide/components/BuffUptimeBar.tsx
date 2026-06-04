@@ -2,6 +2,7 @@ import { ReactNode, type JSX } from 'react';
 import styled from '@emotion/styled';
 import Spell from 'common/SPELLS/Spell';
 import { Tooltip } from 'interface';
+import { useSpellInfo } from 'interface';
 import { formatPercentage } from 'common/format';
 import { TrackedBuffEvent } from 'parser/core/Entity';
 import GuideDataWrapper, { StatsRow, StatCard } from './GuideDataWrapper';
@@ -162,6 +163,8 @@ export default function BuffUptimeBar({
   maxStacks,
   averageStacksTooltip,
 }: BuffUptimeBarProps): JSX.Element {
+  const spellInfo = useSpellInfo(spell);
+  const spellName = spellInfo?.name ?? spell.name;
   // Calculate uptime percent - sum all buff windows
   const fightDuration = endTime - startTime;
   const uptimeMs = buffHistory.reduce((sum, entry) => {
@@ -228,7 +231,7 @@ export default function BuffUptimeBar({
   );
 
   return (
-    <GuideDataWrapper title={`${spell.name} 增益覆盖率`} subtitle="时间轴" stats={statsContent}>
+    <GuideDataWrapper title={`${spellName} 增益覆盖率`} subtitle="时间轴" stats={statsContent}>
       <TimelineContainer>
         <UptimeGraphContainer>
           <UptimeGraph

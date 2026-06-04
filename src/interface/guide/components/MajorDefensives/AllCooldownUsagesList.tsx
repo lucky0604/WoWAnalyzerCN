@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { formatNumber } from 'common/format';
 import { color } from 'game/MAGIC_SCHOOLS';
-import { TooltipElement } from 'interface';
+import { TooltipElement, useSpellInfo } from 'interface';
 import { BadColor, OkColor, PerformanceMark, SubSection, useAnalyzer } from 'interface/guide';
 import {
   damageBreakdown,
@@ -38,7 +38,8 @@ const PossibleMissingCastBoxEntry = {
   value: QualitativePerformance.Ok,
   tooltip: (
     <PerformanceUsageRow>
-      <PerformanceMark perf={QualitativePerformance.Ok} /> 潜在施法未使用，但可能是有意保留以应对机制。
+      <PerformanceMark perf={QualitativePerformance.Ok} />{' '}
+      潜在施法未使用，但可能是有意保留以应对机制。
     </PerformanceUsageRow>
   ),
 };
@@ -286,6 +287,8 @@ const CooldownUsage = <Apply extends EventType, Remove extends EventType>({
   cooldownDetails: ComponentType<CooldownDetailsProps<Apply, Remove>>;
   showTitles?: boolean;
 }) => {
+  const spellInfo = useSpellInfo(analyzer.spell);
+  const spellName = spellInfo?.name ?? analyzer.spell.name;
   const [selectedMit, setSelectedMit] = useState<number | undefined>();
   const castEfficiency = useAnalyzer(CastEfficiency)?.getCastEfficiencyForSpell(analyzer.spell);
   const possibleUses = castEfficiency?.maxCasts ?? 0;
@@ -325,7 +328,7 @@ const CooldownUsage = <Apply extends EventType, Remove extends EventType>({
   );
 
   return (
-    <SubSection title={showTitles ? analyzer.spell.name : undefined}>
+    <SubSection title={showTitles ? spellName : undefined}>
       <ExplanationRow>
         <Explanation>{analyzer.description()}</Explanation>
         <CooldownUsageDetailsContainer>

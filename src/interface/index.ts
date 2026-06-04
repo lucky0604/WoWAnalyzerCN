@@ -1,6 +1,7 @@
 export { default as Icon } from './Icon';
 export { default as SpellLink } from './SpellLink';
 export { default as SpellIcon } from './SpellIcon';
+export { default as useSpellInfo } from './useSpellInfo';
 export { default as ItemLink } from './ItemLink';
 export { default as ItemIcon } from './ItemIcon';
 export { default as ResourceLink } from './ResourceLink';

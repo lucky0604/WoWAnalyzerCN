@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { Tooltip } from 'interface';
 import { qualitativePerformanceToColor } from 'interface/guide';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { useSpellInfo } from 'interface';
 import GuideDataWrapper, { HelperText, HelperTextRow, SectionContainer } from './GuideDataWrapper';
 
 export interface CastInSequence {
@@ -90,6 +91,8 @@ export default function CastSequence<T>({
   iconSize = 40,
 }: CastSequenceProps<T>) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const spellInfo = useSpellInfo(spell);
+  const spellName = spellInfo?.name ?? spell.name;
 
   const handlePrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : sequences.length - 1));
@@ -150,7 +153,7 @@ export default function CastSequence<T>({
   ) : undefined;
 
   return (
-    <GuideDataWrapper title={`${spell.name} 施法序列`} subtitle={subtitle} stats={navContent}>
+    <GuideDataWrapper title={`${spellName} 施法序列`} subtitle={subtitle} stats={navContent}>
       {inlineHelperText}
       <SectionContainer>
         <SpellSequence casts={currentSequence.casts} iconSize={iconSize} />

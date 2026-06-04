@@ -9,6 +9,7 @@ import GradiatedPerformanceBar from './GradiatedPerformanceBar';
 import GuideTooltip from './GuideTooltip';
 import { BoxRowEntry, PerformanceBoxRow } from './PerformanceBoxRow';
 import { qualitativePerformanceToColor } from 'interface/guide';
+import { useSpellInfo } from 'interface';
 import GuideDataWrapper, {
   FilterBadge,
   HelperText,
@@ -65,6 +66,8 @@ export default function CastSummary({
   startExpanded = false,
 }: CastSummaryProps): JSX.Element {
   const { fight } = useFight();
+  const spellInfo = useSpellInfo(spell);
+  const spellName = spellInfo?.name ?? spell.name;
   const formatTimestamp = (timestamp: number) => formatDuration(timestamp - fight.start_time);
   const [isExpanded, setIsExpanded] = useState(startExpanded);
 
@@ -72,7 +75,7 @@ export default function CastSummary({
   if (!casts || casts.length === 0) {
     return (
       <div>
-        <strong>没有记录到 {spell.name} 的施法。</strong>
+        <strong>没有记录到 {spellName} 的施法。</strong>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         <small>请确保你在使用此技能（若该技能对你可用且你已点出相关天赋）。</small>
@@ -136,7 +139,7 @@ export default function CastSummary({
   return (
     <GuideDataWrapper
       bare
-      title={title ?? `${spell.name} Casts`}
+      title={title ?? `${spellName} Casts`}
       subtitle="Performance"
       stats={statsContent}
     >

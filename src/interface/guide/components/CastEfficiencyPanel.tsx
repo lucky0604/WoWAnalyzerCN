@@ -3,7 +3,7 @@ import { CooldownBar, GapHighlight } from 'parser/ui/CooldownBar';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import { formatPercentage } from 'common/format';
 import Spell from 'common/SPELLS/Spell';
-import { SpellLink } from 'interface/index';
+import { SpellLink, useSpellInfo } from 'interface/index';
 import { BadColor, GoodColor, MediocreColor, OkColor, useAnalyzer } from 'interface/guide/index';
 import Abilities from 'parser/core/modules/Abilities';
 
@@ -23,7 +23,8 @@ export default function CastEfficiencyPanel({
   useSpellLink?: boolean;
   useThresholds?: boolean;
 }) {
-  const spellName = useSpellLink ? <SpellLink spell={spell} /> : spell.name;
+  const spellInfo = useSpellInfo(spell);
+  const spellName = useSpellLink ? <SpellLink spell={spell} /> : (spellInfo?.name ?? spell.name);
   return (
     <RoundedPanel>
       <div>
@@ -73,8 +74,8 @@ export function CastEfficiencyStatElement({
           <span style={{ color: textColor, fontSize: 16 }}>
             <strong>{formatPercentage(castEfficObj.efficiency || 0, 0)}%</strong>
           </span>{' '}
-          施法效率（<strong>{castEfficObj.casts}</strong> /{' '}
-          <strong>{castEfficObj.maxCasts}</strong> 次可用施法）
+          施法效率（<strong>{castEfficObj.casts}</strong> / <strong>{castEfficObj.maxCasts}</strong>{' '}
+          次可用施法）
         </>
       )}
     </>
