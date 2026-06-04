@@ -11,6 +11,7 @@ import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
 import Combatants from 'parser/shared/modules/Combatants';
 import { Options } from 'parser/core/EventSubscriber';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
+import { t } from '@lingui/core/macro';
 
 class GuardianSpirit extends Analyzer {
   static dependencies = {
@@ -92,7 +93,10 @@ class GuardianSpirit extends Analyzer {
         loader={this.load.bind(this)}
         icon={<SpellIcon spell={TALENTS.GUARDIAN_SPIRIT_TALENT} />}
         value={<ItemPercentHealingDone amount={this.totalHealingFromGSBuff} />}
-        label="Guardian Spirit Contribution"
+        label={t({
+          id: 'priest.holy.guardianSpirit.contribution',
+          message: 'Guardian Spirit Contribution',
+        })}
         tooltip={
           <>
             <div>

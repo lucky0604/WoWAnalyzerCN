@@ -25,6 +25,7 @@ import {
   getHealFromSurge,
   isSurgeOfLightFromHalo,
 } from '../../../normalizers/CastLinkNormalizer';
+import { t } from '@lingui/core/macro';
 
 /**
  * Manifested Power (Archon)
@@ -120,21 +121,42 @@ class ManifestedPowerHoly extends Analyzer {
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
           <>
-            <SpellLink spell={PRIEST_TALENTS.SURGE_OF_LIGHT_TALENT} /> procs and usage from{' '}
-            <b>all</b>
-            sources:
+            <SpellLink spell={PRIEST_TALENTS.SURGE_OF_LIGHT_TALENT} />{' '}
+            {t({
+              id: 'priest.holy.manifestedPower.tooltip.procsAndUsage',
+              message: 'procs and usage from',
+            })}{' '}
+            <b>
+              {t({
+                id: 'priest.holy.manifestedPower.tooltip.all',
+                message: 'all',
+              })}
+            </b>
+            {t({
+              id: 'priest.holy.manifestedPower.tooltip.sources',
+              message: 'sources:',
+            })}
             <ul>
               <div>
                 {formatNumber(this.surgeOfLightProcsGainedTotal)}
-                {' gained total'}
+                {t({
+                  id: 'priest.holy.manifestedPower.tooltip.gainedTotal',
+                  message: ' gained total',
+                })}
               </div>
               <div>
                 {formatNumber(this.surgeOfLightProcsSpent)}
-                {' spent total'}
+                {t({
+                  id: 'priest.holy.manifestedPower.tooltip.spentTotal',
+                  message: ' spent total',
+                })}
               </div>
               <div>
                 {formatNumber(this.surgeOfLightProcsOverwritten)}
-                {' overwritten'}
+                {t({
+                  id: 'priest.holy.manifestedPower.tooltip.overwritten',
+                  message: ' overwritten',
+                })}
               </div>
             </ul>
           </>
@@ -145,14 +167,22 @@ class ManifestedPowerHoly extends Analyzer {
             {this.surgeOfLightProcsGainedFromHalo}
             <small>
               {' '}
-              procs gained from <SpellLink spell={PRIEST_TALENTS.HALO_HOLY_TALENT} />
+              {t({
+                id: 'priest.holy.manifestedPower.procsGained',
+                message: 'procs gained from',
+              })}{' '}
+              <SpellLink spell={PRIEST_TALENTS.HALO_HOLY_TALENT} />
             </small>{' '}
           </div>
           <div>
             {this.surgeOfLightProcsOverwrittenByHalo}
             <small>
               {' '}
-              overwritten procs from <SpellLink spell={PRIEST_TALENTS.HALO_HOLY_TALENT} />
+              {t({
+                id: 'priest.holy.manifestedPower.procsOverwritten',
+                message: 'overwritten procs from',
+              })}{' '}
+              <SpellLink spell={PRIEST_TALENTS.HALO_HOLY_TALENT} />
             </small>
           </div>
         </BoringSpellValueText>

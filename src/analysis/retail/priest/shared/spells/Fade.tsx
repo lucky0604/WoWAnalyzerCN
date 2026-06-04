@@ -13,6 +13,8 @@ import Events, { DamageEvent, EventType } from 'parser/core/Events';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const TRANSLUCENT_IMAGE_DAMAGE_REDUCTION = 0.1;
 const PERFECT_MITIGATION_HP_FRACTION = 0.1;
@@ -53,33 +55,47 @@ class Fade extends MajorDefensiveBuff {
     if (mit.amount >= this.firstSeenMaxHp * PERFECT_MITIGATION_HP_FRACTION) {
       return {
         perf: QualitativePerformance.Perfect,
-        explanation: `Usage mitigated over ${perfectPct}% of your max HP in damage`,
+        explanation: defineMessage({
+          id: 'priest.holy.fade.perfPerfect',
+          message: `Usage mitigated over ${perfectPct}% of your max HP in damage`,
+        }),
       };
     }
     if (mit.amount >= this.firstSeenMaxHp * GOOD_MITIGATION_HP_FRACTION) {
       return {
         perf: QualitativePerformance.Good,
-        explanation: `Usage mitigated ${goodPct}-${perfectPct}% of your max HP in damage`,
+        explanation: defineMessage({
+          id: 'priest.holy.fade.perfGood',
+          message: `Usage mitigated ${goodPct}-${perfectPct}% of your max HP in damage`,
+        }),
       };
     }
     if (mit.amount >= this.firstSeenMaxHp * OK_MITIGATION_HP_FRACTION) {
       return {
         perf: QualitativePerformance.Ok,
-        explanation: `Usage mitigated ${okPct}-${goodPct}% of your max HP in damage`,
+        explanation: defineMessage({
+          id: 'priest.holy.fade.perfOk',
+          message: `Usage mitigated ${okPct}-${goodPct}% of your max HP in damage`,
+        }),
       };
     }
     return {
       perf: QualitativePerformance.Fail,
-      explanation: `Usage mitigated less than ${okPct}% of your max HP in damage - wasted cast`,
+      explanation: defineMessage({
+        id: 'priest.holy.fade.perfFail',
+        message: `Usage mitigated less than ${okPct}% of your max HP in damage - wasted cast`,
+      }),
     };
   }
 
   description(): ReactNode {
     return (
       <p>
-        With <SpellLink spell={TALENTS.TRANSLUCENT_IMAGE_TALENT} />,{' '}
-        <SpellLink spell={TALENTS.FADE_TALENT} /> reduces the damage you take by{' '}
-        {formatPercentage(TRANSLUCENT_IMAGE_DAMAGE_REDUCTION, 0)}% for its duration.
+        <Trans id="priest.holy.fade.description">
+          With <SpellLink spell={TALENTS.TRANSLUCENT_IMAGE_TALENT} />,{' '}
+          <SpellLink spell={TALENTS.FADE_TALENT} /> reduces the damage you take by{' '}
+          {formatPercentage(TRANSLUCENT_IMAGE_DAMAGE_REDUCTION, 0)}% for its duration.
+        </Trans>
       </p>
     );
   }

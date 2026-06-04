@@ -13,6 +13,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
+import { t } from '@lingui/core/macro';
 
 const BUFFER = 100; // ms between the two cast events
 
@@ -83,7 +84,8 @@ class TwinsOfTheSunPriestess extends Analyzer {
         size="flexible"
       >
         <BoringSpellValueText spell={TALENTS.TWINS_OF_THE_SUN_PRIESTESS_TALENT}>
-          {formatNumber(this.goodCasts)}/{formatNumber(this.totalCasts)} Uses
+          {formatNumber(this.goodCasts)}/{formatNumber(this.totalCasts)}{' '}
+          {t({ id: 'priest.shared.twinsOfTheSunPriestess.uses', message: 'Uses' })}
         </BoringSpellValueText>
       </Statistic>
     );
@@ -92,12 +94,12 @@ class TwinsOfTheSunPriestess extends Analyzer {
   get guideSubsection(): JSX.Element {
     const allyPI = {
       count: this.goodCasts,
-      label: 'Ally Casts',
+      label: defineMessage({ id: 'priest.shared.twinsOfTheSunPriestess.allyCasts', message: 'Ally Casts' }),
     };
 
     const selfPI = {
       count: this.badCasts,
-      label: 'Self Casts',
+      label: defineMessage({ id: 'priest.shared.twinsOfTheSunPriestess.selfCasts', message: 'Self Casts' }),
     };
 
     const explanation = (
@@ -106,19 +108,39 @@ class TwinsOfTheSunPriestess extends Analyzer {
           <b>
             <SpellLink spell={TALENTS.TWINS_OF_THE_SUN_PRIESTESS_TALENT} />
           </b>{' '}
-          gives you <SpellLink spell={TALENTS.POWER_INFUSION_TALENT} /> when used on an ally.
+          {t({
+            id: 'priest.shared.twinsOfTheSunPriestess.description1a',
+            message: 'gives you',
+          })}{' '}
+          <SpellLink spell={TALENTS.POWER_INFUSION_TALENT} />{' '}
+          {t({
+            id: 'priest.shared.twinsOfTheSunPriestess.description1b',
+            message: 'when used on an ally.',
+          })}
         </p>
         <p>
-          When taking this talent, make sure to always use it on an ally. By using it on yourself,
-          you lose out on a free <SpellLink spell={TALENTS.POWER_INFUSION_TALENT} /> for a raid
-          member.
+          {t({
+            id: 'priest.shared.twinsOfTheSunPriestess.description2a',
+            message:
+              'When taking this talent, make sure to always use it on an ally. By using it on yourself, you lose out on a free',
+          })}{' '}
+          <SpellLink spell={TALENTS.POWER_INFUSION_TALENT} />{' '}
+          {t({
+            id: 'priest.shared.twinsOfTheSunPriestess.description2b',
+            message: 'for a raid member.',
+          })}
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Power Infusion Casts</strong>
+        <strong>
+          {t({
+            id: 'priest.shared.twinsOfTheSunPriestess.powerInfusionCasts',
+            message: 'Power Infusion Casts',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={allyPI} bad={selfPI} />
       </div>
     );

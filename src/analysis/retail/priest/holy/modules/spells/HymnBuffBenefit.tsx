@@ -15,6 +15,7 @@ import { BASE_DIVINE_HYMN_HEALING_INCREASE_PER_STACK } from '../../constants';
 import Combatants from 'parser/shared/modules/Combatants';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
 import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
+import { t } from '@lingui/core/macro';
 
 class HymnBuffBenefit extends Analyzer {
   totalHealingFromHymnBuffPerStack = [0, 0, 0, 0, 0];
@@ -146,7 +147,10 @@ class HymnBuffBenefit extends Analyzer {
         loader={this.load.bind(this)}
         icon={<SpellIcon spell={TALENTS.DIVINE_HYMN_TALENT} />}
         value={<ItemPercentHealingDone amount={this.totalHealingFromHymnBuff} />}
-        label="Hymn Buff Contribution"
+        label={t({
+          id: 'priest.holy.hymnBuff.contribution',
+          message: 'Hymn Buff Contribution',
+        })}
         tooltip={
           <>
             <div>

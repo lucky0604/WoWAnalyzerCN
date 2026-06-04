@@ -7,6 +7,7 @@ import {
 } from 'parser/core/healingEfficiency/HealingEfficiencyBreakdown';
 import { useState } from 'react';
 import Toggle from 'interface/react-toggle';
+import { t } from '@lingui/core/macro';
 
 import HolyPriestHealingEfficiencyTracker from './HolyPriestHealingEfficiencyTracker';
 
@@ -36,7 +37,7 @@ const HolyPriestHealingEfficiencyBreakdown = ({ tracker }: Props) => {
                 id="detailed-toggle"
               />
               <label htmlFor="detailed-toggle" style={{ marginLeft: '0.5em' }}>
-                Detailed View
+                {t({ id: 'priest.holy.manaEfficiency.detailedView', message: 'Detailed View' })}
               </label>
             </div>
           </div>
@@ -55,7 +56,8 @@ const HolyPriestHealingEfficiencyBreakdown = ({ tracker }: Props) => {
                 id="echo-of-light-toggle"
               />
               <label htmlFor="echo-of-light-toggle" style={{ marginLeft: '0.5em' }}>
-                Include <SpellLink spell={SPELLS.ECHO_OF_LIGHT_MASTERY} />
+                {t({ id: 'priest.holy.manaEfficiency.include', message: 'Include' })}{' '}
+                <SpellLink spell={SPELLS.ECHO_OF_LIGHT_MASTERY} />
               </label>
             </div>
             <div
@@ -69,7 +71,7 @@ const HolyPriestHealingEfficiencyBreakdown = ({ tracker }: Props) => {
                 id="cooldown-toggle"
               />
               <label htmlFor="cooldown-toggle" style={{ marginLeft: '0.5em' }}>
-                Show Cooldowns
+                {t({ id: 'priest.holy.manaEfficiency.showCooldowns', message: 'Show Cooldowns' })}
               </label>
             </div>
             <div
@@ -77,7 +79,7 @@ const HolyPriestHealingEfficiencyBreakdown = ({ tracker }: Props) => {
               style={{ marginLeft: '.5em', marginRight: '.5em' }}
             >
               <label htmlFor="healing-toggle" style={{ marginLeft: '0.5em', marginRight: '1em' }}>
-                Show Damage
+                {t({ id: 'priest.holy.manaEfficiency.showDamage', message: 'Show Damage' })}
               </label>
               <Toggle
                 defaultChecked
@@ -86,7 +88,7 @@ const HolyPriestHealingEfficiencyBreakdown = ({ tracker }: Props) => {
                 id="healing-toggle"
               />
               <label htmlFor="healing-toggle" style={{ marginLeft: '0.5em' }}>
-                Show Healing
+                {t({ id: 'priest.holy.manaEfficiency.showHealing', message: 'Show Healing' })}
               </label>
             </div>
           </div>
@@ -95,7 +97,7 @@ const HolyPriestHealingEfficiencyBreakdown = ({ tracker }: Props) => {
           <table className="data-table">
             <thead>
               <tr>
-                <th>Ability</th>
+                <th>{t({ id: 'priest.holy.manaEfficiency.ability', message: 'Ability' })}</th>
                 {detailedView ? (
                   <DetailHeader showHealing={showHealing} />
                 ) : (

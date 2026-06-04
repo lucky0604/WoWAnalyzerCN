@@ -15,6 +15,7 @@ import { GUIDE_CORE_EXPLANATION_PERCENT } from 'analysis/retail/priest/holy/Guid
 import { TALENTS_PRIEST } from 'common/TALENTS';
 import EOLAttrib from '../../core/EchoOfLightAttributor';
 import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * Halo
@@ -75,9 +76,11 @@ class Halo extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_PRIEST.HALO_HOLY_TALENT} />
         </b>{' '}
-        is a strong group heal on a medium length cooldown. You will want to cast this whenever the
-        majority of the raid is injured. However, do not hold on to this cooldown too long to not
-        miss any potential casts.
+        <Trans id="priest.holy.halo.description">
+          is a strong group heal on a medium length cooldown. You will want to cast this whenever
+          the majority of the raid is injured. However, do not hold on to this cooldown too long to
+          not miss any potential casts.
+        </Trans>
       </p>
     );
 

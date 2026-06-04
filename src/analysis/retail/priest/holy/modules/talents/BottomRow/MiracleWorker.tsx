@@ -8,6 +8,7 @@ import Abilities from 'parser/core/modules/Abilities';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 
 /**
  * Miracle Worker
@@ -68,8 +69,13 @@ class MiracleWorker extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            The estimated number of additional casts granted from having an second charge of{' '}
-            <SpellLink spell={TALENTS.HOLY_WORD_SERENITY_TALENT} /> and{' '}
+            {t({
+              id: 'priest.holy.miracleWorker.tooltip1',
+              message:
+                'The estimated number of additional casts granted from having a second charge of',
+            })}{' '}
+            <SpellLink spell={TALENTS.HOLY_WORD_SERENITY_TALENT} />{' '}
+            {t({ id: 'priest.holy.miracleWorker.tooltipAnd', message: 'and' })}{' '}
             <SpellLink spell={TALENTS.HOLY_WORD_SANCTIFY_TALENT} />.
           </>
         }
@@ -79,15 +85,19 @@ class MiracleWorker extends Analyzer {
           <>
             {extraSerenityCasts}{' '}
             <small>
-              extra <SpellLink spell={TALENTS.HOLY_WORD_SERENITY_TALENT} /> cast
+              {t({ id: 'priest.holy.miracleWorker.extraPrefix', message: 'extra' })}{' '}
+              <SpellLink spell={TALENTS.HOLY_WORD_SERENITY_TALENT} />{' '}
+              {t({ id: 'priest.holy.miracleWorker.castSuffix', message: 'cast' })}
               {extraSerenityCasts > 1 ? 's' : ''}.
             </small>
             {/* oxlint-disable-next-line @wowanalyzer/no-br */}
             <br />
             {extraSanctifyCasts}{' '}
             <small>
-              extra <SpellLink spell={TALENTS.HOLY_WORD_SANCTIFY_TALENT} /> cast
-              {extraSerenityCasts > 1 ? 's' : ''}.
+              {t({ id: 'priest.holy.miracleWorker.extraPrefix', message: 'extra' })}{' '}
+              <SpellLink spell={TALENTS.HOLY_WORD_SANCTIFY_TALENT} />{' '}
+              {t({ id: 'priest.holy.miracleWorker.castSuffix', message: 'cast' })}
+              {extraSanctifyCasts > 1 ? 's' : ''}.
             </small>
           </>
         </TalentSpellText>

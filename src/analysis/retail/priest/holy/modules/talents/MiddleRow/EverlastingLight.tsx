@@ -9,6 +9,7 @@ import BoringValueText from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 const BASE_SURGE_PROC_CHANCE = 0.08;
 const MAX_ADDITIONAL_MULTIPLIER = 0.5;
@@ -85,10 +86,22 @@ class EverlastingLight extends Analyzer {
           }
         >
           <div>
-            {avgBonusPct}% <small>avg. increased proc chance</small>
+            {avgBonusPct}%{' '}
+            <small>
+              {t({
+                id: 'priest.holy.everlastingLight.avgProcChance',
+                message: 'avg. increased proc chance',
+              })}
+            </small>
           </div>
           <div>
-            ≈{extraProcs} <small>extra Surge procs</small>
+            ≈{extraProcs}{' '}
+            <small>
+              {t({
+                id: 'priest.holy.everlastingLight.extraSurgeProcs',
+                message: 'extra Surge procs',
+              })}
+            </small>
           </div>
         </BoringValueText>
       </Statistic>

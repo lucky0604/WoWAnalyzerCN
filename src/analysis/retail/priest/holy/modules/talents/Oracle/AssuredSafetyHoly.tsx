@@ -9,6 +9,8 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
 
+import { t } from '@lingui/core/macro';
+
 /**
  * Assured Safety (Oracle)
  * Holy: Casting Prayer of Mending applies Power Word: Shield to your target.
@@ -37,11 +39,19 @@ class AssuredSafetyHoly extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(99)}
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
-        tooltip="Total absorb from Power Word: Shield applied by this talent."
+        tooltip={t({
+          id: 'priest.holy.assuredSafety.tooltip',
+          message: 'Total absorb from Power Word: Shield applied by this talent.',
+        })}
       >
         <BoringSpellValueText spell={TALENTS_PRIEST.ASSURED_SAFETY_TALENT}>
           <ItemPercentHealingDone amount={this.totalAbsorb} />
-          <small>absorbed</small>
+          <small>
+            {t({
+              id: 'priest.holy.assuredSafety.absorbed',
+              message: 'absorbed',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

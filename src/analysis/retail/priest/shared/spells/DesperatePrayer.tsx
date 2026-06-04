@@ -22,6 +22,8 @@ import Events, { DamageEvent, EventType, HealEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 interface DesperatePrayerCast {
   timestamp: number;
@@ -164,24 +166,36 @@ class DesperatePrayer extends MajorDefensiveBuff.withDependencies({
     if (valueFraction >= PERFECT_VALUE_FRACTION) {
       return {
         perf: QualitativePerformance.Perfect,
-        explanation: 'Heal + temporary HP pool were nearly fully utilised',
+        explanation: defineMessage({
+          id: 'priest.holy.desperatePrayer.perfPerfect',
+          message: 'Heal + temporary HP pool were nearly fully utilised',
+        }),
       };
     }
     if (valueFraction >= GOOD_VALUE_FRACTION) {
       return {
         perf: QualitativePerformance.Good,
-        explanation: 'Most of the heal and/or temporary HP pool was consumed',
+        explanation: defineMessage({
+          id: 'priest.holy.desperatePrayer.perfGood',
+          message: 'Most of the heal and/or temporary HP pool was consumed',
+        }),
       };
     }
     if (valueFraction >= OK_VALUE_FRACTION) {
       return {
         perf: QualitativePerformance.Ok,
-        explanation: 'Some of the heal or temporary HP pool went unused',
+        explanation: defineMessage({
+          id: 'priest.holy.desperatePrayer.perfOk',
+          message: 'Some of the heal or temporary HP pool went unused',
+        }),
       };
     }
     return {
       perf: QualitativePerformance.Fail,
-      explanation: 'Cast mostly overhealed and the temporary HP pool was unused',
+      explanation: defineMessage({
+        id: 'priest.holy.desperatePrayer.perfFail',
+        message: 'Cast mostly overhealed and the temporary HP pool was unused',
+      }),
     };
   }
 
@@ -203,19 +217,25 @@ class DesperatePrayer extends MajorDefensiveBuff.withDependencies({
     return (
       <>
         <p>
-          <SpellLink spell={TALENTS.DESPERATE_PRAYER_TALENT} /> increases your maximum health by{' '}
-          {maxHpBonusPct}% for {duration} seconds and instantly heals you for that amount.
+          <Trans id="priest.holy.desperatePrayer.description">
+            <SpellLink spell={TALENTS.DESPERATE_PRAYER_TALENT} /> increases your maximum health by{' '}
+            {maxHpBonusPct}% for {duration} seconds and instantly heals you for that amount.
+          </Trans>
         </p>
         {this.hasLightsInspiration && (
           <p>
-            <SpellLink spell={TALENTS.LIGHTS_INSPIRATION_TALENT} /> boosts the max health increase
-            from 25% to 35%.
+            <Trans id="priest.holy.desperatePrayer.lightsInspiration">
+              <SpellLink spell={TALENTS.LIGHTS_INSPIRATION_TALENT} /> boosts the max health increase
+              from 25% to 35%.
+            </Trans>
           </p>
         )}
         {this.hasDesperateMeasures && (
           <p>
-            <SpellLink spell={TALENTS.DESPERATE_MEASURES_TALENT} /> extends the buff duration from
-            10 to 20 seconds.
+            <Trans id="priest.holy.desperatePrayer.desperateMeasures">
+              <SpellLink spell={TALENTS.DESPERATE_MEASURES_TALENT} /> extends the buff duration from
+              10 to 20 seconds.
+            </Trans>
           </p>
         )}
       </>
@@ -229,7 +249,10 @@ class DesperatePrayer extends MajorDefensiveBuff.withDependencies({
         category={STATISTIC_CATEGORY.GENERAL}
         tooltip={
           this.deathsWithDPReady > 0
-            ? `You died ${this.deathsWithDPReady} time${this.deathsWithDPReady === 1 ? '' : 's'} with Desperate Prayer ready.`
+            ? t({
+                id: 'priest.holy.desperatePrayer.deathWarning',
+                message: `You died ${this.deathsWithDPReady} time${this.deathsWithDPReady === 1 ? '' : 's'} with Desperate Prayer ready.`,
+              })
             : undefined
         }
       />
@@ -247,7 +270,11 @@ const CooldownDetails = ({ mit, dpCast }: { mit?: Mitigation; dpCast?: Desperate
   if (!mit || !dpCast) {
     return (
       <CooldownDetailsContainer>
-        <NoData>Click on a box in the cast breakdown to view details.</NoData>
+        <NoData>
+          <Trans id="priest.holy.desperatePrayer.clickToView">
+            Click on a box in the cast breakdown to view details.
+          </Trans>
+        </NoData>
       </CooldownDetailsContainer>
     );
   }
@@ -279,11 +306,21 @@ const CooldownDetails = ({ mit, dpCast }: { mit?: Mitigation; dpCast?: Desperate
         <tbody>
           <tr>
             <td colSpan={3}>
-              <strong>Usage info</strong>
+              <strong>
+                {t({
+                  id: 'priest.holy.desperatePrayer.usageInfo',
+                  message: 'Usage info',
+                })}
+              </strong>
             </td>
           </tr>
           <tr>
-            <td>HP + Heal</td>
+            <td>
+              {t({
+                id: 'priest.holy.desperatePrayer.hpPlusHeal',
+                message: 'HP + Heal',
+              })}
+            </td>
             <NumericColumn>
               {formatNumber(currentHp)}
               {dpCast.effectiveHeal > 0 && ` + ${formatNumber(dpCast.effectiveHeal)}`} (
@@ -326,7 +363,12 @@ const CooldownDetails = ({ mit, dpCast }: { mit?: Mitigation; dpCast?: Desperate
             </TableSegmentContainer>
           </tr>
           <tr>
-            <td>Extra HP absorbed</td>
+            <td>
+              {t({
+                id: 'priest.holy.desperatePrayer.extraHpAbsorbed',
+                message: 'Extra HP absorbed',
+              })}
+            </td>
             <NumericColumn>
               {formatNumber(dpCast.bonusHpUsed)} (
               {formatPercentage(

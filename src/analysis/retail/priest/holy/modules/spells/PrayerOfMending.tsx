@@ -11,6 +11,7 @@ import { SpellLink } from 'interface';
 import CastEfficiencyPanel from 'interface/guide/components/CastEfficiencyPanel';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from 'analysis/retail/priest/holy/Guide';
+import { Trans } from '@lingui/react/macro';
 
 class PrayerOfMending extends Analyzer {
   totalPoMHealing = 0;
@@ -101,9 +102,11 @@ class PrayerOfMending extends Analyzer {
         <b>
           <SpellLink spell={SPELLS.PRAYER_OF_MENDING_CAST} />
         </b>{' '}
-        is one of our most efficient spells and should be cast on cooldown. It is a heal that is
-        triggered on the target when they take damage, and then bounces to a new target. Because its
-        heal is triggered by damage, the active tank is a good target to cast this on.
+        <Trans id="priest.holy.prayerOfMending.description">
+          is one of our most efficient spells and should be cast on cooldown. It is a heal that is
+          triggered on the target when they take damage, and then bounces to a new target. Because
+          its heal is triggered by damage, the active tank is a good target to cast this on.
+        </Trans>
       </p>
     );
 

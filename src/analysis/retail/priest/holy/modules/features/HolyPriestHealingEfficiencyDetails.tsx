@@ -1,5 +1,6 @@
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
 
 import HealingEfficiencyBreakdown from './HolyPriestHealingEfficiencyBreakdown';
 import HealingEfficiencyTracker from './HolyPriestHealingEfficiencyTracker';
@@ -13,7 +14,7 @@ class HolyPriestHealingEfficiencyDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Mana Efficiency',
+      title: defineMessage({ id: 'priest.holy.manaEfficiency.tab', message: 'Mana Efficiency' }),
       url: 'mana-efficiency',
       render: () => (
         <Panel>

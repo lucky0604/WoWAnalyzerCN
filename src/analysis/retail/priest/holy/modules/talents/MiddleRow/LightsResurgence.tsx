@@ -8,6 +8,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { LR_RENEW_HEALS } from '../../../normalizers/CastLinkNormalizer';
+import { t } from '@lingui/core/macro';
 
 /**
  * Light's Resurgence
@@ -40,7 +41,10 @@ class LightsResurgence extends Analyzer {
   statistic() {
     return (
       <Statistic
-        tooltip="Renews applied by Light's Resurgence"
+        tooltip={t({
+          id: 'priest.holy.lightsResurgence.tooltip',
+          message: "Renews applied by Light's Resurgence",
+        })}
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         position={STATISTIC_ORDER.OPTIONAL(6)}

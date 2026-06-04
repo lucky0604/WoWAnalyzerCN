@@ -10,6 +10,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { HOLY_WORD_LIST } from '../../../constants';
 import SpellManaCost from 'parser/shared/modules/SpellManaCost';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 
 const HOLY_WORD_IDS = HOLY_WORD_LIST.map((spell) => spell.id);
 const MANA_REDUCTION_PERCENT = 0.5; // 50% reduction
@@ -104,12 +105,18 @@ class Apotheosis extends Analyzer {
       <Statistic
         tooltip={
           <>
-            For detailed Holy Word CDR breakdown, see the Holy Word module at the top.
+            {t({
+              id: 'priest.holy.apotheosis.tooltip',
+              message: 'For detailed Holy Word CDR breakdown, see the Holy Word module at the top.',
+            })}
             {/* oxlint-disable-next-line @wowanalyzer/no-br */}
             <br />
             {/* oxlint-disable-next-line @wowanalyzer/no-br */}
             <br />
-            Mana saved during Apotheosis (50% reduction):
+            {t({
+              id: 'priest.holy.apotheosis.manaSavedDetail',
+              message: 'Mana saved during Apotheosis (50% reduction):',
+            })}
             {/* oxlint-disable-next-line @wowanalyzer/no-br */}
             <br />
             <SpellLink spell={TALENTS.HOLY_WORD_SERENITY_TALENT} />: {this.manaSavedFromSerenity}
@@ -129,7 +136,12 @@ class Apotheosis extends Analyzer {
           <ItemManaGained amount={this.totalManaSaved} />
           {/* oxlint-disable-next-line @wowanalyzer/no-br */}
           <br />
-          <small>mana saved</small>
+          <small>
+            {t({
+              id: 'priest.holy.apotheosis.manaSaved',
+              message: 'mana saved',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

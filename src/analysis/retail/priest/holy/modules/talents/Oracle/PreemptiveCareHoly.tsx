@@ -15,6 +15,8 @@ import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 
+import { t } from '@lingui/core/macro';
+
 interface RenewApplication {
   start: number;
   originalEnd: number;
@@ -113,7 +115,10 @@ class PreemptiveCareHoly extends Analyzer {
         position={STATISTIC_ORDER.OPTIONAL(99)}
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
-        tooltip="Healing contributed by the additional 40% duration of Renew."
+        tooltip={t({
+          id: 'priest.holy.preemptiveCare.tooltip',
+          message: 'Healing contributed by the additional 40% duration of Renew.',
+        })}
       >
         <TalentSpellText talent={TALENTS_PRIEST.PREEMPTIVE_CARE_TALENT}>
           <ItemPercentHealingDone amount={this.healingAttributed} />
