@@ -84,3 +84,12 @@ html/
 
 # Agent flow design and planning docs (local only)
 agent_flow/
+
+# AI/tooling local configs
+.claude/
+.codegraph/
+.mcp.json
+opencode.jsonc
+
+# Redis dump
+dump.rdb
