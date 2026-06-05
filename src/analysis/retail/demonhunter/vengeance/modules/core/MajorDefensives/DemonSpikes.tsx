@@ -4,6 +4,8 @@ import Events, { CastEvent, DamageEvent } from 'parser/core/Events';
 import MAGIC_SCHOOLS from 'game/MAGIC_SCHOOLS';
 import { SpellLink } from 'interface';
 import { ReactNode } from 'react';
+import { i18n } from '@lingui/core';
+import { isMessageDescriptor } from 'localization/isMessageDescriptor';
 import { Trans } from '@lingui/react/macro';
 import StatTracker from 'parser/shared/modules/StatTracker';
 import { getArmorMitigationForEvent } from 'parser/retail/armorMitigation';
@@ -113,7 +115,10 @@ export default class DemonSpikes extends MajorDefensiveBuff {
         tooltip: (
           <>
             <PerformanceUsageRow>
-              <PerformanceMark perf={perf} /> {explanation ?? 'Good Usage'}
+              <PerformanceMark perf={perf} />{' '}
+              {isMessageDescriptor(explanation)
+                ? i18n._(explanation)
+                : (explanation ?? 'Good Usage')}
             </PerformanceUsageRow>
             <div>
               <MitigationRowContainer>

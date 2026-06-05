@@ -19,7 +19,7 @@ import { TooltipElement } from 'interface/Tooltip';
 import { formatNumber, formatPercentage } from 'common/format';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   getSelectedPrimaryHeal,
@@ -201,7 +201,7 @@ class ZenPulse extends Analyzer {
       stats: [
         {
           value: `${zenPulseHits.length}`,
-          label: defineMessage({
+          label: t({
             id: 'monk.mistweaver.zenPulse.hits',
             message: 'Hits',
           }),
@@ -216,14 +216,14 @@ class ZenPulse extends Analyzer {
         },
         {
           value: `${formatPercentage(perfInfo.overheal)}%`,
-          label: defineMessage({
+          label: t({
             id: 'monk.mistweaver.zenPulse.avgOverheal',
             message: 'Avg Overheal',
           }),
         },
         {
           value: `${formatPercentage(percentInc)}%`,
-          label: defineMessage({
+          label: t({
             id: 'monk.mistweaver.zenPulse.healingIncrease',
             message: 'Healing Increase',
           }),

@@ -4,8 +4,8 @@ import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/hunter';
 import { SpellLink } from 'interface';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import Events, { CastEvent } from 'parser/core/Events';
-import { KCFocusLink } from '../../normalizers/KillCommandNormalizer';
+import Events, { CastEvent, GetRelatedEvents, ResourceChangeEvent } from 'parser/core/Events';
+import { KC_FOCUS_LINK } from '../../normalizers/KillCommandNormalizer';
 import BuffStackTracker from 'parser/shared/modules/BuffStackTracker';
 import BoringValueText from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
@@ -151,7 +151,8 @@ class TipOfTheSpear extends BuffStackTracker {
       this.wastedStacks += potentialStacks - MAX_STACKS;
     }
 
-    const focusEvent = KCFocusLink.first(event);
+    const focusEvents = GetRelatedEvents(event, KC_FOCUS_LINK) as ResourceChangeEvent[];
+    const focusEvent = focusEvents[0];
     // amount is post-generation; subtract effective focus gained to recover pre-cast focus.
     const preCastFocus = focusEvent
       ? this.getFocus(event) - (focusEvent.resourceChange - focusEvent.waste)

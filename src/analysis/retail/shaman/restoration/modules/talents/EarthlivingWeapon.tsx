@@ -2,7 +2,6 @@ import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Combatants from 'parser/shared/modules/Combatants';
 import StatTracker from 'parser/shared/modules/StatTracker';
-import { t } from '@lingui/core/macro';
 import talents from 'common/TALENTS/shaman';
 import { Options } from 'parser/core/Module';
 import Events, { HealEvent } from 'parser/core/Events';

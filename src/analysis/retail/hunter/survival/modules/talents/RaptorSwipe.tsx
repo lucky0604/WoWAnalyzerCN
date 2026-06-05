@@ -1,4 +1,5 @@
-import { t } from '@lingui/core/macro';
+import type { JSX } from 'react';
+
 import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';

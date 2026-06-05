@@ -10,7 +10,7 @@ import CastOverview from 'interface/guide/components/CastOverview';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
-import { t, defineMessage } from '@lingui/core/macro';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,
@@ -417,7 +417,7 @@ class Vivify extends Analyzer {
       stats: [
         {
           value: `${rems}`,
-          label: defineMessage({
+          label: t({
             id: 'monk.mistweaver.vivify.reMsHit',
             message: 'ReMs Hit',
           }),
@@ -432,7 +432,7 @@ class Vivify extends Analyzer {
         },
         {
           value: `${formatPercentage(percentOverheal)}%`,
-          label: defineMessage({
+          label: t({
             id: 'monk.mistweaver.vivify.overheal',
             message: 'Overheal',
           }),
@@ -443,7 +443,7 @@ class Vivify extends Analyzer {
         },
         {
           value: formatNumber(healingPerCast),
-          label: defineMessage({
+          label: t({
             id: 'monk.mistweaver.vivify.healing',
             message: 'Healing',
           }),
