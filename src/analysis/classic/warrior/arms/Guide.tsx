@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import { Section, SubSection, useAnalyzer, useInfo } from 'interface/guide';
 import Para from 'interface/guide/Para';
@@ -13,7 +15,12 @@ export default function Guide(): JSX.Element {
   const { expansion } = useExpansionContext();
   return (
     <>
-      <Section title="Core Skills">
+      <Section
+        title={t({
+          id: 'classic.warrior.arms.section.coreSkills',
+          message: 'Core Skills',
+        })}
+      >
         <ArmsDowntimeSection />
         <FoundationCooldownSection />
       </Section>
@@ -31,12 +38,19 @@ function ArmsDowntimeSection() {
   }
 
   return (
-    <SubSection title="Always Be Casting">
+    <SubSection
+      title={t({
+        id: 'classic.warrior.arms.subsection.alwaysBeCasting',
+        message: 'Always Be Casting',
+      })}
+    >
       <Para>
         <small>
-          In Cataclysm, Arms Warrior does not have enough abilities or{' '}
-          <ResourceLink id={RESOURCE_TYPES.RAGE.id} /> to fill every GCD. GCDs that are empty
-          because no abilities are usable are also counted as Active Time.
+          <Trans id="classic.warrior.arms.alwaysBeCasting.description">
+            In Cataclysm, Arms Warrior does not have enough abilities or{' '}
+            <ResourceLink id={RESOURCE_TYPES.RAGE.id} /> to fill every GCD. GCDs that are empty
+            because no abilities are usable are also counted as Active Time.
+          </Trans>
         </small>
       </Para>
       <FoundationDowntimeSectionV2 />

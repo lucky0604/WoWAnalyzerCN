@@ -1,6 +1,8 @@
 import type { JSX } from 'react';
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import talents from 'common/TALENTS/deathknight';
 import ResourceLink from 'interface/ResourceLink';
 import SpellLink from 'interface/SpellLink';
@@ -19,8 +21,6 @@ import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import ProblemList from 'interface/guide/components/ProblemList';
 import RuneCooldownBar from '../../../components/RuneCooldownBar';
 import Tooltip from 'interface/Tooltip';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export default function DeathStrikeSection() {
   const rp = useAnalyzer(RunicPowerTracker);
@@ -30,19 +30,16 @@ export default function DeathStrikeSection() {
 
   if (!rp || !runes || !info) {
     return (
-      <>
-        {t({
-          id: 'deathknight.blood.deathStrikeSection.coreAnalyzersMissing',
-          message: 'Core analyzers missing.',
-        })}
-      </>
+      <Trans id="deathknight.blood.deathStrikeSection.coreAnalyzersMissing">
+        Core analyzers missing.
+      </Trans>
     );
   }
 
   return (
     <>
       <p>
-        <Trans id="deathknight.blood.deathStrikeSection.coreLoopIntro">
+        <Trans id="deathknight.blood.deathStrikeSection.intro">
           Blood DK is built around <SpellLink spell={talents.DEATH_STRIKE_TALENT} />. It is the core
           of your toolkit, and many of your abilities exist only to fuel it. Blood's core loop is
           simple:
@@ -50,21 +47,21 @@ export default function DeathStrikeSection() {
       </p>
       <ol>
         <li>
-          <Trans id="deathknight.blood.deathStrikeSection.coreLoopStep1">
+          <Trans id="deathknight.blood.deathStrikeSection.convertRunes">
             Convert <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> into{' '}
             <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> using abilities like{' '}
             <SpellLink spell={talents.HEART_STRIKE_TALENT} />
           </Trans>
         </li>
         <li>
-          <Trans id="deathknight.blood.deathStrikeSection.coreLoopStep2">
+          <Trans id="deathknight.blood.deathStrikeSection.spendRp">
             Spend <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> on{' '}
             <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
           </Trans>
         </li>
       </ol>
       <p>
-        <Trans id="deathknight.blood.deathStrikeSection.playSmartIntro">
+        <Trans id="deathknight.blood.deathStrikeSection.however">
           However, playing Blood well means making smart choices about how &amp; when to do both of
           these things.
         </Trans>
@@ -78,7 +75,7 @@ export default function DeathStrikeSection() {
       </p>
       <SubSection
         title={
-          <Trans id="deathknight.blood.deathStrikeSection.generatingRp">
+          <Trans id="deathknight.blood.deathStrikeSection.generatingRpTitle">
             Generating <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> for{' '}
             <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
           </Trans>
@@ -87,7 +84,7 @@ export default function DeathStrikeSection() {
         <div style={{ display: 'grid', gridTemplateColumns: '45% 1fr', gap: '2em' }}>
           <div>
             <p>
-              <Trans id="deathknight.blood.deathStrikeSection.coreRpGeneration">
+              <Trans id="deathknight.blood.deathStrikeSection.mostImportant">
                 The most important thing about <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> is
                 being able to cast it&mdash;which means generating{' '}
                 <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> to spend on it.
@@ -95,18 +92,18 @@ export default function DeathStrikeSection() {
             </p>
             <RunicPowerTable />
             <p style={{ marginTop: '1em' }}>
-              <Trans id="deathknight.blood.deathStrikeSection.runeRpExplanation">
-                Every rune you spend generates 10 <Highlight color={RuneColor}>Base</Highlight> RP .{' '}
+              <Trans id="deathknight.blood.deathStrikeSection.runeGeneration">
+                Every rune you spend generates 10 <Highlight color={RuneColor}>Base</Highlight> RP .
+                {' '}
                 <SpellLink spell={talents.HEART_STRIKE_TALENT} /> generates 5+{' '}
                 <Highlight textColor="#111" color={RunicPowerColor}>
                   Bonus
                 </Highlight>{' '}
                 RP beyond that, which should make it your main{' '}
-                <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> generator. You
-                can only store 125 RP at once; generating more than that is called{' '}
-                <em>overcapping</em> and results in{' '}
-                <Highlight color={WastedRPColor}>Wasted</Highlight> RP. You should have very little{' '}
-                <Highlight color={WastedRPColor}>Wasted</Highlight> RP.
+                <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> generator. You can
+                only store 125 RP at once; generating more than that is called <em>overcapping</em>{' '}
+                and results in <Highlight color={WastedRPColor}>Wasted</Highlight> RP. You should have
+                very little <Highlight color={WastedRPColor}>Wasted</Highlight> RP.
               </Trans>
             </p>
           </div>
@@ -114,12 +111,12 @@ export default function DeathStrikeSection() {
             <SuggestionBox
               performance={rp.wastePerformance}
               title={
-                <Trans id="deathknight.blood.deathStrikeSection.littleWastedRpTitle">
+                <Trans id="deathknight.blood.deathStrikeSection.veryLittleWaste">
                   You should have very little <Highlight color={WastedRPColor}>Wasted</Highlight> RP
                 </Trans>
               }
               description={t({
-                id: 'deathknight.blood.deathStrikeSection.littleWastedRpDesc',
+                id: 'deathknight.blood.deathStrikeSection.wastingRPCosts',
                 message: 'Wasting RP costs you damage and healing. Aim for less than 5% waste.',
               })}
             >
@@ -133,19 +130,19 @@ export default function DeathStrikeSection() {
             <SuggestionBox
               performance={runes.wastedRunePerformance}
               title={
-                <Trans id="deathknight.blood.deathStrikeSection.maximizeRpTitle">
+                <Trans id="deathknight.blood.deathStrikeSection.generateAsMuchRp">
                   You should generate as much{' '}
                   <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> as possible.
                 </Trans>
               }
               description={
-                <Trans id="deathknight.blood.deathStrikeSection.maximizeRpDesc">
+                <Trans id="deathknight.blood.deathStrikeSection.rpGeneratedByRunes">
                   RP is generated by spending <ResourceLink id={RESOURCE_TYPES.RUNES.id} />.
                 </Trans>
               }
             >
               <Explanation as="p">
-                <Trans id="deathknight.blood.deathStrikeSection.runeRechargingExplanation">
+                <Trans id="deathknight.blood.deathStrikeSection.threeRecharging">
                   Although you have 6 <ResourceLink id={RESOURCE_TYPES.RUNES.id} />, only 3 can be
                   recharging at a time. You should aim to spend as much time as possible with 3 or
                   more recharging.
@@ -153,17 +150,17 @@ export default function DeathStrikeSection() {
               </Explanation>
               <RuneCooldownBar timeline={runes.runesReady} />
               <p>
-                <Trans id="deathknight.blood.deathStrikeSection.runeWastedExplanation">
+                <Trans id="deathknight.blood.deathStrikeSection.youWasted">
                   You wasted <strong>{Math.round(runes.runesWasted)}</strong>{' '}
                   <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> ( ~
-                  {formatPercentage(1 - runes.runeEfficiency)}% of {Math.round(runes.runesMaxCasts)}{' '}
-                  total) by having fewer than 3 Runes recharging.
+                  {formatPercentage(1 - runes.runeEfficiency)}% of{' '}
+                  {Math.round(runes.runesMaxCasts)} total) by having fewer than 3 Runes recharging.
                 </Trans>
               </p>
               <Explanation as="p">
-                <Trans id="deathknight.blood.deathStrikeSection.runeDefensiveExplanation">
-                  Remember that <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> cannot be spent
-                  directly on defensives! As long as you are not{' '}
+                <Trans id="deathknight.blood.deathStrikeSection.remember">
+                  Remember that <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> cannot be spent directly
+                  on defensives! As long as you are not{' '}
                   <Highlight color={WastedRPColor}>wasting</Highlight>{' '}
                   <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> or allowing{' '}
                   <SpellLink spell={SPELLS.BONE_SHIELD} /> to drop, having few or no available{' '}
@@ -245,7 +242,9 @@ function RunicPowerTable() {
         );
       })}
       <RunicPowerTableRow
-        label={<>{t({ id: 'deathknight.blood.deathStrikeSection.other', message: 'Other' })}</>}
+        label={
+          <Trans id="deathknight.blood.deathStrikeSection.other">Other</Trans>
+        }
         maxRp={maxRp}
         runesSpent={0}
         rpBonus={otherRp}
@@ -314,41 +313,18 @@ function RunicPowerTableRow({
   return (
     <>
       <div>{label}</div>
-      <div>
-        {formatNumber(rpAmount + rpWasted)}
-        {t({ id: 'deathknight.blood.deathStrikeSection.rpSuffix', message: ' RP' })}
-      </div>
+      <div>{formatNumber(rpAmount + rpWasted)} RP</div>
       <Tooltip
         content={
-          <>
-            {runesSpent > 0 ? (
-              <Trans id="deathknight.blood.deathStrikeSection.convertedRunes">
-                Converted {formatNumber(runesSpent)} runes into
-              </Trans>
-            ) : (
-              t({ id: 'deathknight.blood.deathStrikeSection.generated', message: 'Generated' })
-            )}{' '}
-            <Highlight color={RuneColor}>
-              {formatNumber(baseRp)}
-              {t({ id: 'deathknight.blood.deathStrikeSection.base', message: ' Base' })}
-            </Highlight>
-            {t({
-              id: 'deathknight.blood.deathStrikeSection.rpAfterConverted',
-              message: ' RP, plus ',
-            })}
+          <Trans id="deathknight.blood.deathStrikeSection.rpTooltip">
+            {runesSpent > 0 ? <>Converted {formatNumber(runesSpent)} runes into</> : <>Generated</>}{' '}
+            <Highlight color={RuneColor}>{formatNumber(baseRp)} Base</Highlight> RP, plus{' '}
             <Highlight color={RunicPowerColor} textColor="black">
-              {formatNumber(Math.max(rpBonus, 0))}
-              {t({ id: 'deathknight.blood.deathStrikeSection.bonus', message: ' Bonus' })}
+              {formatNumber(Math.max(rpBonus, 0))} Bonus
             </Highlight>{' '}
-            {t({ id: 'deathknight.blood.deathStrikeSection.rpAndWasted', message: ' RP and ' })}
-            <Highlight color={WastedRPColor}>
-              {formatNumber(rpWasted)}
-              {t({ id: 'deathknight.blood.deathStrikeSection.wasted', message: ' Wasted' })}
-            </Highlight>
-            {t({ id: 'deathknight.blood.deathStrikeSection.rpWastePercent', message: ' RP (' })}
-            {formatPercentage(rpWasted / (rpAmount + rpWasted))}
-            {t({ id: 'deathknight.blood.deathStrikeSection.wastePercent', message: '% waste)' })}
-          </>
+            RP and <Highlight color={WastedRPColor}>{formatNumber(rpWasted)} Wasted</Highlight> RP (
+            {formatPercentage(rpWasted / (rpAmount + rpWasted))}% waste)
+          </Trans>
         }
       >
         <BlockRow>

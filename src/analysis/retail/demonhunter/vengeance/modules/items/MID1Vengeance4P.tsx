@@ -9,6 +9,8 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { formatPercentage } from 'common/format';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * (4) Set Vengeance: Fracture has a 30% chance to spark a violent detonation, causing (200% of Attack Power) Fire damage onto nearby enemies.
@@ -67,21 +69,33 @@ class MID1Vengeance4P extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Metric</th>
-                  <th className="text-right">Value</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.metric">Metric</Trans>
+                  </th>
+                  <th className="text-right">
+                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.value">Value</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>Fractures</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.fractures">Fractures</Trans>
+                  </th>
                   <td className="text-right">{fractures}</td>
                 </tr>
                 <tr>
-                  <th>Expected procs</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.expectedProcs">
+                      Expected procs
+                    </Trans>
+                  </th>
                   <td className="text-right">{expectedProcs.toFixed(0)}</td>
                 </tr>
                 <tr>
-                  <th>Real procs</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.realProcs">Real procs</Trans>
+                  </th>
                   <td className="text-right">{realProcs}</td>
                 </tr>
               </tbody>
@@ -90,7 +104,9 @@ class MID1Vengeance4P extends Analyzer {
         }
       >
         <BoringSpellValueText spell={SPELLS.MID1_EXPLOSION_OF_THE_SOUL}>
-          Expected: {formatPercentage(expectedRatePct)}% Actual:{' '}
+          <Trans id="demonhunter.vengeance.mid1Vengeance4P.expectedProcRate">
+            Expected: {formatPercentage(expectedRatePct)}% Actual:{' '}
+          </Trans>
           <span
             style={{
               color:
@@ -101,7 +117,10 @@ class MID1Vengeance4P extends Analyzer {
           >
             {formatPercentage(actualRatePercent)}%
           </span>
-          <small> Proc rate</small>
+          <small>
+            {' '}
+            <Trans id="demonhunter.vengeance.mid1Vengeance4P.procRate">Proc rate</Trans>
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

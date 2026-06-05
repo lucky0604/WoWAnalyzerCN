@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Combatants from 'parser/shared/modules/Combatants';
 import StatTracker from 'parser/shared/modules/StatTracker';
@@ -122,7 +123,7 @@ class EarthlivingWeapon extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.UNUSED,
-        label: 'Unattributed',
+        label: t({ id: 'shaman.restoration.earthlivingWeapon.unattributed', message: 'Unattributed' }),
         value: getAmount(0),
         valueTooltip: <ItemHealingDone amount={getAmount(0)} />,
       },

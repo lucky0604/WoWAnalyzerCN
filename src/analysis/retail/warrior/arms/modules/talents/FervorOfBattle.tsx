@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -54,19 +55,28 @@ class FervorOfBattle extends Analyzer {
   }
 
   subStatistic() {
+    const totalDamage = formatThousands(this.bonusDamage);
+    const pct = formatPercentage(
+      this.owner.getPercentageOfTotalDamageDone(this.bonusDamage),
+    );
     return (
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={TALENTS.FERVOR_OF_BATTLE_TALENT} /> bonus damage
+            <SpellLink spell={TALENTS.FERVOR_OF_BATTLE_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.fervorOfBattle.bonusDamage',
+              message: 'bonus damage',
+            })}
           </>
         }
         value={`${formatThousands(this.dps)} DPS`}
-        valueTooltip={`Your Fervor of Battle contributed ${formatThousands(
-          this.bonusDamage,
-        )} total damage (${formatPercentage(
-          this.owner.getPercentageOfTotalDamageDone(this.bonusDamage),
-        )} %).`}
+        valueTooltip={t({
+          id: 'warrior.arms.fervorOfBattle.tooltip',
+          message:
+            'Your Fervor of Battle contributed {totalDamage} total damage ({pct} %).',
+          values: { totalDamage, pct },
+        })}
       />
     );
   }

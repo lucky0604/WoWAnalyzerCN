@@ -51,6 +51,8 @@ import CastOverview from 'interface/guide/components/CastOverview';
 import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
 import { SpellSequence, type CastInSequence } from 'interface/guide/components/CastSequence';
 import RESOURCE_TYPES, { getResourceCost } from 'game/RESOURCE_TYPES';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 class HotHandRank {
   modRate: number;
@@ -815,31 +817,31 @@ class HotHand extends Analyzer.withDependencies({
     const stats = [
       {
         value: `${this.windows.length}`,
-        label: 'Total Procs',
+        label: t({ id: 'shaman.enhancement.hothand.total_procs', message: 'Total Procs' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.hothand.total_procs_tooltip">
             Total <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> windows recorded during the
             encounter.
-          </>
+          </Trans>
         ),
       },
       {
         value: `${formatPercentage(this.timePercentageHotHandsActive)}%`,
-        label: 'Buff Uptime',
+        label: t({ id: 'shaman.enhancement.hothand.buff_uptime', message: 'Buff Uptime' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.hothand.buff_uptime_tooltip">
             Percentage of the fight spent with <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> active.
-          </>
+          </Trans>
         ),
       },
       {
         value: this.averageLavaLashCastsPerProc.toFixed(2),
-        label: 'Avg Lava Lashes',
+        label: t({ id: 'shaman.enhancement.hothand.avg_lava_lashes', message: 'Avg Lava Lashes' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.hothand.avg_lava_lashes_tooltip">
             Average number of <SpellLink spell={TALENTS.LAVA_LASH_TALENT} /> casts made during each{' '}
             <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> proc.
-          </>
+          </Trans>
         ),
       },
     ];
@@ -847,12 +849,12 @@ class HotHand extends Analyzer.withDependencies({
     if (this.hasTotemicMomentum) {
       stats.push({
         value: formatDurationMillisMinSec(this.averageTotemicMomentumExtension, 1),
-        label: 'Avg TM Extension',
+        label: t({ id: 'shaman.enhancement.hothand.avg_tm_extension', message: 'Avg TM Extension' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.hothand.avg_tm_extension_tooltip">
             Average <SpellLink spell={TALENTS.TOTEMIC_MOMENTUM_TALENT} /> extension gained during
             completed <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> windows.
-          </>
+          </Trans>
         ),
       });
     }
@@ -944,37 +946,37 @@ class HotHand extends Analyzer.withDependencies({
         stats: [
           {
             value: `${breakdown.lavaLashCasts}/${breakdown.lavaLashCasts + breakdown.missedLavaLashes}`,
-            label: 'Lava Lash',
+            label: t({ id: 'shaman.enhancement.hothand.lava_lash_label', message: 'Lava Lash' }),
             tooltip: (
-              <>
+              <Trans id="shaman.enhancement.hothand.lava_lash_tooltip">
                 <SpellLink spell={TALENTS.LAVA_LASH_TALENT} /> casts during this{' '}
                 <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> window compared with the estimated
                 maximum.
-              </>
+              </Trans>
             ),
             performance: breakdown.usagePerformance,
           },
           {
             value: `${breakdown.unusedGlobalCooldowns}`,
-            label: 'Unused GCDs',
+            label: t({ id: 'shaman.enhancement.hothand.unused_gcds', message: 'Unused GCDs' }),
             tooltip: (
-              <>
+              <Trans id="shaman.enhancement.hothand.unused_gcds_tooltip">
                 Estimated unused global cooldowns during this{' '}
                 <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> window. Longer windows allow for more
                 unused GCDs.
-              </>
+              </Trans>
             ),
             performance: breakdown.gcdPerformance,
           },
           {
             value: formatDurationMillisMinSec(cast.totemicMomentumExtension, 1),
-            label: 'Extension Time',
+            label: t({ id: 'shaman.enhancement.hothand.extension_time', message: 'Extension Time' }),
             tooltip: showTotemicMomentumDetails ? (
-              <>
+              <Trans id="shaman.enhancement.hothand.extension_time_tooltip">
                 An estimated{' '}
                 <strong>{formatDurationMillisMinSec(lostTotemicMomentumDuration, 1)}</strong> were
                 lost due to wasted / unused <SpellLink spell={SPELLS.MAELSTROM_WEAPON} /> stacks.
-              </>
+              </Trans>
             ) : undefined,
             performance: breakdown.totemicMomentumBreakdown.performance,
           },
@@ -982,14 +984,14 @@ class HotHand extends Analyzer.withDependencies({
             ? [
                 {
                   value: `${breakdown.splitstreamLinkedLavaLashes}/${breakdown.lavaLashCasts}`,
-                  label: 'Splitstream',
+                  label: t({ id: 'shaman.enhancement.hothand.splitstream_label', message: 'Splitstream' }),
                   tooltip: (
-                    <>
+                    <Trans id="shaman.enhancement.hothand.splitstream_tooltip">
                       <SpellLink spell={TALENTS.LAVA_LASH_TALENT} /> casts during this{' '}
                       <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> window with an associated{' '}
                       <SpellLink spell={TALENTS.SPLITSTREAM_TALENT} /> /{' '}
                       <SpellLink spell={TALENTS.EARTHSURGE_TALENT} /> link.
-                    </>
+                    </Trans>
                   ),
                   performance: breakdown.splitstreamPerformance,
                 },
@@ -999,7 +1001,7 @@ class HotHand extends Analyzer.withDependencies({
         additionalContent:
           breakdown.sequence.length > 0
             ? {
-                title: 'Cast Sequence',
+                title: t({ id: 'shaman.enhancement.hothand.cast_sequence', message: 'Cast Sequence' }),
                 content: <SpellSequence casts={breakdown.sequence} iconSize={40} />,
               }
             : undefined,
@@ -1015,17 +1017,23 @@ class HotHand extends Analyzer.withDependencies({
         tooltip={
           <ul>
             <li>
-              Gained buff {this.hotHandActive.intervalsCount} times (
-              {formatPercentage(this.timePercentageHotHandsActive)}% uptime)
+              <Trans id="shaman.enhancement.hothand.stat_gained_buff">
+                Gained buff {this.hotHandActive.intervalsCount} times (
+                {formatPercentage(this.timePercentageHotHandsActive)}% uptime)
+              </Trans>
             </li>
             <li>
-              {this.buffedCasts} total <SpellLink spell={TALENTS.LAVA_LASH_TALENT} /> casts with Hot
-              Hand buff
+              <Trans id="shaman.enhancement.hothand.stat_total_casts">
+                {this.buffedCasts} total <SpellLink spell={TALENTS.LAVA_LASH_TALENT} /> casts with Hot
+                Hand buff
+              </Trans>
             </li>
             {this.hasTotemicMomentum && this.totemicMomentumProcsForStats > 0 && (
               <li>
-                <SpellLink spell={TALENTS.TOTEMIC_MOMENTUM_TALENT} /> average extension:{' '}
-                {formatDurationMillisMinSec(this.averageTotemicMomentumExtension, 1)} per proc
+                <Trans id="shaman.enhancement.hothand.stat_avg_extension">
+                  <SpellLink spell={TALENTS.TOTEMIC_MOMENTUM_TALENT} /> average extension:{' '}
+                  {formatDurationMillisMinSec(this.averageTotemicMomentumExtension, 1)} per proc
+                </Trans>
               </li>
             )}
           </ul>
@@ -1037,12 +1045,13 @@ class HotHand extends Analyzer.withDependencies({
             <ItemDamageDone amount={this.buffedLavaLashDamage} />
           </div>
           <div>
-            {this.averageLavaLashCastsPerProc.toFixed(2)} <small>average casts per proc</small>
+            {this.averageLavaLashCastsPerProc.toFixed(2)}{' '}
+            <small><Trans id="shaman.enhancement.hothand.avg_casts_per_proc">average casts per proc</Trans></small>
           </div>
           {this.hasTotemicMomentum && this.totemicMomentumProcsForStats > 0 && (
             <div>
               {formatDurationMillisMinSec(this.averageTotemicMomentumExtension, 1)}{' '}
-              <small>average extension per proc</small>
+              <small><Trans id="shaman.enhancement.hothand.avg_extension_per_proc">average extension per proc</Trans></small>
             </div>
           )}
         </TalentSpellText>
@@ -1058,7 +1067,7 @@ class HotHand extends Analyzer.withDependencies({
     return (
       <GuideSection spell={TALENTS.HOT_HAND_TALENT} explanation={this.description()}>
         <CastOverview spell={TALENTS.HOT_HAND_TALENT} stats={this.buildOverviewStats()} />
-        <CastDetail title="Hot Hand Windows" casts={this.buildPerCastData()} />
+        <CastDetail title={t({ id: 'shaman.enhancement.hothand.windows_title', message: 'Hot Hand Windows' })} casts={this.buildPerCastData()} />
       </GuideSection>
     );
   }

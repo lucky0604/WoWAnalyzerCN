@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
@@ -61,7 +62,13 @@ class LegionStrike extends Analyzer {
         category={STATISTIC_CATEGORY.THEORYCRAFT}
         position={STATISTIC_ORDER.UNIMPORTANT(1)}
         size="flexible"
-        tooltip={`${formatThousands(this.damage)} damage`}
+        tooltip={(() => {
+          const damage = formatThousands(this.damage);
+          return t({
+            id: 'warlock.demonology.legionStrike.damage',
+            message: `${{ damage }} damage`,
+          });
+        })()}
       >
         <BoringSpellValueText spell={SPELLS.FELGUARD_LEGION_STRIKE}>
           <ItemDamageDone amount={this.damage} />

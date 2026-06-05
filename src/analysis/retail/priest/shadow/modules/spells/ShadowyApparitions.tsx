@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -47,7 +48,10 @@ class ShadowyApparitions extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="Total damage done by Shadowy Apparitions with talents"
+        tooltip={t({
+          id: 'priest.shadow.shadowyApparitions.tooltip',
+          message: 'Total damage done by Shadowy Apparitions with talents',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.SHADOWY_APPARITIONS_TALENT}>
           <div>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatMilliseconds, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -11,8 +12,6 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import type { ReactNode } from 'react';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 /**
  * Analyzer for the suggestion that Vanish should not be cast
@@ -123,20 +122,21 @@ class VanishFindWeakness extends Analyzer {
           tooltip={
             <>
               <p>
-                <Trans id="rogue.subtlety.vanishFindWeakness.tooltip.badCasts">
-                  You cast <SpellLink spell={SPELLS.VANISH} />{' '}
-                  {formatNumber(this.badVanishCasts.size)} times with more than{' '}
-                  {formatNumber(this.BAD_CAST_WINDOW / 1000)}s remaining on{' '}
-                  <SpellLink spell={SPELLS.FIND_WEAKNESS} />
-                  on the current target.
-                </Trans>
+                {t({ id: 'rogue.subtlety.vanishFindWeakness.tooltipLine1Prefix', message: 'You cast' })}{' '}
+                <SpellLink spell={SPELLS.VANISH} />{' '}
+                {formatNumber(this.badVanishCasts.size)}{' '}
+                {t({ id: 'rogue.subtlety.vanishFindWeakness.tooltipLine1Suffix', message: 'times with more than' })}{' '}
+                {formatNumber(this.BAD_CAST_WINDOW / 1000)}s{' '}
+                {t({ id: 'rogue.subtlety.vanishFindWeakness.remainingOn', message: 'remaining on' })}{' '}
+                <SpellLink spell={SPELLS.FIND_WEAKNESS} />
+                {' '}{t({ id: 'rogue.subtlety.vanishFindWeakness.onTheCurrentTarget', message: 'on the current target.' })}
               </p>
               <p>
-                <Trans id="rogue.subtlety.vanishFindWeakness.tooltip.badCastDefinition">
-                  We consider a cast to be bad if it was used to re-apply{' '}
-                  <SpellLink spell={SPELLS.FIND_WEAKNESS} /> to a target with more than{' '}
-                  {formatNumber(this.BAD_CAST_WINDOW / 1000)}s remaining.
-                </Trans>
+                {t({ id: 'rogue.subtlety.vanishFindWeakness.tooltipLine2Prefix', message: 'We consider a cast to be bad if it was used to re-apply' })}{' '}
+                <SpellLink spell={SPELLS.FIND_WEAKNESS} />{' '}
+                {t({ id: 'rogue.subtlety.vanishFindWeakness.tooltipLine2Suffix', message: 'to a target with more than' })}{' '}
+                {formatNumber(this.BAD_CAST_WINDOW / 1000)}s{' '}
+                {t({ id: 'rogue.subtlety.vanishFindWeakness.remaining', message: 'remaining.' })}
               </p>
             </>
           }
@@ -145,16 +145,8 @@ class VanishFindWeakness extends Analyzer {
               <table className="table table-condensed">
                 <thead>
                   <tr>
-                    <th>
-                      <Trans id="rogue.subtlety.vanishFindWeakness.table.castTimestamp">
-                        Cast Timestamp
-                      </Trans>
-                    </th>
-                    <th>
-                      <Trans id="rogue.subtlety.vanishFindWeakness.table.debuffRemaining">
-                        Debuff Time Remaining
-                      </Trans>
-                    </th>
+                    <th>{t({ id: 'rogue.subtlety.vanishFindWeakness.castTimestamp', message: 'Cast Timestamp' })}</th>
+                    <th>{t({ id: 'rogue.subtlety.vanishFindWeakness.debuffTimeRemaining', message: 'Debuff Time Remaining' })}</th>
                   </tr>
                 </thead>
                 <tbody>{tableEntries}</tbody>
@@ -164,14 +156,8 @@ class VanishFindWeakness extends Analyzer {
         >
           <BoringSpellValue
             spell={SPELLS.VANISH.id}
-            value={t({
-              id: 'rogue.subtlety.vanishFindWeakness.badCastsValue',
-              message: `${this.badVanishCasts.size} bad casts`,
-            })}
-            label={t({
-              id: 'rogue.subtlety.vanishFindWeakness.badCastsLabel',
-              message: 'Bad casts regarding Find Weakness',
-            })}
+            value={`${this.badVanishCasts.size} ${t({ id: 'rogue.subtlety.vanishFindWeakness.badCasts', message: 'bad casts' })}`}
+            label={t({ id: 'rogue.subtlety.vanishFindWeakness.badCastsRegardingFindWeakness', message: 'Bad casts regarding Find Weakness' })}
           />
         </Statistic>
       </>

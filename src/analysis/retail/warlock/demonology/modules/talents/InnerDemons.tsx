@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import TALENTS from 'common/TALENTS/warlock';
 import Analyzer, { Options } from 'parser/core/Analyzer';
@@ -38,11 +39,20 @@ class InnerDemons extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatThousands(this.damage)} damage
+            {(() => {
+              const damage = formatThousands(this.damage);
+              return t({
+                id: 'warlock.demonology.innerDemons.damage',
+                message: `${{ damage }} damage`,
+              });
+            })()}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Note that this only counts the direct damage from them, not Implosion damage (if used)
-            from Wild Imps
+            {t({
+              id: 'warlock.demonology.innerDemons.note',
+              message:
+                'Note that this only counts the direct damage from them, not Implosion damage (if used) from Wild Imps',
+            })}
           </>
         }
       >

@@ -9,6 +9,8 @@ import { TALENTS_PALADIN } from 'common/TALENTS';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import Statistic from 'parser/ui/Statistic';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const ART_OF_WAR_DURATION = 10000;
 
@@ -95,13 +97,16 @@ class AoWProcTracker extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="paladin.retribution.artOfWar.tooltip">
             You got {this.totalAoWProcs} Art of War procs and used {this.consumedAoWProcs} of them.
-          </>
+          </Trans>
         }
       >
         <TalentSpellText talent={TALENTS_PALADIN.ART_OF_WAR_TALENT}>
-          {formatPercentage(this.consumedProcsPercent)} % <small>of procs consumed</small>
+          {formatPercentage(this.consumedProcsPercent)} %{' '}
+          <small>
+            {t({ id: 'paladin.retribution.artOfWar.ofProcsConsumed', message: 'of procs consumed' })}
+          </small>
         </TalentSpellText>
       </Statistic>
     );

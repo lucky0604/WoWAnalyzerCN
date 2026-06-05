@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import Events from 'parser/core/Events';
@@ -9,7 +10,6 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { formatDurationMillisMinSec } from 'common/format';
 import { SpellLink } from 'interface';
-import React from 'react';
 
 const REDUCTION_MS = 250;
 
@@ -49,7 +49,9 @@ class SpellfrostTeachings extends Analyzer {
         <TalentSpellText talent={TALENTS.SPELLFROST_TEACHINGS_TALENT}>
           {formatDurationMillisMinSec(this.totalReduction)}{' '}
           <small>
-            <SpellLink spell={TALENTS.FROZEN_ORB_TALENT} /> CDR
+            <Trans id="mage.frost.spellfrostTeachings.cdr">
+              <SpellLink spell={TALENTS.FROZEN_ORB_TALENT} /> CDR
+            </Trans>
           </small>
         </TalentSpellText>
       </Statistic>

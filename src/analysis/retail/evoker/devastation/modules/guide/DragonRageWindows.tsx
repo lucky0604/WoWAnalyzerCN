@@ -12,8 +12,9 @@ import { Info } from 'parser/core/metric';
 import SpellLink from 'interface/SpellLink';
 import TALENTS from 'common/TALENTS/evoker';
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import './styling.scss';
-import PerformanceStrong from 'interface/PerformanceStrong';
 
 export function DragonRageWindowSection({
   rageWindows,
@@ -39,12 +40,19 @@ export function DragonRageWindowSection({
         windowDurations.push(duration);
 
         if (relevantEvents.length === 0) {
-          return 'No events in this window';
+          return t({
+            id: 'evoker.devastation.dragonRageWindows.noEvents',
+            message: 'No events in this window',
+          });
         }
 
         return (
           <Fragment key={`${window.start}_${window.end}`}>
-            {window.fightEndDuringDR && <>Fight ended during Dragonrage.</>}
+            {window.fightEndDuringDR && (
+              <Trans id="evoker.devastation.dragonRageWindows.fightEnded">
+                Fight ended during Dragonrage.
+              </Trans>
+            )}
             <ExplanationAndDataSubSection
               explanationPercent={30}
               explanation={<Statistics window={window} />}
@@ -81,7 +89,16 @@ export function DragonRageWindowSection({
     <SubSection className="dragonrage-window-container">
       <header>
         <span>
-          Dragonrage Window {windowIndex + 1} out of {windows.length} {windowDuration}
+          {t({
+            id: 'evoker.devastation.dragonRageWindows.header',
+            message: 'Dragonrage Window',
+          })}{' '}
+          {windowIndex + 1}{' '}
+          {t({
+            id: 'evoker.devastation.dragonRageWindows.outOf',
+            message: 'out of',
+          })}{' '}
+          {windows.length} {windowDuration}
         </span>
         <div className="btn-group">
           <button
@@ -103,43 +120,29 @@ export function DragonRageWindowSection({
   );
 }
 
-// Need something prettier lol
 function Statistics({ window }: { window: RageWindowCounter }) {
   return (
-    <>
-      <strong>Extenders</strong>
-      <ul>
-        <li>
-          <SpellLink spell={TALENTS.ANIMOSITY_TALENT} /> -{' '}
-          <PerformanceStrong performance={window.extensionPerf}>
-            {window.fireBreaths + window.eternitySurges} extensions
-          </PerformanceStrong>
-        </li>
-        <li>
-          <SpellLink spell={SPELLS.FIRE_BREATH} /> -{' '}
-          <PerformanceStrong performance={window.fireBreathPerf}>
-            {window.fireBreaths} casts
-          </PerformanceStrong>
-        </li>
-        <li>
-          <SpellLink spell={SPELLS.ETERNITY_SURGE} /> -{' '}
-          <PerformanceStrong performance={window.eternitySurgePerf}>
-            {window.eternitySurges} casts
-          </PerformanceStrong>
-        </li>
-      </ul>
-      <strong>Spenders</strong>
-      <ul>
-        <li>
-          <SpellLink spell={SPELLS.ESSENCE_BURST_DEV_BUFF} /> - {window.essenceBursts} uses
-        </li>
-        <li>
-          <SpellLink spell={SPELLS.DISINTEGRATE} /> - {window.disintegrateTicks} ticks
-        </li>
-        <li>
-          <SpellLink spell={TALENTS.PYRE_TALENT} /> - {window.pyres} casts
-        </li>
-      </ul>
-    </>
+    <ul>
+      <li>
+        <SpellLink spell={SPELLS.FIRE_BREATH} /> - {window.fireBreaths}/2{' '}
+        {t({ id: 'evoker.devastation.dragonRageWindows.casts', message: 'casts' })}
+      </li>
+      <li>
+        <SpellLink spell={SPELLS.ETERNITY_SURGE} /> - {window.eternitySurges}/2{' '}
+        {t({ id: 'evoker.devastation.dragonRageWindows.casts', message: 'casts' })}
+      </li>
+      <li>
+        <SpellLink spell={SPELLS.ESSENCE_BURST_DEV_BUFF} /> - {window.essenceBursts}{' '}
+        {t({ id: 'evoker.devastation.dragonRageWindows.casts', message: 'casts' })}
+      </li>
+      <li>
+        <SpellLink spell={SPELLS.DISINTEGRATE} /> - {window.disintegrateTicks}{' '}
+        {t({ id: 'evoker.devastation.dragonRageWindows.ticks', message: 'ticks' })}
+      </li>
+      <li>
+        <SpellLink spell={TALENTS.PYRE_TALENT} /> - {window.pyres}{' '}
+        {t({ id: 'evoker.devastation.dragonRageWindows.casts', message: 'casts' })}
+      </li>
+    </ul>
   );
 }

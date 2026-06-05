@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/priest';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -71,7 +72,11 @@ class InstilledDoubt extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="This is the damage gained from the critical chance and damage increase"
+        tooltip={t({
+          id: 'priest.shadow.instilledDoubt.tooltip',
+          message:
+            'This is the damage gained from the critical chance and damage increase',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.INSTILLED_DOUBT_TALENT}>
           <div>

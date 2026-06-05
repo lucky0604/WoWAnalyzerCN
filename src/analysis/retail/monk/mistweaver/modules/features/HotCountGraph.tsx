@@ -5,6 +5,8 @@ import { getCurrentCelestialTalent, SPELL_COLORS } from '../../constants';
 import Revival from '../spells/Revival';
 import Panel from 'parser/ui/Panel';
 import { Options } from 'parser/core/Module';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 class HotCountGraph extends BuffCountGraph {
   static dependencies = {
@@ -39,17 +41,17 @@ class HotCountGraph extends BuffCountGraph {
   statistic() {
     return (
       <Panel
-        title="Healing Amps Graph"
+        title={t({ id: 'monk.mistweaver.hotGraph.title', message: 'Healing Amps Graph' })}
         position={100}
         explanation={
-          <>
+          <Trans id="monk.mistweaver.hotGraph.panelExplanation">
             This graph shows the number of non-renewing mist healing buffs you had active over the
             course of the encounter. It can help you evaluate how effective you were at prepping and
             executing your cooldowns. For example, the number of{' '}
             <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />s that go out during{' '}
             <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> directly
             correlates to your hps during.
-          </>
+          </Trans>
         }
       >
         {this.plot}

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { SPELL_COLORS } from 'analysis/retail/monk/mistweaver/constants';
 import { formatNumber, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -82,14 +83,14 @@ class CallOfYsera extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            Call Of Ysera's buff provided the following additional healing:
+            {t({ id: 'evoker.preservation.callOfYsera.buffProvided', message: "Call Of Ysera's buff provided the following additional healing" })}:
             <ul>
               <li>
-                <SpellLink spell={SPELLS.LIVING_FLAME_CAST} /> Healing:{' '}
+                <SpellLink spell={SPELLS.LIVING_FLAME_CAST} /> {t({ id: 'evoker.preservation.callOfYsera.healing', message: 'Healing' })}:{' '}
                 {formatNumber(this.extraLivingFlameHealing)}
               </li>
               <li>
-                <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> Healing:{' '}
+                <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> {t({ id: 'evoker.preservation.callOfYsera.healing', message: 'Healing' })}:{' '}
                 {formatNumber(this.extraBreathHealing)}
               </li>
             </ul>
@@ -100,7 +101,7 @@ class CallOfYsera extends Analyzer {
           <ItemHealingDone amount={this.extraBreathHealing + this.extraLivingFlameHealing} />
         </TalentSpellText>
         <div className="pad">
-          <SpellLink spell={TALENTS_EVOKER.CALL_OF_YSERA_TALENT}>Sources:</SpellLink>
+          <SpellLink spell={TALENTS_EVOKER.CALL_OF_YSERA_TALENT}>{t({ id: 'evoker.preservation.callOfYsera.sources', message: 'Sources' })}:</SpellLink>
           {this.renderCallOfYseraChart()}
         </div>
       </Statistic>

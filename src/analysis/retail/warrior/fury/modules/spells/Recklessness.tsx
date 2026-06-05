@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import RageTracker from 'analysis/retail/warrior/shared/modules/core/RageTracker';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -56,20 +57,20 @@ class Recklessness extends Analyzer.withDependencies({
         size="flexible"
         tooltip={
           <>
-            <strong>Extra Rage Generated:</strong> {formatThousands(this.reckRageGen)}
+            <strong>{t({ id: 'warrior.fury.recklessness.extraRageGenerated', message: 'Extra Rage Generated:' })}</strong> {formatThousands(this.reckRageGen)}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <strong>Percent of total rage generated during recklessness:</strong>{' '}
+            <strong>{t({ id: 'warrior.fury.recklessness.percentRageDuringRecklessness', message: 'Percent of total rage generated during recklessness:' })}</strong>{' '}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             {formatPercentage(this.ratioReckRageGen, 1)}%<br />
-            <strong>Percent of total damage done during recklessness:</strong>{' '}
+            <strong>{t({ id: 'warrior.fury.recklessness.percentDamageDuringRecklessness', message: 'Percent of total damage done during recklessness:' })}</strong>{' '}
             {formatPercentage(this.reckDPS, 1)}% ({formatThousands(this.reckDamage)})
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.RECKLESSNESS}>
           <>
-            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>uptime</small>
+            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>{t({ id: 'warrior.fury.recklessness.uptime', message: 'uptime' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

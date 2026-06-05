@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -89,17 +91,22 @@ class RimeEfficiency extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(5)}
         size="flexible"
-        tooltip={`You wasted ${this.totalWastedProcs} out of ${
-          this.rimeProcs
-        } Rime procs (${formatPercentage(this.wastedProcRate)}%).  ${
-          this.expiredRimeProcs
-        } procs expired without being used and ${
-          this.refreshedRimeProcs
-        } procs were overwritten by new procs.`}
+        tooltip={t({
+          id: 'deathknight.frost.rimeEfficiency.tooltip',
+          message:
+            'You wasted {wasted} out of {total} Rime procs ({percent}%). {expired} procs expired without being used and {overwritten} procs were overwritten by new procs.',
+          values: {
+            wasted: this.totalWastedProcs,
+            total: this.rimeProcs,
+            percent: formatPercentage(this.wastedProcRate),
+            expired: this.expiredRimeProcs,
+            overwritten: this.refreshedRimeProcs,
+          },
+        })}
       >
         <BoringSpellValueText spell={SPELLS.RIME}>
           <>
-            {formatPercentage(this.efficiency)} % <small>efficiency</small>
+            {formatPercentage(this.efficiency)} % <small>{t({ id: 'deathknight.frost.rimeEfficiency.efficiency', message: 'efficiency' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>
@@ -109,41 +116,43 @@ class RimeEfficiency extends Analyzer {
   get guideSubsection(): JSX.Element {
     const goodRimes = {
       count: this.rimeProcs - this.expiredRimeProcs - this.refreshedRimeProcs,
-      label: 'Consumed Rimes',
+      label: t({ id: 'deathknight.frost.rimeEfficiency.guide.goodRimes', message: 'Consumed Rimes' }),
     };
 
     const refreshedRimes = {
       count: this.refreshedRimeProcs,
-      label: 'Refreshed Rimes',
+      label: t({ id: 'deathknight.frost.rimeEfficiency.guide.refreshedRimes', message: 'Refreshed Rimes' }),
     };
 
     const expiredRimes = {
       count: this.expiredRimeProcs,
-      label: 'Expired Rimes',
+      label: t({ id: 'deathknight.frost.rimeEfficiency.guide.expiredRimes', message: 'Expired Rimes' }),
     };
 
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.RIME} />
-        </strong>{' '}
-        turns <SpellLink spell={talents.HOWLING_BLAST_TALENT} /> from a weak ability you only use to
-        apply Frost Fever to a powerful spell that jumps to the top of the priority list. This is
-        especially true if <SpellLink spell={talents.AVALANCHE_TALENT} /> or{' '}
-        <SpellLink spell={talents.ICEBREAKER_TALENT} /> are talented. Rime has a chance to proc
-        whenever you cast <SpellLink spell={talents.OBLITERATE_TALENT} /> and you prevent wasting
-        the proc by making sure to consume Rime before casting Obliterate. You should aim to consume
-        as many Rimes as you can. However, there are times when other spells take priority such as
-        casting <SpellLink spell={talents.FROST_STRIKE_TALENT} /> to refresh{' '}
-        <SpellLink spell={talents.ICY_TALONS_TALENT} /> or using{' '}
-        <SpellLink spell={talents.OBLITERATE_TALENT} /> to maintain{' '}
-        <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} /> when your RP is low.
+        <Trans id="deathknight.frost.rimeEfficiency.guide.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.RIME} />
+          </strong>{' '}
+          turns <SpellLink spell={talents.HOWLING_BLAST_TALENT} /> from a weak ability you only use
+          to apply Frost Fever to a powerful spell that jumps to the top of the priority list. This
+          is especially true if <SpellLink spell={talents.AVALANCHE_TALENT} /> or{' '}
+          <SpellLink spell={talents.ICEBREAKER_TALENT} /> are talented. Rime has a chance to proc
+          whenever you cast <SpellLink spell={talents.OBLITERATE_TALENT} /> and you prevent wasting
+          the proc by making sure to consume Rime before casting Obliterate. You should aim to
+          consume as many Rimes as you can. However, there are times when other spells take priority
+          such as casting <SpellLink spell={talents.FROST_STRIKE_TALENT} /> to refresh{' '}
+          <SpellLink spell={talents.ICY_TALONS_TALENT} /> or using{' '}
+          <SpellLink spell={talents.OBLITERATE_TALENT} /> to maintain{' '}
+          <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} /> when your RP is low.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Rime breakdown</strong>
+        <strong>{t({ id: 'deathknight.frost.rimeEfficiency.guide.breakdown', message: 'Rime breakdown' })}</strong>
         <GradiatedPerformanceBar good={goodRimes} ok={refreshedRimes} bad={expiredRimes} />
       </div>
     );

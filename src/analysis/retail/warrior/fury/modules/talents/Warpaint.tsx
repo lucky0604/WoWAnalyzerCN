@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import talents from 'common/TALENTS/warrior';
@@ -51,14 +52,15 @@ class Warpaint extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            Warpaint mitigated a total of <strong>{formatThousands(this.damageMitigated)}</strong>{' '}
-            damage.
+            {t({ id: 'warrior.fury.warpaint.mitigatedTotal', message: 'Warpaint mitigated a total of' })}{' '}
+            <strong>{formatThousands(this.damageMitigated)}</strong>{' '}
+            {t({ id: 'warrior.fury.warpaint.damage', message: 'damage.' })}
           </>
         }
       >
         <BoringSpellValueText spell={talents.WARPAINT_TALENT}>
           <>
-            {formatPercentage(this.damageMitigatedPercent)}% <small>damage mitigated</small>
+            {formatPercentage(this.damageMitigatedPercent)}% <small>{t({ id: 'warrior.fury.warpaint.damageMitigated', message: 'damage mitigated' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

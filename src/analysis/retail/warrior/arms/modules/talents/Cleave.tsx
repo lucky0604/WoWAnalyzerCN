@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import TALENTS from 'common/TALENTS/warrior';
 import { SpellLink } from 'interface';
@@ -26,15 +27,28 @@ class Cleave extends Analyzer {
     const Cleave = this.abilityTracker.getAbility(TALENTS.CLEAVE_TALENT.id);
     const total = Cleave.damageVal.effective;
     const avg = total / (Cleave.casts || 1);
+    const totalFormatted = formatThousands(total);
     return (
       <StatisticListBoxItem
         title={
           <>
-            Average <SpellLink spell={TALENTS.CLEAVE_TALENT} /> damage
+            {t({
+              id: 'warrior.arms.cleave.average',
+              message: 'Average',
+            })}{' '}
+            <SpellLink spell={TALENTS.CLEAVE_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.cleave.damage',
+              message: 'damage',
+            })}
           </>
         }
         value={formatThousands(avg)}
-        valueTooltip={`Total Cleave damage: ${formatThousands(total)}`}
+        valueTooltip={t({
+          id: 'warrior.arms.cleave.totalDamage',
+          message: 'Total Cleave damage: {total}',
+          values: { total: totalFormatted },
+        })}
       />
     );
   }

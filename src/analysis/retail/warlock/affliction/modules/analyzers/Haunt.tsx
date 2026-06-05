@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands, formatNumber } from 'common/format';
 import TALENTS from 'common/TALENTS/warlock';
 import { SpellLink, TooltipElement } from 'interface';
@@ -99,7 +100,8 @@ class Haunt extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatThousands(this.bonusDmg)} bonus damage
+            {formatThousands(this.bonusDmg)}{' '}
+            {t({ id: 'warlock.affliction.haunt.bonusDamage', message: 'bonus damage' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
@@ -107,13 +109,16 @@ class Haunt extends Analyzer {
       >
         <BoringSpellValueText spell={TALENTS.HAUNT_TALENT}>
           <div>
-            {formatPercentage(this.uptime)} % <small>uptime</small>
+            {formatPercentage(this.uptime)} %{' '}
+            <small>
+              {t({ id: 'warlock.affliction.haunt.uptimeLabel', message: 'uptime' })}
+            </small>
           </div>
           <div>
             {formatNumber(this.dps)} DPS{' '}
             <small>
-              {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.bonusDmg))} % of
-              total
+              {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.bonusDmg))} %
+              {t({ id: 'warlock.affliction.haunt.ofTotal', message: 'of total' })}
             </small>
           </div>
         </BoringSpellValueText>
@@ -135,21 +140,36 @@ class Haunt extends Analyzer {
       <>
         <p>
           <b>
-            Keep <SpellLink spell={TALENTS.HAUNT_TALENT} /> active on your primary target.
+            {t({
+              id: 'warlock.affliction.haunt.keepActive',
+              message: 'Keep Haunt active on your primary target.',
+            })}
           </b>
         </p>
 
         <p>
-          <SpellLink spell={TALENTS.HAUNT_TALENT} /> increases your damage dealt to the target by{' '}
+          {t({
+            id: 'warlock.affliction.haunt.increasesDamage',
+            message: 'Haunt increases your damage dealt to the target by',
+          })}{' '}
           <TooltipElement
             content={
               <>
-                Haunt's damage bonus:
+                {t({
+                  id: 'warlock.affliction.haunt.damageBonusBreakdown',
+                  message: "Haunt's damage bonus:",
+                })}
                 <ul>
-                  <li>+12% baseline</li>
+                  <li>
+                    {t({
+                      id: 'warlock.affliction.haunt.baselinePlus',
+                      message: '+12% baseline',
+                    })}
+                  </li>
                   {this.shadowOfNathrezaBonus > 0 && (
                     <li>
-                      +{formatPercentage(this.shadowOfNathrezaBonus, 0)}% from{' '}
+                      +{formatPercentage(this.shadowOfNathrezaBonus, 0)}%{' '}
+                      {t({ id: 'warlock.affliction.haunt.from', message: 'from' })}{' '}
                       <SpellLink spell={TALENTS.SHADOW_OF_NATHREZA_2_AFFLICTION_TALENT} />
                     </li>
                   )}
@@ -159,18 +179,27 @@ class Haunt extends Analyzer {
           >
             <b>{formatPercentage(this.hauntDamageBonus, 0)}%</b>
           </TooltipElement>{' '}
-          for 18 seconds. You should always reapply it before it falls off.
+          {t({
+            id: 'warlock.affliction.haunt.forNSeconds',
+            message: 'for 18 seconds. You should always reapply it before it falls off.',
+          })}
         </p>
 
         {this.DowntimePerformance === QualitativePerformance.Ok && (
           <p style={{ color: 'orange' }}>
-            Your Haunt uptime is average. Try to refresh it more consistently.
+            {t({
+              id: 'warlock.affliction.haunt.averageUptime',
+              message: 'Your Haunt uptime is average. Try to refresh it more consistently.',
+            })}
           </p>
         )}
 
         {this.DowntimePerformance === QualitativePerformance.Fail && (
           <p style={{ color: 'red' }}>
-            Your Haunt uptime is low! Focus on keeping it applied at all times.
+            {t({
+              id: 'warlock.affliction.haunt.lowUptime',
+              message: 'Your Haunt uptime is low! Focus on keeping it applied at all times.',
+            })}
           </p>
         )}
       </>

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import TALENTS from 'common/TALENTS/mage';
 import SPELLS from 'common/SPELLS';
@@ -14,9 +16,9 @@ import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import Spell from 'common/SPELLS/Spell';
 
 const SPELL_COLORS = {
-  ARCANE_SURGE: '#db35acff', // Pinkish purple
-  EVOCATION: '#10B981', // Green
-  TOUCH_OF_THE_MAGI: '#F59E0B', // Orange
+  ARCANE_SURGE: '#db35acff',
+  EVOCATION: '#10B981',
+  TOUCH_OF_THE_MAGI: '#F59E0B',
 } as const;
 
 class ManaChart extends Analyzer {
@@ -74,23 +76,36 @@ class ManaChart extends Analyzer {
 
     const explanation = (
       <>
-        <b>Mana Management</b> is crucial for Arcane Mage performance. Proper mana usage involves:
+        <p>
+          <Trans id="mage.arcane.manaChart.explanation1">
+            <b>Mana Management</b> is crucial for Arcane Mage performance. Proper mana usage
+            involves:
+          </Trans>
+        </p>
         <ul>
           <li>
-            <strong>Burn Phase:</strong> Use {arcaneSurge} and {touchOfTheMagi} while maintaining
-            mana for the full duration. Don't go OOM during major cooldowns.
+            <Trans id="mage.arcane.manaChart.burnPhase">
+              <strong>Burn Phase:</strong> Use {arcaneSurge} and {touchOfTheMagi} while
+              maintaining mana for the full duration. Don't go OOM during major cooldowns.
+            </Trans>
           </li>
           <li>
-            <strong>Conserve Phase:</strong> Use {arcaneBarrage} at 4 stacks to maintain mana
-            efficiency while waiting for cooldowns.
+            <Trans id="mage.arcane.manaChart.conservePhase">
+              <strong>Conserve Phase:</strong> Use {arcaneBarrage} at 4 stacks to maintain mana
+              efficiency while waiting for cooldowns.
+            </Trans>
           </li>
           <li>
-            <strong>Mana Recovery:</strong> Use {evocation} to restore mana during conserve phases
-            or between burn windows.
+            <Trans id="mage.arcane.manaChart.manaRecovery">
+              <strong>Mana Recovery:</strong> Use {evocation} to restore mana during conserve
+              phases or between burn windows.
+            </Trans>
           </li>
           <li>
-            <strong>Fight Ending:</strong> Aim to end fights with minimal mana remaining - unused
-            mana is wasted potential damage.
+            <Trans id="mage.arcane.manaChart.fightEnding">
+              <strong>Fight Ending:</strong> Aim to end fights with minimal mana remaining -
+              unused mana is wasted potential damage.
+            </Trans>
           </li>
         </ul>
       </>
@@ -110,7 +125,7 @@ class ManaChart extends Analyzer {
     return (
       <GuideSection
         spell={TALENTS.EVOCATION_TALENT}
-        title="Mana Management"
+        title={t({ id: 'mage.arcane.manaChart.title', message: 'Mana Management' })}
         explanation={explanation}
         verticalLayout
       >

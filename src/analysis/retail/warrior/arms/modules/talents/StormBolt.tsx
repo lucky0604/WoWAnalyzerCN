@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -36,15 +37,24 @@ class StormBolt extends Analyzer {
   subStatistic() {
     const stormBolt = this.abilityTracker.getAbility(TALENTS.STORM_BOLT_TALENT.id);
     const total = stormBolt.damageVal.effective;
+    const totalFormatted = formatThousands(total);
     return (
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={TALENTS.STORM_BOLT_TALENT} /> Stun
+            <SpellLink spell={TALENTS.STORM_BOLT_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.stormBolt.stun',
+              message: 'Stun',
+            })}
           </>
         }
         value={formatNumber(this.stun)}
-        valueTooltip={`Total Storm Bolt damage: ${formatThousands(total)}`}
+        valueTooltip={t({
+          id: 'warrior.arms.stormBolt.totalDamage',
+          message: 'Total Storm Bolt damage: {total}',
+          values: { total: totalFormatted },
+        })}
       />
     );
   }

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon } from 'interface';
 import Analyzer, { SELECTED_PLAYER, Options } from 'parser/core/Analyzer';
@@ -71,7 +72,11 @@ class OverpowerAnalyzer extends Analyzer {
 
       addInefficientCastReason(
         event,
-        'This Overpower was used while already at 2 stacks and Mortal Strike was available',
+        t({
+          id: 'warrior.arms.overpower.wastedProc',
+          message:
+            'This Overpower was used while already at 2 stacks and Mortal Strike was available',
+        }),
       );
     }
   }
@@ -80,21 +85,38 @@ class OverpowerAnalyzer extends Analyzer {
     return (
       <StatisticBox
         icon={<SpellIcon spell={SPELLS.OVERPOWER} />}
-        label="Overpower Buffs Wasted"
+        label={t({
+          id: 'warrior.arms.overpower.label',
+          message: 'Overpower Buffs Wasted',
+        })}
         position={STATISTIC_ORDER.OPTIONAL(6)}
         value={
           <>
-            {this.wastedProc} <small>wasted buffs</small>
+            {this.wastedProc}{' '}
+            <small>
+              {t({
+                id: 'warrior.arms.overpower.wastedBuffs',
+                message: 'wasted buffs',
+              })}
+            </small>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            {this.overpowerCasts} <small>total casts</small>
+            {this.overpowerCasts}{' '}
+            <small>
+              {t({
+                id: 'warrior.arms.overpower.totalCasts',
+                message: 'total casts',
+              })}
+            </small>
           </>
         }
         tooltip={
           <>
-            The overpower buff caps at two stacks. When at cap, casting Overpower will waste a buff
-            stack. This is not important during execute phase as Mortal Strike is replaced with
-            Execute which does not consume Overpower buff stacks.
+            {t({
+              id: 'warrior.arms.overpower.tooltip',
+              message:
+                'The overpower buff caps at two stacks. When at cap, casting Overpower will waste a buff stack. This is not important during execute phase as Mortal Strike is replaced with Execute which does not consume Overpower buff stacks.',
+            })}
           </>
         }
       />

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -90,7 +92,7 @@ class PresenceOfMindGuide extends Analyzer {
     const clearcasting = <SpellLink spell={SPELLS.CLEARCASTING_ARCANE} />;
 
     const explanation = (
-      <>
+      <Trans id="mage.arcane.presenceOfMind.guide.explanation">
         <b>{presenceOfMind}</b> is a fairly simple ability that makes your next two {arcaneBlast}{' '}
         casts instant. There is not much to play around here, so you should generally cast this when
         all of the below are true to avoid hardcasting {arcaneBlast} with low {arcaneCharge}s.
@@ -101,7 +103,7 @@ class PresenceOfMindGuide extends Analyzer {
           </li>
           <li>{arcaneOrb} will not be available in the next 5 seconds.</li>
         </ul>
-      </>
+      </Trans>
     );
 
     return (

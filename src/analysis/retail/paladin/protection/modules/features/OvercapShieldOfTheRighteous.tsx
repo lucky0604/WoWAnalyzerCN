@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatMilliseconds, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -117,22 +119,29 @@ class OvercapShieldOfTheRighteous extends Analyzer {
           size="flexible"
           category={STATISTIC_CATEGORY.GENERAL}
           tooltip={
-            <>
+            <Trans id="paladin.protection.overcapSotr.tooltip">
               You lost {formatNumber(Math.max(0, lostUptimeDueToOvercap / SECOND))} seconds due to
               overcapping <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} />.<br />
-              Overcapping occurs when you cast <SpellLink
-                spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS}
-              />{' '}
-              with more than {formatNumber(SOTR_SOFT_CAP / SECOND)} seconds left on the buff.
-            </>
+              Overcapping occurs when you cast{' '}
+              <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} /> with more than{' '}
+              {formatNumber(SOTR_SOFT_CAP / SECOND)} seconds left on the buff.
+            </Trans>
           }
           dropdown={
             <>
               <table className="table table-condensed">
                 <thead>
                   <tr>
-                    <th>Cast Timestamp</th>
-                    <th>Overcap Amount (s)</th>
+                    <th>
+                      <Trans id="paladin.protection.overcapSotr.castTimestamp">
+                        Cast Timestamp
+                      </Trans>
+                    </th>
+                    <th>
+                      <Trans id="paladin.protection.overcapSotr.overcapAmount">
+                        Overcap Amount (s)
+                      </Trans>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -150,7 +159,10 @@ class OvercapShieldOfTheRighteous extends Analyzer {
           <BoringSpellValue
             spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS}
             value={`${formatNumber(Math.max(0, lostUptimeDueToOvercap / SECOND))}s`}
-            label="Uptime lost to overcapping"
+            label={t({
+              id: 'paladin.protection.overcapSotr.uptimeLost',
+              message: 'Uptime lost to overcapping',
+            })}
           />
         </Statistic>
       </>

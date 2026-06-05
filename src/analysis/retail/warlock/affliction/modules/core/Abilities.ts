@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
 import SharedAbilities from 'analysis/retail/warlock/shared/Abilities';
@@ -29,8 +30,11 @@ class Abilities extends SharedAbilities {
           suggestion: true,
           recommendedEfficiency: 0.95,
           // TODO: possibly implement Haunt resets via SpellUsable?
-          extraSuggestion:
-            "This estimate may not be correct sometimes because of Haunt's resets. The real amount of possible Haunts will be higher if there were adds on this fight.",
+          extraSuggestion: t({
+            id: 'warlock.affliction.abilities.hauntExtraSuggestion',
+            message:
+              "This estimate may not be correct sometimes because of Haunt's resets. The real amount of possible Haunts will be higher if there were adds on this fight.",
+          }),
         },
         buffSpellId: TALENTS.HAUNT_TALENT.id,
       },

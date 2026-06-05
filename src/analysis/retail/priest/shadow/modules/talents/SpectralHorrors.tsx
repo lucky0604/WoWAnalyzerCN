@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -57,7 +58,18 @@ class SpectralHorrors extends Analyzer {
           <ItemDamageDone amount={this.damage} />
         </div>
         <div>
-          <>{this.hits}</> <small>empowered spirits out of {this.castSA} total</small>
+          <>{this.hits}</>{' '}
+          <small>
+            {t({
+              id: 'priest.shadow.spectralHorrors.empoweredSpirits',
+              message: 'empowered spirits out of',
+            })}{' '}
+            {this.castSA}{' '}
+            {t({
+              id: 'priest.shadow.spectralHorrors.total',
+              message: 'total',
+            })}
+          </small>
         </div>
       </BoringSpellValueText>
     );

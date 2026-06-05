@@ -105,15 +105,17 @@ class HealingRain extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} />
-        </b>{' '}
-        is one of your best sources of consistent throughput and can be augmented to do more healing
-        through <SpellLink spell={TALENTS.OVERFLOWING_SHORES_TALENT} /> and more damage through{' '}
-        <SpellLink spell={TALENTS.ACID_RAIN_TALENT} />. Aside from being strong throughput, this{' '}
-        spell also buffs <SpellLink spell={SPELLS.HEALING_WAVE} /> and{' '}
-        <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> through{' '}
-        <SpellLink spell={TALENTS.DELUGE_TALENT} />
+        <Trans id="shaman.restoration.healingRain.guideExplanation">
+          <b>
+            <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} />
+          </b>{' '}
+          is one of your best sources of consistent throughput and can be augmented to do more healing
+          through <SpellLink spell={TALENTS.OVERFLOWING_SHORES_TALENT} /> and more damage through{' '}
+          <SpellLink spell={TALENTS.ACID_RAIN_TALENT} />. Aside from being strong throughput, this{' '}
+          spell also buffs <SpellLink spell={SPELLS.HEALING_WAVE} /> and{' '}
+          <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> through{' '}
+          <SpellLink spell={TALENTS.DELUGE_TALENT} />
+        </Trans>
       </p>
     );
 
@@ -121,7 +123,9 @@ class HealingRain extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} /> cast efficiency
+            <Trans id="shaman.restoration.healingRain.castEfficiency">
+              <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}

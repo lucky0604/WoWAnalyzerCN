@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ResourceChangeEvent } from 'parser/core/Events';
 import { ResourceLink } from 'interface';
@@ -59,47 +61,72 @@ export default class BuilderUse extends Analyzer {
     const items = [
       {
         color: '#F9DC5C',
-        label: 'Judgment Builders',
+        label: t({
+          id: 'paladin.protection.builderUse.judgmentBuilders',
+          message: 'Judgment Builders',
+        }),
         value: this.judgmentBuilderCasts,
       },
       {
         color: '#70C1B3',
-        label: 'Hammer of Wrath Builders',
+        label: t({
+          id: 'paladin.protection.builderUse.hammerOfWrathBuilders',
+          message: 'Hammer of Wrath Builders',
+        }),
         value: this.hammerOfWrathBuilderCasts,
       },
       {
         color: '#3185fC',
-        label: 'Divine Toll Builders',
+        label: t({
+          id: 'paladin.protection.builderUse.divineTollBuilders',
+          message: 'Divine Toll Builders',
+        }),
         value: this.divineTollBuilderCasts,
       },
       {
         color: '#818479',
-        label: 'Blessed Hammer Builders',
+        label: t({
+          id: 'paladin.protection.builderUse.blessedHammerBuilders',
+          message: 'Blessed Hammer Builders',
+        }),
         value: this.blessedHammerBuilderCasts,
       },
       {
         color: '#818479',
-        label: 'Crusader Strike Builders',
+        label: t({
+          id: 'paladin.protection.builderUse.crusaderStrikeBuilders',
+          message: 'Crusader Strike Builders',
+        }),
         value: this.crusaderStrikeBuilderCasts,
       },
 
       {
         color: '#818479',
-        label: 'Hammer of the Righteous Builders',
+        label: t({
+          id: 'paladin.protection.builderUse.hotrBuilders',
+          message: 'Hammer of the Righteous Builders',
+        }),
         value: this.hammerOfTheRighteousBuilderCasts,
       },
 
       {
         color: '#BC3908',
-        label: 'Wasted Builders',
+        label: t({
+          id: 'paladin.protection.builderUse.wastedBuilders',
+          message: 'Wasted Builders',
+        }),
         value: this.wastedBuilderCasts,
       },
     ];
 
+    const wastedLabel = t({
+      id: 'paladin.protection.builderUse.wastedBuilders',
+      message: 'Wasted Builders',
+    });
     const sortedItems = [...items].sort((a, b) => {
-      if (a.label === 'Wasted Builders') {
+      if (a.label === wastedLabel) {
         return 1; // Wasted Builders should be last
-      } else if (b.label === 'Wasted Builders') {
+      } else if (b.label === wastedLabel) {
         return -1; // Wasted Builders should be last
       } else {
         return b.value - a.value; // Sort by value in descending order
@@ -114,7 +141,9 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)} size="flexible">
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> builder usage
+            <Trans id="paladin.protection.builderUse.builderUsage">
+              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> builder usage
+            </Trans>
           </label>
           {this.chart}
         </div>

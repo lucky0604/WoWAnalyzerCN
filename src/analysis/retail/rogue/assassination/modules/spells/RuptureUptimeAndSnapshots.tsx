@@ -1,4 +1,6 @@
-import type { JSX } from 'react';
+import type { JSX, ReactNode } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS/rogue';
 import { SpellLink } from 'interface';
 import { Options } from 'parser/core/Analyzer';
@@ -13,7 +15,10 @@ import {
   RUPTURE_BASE_DURATION,
   SNAPSHOT_DOWNGRADE_BUFFER,
 } from 'analysis/retail/rogue/assassination/constants';
-import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import {
+  QualitativePerformance,
+  getPerformanceExplanation,
+} from 'parser/ui/QualitativePerformance';
 import uptimeBarSubStatistic, { SubPercentageStyle } from 'parser/ui/UptimeBarSubStatistic';
 import { formatDurationMillisMinSec } from 'common/format';
 import { SpellUse } from 'parser/core/SpellUsage/core';
@@ -78,38 +83,97 @@ export default class RuptureUptimeAndSnapshots extends DotSnapshots {
     const wasUpgrade = prevPower < power;
 
     let snapshotPerformance: QualitativePerformance = QualitativePerformance.Good;
-    let snapshotSummary = <div>Good snapshot usage</div>;
-    let snapshotDetails = <div>Good snapshot usage.</div>;
+    let snapshotSummary: ReactNode = (
+      <div>
+        {t({
+          id: 'rogue.assassination.rupture.goodSnapshotUsage',
+          message: 'Good snapshot usage',
+        })}
+      </div>
+    );
+    let snapshotDetails: ReactNode = (
+      <div>
+        {t({
+          id: 'rogue.assassination.rupture.goodSnapshotUsageDetail',
+          message: 'Good snapshot usage.',
+        })}
+      </div>
+    );
     if (wasUnacceptableDowngrade) {
       snapshotPerformance = QualitativePerformance.Fail;
-      snapshotSummary = <div>Unacceptable downgrade of snapshot</div>;
+      snapshotSummary = (
+        <div>
+          {t({
+            id: 'rogue.assassination.rupture.unacceptableDowngrade',
+            message: 'Unacceptable downgrade of snapshot',
+          })}
+        </div>
+      );
       snapshotDetails = (
         <div>
-          Unacceptable downgrade of snapshot. Try not to overwrite your snapshotted Rupture unless
-          it's within the last {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)}.
+          <Trans id="rogue.assassination.rupture.unacceptableDowngradeDetail">
+            Unacceptable downgrade of snapshot. Try not to overwrite your snapshotted Rupture unless
+            it's within the last {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)}.
+          </Trans>
         </div>
       );
     }
     if (clipped > 0) {
       if (isInOpener(cast, this.owner.fight)) {
         snapshotPerformance = QualitativePerformance.Ok;
-        snapshotSummary = <div>Clipped but upgraded existing snapshotted Rupture</div>;
+        snapshotSummary = (
+          <div>
+            {t({
+              id: 'rogue.assassination.rupture.clippedUpgraded',
+              message: 'Clipped but upgraded existing snapshotted Rupture',
+            })}
+          </div>
+        );
         snapshotDetails = (
-          <div>Clipped existing Rupture. It was during your opener so it's okay.</div>
+          <div>
+            {t({
+              id: 'rogue.assassination.rupture.clippedOpener',
+              message: "Clipped existing Rupture. It was during your opener so it's okay.",
+            })}
+          </div>
         );
       } else if (wasUpgrade) {
         snapshotPerformance = QualitativePerformance.Ok;
-        snapshotSummary = <div>Clipped but upgraded existing snapshotted Rupture</div>;
+        snapshotSummary = (
+          <div>
+            {t({
+              id: 'rogue.assassination.rupture.clippedUpgraded',
+              message: 'Clipped but upgraded existing snapshotted Rupture',
+            })}
+          </div>
+        );
         snapshotDetails = (
           <div>
-            Clipped but upgraded existing snapshotted Rupture. Try not to clip your snapshotted
-            Rupture.
+            {t({
+              id: 'rogue.assassination.rupture.clippedUpgradedDetail',
+              message:
+                'Clipped but upgraded existing snapshotted Rupture. Try not to clip your snapshotted Rupture.',
+            })}
           </div>
         );
       } else {
         snapshotPerformance = QualitativePerformance.Fail;
-        snapshotSummary = <div>Clipped existing Rupture</div>;
-        snapshotDetails = <div>Clipped existing Rupture. Try not to clip your Rupture.</div>;
+        snapshotSummary = (
+          <div>
+            {t({
+              id: 'rogue.assassination.rupture.clipped',
+              message: 'Clipped existing Rupture',
+            })}
+          </div>
+        );
+        snapshotDetails = (
+          <div>
+            {t({
+              id: 'rogue.assassination.rupture.clippedDetail',
+              message: 'Clipped existing Rupture. Try not to clip your Rupture.',
+            })}
+          </div>
+        );
       }
     }
 
@@ -130,10 +194,7 @@ export default class RuptureUptimeAndSnapshots extends DotSnapshots {
       event: cast,
       performance: actualPerformance,
       checklistItems: actualChecklistItems,
-      performanceExplanation:
-        actualPerformance !== QualitativePerformance.Fail
-          ? `${actualPerformance} Usage`
-          : 'Bad Usage',
+      performanceExplanation: getPerformanceExplanation(actualPerformance),
     });
 
     // TODO also highlight 'bad' Ruptures in the timeline
@@ -147,10 +208,13 @@ export default class RuptureUptimeAndSnapshots extends DotSnapshots {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.RUPTURE} />
-        </strong>{' '}
-        is your highest damage-per-energy spender. Try to maintain 100% uptime. Don't refresh early.
+        <Trans id="rogue.assassination.rupture.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.RUPTURE} />
+          </strong>{' '}
+          is your highest damage-per-energy spender. Try to maintain 100% uptime. Don't refresh
+          early.
+        </Trans>
       </p>
     );
 
@@ -161,20 +225,22 @@ export default class RuptureUptimeAndSnapshots extends DotSnapshots {
         abovePerformanceDetails={
           <RoundedPanelWithBottomMargin>
             <div>
-              <strong>Rupture uptime</strong>
-              <small> - Try to get as close to 100% as the encounter allows!</small>
+              <Trans id="rogue.assassination.rupture.uptimeHeader">
+                <strong>Rupture uptime</strong>
+                <small> - Try to get as close to 100% as the encounter allows!</small>
+              </Trans>
             </div>
             {this.subStatistic()}
           </RoundedPanelWithBottomMargin>
         }
         castBreakdownSmallText={
-          <>
+          <Trans id="rogue.assassination.rupture.castBreakdownLegend">
             {' '}
             - Blue is an Animacharged cast, Green is a good cast, Yellow is an ok cast (clipped
             duration but upgraded snapshot), Red is a bad cast (clipped duration or downgraded
             snapshot w/ &gt;
             {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)} remaining).
-          </>
+          </Trans>
         }
       />
     );

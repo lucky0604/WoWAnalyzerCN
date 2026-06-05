@@ -8,6 +8,7 @@ import SPELLS from 'common/SPELLS';
 import Events, { CastEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import { SpellIcon } from 'interface';
+import { t } from '@lingui/core/macro';
 
 const PROTECTOR_OF_THE_FRAIL_CR = 3000;
 
@@ -53,7 +54,7 @@ class ProtectorOfTheFrail extends Analyzer {
           <BoringSpellValueText spell={TALENTS_PRIEST.PROTECTOR_OF_THE_FRAIL_TALENT}>
             <SpellIcon spell={TALENTS_PRIEST.PAIN_SUPPRESSION_TALENT} />{' '}
             {(this.effectivePainSupressionReductionMs / 1000).toFixed(1)}{' '}
-            <small>Seconds reduced</small>
+            <small>{t({ id: 'priest.discipline.protectorOfTheFrail.secondsReduced', message: 'Seconds reduced' })}</small>
           </BoringSpellValueText>
         </>
       </Statistic>

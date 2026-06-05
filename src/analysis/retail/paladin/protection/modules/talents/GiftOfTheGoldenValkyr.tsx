@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -108,7 +109,10 @@ class GiftOfTheGoldenValkyr extends Analyzer {
           <SpellIcon spell={TALENTS.GIFT_OF_THE_GOLDEN_VALKYR_TALENT} />{' '}
           {formatNumber(this.guardianOfAncientKingsReduced / SECOND)}s{' '}
           <small>
-            CD Reduction ({formatNumber(this.guardianOfAncientKingsWasted / SECOND)}s wasted)
+            {t({
+              id: 'paladin.protection.giftOfTheGoldenValkyr.cdReduction',
+              message: `CD Reduction (${formatNumber(this.guardianOfAncientKingsWasted / SECOND)}s wasted)`,
+            })}
           </small>
           <br />
         </BoringSpellValueText>

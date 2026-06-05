@@ -41,6 +41,7 @@ import { UPHEAVAL_REVERBERATION_DAM_LINK } from '../normalizers/CastLinkNormaliz
 import { InformationIcon } from 'interface/icons';
 import { formatPercentage } from 'common/format';
 import { TIERS } from 'game/TIERS';
+import { t } from '@lingui/core/macro';
 
 const PANDEMIC_WINDOW = 0.3;
 
@@ -313,14 +314,14 @@ class EbonMight extends Analyzer {
     const damageSources = [
       {
         color: 'rgb(212, 81, 19)',
-        label: 'External',
+        label: t({ id: 'evoker.augmentation.ebonMight.external', message: 'External' }),
         spellId: SPELLS.EBON_MIGHT_BUFF_EXTERNAL.id,
         valueTooltip: formatNumber(this.externalEbonMightDamage),
         value: this.externalEbonMightDamage,
       },
       {
         color: 'rgb(51, 147, 127)',
-        label: 'Personal',
+        label: t({ id: 'evoker.augmentation.ebonMight.personal', message: 'Personal' }),
         spellId: SPELLS.EBON_MIGHT_BUFF_PERSONAL.id,
         valueTooltip: formatNumber(this.personalEbonMightDamage),
         value: this.personalEbonMightDamage,
@@ -334,7 +335,7 @@ class EbonMight extends Analyzer {
       >
         <TalentSpellText talent={TALENTS.EBON_MIGHT_TALENT}>
           <div>
-            <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> buff uptime</small>
+            <InformationIcon /> {formatPercentage(buffUptime, 2)}%<small> {t({ id: 'evoker.augmentation.ebonMight.buffUptime', message: 'buff uptime' })}</small>
           </div>
           <div>
             <ItemDamageDone amount={this.personalEbonMightDamage + this.externalEbonMightDamage} />

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Section, GuideProps, SubSection } from 'interface/guide';
 import CombatLogParser from './CombatLogParser';
 import Explanation from 'interface/guide/components/Explanation';
@@ -17,9 +19,11 @@ export const GUIDE_CORE_EXPLANATION_PERCENT = 50;
 
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   const alwaysBeCastingSubsection = (
-    <SubSection title="Active Time">
+    <SubSection
+      title={t({ id: 'mage.arcane.subSection.activeTime', message: 'Active Time' })}
+    >
       <Explanation>
-        <>
+        <Trans id="mage.arcane.activeTime.description">
           Any time you are not casting something, that is damage that is lost. Mage has many ways to
           decrease downtime, such as using <SpellLink spell={SPELLS.BLINK} /> to get somewhere
           faster so you can continue casting or using{' '}
@@ -33,14 +37,14 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           recommend comparing your downtime to another Arcane Mage that did better than you on the
           same encounter with roughly the same kill time. If you have less downtime than them, then
           maybe there is something you can do to improve.
-        </>
+        </Trans>
       </Explanation>
       <p>
-        Active Time:{' '}
+        {t({ id: 'mage.arcane.activeTime.label', message: 'Active Time:' })}{' '}
         <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
           {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
         </PerformanceStrong>{' '}
-        Cancelled Casts:{' '}
+        {t({ id: 'mage.arcane.cancelledCasts.label', message: 'Cancelled Casts:' })}{' '}
         <PerformanceStrong performance={modules.cancelledCasts.CancelledPerformance}>
           {formatPercentage(modules.cancelledCasts.cancelledPercentage, 1)}%
         </PerformanceStrong>{' '}
@@ -57,34 +61,44 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 
   return (
     <>
-      <Section title="Preface & Disclaimers">
+      <Section
+        title={t({ id: 'mage.arcane.section.preface', message: 'Preface & Disclaimers' })}
+      >
         <p>
-          The analysis in this guide is provided in collaboration with Porom and the rest of the
-          staff of the <a href="https://discord.gg/makGfZA">Altered Time</a> Mage Discord. When
-          reviewing this information, keep in mind that WoWAnalyzer is limited to the information
-          that is present in your combat log. As a result, we have no way of knowing if you were
-          intentionally doing something suboptimal because the fight or strat required it (such as
-          Forced Downtime or holding cooldowns for a burn phase). Because of this, we recommend
-          comparing your analysis against a top 100 log for the same boss.
+          <Trans id="mage.arcane.preface.description1">
+            The analysis in this guide is provided in collaboration with Porom and the rest of the
+            staff of the <a href="https://discord.gg/makGfZA">Altered Time</a> Mage Discord. When
+            reviewing this information, keep in mind that WoWAnalyzer is limited to the information
+            that is present in your combat log. As a result, we have no way of knowing if you were
+            intentionally doing something suboptimal because the fight or strat required it (such as
+            Forced Downtime or holding cooldowns for a burn phase). Because of this, we recommend
+            comparing your analysis against a top 100 log for the same boss.
+          </Trans>
         </p>
         <p>
-          For additional assistance in improving your gameplay, or to have someone look more in
-          depth at your combat logs, please visit the{' '}
-          <a href="https://discord.gg/makGfZA">Altered Time</a> discord.
+          <Trans id="mage.arcane.preface.description2">
+            For additional assistance in improving your gameplay, or to have someone look more in
+            depth at your combat logs, please visit the{' '}
+            <a href="https://discord.gg/makGfZA">Altered Time</a> discord.
+          </Trans>
         </p>
         <p>
-          If you notice any issues or errors in this analysis ... or if there is additional analysis
-          you would like added, please ping <code>@Sharrq</code> in the{' '}
-          <a href="https://discord.gg/makGfZA">Altered Time</a> discord.
+          <Trans id="mage.arcane.preface.description3">
+            If you notice any issues or errors in this analysis ... or if there is additional analysis
+            you would like added, please ping <code>@Sharrq</code> in the{' '}
+            <a href="https://discord.gg/makGfZA">Altered Time</a> discord.
+          </Trans>
         </p>
       </Section>
-      <Section title="Core">
+      <Section title={t({ id: 'mage.arcane.section.core', message: 'Core' })}>
         {alwaysBeCastingSubsection}
         {manaLevelSubsection}
       </Section>
 
-      <Section title="Burn Phase">
-        <>
+      <Section
+        title={t({ id: 'mage.arcane.section.burnPhase', message: 'Burn Phase' })}
+      >
+        <Trans id="mage.arcane.burnPhase.description">
           The largest contribution to your overall damage is going to come from your major and minor
           burn phases. These burn phases happen roughly every 45s, alternating between your major
           burn and your minor burn, and typically revolve around stacking as much damage as possible
@@ -96,31 +110,35 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           sure you are casting as much as possible during{' '}
           <SpellLink spell={TALENTS.TOUCH_OF_THE_MAGI_TALENT} /> and that you properly setup for
           that window ahead of time.
-        </>
+        </Trans>
 
         {info.combatant.hasTalent(TALENTS.ARCANE_SURGE_TALENT) &&
           modules.arcaneSurgeGuide.guideSubsection}
         {info.combatant.hasTalent(TALENTS.TOUCH_OF_THE_MAGI_TALENT) &&
           modules.touchOfTheMagiGuide.guideSubsection}
       </Section>
-      <Section title="Rotational Abilities">
-        <>
+      <Section
+        title={t({ id: 'mage.arcane.section.rotationalAbilities', message: 'Rotational Abilities' })}
+      >
+        <Trans id="mage.arcane.rotationalAbilities.description">
           Arcane Mage generally revolves around your major and minor burn phases, but your other
           rotational abilities also contribute to your damage and, in most cases, help set you up
           for your burn phases so you can get the most out of them.
-        </>
+        </Trans>
         {modules.arcaneMissilesGuide.guideSubsection}
         {modules.arcaneBarrageGuide.guideSubsection}
         {modules.arcaneOrbGuide.guideSubsection}
         {info.combatant.hasTalent(TALENTS.PRESENCE_OF_MIND_TALENT) &&
           modules.presenceOfMindGuide.guideSubsection}
       </Section>
-      <Section title="Cooldowns">
-        <>
+      <Section
+        title={t({ id: 'mage.arcane.section.cooldowns', message: 'Cooldowns' })}
+      >
+        <Trans id="mage.arcane.cooldowns.description">
           As is the case with most damage specs, properly utilizing your damage cooldowns will go a
           long way towards improving your overall damage, especially{' '}
           <SpellLink spell={TALENTS.ARCANE_SURGE_TALENT} />.
-        </>
+        </Trans>
         <CastEfficiencyBar
           spell={TALENTS.ARCANE_SURGE_TALENT}
           gapHighlightMode={GapHighlight.FullCooldown}

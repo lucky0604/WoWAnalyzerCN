@@ -22,6 +22,7 @@ import {
   evaluateQualitativePerformanceByThreshold,
   QualitativePerformance,
 } from 'parser/ui/QualitativePerformance';
+import { Trans } from '@lingui/react/macro';
 
 export default class CombustionCasts extends Analyzer {
   static dependencies = {
@@ -174,14 +175,14 @@ export default class CombustionCasts extends Analyzer {
         size="flexible"
         position={STATISTIC_ORDER.CORE(30)}
         tooltip={
-          <>
+          <Trans id="mage.fire.combustion.statTooltip">
             When Combustion is active, you want to ensure you are only using damage spells that will
             allow you to get as many Pyroblast casts in as possible. Typically, you should be aiming
             to use up your charges of Phoenix Flames and Fire Blast first since they are both
             guaranteed to crit during Combustion. Then if you run out of charges and still have time
             left on Combustion, you can use Scorch to get an additional Pyroblast or two in before
             Combustion ends.
-          </>
+          </Trans>
         }
       >
         <BoringSpellValueText spell={TALENTS.COMBUSTION_TALENT}>
@@ -190,13 +191,13 @@ export default class CombustionCasts extends Analyzer {
               <tbody>
                 <tr>
                   <td>
-                    <small>Spells cast during Combust</small>
+                    <small><Trans id="mage.fire.combustion.spellsCastDuringCombust">Spells cast during Combust</Trans></small>
                   </td>
                   <td>
-                    <small>Total Casts</small>
+                    <small><Trans id="mage.fire.combustion.totalCasts">Total Casts</Trans></small>
                   </td>
                   <td>
-                    <small>% of Total Combust Casts</small>
+                    <small><Trans id="mage.fire.combustion.percentOfTotalCombustCasts">% of Total Combust Casts</Trans></small>
                   </td>
                 </tr>
                 {this.castBreakdown

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatThousands } from 'common/format';
 import TALENTS from 'common/TALENTS/warrior';
 import { SpellIcon } from 'interface';
@@ -67,26 +68,46 @@ class DefensiveStance extends Analyzer {
   }
 
   statistic() {
+    const totalMitigated = formatThousands(this.totalDamageMitigated);
+    const drps = formatThousands(this.perSecond(this.totalDamageMitigated));
+    const totalLost = formatThousands(this.totalDamageLost);
+    const dlps = formatThousands(this.perSecond(this.totalDamageLost));
+
     const footer = (
       <div className="statistic-box-bar">
         <Tooltip
-          content={`You effectively reduced damage taken by a total of ${formatThousands(
-            this.totalDamageMitigated,
-          )} damage (${formatThousands(this.perSecond(this.totalDamageMitigated))} DRPS).`}
+          content={t({
+            id: 'warrior.arms.defensiveStance.damageReducedTooltip',
+            message: 'You effectively reduced damage taken by a total of {mitigated} damage ({drps} DRPS).',
+            values: { mitigated: totalMitigated, drps },
+          })}
         >
           <div className="stat-health-bg" style={{ width: `${this.damageTradeoff() * 100}%` }}>
-            <img src="/img/shield.png" alt="Damage reduced" />
+            <img
+              src="/img/shield.png"
+              alt={t({
+                id: 'warrior.arms.defensiveStance.damageReducedAlt',
+                message: 'Damage reduced',
+              })}
+            />
           </div>
         </Tooltip>
         <Tooltip
-          content={`You lost ${formatThousands(
-            this.totalDamageLost,
-          )} damage through the use of Defensive Stance. (${formatThousands(
-            this.perSecond(this.totalDamageLost),
-          )} DLPS).`}
+          content={t({
+            id: 'warrior.arms.defensiveStance.damageLostTooltip',
+            message:
+              'You lost {lost} damage through the use of Defensive Stance. ({dlps} DLPS).',
+            values: { lost: totalLost, dlps },
+          })}
         >
           <div className="remainder DeathKnight-bg">
-            <img src="/img/sword.png" alt="Damage lost" />
+            <img
+              src="/img/sword.png"
+              alt={t({
+                id: 'warrior.arms.defensiveStance.damageLostAlt',
+                message: 'Damage lost',
+              })}
+            />
           </div>
         </Tooltip>
       </div>
@@ -97,18 +118,34 @@ class DefensiveStance extends Analyzer {
         position={STATISTIC_ORDER.CORE(5)}
         icon={<SpellIcon spell={TALENTS.DEFENSIVE_STANCE_TALENT} />}
         value={`≈${formatNumber(this.drps)} DRPS, ${formatNumber(this.dlps)} DLPS`}
-        label="Damage reduced & lost"
+        label={t({
+          id: 'warrior.arms.defensiveStance.label',
+          message: 'Damage reduced & lost',
+        })}
         tooltip={
           <>
-            <strong>Total:</strong>
+            <strong>
+              {t({
+                id: 'warrior.arms.defensiveStance.total',
+                message: 'Total:',
+              })}
+            </strong>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Effective damage reduction: {formatThousands(this.totalDamageMitigated)} damage (
-            {formatThousands(this.perSecond(this.totalDamageMitigated))} DRPS)
+            {t({
+              id: 'warrior.arms.defensiveStance.effectiveReduction',
+              message:
+                'Effective damage reduction: {mitigated} damage ({drps} DRPS)',
+              values: { mitigated: totalMitigated, drps },
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Effective damage lost: {formatThousands(this.totalDamageLost)} damage (
-            {formatThousands(this.perSecond(this.totalDamageLost))} DLPS)
+            {t({
+              id: 'warrior.arms.defensiveStance.effectiveLost',
+              message:
+                'Effective damage lost: {lost} damage ({dlps} DLPS)',
+              values: { lost: totalLost, dlps },
+            })}
           </>
         }
         footer={footer}

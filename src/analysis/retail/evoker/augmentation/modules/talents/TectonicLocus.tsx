@@ -12,6 +12,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
 
 /**
  * Upheaval deals 50% increased damage to the primary target, and launches them higher.
@@ -49,7 +50,7 @@ class TectonicLocus extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <li>Damage: {formatNumber(this.tectonicLocusDamage)}</li>
+            <li>{t({ id: 'evoker.augmentation.tectonicLocus.damage', message: 'Damage' })}: {formatNumber(this.tectonicLocusDamage)}</li>
           </>
         }
       >

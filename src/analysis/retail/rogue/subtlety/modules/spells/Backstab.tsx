@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS/rogue';
@@ -8,8 +9,6 @@ import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
 import { createSpellUse } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { SpellUse } from 'parser/core/SpellUsage/core';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export default class Backstab extends Analyzer {
   private cooldownUses: SpellUse[] = [];
@@ -22,14 +21,10 @@ export default class Backstab extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="rogue.subtlety.backstab.explanation">
-          <strong>
-            <SpellLink spell={SPELLS.BACKSTAB} />
-          </strong>{' '}
-          is your primary filler ability when <SpellLink spell={SPELLS.SHADOWSTRIKE} /> is
-          unavailable. Always make sure you are positioned **behind the target** to benefit from its
-          increased damage effect.
-        </Trans>
+        <strong>
+          <SpellLink spell={SPELLS.BACKSTAB} />
+        </strong>{' '}
+        {t({ id: 'rogue.subtlety.backstab.explanation', message: 'is your primary filler ability when Shadowstrike is unavailable. Always make sure you are positioned **behind the target** to benefit from its increased damage effect.' })}
       </p>
     );
 
@@ -43,9 +38,7 @@ export default class Backstab extends Analyzer {
         hideGoodCasts
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={
-          <> - {t({ id: 'rogue.subtlety.backstab.redBadCast', message: 'Red is a bad cast.' })}</>
-        }
+        castBreakdownSmallText={<> - {t({ id: 'rogue.subtlety.backstab.redIsBadCast', message: 'Red is a bad cast.' })}</>}
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -58,10 +51,7 @@ export default class Backstab extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: t({
-            id: 'rogue.subtlety.backstab.allCorrect',
-            message: 'All of your casts of this spell were good!',
-          }),
+          noCastsOverride: t({ id: 'rogue.subtlety.backstab.allGoodCasts', message: 'All of your casts of this spell were good!' }),
         }}
       />
     );

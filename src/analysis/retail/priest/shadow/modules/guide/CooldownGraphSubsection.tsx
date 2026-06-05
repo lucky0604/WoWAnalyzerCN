@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { Talent } from 'common/TALENTS/types';
 import Spell from 'common/SPELLS/Spell';
@@ -70,13 +71,25 @@ const CoreCooldownsGraph = () => {
       <strong>
         <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />
       </strong>{' '}
-      is a core spell that should be keept on cooldown as much as possible.
+      {t({
+        id: 'priest.shadow.cooldownGraph.mindBlastCore',
+        message: 'is a core spell that should be kept on cooldown as much as possible.',
+      })}
       {info!.combatant.hasTalent(TALENTS.POWER_SURGE_TALENT) && (
         <>
           {' '}
-          High priority spells like <SpellLink spell={SPELLS.VOID_VOLLEY_CAST} />,{' '}
-          <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />, or{' '}
-          <SpellLink spell={SPELLS.MIND_FLAY_INSANITY_TALENT_DAMAGE} /> should be used before this.
+          {t({
+            id: 'priest.shadow.cooldownGraph.highPrioritySpells',
+            message: 'High priority spells like',
+          })}{' '}
+          <SpellLink spell={SPELLS.VOID_VOLLEY_CAST} />,{' '}
+          <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />,{' '}
+          {t({ id: 'priest.shadow.cooldownGraph.or', message: 'or' })}{' '}
+          <SpellLink spell={SPELLS.MIND_FLAY_INSANITY_TALENT_DAMAGE} />{' '}
+          {t({
+            id: 'priest.shadow.cooldownGraph.shouldBeUsedBefore',
+            message: 'should be used before this.',
+          })}
         </>
       )}
       <div />
@@ -106,8 +119,16 @@ const CoreCooldownsGraph = () => {
             {' '}
             <SpellLink spell={SPELLS.SHADOW_PRIEST_VOIDWEAVER_VOID_BLAST} />{' '}
           </strong>{' '}
-          is an improved version of Mind Blast which is only available while{' '}
-          <SpellLink spell={SPELLS.SHADOW_PRIEST_VOIDWEAVER_ENTROPIC_RIFT_BUFF} /> is active.
+          {t({
+            id: 'priest.shadow.cooldownGraph.voidBlastImproved',
+            message:
+              'is an improved version of Mind Blast which is only available while',
+          })}{' '}
+          <SpellLink spell={SPELLS.SHADOW_PRIEST_VOIDWEAVER_ENTROPIC_RIFT_BUFF} />{' '}
+          {t({
+            id: 'priest.shadow.cooldownGraph.isActive',
+            message: 'is active.',
+          })}
           <div />
         </>
       )}
@@ -117,7 +138,11 @@ const CoreCooldownsGraph = () => {
             {' '}
             <SpellLink spell={SPELLS.VOID_VOLLEY_CAST} />{' '}
           </strong>{' '}
-          is a powerful spell that should be cast on cooldown while you have access to it during{' '}
+          {t({
+            id: 'priest.shadow.cooldownGraph.voidVolleyDescription',
+            message:
+              'is a powerful spell that should be cast on cooldown while you have access to it during',
+          })}{' '}
           <SpellLink spell={SPELLS.VOIDFORM} />
           <div />
         </>
@@ -181,9 +206,17 @@ const ShortCooldownsGraph = () => {
           <strong>
             <SpellLink spell={TALENTS.VOID_TORRENT_TALENT} />
           </strong>{' '}
-          is a channeled spell that should be used as often as possible with{' '}
-          <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} /> on its target. It should be
-          channeled for its full duration.
+          {t({
+            id: 'priest.shadow.cooldownGraph.voidTorrentDescription',
+            message:
+              'is a channeled spell that should be used as often as possible with',
+          })}{' '}
+          <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />{' '}
+          {t({
+            id: 'priest.shadow.cooldownGraph.voidTorrentFullChannel',
+            message:
+              'on its target. It should be channeled for its full duration.',
+          })}
           <div />
         </>
       )}
@@ -193,8 +226,16 @@ const ShortCooldownsGraph = () => {
           <strong>
             <SpellLink spell={TALENTS.TENTACLE_SLAM_TALENT} />
           </strong>{' '}
-          is used to apply and refresh <SpellLink spell={SPELLS.VAMPIRIC_TOUCH} />. This can be held
-          if it would allow you to apply your dots to more targets.
+          {t({
+            id: 'priest.shadow.cooldownGraph.tentacleSlamDescription',
+            message: 'is used to apply and refresh',
+          })}{' '}
+          <SpellLink spell={SPELLS.VAMPIRIC_TOUCH} />.{' '}
+          {t({
+            id: 'priest.shadow.cooldownGraph.tentacleSlamHoldNote',
+            message:
+              'This can be held if it would allow you to apply your dots to more targets.',
+          })}
           <div />
         </>
       )}
@@ -208,9 +249,18 @@ const LongCooldownsGraph = () => {
 
   const message = (
     <p>
-      <strong>Major Cooldowns</strong> - this graph shows when you used your cooldowns and how long
-      you waited to use them again. You should use these cooldowns together when possible to
-      maximize the damage they can deal, without missing any possible casts in the encounter.
+      <strong>
+        {t({
+          id: 'priest.shadow.cooldownGraph.majorCooldowns',
+          message: 'Major Cooldowns',
+        })}
+      </strong>{' '}
+      -{' '}
+      {t({
+        id: 'priest.shadow.cooldownGraph.majorCooldownsDescription',
+        message:
+          'this graph shows when you used your cooldowns and how long you waited to use them again. You should use these cooldowns together when possible to maximize the damage they can deal, without missing any possible casts in the encounter.',
+      })}
     </p>
   );
   return CooldownGraphSubsection(longCooldown, message);

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -200,12 +201,12 @@ class Dawnlight extends Analyzer {
           <div>
             <SpellIcon spell={TALENTS.DAWNLIGHT_TALENT} />{' '}
             {this.getAvgTargets(SPELLS.DAWNLIGHT_AOE_HEAL.id).toFixed(1)}{' '}
-            <small>average targets hit</small>
+            <small>{t({ id: 'paladin.holy.herald.dawnlight.averageTargetsHit', message: 'average targets hit' })}</small>
           </div>
           <div>
             <SpellIcon spell={TALENTS.SUNS_AVATAR_TALENT} />{' '}
             {this.getAvgTargets(SPELLS.SUNS_AVATAR_HEAL.id).toFixed(1)}{' '}
-            <small>average targets hit</small>
+            <small>{t({ id: 'paladin.holy.herald.dawnlight.averageTargetsHit', message: 'average targets hit' })}</small>
           </div>
         </TalentSpellText>
       </Statistic>

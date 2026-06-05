@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import TALENTS from 'common/TALENTS/priest';
 import SPELLS from 'common/SPELLS';
@@ -59,7 +60,8 @@ class InescapableTorment extends Analyzer {
     if (this.castTime !== 0) {
       const tooltip = (
         <>
-          @<strong>{this.owner.formatTimestamp(this.castTime)}</strong>, Extension:
+          @<strong>{this.owner.formatTimestamp(this.castTime)}</strong>,{' '}
+          {t({ id: 'priest.shadow.inescapableTorment.extension', message: 'Extension' })}:{' '}
           <strong>{this.extension.toFixed(1)}</strong>
         </>
       );
@@ -127,7 +129,13 @@ class InescapableTorment extends Analyzer {
             <ItemDamageDone amount={this.damage} />{' '}
           </div>
           <div>
-            <UptimeIcon /> {this.totalTime.toFixed(1)}s <small>of mindbender extension</small>{' '}
+            <UptimeIcon /> {this.totalTime.toFixed(1)}s{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.inescapableTorment.mindbenderExtension',
+                message: 'of mindbender extension',
+              })}
+            </small>{' '}
           </div>
         </BoringSpellValueText>
       </Statistic>
@@ -140,21 +148,41 @@ class InescapableTorment extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.MINDBENDER_SHADOW_TALENT} />
         </b>{' '}
-        is a powerful cooldown when talented into{' '}
+        {t({
+          id: 'priest.shadow.inescapableTorment.powerfulCooldown',
+          message: 'is a powerful cooldown when talented into',
+        })}{' '}
         <SpellLink spell={TALENTS.INESCAPABLE_TORMENT_TALENT} />.
         <div />
-        Casting <SpellLink spell={TALENTS.MIND_BLAST_TALENT} /> or{' '}
-        <SpellLink spell={TALENTS.SHADOW_WORD_DEATH_TALENT} /> during{' '}
-        <SpellLink spell={TALENTS.MINDBENDER_SHADOW_TALENT} /> extends its duration by 0.7 seconds
-        and deals damage.
+        {t({
+          id: 'priest.shadow.inescapableTorment.casting',
+          message: 'Casting',
+        })}{' '}
+        <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />{' '}
+        {t({ id: 'priest.shadow.inescapableTorment.or', message: 'or' })}{' '}
+        <SpellLink spell={TALENTS.SHADOW_WORD_DEATH_TALENT} />{' '}
+        {t({ id: 'priest.shadow.inescapableTorment.during', message: 'during' })}{' '}
+        <SpellLink spell={TALENTS.MINDBENDER_SHADOW_TALENT} />{' '}
+        {t({
+          id: 'priest.shadow.inescapableTorment.extendsDuration',
+          message: 'extends its duration by 0.7 seconds and deals damage.',
+        })}
       </p>
     );
 
     const data = (
       <div>
-        <strong>Mindbender Extension</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.inescapableTorment.mindbenderExtensionTitle',
+            message: 'Mindbender Extension',
+          })}
+        </strong>
         <div />
-        <UptimeIcon /> <strong>{this.totalTime.toFixed(1)}</strong> <small> seconds</small>
+        <UptimeIcon /> <strong>{this.totalTime.toFixed(1)}</strong>{' '}
+        <small>
+          {t({ id: 'priest.shadow.inescapableTorment.seconds', message: 'seconds' })}
+        </small>
         <PerformanceBoxRow values={this.MBExtension} />
       </div>
     );

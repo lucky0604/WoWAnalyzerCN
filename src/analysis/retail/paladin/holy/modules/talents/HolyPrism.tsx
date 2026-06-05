@@ -1,3 +1,5 @@
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -73,7 +75,7 @@ class HolyPrismTargetsHit extends Analyzer {
             {this.owner.formatTimestamp(event.timestamp)}
           </div>
           <div>
-            Used on Enemy Target: <PerformanceMark perf={QualitativePerformance.Good} />
+            {t({ id: 'paladin.holy.talents.holyPrism.usedOnEnemy', message: 'Used on Enemy Target' })}: <PerformanceMark perf={QualitativePerformance.Good} />
           </div>
           {isWingsActive && (
             <>
@@ -98,7 +100,7 @@ class HolyPrismTargetsHit extends Analyzer {
             {this.owner.formatTimestamp(event.timestamp)}
           </div>
           <div>
-            Used on Friendly Target: <PerformanceMark perf={QualitativePerformance.Ok} />
+            {t({ id: 'paladin.holy.talents.holyPrism.usedOnFriendly', message: 'Used on Friendly Target' })}: <PerformanceMark perf={QualitativePerformance.Ok} />
           </div>
           {isWingsActive && (
             <>
@@ -148,20 +150,20 @@ class HolyPrismTargetsHit extends Analyzer {
         size="small"
         tooltip={
           <>
-            <p>Casts are AoE only Casts</p>
-            <p>Targets hit are ALL targets Hit including 100% overhealing</p>
-            <p>Pets hit are ONLY pets Hit including 100% overheal</p>
-            <p>Hurt Non-Pets hit are all non pets excluding 100% overheal</p>
+            <p>{t({ id: 'paladin.holy.talents.holyPrism.castsAoeOnly', message: 'Casts are AoE only Casts' })}</p>
+            <p>{t({ id: 'paladin.holy.talents.holyPrism.targetsHitAll', message: 'Targets hit are ALL targets Hit including 100% overhealing' })}</p>
+            <p>{t({ id: 'paladin.holy.talents.holyPrism.petsHitOnly', message: 'Pets hit are ONLY pets Hit including 100% overheal' })}</p>
+            <p>{t({ id: 'paladin.holy.talents.holyPrism.hurtNonPets', message: 'Hurt Non-Pets hit are all non pets excluding 100% overheal' })}</p>
             <ul>
-              <li>Casts: {this.casts}</li>
+              <li>{t({ id: 'paladin.holy.talents.holyPrism.casts', message: 'Casts' })}: {this.casts}</li>
               <li>
-                Target hit: {this.targetsHit} ({averageTargetsHit}){' '}
+                {t({ id: 'paladin.holy.talents.holyPrism.targetHit', message: 'Target hit' })}: {this.targetsHit} ({averageTargetsHit}){' '}
               </li>
               <li>
-                Pets Hit: {this.petsHit} ({averagePetsHit})
+                {t({ id: 'paladin.holy.talents.holyPrism.petsHit', message: 'Pets Hit' })}: {this.petsHit} ({averagePetsHit})
               </li>
               <li>
-                Hurt Non-Pets Hit: {this.averageInjuredHumansHit} ({averageHurtHumansHit})
+                {t({ id: 'paladin.holy.talents.holyPrism.hurtNonPetsHit', message: 'Hurt Non-Pets Hit' })}: {this.averageInjuredHumansHit} ({averageHurtHumansHit})
               </li>
             </ul>
           </>
@@ -170,7 +172,7 @@ class HolyPrismTargetsHit extends Analyzer {
         <BoringSpellValue
           spell={TALENTS.HOLY_PRISM_TALENT.id}
           value={averageTargetsHit}
-          label="Average Targets Hit per Cast"
+          label={t({ id: 'paladin.holy.talents.holyPrism.averageTargetsHit', message: 'Average Targets Hit per Cast' })}
           className="light-of-dawn-hits-per-cast"
           extra={<PlayerHits performance={Number(averageTargetsHit)} />}
         />
@@ -180,59 +182,68 @@ class HolyPrismTargetsHit extends Analyzer {
 
   get guideSubsection(): JSX.Element {
     const explanation = (
-      <p>
-        <b>
-          <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
-        </b>{' '}
-        is a powerful AoE or single-target heal depending on who you cast it on:
-        <ol>
-          <li>
-            an enemy target for AoE healing (<span style={{ color: 'green' }}>best</span>)
-          </li>
-          <li>
-            an ally for single-target spot healing (<span style={{ color: 'yellow' }}>ok</span>)
-          </li>
-        </ol>
-        {this.selectedCombatant.hasTalent(TALENTS.DIVINE_FAVOR_TALENT) && (
-          <>
-            {' '}
-            Casting <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> also procs{' '}
-            <SpellLink spell={TALENTS.DIVINE_FAVOR_TALENT} />, reducing the cast time and mana cost
-            of the preferred consuming spell,
-            <SpellLink spell={SPELLS.HOLY_LIGHT} />, significantly.
-          </>
-        )}
-        {this.selectedCombatant.hasTalent(TALENTS.SUNS_AVATAR_TALENT) && (
-          <>
-            {' '}
-            As Herald of the Sun, it is very important to line up your{' '}
-            <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> casts with{' '}
-            <SpellLink
-              spell={this.hasAC ? SPELLS.AVENGING_CRUSADER.id : TALENTS.AVENGING_WRATH_TALENT.id}
-            />{' '}
-            and <SpellLink spell={TALENTS.AWAKENING_TALENT} /> windows as you apply{' '}
-            <SpellLink spell={TALENTS.DAWNLIGHT_TALENT} /> with your next two{' '}
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> spenders after casting{' '}
-            <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> to take advantage of{' '}
-            <SpellLink spell={TALENTS.SUNS_AVATAR_TALENT} />.
-          </>
-        )}
-      </p>
+      <Trans id="paladin.holy.talents.holyPrism.guideExplanation">
+        <p>
+          <b>
+            <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
+          </b>{' '}
+          is a powerful AoE or single-target heal depending on who you cast it on:
+          <ol>
+            <li>
+              an enemy target for AoE healing (<span style={{ color: 'green' }}>best</span>)
+            </li>
+            <li>
+              an ally for single-target spot healing (<span style={{ color: 'yellow' }}>ok</span>)
+            </li>
+          </ol>
+          {this.selectedCombatant.hasTalent(TALENTS.DIVINE_FAVOR_TALENT) && (
+            <>
+              {' '}
+              Casting <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> also procs{' '}
+              <SpellLink spell={TALENTS.DIVINE_FAVOR_TALENT} />, reducing the cast time and mana cost
+              of the preferred consuming spell,
+              <SpellLink spell={SPELLS.HOLY_LIGHT} />, significantly.
+            </>
+          )}
+          {this.selectedCombatant.hasTalent(TALENTS.SUNS_AVATAR_TALENT) && (
+            <>
+              {' '}
+              As Herald of the Sun, it is very important to line up your{' '}
+              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> casts with{' '}
+              <SpellLink
+                spell={this.hasAC ? SPELLS.AVENGING_CRUSADER.id : TALENTS.AVENGING_WRATH_TALENT.id}
+              />{' '}
+              and <SpellLink spell={TALENTS.AWAKENING_TALENT} /> windows as you apply{' '}
+              <SpellLink spell={TALENTS.DAWNLIGHT_TALENT} /> with your next two{' '}
+              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> spenders after casting{' '}
+              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> to take advantage of{' '}
+              <SpellLink spell={TALENTS.SUNS_AVATAR_TALENT} />.
+            </>
+          )}
+        </p>
+      </Trans>
     );
 
     const data = (
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> cast efficiency
+            <Trans id="paladin.holy.talents.holyPrism.castEfficiency">
+              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> cast efficiency
+            </Trans>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
             <p>
-              <strong>Casts </strong>
+              <strong>
+                <Trans id="paladin.holy.talents.holyPrism.casts">Casts</Trans>
+              </strong>
+              {' '}
               <small>
-                - Green indicates a correct <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> cast,
-                while yellow indicates an ok cast.
+                <Trans id="paladin.holy.talents.holyPrism.castLegend">
+                  - Green indicates a correct <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> cast,
+                  while yellow indicates an ok cast.
+                </Trans>
               </small>
             </p>
             <PerformanceBoxRow values={this.castEntries} />

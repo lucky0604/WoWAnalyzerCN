@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import talents from 'common/TALENTS/warrior';
@@ -52,12 +53,12 @@ class ImpendingVicory extends Analyzer {
             <strong>
               {formatThousands(this.totalDamage)} ({formatPercentage(this.percentageDamage)}%)
             </strong>{' '}
-            damage was done by Impending Victory.
+            {t({ id: 'warrior.fury.impendingVictory.damageDone', message: 'damage was done by Impending Victory.' })}
           </>
         }
       >
         <BoringSpellValueText spell={talents.IMPENDING_VICTORY_TALENT}>
-          <>{formatNumber(this.totalHeal)} Healing</>
+          <>{formatNumber(this.totalHeal)} {t({ id: 'warrior.fury.impendingVictory.healing', message: 'Healing' })}</>
         </BoringSpellValueText>
       </Statistic>
     );

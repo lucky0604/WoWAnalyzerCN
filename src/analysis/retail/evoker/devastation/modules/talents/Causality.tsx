@@ -14,6 +14,7 @@ import {
 } from 'analysis/retail/evoker/devastation/constants';
 import DonutChart from 'parser/ui/DonutChart';
 import { isMassDisintegrateTick } from '../normalizers/CastLinkNormalizer';
+import { t } from '@lingui/core/macro';
 
 class Causality extends Analyzer {
   static dependencies = {
@@ -157,14 +158,18 @@ class Causality extends Analyzer {
         color: 'rgb(183,65,14)',
         label: 'Pyre',
         spellId: SPELLS.PYRE.id,
-        valueTooltip: this.sourceData[SPELLS.PYRE.id].CDR.toFixed(2) + 's CDR',
+        valueTooltip:
+          this.sourceData[SPELLS.PYRE.id].CDR.toFixed(2) +
+          t({ id: 'evoker.devastation.causality.cdrTooltip', message: 's CDR' }),
         value: this.sourceData[SPELLS.PYRE.id].CDR,
       },
       {
         color: 'rgb(41,134,204)',
         label: 'Disintegrate',
         spellId: SPELLS.DISINTEGRATE.id,
-        valueTooltip: this.sourceData[SPELLS.DISINTEGRATE.id].CDR.toFixed(2) + 's CDR',
+        valueTooltip:
+          this.sourceData[SPELLS.DISINTEGRATE.id].CDR.toFixed(2) +
+          t({ id: 'evoker.devastation.causality.cdrTooltip', message: 's CDR' }),
         value: this.sourceData[SPELLS.DISINTEGRATE.id].CDR,
       },
     ];
@@ -172,14 +177,21 @@ class Causality extends Analyzer {
     const effectiveCDRItems = [
       {
         color: 'rgb(123,188,93)',
-        label: 'Effetive CDR',
-        valueTooltip: effectiveCDR.toFixed(2) + 's effective CDR',
+        label: t({ id: 'evoker.devastation.causality.effectiveCDR', message: 'Effetive CDR' }),
+        valueTooltip:
+          effectiveCDR.toFixed(2) +
+          t({ id: 'evoker.devastation.causality.effectiveCDRSeconds', message: 's effective CDR' }),
         value: effectiveCDR,
       },
       {
         color: 'rgb(216,59,59)',
-        label: 'Wasted CDR',
-        valueTooltip: wastedCDR.toFixed(2) + 's CDR wasted whilst an Empower was ready',
+        label: t({ id: 'evoker.devastation.causality.wastedCDR', message: 'Wasted CDR' }),
+        valueTooltip:
+          wastedCDR.toFixed(2) +
+          t({
+            id: 'evoker.devastation.causality.wastedCDRSeconds',
+            message: 's CDR wasted whilst an Empower was ready',
+          }),
         value: wastedCDR,
       },
       ...(blazingCDR > 0
@@ -188,7 +200,12 @@ class Causality extends Analyzer {
               color: 'rgb(248,233,190)',
               label: SPELLS.BLAZING_SHARDS.name,
               spellId: SPELLS.BLAZING_SHARDS.id,
-              valueTooltip: blazingCDR.toFixed(2) + 's CDR wasted during Blazing Shards',
+              valueTooltip:
+                blazingCDR.toFixed(2) +
+                t({
+                  id: 'evoker.devastation.causality.wastedDuringBlazing',
+                  message: 's CDR wasted during Blazing Shards',
+                }),
               value: blazingCDR,
             },
           ]
@@ -203,13 +220,18 @@ class Causality extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS.CAUSALITY_TALENT} /> usage
+            <SpellLink spell={TALENTS.CAUSALITY_TALENT} />{' '}
+            {t({ id: 'evoker.devastation.causality.usage', message: 'usage' })}
           </label>
-          <strong>CDR source:</strong>
+          <strong>
+            {t({ id: 'evoker.devastation.causality.cdrSource', message: 'CDR source:' })}
+          </strong>
           <DonutChart items={cdrSourceItems} />
         </div>
         <div className="pad">
-          <strong>CDR effeciency:</strong>
+          <strong>
+            {t({ id: 'evoker.devastation.causality.cdrEfficiency', message: 'CDR effeciency:' })}
+          </strong>
           <DonutChart items={effectiveCDRItems} />
         </div>
       </Statistic>

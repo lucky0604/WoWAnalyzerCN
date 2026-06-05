@@ -11,6 +11,8 @@ import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/Cas
 import ComboPointTracker from 'analysis/retail/rogue/shared/ComboPointTracker';
 import { getGeneratedAdrenalineRushComboPoints } from '../../normalizers/CastLinkNormalizer';
 import uptimeBarSubStatistic, { UptimeBarSpec } from 'parser/ui/UptimeBarSubStatistic';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const MAX_GOOD_CP = 2;
 
@@ -44,14 +46,18 @@ export default class AdrenalineRush extends Analyzer {
     const explanation = (
       <>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} />
-          </strong>{' '}
-          is an important buff to maintain high uptime on, and should be used on cooldown.
+          <Trans id="rogue.outlaw.adrenalineRush.explanation1">
+            <strong>
+              <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} />
+            </strong>{' '}
+            is an important buff to maintain high uptime on, and should be used on cooldown.
+          </Trans>
         </p>
         <p>
-          When playing with <SpellLink spell={TALENTS.IMPROVED_ADRENALINE_RUSH_TALENT} /> you should
-          use it at <strong>{MAX_GOOD_CP} or less</strong> Combo Points to avoid overcapping.
+          <Trans id="rogue.outlaw.adrenalineRush.explanation2">
+            When playing with <SpellLink spell={TALENTS.IMPROVED_ADRENALINE_RUSH_TALENT} /> you should
+            use it at <strong>{MAX_GOOD_CP} or less</strong> Combo Points to avoid overcapping.
+          </Trans>
         </p>
       </>
     );
@@ -76,7 +82,11 @@ export default class AdrenalineRush extends Analyzer {
         hideGoodCasts={false}
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Red indicates bad Adrenaline Rush usage.</>}
+        castBreakdownSmallText={
+          <Trans id="rogue.outlaw.adrenalineRush.castBreakdownLegend">
+            - Red indicates bad Adrenaline Rush usage.
+          </Trans>
+        }
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
             {uptimeBarSubStatistic(this.owner.fight, adrenalineRushBarSpec)}
@@ -89,7 +99,10 @@ export default class AdrenalineRush extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: 'No Adrenaline Rush casts detected! This is a major mistake.',
+          noCastsOverride: t({
+            id: 'rogue.outlaw.adrenalineRush.noCasts',
+            message: 'No Adrenaline Rush casts detected! This is a major mistake.',
+          }),
         }}
       />
     );
@@ -115,17 +128,27 @@ export default class AdrenalineRush extends Analyzer {
       { event },
       {
         performance: isGoodCP ? QualitativePerformance.Good : QualitativePerformance.Fail,
-        summary: <div>Combo Point Management</div>,
+        summary: (
+          <div>
+            <Trans id="rogue.outlaw.adrenalineRush.comboPointManagement">
+              Combo Point Management
+            </Trans>
+          </div>
+        ),
         details: isGoodCP ? (
           <div>
-            You used <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} /> optimally with{' '}
-            <strong>{comboPointsAtCast}</strong> combo points.
+            <Trans id="rogue.outlaw.adrenalineRush.optimalUsage">
+              You used <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} /> optimally with{' '}
+              <strong>{comboPointsAtCast}</strong> combo points.
+            </Trans>
           </div>
         ) : (
           <div>
-            You used <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} /> at{' '}
-            <strong>{comboPointsAtCast}</strong> combo points. Try to use it at{' '}
-            <strong>{MAX_GOOD_CP} or less</strong> CP to avoid overcapping.
+            <Trans id="rogue.outlaw.adrenalineRush.badUsage">
+              You used <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} /> at{' '}
+              <strong>{comboPointsAtCast}</strong> combo points. Try to use it at{' '}
+              <strong>{MAX_GOOD_CP} or less</strong> CP to avoid overcapping.
+            </Trans>
           </div>
         ),
       },

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -79,16 +81,19 @@ class BlessedHammerDamageReduction extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="paladin.protection.blessedHammer.tooltip">
             Average <b>{formatNumber(this.averageHitReduction)}</b> damage reduced per hit affected
             by <SpellLink spell={TALENTS.BLESSED_HAMMER_TALENT} />.
-          </>
+          </Trans>
         }
       >
         <BoringSpellValue
           spell={TALENTS.BLESSED_HAMMER_TALENT.id}
           value={formatNumber(this.totalReducedDamage)}
-          label={`Reduced damage from ${this.reducedDamageHits} hits.`}
+          label={t({
+            id: 'paladin.protection.blessedHammer.reducedDamage',
+            message: `Reduced damage from ${this.reducedDamageHits} hits.`,
+          })}
         />
       </Statistic>
     );

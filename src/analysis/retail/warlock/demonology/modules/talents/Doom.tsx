@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
@@ -101,10 +102,15 @@ class Doom extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            {formatNumber(this.doom.damage)} damage
+            {formatNumber(this.doom.damage)}{' '}
+            {t({ id: 'warlock.demonology.doom.damage', message: 'damage' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Doom tracking - 20s debuff applied by Demonbolt when consuming Demonic Core
+            {t({
+              id: 'warlock.demonology.doom.tooltip',
+              message:
+                'Doom tracking - 20s debuff applied by Demonbolt when consuming Demonic Core',
+            })}
           </>
         }
       >
@@ -112,10 +118,16 @@ class Doom extends Analyzer {
           <ItemDamageDone amount={this.doom.damage} />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          <UptimeIcon /> {formatPercentage(this.uptime)}% <small>Uptime</small>
+          <UptimeIcon /> {formatPercentage(this.uptime)}%{' '}
+          <small>
+            {t({ id: 'warlock.demonology.doom.uptime', message: 'Uptime' })}
+          </small>
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {this.doom.applyDebuffCount} <small>Applications</small>
+          {this.doom.applyDebuffCount}{' '}
+          <small>
+            {t({ id: 'warlock.demonology.doom.applications', message: 'Applications' })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

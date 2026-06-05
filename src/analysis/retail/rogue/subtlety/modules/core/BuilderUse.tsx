@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ResourceChangeEvent } from 'parser/core/Events';
 import { BadColor, GoodColor } from 'interface/guide';
@@ -9,7 +10,6 @@ import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import SPELLS from 'common/SPELLS/rogue';
 import TALENTS from 'common/TALENTS/rogue';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
-import { t } from '@lingui/core/macro';
 
 export default class BuilderUse extends Analyzer {
   totalBuilderCasts = 0;
@@ -38,28 +38,22 @@ export default class BuilderUse extends Analyzer {
   }
 
   get chart() {
+    const items = [
+      {
+        color: GoodColor,
+        label: t({ id: 'rogue.subtlety.builderUse.effectiveBuilders', message: 'Effective Builders' }),
+        value: this.effectiveBuilderCasts,
+      },
+      {
+        color: BadColor,
+        label: t({ id: 'rogue.subtlety.builderUse.wastedBuilders', message: 'Wasted Builders' }),
+        value: this.wastedBuilderCasts,
+      },
+    ];
+
     return (
       <RoundedPanel>
-        <DonutChart
-          items={[
-            {
-              color: GoodColor,
-              label: t({
-                id: 'rogue.subtlety.builderUse.effective',
-                message: 'Effective Builders',
-              }),
-              value: this.effectiveBuilderCasts,
-            },
-            {
-              color: BadColor,
-              label: t({
-                id: 'rogue.subtlety.builderUse.wasted',
-                message: 'Wasted Builders',
-              }),
-              value: this.wastedBuilderCasts,
-            },
-          ]}
-        />
+        <DonutChart items={items} />
       </RoundedPanel>
     );
   }
@@ -70,7 +64,7 @@ export default class BuilderUse extends Analyzer {
         <div className="pad">
           <label>
             <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
-            {t({ id: 'rogue.subtlety.builderUse.label', message: 'builder usage' })}
+            {t({ id: 'rogue.subtlety.builderUse.builderUsage', message: 'builder usage' })}
           </label>
           {this.chart}
         </div>

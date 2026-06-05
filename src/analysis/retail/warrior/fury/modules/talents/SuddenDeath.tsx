@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warrior';
@@ -136,28 +137,28 @@ class SuddenDeath extends Analyzer {
         tooltip={
           <>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            Sudden Death usage on targets above {formatPercentage(this.executeThreshold)}%<br />
-            Damage done:{' '}
+            {t({ id: 'warrior.fury.suddenDeath.usageAbove', message: 'Sudden Death usage on targets above' })} {formatPercentage(this.executeThreshold)}%<br />
+            {t({ id: 'warrior.fury.suddenDeath.damageDone', message: 'Damage done:' })}{' '}
             <strong>
               {formatThousands(this.damageAboveThreshold)} ({formatPercentage(this.damagePercent)}%)
             </strong>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Execute casts: <strong>{formatThousands(this.executeCastsAboveThreshold)}</strong>
+            {t({ id: 'warrior.fury.suddenDeath.executeCasts', message: 'Execute casts:' })} <strong>{formatThousands(this.executeCastsAboveThreshold)}</strong>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Sudden Death usage on targets below <u>{formatPercentage(this.executeThreshold)}%</u>
+            {t({ id: 'warrior.fury.suddenDeath.usageBelow', message: 'Sudden Death usage on targets below' })} <u>{formatPercentage(this.executeThreshold)}%</u>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Effective CDR: <strong>{(this.effectiveExecuteCDR / 1000).toFixed(2)}s</strong>
+            {t({ id: 'warrior.fury.suddenDeath.effectiveCdr', message: 'Effective CDR:' })} <strong>{(this.effectiveExecuteCDR / 1000).toFixed(2)}s</strong>
           </>
         }
       >
         <BoringSpellValueText spell={TALENTS.SUDDEN_DEATH_TALENT}>
           <>
-            {this.suddenDeathProcsUsed} / {this.suddenDeathProcs} procs used
+            {this.suddenDeathProcsUsed} / {this.suddenDeathProcs} {t({ id: 'warrior.fury.suddenDeath.procsUsed', message: 'procs used' })}
           </>
         </BoringSpellValueText>
       </Statistic>

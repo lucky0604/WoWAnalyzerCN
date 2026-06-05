@@ -21,7 +21,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { SpellLink } from 'interface';
 import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   SPIRITFONT_MAX_STACKS,
@@ -136,7 +136,11 @@ class Spiritfont extends Analyzer {
     this.entries.push({
       timestamp: event.timestamp,
       performance: QualitativePerformance.Fail,
-      reason: `Refreshed at ${SPIRITFONT_MAX_STACKS} stacks`,
+      reason: t({
+        id: 'monk.mistweaver.spiritfont.refreshedAtStacks',
+        message: 'Refreshed at {stacks} stacks',
+        values: { stacks: SPIRITFONT_MAX_STACKS },
+      }),
     });
   }
 
@@ -148,7 +152,9 @@ class Spiritfont extends Analyzer {
     this.entries.push({
       timestamp: event.timestamp,
       performance: isConsumed ? QualitativePerformance.Good : QualitativePerformance.Fail,
-      reason: isConsumed ? 'Consumed' : 'Expired',
+      reason: isConsumed
+        ? t({ id: 'monk.mistweaver.spiritfont.consumed', message: 'Consumed' })
+        : t({ id: 'monk.mistweaver.spiritfont.expired', message: 'Expired' }),
     });
   }
 

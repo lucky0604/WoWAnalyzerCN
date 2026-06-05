@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS/rogue';
@@ -8,8 +9,6 @@ import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
 import { createSpellUse, createChecklistItem } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { SpellUse } from 'parser/core/SpellUsage/core';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 const STEALTH_BUFFS = [
   SPELLS.STEALTH.id,
@@ -34,14 +33,12 @@ export default class Shadowstrike extends Analyzer {
 
     const explanation = (
       <p>
-        <Trans id="rogue.subtlety.shadowstrike.explanation">
-          <strong>
-            <SpellLink spell={SPELLS.SHADOWSTRIKE} />
-          </strong>{' '}
-          should <strong>only be used</strong> during <SpellLink spell={SPELLS.SHADOW_DANCE} />,{' '}
-          <SpellLink spell={SPELLS.STEALTH} /> or <SpellLink spell={SPELLS.VANISH_BUFF} />. Using it
-          outside of these conditions is a waste.
-        </Trans>
+        <strong>
+          <SpellLink spell={SPELLS.SHADOWSTRIKE} />
+        </strong>{' '}
+        {t({ id: 'rogue.subtlety.shadowstrike.explanation', message: 'should' })}{' '}
+        <strong>{t({ id: 'rogue.subtlety.shadowstrike.onlyBeUsed', message: 'only be used' })}</strong>{' '}
+        {t({ id: 'rogue.subtlety.shadowstrike.explanationDuring', message: 'during Shadow Dance, Stealth or Vanish Buff. Using it outside of these conditions is a waste.' })}
       </p>
     );
 
@@ -50,12 +47,7 @@ export default class Shadowstrike extends Analyzer {
         hideGoodCasts
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={
-          <>
-            {' '}
-            - {t({ id: 'rogue.subtlety.shadowstrike.redBadCast', message: 'Red is a bad cast.' })}
-          </>
-        }
+        castBreakdownSmallText={<> - {t({ id: 'rogue.subtlety.shadowstrike.redIsBadCast', message: 'Red is a bad cast.' })}</>}
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -68,10 +60,7 @@ export default class Shadowstrike extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: t({
-            id: 'rogue.subtlety.shadowstrike.allCorrect',
-            message: 'All of your casts of Shadowstrike were correctly used!',
-          }),
+          noCastsOverride: t({ id: 'rogue.subtlety.shadowstrike.allCorrectCasts', message: 'All of your casts of Shadowstrike were correctly used!' }),
         }}
       />
     );
@@ -88,32 +77,18 @@ export default class Shadowstrike extends Analyzer {
       {
         performance: isStealthActive ? QualitativePerformance.Good : QualitativePerformance.Fail,
         summary: isStealthActive ? (
-          <div>
-            <Trans id="rogue.subtlety.shadowstrike.check.goodUsage">
-              Good usage during stealth or Shadow Dance.
-            </Trans>
-          </div>
+          <div>{t({ id: 'rogue.subtlety.shadowstrike.goodUsage', message: 'Good usage during stealth or Shadow Dance.' })}</div>
         ) : (
-          <div>
-            <Trans id="rogue.subtlety.shadowstrike.check.badUsage">
-              Incorrect usage outside stealth or Shadow Dance.
-            </Trans>
-          </div>
+          <div>{t({ id: 'rogue.subtlety.shadowstrike.incorrectUsage', message: 'Incorrect usage outside stealth or Shadow Dance.' })}</div>
         ),
         details: isStealthActive ? (
           <div>
-            <Trans id="rogue.subtlety.shadowstrike.check.goodDetail">
-              You correctly cast <SpellLink spell={SPELLS.SHADOWSTRIKE} /> during{' '}
-              <SpellLink spell={SPELLS.SHADOW_DANCE} /> or stealth.
-            </Trans>
+            {t({ id: 'rogue.subtlety.shadowstrike.goodUsageDetail', message: 'You correctly cast Shadowstrike during Shadow Dance or stealth.' })}
           </div>
         ) : (
           <div>
-            <Trans id="rogue.subtlety.shadowstrike.check.badDetail">
-              <strong>Incorrect cast:</strong> You used <SpellLink spell={SPELLS.SHADOWSTRIKE} />{' '}
-              outside of <SpellLink spell={SPELLS.SHADOW_DANCE} /> or stealth, which is a waste of
-              resources.
-            </Trans>
+            <strong>{t({ id: 'rogue.subtlety.shadowstrike.incorrectCast', message: 'Incorrect cast:' })}</strong>{' '}
+            {t({ id: 'rogue.subtlety.shadowstrike.incorrectUsageDetail', message: 'You used Shadowstrike outside of Shadow Dance or stealth, which is a waste of resources.' })}
           </div>
         ),
       },

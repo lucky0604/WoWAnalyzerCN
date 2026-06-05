@@ -11,6 +11,7 @@ import AtonementAnalyzer, { AtonementAnalyzerEvent } from '../core/AtonementAnal
 import isAtonement from '../core/isAtonement';
 import Statistic from 'parser/ui/Statistic';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
+import { t } from '@lingui/core/macro';
 
 // Use the priest spell list to whitelist abilities
 const PRIEST_WHITELIST: number[] = Object.values({
@@ -163,36 +164,40 @@ class Grace extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            Your mastery provided <strong>{formatPercentage(graceHealingPerc)}%</strong> healing
+            {t({ id: 'priest.discipline.grace.masteryProvided', message: 'Your mastery provided' })}{' '}
+            <strong>{formatPercentage(graceHealingPerc)}%</strong>{' '}
+            {t({ id: 'priest.discipline.grace.healing', message: 'healing' })}
             <ul>
               <li>
-                <strong>{formatPercentage(healingBuffedByMasteryPerc)}%</strong> of your healing was
-                buffed by mastery
+                <strong>{formatPercentage(healingBuffedByMasteryPerc)}%</strong>{' '}
+                {t({ id: 'priest.discipline.grace.buffedByMastery', message: 'of your healing was buffed by mastery' })}
                 <ul>
                   <li>
-                    Atonement: <strong>{formatPercentage(atonementPerc)}%</strong>
+                    {t({ id: 'priest.discipline.grace.atonement', message: 'Atonement:' })}{' '}
+                    <strong>{formatPercentage(atonementPerc)}%</strong>
                   </li>
                   <li>
-                    Non-Atonement: <strong>{formatPercentage(nonAtonementPerc)}%</strong>
+                    {t({ id: 'priest.discipline.grace.nonAtonement', message: 'Non-Atonement:' })}{' '}
+                    <strong>{formatPercentage(nonAtonementPerc)}%</strong>
                   </li>
                 </ul>
               </li>
               <li>
-                <strong>{formatPercentage(healingUnbuffedByMasteryPerc)}%</strong> of your healing
-                was spells unbuffed by mastery
+                <strong>{formatPercentage(healingUnbuffedByMasteryPerc)}%</strong>{' '}
+                {t({ id: 'priest.discipline.grace.unbuffedByMastery', message: 'of your healing was spells unbuffed by mastery' })}
               </li>
               <li>
-                <strong>{formatPercentage(healingUnaffectedByMasteryPerc)}%</strong> of your healing
-                was spells unaffected by mastery
+                <strong>{formatPercentage(healingUnaffectedByMasteryPerc)}%</strong>{' '}
+                {t({ id: 'priest.discipline.grace.unaffectedByMastery', message: 'of your healing was spells unaffected by mastery' })}
               </li>
             </ul>
             <p>
-              <strong>Unbuffed</strong> healing is healing done to targets without atonement with
-              spells that can benefit from mastery.
+              <strong>{t({ id: 'priest.discipline.grace.unbuffed', message: 'Unbuffed' })}</strong>{' '}
+              {t({ id: 'priest.discipline.grace.unbuffedDescription', message: 'healing is healing done to targets without atonement with spells that can benefit from mastery.' })}
             </p>
             <p>
-              <strong>Unaffected</strong> healing is healing done with spells that can't benefit
-              from mastery (Trinkets, procs, etc...)
+              <strong>{t({ id: 'priest.discipline.grace.unaffected', message: 'Unaffected' })}</strong>{' '}
+              {t({ id: 'priest.discipline.grace.unaffectedDescription', message: "healing is healing done with spells that can't benefit from mastery (Trinkets, procs, etc...)" })}
             </p>
           </>
         }

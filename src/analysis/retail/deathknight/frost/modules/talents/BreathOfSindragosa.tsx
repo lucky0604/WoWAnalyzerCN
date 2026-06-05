@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import talents from 'common/TALENTS/deathknight';
 import { SpellLink } from 'interface';
@@ -72,7 +73,7 @@ class BreathOfSindragosa extends Analyzer {
 
   get tickingOnFinishedString() {
     return this.breathActive
-      ? 'Your final cast was not counted in the average since it was still ticking when the fight ended'
+      ? t({ id: 'deathknight.frost.breathOfSindragosa.tickingAtEnd', message: 'Your final cast was not counted in the average since it was still ticking when the fight ended' })
       : '';
   }
 
@@ -96,17 +97,22 @@ class BreathOfSindragosa extends Analyzer {
   statistic() {
     return (
       <Statistic
-        tooltip={`You started a new Breath of Sindragosa ${
-          this.casts
-        } times for a combined total of ${(this.totalDuration / 1000).toFixed(1)} seconds.  ${
-          this.tickingOnFinishedString
-        }`}
+        tooltip={t({
+          id: 'deathknight.frost.breathOfSindragosa.tooltip',
+          message:
+            'You started a new Breath of Sindragosa {casts} times for a combined total of {totalDuration} seconds. {tickingNote}',
+          values: {
+            casts: this.casts,
+            totalDuration: (this.totalDuration / 1000).toFixed(1),
+            tickingNote: this.tickingOnFinishedString,
+          },
+        })}
         position={STATISTIC_ORDER.CORE(60)}
         size="flexible"
       >
         <BoringSpellValueText spell={talents.BREATH_OF_SINDRAGOSA_TALENT}>
           <>
-            {this.averageDuration.toFixed(1)}s <small>average duration</small>
+            {this.averageDuration.toFixed(1)}s <small>{t({ id: 'deathknight.frost.breathOfSindragosa.averageDuration', message: 'average duration' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>
@@ -119,16 +125,13 @@ class BreathOfSindragosa extends Analyzer {
         <b>
           <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
         </b>{' '}
-        is one of your most important cooldowns. You want to make sure to use it on cooldown and
-        sustain it for as long as possible. The longer you can keep it up, the more value you get
-        out of it. However, your rotation does not change during Breath, and you should not go out
-        of your way to extend the duration.
+        {t({ id: 'deathknight.frost.breathOfSindragosa.guide.explanation', message: 'is one of your most important cooldowns. You want to make sure to use it on cooldown and sustain it for as long as possible. The longer you can keep it up, the more value you get out of it. However, your rotation does not change during Breath, and you should not go out of your way to extend the duration.' })}
       </p>
     );
 
     const data = (
       <div>
-        <strong>GCDs in Pillar of Frost</strong>
+        <strong>{t({ id: 'deathknight.frost.breathOfSindragosa.guide.gcdTitle', message: 'GCDs in Pillar of Frost' })}</strong>
       </div>
     );
 
@@ -141,17 +144,14 @@ class BreathOfSindragosa extends Analyzer {
         <strong>
           <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
         </strong>{' '}
-        is one of your most important cooldowns. You want to make sure to use it on cooldown and
-        sustain it for as long as possible. The longer you can keep it up, the more value you get
-        out of it. However, your rotation does not change during Breath, and you should not go out
-        of your way to extend the duration.
+        {t({ id: 'deathknight.frost.breathOfSindragosa.guide.castBreakdownExplanation', message: 'is one of your most important cooldowns. You want to make sure to use it on cooldown and sustain it for as long as possible. The longer you can keep it up, the more value you get out of it. However, your rotation does not change during Breath, and you should not go out of your way to extend the duration.' })}
       </p>
     );
 
     const data = (
       <div>
-        <strong>Per-Cast Breakdown</strong>
-        <small> - click to expand</small>
+        <strong>{t({ id: 'deathknight.frost.breathOfSindragosa.guide.perCastBreakdown', message: 'Per-Cast Breakdown' })}</strong>
+        <small>{t({ id: 'deathknight.frost.breathOfSindragosa.guide.clickToExpand', message: ' - click to expand' })}</small>
         {this.castTracker.map((cast, idx) => {
           const header = (
             <>
@@ -162,7 +162,7 @@ class BreathOfSindragosa extends Analyzer {
           const checklistItems: CooldownExpandableItem[] = [];
 
           checklistItems.push({
-            label: 'Breath duration',
+            label: t({ id: 'deathknight.frost.breathOfSindragosa.guide.breathDuration', message: 'Breath duration' }),
             result: <PerformanceMark perf={QualitativePerformance.Good} />,
             details: <>{cast.duration}s</>,
           });

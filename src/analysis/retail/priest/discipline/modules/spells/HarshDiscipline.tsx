@@ -11,6 +11,7 @@ import { getDamageEvent } from '../../normalizers/AtonementTracker';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
 
 class HarshDiscipline extends Analyzer {
   readonly expectedBoltNumbers: number[] = [];
@@ -95,18 +96,16 @@ class HarshDiscipline extends Analyzer {
         tooltip={
           <>
             <p>
-              The effective damage & healing contributed by{' '}
-              <SpellLink spell={TALENTS_PRIEST.HARSH_DISCIPLINE_TALENT} />. Damage that caused{' '}
-              <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> healing is included.
-              Contributions are separated in the list below.
+              {t({ id: 'priest.discipline.harshDiscipline.tooltip', message: 'The effective damage & healing contributed by Harsh Discipline. Damage that caused Atonement healing is included. Contributions are separated in the list below.' })}
             </p>
             <ul>
               <li>
-                Atonement:{' '}
+                {t({ id: 'priest.discipline.harshDiscipline.atonement', message: 'Atonement:' })}{' '}
                 <ItemHealingDone amount={this.atonementHealing} displayPercentage={false} />
               </li>
               <li>
-                Direct: <ItemHealingDone amount={this.directHealing} displayPercentage={false} />
+                {t({ id: 'priest.discipline.harshDiscipline.direct', message: 'Direct:' })}{' '}
+                <ItemHealingDone amount={this.directHealing} displayPercentage={false} />
               </li>
             </ul>
           </>

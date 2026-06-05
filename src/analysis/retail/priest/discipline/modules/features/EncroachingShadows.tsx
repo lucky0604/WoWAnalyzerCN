@@ -24,6 +24,8 @@ import { PAIN_AND_SUFFERING_INCREASE } from '../../constants';
 import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import Spell from 'common/SPELLS/Spell';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 type DotInformation =
   | {
@@ -159,11 +161,11 @@ class EncroachingShadows extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         position={STATISTIC_ORDER.CORE(5)}
-        tooltip={`The additional dots contributed ${formatThousands(this.ptwCleaveDamage)} damage.`}
+        tooltip={(() => { const amount = formatThousands(this.ptwCleaveDamage); return t({ id: 'priest.discipline.encroachingShadows.tooltip', message: `The additional dots contributed ${{amount}} damage.` }); })()}
       >
         <BoringSpellValueText spell={SPELLS.SHADOW_WORD_PAIN}>
-          <div>{formatPercentage(uptime)}% Uptime</div>
-          <div>{this.extraPTWs} Extra DOTs</div>
+          <div>{formatPercentage(uptime)}% {t({ id: 'priest.discipline.encroachingShadows.uptime', message: 'Uptime' })}</div>
+          <div>{this.extraPTWs} {t({ id: 'priest.discipline.encroachingShadows.extraDots', message: 'Extra DOTs' })}</div>
         </BoringSpellValueText>
       </Statistic>
     );
@@ -171,7 +173,7 @@ class EncroachingShadows extends Analyzer {
 
   get guideSubsection(): JSX.Element {
     const explanation = (
-      <>
+      <Trans id="priest.discipline.encroachingShadows.explanation">
         <p>
           <b>
             Maintain <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} />
@@ -182,7 +184,7 @@ class EncroachingShadows extends Analyzer {
           <SpellLink spell={TALENTS_PRIEST.PAINFUL_PUNISHMENT_TALENT} /> if you struggle to keep a
           good uptime.
         </p>
-      </>
+      </Trans>
     );
 
     const data = (

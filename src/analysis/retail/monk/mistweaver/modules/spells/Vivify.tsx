@@ -10,7 +10,7 @@ import CastOverview from 'interface/guide/components/CastOverview';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import {
   QualitativePerformance,
@@ -417,7 +417,10 @@ class Vivify extends Analyzer {
       stats: [
         {
           value: `${rems}`,
-          label: 'ReMs Hit',
+          label: defineMessage({
+            id: 'monk.mistweaver.vivify.reMsHit',
+            message: 'ReMs Hit',
+          }),
           performance: evaluateQualitativePerformanceByThreshold({
             actual: rems,
             isGreaterThanOrEqual: {
@@ -429,7 +432,10 @@ class Vivify extends Analyzer {
         },
         {
           value: `${formatPercentage(percentOverheal)}%`,
-          label: 'Overheal',
+          label: defineMessage({
+            id: 'monk.mistweaver.vivify.overheal',
+            message: 'Overheal',
+          }),
           performance: evaluateQualitativePerformanceByThreshold({
             actual: percentOverheal,
             isLessThanOrEqual: { perfect: 0.3, good: 0.55, ok: 0.7 },
@@ -437,7 +443,10 @@ class Vivify extends Analyzer {
         },
         {
           value: formatNumber(healingPerCast),
-          label: 'Healing',
+          label: defineMessage({
+            id: 'monk.mistweaver.vivify.healing',
+            message: 'Healing',
+          }),
         },
       ],
     });

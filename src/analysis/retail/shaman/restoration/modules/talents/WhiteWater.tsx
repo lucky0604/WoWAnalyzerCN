@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -42,10 +43,10 @@ export default class WhiteWater extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="shaman.restoration.whiteWater.tooltip">
             <strong>{formatNumber(this.healingDoneFromTalent)}</strong> bonus healing (
             {formatNumber(this.overhealingDoneFromTalent)} overhealing)
-          </>
+          </Trans>
         }
       >
         <TalentSpellText talent={TALENTS.WHITE_WATER_TALENT}>

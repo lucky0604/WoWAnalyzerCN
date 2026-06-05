@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_WARLOCK } from 'common/TALENTS';
@@ -127,24 +128,64 @@ class TWW3SoulHarvesterTierSet extends Analyzer {
         category={STATISTIC_CATEGORY.ITEMS}
         tooltip={
           <>
-            <strong>2-piece:</strong>
+            <strong>
+              {t({
+                id: 'warlock.demonology.tww3SoulHarvester.twoPiece',
+                message: '2-piece:',
+              })}
+            </strong>
             <ul>
-              <li>Succulent Soul Uptime: {formatPercentage(this.succulentSoulUptime)}%</li>
-              <li>Average Duration: {this.averageSucculentSoulDuration.toFixed(1)}s</li>
-              <li>Soul Swipe Hits: {this.soulSwipeHits}</li>
+              <li>
+                {(() => {
+                  const uptime = formatPercentage(this.succulentSoulUptime);
+                  return t({
+                    id: 'warlock.demonology.tww3SoulHarvester.uptime',
+                    message: `Succulent Soul Uptime: ${{ uptime }}%`,
+                  });
+                })()}
+              </li>
+              <li>
+                {(() => {
+                  const duration = this.averageSucculentSoulDuration.toFixed(1);
+                  return t({
+                    id: 'warlock.demonology.tww3SoulHarvester.avgDuration',
+                    message: `Average Duration: ${{ duration }}s`,
+                  });
+                })()}
+              </li>
+              <li>
+                {(() => {
+                  const count = this.soulSwipeHits;
+                  return t({
+                    id: 'warlock.demonology.tww3SoulHarvester.soulSwipeHits',
+                    message: `Soul Swipe Hits: ${{ count }}`,
+                  });
+                })()}
+              </li>
             </ul>
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.SUCCULENT_SOUL_BUFF}>
           <small>
-            <ItemSetLink id={WARLOCK_TWW3_ID}>TWW Season 3 Tier Set (Soul Harvester)</ItemSetLink>
+            <ItemSetLink id={WARLOCK_TWW3_ID}>
+              {t({
+                id: 'warlock.demonology.tww3SoulHarvester.tierSetName',
+                message: 'TWW Season 3 Tier Set (Soul Harvester)',
+              })}
+            </ItemSetLink>
           </small>
           <div>
             <ItemDamageDone amount={this.soulSwipeDamage} />
           </div>
           <div>
-            {formatPercentage(this.succulentSoulUptime)}% <small>Succulent Soul uptime</small>
+            {formatPercentage(this.succulentSoulUptime)}%{' '}
+            <small>
+              {t({
+                id: 'warlock.demonology.tww3SoulHarvester.uptimeLabel',
+                message: 'Succulent Soul uptime',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

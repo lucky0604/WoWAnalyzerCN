@@ -10,6 +10,8 @@ import GuideSection from 'interface/guide/components/GuideSection';
 import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
 import { SpellSequence, type CastInSequence } from 'interface/guide/components/CastSequence';
 import { EventType, GetRelatedEvent, CastEvent } from 'parser/core/Events';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import CombustionCasts, { CombustionCast } from '../core/Combustion';
 
@@ -51,7 +53,10 @@ class CombustionGuide extends Analyzer {
       return {
         timestamp: cb.cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: `${fireballCasts.length} Hardcast Fireball(s) during Combustion`,
+        reason: t({
+          id: 'mage.fire.combustionGuide.fireballInCombustion',
+          message: '{0} Hardcast Fireball(s) during Combustion',
+        }).replace('{0}', String(fireballCasts.length)),
       };
     }
 
@@ -59,7 +64,13 @@ class CombustionGuide extends Analyzer {
       return {
         timestamp: cb.cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: `Low Active Time: ${formatPercentage(activeTimePercent, 1)}% (${formatDurationMillisMinSec(cb.activeTime, 1)} / ${formatDurationMillisMinSec(combustDuration, 1)})`,
+        reason: t({
+          id: 'mage.fire.combustionGuide.lowActiveTime',
+          message: 'Low Active Time: {0} ({1} / {2})',
+        })
+          .replace('{0}', formatPercentage(activeTimePercent, 1) + '%')
+          .replace('{1}', formatDurationMillisMinSec(cb.activeTime, 1))
+          .replace('{2}', formatDurationMillisMinSec(combustDuration, 1)),
       };
     }
 
@@ -86,7 +97,10 @@ class CombustionGuide extends Analyzer {
       return {
         timestamp: cb.cast.timestamp,
         performance: QualitativePerformance.Ok,
-        reason: `High Cast Delay: ${formatDurationMillisMinSec(cb.castDelay, 2)} - wasted Combustion duration`,
+        reason: t({
+          id: 'mage.fire.combustionGuide.highCastDelay',
+          message: 'High Cast Delay: {0} - wasted Combustion duration',
+        }).replace('{0}', formatDurationMillisMinSec(cb.castDelay, 2)),
       };
     }
 
@@ -101,7 +115,10 @@ class CombustionGuide extends Analyzer {
     return {
       timestamp: cb.cast.timestamp,
       performance: QualitativePerformance.Fail,
-      reason: `Unknown Performance Conditions (Please report this)`,
+      reason: t({
+        id: 'mage.fire.combustionGuide.unknownPerformance',
+        message: 'Unknown Performance Conditions (Please report this)',
+      }),
     };
   }
 
@@ -115,7 +132,7 @@ class CombustionGuide extends Analyzer {
     const flamestrike = <SpellLink spell={SPELLS.FLAMESTRIKE} />;
 
     const explanation = (
-      <>
+      <Trans id="mage.fire.combustionGuide.explanation">
         <b>{combustion}</b> is a very strong burst cooldown with a short duration. To maximize your
         burst, use as many instant casts as possible to maximize {hotStreak}s gained and spent
         before {combustion} ends.
@@ -133,7 +150,7 @@ class CombustionGuide extends Analyzer {
             {scorch} if you are running low on {fireblast} charges.
           </li>
         </ul>
-      </>
+      </Trans>
     );
 
     const combustSequences = this.combustion.combustCasts.map((cb) => {
@@ -149,7 +166,9 @@ class CombustionGuide extends Analyzer {
           icon: castEvent.ability.abilityIcon.replace('.jpg', ''),
           performance: isHardcastFireball ? QualitativePerformance.Fail : undefined,
           tooltip: isHardcastFireball ? (
-            <>Hardcast Fireball during Combustion — significant DPS loss</>
+            <Trans id="mage.fire.combustionGuide.hardcastFireballTooltip">
+              Hardcast Fireball during Combustion — significant DPS loss
+            </Trans>
           ) : undefined,
         };
       };
@@ -188,12 +207,12 @@ class CombustionGuide extends Analyzer {
         stats: [
           {
             value: `${formatPercentage(activeTimePercent, 0)}%`,
-            label: 'Active Time',
+            label: t({ id: 'mage.fire.combustionGuide.activeTimeLabel', message: 'Active Time' }),
             tooltip: (
-              <>
+              <Trans id="mage.fire.combustionGuide.activeTimeTooltip">
                 {formatDurationMillisMinSec(cb.activeTime, 1)} active out of{' '}
                 {formatDurationMillisMinSec(combustDuration, 1)} total Combustion duration
-              </>
+              </Trans>
             ),
             performance: activeTimePerf,
           },
@@ -201,29 +220,46 @@ class CombustionGuide extends Analyzer {
             ? [
                 {
                   value: formatDurationMillisMinSec(cb.castDelay, 2),
-                  label: 'Cast Delay',
-                  tooltip: <>Time wasted between Combustion cast and the precast landing</>,
+                  label: t({ id: 'mage.fire.combustionGuide.castDelayLabel', message: 'Cast Delay' }),
+                  tooltip: (
+                    <Trans id="mage.fire.combustionGuide.castDelayTooltip">
+                      Time wasted between Combustion cast and the precast landing
+                    </Trans>
+                  ),
                   performance: delayPerf,
                 },
               ]
             : [
                 {
-                  value: 'No',
-                  label: 'Precast Found',
-                  tooltip: 'No Precast Found',
+                  value: t({ id: 'mage.fire.combustionGuide.noPrecastValue', message: 'No' }),
+                  label: t({
+                    id: 'mage.fire.combustionGuide.precastFoundLabel',
+                    message: 'Precast Found',
+                  }),
+                  tooltip: t({
+                    id: 'mage.fire.combustionGuide.noPrecastFoundTooltip',
+                    message: 'No Precast Found',
+                  }),
                   performance: QualitativePerformance.Fail,
                 },
               ]),
           {
             value: `${hotStreakCasts.length}`,
-            label: 'Hot Streak Casts',
-            tooltip: <>Total number of Pyroblasts and/or Flamestrikes cast during Combustion.</>,
+            label: t({
+              id: 'mage.fire.combustionGuide.hotStreakCastsLabel',
+              message: 'Hot Streak Casts',
+            }),
+            tooltip: (
+              <Trans id="mage.fire.combustionGuide.hotStreakCastsTooltip">
+                Total number of Pyroblasts and/or Flamestrikes cast during Combustion.
+              </Trans>
+            ),
           },
         ],
         details: evaluation.reason,
         additionalContent: sequenceEntry
           ? {
-              title: 'Cast Sequence',
+              title: t({ id: 'mage.fire.combustionGuide.castSequence', message: 'Cast Sequence' }),
               content: <SpellSequence casts={sequenceEntry.casts} iconSize={40} />,
             }
           : undefined,
@@ -232,7 +268,10 @@ class CombustionGuide extends Analyzer {
 
     return (
       <GuideSection spell={TALENTS.COMBUSTION_TALENT} explanation={explanation}>
-        <CastDetail title="Combustion Casts" casts={perCastData} />
+        <CastDetail
+          title={t({ id: 'mage.fire.combustionGuide.combustionCasts', message: 'Combustion Casts' })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

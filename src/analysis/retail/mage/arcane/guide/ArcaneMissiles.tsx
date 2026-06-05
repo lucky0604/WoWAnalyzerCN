@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -179,80 +181,136 @@ class ArcaneMissilesGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneMissiles}</b> is a channelled rotational ability that generates {arcaneSalvo}{' '}
-          stacks and also spends your {clearcasting} procs. Your use of {arcaneMissiles} will vary
-          depending on your talent build, so you should refer to the below information to determine
-          when/if you should cast {arcaneMissiles} depening on your current talent build.
+          <Trans id="mage.arcane.arcaneMissiles.guide.explanation1">
+            <b>{arcaneMissiles}</b> is a channelled rotational ability that generates {arcaneSalvo}{' '}
+            stacks and also spends your {clearcasting} procs. Your use of {arcaneMissiles} will vary
+            depending on your talent build, so you should refer to the below information to determine
+            when/if you should cast {arcaneMissiles} depening on your current talent build.
+          </Trans>
         </p>
         {this.isSpellslingerMissile && (
           <p>
-            Cast {arcaneMissiles} if one of the below are true:
+            <Trans id="mage.arcane.arcaneMissiles.guide.spellslingerMissileExplanation">
+              Cast {arcaneMissiles} if one of the below are true:
+            </Trans>
             <ul>
               <li>
-                You have an {overpoweredMissiles} proc and &lt; 10 {arcaneSalvo} stacks.
+                <Trans id="mage.arcane.arcaneMissiles.guide.conditionMissile1">
+                  You have an {overpoweredMissiles} proc and &lt; 10 {arcaneSalvo} stacks.
+                </Trans>
               </li>
               <li>
-                You don't have an {overpoweredMissiles} proc and have &lt; 15 {arcaneSalvo} stacks.
+                <Trans id="mage.arcane.arcaneMissiles.guide.conditionMissile2">
+                  You don't have an {overpoweredMissiles} proc and have &lt; 15 {arcaneSalvo} stacks.
+                </Trans>
               </li>
               <li>
-                You have &lt; 2 {arcaneCharge}s and have {highVoltage} talented
+                <Trans id="mage.arcane.arcaneMissiles.guide.conditionMissile3">
+                  You have &lt; 2 {arcaneCharge}s and have {highVoltage} talented
+                </Trans>
               </li>
             </ul>
           </p>
         )}
         {(this.isSpellslingerOrb && this.hasOverpoweredMissiles && (
           <>
-            <TipBox type="warning" title="Talent Build Conflict">
-              You currently have both {orbMastery} and {overpoweredMissiles} talented. These two
-              talents represent two different playstyles with different rotations, so taking both of
-              them creeates conflict within your rotation. It is highly recommended to either choose
-              the Spellslinger Missiles build with {overpoweredMissiles} or the Spellslinger Orb
-              build with {orbMastery}.
+            <TipBox
+              type="warning"
+              title={t({
+                id: 'mage.arcane.arcaneMissiles.guide.talentConflictTitle',
+                message: 'Talent Build Conflict',
+              })}
+            >
+              <Trans id="mage.arcane.arcaneMissiles.guide.talentConflictOverpoweredMissiles">
+                You currently have both {orbMastery} and {overpoweredMissiles} talented. These two
+                talents represent two different playstyles with different rotations, so taking both of
+                them creeates conflict within your rotation. It is highly recommended to either choose
+                the Spellslinger Missiles build with {overpoweredMissiles} or the Spellslinger Orb
+                build with {orbMastery}.
+              </Trans>
             </TipBox>
           </>
         )) ||
           (this.isSpellslingerOrb && this.hasHighVoltage && (
             <>
-              <TipBox type="warning" title="Talent Build Conflict">
-                You currently have both {orbMastery} and {highVoltage} talented. These two talents
-                represent two different playstyles with different rotations, so taking both of them
-                creeates conflict within your rotation. It is highly recommended to either choose
-                the Spellslinger Missiles build with {overpoweredMissiles} and {highVoltage} or the
-                Spellslinger Orb build with {orbMastery}.
+              <TipBox
+                type="warning"
+                title={t({
+                  id: 'mage.arcane.arcaneMissiles.guide.talentConflictTitle',
+                  message: 'Talent Build Conflict',
+                })}
+              >
+                <Trans id="mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage">
+                  You currently have both {orbMastery} and {highVoltage} talented. These two talents
+                  represent two different playstyles with different rotations, so taking both of them
+                  creeates conflict within your rotation. It is highly recommended to either choose
+                  the Spellslinger Missiles build with {overpoweredMissiles} and {highVoltage} or the
+                  Spellslinger Orb build with {orbMastery}.
+                </Trans>
               </TipBox>
             </>
           )) ||
           (this.isSpellslingerOrb && (
             <p>
-              true Only cast {arcaneMissiles} if all of the below are true. Realistically you should
-              never cast {arcaneMissiles} if you are using the Spellslinger Orb build, so we arent
-              actually going to check these conditions to see if you met them or not, and will just
-              mark every cast as OK.
+              <Trans id="mage.arcane.arcaneMissiles.guide.spellslingerOrbExplanation">
+                true Only cast {arcaneMissiles} if all of the below are true. Realistically you should
+                never cast {arcaneMissiles} if you are using the Spellslinger Orb build, so we arent
+                actually going to check these conditions to see if you met them or not, and will just
+                mark every cast as OK.
+              </Trans>
               <ul>
                 <li>
-                  You have {highVoltage} talented or {clearcasting}.
+                  <Trans id="mage.arcane.arcaneMissiles.guide.conditionOrb1">
+                    You have {highVoltage} talented or {clearcasting}.
+                  </Trans>
                 </li>
-                <li>You have 15 or less {arcaneSalvo} stacks.</li>
-                <li>Your previous cast was not {arcaneOrb}</li>
-                <li>{arcaneSurge} is not active</li>
-                <li>There is only one target.</li>
+                <li>
+                  <Trans id="mage.arcane.arcaneMissiles.guide.conditionOrb2">
+                    You have 15 or less {arcaneSalvo} stacks.
+                  </Trans>
+                </li>
+                <li>
+                  <Trans id="mage.arcane.arcaneMissiles.guide.conditionOrb3">
+                    Your previous cast was not {arcaneOrb}
+                  </Trans>
+                </li>
+                <li>
+                  <Trans id="mage.arcane.arcaneMissiles.guide.conditionOrb4">
+                    {arcaneSurge} is not active
+                  </Trans>
+                </li>
+                <li>
+                  <Trans id="mage.arcane.arcaneMissiles.guide.conditionOrb5">
+                    There is only one target.
+                  </Trans>
+                </li>
               </ul>
             </p>
           ))}
         {this.isSunfury && (
           <p>
-            You should generally cast {arcaneMissiles} whenever you have {clearcasting}, but should
-            prioritize {arcaneMissiles} if the below is true:
+            <Trans id="mage.arcane.arcaneMissiles.guide.sunfuryExplanation">
+              You should generally cast {arcaneMissiles} whenever you have {clearcasting}, but should
+              prioritize {arcaneMissiles} if the below is true:
+            </Trans>
             <ul>
               <li>
-                You have {clearcasting} and {arcaneSurge} is about to end.
+                <Trans id="mage.arcane.arcaneMissiles.guide.conditionSunfury1">
+                  You have {clearcasting} and {arcaneSurge} is about to end.
+                </Trans>
               </li>
               <li>
-                You have {clearcasting} and {arcaneSoul} and are not capped on {arcaneSalvo} (this
-                is to help make your {arcaneBarrage} deal more damage when you spend your{' '}
-                {arcaneSoul}).
+                <Trans id="mage.arcane.arcaneMissiles.guide.conditionSunfury2">
+                  You have {clearcasting} and {arcaneSoul} and are not capped on {arcaneSalvo} (this
+                  is to help make your {arcaneBarrage} deal more damage when you spend your{' '}
+                  {arcaneSoul}).
+                </Trans>
               </li>
-              <li>You have &lt; 15 {arcaneSalvo} stacks.</li>
+              <li>
+                <Trans id="mage.arcane.arcaneMissiles.guide.conditionSunfury3">
+                  You have &lt; 15 {arcaneSalvo} stacks.
+                </Trans>
+              </li>
             </ul>
           </p>
         )}
@@ -264,10 +322,21 @@ class ArcaneMissilesGuide extends Analyzer {
         <GuideSection
           spell={TALENTS.ARCANE_MISSILES_TALENT}
           explanation={explanation}
-          title="Arcane Missiles"
+          title={t({
+            id: 'mage.arcane.arcaneMissiles.guide.title',
+            message: 'Arcane Missiles',
+          })}
         >
-          <TipBox type="note" title="No Casts Found">
-            No {arcaneMissiles} casts were detected.
+          <TipBox
+            type="note"
+            title={t({
+              id: 'mage.arcane.arcaneMissiles.guide.noCastsFound',
+              message: 'No Casts Found',
+            })}
+          >
+            <Trans id="mage.arcane.arcaneMissiles.guide.noCastsFoundDescription">
+              No {arcaneMissiles} casts were detected.
+            </Trans>
           </TipBox>
         </GuideSection>
       );
@@ -281,10 +350,21 @@ class ArcaneMissilesGuide extends Analyzer {
         <GuideSection
           spell={TALENTS.ARCANE_MISSILES_TALENT}
           explanation={explanation}
-          title="Arcane Missiles"
+          title={t({
+            id: 'mage.arcane.arcaneMissiles.guide.title',
+            message: 'Arcane Missiles',
+          })}
         >
-          <TipBox type="warning" title="Talent Conflict Detected">
-            We are unable to evaluate your {arcaneMissiles} casts due to a talent conflict.
+          <TipBox
+            type="warning"
+            title={t({
+              id: 'mage.arcane.arcaneMissiles.guide.talentConflictDetected',
+              message: 'Talent Conflict Detected',
+            })}
+          >
+            <Trans id="mage.arcane.arcaneMissiles.guide.talentConflictDetectedDescription">
+              We are unable to evaluate your {arcaneMissiles} casts due to a talent conflict.
+            </Trans>
           </TipBox>
         </GuideSection>
       );
@@ -293,12 +373,15 @@ class ArcaneMissilesGuide extends Analyzer {
     const overviewStats = [
       {
         value: formatDurationMillisMinSec(this.arcaneMissiles.averageChannelDelay, 3),
-        label: 'Avg Channel End Delay ',
+        label: t({
+          id: 'mage.arcane.arcaneMissiles.guide.stat.avgChannelEndDelay',
+          message: 'Avg Channel End Delay ',
+        }),
         tooltip: (
-          <>
+          <Trans id="mage.arcane.arcaneMissiles.guide.stat.avgChannelEndDelayTooltip">
             {formatDurationMillisMinSec(this.arcaneMissiles.averageChannelDelay, 3)} Average Delay
             from End Channel to Next Cast.
-          </>
+          </Trans>
         ),
         performance: this.arcaneMissiles.channelDelayUtil(this.arcaneMissiles.averageChannelDelay),
       },
@@ -314,37 +397,79 @@ class ArcaneMissilesGuide extends Analyzer {
         stats: [
           {
             value: cast.arcaneCharges,
-            label: 'Arcane Charges',
-            tooltip: <>The number of Arcane Charges at the time of cast.</>,
+            label: t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.arcaneCharges',
+              message: 'Arcane Charges',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneMissiles.guide.stat.arcaneChargesTooltip">
+                The number of Arcane Charges at the time of cast.
+              </Trans>
+            ),
           },
           {
             value: cast.salvoStacks,
-            label: 'Arcane Salvo Stacks',
-            tooltip: <>The number of Arcane Salvo stacks at the time of cast.</>,
+            label: t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.arcaneSalvoStacks',
+              message: 'Arcane Salvo Stacks',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneMissiles.guide.stat.arcaneSalvoStacksTooltip">
+                The number of Arcane Salvo stacks at the time of cast.
+              </Trans>
+            ),
           },
           {
             value: cast.clearcastingProcs > 0 ? 'Yes' : 'No',
-            label: 'Had Clearcasting',
-            tooltip: <>Whether the player had a Clearcasting proc or not.</>,
+            label: t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.hadClearcasting',
+              message: 'Had Clearcasting',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneMissiles.guide.stat.hadClearcastingTooltip">
+                Whether the player had a Clearcasting proc or not.
+              </Trans>
+            ),
           },
           {
             value: cast.opMissiles ? 'Yes' : 'No',
-            label: 'Had Overpowered Missiles',
-            tooltip: <>Whether the player had an Overpowered Missiles proc or not.</>,
+            label: t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.hadOverpoweredMissiles',
+              message: 'Had Overpowered Missiles',
+            }),
+            tooltip: (
+              <Trans id="mage.arcane.arcaneMissiles.guide.stat.hadOverpoweredMissilesTooltip">
+                Whether the player had an Overpowered Missiles proc or not.
+              </Trans>
+            ),
           },
           cast.channelEndDelay !== undefined
             ? {
                 value: formatDurationMillisMinSec(cast.channelEndDelay, 3),
-                label: 'Channel End Delay',
-                tooltip: <>Time between channel end and next cast.</>,
+                label: t({
+                  id: 'mage.arcane.arcaneMissiles.guide.stat.channelEndDelay',
+                  message: 'Channel End Delay',
+                }),
+                tooltip: (
+                  <Trans id="mage.arcane.arcaneMissiles.guide.stat.channelEndDelayTooltip">
+                    Time between channel end and next cast.
+                  </Trans>
+                ),
                 performance: this.arcaneMissiles.channelDelayUtil(cast.channelEndDelay),
               }
             : undefined,
           this.isSunfury
             ? {
                 value: cast.arcaneSoul ? 'Yes' : 'No',
-                label: 'Arcane Soul',
-                tooltip: <>Whether Arcane Soul was active during this cast.</>,
+                label: t({
+                  id: 'mage.arcane.arcaneMissiles.guide.stat.arcaneSoul',
+                  message: 'Arcane Soul',
+                }),
+                tooltip: (
+                  <Trans id="mage.arcane.arcaneMissiles.guide.stat.arcaneSoulTooltip">
+                    Whether Arcane Soul was active during this cast.
+                  </Trans>
+                ),
               }
             : undefined,
         ].filter(Boolean) as PerCastStat[],
@@ -354,7 +479,13 @@ class ArcaneMissilesGuide extends Analyzer {
     return (
       <GuideSection spell={TALENTS.ARCANE_MISSILES_TALENT} explanation={explanation}>
         <CastOverview spell={TALENTS.ARCANE_MISSILES_TALENT} stats={overviewStats} />
-        <CastDetail title="Arcane Missiles Casts" casts={perCastData} />
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.arcaneMissiles.guide.castDetailTitle',
+            message: 'Arcane Missiles Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

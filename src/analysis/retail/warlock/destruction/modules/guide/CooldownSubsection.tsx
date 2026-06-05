@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
 import CoreCooldownGraphSubsection, {
@@ -29,9 +30,11 @@ function CooldownSubsection() {
       <CoreCooldownGraphSubsection cooldowns={cooldowns} />
 
       <p>
-        Proper use of your cooldown abilities is critical for maximizing your damage output. These
-        abilities should generally be cast as often as possible throughout the fight unless you are
-        deliberately holding them for an important damage window.
+        {t({
+          id: 'warlock.destruction.cooldownSubsection.properUse',
+          message:
+            'Proper use of your cooldown abilities is critical for maximizing your damage output. These abilities should generally be cast as often as possible throughout the fight unless you are deliberately holding them for an important damage window.',
+        })}
       </p>
     </>
   );

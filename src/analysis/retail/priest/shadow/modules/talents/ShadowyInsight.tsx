@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
@@ -103,7 +104,13 @@ class ShadowyInsight extends Analyzer {
       <Statistic category={STATISTIC_CATEGORY.GENERAL} size="flexible">
         <BoringSpellValueText spell={TALENTS.SHADOWY_INSIGHT_TALENT}>
           <>
-            {this.procsUsed}/{this.procsGained} <small>Procs Used</small>
+            {this.procsUsed}/{this.procsGained}{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.shadowyInsight.procsUsed',
+                message: 'Procs Used',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>
@@ -113,12 +120,18 @@ class ShadowyInsight extends Analyzer {
   get guideSubsection(): JSX.Element {
     const goodSI = {
       count: this.procsUsed,
-      label: 'Shadowy Inisght procs used',
+      label: t({
+        id: 'priest.shadow.shadowyInsight.procsUsedLabel',
+        message: 'Shadowy Insight procs used',
+      }),
     };
 
     const badSI = {
       count: this.procsWasted,
-      label: 'Shadowy Insight procs wasted',
+      label: t({
+        id: 'priest.shadow.shadowyInsight.procsWastedLabel',
+        message: 'Shadowy Insight procs wasted',
+      }),
     };
 
     const explanation = (
@@ -126,15 +139,36 @@ class ShadowyInsight extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.SHADOWY_INSIGHT_TALENT} />
         </b>{' '}
-        is gained randomly from <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} /> damage. <div />
-        Cast <SpellLink spell={TALENTS.MIND_BLAST_TALENT} /> while the buff is active to avoid
-        wasting procs.
+        {t({
+          id: 'priest.shadow.shadowyInsight.gainedFrom',
+          message: 'is gained randomly from',
+        })}{' '}
+        <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} />{' '}
+        {t({
+          id: 'priest.shadow.shadowyInsight.damage',
+          message: 'damage.',
+        })}{' '}
+        <div />
+        {t({
+          id: 'priest.shadow.shadowyInsight.castMindBlast',
+          message: 'Cast',
+        })}{' '}
+        <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />{' '}
+        {t({
+          id: 'priest.shadow.shadowyInsight.whileBuffActive',
+          message: 'while the buff is active to avoid wasting procs.',
+        })}
       </p>
     );
 
     const data = (
       <div>
-        <strong>Shadowy Insight breakdown</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.shadowyInsight.breakdown',
+            message: 'Shadowy Insight breakdown',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={goodSI} bad={badSI} />
       </div>
     );

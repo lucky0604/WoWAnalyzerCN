@@ -25,7 +25,7 @@ export default class NewMoon extends Analyzer.withDependencies(deps) {
   get guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="balance.new_moon.explanation">
+        <Trans id="druid.balance.new_moon.explanation">
           <strong>
             <SpellLink spell={TALENTS_DRUID.NEW_MOON_TALENT} />
           </strong>{' '}

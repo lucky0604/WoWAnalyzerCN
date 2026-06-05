@@ -5,6 +5,8 @@ import Analyzer from 'parser/core/Analyzer';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import CastSummary, { type CastEvaluation } from 'interface/guide/components/CastSummary';
 import GuideSection from 'interface/guide/components/GuideSection';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import Meteor, { MeteorCasts } from '../talents/Meteor';
 import { formatDurationMillisMinSec } from 'common/format';
@@ -24,7 +26,10 @@ class MeteorGuide extends Analyzer {
       return {
         timestamp: m.cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: 'Meteor did not hit any targets.',
+        reason: t({
+          id: 'mage.fire.meteorGuide.noTargetsHit',
+          message: 'Meteor did not hit any targets.',
+        }),
       };
     }
 
@@ -32,7 +37,10 @@ class MeteorGuide extends Analyzer {
       return {
         timestamp: m.cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: 'Meteor did not land inside of Combustion',
+        reason: t({
+          id: 'mage.fire.meteorGuide.notLandedDuringCombust',
+          message: 'Meteor did not land inside of Combustion',
+        }),
       };
     }
 
@@ -41,7 +49,10 @@ class MeteorGuide extends Analyzer {
       return {
         timestamp: m.cast.timestamp,
         performance: QualitativePerformance.Perfect,
-        reason: `Meteor landed within Burnout range (${formatDurationMillisMinSec(m.timeTillCombustEnd!)} until Combust Ends)`,
+        reason: t({
+          id: 'mage.fire.meteorGuide.landedWithinBurnout',
+          message: 'Meteor landed within Burnout range ({0} until Combust Ends)',
+        }).replace('{0}', formatDurationMillisMinSec(m.timeTillCombustEnd!)),
       };
     }
 
@@ -50,7 +61,10 @@ class MeteorGuide extends Analyzer {
       return {
         timestamp: m.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: 'Good Meteor Cast',
+        reason: t({
+          id: 'mage.fire.meteorGuide.goodMeteorCast',
+          message: 'Good Meteor Cast',
+        }),
       };
     }
 
@@ -58,7 +72,10 @@ class MeteorGuide extends Analyzer {
       return {
         timestamp: m.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Meteor landed during Combustion.`,
+        reason: t({
+          id: 'mage.fire.meteorGuide.landedDuringCombust',
+          message: 'Meteor landed during Combustion.',
+        }),
       };
     }
 
@@ -66,7 +83,10 @@ class MeteorGuide extends Analyzer {
     return {
       timestamp: m.cast.timestamp,
       performance: QualitativePerformance.Fail,
-      reason: 'Unknown Performance Condition (Please report this)',
+      reason: t({
+        id: 'mage.fire.meteorGuide.unknownPerformance',
+        message: 'Unknown Performance Condition (Please report this)',
+      }),
     };
   }
 
@@ -77,11 +97,11 @@ class MeteorGuide extends Analyzer {
     const blastZone = <SpellLink spell={TALENTS.BLAST_ZONE_TALENT} />;
 
     const explanation = (
-      <>
+      <Trans id="mage.fire.meteorGuide.explanation">
         <b>{meteor}</b> is on somewhat of an awkward cooldown cadence, so it is primarily used to
         prop up your {combustion} damage. As a result, you will often be holding {meteor} to ensure
-        it lines up with {combustion}. Refer to the below guidelines to get the most out of {meteor}
-        .
+        it lines up with {combustion}. Refer to the below guidelines to get the most out of{' '}
+        {meteor}.
         <ul>
           <li>
             Ensure you are aiming {meteor} so that it will hit your primary target and as many
@@ -107,7 +127,7 @@ class MeteorGuide extends Analyzer {
             </li>
           )}
         </ul>
-      </>
+      </Trans>
     );
 
     return (

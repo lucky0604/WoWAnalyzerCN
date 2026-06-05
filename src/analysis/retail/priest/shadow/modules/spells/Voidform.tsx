@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -85,7 +86,8 @@ class Voidform extends Analyzer {
     this.VFExtensionTotal += extension;
     const tooltip = (
       <>
-        @<strong>{this.owner.formatTimestamp(this.VFtime)}</strong>, Extension:
+        @<strong>{this.owner.formatTimestamp(this.VFtime)}</strong>,{' '}
+        {t({ id: 'priest.shadow.voidform.extension', message: 'Extension' })}:{' '}
         <strong>{extension.toFixed(1)}</strong>
       </>
     );
@@ -105,33 +107,65 @@ class Voidform extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.VOIDFORM_TALENT} />
         </b>{' '}
-        is a powerful cooldown.
+        {t({
+          id: 'priest.shadow.voidform.powerfulCooldown',
+          message: 'is a powerful cooldown.',
+        })}
         <div />
         {this.selectedCombatant.hasTalent(TALENTS.ANCIENT_MADNESS_TALENT) && (
           <>
-            Casting <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} /> during{' '}
-            <SpellLink spell={SPELLS.VOIDFORM_BUFF} /> extends its duration by 2.5 seconds from{' '}
+            {t({
+              id: 'priest.shadow.voidform.casting',
+              message: 'Casting',
+            })}{' '}
+            <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />{' '}
+            {t({ id: 'priest.shadow.voidform.during', message: 'during' })}{' '}
+            <SpellLink spell={SPELLS.VOIDFORM_BUFF} />{' '}
+            {t({
+              id: 'priest.shadow.voidform.extendsBy',
+              message: 'extends its duration by 2.5 seconds from',
+            })}{' '}
             <SpellLink spell={TALENTS.ANCIENT_MADNESS_TALENT} />.
           </>
         )}
         {this.selectedCombatant.hasTalent(TALENTS.SUSTAINED_POTENCY_TALENT) && (
           <>
             <div />
-            With <SpellLink spell={TALENTS.SUSTAINED_POTENCY_TALENT} />, every{' '}
-            <SpellLink spell={TALENTS.HALO_SHADOW_TALENT} /> extends the duration of the current
-            Void Form or next Void Form by 1 second.
+            {t({
+              id: 'priest.shadow.voidform.with',
+              message: 'With',
+            })}{' '}
+            <SpellLink spell={TALENTS.SUSTAINED_POTENCY_TALENT} />,{' '}
+            {t({ id: 'priest.shadow.voidform.every', message: 'every' })}{' '}
+            <SpellLink spell={TALENTS.HALO_SHADOW_TALENT} />{' '}
+            {t({
+              id: 'priest.shadow.voidform.haloExtension',
+              message:
+                'extends the duration of the current Void Form or next Void Form by 1 second.',
+            })}
           </>
         )}
         <div />
-        Try to extend voidform for as much as possible.
+        {t({
+          id: 'priest.shadow.voidform.extendAsMuchAsPossible',
+          message: 'Try to extend voidform for as much as possible.',
+        })}
       </p>
     );
 
     const data = (
       <div>
-        <strong>Voidform Extension</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.voidform.extensionTitle',
+            message: 'Voidform Extension',
+          })}
+        </strong>
         <div />
-        <UptimeIcon /> <strong>{this.VFExtensionTotal.toFixed(1)}</strong> <small> seconds</small>
+        <UptimeIcon /> <strong>{this.VFExtensionTotal.toFixed(1)}</strong>{' '}
+        <small>
+          {t({ id: 'priest.shadow.voidform.seconds', message: 'seconds' })}
+        </small>
         <PerformanceBoxRow values={this.VFExtension} />
       </div>
     );

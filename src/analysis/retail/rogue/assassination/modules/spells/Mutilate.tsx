@@ -1,4 +1,6 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Events, { CastEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS/rogue';
 import TALENTS from 'common/TALENTS/rogue';
@@ -22,13 +24,15 @@ export default class Mutilate extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        Assassination's primary non-stealth single target builder is{' '}
-        <strong>
-          <SpellLink spell={SPELLS.MUTILATE} />
-        </strong>
-        . You should never use <SpellLink spell={SPELLS.MUTILATE} /> during{' '}
-        <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> or <SpellLink spell={SPELLS.VANISH_BUFF} />,
-        and should be casting <SpellLink spell={SPELLS.AMBUSH} /> instead.
+        <Trans id="rogue.assassination.mutilate.explanation">
+          Assassination's primary non-stealth single target builder is{' '}
+          <strong>
+            <SpellLink spell={SPELLS.MUTILATE} />
+          </strong>
+          . You should never use <SpellLink spell={SPELLS.MUTILATE} /> during{' '}
+          <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> or <SpellLink spell={SPELLS.VANISH_BUFF} />,
+          and should be casting <SpellLink spell={SPELLS.AMBUSH} /> instead.
+        </Trans>
       </p>
     );
 
@@ -42,7 +46,12 @@ export default class Mutilate extends Analyzer {
         hideGoodCasts
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Red is a bad cast.</>}
+        castBreakdownSmallText={
+          <Trans id="rogue.assassination.mutilate.castBreakdownLegend">
+            {' '}
+            - Red is a bad cast.
+          </Trans>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -55,7 +64,10 @@ export default class Mutilate extends Analyzer {
           </div>
         }
         noCastsTexts={{
-          noCastsOverride: 'All of your casts of this spell were good!',
+          noCastsOverride: t({
+            id: 'rogue.assassination.mutilate.allGood',
+            message: 'All of your casts of this spell were good!',
+          }),
         }}
       />
     );
@@ -72,15 +84,26 @@ export default class Mutilate extends Analyzer {
       return undefined;
     }
     const isBuffActive = this.selectedCombatant.hasBuff(SPELLS.SUBTERFUGE_BUFF.id, event.timestamp);
-    const summary = <div>Do not have Subterfuge active</div>;
+    const summary = (
+      <div>
+        {t({
+          id: 'rogue.assassination.mutilate.noSubterfuge',
+          message: 'Do not have Subterfuge active',
+        })}
+      </div>
+    );
     const details = isBuffActive ? (
       <div>
-        You cast <SpellLink spell={SPELLS.MUTILATE} /> when you should have cast a stealth spell due
-        to having <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> active.
+        <Trans id="rogue.assassination.mutilate.subterfugeActiveDetail">
+          You cast <SpellLink spell={SPELLS.MUTILATE} /> when you should have cast a stealth spell due
+          to having <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> active.
+        </Trans>
       </div>
     ) : (
       <div>
-        You did not have <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> active. Good job!
+        <Trans id="rogue.assassination.mutilate.subterfugeNotActiveDetail">
+          You did not have <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> active. Good job!
+        </Trans>
       </div>
     );
     return createChecklistItem(
@@ -96,15 +119,26 @@ export default class Mutilate extends Analyzer {
 
   private vanishPerformance(event: CastEvent): ChecklistUsageInfo | undefined {
     const isBuffActive = getVanishCast(event);
-    const summary = <div>Do not have Vanish active</div>;
+    const summary = (
+      <div>
+        {t({
+          id: 'rogue.assassination.mutilate.noVanish',
+          message: 'Do not have Vanish active',
+        })}
+      </div>
+    );
     const details = isBuffActive ? (
       <div>
-        You cast <SpellLink spell={SPELLS.MUTILATE} /> when you should have cast a stealth spell due
-        to having <SpellLink spell={SPELLS.VANISH_BUFF} /> active.
+        <Trans id="rogue.assassination.mutilate.vanishActiveDetail">
+          You cast <SpellLink spell={SPELLS.MUTILATE} /> when you should have cast a stealth spell due
+          to having <SpellLink spell={SPELLS.VANISH_BUFF} /> active.
+        </Trans>
       </div>
     ) : (
       <div>
-        You did not have <SpellLink spell={SPELLS.VANISH_BUFF} /> active. Good job!
+        <Trans id="rogue.assassination.mutilate.VanishNotActiveDetail">
+          You did not have <SpellLink spell={SPELLS.VANISH_BUFF} /> active. Good job!
+        </Trans>
       </div>
     );
     return createChecklistItem(

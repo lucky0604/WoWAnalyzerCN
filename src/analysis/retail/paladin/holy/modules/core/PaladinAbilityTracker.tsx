@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { Ability, AbsorbedEvent, EventType, HealEvent, CastEvent } from 'parser/core/Events';
 import AbilityTracker, { TrackedAbility } from 'parser/shared/modules/AbilityTracker';
@@ -21,9 +22,9 @@ export interface TrackedPaladinAbility extends TrackedAbility {
 }
 
 const TIMELINE_REASON = (
-  <>
+  <Trans id="paladin.holy.core.paladinAbilityTracker.thisCastConsumedIOL">
     This cast consumed <SpellLink spell={SPELLS.INFUSION_OF_LIGHT} />.
-  </>
+  </Trans>
 );
 
 class PaladinAbilityTracker extends AbilityTracker {

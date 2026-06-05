@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer from 'parser/core/Analyzer';
 import SPELLS from 'common/SPELLS';
@@ -53,19 +54,39 @@ class Shadowform extends Analyzer {
     if (this.uptime < 0.99) {
       //show this info in guide view if out of form for more than 1% of the fight.
       return (
-        <Section title="Shadowform">
+        <Section
+          title={t({
+            id: 'priest.shadow.shadowform.title',
+            message: 'Shadowform',
+          })}
+        >
           <p>
             <b>
-              Stay in <SpellLink spell={SPELLS.SHADOWFORM} /> or{' '}
+              {t({
+                id: 'priest.shadow.shadowform.stayInForm',
+                message: 'Stay in',
+              })}{' '}
+              <SpellLink spell={SPELLS.SHADOWFORM} />{' '}
+              {t({ id: 'priest.shadow.shadowform.or', message: 'or' })}{' '}
               <SpellLink spell={SPELLS.VOIDFORM} />. <div />
             </b>
-            These forms increase your shadow damage by 10%. <div />
+            {t({
+              id: 'priest.shadow.shadowform.damageIncrease',
+              message: 'These forms increase your shadow damage by 10%.',
+            })}{' '}
+            <div />
             <b>
-              You were out of shadowform for{' '}
+              {t({
+                id: 'priest.shadow.shadowform.outOfFormPrefix',
+                message: 'You were out of shadowform for',
+              })}{' '}
               <PerformanceStrong performance={this.DowntimePerformance}>
                 {formatPercentage(1 - this.uptime, 1)}%
               </PerformanceStrong>{' '}
-              of the fight.
+              {t({
+                id: 'priest.shadow.shadowform.ofTheFight',
+                message: 'of the fight.',
+              })}
             </b>
           </p>
         </Section>
@@ -78,11 +99,17 @@ class Shadowform extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.GENERAL}
         size="flexible"
-        tooltip="You should always be in shadowform (or voidform)"
+        tooltip={t({
+          id: 'priest.shadow.shadowform.alwaysInForm',
+          message: 'You should always be in shadowform (or voidform)',
+        })}
       >
         <BoringSpellValueText spell={SPELLS.SHADOWFORM}>
           <div>
-            {formatPercentage(this.uptime, 1)}% <small> uptime</small>
+            {formatPercentage(this.uptime, 1)}%{' '}
+            <small>
+              {t({ id: 'priest.shadow.shadowform.uptime', message: 'uptime' })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -103,7 +104,7 @@ class FlutteringSeedlings extends Analyzer {
         <div className="pad">
           <label>
             <SpellLink spell={TALENTS_EVOKER.FLUTTERING_SEEDLINGS_TALENT}>
-              Seedling sources:
+              {t({ id: 'evoker.preservation.flutteringSeedlings.seedlingSources', message: 'Seedling sources' })}:
             </SpellLink>
           </label>
           {this.renderDonutChart()}

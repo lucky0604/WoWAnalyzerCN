@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
@@ -83,10 +84,10 @@ class FillerFlashOfLight extends Analyzer {
           field: 'bucket',
           type: NOMINAL,
           axis: { labelAngle: -45 },
-          title: 'Distance',
+          title: t({ id: 'paladin.holy.spells.averageLODDistance.distance', message: 'Distance' }),
           sort: null,
         },
-        y: { field: 'amount', type: QUANTITATIVE, title: 'Hit' },
+        y: { field: 'amount', type: QUANTITATIVE, title: t({ id: 'paladin.holy.spells.averageLODDistance.hit', message: 'Hit' }) },
       },
     };
 
@@ -103,12 +104,12 @@ class FillerFlashOfLight extends Analyzer {
         <BoringValueText
           label={
             <>
-              <SpellIcon spell={TALENTS.LIGHT_OF_DAWN_TALENT} /> Average LoD Distance
+              <SpellIcon spell={TALENTS.LIGHT_OF_DAWN_TALENT} /> {t({ id: 'paladin.holy.spells.averageLODDistance.averageLodDistance', message: 'Average LoD Distance' })}
             </>
           }
         >
           {this.plot}
-          {(distanceSum / this.distanceCount).toFixed(2)} <small>yards</small>
+          {(distanceSum / this.distanceCount).toFixed(2)} <small>{t({ id: 'paladin.holy.spells.averageLODDistance.yards', message: 'yards' })}</small>
         </BoringValueText>
       </Statistic>
     );

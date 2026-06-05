@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Backdraft from '../analyzers/Backdraft';
 import { ReactNode } from 'react';
 import { ExplanationAndDataSubSection } from 'interface/guide/components/ExplanationRow';
@@ -33,13 +35,17 @@ export function BackdraftGuide({ analyzer, fightStart, fightEnd }: BackdraftGuid
   const explanation = (
     <>
       <p>
-        <SpellLink spell={SPELLS.BACKDRAFT} /> empowers your next Chaos Bolt, Incinerate, or Soul
-        Fire casts.
+        <Trans id="warlock.destruction.backdraftGuide.empowers">
+          <SpellLink spell={SPELLS.BACKDRAFT} /> empowers your next Chaos Bolt, Incinerate, or Soul
+          Fire casts.
+        </Trans>
       </p>
       <small>
-        Prefer spending stacks on <SpellLink spell={SPELLS.CHAOS_BOLT} /> or{' '}
-        <SpellLink spell={TALENTS.SOUL_FIRE_TALENT} /> (green) over{' '}
-        <SpellLink spell={SPELLS.INCINERATE} /> (yellow).
+        <Trans id="warlock.destruction.backdraftGuide.preferSpending">
+          Prefer spending stacks on <SpellLink spell={SPELLS.CHAOS_BOLT} /> or{' '}
+          <SpellLink spell={TALENTS.SOUL_FIRE_TALENT} /> (green) over{' '}
+          <SpellLink spell={SPELLS.INCINERATE} /> (yellow).
+        </Trans>
       </small>
     </>
   );
@@ -48,16 +54,32 @@ export function BackdraftGuide({ analyzer, fightStart, fightEnd }: BackdraftGuid
     <div>
       <div style={{ marginBottom: 8 }}>
         <SpellLink spell={SPELLS.BACKDRAFT} />
-        <small> - Green = optimal spender, Yellow = acceptable use, Red = wasted stacks.</small>
+        <small>
+          {' '}
+          -{' '}
+          {t({
+            id: 'warlock.destruction.backdraftGuide.colorLegend',
+            message: 'Green = optimal spender, Yellow = acceptable use, Red = wasted stacks.',
+          })}
+        </small>
       </div>
 
       <div style={{ marginBottom: 8 }}>
         <small>
-          <span style={{ color: 'green' }}>{goodCount} optimal</span>
+          <span style={{ color: 'green' }}>
+            {goodCount}{' '}
+            {t({ id: 'warlock.destruction.backdraftGuide.optimal', message: 'optimal' })}
+          </span>
           {' · '}
-          <span style={{ color: 'orange' }}>{okCount} acceptable</span>
+          <span style={{ color: 'orange' }}>
+            {okCount}{' '}
+            {t({ id: 'warlock.destruction.backdraftGuide.acceptable', message: 'acceptable' })}
+          </span>
           {' · '}
-          <span style={{ color: 'red' }}>{wastedCount} wasted</span>
+          <span style={{ color: 'red' }}>
+            {wastedCount}{' '}
+            {t({ id: 'warlock.destruction.backdraftGuide.wasted', message: 'wasted' })}
+          </span>
         </small>
       </div>
 

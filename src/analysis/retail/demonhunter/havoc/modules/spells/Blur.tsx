@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import SPELLS from 'common/SPELLS/demonhunter';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -36,8 +37,10 @@ export default class Blur extends MajorDefensiveBuff {
   description(): ReactNode {
     return (
       <p>
-        <SpellLink spell={SPELLS.BLUR} /> reduces the damage you take by{' '}
-        {Math.round(this.mitigation * 100)}%.
+        <Trans id="demonhunter.havoc.blur.description">
+          <SpellLink spell={SPELLS.BLUR} /> reduces the damage you take by{' '}
+          {Math.round(this.mitigation * 100)}%.
+        </Trans>
       </p>
     );
   }

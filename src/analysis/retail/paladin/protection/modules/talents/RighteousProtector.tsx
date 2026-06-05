@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -125,17 +126,26 @@ class RighteousProtector extends Analyzer {
           <SpellIcon spell={TALENTS.AVENGING_WRATH_TALENT} />{' '}
           {formatNumber(this.avengingWrathReduced / SECOND)}s{' '}
           <small>
-            CD Reduction ({formatNumber(this.avengingWrathReductionWasted / SECOND)}s wasted)
+            {t({
+              id: 'paladin.protection.righteousProtector.awCdReduction',
+              message: `CD Reduction (${formatNumber(this.avengingWrathReductionWasted / SECOND)}s wasted)`,
+            })}
           </small>
           <br />
           <SpellIcon spell={TALENTS.GUARDIAN_OF_ANCIENT_KINGS_TALENT} />{' '}
           {formatNumber(this.guardianOfAncientKingsReduced / SECOND)}s{' '}
           <small>
-            CD Reduction ({formatNumber(this.guardianOfAncientKingsWasted / SECOND)}s wasted)
+            {t({
+              id: 'paladin.protection.righteousProtector.goakCdReduction',
+              message: `CD Reduction (${formatNumber(this.guardianOfAncientKingsWasted / SECOND)}s wasted)`,
+            })}
           </small>
           <small>
             <br />
-            Guardian of Ancient kings version: ({this.guardianOfAncientKingsVariant})
+            {t({
+              id: 'paladin.protection.righteousProtector.goakVersion',
+              message: `Guardian of Ancient kings version: (${this.guardianOfAncientKingsVariant})`,
+            })}
           </small>
         </BoringSpellValueText>
       </Statistic>

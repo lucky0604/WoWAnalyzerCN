@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/warrior';
 import TALENTS from 'common/TALENTS/warrior';
 import ISSUE_IMPORTANCE from 'parser/core/ISSUE_IMPORTANCE';
@@ -192,7 +193,7 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: true,
           importance: ISSUE_IMPORTANCE.MINOR,
-          extraSuggestion: 'Use it to reduce damage taken for a short period.',
+          extraSuggestion: t({ id: 'warrior.fury.abilities.enragedRegenerationSuggestion', message: 'Use it to reduce damage taken for a short period.' }),
         },
       },
       {
@@ -208,8 +209,7 @@ class Abilities extends CoreAbilities {
           suggestion: true,
           recommendedEfficiency: 0.6,
           importance: ISSUE_IMPORTANCE.MINOR,
-          extraSuggestion:
-            'Use it preemptively as a buffer against large AOE, or reactively if you notice your raid is getting dangerously low on health.',
+          extraSuggestion: t({ id: 'warrior.fury.abilities.rallyingCrySuggestion', message: 'Use it preemptively as a buffer against large AOE, or reactively if you notice your raid is getting dangerously low on health.' }),
         },
       },
       // Utility
@@ -253,8 +253,7 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: false,
           recommendedEfficiency: 0.4,
-          extraSuggestion:
-            "If you're picking a utility talent over something that increases your mobility or survivability, you better use it.",
+          extraSuggestion: t({ id: 'warrior.fury.abilities.stormBoltSuggestion', message: "If you're picking a utility talent over something that increases your mobility or survivability, you better use it." }),
         },
       },
       {

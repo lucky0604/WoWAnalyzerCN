@@ -6,6 +6,7 @@ import PreparationSection from 'interface/guide/components/Preparation/Preparati
 import DefensivesGuide from '../shared/Defensives';
 import DesperatePrayer from '../shared/spells/DesperatePrayer';
 import Fade from '../shared/spells/Fade';
+import { t } from '@lingui/core/macro';
 
 export const GUIDE_CORE_EXPLANATION_PERCENT = 30;
 
@@ -16,7 +17,7 @@ export default function Guide({
 }: GuideProps<typeof CombatLogParser>): JSX.Element {
   return (
     <>
-      <Section title="Short cooldowns">
+      <Section title={t({ id: 'priest.discipline.section.shortCooldowns', message: 'Short cooldowns' })}>
         {modules.penance.guideSubsection}
         {modules.masterTheDarkness.guideSubsection}
         {info.combatant.hasTalent(TALENTS_PRIEST.POWER_WORD_RADIANCE_TALENT) &&
@@ -24,7 +25,7 @@ export default function Guide({
         {info.combatant.hasTalent(TALENTS_PRIEST.BINDING_HEALS_TALENT) &&
           modules.selfAtonementAnalyzer.guideSubsection}
       </Section>
-      <Section title="DoTs">{modules.dotUptimes.guideSubsection}</Section>
+      <Section title={t({ id: 'priest.discipline.section.dots', message: 'DoTs' })}>{modules.dotUptimes.guideSubsection}</Section>
       <DefensivesGuide analyzers={[DesperatePrayer, Fade]} />
       <PreparationSection />
     </>

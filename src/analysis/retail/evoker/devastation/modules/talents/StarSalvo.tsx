@@ -16,6 +16,7 @@ import { getEternitySurgeEventForShatteringStarDamage } from '../normalizers/Cas
 import SpellLink from 'interface/SpellLink';
 import { BadColor } from 'interface/guide';
 import ShatteringStars from './ShatteringStars';
+import { t } from '@lingui/core/macro';
 
 const SCINTILLATION_BUFFER_MS = 200;
 
@@ -94,13 +95,13 @@ class StarSalvo extends ShatteringStars {
     const starSalvoItems = [
       {
         color: 'rgb(123,188,93)',
-        label: 'Extra hits',
+        label: t({ id: 'evoker.devastation.starSalvo.extraHits', message: 'Extra hits' }),
         valueTooltip: formatNumber(this.starSalvoExtraHitsDamage),
         value: this.starSalvoExtraHitsDamage,
       },
       {
         color: 'rgb(41,134,204)',
-        label: 'Damage amp',
+        label: t({ id: 'evoker.devastation.starSalvo.damageAmp', message: 'Damage amp' }),
         valueTooltip: formatNumber(this.starSalvoAmpedDamage),
         value: this.starSalvoAmpedDamage,
       },
@@ -129,7 +130,9 @@ class StarSalvo extends ShatteringStars {
             <ItemDamageDone amount={totalDamageStarSalvoDamage} />
           </TalentSpellText>
           <div className="pad">
-            <label>Damage sources</label>
+            <label>
+              {t({ id: 'evoker.devastation.starSalvo.damageSources', message: 'Damage sources' })}
+            </label>
             <DonutChart items={starSalvoItems} />
           </div>
         </>

@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -115,9 +116,11 @@ class BlessedAssurance extends Analyzer {
           <>
             {!this.hasAC && (
               <div>
-                No healing to be received from{' '}
-                <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} /> if{' '}
-                <SpellLink spell={TALENTS.AVENGING_CRUSADER_TALENT} /> is not taken.
+                <Trans id="paladin.holy.lightsmith.blessedAssurance.noHealingWithoutAC">
+                  No healing to be received from{' '}
+                  <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} /> if{' '}
+                  <SpellLink spell={TALENTS.AVENGING_CRUSADER_TALENT} /> is not taken.
+                </Trans>
               </div>
             )}
             <p>
@@ -134,15 +137,24 @@ class BlessedAssurance extends Analyzer {
                   {this.blessedAssuranceCrusaderStrikesInsideAC}
                 </li>
                 <li>
-                  Healing from <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />:{' '}
+                  <Trans id="paladin.holy.lightsmith.blessedAssurance.healingFrom">
+                    Healing from <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />
+                  </Trans>
+                  :{' '}
                   {formatNumber(this.healingDone)}
                 </li>
                 <li>
-                  Healing from <SpellLink spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} /> via{' '}
-                  <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />:{' '}
+                  <Trans id="paladin.holy.lightsmith.blessedAssurance.beaconHealingVia">
+                    Healing from <SpellLink spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} /> via{' '}
+                    <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />
+                  </Trans>
+                  :{' '}
                   {formatNumber(this.healingTransfered)}
                 </li>
-                <li>Overhealing: {formatNumber(this.totalOverhealing)}</li>
+                <li>
+                  <Trans id="paladin.holy.lightsmith.blessedAssurance.overhealing">Overhealing</Trans>
+                  : {formatNumber(this.totalOverhealing)}
+                </li>
               </ul>
             )}
           </>

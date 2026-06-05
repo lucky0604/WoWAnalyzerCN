@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 
@@ -13,7 +14,10 @@ class HealingEfficiencyDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Mana Efficiency',
+      title: t({
+        id: 'classic.druid.restoration.manaEfficiency.tabTitle',
+        message: 'Mana Efficiency',
+      }),
       url: 'mana-efficiency',
       render: () => (
         <Panel>

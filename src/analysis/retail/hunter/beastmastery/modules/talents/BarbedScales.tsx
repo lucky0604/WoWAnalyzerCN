@@ -8,6 +8,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { BARBED_SCALES_CDR_MS } from '../../constants';
+import { t } from '@lingui/core/macro';
 
 /**
  * Casting Cobra Shot reduces the cooldown of Barbed Shot by 2 sec.
@@ -71,10 +72,20 @@ class BarbedScales extends Analyzer {
       >
         <BoringSpellValueText spell={TALENTS.BARBED_SCALES_TALENT}>
           {formatNumber(this.effectiveReductionMs / 1000)}s / {this.totalPossibleCDR / 1000}s{' '}
-          <small>effective CDR</small>
+          <small>
+            {t({
+              id: 'hunter.beastmastery.barbedScales.effectiveCdr',
+              message: 'effective CDR',
+            })}
+          </small>
           <p />
           {formatPercentage(this.effectiveReductionMs / this.totalPossibleCDR)}%{' '}
-          <small>effectiveness</small>
+          <small>
+            {t({
+              id: 'hunter.beastmastery.barbedScales.effectiveness',
+              message: 'effectiveness',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

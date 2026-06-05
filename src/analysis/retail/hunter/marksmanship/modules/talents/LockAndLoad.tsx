@@ -3,6 +3,8 @@ import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_HUNTER } from 'common/TALENTS';
 import { SpellLink } from 'interface';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ApplyBuffEvent } from 'parser/core/Events';
 import Abilities from 'parser/core/modules/Abilities';
@@ -96,46 +98,53 @@ class LockAndLoad extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <p>
-              You had {this.noGainLNLProcs} {this.noGainLNLProcs === 1 ? `proc` : `procs`} with LnL
-              already active.
-            </p>
-            <p>
-              You had {formatPercentage(this.totalProcs / this.expectedProcs, 1)}% procs of what you
-              could expect to get over the encounter.
-            </p>
-            <p>
+            <Trans id="hunter.marksmanship.lockAndLoad.tooltipProcWaste">
+              You had {this.noGainLNLProcs} {this.noGainLNLProcs === 1 ? 'proc' : 'procs'} with
+              LnL already active.
+            </Trans>
+            <br />
+            <Trans id="hunter.marksmanship.lockAndLoad.tooltipProcPercent">
+              You had {formatPercentage(this.totalProcs / this.expectedProcs, 1)}% procs of what
+              you could expect to get over the encounter.
+            </Trans>
+            <br />
+            <Trans id="hunter.marksmanship.lockAndLoad.tooltipProcTotal">
               You had a total of {this.totalProcs} procs, and your expected amount of procs was{' '}
               {formatNumber(this.expectedProcs)}.
-            </p>
-            <ul>
-              <li>
-                You have a ≈
-                {formatPercentage(binomialCDF(this.totalProcs, this.autoShots, LNL_PROC_CHANCE))}%
-                chance of getting this amount of procs or fewer in the future with this amount of
-                auto attacks.
-              </li>
-            </ul>
+            </Trans>
+            <br />
+            <Trans id="hunter.marksmanship.lockAndLoad.tooltipProcChance">
+              You have a ≈
+              {formatPercentage(binomialCDF(this.totalProcs, this.autoShots, LNL_PROC_CHANCE))}%
+              chance of getting this amount of procs or fewer in the future with this amount of
+              auto attacks.
+            </Trans>
           </>
         }
         dropdown={
           <>
             <div style={{ padding: '8px' }}>
               {plotOneVariableBinomChart(this.totalProcs, this.autoShots, LNL_PROC_CHANCE)}
-              <p>
+              <Trans id="hunter.marksmanship.lockAndLoad.procLikelihood">
                 Likelihood of getting <em>exactly</em> as many procs as estimated on a fight given
                 your number of <SpellLink spell={SPELLS.AUTO_SHOT} /> hits.
-              </p>
+              </Trans>
             </div>
           </>
         }
       >
         <BoringSpellValueText spell={TALENTS_HUNTER.LOCK_AND_LOAD_TALENT}>
           <div>
-            {this.totalProcs} <small>procs</small>
+            {this.totalProcs}{' '}
+            <small>
+              {t({ id: 'hunter.marksmanship.lockAndLoad.procs', message: 'procs' })}
+            </small>
           </div>
           <div>
-            {this.noGainLNLProcs} <small>wasted procs</small>
+            {this.noGainLNLProcs}{' '}
+            <small>
+              {t({ id: 'hunter.marksmanship.lockAndLoad.wastedProcs', message: 'wasted procs' })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

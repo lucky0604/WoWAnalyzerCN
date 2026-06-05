@@ -24,6 +24,7 @@ import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import RESOURCE_TYPES, { getResource } from 'game/RESOURCE_TYPES';
 import typedKeys from 'common/typedKeys';
 import { EnhancementEventLinks } from '../../constants';
+import { Trans } from '@lingui/react/macro';
 
 /** Doom Winds and Deeply Rooted Elements last 2 sec longer,
  * and the cooldown of Ascendance is reduced by 60 sec.
@@ -146,18 +147,18 @@ class ThorimsInvocation extends Analyzer.withDependencies({
       ) {
         addInefficientCastReason(
           event,
-          <>
+          <Trans id="shaman.enhancement.thorims.should_reprime">
             You should have re-primed <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> by
             casting <SpellLink spell={SPELLS.LIGHTNING_BOLT} />
-          </>,
+          </Trans>,
         );
       } else if (hits < 2) {
         addInefficientCastReason(
           event,
-          <>
+          <Trans id="shaman.enhancement.thorims.not_primed">
             <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> was not primed with{' '}
             <SpellLink spell={SPELLS.LIGHTNING_BOLT} />
-          </>,
+          </Trans>,
         );
       }
     }
@@ -184,7 +185,8 @@ class ThorimsInvocation extends Analyzer.withDependencies({
       includeHits && (proc.hits ?? 0) > proc.casts ? (
         <>
           {' '}
-          (<strong>{formatNumber(proc.hits ?? 0)}</strong> hits)
+          (<strong>{formatNumber(proc.hits ?? 0)}</strong>{' '}
+          <Trans id="shaman.enhancement.thorims.hits">hits</Trans>)
         </>
       ) : null;
 
@@ -193,12 +195,18 @@ class ThorimsInvocation extends Analyzer.withDependencies({
         <div>
           <SpellLink spell={spell} />
           {': '}
-          <strong>{formatNumber(proc.casts)}</strong> {proc.casts === 1 ? 'cast' : 'casts'}
+          <strong>{formatNumber(proc.casts)}</strong>{' '}
+          {proc.casts === 1 ? (
+            <Trans id="shaman.enhancement.thorims.cast_singular">cast</Trans>
+          ) : (
+            <Trans id="shaman.enhancement.thorims.cast_plural">casts</Trans>
+          )}
           {hitsComponent}
           {' - '}
           {includeTotalDamageIcon && <DamageIcon />} <strong>{formatNumber(proc.damage)}</strong>{' '}
-          damage done (<DamageIcon /> <strong>{formatNumber(proc.damage / proc.casts)}</strong> per
-          cast)
+          <Trans id="shaman.enhancement.thorims.damage_done">damage done</Trans> (<DamageIcon />{' '}
+          <strong>{formatNumber(proc.damage / proc.casts)}</strong>{' '}
+          <Trans id="shaman.enhancement.thorims.per_cast">per cast</Trans>)
         </div>
       </>
     );
@@ -224,7 +232,8 @@ class ThorimsInvocation extends Analyzer.withDependencies({
         }
       >
         <TalentSpellText talent={TALENTS.THORIMS_INVOCATION_TALENT}>
-          <UptimeIcon /> {this.totalProcs} <small>spells cast</small>
+          <UptimeIcon /> {this.totalProcs}{' '}
+          <small><Trans id="shaman.enhancement.thorims.spells_cast">spells cast</Trans></small>
         </TalentSpellText>
       </Statistic>
     );

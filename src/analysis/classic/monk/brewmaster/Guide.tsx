@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section, useAnalyzer } from 'interface/guide';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
 import { FoundationCooldownSection } from 'interface/guide/foundation/FoundationCooldownSection';
@@ -39,36 +41,53 @@ export default function Guide({ events, info }: GuideProps<typeof CombatLogParse
   const aplTabs = useMemo(
     () => [
       {
-        label: 'Standard Rotation',
+        label: t({
+          id: 'classic.monk.brewmaster.rotation.standardRotation',
+          message: 'Standard Rotation',
+        }),
         component: (
           <>
             {parseRotationActive && (
               <AlertInfo>
-                This player appears to be using the <strong>Parsing Rotation</strong>.
+                <Trans id="classic.monk.brewmaster.rotation.parsingRotationActive">
+                  This player appears to be using the <strong>Parsing Rotation</strong>.
+                </Trans>
               </AlertInfo>
             )}
             <Para>
-              The standard rotation focuses on generating{' '}
-              <ResourceLink id={RESOURCE_TYPES.CHI.id} /> to power your defensive abilities like{' '}
-              <SpellLink spell={spells.PURIFYING_BREW} />. As a side-effect, it also generates lots
-              of <SpellLink spell={spells.ELUSIVE_BREW} /> stacks and passively maintains{' '}
-              <SpellLink spell={SPELLS.SHUFFLE} />. This is not necessarily the highest damage, but
-              it is sturdy and reliable.
+              <Trans id="classic.monk.brewmaster.rotation.standardDescription">
+                The standard rotation focuses on generating{' '}
+                <ResourceLink id={RESOURCE_TYPES.CHI.id} /> to power your defensive abilities like{' '}
+                <SpellLink spell={spells.PURIFYING_BREW} />. As a side-effect, it also generates
+                lots of <SpellLink spell={spells.ELUSIVE_BREW} /> stacks and passively maintains{' '}
+                <SpellLink spell={SPELLS.SHUFFLE} />. This is not necessarily the highest damage,
+                but it is sturdy and reliable.
+              </Trans>
             </Para>
             <AplSectionData checker={check} apl={apl} />
           </>
         ),
       },
       {
-        label: <>{parseRotationActive && <WarningIcon />} Parsing Rotation</>,
+        label: (
+          <>
+            {parseRotationActive && <WarningIcon />}{' '}
+            {t({
+              id: 'classic.monk.brewmaster.rotation.parsingRotation',
+              message: 'Parsing Rotation',
+            })}
+          </>
+        ),
         component: (
           <>
             <Para>
-              The "parsing" rotation focuses on damage at the expense of defensive power.{' '}
-              <ResourceLink id={RESOURCE_TYPES.CHI.id} /> generation is greatly reduced by
-              prioritizing <SpellLink spell={spells.TIGER_PALM} /> and{' '}
-              <SpellLink spell={spells.RUSHING_JADE_WIND_TALENT} />, which may leave your defensive
-              abilities unavailable. It <em>does</em> do more damage, though.
+              <Trans id="classic.monk.brewmaster.rotation.parsingDescription">
+                The "parsing" rotation focuses on damage at the expense of defensive power.{' '}
+                <ResourceLink id={RESOURCE_TYPES.CHI.id} /> generation is greatly reduced by
+                prioritizing <SpellLink spell={spells.TIGER_PALM} /> and{' '}
+                <SpellLink spell={spells.RUSHING_JADE_WIND_TALENT} />, which may leave your
+                defensive abilities unavailable. It <em>does</em> do more damage, though.
+              </Trans>
             </Para>
             <AplSectionData checker={parselordCheck} apl={parselordApl} />
           </>
@@ -79,25 +98,40 @@ export default function Guide({ events, info }: GuideProps<typeof CombatLogParse
   );
   return (
     <>
-      <Section title="Core Skills">
+      <Section
+        title={t({
+          id: 'classic.monk.brewmaster.section.coreSkills',
+          message: 'Core Skills',
+        })}
+      >
         <FoundationDowntimeSection />
         <FoundationCooldownSection />
       </Section>
-      <Section title="Rotation">
+      <Section
+        title={t({
+          id: 'classic.monk.brewmaster.section.rotation',
+          message: 'Rotation',
+        })}
+      >
         <Para>
-          The Brewmaster rotation in Mists of Pandaria revolves around generating{' '}
-          <ResourceLink id={RESOURCE_TYPES.CHI.id} /> efficiently with{' '}
-          <SpellLink spell={spells.KEG_SMASH} /> and <SpellLink spell={spells.EXPEL_HARM} />, then
-          spending it on <SpellLink spell={spells.BLACKOUT_KICK} />. Defensive abilities like{' '}
-          <SpellLink spell={spells.ELUSIVE_BREW} /> are not included in this analysis, but you
-          should still use them!
+          <Trans id="classic.monk.brewmaster.rotation.description">
+            The Brewmaster rotation in Mists of Pandaria revolves around generating{' '}
+            <ResourceLink id={RESOURCE_TYPES.CHI.id} /> efficiently with{' '}
+            <SpellLink spell={spells.KEG_SMASH} /> and{' '}
+            <SpellLink spell={spells.EXPEL_HARM} />, then spending it on{' '}
+            <SpellLink spell={spells.BLACKOUT_KICK} />. Defensive abilities like{' '}
+            <SpellLink spell={spells.ELUSIVE_BREW} /> are not included in this analysis, but you
+            should still use them!
+          </Trans>
         </Para>
         <AlertInfo>
-          In Mists of Pandaria, tank damage is heavily dependent on{' '}
-          <SpellLink spell={spells.VENGEANCE_PASSIVE} />! It is so powerful that it is possible to
-          execute your rotation perfectly and still do worse damage than someone with better{' '}
-          <SpellLink spell={spells.VENGEANCE_PASSIVE} />. The best players will have good{' '}
-          <SpellLink spell={spells.VENGEANCE_PASSIVE} /> and a good rotation.
+          <Trans id="classic.monk.brewmaster.rotation.vengeanceInfo">
+            In Mists of Pandaria, tank damage is heavily dependent on{' '}
+            <SpellLink spell={spells.VENGEANCE_PASSIVE} />! It is so powerful that it is possible
+            to execute your rotation perfectly and still do worse damage than someone with better{' '}
+            <SpellLink spell={spells.VENGEANCE_PASSIVE} />. The best players will have good{' '}
+            <SpellLink spell={spells.VENGEANCE_PASSIVE} /> and a good rotation.
+          </Trans>
         </AlertInfo>
         <TabWrapper tabs={aplTabs} />
         {veng?.guideSubsection}

@@ -7,6 +7,7 @@ import Statistic from 'parser/ui/Statistic';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { HOLY_POWER_BUILDERS } from '../../constants';
+import { t } from '@lingui/core/macro';
 
 export default class BuilderUse extends Analyzer {
   totalBuilderCasts = 0;
@@ -28,12 +29,12 @@ export default class BuilderUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: 'Effective Builders',
+        label: t({ id: 'paladin.retribution.builderUse.effectiveBuilders', message: 'Effective Builders' }),
         value: this.effectiveBuilderCasts,
       },
       {
         color: BadColor,
-        label: 'Wasted Builders',
+        label: t({ id: 'paladin.retribution.builderUse.wastedBuilders', message: 'Wasted Builders' }),
         value: this.wastedBuilderCasts,
       },
     ];
@@ -46,7 +47,8 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)}>
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> builder usage
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />{' '}
+            {t({ id: 'paladin.retribution.builderUse.builderUsage', message: 'builder usage' })}
           </label>
           {this.chart}
         </div>

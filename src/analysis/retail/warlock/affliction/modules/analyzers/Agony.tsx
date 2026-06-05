@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer from 'parser/core/Analyzer';
 import Enemies from 'parser/shared/modules/Enemies';
@@ -49,22 +50,34 @@ class Agony extends Analyzer {
         <p>
           <b>
             {' '}
-            Keep <SpellLink spell={SPELLS.AGONY} /> active on as many targets as possible.
+            <SpellLink spell={SPELLS.AGONY} />
+            {t({
+              id: 'warlock.affliction.agony.keepActive',
+              message: 'Keep active on as many targets as possible.',
+            })}
           </b>
         </p>
         <p>
-          Maintaining <SpellLink spell={SPELLS.AGONY} /> uptime is crucial for generating Soul
-          Shards, as it is your primary source of shards outside of talents. High uptime also
-          ensures consistent DoT damage.
+          {t({
+            id: 'warlock.affliction.agony.uptimeExplanation',
+            message:
+              'Maintaining Agony uptime is crucial for generating Soul Shards, as it is your primary source of shards outside of talents. High uptime also ensures consistent DoT damage.',
+          })}
         </p>
         {this.DowntimePerformance === QualitativePerformance.Ok && (
           <p style={{ color: 'orange' }}>
-            Your Agony uptime is average. Try to refresh it more consistently.
+            {t({
+              id: 'warlock.affliction.agony.averageUptime',
+              message: 'Your Agony uptime is average. Try to refresh it more consistently.',
+            })}
           </p>
         )}
         {this.DowntimePerformance === QualitativePerformance.Fail && (
           <p style={{ color: 'red' }}>
-            Your Agony uptime is low! Focus on keeping it applied at all times.
+            {t({
+              id: 'warlock.affliction.agony.lowUptime',
+              message: 'Your Agony uptime is low! Focus on keeping it applied at all times.',
+            })}
           </p>
         )}
       </>

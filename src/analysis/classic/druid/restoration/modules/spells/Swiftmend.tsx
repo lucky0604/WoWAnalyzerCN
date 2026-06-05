@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/classic/druid';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -99,12 +100,18 @@ class Swiftmend extends Analyzer {
 
     hotChangeText = (
       <>
-        removed{' '}
+        {t({
+          id: 'classic.druid.restoration.swiftmend.removed',
+          message: 'removed',
+        })}{' '}
         <strong>
           {removedHotHeal ? (
             <SpellLink spell={abilityToSpell(removedHotHeal.ability)} />
           ) : (
-            'unknown HoT'
+            t({
+              id: 'classic.druid.restoration.swiftmend.unknownHot',
+              message: 'unknown HoT',
+            })
           )}
         </strong>
       </>
@@ -115,8 +122,20 @@ class Swiftmend extends Analyzer {
         @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
-        targetting <strong>{target.name}</strong> w/ <strong>{overhealPercentText}%</strong>{' '}
-        overheal
+        {t({
+          id: 'classic.druid.restoration.swiftmend.targetting',
+          message: 'targetting',
+        })}{' '}
+        <strong>{target.name}</strong>{' '}
+        {t({
+          id: 'classic.druid.restoration.swiftmend.withOverheal',
+          message: 'w/',
+        })}{' '}
+        <strong>{overhealPercentText}%</strong>{' '}
+        {t({
+          id: 'classic.druid.restoration.swiftmend.overheal',
+          message: 'overheal',
+        })}
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {unglyphed && hotChangeText}
@@ -126,36 +145,43 @@ class Swiftmend extends Analyzer {
     this.castEntries.push({ value, tooltip });
   }
 
-  /** Guide subsectopm describing the proper usage of Swiftmend */
+  /** Guide subsection describing the proper usage of Swiftmend */
   get guideSubsection(): JSX.Element {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.SWIFTMEND} />
-          </b>{' '}
-          is our emergency heal that removes a HoT on its target, hurting overall throughput. Use
-          only on targets who need urgent healing.
+          {t({
+            id: 'classic.druid.restoration.swiftmend.explanation1',
+            message:
+              'Swiftmend is our emergency heal that removes a HoT on its target, hurting overall throughput. Use only on targets who need urgent healing.',
+          })}
         </p>
         <p>
-          <strong>Note:</strong> If you are not using{' '}
-          <SpellLink spell={SPELLS.GLYPH_OF_SWIFTMEND} />, you should. The healing, casting time,
-          and mana gains from not having your Rejuv or Regrowth consumed is invaluable.
+          {t({
+            id: 'classic.druid.restoration.swiftmend.explanation2',
+            message:
+              'Note: If you are not using Glyph of Swiftmend, you should. The healing, casting time, and mana gains from not having your Rejuv or Regrowth consumed is invaluable.',
+          })}
         </p>
       </>
     );
 
     // Build up description of chart, which varies based on talents
-    let chartDescription = ' - ';
-    // no procs
-    chartDescription +=
-      'Green is a fine cast, Yellow is a cast with <15% overheal, and Red is a non-triage (>15% overheal) cast that removes a Rejuv or Regrowth.';
-    chartDescription += ' Mouseover for more details.';
+    const chartDescription = t({
+      id: 'classic.druid.restoration.swiftmend.chartDescription',
+      message:
+        'Green is a fine cast, Yellow is a cast with <15% overheal, and Red is a non-triage (>15% overheal) cast that removes a Rejuv or Regrowth. Mouseover for more details.',
+    });
 
     const data = (
       <div>
-        <strong>Swiftmend casts</strong>
-        <small>{chartDescription}</small>
+        <strong>
+          {t({
+            id: 'classic.druid.restoration.swiftmend.castsTitle',
+            message: 'Swiftmend casts',
+          })}
+        </strong>
+        <small> - {chartDescription}</small>
         <PerformanceBoxRow values={this.castEntries} />
       </div>
     );

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { DamageEvent } from 'parser/core/Events';
@@ -37,7 +38,13 @@ class DevourMatter extends Analyzer {
       <Statistic category={STATISTIC_CATEGORY.HERO_TALENTS} size="flexible">
         <BoringSpellValueText spell={TALENTS.DEVOUR_MATTER_TALENT}>
           <div>
-            <>{this.hits}</> <small>shields consumed</small>
+            <>{this.hits}</>{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.devourMatter.shieldsConsumed',
+                message: 'shields consumed',
+              })}
+            </small>
           </div>
           <div>
             <ItemInsanityGained amount={this.insanityGained} />

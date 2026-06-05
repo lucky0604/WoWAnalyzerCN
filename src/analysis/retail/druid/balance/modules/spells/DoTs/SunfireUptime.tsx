@@ -1,4 +1,6 @@
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Enemies from 'parser/shared/modules/Enemies';
 import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
@@ -85,15 +87,19 @@ class SunfireUptime extends Analyzer {
     const uptimePercentPerformance = this.getUptimePercentPerformance(uptimePercent);
     stats.push({
       value: `${formatPercentage(uptimePercent, 1)}%`,
-      label: 'Sunfire Uptime',
-      tooltip: <>Sunfire uptime percentage</>,
+      label: t({ id: 'druid.balance.dotUptimes.sunfire_uptime', message: 'Sunfire Uptime' }),
+      tooltip: (
+        <Trans id="druid.balance.dotUptimes.sunfire_uptime_tooltip">
+          Sunfire uptime percentage
+        </Trans>
+      ),
       performance: uptimePercentPerformance,
     } as StatisticData);
 
     // Cast count
     stats.push({
       value: this.sunfireCastCount.toString(),
-      label: 'Sunfire Casts',
+      label: t({ id: 'druid.balance.dotUptimes.sunfire_casts', message: 'Sunfire Casts' }),
     } as StatisticData);
 
     // Good casts
@@ -108,8 +114,12 @@ class SunfireUptime extends Analyzer {
     const usefulCastsPercentPerformance = this.getUsefulCastsPercentPerformance(usefulCastsPercent);
     stats.push({
       value: `${formatPercentage(usefulCastsPercent, 1)}%`,
-      label: 'Useful casts',
-      tooltip: <>Percentage of casts that were perfect/good/okay</>,
+      label: t({ id: 'druid.balance.dotUptimes.useful_casts', message: 'Useful casts' }),
+      tooltip: (
+        <Trans id="druid.balance.dotUptimes.useful_casts_tooltip">
+          Percentage of casts that were perfect/good/okay
+        </Trans>
+      ),
       performance: usefulCastsPercentPerformance,
     } as StatisticData);
 

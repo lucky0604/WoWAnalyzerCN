@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -77,7 +78,10 @@ class Nightfall extends Analyzer {
     return (
       <Statistic category={STATISTIC_CATEGORY.TALENTS} size="flexible">
         <BoringSpellValueText spell={TALENTS.NIGHTFALL_TALENT}>
-          {this.wastedProcs} <small>wasted procs</small>
+          {this.wastedProcs}{' '}
+          <small>
+            {t({ id: 'warlock.affliction.nightfall.wastedProcs', message: 'wasted procs' })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

@@ -1,0 +1,16 @@
+{
+  "hunter.marksmanship.aimedShot.inefficientCastWithPreciseShots": "在精确射击层数未用完时施放瞄准射击。",
+  "hunter.marksmanship.surgingShots.procLikelihood": "根据你的<0/>施放次数，在战斗中<em>恰好</em>获得预计触发数量的可能性。",
+  "hunter.marksmanship.lockAndLoad.tooltipProcWaste": "你有{0}次在荷枪实弹已激活时{1}触发被浪费。",
+  "hunter.marksmanship.lockAndLoad.tooltipProcPercent": "你获得了预期触发量的{0}%。",
+  "hunter.marksmanship.lockAndLoad.tooltipProcTotal": "你总共触发了{0}次，预期触发量为{1}次。",
+  "hunter.marksmanship.lockAndLoad.tooltipProcChance": "在此数量的自动攻击下，你未来获得此数量或更少触发的概率约为{0}%。",
+  "hunter.marksmanship.lockAndLoad.procLikelihood": "根据你的<0/>命中次数，在战斗中<em>恰好</em>获得预计触发数量的可能性。",
+  "hunter.marksmanship.lockAndLoad.procs": "次触发",
+  "hunter.marksmanship.lockAndLoad.wastedProcs": "浪费的触发",
+  "hunter.marksmanship.preciseShots.tooltipWasted": "你因在已拥有精确射击时施放{1}而浪费了{0}次精确射击触发。",
+  "hunter.marksmanship.preciseShots.buffsUsed": "已使用层数",
+  "hunter.marksmanship.rapidFire.possibleFocusGained": "可能获得的总集中值",
+  "hunter.marksmanship.trueshot.perTrueshot": "每次百发百中",
+  "hunter.marksmanship.steadyShot.possibleFocusGained": "可能获得的总集中值"
+}

@@ -9,6 +9,7 @@ import SpellLink from 'interface/SpellLink';
 import DonutChart from 'parser/ui/DonutChart';
 import { formatNumber } from 'common/format';
 import Volatility from '../talents/Volatility';
+import { t } from '@lingui/core/macro';
 
 class Pyre extends Analyzer {
   static dependencies = {
@@ -76,7 +77,12 @@ class Pyre extends Analyzer {
           <label>
             <SpellLink spell={TALENTS.PYRE_TALENT} />
           </label>
-          <strong>Damage Breakdown:</strong>
+          <strong>
+            {t({
+              id: 'evoker.devastation.pyre.damageBreakdown',
+              message: 'Damage Breakdown:',
+            })}
+          </strong>
           <DonutChart items={pyreDamageSources} />
         </div>
       </Statistic>

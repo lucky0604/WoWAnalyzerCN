@@ -3,6 +3,8 @@ import CombatLogParser from 'analysis/retail/druid/balance/CombatLogParser';
 import { ResourceLink, SpellLink, AlertWarning } from 'interface';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { formatPercentage } from 'common/format';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 import SPELLS from 'common/SPELLS';
@@ -31,35 +33,47 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 
 function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Core">
-      <AlertWarning>Apex Talents not yet implemented.</AlertWarning>
-      <SubSection title="Always be Casting">
+    <Section title={t({ id: 'druid.balance.core.title', message: 'Core' })}>
+      <AlertWarning>
+        <Trans id="druid.balance.alert.apexTalents">Apex Talents not yet implemented.</Trans>
+      </AlertWarning>
+      <SubSection title={t({ id: 'druid.balance.alwaysBeCasting.title', message: 'Always be Casting' })}>
         <p>
           <em>
             <b>
-              Continuously chaining casts throughout an encounter is the single most important thing
-              for achieving good DPS as a caster.
+              <Trans id="druid.balance.alwaysBeCasting.description">
+                Continuously chaining casts throughout an encounter is the single most important thing
+                for achieving good DPS as a caster.
+              </Trans>
             </b>
           </em>
         </p>
         <p>
-          There should be no delay at all between your spell casts, it's better to start casting the
-          wrong spell than to think for a few seconds and then cast the right spell.
+          <Trans id="druid.balance.alwaysBeCasting.tips">
+            There should be no delay at all between your spell casts, it's better to start casting
+            the wrong spell than to think for a few seconds and then cast the right spell.
+          </Trans>
         </p>
         <p>
-          Minimize movement-based interruptions by pooling{' '}
-          <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> in advance and using instant-cast{' '}
-          <SpellLink spell={SPELLS.STARSURGE_MOONKIN} /> and{' '}
-          <SpellLink spell={SPELLS.STARFALL_CAST} /> while moving. Some fights have unavoidable
-          downtime due to phase transitions and the like, so in these cases 0% downtime will not be
-          possible - do the best you can.
+          <Trans id="druid.balance.alwaysBeCasting.movementTips">
+            Minimize movement-based interruptions by pooling{' '}
+            <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> in advance and using instant-cast{' '}
+            <SpellLink spell={SPELLS.STARSURGE_MOONKIN} /> and{' '}
+            <SpellLink spell={SPELLS.STARFALL_CAST} /> while moving. Some fights have unavoidable
+            downtime due to phase transitions and the like, so in these cases 0% downtime will not be
+            possible - do the best you can.
+          </Trans>
         </p>
         <p>
-          Active Time:{' '}
+          <Trans id="druid.balance.activeTime.label">
+            Active Time:{' '}
+          </Trans>
           <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
             {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
           </PerformanceStrong>{' '}
-          Cancelled Casts:{' '}
+          <Trans id="druid.balance.cancelledCasts.label">
+            Cancelled Casts:{' '}
+          </Trans>
           <PerformanceStrong performance={modules.cancelledCasts.CancelledPerformance}>
             {formatPercentage(modules.cancelledCasts.cancelledPercentage, 1)}%
           </PerformanceStrong>{' '}
@@ -72,24 +86,28 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
           />
         </p>
       </SubSection>
-      <SubSection title="Astral Power">
+      <SubSection title={t({ id: 'druid.balance.astralPower.title', message: 'Astral Power' })}>
         <p>
-          Your primary resource is <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} />. Most of
-          your spells generate Astral Power, which can be spent to cast{' '}
-          <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} /> or{' '}
-          <SpellLink spell={SPELLS.STARFALL_CAST} />. Avoid capping Astral Power!
+          <Trans id="druid.balance.astralPower.description">
+            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} />. Most of
+            your spells generate Astral Power, which can be spent to cast{' '}
+            <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} /> or{' '}
+            <SpellLink spell={SPELLS.STARFALL_CAST} />. Avoid capping Astral Power!
+          </Trans>
         </p>
-        The chart below shows your Astral Power over the course of the encounter. You wasted{' '}
-        <PerformancePercentage
-          performance={modules.astralPowerTracker.wastedPerformance}
-          perfectPercentage={PERFECT_ASP_WASTED}
-          goodPercentage={GOOD_ASP_WASTED}
-          okPercentage={OK_ASP_WASTED}
-          percentage={modules.astralPowerTracker.percentWasted}
-          flatAmount={modules.astralPowerTracker.wasted * ASTRAL_POWER_SCALE_FACTOR}
-        />{' '}
-        of your <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> (More details in 'Astral Power
-        usage' tab).
+        <Trans id="druid.balance.astralPower.wasted">
+          The chart below shows your Astral Power over the course of the encounter. You wasted{' '}
+          <PerformancePercentage
+            performance={modules.astralPowerTracker.wastedPerformance}
+            perfectPercentage={PERFECT_ASP_WASTED}
+            goodPercentage={GOOD_ASP_WASTED}
+            okPercentage={OK_ASP_WASTED}
+            percentage={modules.astralPowerTracker.percentWasted}
+            flatAmount={modules.astralPowerTracker.wasted * ASTRAL_POWER_SCALE_FACTOR}
+          />{' '}
+          of your <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> (More details in 'Astral
+          Power usage' tab).
+        </Trans>
       </SubSection>
       {modules.astralPowerGraph.plot}
     </Section>
@@ -98,26 +116,34 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
 
 function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Rotation">
+    <Section title={t({ id: 'druid.balance.rotation.title', message: 'Rotation' })}>
       <p>
-        Balance's core rotation involves casting the correct{' '}
-        <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> for the situation, maximizing DoT
-        uptimes, and spending Astral Power to avoid overcapping. After fulfilling these priorities,
-        open GCDs are filled with
-        <SpellLink spell={SPELLS.WRATH} /> or <SpellLink spell={SPELLS.STARFIRE} /> depending on
-        Eclipse type and target count. Refer to{' '}
-        <a
-          href="https://www.wowhead.com/guide/classes/druid/balance/rotation-cooldowns-pve-dps"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          the spec guide
-        </a>{' '}
-        for more rotation details.
+        <Trans id="druid.balance.rotation.description">
+          Balance's core rotation involves casting the correct{' '}
+          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> for the situation, maximizing DoT
+          uptimes, and spending Astral Power to avoid overcapping. After fulfilling these priorities,
+          open GCDs are filled with
+          <SpellLink spell={SPELLS.WRATH} /> or <SpellLink spell={SPELLS.STARFIRE} /> depending on
+          Eclipse type and target count. Refer to{' '}
+          <a
+            href="https://www.wowhead.com/guide/classes/druid/balance/rotation-cooldowns-pve-dps"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            the spec guide
+          </a>{' '}
+          for more rotation details.
+        </Trans>
       </p>
 
-      <Section title="DoTs">{modules.dotUptimes.guideSubsection}</Section>
-      <Section title="Eclipse">{modules.eclipse.guideSubsection}</Section>
+      <Section title={t({ id: 'druid.balance.dotUptimes.title', message: 'DoTs' })}>
+        {modules.dotUptimes.guideSubsection}
+      </Section>
+      <Section
+        title={t({ id: 'druid.balance.eclipse.title', message: 'Eclipse' })}
+      >
+        {modules.eclipse.guideSubsection}
+      </Section>
       {modules.fillerUsage.guideSubsection}
       {modules.spenderUsage.guideSubsection}
       {info.combatant.hasTalent(TALENTS_DRUID.STARLORD_TALENT) && modules.starlord.guideSubsection}
@@ -130,12 +156,14 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
 
 function CooldownsSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
-    <Section title="Cooldowns">
+    <Section title={t({ id: 'druid.balance.cooldowns.title', message: 'Cooldowns' })}>
       <p>
-        Balance's cooldowns are moderately powerful and as with most DPS specs they should not be
-        held for long. In order to maximize usages over the course of an encounter, aim to send the
-        cooldown as soon as it becomes available (as long as you can be active on target over its
-        duration).
+        <Trans id="druid.balance.cooldowns.description">
+          Balance's cooldowns are moderately powerful and as with most DPS specs they should not be
+          held for long. In order to maximize usages over the course of an encounter, aim to send the
+          cooldown as soon as it becomes available (as long as you can be active on target over its
+          duration).
+        </Trans>
       </p>
       <CooldownGraphSubsection modules={modules} events={events} info={info} />
       <CooldownBreakdownSubsection modules={modules} events={events} info={info} />
@@ -146,10 +174,15 @@ function CooldownsSection({ modules, events, info }: GuideProps<typeof CombatLog
 function CooldownGraphSubsection({ info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
-      you waited to use them again. Grey segments show when the spell was available, yellow segments
-      show when the spell was cooling down. Red segments highlight times when you could have fit a
-      whole extra use of the cooldown.
+      <strong>
+        <Trans id="druid.balance.cooldownGraph.title">Cooldown Graph</Trans>
+      </strong>{' '}
+      -{' '}
+      <Trans id="druid.balance.cooldownGraph.description">
+        this graph shows when you used your cooldowns and how long you waited to use them again. Grey
+        segments show when the spell was available, yellow segments show when the spell was cooling
+        down. Red segments highlight times when you could have fit a whole extra use of the cooldown.
+      </Trans>
       {info.combatant.hasTalent(TALENTS_DRUID.CELESTIAL_ALIGNMENT_TALENT) && (
         <CastEfficiencyBar
           spell={cdSpell(info.combatant)}

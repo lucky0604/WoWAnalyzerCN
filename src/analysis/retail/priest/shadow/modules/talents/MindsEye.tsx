@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/priest';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events from 'parser/core/Events';
@@ -33,11 +34,20 @@ class MindsEye extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip="Amount of Insanity saved due to cost reduction"
+        tooltip={t({
+          id: 'priest.shadow.mindsEye.tooltip',
+          message: 'Amount of Insanity saved due to cost reduction',
+        })}
       >
         <BoringSpellValueText spell={TALENTS.MINDS_EYE_TALENT}>
           <div>
-            <InsanityIcon /> {formatNumber(this.insanitySaved)} <small> Insanity Saved</small>
+            <InsanityIcon /> {formatNumber(this.insanitySaved)}{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.mindsEye.insanitySaved',
+                message: 'Insanity Saved',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/classic/druid';
 import { SpellIcon } from 'interface';
 import { SpellLink } from 'interface';
@@ -169,40 +170,57 @@ class Rejuvenation extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.REJUVENATION} />
-          </b>{' '}
-          is your primary filler spell. It can be used on injured raiders or pre-cast on full health
-          raiders when big damage is incoming. Don't spam it unmotivated - you'll run out of mana.
-          Don't cast it on targets with a high duration Rejuvenation - you'll clip duration. Some
-          high-overheal Rejuvs are unavoidable due to heal sniping, but if a large proportion of
-          them are you might be casting too much.
+          {t({
+            id: 'classic.druid.restoration.rejuvenation.explanation1',
+            message:
+              "Rejuvenation is your primary filler spell. It can be used on injured raiders or pre-cast on full health raiders when big damage is incoming. Don't spam it unmotivated - you'll run out of mana. Don't cast it on targets with a high duration Rejuvenation - you'll clip duration. Some high-overheal Rejuvs are unavoidable due to heal sniping, but if a large proportion of them are you might be casting too much.",
+          })}
         </p>
         <p>
-          Rejuvenation can proc <SpellLink spell={SPELLS.REVITALIZE_MANA} />
+          {t({
+            id: 'classic.druid.restoration.rejuvenation.explanation2',
+            message: 'Rejuvenation can proc Revitalize',
+          })}
         </p>
       </>
     );
 
     const goodRejuvs = {
       count: this.goodRejuvs,
-      label: 'Good Rejuvenations',
+      label: t({
+        id: 'classic.druid.restoration.rejuvenation.goodRejuvs',
+        message: 'Good Rejuvenations',
+      }),
     };
     const highOverhealRejuvs = {
       count: this.highOverhealCasts,
-      label: 'High-overheal Rejuvenations',
+      label: t({
+        id: 'classic.druid.restoration.rejuvenation.highOverhealRejuvs',
+        message: 'High-overheal Rejuvenations',
+      }),
     };
     const clippedRejuvs = {
       count: this.earlyRefreshments,
-      label: 'Clipped duration Rejuvenations',
+      label: t({
+        id: 'classic.druid.restoration.rejuvenation.clippedRejuvs',
+        message: 'Clipped duration Rejuvenations',
+      }),
     };
     const data = (
       <div>
-        <strong>Rejuvenation cast breakdown</strong>
+        <strong>
+          {t({
+            id: 'classic.druid.restoration.rejuvenation.castBreakdown',
+            message: 'Rejuvenation cast breakdown',
+          })}
+        </strong>
         <small>
           {' '}
-          - Green is a good cast, Yellow is a cast with very high overheal, and Red is an early
-          refresh that clipped duration. Mouseover for more details.
+          {t({
+            id: 'classic.druid.restoration.rejuvenation.chartDescription',
+            message:
+              'Green is a good cast, Yellow is a cast with very high overheal, and Red is an early refresh that clipped duration. Mouseover for more details.',
+          })}
         </small>
         <GradiatedPerformanceBar good={goodRejuvs} ok={highOverhealRejuvs} bad={clippedRejuvs} />
       </div>
@@ -212,27 +230,42 @@ class Rejuvenation extends Analyzer {
   }
 
   statistic() {
+    const perMinuteLabel = t({
+      id: 'classic.druid.restoration.rejuvenation.perMinute',
+      message: 'per minute',
+    });
     return (
       <Statistic
         position={STATISTIC_ORDER.CORE(50)} // chosen for fixed ordering of general stats
         size="flexible"
         tooltip={
           <>
-            You refreshed Rejuvenation early <strong>{this.earlyRefreshments} times</strong>, losing
-            a total of <strong>{this.timeLostInSeconds.toFixed(1)}s</strong> of HoT duration (
-            {this.timeLostInSecondsPerMinute.toFixed(1)}s per minute).
+            {t({
+              id: 'classic.druid.restoration.rejuvenation.statisticTooltip',
+              message:
+                'You refreshed Rejuvenation early {refreshCount} times, losing a total of {lostSeconds}s of HoT duration ({lostPerMinute}s per minute).',
+              values: {
+                refreshCount: this.earlyRefreshments,
+                lostSeconds: this.timeLostInSeconds.toFixed(1),
+                lostPerMinute: this.timeLostInSecondsPerMinute.toFixed(1),
+              },
+            })}
           </>
         }
       >
         <BoringValue
           label={
             <>
-              <SpellIcon spell={SPELLS.REJUVENATION} /> Early Rejuvenation refreshes
+              <SpellIcon spell={SPELLS.REJUVENATION} />{' '}
+              {t({
+                id: 'classic.druid.restoration.rejuvenation.earlyRefreshes',
+                message: 'Early Rejuvenation refreshes',
+              })}
             </>
           }
         >
           <>
-            {this.earlyRefreshmentsPerMinute.toFixed(1)} <small>per minute</small>
+            {this.earlyRefreshmentsPerMinute.toFixed(1)} <small>{perMinuteLabel}</small>
           </>
         </BoringValue>
       </Statistic>

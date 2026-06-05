@@ -34,6 +34,7 @@ import TalentSpellText from 'parser/ui/TalentSpellText';
 import { encodeEventTargetString } from 'parser/shared/modules/Enemies';
 import { BadColor, GoodColor, OkColor } from 'interface/guide';
 import { InformationIcon } from 'interface/icons';
+import { t } from '@lingui/core/macro';
 
 type DamageSources = Record<number, { amount: number; spell: Ability }>;
 
@@ -313,7 +314,8 @@ class Iridescence extends Analyzer {
             <div>
               <InformationIcon /> {this.wastedBlueBuffs}{' '}
               <small>
-                <SpellLink spell={SPELLS.IRIDESCENCE_BLUE} /> wasted
+                <SpellLink spell={SPELLS.IRIDESCENCE_BLUE} />{' '}
+                {t({ id: 'evoker.devastation.iridescence.wasted', message: 'wasted' })}
               </small>
             </div>
           )}
@@ -321,7 +323,8 @@ class Iridescence extends Analyzer {
             <div>
               <InformationIcon /> {this.wastedRedBuffs}{' '}
               <small>
-                <SpellLink spell={SPELLS.IRIDESCENCE_RED} /> wasted
+                <SpellLink spell={SPELLS.IRIDESCENCE_RED} />{' '}
+                {t({ id: 'evoker.devastation.iridescence.wasted', message: 'wasted' })}
               </small>
             </div>
           )}
@@ -329,7 +332,8 @@ class Iridescence extends Analyzer {
             <div>
               <InformationIcon /> {this.overcappedRedBuffs}{' '}
               <small>
-                <SpellLink spell={SPELLS.IRIDESCENCE_RED} /> overcapped
+                <SpellLink spell={SPELLS.IRIDESCENCE_RED} />{' '}
+                {t({ id: 'evoker.devastation.iridescence.overcapped', message: 'overcapped' })}
               </small>
             </div>
           )}
@@ -337,7 +341,8 @@ class Iridescence extends Analyzer {
             <div>
               <InformationIcon /> {this.overcappedBlueBuffs}{' '}
               <small>
-                <SpellLink spell={SPELLS.IRIDESCENCE_BLUE} /> overcapped
+                <SpellLink spell={SPELLS.IRIDESCENCE_BLUE} />{' '}
+                {t({ id: 'evoker.devastation.iridescence.overcapped', message: 'overcapped' })}
               </small>
             </div>
           )}

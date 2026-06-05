@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -55,16 +57,19 @@ class Redoubt extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            Taking the Redoubt talent gave you on average {formatNumber(averageStamGain)} Stamina
-            and {formatNumber(averageStrengthGain)} Strength.
-          </>
+          <Trans id="paladin.protection.redoubt.tooltip">
+            Taking the Redoubt talent gave you on average {formatNumber(averageStamGain)} Stamina and{' '}
+            {formatNumber(averageStrengthGain)} Strength.
+          </Trans>
         }
       >
         <BoringSpellValue
           spell={TALENTS.REDOUBT_TALENT.id}
           value={formatNumber(this.averageStacks)}
-          label="Average Stacks"
+          label={t({
+            id: 'paladin.protection.redoubt.averageStacks',
+            message: 'Average Stacks',
+          })}
         />
       </Statistic>
     );

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 
@@ -13,7 +14,7 @@ class ComboPointDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Combo Point usage',
+      title: t({ id: 'druid.feral.combo_point_details.title', message: 'Combo Point usage' }),
       url: 'combo-points',
       render: () => (
         <Panel>

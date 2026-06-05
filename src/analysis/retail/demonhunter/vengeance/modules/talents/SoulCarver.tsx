@@ -11,6 +11,8 @@ import FieryDemiseExplanation from 'analysis/retail/demonhunter/vengeance/module
 import { ChecklistUsageInfo, SpellUse, UsageInfo } from 'parser/core/SpellUsage/core';
 import MajorCooldown, { CooldownTrigger } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { isDefined } from 'common/typeGuards';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 interface SoulCarverCooldownCast extends CooldownTrigger<CastEvent> {
   hasFrailtyDebuff: boolean;
@@ -36,10 +38,12 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
   description() {
     return (
       <>
-        <strong>
-          <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />
-        </strong>{' '}
-        is a burst of damage that also generates a decent chunk of Soul Fragments.
+        <Trans id="guide.demonhunter.vengeance.soulCarver.description">
+          <strong>
+            <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />
+          </strong>{' '}
+          is a burst of damage that also generates a decent chunk of Soul Fragments.
+        </Trans>
         <VulnerabilityExplanation />
         <FieryDemiseExplanation />
       </>
@@ -86,7 +90,9 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
       checklistItems: checklistItems,
       performance: overallPerf,
       performanceExplanation:
-        overallPerf !== QualitativePerformance.Fail ? `${overallPerf} Usage` : 'Bad Usage',
+        overallPerf !== QualitativePerformance.Fail
+          ? `${overallPerf} ${t({ id: 'demonhunter.vengeance.shared.usage', message: 'Usage' })}`
+          : t({ id: 'demonhunter.vengeance.shared.badUsage', message: 'Bad Usage' }),
     };
   }
 
@@ -129,15 +135,19 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
         performance: QualitativePerformance.Fail,
         summary: (
           <div>
-            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> not applied to target
+            <Trans id="demonhunter.vengeance.soulCarver.fieryBrandNotApplied">
+              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> not applied to target
+            </Trans>
           </div>
         ),
         details: (
           <div>
-            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> not applied to target.
-            Make sure to apply <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> before
-            casting <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} /> so that you
-            benefit from <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_DEMISE_TALENT} />.
+            <Trans id="demonhunter.vengeance.soulCarver.fieryBrandNotAppliedDetail">
+              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> not applied to target.
+              Make sure to apply <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />{' '}
+              before casting <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} /> so that
+              you benefit from <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_DEMISE_TALENT} />.
+            </Trans>
           </div>
         ),
       };
@@ -146,12 +156,16 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
       performance: QualitativePerformance.Perfect,
       summary: (
         <div>
-          <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> applied to target
+          <Trans id="demonhunter.vengeance.soulCarver.fieryBrandApplied">
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> applied to target
+          </Trans>
         </div>
       ),
       details: (
         <div>
-          <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> applied to target.
+          <Trans id="demonhunter.vengeance.soulCarver.fieryBrandAppliedDetail">
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> applied to target.
+          </Trans>
         </div>
       ),
     };
@@ -166,14 +180,18 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
         performance: QualitativePerformance.Fail,
         summary: (
           <div>
-            <SpellLink spell={SPELLS.FRAILTY} /> not applied to target
+            <Trans id="demonhunter.vengeance.soulCarver.frailtyNotApplied">
+              <SpellLink spell={SPELLS.FRAILTY} /> not applied to target
+            </Trans>
           </div>
         ),
         details: (
           <div>
-            <SpellLink spell={SPELLS.FRAILTY} /> not applied to target. Make sure to apply{' '}
-            <SpellLink spell={SPELLS.FRAILTY} /> before casting{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />.
+            <Trans id="demonhunter.vengeance.soulCarver.frailtyNotAppliedDetail">
+              <SpellLink spell={SPELLS.FRAILTY} /> not applied to target. Make sure to apply{' '}
+              <SpellLink spell={SPELLS.FRAILTY} /> before casting{' '}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />.
+            </Trans>
           </div>
         ),
       };
@@ -183,12 +201,16 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
       performance: QualitativePerformance.Perfect,
       summary: (
         <div>
-          <SpellLink spell={SPELLS.FRAILTY} /> applied to target
+          <Trans id="demonhunter.vengeance.soulCarver.frailtyApplied">
+            <SpellLink spell={SPELLS.FRAILTY} /> applied to target
+          </Trans>
         </div>
       ),
       details: (
         <div>
-          <SpellLink spell={SPELLS.FRAILTY} /> applied to target.
+          <Trans id="demonhunter.vengeance.soulCarver.frailtyAppliedDetail">
+            <SpellLink spell={SPELLS.FRAILTY} /> applied to target.
+          </Trans>
         </div>
       ),
     };

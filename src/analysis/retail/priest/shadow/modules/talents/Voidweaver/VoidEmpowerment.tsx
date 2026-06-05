@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Options } from 'parser/core/Module';
 import Statistic from 'parser/ui/Statistic';
@@ -53,13 +54,19 @@ class VoidEmpowerment extends Analyzer {
           <div>
             {this.buffGained}{' '}
             <small>
-              Buffs of <SpellLink spell={SPELLS.MIND_DEVOURER_TALENT_BUFF} /> Gained
+              {t({
+                id: 'priest.shadow.voidEmpowerment.buffsGained',
+                message: 'Buffs Gained',
+              })}
             </small>{' '}
           </div>
           <div>
             {this.buffWasted}{' '}
             <small>
-              Buffs of <SpellLink spell={SPELLS.MIND_DEVOURER_TALENT_BUFF} /> Wasted
+              {t({
+                id: 'priest.shadow.voidEmpowerment.buffsWasted',
+                message: 'Buffs Wasted',
+              })}
             </small>
           </div>
         </BoringSpellValueText>

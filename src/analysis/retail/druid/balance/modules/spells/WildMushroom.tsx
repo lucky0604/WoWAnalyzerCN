@@ -30,7 +30,7 @@ export default class WildMushroom extends Analyzer.withDependencies(deps) {
   get guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="balance.wild_mushroom.explanation">
+        <Trans id="druid.balance.wild_mushroom.explanation">
           <strong>
             <SpellLink spell={TALENTS_DRUID.WILD_MUSHROOM_TALENT} />
           </strong>{' '}

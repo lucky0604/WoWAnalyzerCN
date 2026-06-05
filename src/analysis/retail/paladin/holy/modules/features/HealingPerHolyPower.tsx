@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -44,7 +45,9 @@ class HealingPerHolyPower extends Analyzer {
     if (this.selectedCombatant.hasTalent(TALENTS.GLISTENING_RADIANCE_TALENT)) {
       return (
         <div>
-          Total healing from <SpellLink spell={TALENTS.GLISTENING_RADIANCE_TALENT} /> procs:{' '}
+          {t({ id: 'paladin.holy.features.healingPerHolyPower.totalHealingFromSpell', message: 'Total healing from' })}{' '}
+          <SpellLink spell={TALENTS.GLISTENING_RADIANCE_TALENT} />{' '}
+          {t({ id: 'paladin.holy.features.healingPerHolyPower.procs', message: 'procs' })}:{' '}
           {formatNumber(this.totalGlimmerHealing)}
         </div>
       );
@@ -61,16 +64,16 @@ class HealingPerHolyPower extends Analyzer {
         tooltip={
           <>
             <div>
-              Total healing by spenders, divided by total number of holy power spent on those
-              spenders{' '}
+              {t({ id: 'paladin.holy.features.healingPerHolyPower.tooltipMain', message: 'Total healing by spenders, divided by total number of holy power spent on those spenders' })}
+              {' '}
             </div>
-            <div>Total healing from spenders: {formatNumber(this.totalEffectiveHealing)}</div>
+            <div>{t({ id: 'paladin.holy.features.healingPerHolyPower.totalHealingFromSpenders', message: 'Total healing from spenders' })}: {formatNumber(this.totalEffectiveHealing)}</div>
             {this.glimmerStat()}
-            <div>Total spenders: {formatNumber(this.totalSpenders)}</div>
+            <div>{t({ id: 'paladin.holy.features.healingPerHolyPower.totalSpenders', message: 'Total spenders' })}: {formatNumber(this.totalSpenders)}</div>
           </>
         }
       >
-        <BoringValueText label={<>Average Healing per Holy Power</>}>
+        <BoringValueText label={<>{t({ id: 'paladin.holy.features.healingPerHolyPower.averageHealingPerHP', message: 'Average Healing per Holy Power' })}</>}>
           <>
             {formatNumber(
               (this.totalEffectiveHealing + this.totalGlimmerHealing) / this.totalSpenders / 3,

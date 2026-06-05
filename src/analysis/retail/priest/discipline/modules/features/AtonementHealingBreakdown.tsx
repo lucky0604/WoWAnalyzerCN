@@ -5,6 +5,7 @@ import { SpellLink, TooltipElement } from 'interface';
 import CombatLogParser from 'parser/core/CombatLogParser';
 import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import Toggle from 'interface/react-toggle';
+import { t } from '@lingui/core/macro';
 
 interface Props {
   analyzer: AtonementHealingDone;
@@ -82,8 +83,8 @@ const AtonementHealingBreakdown = ({
       <table className="data-table">
         <thead>
           <tr>
-            <th style={{ fontWeight: 700, textTransform: 'uppercase' }}>Name</th>
-            <th style={{ fontWeight: 700, textTransform: 'uppercase' }}>Healing</th>
+            <th style={{ fontWeight: 700, textTransform: 'uppercase' }}>{t({ id: 'priest.discipline.atonementHealingBreakdown.name', message: 'Name' })}</th>
+            <th style={{ fontWeight: 700, textTransform: 'uppercase' }}>{t({ id: 'priest.discipline.atonementHealingBreakdown.healing', message: 'Healing' })}</th>
             <th colSpan={2}>
               <div className="text-right toggle-control">
                 <Toggle
@@ -93,11 +94,11 @@ const AtonementHealingBreakdown = ({
                   id="absolute-toggle"
                 />
                 <label htmlFor="absolute-toggle" style={{ marginLeft: '0.5em' }}>
-                  relative to total healing
+                  {t({ id: 'priest.discipline.atonementHealingBreakdown.relativeToTotalHealing', message: 'relative to total healing' })}
                 </label>
               </div>
             </th>
-            <th style={{ fontWeight: 700, textTransform: 'uppercase' }}>Overheal</th>
+            <th style={{ fontWeight: 700, textTransform: 'uppercase' }}>{t({ id: 'priest.discipline.atonementHealingBreakdown.overheal', message: 'Overheal' })}</th>
           </tr>
         </thead>
         {tableBody}

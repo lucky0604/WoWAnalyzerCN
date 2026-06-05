@@ -16,6 +16,7 @@ import Enemies from 'parser/shared/modules/Enemies';
 import { Talent } from 'common/TALENTS/types';
 import Spell from 'common/SPELLS/Spell';
 import DonutChart from 'parser/ui/DonutChart';
+import { t } from '@lingui/core/macro';
 
 type DamageSources = Record<number, { amount: number; spell: Spell | Talent }>;
 
@@ -94,7 +95,9 @@ class ScorchingEmbers extends Analyzer {
           <ItemDamageDone amount={this.totalScorchingEmbersDamage} />
         </TalentSpellText>
         <div className="pad">
-          <label>Damage sources</label>
+          <label>
+            {t({ id: 'evoker.devastation.scorchingEmbers.damageSources', message: 'Damage sources' })}
+          </label>
           <DonutChart items={damageItems} />
         </div>
       </Statistic>

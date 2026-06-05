@@ -8,6 +8,8 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { TALENTS_PALADIN } from 'common/TALENTS/paladin';
 import HIT_TYPES from 'game/HIT_TYPES';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 class ArtOfWarProbability extends Analyzer {
   procsGained = 0;
@@ -57,21 +59,45 @@ class ArtOfWarProbability extends Analyzer {
         tooltip={
           <>
             <p>
-              Reset Chance: {this.procChance * 100} % on a normal hit and{' '}
-              {this.procChanceWithCrit * 100} % on a critical strike
+              {t({
+                id: 'paladin.retribution.artOfWarProbability.resetChance',
+                message: 'Reset Chance:',
+              })}{' '}
+              {this.procChance * 100}%{' '}
+              {t({
+                id: 'paladin.retribution.artOfWarProbability.onNormalHit',
+                message: 'on a normal hit and',
+              })}{' '}
+              {this.procChanceWithCrit * 100}%{' '}
+              {t({
+                id: 'paladin.retribution.artOfWarProbability.onCrit',
+                message: 'on a critical strike',
+              })}
             </p>
             <ul>
-              <li>Total Swings: {this.totalChances}</li>
-              <li>Total Art of War Procs : {this.procsGained}</li>
+              <li>
+                {t({
+                  id: 'paladin.retribution.artOfWarProbability.totalSwings',
+                  message: 'Total Swings:',
+                })}{' '}
+                {this.totalChances}
+              </li>
+              <li>
+                {t({
+                  id: 'paladin.retribution.artOfWarProbability.totalProcs',
+                  message: 'Total Art of War Procs :',
+                })}{' '}
+                {this.procsGained}
+              </li>
             </ul>
           </>
         }
       >
         <BoringValueText
           label={
-            <>
+            <Trans id="paladin.retribution.artOfWarProbability.bojResetChance">
               <SpellLink spell={TALENTS_PALADIN.ART_OF_WAR_TALENT} /> BoJ Reset Chance
-            </>
+            </Trans>
           }
         >
           {plotOneVariableBinomChart(this.procsGained, this.totalChances, this.procProbabilities)}

@@ -1,6 +1,7 @@
 //Based on Main/Mana.js and parser/VengeanceDemonHunter/Modules/PainChart
 //Note: For those that might wish to add Boss Health in the future- some of the work is already done here: https://github.com/leapis/WoWAnalyzer/tree/focusChartBossHealth
 
+import { t } from '@lingui/core/macro';
 import { Panel } from 'interface';
 import MaelstromTracker from './MaelstromTracker';
 import ResourceGraph from 'parser/shared/modules/ResourceGraph';
@@ -29,7 +30,7 @@ export default class MaelstromGraph extends ResourceGraph {
 
   tab() {
     return {
-      title: 'Maelstrom Chart',
+      title: t({ id: 'shaman.elemental.maelstrom_graph.title', message: 'Maelstrom Chart' }),
       url: 'maelstrom',
       render: () => <Panel style={{ padding: '15px 22px' }}>{this.plot}</Panel>,
     };

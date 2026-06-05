@@ -7,6 +7,7 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 import {
   BASIC_ATTACK_SPELLS,
@@ -113,28 +114,59 @@ class BasicAttacks extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Potential</th>
-                  <th>150ms delay</th>
-                  <th>0ms delay</th>
+                  <th>
+                    {t({
+                      id: 'hunter.beastmastery.basicAttacks.potential',
+                      message: 'Potential',
+                    })}
+                  </th>
+                  <th>
+                    {t({
+                      id: 'hunter.beastmastery.basicAttacks.ms150Delay',
+                      message: '150ms delay',
+                    })}
+                  </th>
+                  <th>
+                    {t({
+                      id: 'hunter.beastmastery.basicAttacks.ms0Delay',
+                      message: '0ms delay',
+                    })}
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Casts</td>
+                  <td>
+                    {t({
+                      id: 'hunter.beastmastery.basicAttacks.casts',
+                      message: 'Casts',
+                    })}
+                  </td>
                   <td>{this.potentialExtraCasts()}</td>
                   <td>{this.potentialExtraCasts(true)}</td>
                 </tr>
                 <tr>
-                  <td>Damage</td>
+                  <td>
+                    {t({
+                      id: 'hunter.beastmastery.basicAttacks.damage',
+                      message: 'Damage',
+                    })}
+                  </td>
                   <td>
                     {formatNumber((this.potentialExtraDamage() / this.owner.fightDuration) * 1000)}{' '}
-                    DPS
+                    {t({
+                      id: 'hunter.beastmastery.basicAttacks.dps',
+                      message: 'DPS',
+                    })}
                   </td>
                   <td>
                     {formatNumber(
                       (this.potentialExtraDamage(true) / this.owner.fightDuration) * 1000,
                     )}{' '}
-                    DPS
+                    {t({
+                      id: 'hunter.beastmastery.basicAttacks.dps',
+                      message: 'DPS',
+                    })}
                   </td>
                 </tr>
               </tbody>
@@ -149,7 +181,13 @@ class BasicAttacks extends Analyzer {
             {formatNumber(
               this.timeBetweenAttacks / this.chainCasts - NO_DELAY_TIME_BETWEEN_BASIC_ATK,
             )}{' '}
-            ms <small>average delay</small>
+            ms{' '}
+            <small>
+              {t({
+                id: 'hunter.beastmastery.basicAttacks.averageDelay',
+                message: 'average delay',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

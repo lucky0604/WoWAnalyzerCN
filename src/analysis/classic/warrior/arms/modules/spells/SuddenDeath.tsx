@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/classic';
 import SpellLink from 'interface/SpellLink';
 import { TooltipElement } from 'interface/Tooltip';
@@ -32,16 +33,33 @@ export default class SuddenDeath extends Analyzer.withDependencies({ spellUsable
         <BoringValue
           label={
             <>
-              <SpellLink spell={SPELLS.COLOSSUS_SMASH} /> Resets
+              <SpellLink spell={SPELLS.COLOSSUS_SMASH} />{' '}
+              {t({
+                id: 'classic.warrior.arms.suddenDeath.resetsLabel',
+                message: 'Resets',
+              })}
             </>
           }
         >
           <div>
-            {this.triggerCount - this.wastedTriggers} resets{' '}
+            {this.triggerCount - this.wastedTriggers}{' '}
+            {t({
+              id: 'classic.warrior.arms.suddenDeath.resets',
+              message: 'resets',
+            })}{' '}
             <small>
               (+{this.wastedTriggers}{' '}
-              <TooltipElement content="A reset is wasted if it occurs while Colossus Smash is not on cooldown.">
-                wasted
+              <TooltipElement
+                content={t({
+                  id: 'classic.warrior.arms.suddenDeath.wastedTooltip',
+                  message:
+                    'A reset is wasted if it occurs while Colossus Smash is not on cooldown.',
+                })}
+              >
+                {t({
+                  id: 'classic.warrior.arms.suddenDeath.wasted',
+                  message: 'wasted',
+                })}
               </TooltipElement>
               )
             </small>

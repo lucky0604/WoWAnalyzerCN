@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/warlock';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -111,10 +112,22 @@ class PowerSiphon extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={`Sacrificed ${this.totalImpsSiphoned} imps`}
+        tooltip={(() => {
+          const count = this.totalImpsSiphoned;
+          return t({
+            id: 'warlock.demonology.powerSiphon.tooltip',
+            message: `Sacrificed ${{ count }} imps`,
+          });
+        })()}
       >
         <BoringSpellValueText spell={TALENTS.POWER_SIPHON_TALENT}>
-          {this.doubleImpSiphons}/{this.numCasts} <small>casts with 2 imps</small>
+          {this.doubleImpSiphons}/{this.numCasts}{' '}
+          <small>
+            {t({
+              id: 'warlock.demonology.powerSiphon.castsWithTwoImps',
+              message: 'casts with 2 imps',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

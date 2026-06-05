@@ -13,6 +13,7 @@ import TalentSpellText from 'parser/ui/TalentSpellText';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import { getEternitySurgeEventForShatteringStarDamage } from '../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
+import { t } from '@lingui/core/macro';
 
 /**
  * Eternity Surge additionally releases a Shattering Star at your target
@@ -73,7 +74,7 @@ class ShatteringStars extends Analyzer {
       },
       {
         color: 'rgb(41,134,204)',
-        label: 'Empowerment amp',
+        label: t({ id: 'evoker.devastation.shatteringStars.empowermentAmp', message: 'Empowerment amp' }),
         valueTooltip: formatNumber(this.empowermentLevelDamage),
         value: this.empowermentLevelDamage,
       },
@@ -91,7 +92,9 @@ class ShatteringStars extends Analyzer {
           <ItemDamageDone amount={this.shatteringStarsTotalDamage} />
         </TalentSpellText>
         <div className="pad">
-          <label>Damage sources</label>
+          <label>
+            {t({ id: 'evoker.devastation.shatteringStars.damageSources', message: 'Damage sources' })}
+          </label>
           <DonutChart items={items} />
         </div>
       </>

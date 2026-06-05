@@ -1,4 +1,5 @@
 import { formatPercentage, formatNumber, formatThousands } from 'common/format';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import CooldownIcon from 'interface/icons/Cooldown';
 import UptimeIcon from 'interface/icons/Uptime';
@@ -135,10 +136,10 @@ class WaterElemental extends Analyzer {
         position={STATISTIC_ORDER.CORE(60)}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="mage.frost.waterElemental.statTooltip">
             <p>
-              Water Elemental was casting for {formatPercentage(this.petActiveTimePercentage)} % of
-              the fight (Downtime: {formatPercentage(this.petDowntimePercentage)} %).
+              Water Elemental was casting for {formatPercentage(this.petActiveTimePercentage)}% of
+              the fight (Downtime: {formatPercentage(this.petDowntimePercentage)}%).
             </p>
             <p>Your Water Elemental began casting {this.petTotalCasts} times.</p>
             <ul>
@@ -152,18 +153,18 @@ class WaterElemental extends Analyzer {
                 target in time.
               </li>
             </ul>
-          </>
+          </Trans>
         }
       >
-        <BoringValueText label="Water Elemental">
+        <BoringValueText label={<Trans id="mage.frost.waterElemental.label">Water Elemental</Trans>}>
           <p>
             <UptimeIcon /> {formatPercentage(this.petActiveTimePercentage)}%{' '}
-            <small>Pet uptime</small>
+            <small><Trans id="mage.frost.waterElemental.petUptime">Pet uptime</Trans></small>
           </p>
           <p>
             <CooldownIcon />{' '}
             {formatNumber(this._waterboltDamage / (this.owner.fightDuration / 1000))}{' '}
-            <small>Pet DPS</small>
+            <small><Trans id="mage.frost.waterElemental.petDPS">Pet DPS</Trans></small>
           </p>
         </BoringValueText>
       </Statistic>

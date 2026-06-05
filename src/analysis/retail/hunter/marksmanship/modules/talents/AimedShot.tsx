@@ -13,6 +13,7 @@ import Events, {
 import Abilities from 'parser/core/modules/Abilities';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
+import { defineMessage } from '@lingui/core/macro';
 
 /**
  * A powerful aimed shot that deals [(248.4% of Attack power) * ((max(0, min(Level - 10, 10)) * 8 + 130) / 210)] Physical damage.
@@ -124,7 +125,13 @@ class AimedShot extends Analyzer {
     const hasTrueshotBuff = this.selectedCombatant.hasBuff(TALENTS_HUNTER.TRUESHOT_TALENT.id);
 
     if (hasPreciseShotsBuff && !hasTrueshotBuff) {
-      addInefficientCastReason(event, 'Aimed Shot while having Precise Shots stacks left.');
+      addInefficientCastReason(
+        event,
+        defineMessage({
+          id: 'hunter.marksmanship.aimedShot.inefficientCastWithPreciseShots',
+          message: 'Aimed Shot while having Precise Shots stacks left.',
+        }),
+      );
     }
   }
 }

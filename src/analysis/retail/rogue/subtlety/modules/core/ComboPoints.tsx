@@ -1,9 +1,9 @@
+import { t } from '@lingui/core/macro';
 import { ComboPointTracker } from 'analysis/retail/rogue/shared';
 import Spell from 'common/SPELLS/Spell';
 import { SpellLink } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 import { ThresholdStyle } from 'parser/core/ParseResults';
-import { t } from '@lingui/core/macro';
 
 class ComboPoints extends Analyzer {
   static dependencies = {
@@ -27,10 +27,7 @@ class ComboPoints extends Analyzer {
   makeExtraSuggestion(spell: Spell) {
     return (
       <>
-        {t({
-          id: 'rogue.subtlety.comboPoints.avoidWasting',
-          message: 'Avoid wasting combo points when casting',
-        })}{' '}
+        {t({ id: 'rogue.subtlety.comboPoints.avoidWasting', message: 'Avoid wasting combo points when casting' })}{' '}
         <SpellLink spell={spell} />{' '}
       </>
     );

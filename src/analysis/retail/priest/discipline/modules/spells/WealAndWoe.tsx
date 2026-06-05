@@ -15,6 +15,7 @@ import { calculateEffectiveDamage, calculateEffectiveHealing } from 'parser/core
 import { SpellLink } from 'interface';
 import { getCastAbility } from '../../normalizers/DamageCastLink';
 import { formatNumber } from 'common/format';
+import { t } from '@lingui/core/macro';
 
 /*
   * Weal and Woe
@@ -116,7 +117,7 @@ class WealAndWoe extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            Healing Breakdown:
+            {t({ id: 'priest.discipline.wealAndWoe.healingBreakdown', message: 'Healing Breakdown:' })}
             <ul>
               <li>
                 <SpellLink spell={SPELLS.SMITE} />: {formatNumber(this.healing)}{' '}

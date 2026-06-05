@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { SpellLink } from 'interface';
@@ -34,8 +35,10 @@ export default class EyeOfTyr extends MajorDefensiveDebuff {
   description(): ReactNode {
     return (
       <p>
-        <SpellLink spell={TALENTS.EYE_OF_TYR_TALENT} /> reduces the damage dealt to you by targets
-        with its debuff by <strong>25%</strong>.
+        <Trans id="paladin.protection.eyeOfTyr.description">
+          <SpellLink spell={TALENTS.EYE_OF_TYR_TALENT} /> reduces the damage dealt to you by targets
+          with its debuff by <strong>25%</strong>.
+        </Trans>
       </p>
     );
   }

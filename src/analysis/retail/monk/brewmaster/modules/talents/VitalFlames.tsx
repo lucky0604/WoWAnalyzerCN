@@ -15,6 +15,8 @@ import { formatDuration, formatNumber, formatPercentage } from 'common/format';
 import MAGIC_SCHOOLS, { isMatchingDamageType } from 'game/MAGIC_SCHOOLS';
 import { BadColor, OkColor } from 'interface/guide';
 import { effectiveDamage } from 'parser/shared/modules/DamageValue';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const ENABLE_DEBUG_ANN = false;
 
@@ -88,7 +90,10 @@ export default class VitalFlames extends Analyzer {
     } else {
       this.addDebugAnnotation(event, {
         color: OkColor,
-        summary: 'Heal from Unknown Source',
+        summary: t({
+          id: 'monk.brewmaster.vitalFlames.unknown_source',
+          message: 'Heal from Unknown Source',
+        }),
       });
     }
     if (!this.healingByAbility[source]) {
@@ -103,8 +108,8 @@ export default class VitalFlames extends Analyzer {
       <table className="table table-condensed">
         <thead>
           <tr>
-            <th>Damaging Ability</th>
-            <th>Healing</th>
+            <th><Trans id="monk.brewmaster.vital_flames.damaging_ability">Damaging Ability</Trans></th>
+            <th><Trans id="monk.brewmaster.vital_flames.healing">Healing</Trans></th>
             <th>(%)</th>
           </tr>
         </thead>
@@ -116,7 +121,7 @@ export default class VitalFlames extends Analyzer {
               <tr key={spellId}>
                 <td>
                   {spellId === '-1' ? (
-                    <em>Unknown</em>
+                    <em><Trans id="monk.brewmaster.vital_flames.unknown">Unknown</Trans></em>
                   ) : (
                     <SpellLink spell={Number.parseInt(spellId)} />
                   )}

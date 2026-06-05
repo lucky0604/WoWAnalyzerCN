@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import StatisticBar from 'parser/ui/StatisticBar';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
@@ -25,23 +26,30 @@ class CorruptionUptime extends Analyzer {
       <>
         <p>
           <b>
-            Keep <SpellLink spell={spell} /> active at all times.
+            {t({
+              id: 'warlock.affliction.corruptionUptime.keepActive',
+              message: 'Keep Corruption active at all times.',
+            })}
           </b>
         </p>
 
         {!this.selectedCombatant.hasTalent(TALENTS_WARLOCK.WITHER_TALENT) && (
           <p>
-            Maintain <SpellLink spell={SPELLS.CORRUPTION_DEBUFF} /> on the boss at all times. This
-            DoT contributes significant damage and enables rotational synergies with{' '}
-            <SpellLink spell={SPELLS.NIGHTFALL_BUFF} /> and other Affliction talents.
+            {t({
+              id: 'warlock.affliction.corruptionUptime.maintainCorruption',
+              message:
+                'Maintain Corruption on the boss at all times. This DoT contributes significant damage and enables rotational synergies with Nightfall and other Affliction talents.',
+            })}
           </p>
         )}
 
         {this.selectedCombatant.hasTalent(TALENTS_WARLOCK.WITHER_TALENT) && (
           <p>
-            When playing Hellcaller, maintain <SpellLink spell={SPELLS.WITHER_DEBUFF} />. This DoT
-            contributes a massive amount of damage and nables rotational synergies with{' '}
-            <SpellLink spell={SPELLS.NIGHTFALL_BUFF} /> and other Affliction talents.
+            {t({
+              id: 'warlock.affliction.corruptionUptime.maintainWither',
+              message:
+                'When playing Hellcaller, maintain Wither. This DoT contributes a massive amount of damage and enables rotational synergies with Nightfall and other Affliction talents.',
+            })}
           </p>
         )}
       </>

@@ -12,6 +12,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
+import { t } from '@lingui/core/macro';
 
 /**
  * When cast at an enemy, Living Flame strikes 1 additional enemy for 100% damage.
@@ -65,7 +66,7 @@ class PupilOfAlexstrasza extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <li>Damage: {formatNumber(this.PupilOfAlexstraszaDamage)}</li>
+            <li>{t({ id: 'evoker.augmentation.pupilOfAlexstrasza.damage', message: 'Damage' })}: {formatNumber(this.PupilOfAlexstraszaDamage)}</li>
           </>
         }
       >

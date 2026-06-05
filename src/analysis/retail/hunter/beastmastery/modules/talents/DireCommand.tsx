@@ -12,6 +12,7 @@ import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * Kill Command has a 20% chance to also summon a Dire Beast to attack your target for 8 sec.
@@ -88,9 +89,11 @@ class DireCommand extends Analyzer {
                 DIRE_COMMAND_PROC_CHANCE,
               )}
               <p>
-                Likelihood of getting <em>exactly</em> as many procs as estimated on a fight given
-                your number of <SpellLink spell={TALENTS.KILL_COMMAND_BEAST_MASTERY_TALENT} />{' '}
-                casts.
+                <Trans id="hunter.beastmastery.direCommand.likelihoodText">
+                  Likelihood of getting <em>exactly</em> as many procs as estimated on a fight given
+                  your number of <SpellLink spell={TALENTS.KILL_COMMAND_BEAST_MASTERY_TALENT} />{' '}
+                  casts.
+                </Trans>
               </p>
             </div>
           </>

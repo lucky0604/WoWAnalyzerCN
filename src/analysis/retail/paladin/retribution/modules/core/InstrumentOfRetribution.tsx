@@ -6,6 +6,7 @@ import { TALENTS_PALADIN } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import { formatDurationMinSec } from 'common/format';
+import { t } from '@lingui/core/macro';
 
 const INSTRUMENT_OF_RETRIBUTION_AVENGING_WRATH_DURATION_SECONDS = 9;
 
@@ -33,7 +34,10 @@ export default class InstrumentOfRetribution extends Analyzer {
     return (
       <Statistic size="flexible" category={STATISTIC_CATEGORY.GENERAL}>
         <BoringSpellValueText spell={SPELLS.INSTRUMENT_OF_RETRIBUTION}>
-          {formatDurationMinSec(this.avengingWrathSecondsGained)} <small>gained</small>
+          {formatDurationMinSec(this.avengingWrathSecondsGained)}{' '}
+          <small>
+            {t({ id: 'paladin.retribution.instrumentOfRetribution.gained', message: 'gained' })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

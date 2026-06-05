@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Options } from 'parser/core/Module';
 import Statistic from 'parser/ui/Statistic';
@@ -63,7 +64,13 @@ class SustainedPotency extends Analyzer {
     return (
       <Statistic size="flexible" category={STATISTIC_CATEGORY.HERO_TALENTS}>
         <BoringSpellValueText spell={TALENTS.SUSTAINED_POTENCY_TALENT}>
-          <UptimeIcon /> <>{this.durationSustainedPotency}</>s <small>Increased Duration</small>
+          <UptimeIcon /> <>{this.durationSustainedPotency}</>s{' '}
+          <small>
+            {t({
+              id: 'priest.shadow.sustainedPotency.increasedDuration',
+              message: 'Increased Duration',
+            })}
+          </small>
         </BoringSpellValueText>
       </Statistic>
     );

@@ -9,6 +9,8 @@ import { EventType } from 'parser/core/Events';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import LazyLoadStatisticBox from 'parser/ui/LazyLoadStatisticBox';
 import { SYMBIOTIC_HEALING_INCREASE } from '../../constants';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 /**
  * Emerald Blossom increases targets' healing received by 3% per rank for 10 sec.
@@ -82,18 +84,22 @@ class SymbioticBloom extends Analyzer {
         }
         label={
           this.selectedCombatant.hasTalent(TALENTS.SYMBIOTIC_BLOOM_TALENT)
-            ? 'Symbiotic Bloom Buff Contribution'
-            : 'Symbiotic Bloom Buff Contribution (Motes of Possibility)'
+            ? t({ id: 'evoker.augmentation.symbioticBloom.buffContribution', message: 'Symbiotic Bloom Buff Contribution' })
+            : t({ id: 'evoker.augmentation.symbioticBloom.buffContributionMotes', message: 'Symbiotic Bloom Buff Contribution (Motes of Possibility)' })
         }
         tooltip={
           <>
             <p>
-              <SpellLink spell={TALENTS.SYMBIOTIC_BLOOM_TALENT} /> contributed{' '}
-              {formatNumber(this.totalHealingFromSymbioticBloomBuff)} healing.
+              <Trans id="evoker.augmentation.symbioticBloom.contributed">
+                <SpellLink spell={TALENTS.SYMBIOTIC_BLOOM_TALENT} /> contributed{' '}
+                {formatNumber(this.totalHealingFromSymbioticBloomBuff)} healing.
+              </Trans>
             </p>
             <p>
-              NOTE: This metric uses an approximation to calculate contribution from the buff due to
-              technical limitations.
+              <Trans id="evoker.augmentation.symbioticBloom.note">
+                NOTE: This metric uses an approximation to calculate contribution from the buff due to
+                technical limitations.
+              </Trans>
             </p>
           </>
         }

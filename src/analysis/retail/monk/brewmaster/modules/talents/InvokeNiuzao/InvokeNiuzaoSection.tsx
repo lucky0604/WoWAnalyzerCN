@@ -7,6 +7,7 @@ import SPELLS_COMMON from 'common/SPELLS';
 import { EventType } from 'parser/core/Events';
 import Explanation from 'interface/guide/components/Explanation';
 import CooldownGrid from 'interface/CooldownGrid/CooldownGrid';
+import { Trans } from '@lingui/react/macro';
 
 export default function InvokeNiuzaoSection(): JSX.Element | null {
   const invoke = useAnalyzer(InvokeNiuzao);
@@ -24,23 +25,27 @@ export default function InvokeNiuzaoSection(): JSX.Element | null {
     <SubSection title={<SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT} />}>
       <Explanation>
         <p>
-          <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Invoke Niuzao</SpellLink> is
-          Brewmaster's major damage cooldown. Most of the direct damage from Niuzao comes from
-          triggering <SpellLink spell={SPELLS_COMMON.NIUZAO_STOMP_DAMAGE} /> by casting{' '}
-          <SpellLink spell={SPELLS.BLACKOUT_KICK} />. However, at this time{' '}
-          <strong>Niuzao's direct damage is low</strong>. You should play normally during{' '}
-          <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Invoke Niuzao</SpellLink>{' '}
-          unless playing <SpellLink spell={SPELLS.WISDOM_OF_THE_WALL_TALENT}>Shado-Pan</SpellLink>.
+          <Trans id="monk.brewmaster.niuzao.explanation">
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Invoke Niuzao</SpellLink> is
+            Brewmaster's major damage cooldown. Most of the direct damage from Niuzao comes from
+            triggering <SpellLink spell={SPELLS_COMMON.NIUZAO_STOMP_DAMAGE} /> by casting{' '}
+            <SpellLink spell={SPELLS.BLACKOUT_KICK} />. However, at this time{' '}
+            <strong>Niuzao's direct damage is low</strong>. You should play normally during{' '}
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Invoke Niuzao</SpellLink>{' '}
+            unless playing <SpellLink spell={SPELLS.WISDOM_OF_THE_WALL_TALENT}>Shado-Pan</SpellLink>.
+          </Trans>
         </p>
         {info.combatant.hasTalent(SPELLS.WISDOM_OF_THE_WALL_TALENT) && (
           <p>
-            <SpellLink spell={SPELLS.WISDOM_OF_THE_WALL_TALENT}>Shado-Pan</SpellLink> Brewmasters
-            additionally trigger <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT} /> from{' '}
-            <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT} /> while Niuzao is active. This{' '}
-            <strong>greatly buffs</strong>{' '}
-            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Invoke Niuzao</SpellLink>{' '}
-            but changes your priority: use <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT} /> as
-            much as possible while Niuzao is active.
+            <Trans id="monk.brewmaster.niuzao.shado_pan_explanation">
+              <SpellLink spell={SPELLS.WISDOM_OF_THE_WALL_TALENT}>Shado-Pan</SpellLink> Brewmasters
+              additionally trigger <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT} /> from{' '}
+              <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT} /> while Niuzao is active. This{' '}
+              <strong>greatly buffs</strong>{' '}
+              <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Invoke Niuzao</SpellLink>{' '}
+              but changes your priority: use <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT} /> as
+              much as possible while Niuzao is active.
+            </Trans>
           </p>
         )}
       </Explanation>

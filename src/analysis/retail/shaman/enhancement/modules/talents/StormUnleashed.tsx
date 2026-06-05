@@ -17,6 +17,7 @@ import { ExplanationAndDataSubSection } from 'interface/guide/components/Explana
 import { EnhancementEventLinks } from '../../constants';
 import { SubSection } from 'interface/guide';
 import BuffUptimeBar from 'interface/guide/components/BuffUptimeBar';
+import { Trans } from '@lingui/react/macro';
 
 class StormUnleashed extends Analyzer {
   totalProcs = 0;
@@ -95,15 +96,19 @@ class StormUnleashed extends Analyzer {
     const explanation = (
       <>
         <p>
-          <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> allows you to cast{' '}
-          <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> without triggering it's cooldown, and{' '}
-          while <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> is already on cooldown.
+          <Trans id="shaman.enhancement.stormunleashed.explanation1">
+            <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> allows you to cast{' '}
+            <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> without triggering it's cooldown, and{' '}
+            while <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> is already on cooldown.
+          </Trans>
         </p>
         <p>
-          <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> is a significant damage source in
-          single target, so it's important to avoid unnecessarily wasting potential casts by holding
-          on to the <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> proc for too long, and either
-          letting it expire or be overwritten.
+          <Trans id="shaman.enhancement.stormunleashed.explanation2">
+            <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> is a significant damage source in
+            single target, so it's important to avoid unnecessarily wasting potential casts by holding
+            on to the <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> proc for too long, and either
+            letting it expire or be overwritten.
+          </Trans>
         </p>
       </>
     );
@@ -112,8 +117,10 @@ class StormUnleashed extends Analyzer {
       <>
         <SubSection title={<SpellLink spell={SPELLS.CRASH_LIGHTNING_BUFF} />}>
           <p>
-            The graph below shows your uptime and stack count of{' '}
-            <SpellLink spell={SPELLS.CRASH_LIGHTNING_BUFF} />.
+            <Trans id="shaman.enhancement.stormunleashed.graph_description">
+              The graph below shows your uptime and stack count of{' '}
+              <SpellLink spell={SPELLS.CRASH_LIGHTNING_BUFF} />.
+            </Trans>
           </p>
           <BuffUptimeBar
             spell={SPELLS.CRASH_LIGHTNING_BUFF}
@@ -126,21 +133,32 @@ class StormUnleashed extends Analyzer {
             <>
               <hr />
               <SubSection>
-                You wasted <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> procs:
+                <Trans id="shaman.enhancement.stormunleashed.wasted_procs">
+                  You wasted <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> procs:
+                </Trans>
                 <ul>
                   {this.wastedRefreshes > 0 && (
                     <li>
-                      Overwritten while already active: <strong>{this.wastedRefreshes}</strong>
+                      <Trans id="shaman.enhancement.stormunleashed.overwritten">
+                        Overwritten while already active:{' '}
+                      </Trans>
+                      <strong>{this.wastedRefreshes}</strong>
                     </li>
                   )}
                   {this.wastedExpires > 0 && (
                     <li>
-                      Expired unused: <strong>{this.wastedExpires}</strong>
+                      <Trans id="shaman.enhancement.stormunleashed.expired">
+                        Expired unused:{' '}
+                      </Trans>
+                      <strong>{this.wastedExpires}</strong>
                     </li>
                   )}
                 </ul>
                 <div style={{ marginTop: 8 }}>
-                  Total procs: <strong>{this.totalProcs}</strong>
+                  <Trans id="shaman.enhancement.stormunleashed.total_procs">
+                    Total procs:{' '}
+                  </Trans>
+                  <strong>{this.totalProcs}</strong>
                 </div>
               </SubSection>
             </>

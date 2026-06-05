@@ -123,7 +123,7 @@ class REMGraph extends Analyzer {
           {
             field: 'remCount',
             type: 'quantitative' as const,
-            title: 'Renewing Mist Count',
+            title: t({ id: 'monk.mistweaver.rem_graph.renewingMistCount', message: 'Renewing Mist Count' }),
             format: '.3~s',
           },
         ],
@@ -144,7 +144,7 @@ class REMGraph extends Analyzer {
             y: {
               field: 'remCount',
               type: 'quantitative' as const,
-              title: 'Count',
+              title: t`Count`,
               axis: {
                 grid: false,
                 format: '~s',
@@ -175,7 +175,7 @@ class REMGraph extends Analyzer {
             y: {
               field: 'remCount',
               type: 'quantitative' as const,
-              title: 'Count',
+              title: t`Count`,
             },
             color: { datum: 'Vivify cast' },
           },
@@ -203,7 +203,7 @@ class REMGraph extends Analyzer {
             y: {
               field: 'remCount',
               type: 'quantitative' as const,
-              title: 'Count',
+              title: t`Count`,
             },
             color: {
               datum: 'Instant Vivify',

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -86,10 +87,11 @@ class Ouroboros extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.OUROBOROS_TALENT} />
         </b>{' '}
-        makes <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> grant a stack of a buff (max 5) that
-        significantly increases the healing of <SpellLink spell={SPELLS.EMERALD_BLOSSOM} />. You
-        should aim to only use <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> when you have at least 3
-        stacks, as it will often be a waste of essence/mana otherwise.
+        {t({
+          id: 'evoker.preservation.ouroboros.guideExplanation',
+          message:
+            'makes Echo grant a stack of a buff (max 5) that significantly increases the healing of Emerald Blossom. You should aim to only use Emerald Blossom when you have at least 3 stacks, as it will often be a waste of essence/mana otherwise.',
+        })}
       </p>
     );
 
@@ -114,7 +116,7 @@ class Ouroboros extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.OUROBOROS_TALENT} /> consumptions
+            <SpellLink spell={TALENTS_EVOKER.OUROBOROS_TALENT} /> {t({ id: 'evoker.preservation.ouroboros.consumptions', message: 'consumptions' })}
           </strong>
           <PerformanceBoxRow values={entries} />
         </RoundedPanel>
@@ -133,11 +135,11 @@ class Ouroboros extends Analyzer {
         tooltip={
           <ul>
             <li>
-              <SpellLink spell={TALENTS_EVOKER.OUROBOROS_TALENT} /> healing from hardcast:{' '}
+              <SpellLink spell={TALENTS_EVOKER.OUROBOROS_TALENT} /> {t({ id: 'evoker.preservation.ouroboros.healingFromHardcast', message: 'healing from hardcast' })}:{' '}
               {formatNumber(this.ebHealing)}
             </li>
             <li>
-              <SpellLink spell={TALENTS_EVOKER.OUROBOROS_TALENT} /> healing from{' '}
+              <SpellLink spell={TALENTS_EVOKER.OUROBOROS_TALENT} /> {t({ id: 'evoker.preservation.ouroboros.healingFrom', message: 'healing from' })}{' '}
               <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} />: {formatNumber(this.echoEbHealing)}
             </li>
           </ul>
@@ -148,7 +150,7 @@ class Ouroboros extends Analyzer {
             <ItemHealingDone amount={this.totalhealing} />
           </div>
           <div>
-            {this.avgStacks.toFixed(1)} <small>average stacks</small>
+            {this.avgStacks.toFixed(1)} <small>{t({ id: 'evoker.preservation.ouroboros.averageStacks', message: 'average stacks' })}</small>
           </div>
         </TalentSpellText>
       </Statistic>

@@ -1,4 +1,6 @@
-import type { JSX } from 'react';
+import type { JSX, ReactNode } from 'react';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS/rogue';
 import { SpellLink } from 'interface';
 import { Options } from 'parser/core/Analyzer';
@@ -12,7 +14,10 @@ import {
   SNAPSHOT_DOWNGRADE_BUFFER,
 } from 'analysis/retail/rogue/assassination/constants';
 import { getHardcast } from 'analysis/retail/druid/feral/normalizers/CastLinkNormalizer';
-import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import {
+  QualitativePerformance,
+  getPerformanceExplanation,
+} from 'parser/ui/QualitativePerformance';
 import TALENTS from 'common/TALENTS/rogue';
 import uptimeBarSubStatistic, { SubPercentageStyle } from 'parser/ui/UptimeBarSubStatistic';
 import { formatDurationMillisMinSec } from 'common/format';
@@ -66,21 +71,41 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
     const wasUpgrade = prevPower < power;
 
     let snapshotPerformance: QualitativePerformance = QualitativePerformance.Good;
-    let snapshotSummary = <div>Good snapshot usage</div>;
-    let snapshotDetails = (
+    let snapshotSummary: ReactNode = (
       <div>
-        <p>Good snapshot usage.</p>
+        {t({
+          id: 'rogue.assassination.garrote.goodSnapshotUsage',
+          message: 'Good snapshot usage',
+        })}
+      </div>
+    );
+    let snapshotDetails: ReactNode = (
+      <div>
         <p>
-          Snapshots:{' '}
+          {t({
+            id: 'rogue.assassination.garrote.goodSnapshotUsageDetail',
+            message: 'Good snapshot usage.',
+          })}
+        </p>
+        <p>
+          {t({
+            id: 'rogue.assassination.garrote.snapshotsLabel',
+            message: 'Snapshots:',
+          })}{' '}
           <strong>
             {snapshots.length === 0 ? 'NONE' : snapshots.map((it) => it.name).join(', ')}
           </strong>
         </p>
         {prevSnapshots != null && (
           <p>
-            Previous Snapshots:{' '}
+            {t({
+              id: 'rogue.assassination.garrote.previousSnapshotsLabel',
+              message: 'Previous Snapshots:',
+            })}{' '}
             <strong>
-              {prevSnapshots.length === 0 ? 'NONE' : prevSnapshots.map((it) => it.name).join(', ')}
+              {prevSnapshots.length === 0
+                ? 'NONE'
+                : prevSnapshots.map((it) => it.name).join(', ')}
             </strong>
           </p>
         )}
@@ -88,22 +113,37 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
     );
     if (wasUnacceptableDowngrade) {
       snapshotPerformance = QualitativePerformance.Fail;
-      snapshotSummary = <div>Unacceptable downgrade of snapshot</div>;
+      snapshotSummary = (
+        <div>
+          {t({
+            id: 'rogue.assassination.garrote.unacceptableDowngrade',
+            message: 'Unacceptable downgrade of snapshot',
+          })}
+        </div>
+      );
       snapshotDetails = (
         <div>
           <p>
-            Unacceptable downgrade of snapshot. Try not to overwrite your snapshotted Garrote unless
-            it's within the last {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)}.
+            <Trans id="rogue.assassination.garrote.unacceptableDowngradeDetail">
+              Unacceptable downgrade of snapshot. Try not to overwrite your snapshotted Garrote unless
+              it's within the last {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)}.
+            </Trans>
           </p>
           <p>
-            Snapshots:{' '}
+            {t({
+              id: 'rogue.assassination.garrote.snapshotsLabel',
+              message: 'Snapshots:',
+            })}{' '}
             <strong>
               {snapshots.length === 0 ? 'NONE' : snapshots.map((it) => it.name).join(', ')}
             </strong>
           </p>
           {prevSnapshots != null && (
             <p>
-              Previous Snapshots:{' '}
+              {t({
+                id: 'rogue.assassination.garrote.previousSnapshotsLabel',
+                message: 'Previous Snapshots:',
+              })}{' '}
               <strong>
                 {prevSnapshots.length === 0
                   ? 'NONE'
@@ -120,27 +160,52 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
     ) {
       snapshotPerformance = wasUpgrade ? QualitativePerformance.Ok : QualitativePerformance.Fail;
       snapshotSummary = wasUpgrade ? (
-        <div>Clipped but upgraded existing snapshotted Garrote</div>
-      ) : (
-        <div>Clipped existing snapshotted Garrote</div>
-      );
-      snapshotDetails = wasUpgrade ? (
         <div>
-          Clipped but upgraded existing snapshotted Garrote. Try not to clip your snapshotted
-          Garotte.
+          {t({
+            id: 'rogue.assassination.garrote.clippedUpgraded',
+            message: 'Clipped but upgraded existing snapshotted Garrote',
+          })}
         </div>
       ) : (
         <div>
-          <p>Clipped existing snapshotted Garrote. Try not to clip your snapshotted Garotte.</p>
+          {t({
+            id: 'rogue.assassination.garrote.clipped',
+            message: 'Clipped existing snapshotted Garrote',
+          })}
+        </div>
+      );
+      snapshotDetails = wasUpgrade ? (
+        <div>
+          {t({
+            id: 'rogue.assassination.garrote.clippedUpgradedDetail',
+            message:
+              'Clipped but upgraded existing snapshotted Garrote. Try not to clip your snapshotted Garotte.',
+          })}
+        </div>
+      ) : (
+        <div>
           <p>
-            Snapshots:{' '}
+            {t({
+              id: 'rogue.assassination.garrote.clippedDetail',
+              message:
+                'Clipped existing snapshotted Garrote. Try not to clip your snapshotted Garotte.',
+            })}
+          </p>
+          <p>
+            {t({
+              id: 'rogue.assassination.garrote.snapshotsLabel',
+              message: 'Snapshots:',
+            })}{' '}
             <strong>
               {snapshots.length === 0 ? 'NONE' : snapshots.map((it) => it.name).join(', ')}
             </strong>
           </p>
           {prevSnapshots != null && (
             <p>
-              Previous Snapshots:{' '}
+              {t({
+                id: 'rogue.assassination.garrote.previousSnapshotsLabel',
+                message: 'Previous Snapshots:',
+              })}{' '}
               <strong>
                 {prevSnapshots.length === 0
                   ? 'NONE'
@@ -175,10 +240,7 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
       event: cast,
       performance: actualPerformance,
       checklistItems: actualChecklistItems,
-      performanceExplanation:
-        actualPerformance !== QualitativePerformance.Fail
-          ? `${actualPerformance} Usage`
-          : 'Bad Usage',
+      performanceExplanation: getPerformanceExplanation(actualPerformance),
     });
 
     // TODO also highlight 'bad' Garrotes in the timeline
@@ -192,14 +254,16 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={SPELLS.GARROTE} />
-        </strong>{' '}
-        is your highest damage-per-energy single target builder. Try to keep it active on all
-        targets (except when in a many-target AoE situation). Garrote snapshots{' '}
-        <SpellLink spell={TALENTS.IMPROVED_GARROTE_TALENT} /> - when forced to refresh with a weaker
-        snapshot, try to wait until the last moment in order to overwrite the minimum amount of the
-        stronger DoT.
+        <Trans id="rogue.assassination.garrote.explanation">
+          <strong>
+            <SpellLink spell={SPELLS.GARROTE} />
+          </strong>{' '}
+          is your highest damage-per-energy single target builder. Try to keep it active on all
+          targets (except when in a many-target AoE situation). Garrote snapshots{' '}
+          <SpellLink spell={TALENTS.IMPROVED_GARROTE_TALENT} /> - when forced to refresh with a weaker
+          snapshot, try to wait until the last moment in order to overwrite the minimum amount of the
+          stronger DoT.
+        </Trans>
       </p>
     );
 
@@ -210,19 +274,21 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
         abovePerformanceDetails={
           <RoundedPanelWithBottomMargin>
             <div>
-              <strong>Garrote uptime / snapshots</strong>
-              <small> - Try to get as close to 100% as the encounter allows!</small>
+              <Trans id="rogue.assassination.garrote.uptimeHeader">
+                <strong>Garrote uptime / snapshots</strong>
+                <small> - Try to get as close to 100% as the encounter allows!</small>
+              </Trans>
             </div>
             {this.subStatistic()}
           </RoundedPanelWithBottomMargin>
         }
         castBreakdownSmallText={
-          <>
+          <Trans id="rogue.assassination.garrote.castBreakdownLegend">
             {' '}
             - Green is a good cast, Yellow is an ok cast (clipped duration but upgraded snapshot),
             Red is a bad cast (clipped duration or downgraded snapshot w/ &gt;
             {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)} remaining).
-          </>
+          </Trans>
         }
       />
     );

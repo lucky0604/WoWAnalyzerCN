@@ -1,6 +1,5 @@
 import type { JSX } from 'react';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { SpellIcon, SpellLink } from 'interface';
 import { formatPercentage } from 'common/format';
@@ -70,7 +69,7 @@ export default class Eclipse extends Analyzer {
             <span>
               <SpellIcon spell={TALENTS_DRUID.ECLIPSE_TALENT} />{' '}
             </span>
-            <Trans id="balance.eclipse.uptime_pct">
+            <Trans id="druid.balance.eclipse.uptime_pct">
               {formatPercentage(percentUptime, 0)}% <small>uptime</small>
             </Trans>
           </div>
@@ -90,13 +89,13 @@ export default class Eclipse extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="balance.eclipse.explanation_p1">
+          <Trans id="druid.balance.eclipse.explanation_p1">
             Cast <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> on cooldown. It has a 32-second
             cooldown, lasts 15 seconds, and dramatically increases your damage.
           </Trans>
         </p>
         <p>
-          <Trans id="balance.eclipse.explanation_p2">
+          <Trans id="druid.balance.eclipse.explanation_p2">
             Your last filler cast determines which Eclipse you enter:
           </Trans>
           <ul>
@@ -109,20 +108,20 @@ export default class Eclipse extends Analyzer {
           </ul>
         </p>
         <p>
-          <Trans id="balance.eclipse.explanation_p3">
-            <SpellLink spell={SPELLS.WRATH} /> is single target.{' '}
-            <SpellLink spell={SPELLS.STARFIRE} /> cleaves.{' '}
+          <Trans id="druid.balance.eclipse.explanation_p3">
+            <SpellLink spell={SPELLS.WRATH} /> is single target. <SpellLink spell={SPELLS.STARFIRE} />{' '}
+            cleaves.{' '}
           </Trans>
         </p>
         <p>
-          <Trans id="balance.eclipse.explanation_p4">
-            Choose <SpellLink spell={SPELLS.ECLIPSE_LUNAR} /> when hitting 3 or more stacked
-            targets. Choose <SpellLink spell={SPELLS.ECLIPSE_SOLAR} /> for 1 to 2 targets.
+          <Trans id="druid.balance.eclipse.explanation_p4">
+            Choose <SpellLink spell={SPELLS.ECLIPSE_LUNAR} /> when hitting 3 or more stacked targets.
+            Choose <SpellLink spell={SPELLS.ECLIPSE_SOLAR} /> for 1 to 2 targets.
           </Trans>
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.LUNAR_CALLING_TALENT) && (
           <p>
-            <Trans id="balance.eclipse.explanation_lc">
+            <Trans id="druid.balance.eclipse.explanation_lc">
               <strong>
                 <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} /> talented:{' '}
               </strong>
@@ -138,17 +137,17 @@ export default class Eclipse extends Analyzer {
         <RoundedPanel>
           <div>
             <strong>
-              {t({ id: 'balance.eclipse.uptimes_title', message: 'Eclipse uptimes' })}
+              <Trans id="druid.balance.eclipse.uptimes_title">Eclipse uptimes</Trans>
             </strong>{' '}
             -{' '}
             <Highlight color={SOLAR_ECLIPSE_COLOR} textColor="black">
-              {t({ id: 'balance.eclipse.solar_legend', message: 'Solar' })}
+              <Trans id="druid.balance.eclipse.solar_legend">Solar</Trans>
             </Highlight>{' '}
             <Highlight color={LUNAR_ECLIPSE_COLOR} textColor="white">
-              {t({ id: 'balance.eclipse.lunar_legend', message: 'Lunar' })}
+              <Trans id="druid.balance.eclipse.lunar_legend">Lunar</Trans>
             </Highlight>{' '}
             <Highlight color={CA_COLOR} textColor="black">
-              {t({ id: 'balance.eclipse.ca_legend', message: 'Both (Celestial Alignment)' })}
+              <Trans id="druid.balance.eclipse.ca_legend">Both (Celestial Alignment)</Trans>
             </Highlight>
           </div>
           {this.uptimeBar}

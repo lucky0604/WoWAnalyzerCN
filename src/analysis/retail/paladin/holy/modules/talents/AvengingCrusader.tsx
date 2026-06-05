@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -238,8 +239,8 @@ class AvengingCrusader extends Analyzer {
         </div>
         <div>
           {secondarySourceId && <SpellLink spell={secondarySourceId} />}{' '}
-          <SpellLink spell={spellId} /> converted to healing {count} times for a total of{' '}
-          {formatNumber(amount)} healing
+          <SpellLink spell={spellId} />{' '}
+          {t({ id: 'paladin.holy.talents.avengingCrusader.convertedToHealing', message: 'converted to healing' })} {count} {t({ id: 'paladin.holy.talents.avengingCrusader.times', message: 'times for a total of' })} {formatNumber(amount)} {t({ id: 'paladin.holy.talents.avengingCrusader.healingSuffix', message: 'healing' })}
         </div>
       </>
     );
@@ -258,19 +259,19 @@ class AvengingCrusader extends Analyzer {
               <ItemHealingDone amount={this.totalHealing} />
             </p>
             <p>
-              Hits: <b>{this.hits}</b> Crits: <b>{this.crits}</b>
+              {t({ id: 'paladin.holy.talents.avengingCrusader.hits', message: 'Hits' })}: <b>{this.hits}</b> {t({ id: 'paladin.holy.talents.avengingCrusader.crits', message: 'Crits' })}: <b>{this.crits}</b>
             </p>
             <p>
-              Overhealed: <b>{formatPercentage(overheal / (this.totalHealing + overheal))}%</b>
+              {t({ id: 'paladin.holy.talents.avengingCrusader.overhealed', message: 'Overhealed' })}: <b>{formatPercentage(overheal / (this.totalHealing + overheal))}%</b>
             </p>
             <p>
-              Beacon healing:{' '}
+              {t({ id: 'paladin.holy.talents.avengingCrusader.beaconHealing', message: 'Beacon healing' })}:{' '}
               <b>
                 {formatNumber(this.getHealingSourceAmount(SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF.id))}
               </b>
             </p>
             <p>
-              Beacon overhealed:{' '}
+              {t({ id: 'paladin.holy.talents.avengingCrusader.beaconOverhealed', message: 'Beacon overhealed' })}:{' '}
               <b>
                 {formatPercentage(
                   beaconOverheal /
@@ -294,7 +295,7 @@ class AvengingCrusader extends Analyzer {
         footer={
           <>
             {' '}
-            {formatPercentage(this.critRate)}% <small>{critName} rate</small>
+            {formatPercentage(this.critRate)}% <small>{critName} {t({ id: 'paladin.holy.talents.avengingCrusader.rate', message: 'rate' })}</small>
           </>
         }
       >

@@ -9,6 +9,7 @@ import { getBeaconSpellFactor } from '../../constants';
 import BeaconOfVirtue from '../../normalizers/BeaconOfVirtue';
 import BeaconTargets from './BeaconTargets';
 import BeaconTransferFactor from './BeaconTransferFactor';
+import { t } from '@lingui/core/macro';
 
 // Extremely spammy
 const debug = false;

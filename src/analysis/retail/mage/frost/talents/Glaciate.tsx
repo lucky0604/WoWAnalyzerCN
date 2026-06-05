@@ -1,9 +1,9 @@
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, DamageEvent, GetRelatedEvent } from 'parser/core/Events';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
-import React from 'react';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { formatDurationMillisMinSec } from 'common/format';
@@ -58,7 +58,9 @@ class Glaciate extends Analyzer {
         <TalentSpellText talent={TALENTS.GLACIATE_TALENT}>
           {formatDurationMillisMinSec(this.totalReduction)}{' '}
           <small>
-            <SpellLink spell={TALENTS.RAY_OF_FROST_TALENT} /> CDR
+            <Trans id="mage.frost.glaciate.cdr">
+              <SpellLink spell={TALENTS.RAY_OF_FROST_TALENT} /> CDR
+            </Trans>
           </small>
         </TalentSpellText>
       </Statistic>

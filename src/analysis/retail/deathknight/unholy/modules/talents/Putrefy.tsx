@@ -18,6 +18,8 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import type { CSSProperties, JSX } from 'react';
 import SpellUsable from '../core/SpellUsable';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 // Cooldown reduction (in milliseconds) applied to Putrefy when Harbinger of Doom summons a Lesser Ghoul
 const HARBINGER_OF_DOOM_PUTREFY_CDR_MS = 2500;
@@ -71,10 +73,10 @@ class Putrefy extends Analyzer.withDependencies({
       this.entries.push({
         value: QualitativePerformance.Good,
         tooltip: (
-          <>
+          <Trans id="deathknight.unholy.putrefy.tooltipSpentDuringDT">
             Spent @ {this.owner.formatTimestamp(event.timestamp)} during{' '}
             <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
-          </>
+          </Trans>
         ),
       });
       return;
@@ -84,10 +86,10 @@ class Putrefy extends Analyzer.withDependencies({
     this.entries.push({
       value: QualitativePerformance.Fail,
       tooltip: (
-        <>
+        <Trans id="deathknight.unholy.putrefy.tooltipSpentOutsideDT">
           Spent @ {this.owner.formatTimestamp(event.timestamp)} outside{' '}
           <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
-        </>
+        </Trans>
       ),
     });
   }
@@ -114,34 +116,39 @@ class Putrefy extends Analyzer.withDependencies({
       {
         color: '#22c55e',
         label: (
-          <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF}>
-            During Dark Transformation
-          </SpellLink>
+          <Trans id="deathknight.unholy.putrefy.labelDuringDT">
+            <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF}>
+              During Dark Transformation
+            </SpellLink>
+          </Trans>
         ),
         value: this.chargesSpentDuringDarkTransformation,
         valuePercent: false,
         valueTooltip: (
-          <>
-            {this.chargesSpentDuringDarkTransformation} <SpellLink spell={TALENTS.PUTREFY_TALENT} />{' '}
-            charges spent during <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />
-          </>
+          <Trans id="deathknight.unholy.putrefy.tooltipChargesDuringDT">
+            {this.chargesSpentDuringDarkTransformation}{' '}
+            <SpellLink spell={TALENTS.PUTREFY_TALENT} /> charges spent during{' '}
+            <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />
+          </Trans>
         ),
       },
       {
         color: '#ef4444',
         label: (
-          <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF}>
-            Outside Dark Transformation
-          </SpellLink>
+          <Trans id="deathknight.unholy.putrefy.labelOutsideDT">
+            <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF}>
+              Outside Dark Transformation
+            </SpellLink>
+          </Trans>
         ),
         value: this.chargesSpentOutsideDarkTransformation,
         valuePercent: false,
         valueTooltip: (
-          <>
+          <Trans id="deathknight.unholy.putrefy.tooltipChargesOutsideDT">
             {this.chargesSpentOutsideDarkTransformation}{' '}
             <SpellLink spell={TALENTS.PUTREFY_TALENT} /> charges spent outside{' '}
             <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />
-          </>
+          </Trans>
         ),
       },
     ];
@@ -150,13 +157,15 @@ class Putrefy extends Analyzer.withDependencies({
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS.PUTREFY_TALENT} />
-        </strong>{' '}
-        should only be used during <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
-        Spending charges outside this window is a damage loss, so your goal is 100%{' '}
-        <SpellLink spell={TALENTS.PUTREFY_TALENT} /> usage during{' '}
-        <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
+        <Trans id="deathknight.unholy.putrefy.guideExplanation">
+          <strong>
+            <SpellLink spell={TALENTS.PUTREFY_TALENT} />
+          </strong>{' '}
+          should only be used during <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
+          Spending charges outside this window is a damage loss, so your goal is 100%{' '}
+          <SpellLink spell={TALENTS.PUTREFY_TALENT} /> usage during{' '}
+          <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
+        </Trans>
       </p>
     );
 
@@ -164,15 +173,25 @@ class Putrefy extends Analyzer.withDependencies({
       <div>
         <div style={{ marginBottom: '6px' }}>
           <strong>
-            <SpellLink spell={TALENTS.PUTREFY_TALENT} /> charge usage
+            <Trans id="deathknight.unholy.putrefy.guideChargeUsage">
+              <SpellLink spell={TALENTS.PUTREFY_TALENT} /> charge usage
+            </Trans>
           </strong>
         </div>
         <div style={{ marginBottom: '8px' }}>
-          <strong>{formatPercentage(this.efficiency, 0)}%</strong> <small>efficiency</small>
+          <strong>{formatPercentage(this.efficiency, 0)}%</strong>{' '}
+          <small>
+            {t({
+              id: 'deathknight.unholy.putrefy.labelEfficiency',
+              message: 'efficiency',
+            })}
+          </small>
         </div>
         <p style={{ margin: '0 0 8px 0' }}>
-          Only use <SpellLink spell={TALENTS.PUTREFY_TALENT} /> charges during{' '}
-          <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
+          <Trans id="deathknight.unholy.putrefy.guideOnlyDuringDT">
+            Only use <SpellLink spell={TALENTS.PUTREFY_TALENT} /> charges during{' '}
+            <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />.
+          </Trans>
         </p>
         <small style={{ display: 'grid', gap: '2px', marginBottom: '6px' }}>
           <span>
@@ -182,7 +201,9 @@ class Putrefy extends Analyzer.withDependencies({
                 backgroundColor: '#4caf50',
               }}
             />
-            During <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />
+            <Trans id="deathknight.unholy.putrefy.legendDuringDT">
+              During <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />
+            </Trans>
           </span>
           <span>
             <span
@@ -191,7 +212,9 @@ class Putrefy extends Analyzer.withDependencies({
                 backgroundColor: '#ef5350',
               }}
             />
-            Outside <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />
+            <Trans id="deathknight.unholy.putrefy.legendOutsideDT">
+              Outside <SpellLink spell={DK_SPELLS.DARK_TRANSFORMATION_BUFF} />
+            </Trans>
           </span>
         </small>
         <div style={{ marginBottom: '8px' }}>
@@ -212,7 +235,13 @@ class Putrefy extends Analyzer.withDependencies({
       >
         <BoringSpellValueText spell={TALENTS.PUTREFY_TALENT}>
           <div>
-            {formatPercentage(this.efficiency, 0)}% <small>efficiency</small>
+            {formatPercentage(this.efficiency, 0)}%{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.putrefy.labelEfficiency',
+                message: 'efficiency',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
         <div style={{ padding: '8px' }}>

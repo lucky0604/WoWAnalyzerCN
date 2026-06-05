@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import Analyzer from 'parser/core/Analyzer';
 import BoringResourceValue from 'parser/ui/BoringResourceValue';
@@ -30,12 +31,12 @@ class EssenceDetails extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.CORE(10)}
         size="flexible"
-        tooltip={`You lost ${this.wasted.toFixed(2)} essence from sitting at max resource`}
+        tooltip={`${t({ id: 'evoker.preservation.essenceDetails.youLost', message: 'You lost' })} ${this.wasted.toFixed(2)} ${t({ id: 'evoker.preservation.essenceDetails.essenceFromCap', message: 'essence from sitting at max resource' })}`}
       >
         <BoringResourceValue
           resource={RESOURCE_TYPES.ESSENCE}
           value={`${this.wasted.toFixed(2)} `}
-          label="Overcapped Essence"
+          label={t({ id: 'evoker.preservation.essenceDetails.overcappedEssence', message: 'Overcapped Essence' })}
         />
       </Statistic>
     );
@@ -43,10 +44,10 @@ class EssenceDetails extends Analyzer {
 
   tab() {
     return {
-      title: 'Essence Usage',
+      title: t({ id: 'evoker.preservation.essenceDetails.tabTitle', message: 'Essence Usage' }),
       url: 'essence-usage',
       render: () => (
-        <Panel key="Panel" title="Essence Usage" pad={false}>
+        <Panel key="Panel" title={t({ id: 'evoker.preservation.essenceDetails.panelTitle', message: 'Essence Usage' })} pad={false}>
           <ResourceBreakdown tracker={this.essenceTracker} showSpenders hideGenerated />
         </Panel>
       ),

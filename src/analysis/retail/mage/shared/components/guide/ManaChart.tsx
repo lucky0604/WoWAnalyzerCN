@@ -5,6 +5,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import BaseChart, { formatTime } from 'parser/ui/BaseChart';
 import styled from '@emotion/styled';
 import fetchWcl from 'common/fetchWclApi';
+import { t } from '@lingui/core/macro';
 
 const LegendContainer = styled.div`
   display: flex;

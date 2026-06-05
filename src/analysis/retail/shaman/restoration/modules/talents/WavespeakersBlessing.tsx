@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import talents from 'common/TALENTS/shaman';
 import { SpellLink } from 'interface';
@@ -73,7 +74,8 @@ class WavespeakersBlessing extends Analyzer {
           <>
             <ul>
               <li>
-                {formatNumber(this.healingFromHardcast)} from hardcast{' '}
+                {formatNumber(this.healingFromHardcast)}{' '}
+                {t({ id: 'shaman.restoration.wavespeakersBlessing.fromHardcast', message: 'from hardcast' })}{' '}
                 <SpellLink spell={talents.RIPTIDE_TALENT} />
               </li>
               {this.ptcActive && (

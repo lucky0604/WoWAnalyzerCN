@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import MajorCooldown, {
   CooldownTrigger,
@@ -65,19 +67,24 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
       <>
         <ExplanationSection>
           <p>
-            <strong>
-              <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
-            </strong>{' '}
-            is one of your core burst cooldowns that gets stronger with every Lethal Poison applied.
+            <Trans id="rogue.assassination.kingsbane.description">
+              <strong>
+                <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
+              </strong>{' '}
+              is one of your core burst cooldowns that gets stronger with every Lethal Poison
+              applied.
+            </Trans>
           </p>
         </ExplanationSection>
         <ExplanationSection>
           <p>
-            <strong>
-              <SpellLink spell={SPELLS.ENVENOM} />
-            </strong>{' '}
-            uptime is very important for your Kingsbane windows. Try to maintain 100% uptime on{' '}
-            <SpellLink spell={SPELLS.ENVENOM} /> during your windows.
+            <Trans id="rogue.assassination.kingsbane.envenomUptimeNote">
+              <strong>
+                <SpellLink spell={SPELLS.ENVENOM} />
+              </strong>{' '}
+              uptime is very important for your Kingsbane windows. Try to maintain 100% uptime on{' '}
+              <SpellLink spell={SPELLS.ENVENOM} /> during your windows.
+            </Trans>
           </p>
         </ExplanationSection>
       </>
@@ -89,11 +96,21 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
       return createSpellUse(trigger, [
         createChecklistItem('hit-a-valid-target', trigger, {
           performance: QualitativePerformance.Fail,
-          summary: <div>Hit a Valid Target</div>,
+          summary: (
+            <div>
+              {t({
+                id: 'rogue.assassination.kingsbane.hitValidTarget',
+                message: 'Hit a Valid Target',
+              })}
+            </div>
+          ),
           details: (
             <div>
-              Did not hit a valid target. Try to ensure that you hit a valid target with your
-              important casts.
+              {t({
+                id: 'rogue.assassination.kingsbane.hitValidTargetDetail',
+                message:
+                  'Did not hit a valid target. Try to ensure that you hit a valid target with your important casts.',
+              })}
             </div>
           ),
         }),
@@ -112,10 +129,12 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
       <ExperimentalKingsbaneHider
         fallback={explanationAndDataSubsection(
           <div>
-            <strong>
-              <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
-            </strong>{' '}
-            cast breakdown coming soon!
+            <Trans id="rogue.assassination.kingsbane.breakdownComingSoon">
+              <strong>
+                <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
+              </strong>{' '}
+              cast breakdown coming soon!
+            </Trans>
           </div>,
           <></>,
         )}
@@ -125,10 +144,12 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
           abovePerformanceDetails={
             <RoundedPanelWithBottomMargin>
               <div>
-                <strong>
-                  <SpellLink spell={SPELLS.ENVENOM} /> uptime
-                </strong>
-                <small> - Try to get as close to 100% as the encounter allows!</small>
+                <Trans id="rogue.assassination.kingsbane.envenomUptimeHeader">
+                  <strong>
+                    <SpellLink spell={SPELLS.ENVENOM} /> uptime
+                  </strong>
+                  <small> - Try to get as close to 100% as the encounter allows!</small>
+                </Trans>
               </div>
               {uptimeBarSubStatistic(this.owner.fight, {
                 spells: [SPELLS.ENVENOM],
@@ -140,24 +161,40 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
             children: (
               <>
                 <p>
-                  <strong>
-                    <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
-                  </strong>{' '}
-                  analysis is experimental and should be taken with a grain of salt. Thanks for
-                  being willing to try it out!
+                  <Trans id="rogue.assassination.kingsbane.experimentalWarning">
+                    <strong>
+                      <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
+                    </strong>{' '}
+                    analysis is experimental and should be taken with a grain of salt. Thanks for
+                    being willing to try it out!
+                  </Trans>
                 </p>
-                <p>The below items are not yet implemented:</p>
+                <p>
+                  {t({
+                    id: 'rogue.assassination.kingsbane.notYetImplemented',
+                    message: 'The below items are not yet implemented:',
+                  })}
+                </p>
                 <ul>
                   <li>
-                    <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> usage
+                    <SpellLink spell={TALENTS.DEATHMARK_TALENT} />{' '}
+                    {t({
+                      id: 'rogue.assassination.kingsbane.usage',
+                      message: 'usage',
+                    })}
                   </li>
                   <li>
-                    Fully accurate <SpellLink spell={TALENTS.SHIV_TALENT} /> usage
+                    <Trans id="rogue.assassination.kingsbane.fullyAccurateShiv">
+                      Fully accurate <SpellLink spell={TALENTS.SHIV_TALENT} /> usage
+                    </Trans>
                     <ul>
                       <li>
-                        Current implementation requires <SpellLink spell={TALENTS.SHIV_TALENT} />{' '}
-                        within {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} of casting{' '}
-                        <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
+                        <Trans id="rogue.assassination.kingsbane.shivImplementationNote">
+                          Current implementation requires{' '}
+                          <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
+                          {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} of casting{' '}
+                          <SpellLink spell={TALENTS.KINGSBANE_TALENT} />
+                        </Trans>
                       </li>
                     </ul>
                   </li>
@@ -224,7 +261,9 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
 
     const summary = (
       <div>
-        Fit within <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> window
+        <Trans id="rogue.assassination.kingsbane.fitWithinDeathmark">
+          Fit within <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> window
+        </Trans>
       </div>
     );
 
@@ -237,10 +276,12 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
         summary,
         details: (
           <div>
-            You cast <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> while{' '}
-            <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> was available and off cooldown. Try to
-            always cast <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> before{' '}
-            <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> when it&apos;s available.
+            <Trans id="rogue.assassination.kingsbane.deathmarkAvailableDetail">
+              You cast <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> while{' '}
+              <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> was available and off cooldown. Try to
+              always cast <SpellLink spell={TALENTS.DEATHMARK_TALENT} /> before{' '}
+              <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> when it&apos;s available.
+            </Trans>
           </div>
         ),
       });
@@ -260,9 +301,11 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
         summary,
         details: (
           <div>
-            You cast <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> on a different target than you
-            cast <SpellLink spell={TALENTS.DEATHMARK_TALENT} />. Always try to cast them on the same
-            target.
+            <Trans id="rogue.assassination.kingsbane.deathmarkDifferentTargetDetail">
+              You cast <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> on a different target than you
+              cast <SpellLink spell={TALENTS.DEATHMARK_TALENT} />. Always try to cast them on the
+              same target.
+            </Trans>
           </div>
         ),
       });
@@ -318,8 +361,10 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
   ): ChecklistUsageInfo | undefined {
     const summary = (
       <div>
-        <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
-        {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after cast
+        <Trans id="rogue.assassination.kingsbane.shivWithinWindow">
+          <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
+          {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after cast
+        </Trans>
       </div>
     );
     const matchingShiv = getMatchingShivOrKingsbaneCast(trigger.event);
@@ -330,13 +375,15 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
         summary,
         details: (
           <div>
-            You did not cast <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
-            {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after casting{' '}
-            <SpellLink spell={TALENTS.KINGSBANE_TALENT} />. Try to always cast{' '}
-            <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
-            {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after casting{' '}
-            <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> so that your poison application buffs
-            your <SpellLink spell={TALENTS.KINGSBANE_TALENT} />.
+            <Trans id="rogue.assassination.kingsbane.shivNotCastDetail">
+              You did not cast <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
+              {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after casting{' '}
+              <SpellLink spell={TALENTS.KINGSBANE_TALENT} />. Try to always cast{' '}
+              <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
+              {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after casting{' '}
+              <SpellLink spell={TALENTS.KINGSBANE_TALENT} /> so that your poison application buffs
+              your <SpellLink spell={TALENTS.KINGSBANE_TALENT} />.
+            </Trans>
           </div>
         ),
       });
@@ -347,9 +394,11 @@ export default class Kingsbane extends MajorCooldown<KingsbaneCooldownTrigger> {
       summary,
       details: (
         <div>
-          You cast <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
-          {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after casting{' '}
-          <SpellLink spell={TALENTS.KINGSBANE_TALENT} />. Good job!
+          <Trans id="rogue.assassination.kingsbane.shivCastDetail">
+            You cast <SpellLink spell={TALENTS.SHIV_TALENT} /> within{' '}
+            {formatDurationMillisMinSec(SHIV_KINGSBANE_BUFFER_MS)} after casting{' '}
+            <SpellLink spell={TALENTS.KINGSBANE_TALENT} />. Good job!
+          </Trans>
         </div>
       ),
     });

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { ResourceLink, SpellLink } from 'interface';
@@ -31,28 +33,32 @@ const FuryCapWaste = ({
 
   return (
     <span>
-      The chart below shows your <ResourceLink id={RESOURCE_TYPES.FURY.id} /> over the course of the
-      encounter. You wasted{' '}
-      <PerformancePercentage
-        performance={percentAtCapPerformance}
-        perfectPercentage={perfectTimeAtFuryCap}
-        goodPercentage={goodTimeAtFuryCap}
-        okPercentage={okTimeAtFuryCap}
-        percentage={percentAtCap}
-        flatAmount={wasted}
-      />{' '}
-      of your <ResourceLink id={RESOURCE_TYPES.FURY.id} />.
+      <Trans id="demonhunter.havoc.furyCapWaste.chart">
+        The chart below shows your <ResourceLink id={RESOURCE_TYPES.FURY.id} /> over the course of the
+        encounter. You wasted{' '}
+        <PerformancePercentage
+          performance={percentAtCapPerformance}
+          perfectPercentage={perfectTimeAtFuryCap}
+          goodPercentage={goodTimeAtFuryCap}
+          okPercentage={okTimeAtFuryCap}
+          percentage={percentAtCap}
+          flatAmount={wasted}
+        />{' '}
+        of your <ResourceLink id={RESOURCE_TYPES.FURY.id} />.
+      </Trans>
       {info.combatant.hasTalent(TALENTS.BLIND_FURY_TALENT) && (
         <>
           {' '}
           <Tooltip
             content={
               <div>
-                <ResourceLink id={RESOURCE_TYPES.FURY.id} /> from{' '}
-                <SpellLink spell={TALENTS.BLIND_FURY_TALENT} /> isn't logged by the game and won't
-                show up on WarcraftLogs; we determine the amount generated based on best guesses
-                from existing log events. As a result, the amount shown here may vary from what WCL
-                shows and the actual amount in-game.
+                <Trans id="demonhunter.havoc.furyCapWaste.blindFury.tooltip">
+                  <ResourceLink id={RESOURCE_TYPES.FURY.id} /> from{' '}
+                  <SpellLink spell={TALENTS.BLIND_FURY_TALENT} /> isn't logged by the game and won't
+                  show up on WarcraftLogs; we determine the amount generated based on best guesses
+                  from existing log events. As a result, the amount shown here may vary from what WCL
+                  shows and the actual amount in-game.
+                </Trans>
               </div>
             }
           >

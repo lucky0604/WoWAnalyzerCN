@@ -8,6 +8,7 @@ import { shouldIgnore } from 'parser/shared/modules/hit-tracking/utilities';
 import { TrackedHit } from 'interface/guide/components/DamageTakenPointChart';
 import { Uptime } from 'parser/ui/UptimeBar';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import { t } from '@lingui/core/macro';
 
 export type IronfurTrackedHit = TrackedHit & { stacks: number };
 

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import SPELLS from 'common/SPELLS/demonhunter';
 import TALENTS from 'common/TALENTS/demonhunter';
@@ -53,17 +55,19 @@ export default class UnboundChaos extends Analyzer {
 
     const explanation = (
       <section>
-        <strong>
-          <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} />
-        </strong>{' '}
-        provides a{' '}
-        {formatPercentage(
-          UNBOUND_CHAOS_SCALING[this.selectedCombatant.getTalentRank(TALENTS.UNBOUND_CHAOS_TALENT)],
-          0,
-        )}
-        % damage increase to your next <SpellLink spell={SPELLS.FEL_RUSH_CAST} /> after casting{' '}
-        <SpellLink spell={SPELLS.IMMOLATION_AURA} />. You should ensure that every buff gets
-        consumed.
+        <Trans id="demonhunter.havoc.unboundChaos.description">
+          <strong>
+            <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} />
+          </strong>{' '}
+          provides a{' '}
+          {formatPercentage(
+            UNBOUND_CHAOS_SCALING[this.selectedCombatant.getTalentRank(TALENTS.UNBOUND_CHAOS_TALENT)],
+            0,
+          )}
+          % damage increase to your next <SpellLink spell={SPELLS.FEL_RUSH_CAST} /> after casting{' '}
+          <SpellLink spell={SPELLS.IMMOLATION_AURA} />. You should ensure that every buff gets
+          consumed.
+        </Trans>
       </section>
     );
 
@@ -77,7 +81,15 @@ export default class UnboundChaos extends Analyzer {
         title="Unbound Chaos"
         explanation={explanation}
         uses={this.uses}
-        castBreakdownSmallText={<> - Green is a good cast, Red is a bad cast.</>}
+        castBreakdownSmallText={
+          <>
+            {' '}
+            {t({
+              id: 'demonhunter.havoc.unboundChaos.castBreakdown',
+              message: '- Green is a good cast, Red is a bad cast.',
+            })}
+          </>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <div style={{ marginBottom: 10 }}>
@@ -103,7 +115,7 @@ export default class UnboundChaos extends Analyzer {
         size="flexible"
       >
         <TalentSpellText talent={TALENTS.UNBOUND_CHAOS_TALENT}>
-          {wastedProcs} wasted procs
+          {wastedProcs} {t({ id: 'demonhunter.havoc.unboundChaos.wastedProcs', message: 'wasted procs' })}
         </TalentSpellText>
       </Statistic>
     );
@@ -180,19 +192,25 @@ export default class UnboundChaos extends Analyzer {
     const performance = consumed ? QualitativePerformance.Good : QualitativePerformance.Fail;
     const summary = (
       <div>
-        Consumed with <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
+        <Trans id="demonhunter.havoc.unboundChaos.consumedWith">
+          Consumed with <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
+        </Trans>
       </div>
     );
     const details = consumed ? (
       <div>
-        You consumed your <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff by casting{' '}
-        <SpellLink spell={SPELLS.FEL_RUSH_CAST} />. Good job!
+        <Trans id="demonhunter.havoc.unboundChaos.consumedDetails">
+          You consumed your <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff by casting{' '}
+          <SpellLink spell={SPELLS.FEL_RUSH_CAST} />. Good job!
+        </Trans>
       </div>
     ) : (
       <div>
-        You did not consume your <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff. Ensure
-        that every time you get <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff, you consume
-        it by casting <SpellLink spell={SPELLS.FEL_RUSH_CAST} />.
+        <Trans id="demonhunter.havoc.unboundChaos.notConsumedDetails">
+          You did not consume your <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff. Ensure
+          that every time you get <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff, you
+          consume it by casting <SpellLink spell={SPELLS.FEL_RUSH_CAST} />.
+        </Trans>
       </div>
     );
 

@@ -16,6 +16,8 @@ import MajorCooldown, {
 } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { getDamageEvents } from 'analysis/retail/demonhunter/vengeance/normalizers/FelDevastationLinkNormalizer';
 import { isDefined } from 'common/typeGuards';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 interface FelDevastationDamage {
   targetStacksOfFrailty: number;
@@ -47,10 +49,12 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
     return (
       <>
         <section style={{ marginBottom: 20 }}>
-          <strong>
-            <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} />
-          </strong>{' '}
-          is a large burst of damage and healing.
+          <Trans id="guide.demonhunter.vengeance.felDevastation.description">
+            <strong>
+              <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} />
+            </strong>{' '}
+            is a large burst of damage and healing.
+          </Trans>
         </section>
         <section>
           <VulnerabilityExplanation lineBreak />
@@ -65,11 +69,18 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
       return createSpellUse(cast, [
         createChecklistItem('hit-targets', cast, {
           performance: QualitativePerformance.Fail,
-          summary: <div>Hit 1+ target</div>,
+          summary: (
+            <div>
+              <Trans id="demonhunter.vengeance.felDevastation.hitTargets">Hit 1+ target</Trans>
+            </div>
+          ),
           details: (
             <div>
-              You hit 0 targets with your <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} />. To
-              maximize damage, always try to hit targets with it.
+              <Trans id="demonhunter.vengeance.felDevastation.hitZeroTargets">
+                You hit 0 targets with your{' '}
+                <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} />. To maximize damage, always try
+                to hit targets with it.
+              </Trans>
             </div>
           ),
         }),
@@ -115,7 +126,9 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
       checklistItems: checklistItems,
       performance: overallPerf,
       performanceExplanation:
-        overallPerf !== QualitativePerformance.Fail ? `${overallPerf} Usage` : 'Bad Usage',
+        overallPerf !== QualitativePerformance.Fail
+          ? `${overallPerf} ${t({ id: 'demonhunter.vengeance.shared.usage', message: 'Usage' })}`
+          : t({ id: 'demonhunter.vengeance.shared.badUsage', message: 'Bad Usage' }),
     };
   }
 
@@ -160,15 +173,19 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
         performance: QualitativePerformance.Fail,
         summary: (
           <div>
-            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> not applied to target
+            <Trans id="demonhunter.vengeance.felDevastation.fieryBrandNotApplied">
+              <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> not applied to target
+            </Trans>
           </div>
         ),
         details: (
           <div>
-            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> not applied to target. Make sure to
-            apply <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> before casting{' '}
-            <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} /> so that you benefit from{' '}
-            <SpellLink spell={TALENTS.FIERY_DEMISE_TALENT} />.
+            <Trans id="demonhunter.vengeance.felDevastation.fieryBrandNotAppliedDetail">
+              <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> not applied to target. Make sure to
+              apply <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> before casting{' '}
+              <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} /> so that you benefit from{' '}
+              <SpellLink spell={TALENTS.FIERY_DEMISE_TALENT} />.
+            </Trans>
           </div>
         ),
       };
@@ -177,12 +194,16 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
       performance: QualitativePerformance.Perfect,
       summary: (
         <div>
-          <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> applied to target
+          <Trans id="demonhunter.vengeance.felDevastation.fieryBrandApplied">
+            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> applied to target
+          </Trans>
         </div>
       ),
       details: (
         <div>
-          <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> applied to target.
+          <Trans id="demonhunter.vengeance.felDevastation.fieryBrandAppliedDetail">
+            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> applied to target.
+          </Trans>
         </div>
       ),
     };
@@ -200,14 +221,18 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
         performance: QualitativePerformance.Fail,
         summary: (
           <div>
-            <SpellLink spell={SPELLS.FRAILTY} /> not applied to target(s)
+            <Trans id="demonhunter.vengeance.felDevastation.frailtyNotApplied">
+              <SpellLink spell={SPELLS.FRAILTY} /> not applied to target(s)
+            </Trans>
           </div>
         ),
         details: (
           <div>
-            <SpellLink spell={SPELLS.FRAILTY} /> not applied to target(s). Make sure to apply{' '}
-            <SpellLink spell={SPELLS.FRAILTY} /> before casting{' '}
-            <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} />.
+            <Trans id="demonhunter.vengeance.felDevastation.frailtyNotAppliedDetail">
+              <SpellLink spell={SPELLS.FRAILTY} /> not applied to target(s). Make sure to apply{' '}
+              <SpellLink spell={SPELLS.FRAILTY} /> before casting{' '}
+              <SpellLink spell={TALENTS.FEL_DEVASTATION_TALENT} />.
+            </Trans>
           </div>
         ),
       };
@@ -217,12 +242,16 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
       performance: QualitativePerformance.Perfect,
       summary: (
         <div>
-          <SpellLink spell={SPELLS.FRAILTY} /> applied to target(s)
+          <Trans id="demonhunter.vengeance.felDevastation.frailtyApplied">
+            <SpellLink spell={SPELLS.FRAILTY} /> applied to target(s)
+          </Trans>
         </div>
       ),
       details: (
         <div>
-          <SpellLink spell={SPELLS.FRAILTY} /> applied to target(s).
+          <Trans id="demonhunter.vengeance.felDevastation.frailtyAppliedDetail">
+            <SpellLink spell={SPELLS.FRAILTY} /> applied to target(s).
+          </Trans>
         </div>
       ),
     };

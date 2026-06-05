@@ -18,6 +18,7 @@ import DonutChart from 'parser/ui/DonutChart';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 import { SuddenDoomConsumption } from '../../normalizers/SuddenDoomLink';
 
 export interface SuddenDoomProc {
@@ -202,10 +203,22 @@ class SuddenDoom extends Analyzer {
       >
         <BoringSpellValueText spell={SPELLS.SUDDEN_DOOM_BUFF}>
           <div>
-            {formatPercentage(this.efficiency, 0)}% <small>efficiency</small>
+            {formatPercentage(this.efficiency, 0)}%{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.suddenDoom.labelEfficiency',
+                message: 'efficiency',
+              })}
+            </small>
           </div>
           <div>
-            {this.procsPerMinute.toFixed(1)} <small>procs/min</small>
+            {this.procsPerMinute.toFixed(1)}{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.suddenDoom.labelProcsPerMin',
+                message: 'procs/min',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
         <div style={{ padding: '8px' }}>
@@ -213,24 +226,42 @@ class SuddenDoom extends Analyzer {
             items={[
               {
                 color: '#22c55e',
-                label: 'Consumed',
+                label: t({
+                  id: 'deathknight.unholy.suddenDoom.labelConsumed',
+                  message: 'Consumed',
+                }),
                 value: this.consumedProcs,
                 valuePercent: false,
-                valueTooltip: `${this.consumedProcs} procs used`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.suddenDoom.tooltipConsumed',
+                  message: `${this.consumedProcs} procs used`,
+                }),
               },
               {
                 color: '#ef4444',
-                label: 'Expired',
+                label: t({
+                  id: 'deathknight.unholy.suddenDoom.labelExpired',
+                  message: 'Expired',
+                }),
                 value: this.wastedExpires,
                 valuePercent: false,
-                valueTooltip: `${this.wastedExpires} procs expired without being used`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.suddenDoom.tooltipExpired',
+                  message: `${this.wastedExpires} procs expired without being used`,
+                }),
               },
               {
                 color: '#f59e0b',
-                label: 'Overwritten',
+                label: t({
+                  id: 'deathknight.unholy.suddenDoom.labelOverwritten',
+                  message: 'Overwritten',
+                }),
                 value: this.wastedRefreshes,
                 valuePercent: false,
-                valueTooltip: `${this.wastedRefreshes} procs overwritten by new procs`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.suddenDoom.tooltipOverwritten',
+                  message: `${this.wastedRefreshes} procs overwritten by new procs`,
+                }),
               },
             ]}
           />

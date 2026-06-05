@@ -1,6 +1,11 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import Events, { CastEvent, ResourceChangeEvent } from 'parser/core/Events';
-import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
+import {
+  QualitativePerformance,
+  getPerformanceExplanation,
+} from 'parser/ui/QualitativePerformance';
 import { SpellUse, ChecklistUsageInfo } from 'parser/core/SpellUsage/core';
 import SPELLS from 'common/SPELLS/rogue';
 import TALENTS from 'common/TALENTS/rogue';
@@ -56,10 +61,7 @@ export default class CrimsonTempestUsage extends Analyzer {
       event,
       performance: finalPerformance,
       checklistItems,
-      performanceExplanation:
-        finalPerformance !== QualitativePerformance.Fail
-          ? `${finalPerformance} Usage`
-          : 'Bad Usage',
+      performanceExplanation: getPerformanceExplanation(finalPerformance),
     });
   }
 
@@ -74,21 +76,32 @@ export default class CrimsonTempestUsage extends Analyzer {
     const performance = hasAnythingToSpread
       ? QualitativePerformance.Good
       : QualitativePerformance.Fail;
-    const summary = <div>Spread Rupture and Garrote</div>;
+    const summary = (
+      <div>
+        {t({
+          id: 'rogue.assassination.crimsontempest.spreadRuptureGarrote',
+          message: 'Spread Rupture and Garrote',
+        })}
+      </div>
+    );
     let details: ReactNode;
 
     if (hasAnythingToSpread) {
       details = (
         <div>
-          You successfully spread <SpellLink spell={SPELLS.GARROTE} /> and{' '}
-          <SpellLink spell={SPELLS.RUPTURE} /> to nearby targets.
+          <Trans id="rogue.assassination.crimsontempest.spreadSuccess">
+            You successfully spread <SpellLink spell={SPELLS.GARROTE} /> and{' '}
+            <SpellLink spell={SPELLS.RUPTURE} /> to nearby targets.
+          </Trans>
         </div>
       );
     } else {
       details = (
         <div>
-          You cast <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} /> but no targets had both{' '}
-          <SpellLink spell={SPELLS.GARROTE} /> and <SpellLink spell={SPELLS.RUPTURE} /> to spread.
+          <Trans id="rogue.assassination.crimsontempest.spreadFail">
+            You cast <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} /> but no targets had both{' '}
+            <SpellLink spell={SPELLS.GARROTE} /> and <SpellLink spell={SPELLS.RUPTURE} /> to spread.
+          </Trans>
         </div>
       );
       if (this.lastCastEvent) {
@@ -108,22 +121,38 @@ export default class CrimsonTempestUsage extends Analyzer {
   private determineResourcePerformance(event: ResourceChangeEvent): ChecklistUsageInfo {
     const totalWasted = event.resourceChange - event.waste === 0;
     const performance = totalWasted ? QualitativePerformance.Fail : QualitativePerformance.Good;
-    const summary = <div>Did not waste combo points</div>;
+    const summary = (
+      <div>
+        {t({
+          id: 'rogue.assassination.crimsontempest.notWasteComboPoints',
+          message: 'Did not waste combo points',
+        })}
+      </div>
+    );
     let details: ReactNode;
 
     if (totalWasted) {
       details = (
         <div>
-          This cast generated <strong>0 Combo Points</strong> because you were already capped. Try
-          to use <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} /> only when you have room for
-          Combo Points.
+          <Trans id="rogue.assassination.crimsontempest.wastedComboPointsDetail">
+            This cast generated <strong>0 Combo Points</strong> because you were already capped. Try
+            to use <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} /> only when you have room for
+            Combo Points.
+          </Trans>
         </div>
       );
       if (this.lastCastEvent) {
         addInefficientCastReason(this.lastCastEvent, details);
       }
     } else {
-      details = <div>You generated Combo Points with this cast.</div>;
+      details = (
+        <div>
+          {t({
+            id: 'rogue.assassination.crimsontempest.generatedComboPoints',
+            message: 'You generated Combo Points with this cast.',
+          })}
+        </div>
+      );
     }
 
     return {
@@ -139,16 +168,20 @@ export default class CrimsonTempestUsage extends Analyzer {
     const explanation = (
       <div>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} />
-          </strong>{' '}
-          is now a <strong>builder</strong>. It should spread your{' '}
-          <SpellLink spell={SPELLS.GARROTE} /> and <SpellLink spell={SPELLS.RUPTURE} />.
+          <Trans id="rogue.assassination.crimsontempest.explanation">
+            <strong>
+              <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} />
+            </strong>{' '}
+            is now a <strong>builder</strong>. It should spread your{' '}
+            <SpellLink spell={SPELLS.GARROTE} /> and <SpellLink spell={SPELLS.RUPTURE} />.
+          </Trans>
         </p>
         <p>
-          Even if you still have targets without <SpellLink spell={SPELLS.GARROTE} /> or{' '}
-          <SpellLink spell={SPELLS.RUPTURE} />, you should keep using{' '}
-          <SpellLink spell={SPELLS.ENVENOM} /> at 5+ CP.
+          <Trans id="rogue.assassination.crimsontempest.envenomNote">
+            Even if you still have targets without <SpellLink spell={SPELLS.GARROTE} /> or{' '}
+            <SpellLink spell={SPELLS.RUPTURE} />, you should keep using{' '}
+            <SpellLink spell={SPELLS.ENVENOM} /> at 5+ CP.
+          </Trans>
         </p>
       </div>
     );
@@ -158,7 +191,10 @@ export default class CrimsonTempestUsage extends Analyzer {
         explanation={explanation}
         uses={this.cooldownUses}
         castBreakdownSmallText={
-          <> - These boxes represent each cast, colored by how good the usage was.</>
+          <Trans id="rogue.assassination.crimsontempest.castBreakdownLegend">
+            {' '}
+            - These boxes represent each cast, colored by how good the usage was.
+          </Trans>
         }
       />
     );

@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
 import Events, { HealEvent, CastEvent } from 'parser/core/Events';
@@ -60,10 +61,10 @@ export default class AmplificationCore extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
-          <>
+          <Trans id="shaman.restoration.amplificationCore.tooltip">
             <strong>{formatNumber(this.healingDoneFromTalent)}</strong> bonus healing (
             {formatNumber(this.overhealingDoneFromTalent)} overhealing)
-          </>
+          </Trans>
         }
       >
         <TalentSpellText talent={TALENTS.AMPLIFICATION_CORE_TALENT}>

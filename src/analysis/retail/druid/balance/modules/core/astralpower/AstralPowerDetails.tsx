@@ -1,5 +1,5 @@
 import { formatPercentage } from 'common/format';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { Panel } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
@@ -39,17 +39,17 @@ class AstralPowerDetails extends Analyzer {
         size="small"
         tooltip={
           t({
-            id: 'balance.astralPower.wasted_prefix',
+            id: 'druid.balance.astralPower.wasted_prefix',
             message: 'Wasted ',
           }) +
           this.wasted * ASTRAL_POWER_SCALE_FACTOR +
           t({
-            id: 'balance.astralPower.wasted_middle',
+            id: 'druid.balance.astralPower.wasted_middle',
             message: ' out of ',
           }) +
           this.total * ASTRAL_POWER_SCALE_FACTOR +
           t({
-            id: 'balance.astralPower.wasted_suffix',
+            id: 'druid.balance.astralPower.wasted_suffix',
             message: ' Astral Power.',
           })
         }
@@ -58,7 +58,7 @@ class AstralPowerDetails extends Analyzer {
           resource={RESOURCE_TYPES.ASTRAL_POWER}
           value={`${formatPercentage(this.wastedPercent)} %`}
           label={t({
-            id: 'balance.astralPower.overcapped_label',
+            id: 'druid.balance.astralPower.overcapped_label',
             message: 'Overcapped Astral Power',
           })}
         />
@@ -68,8 +68,8 @@ class AstralPowerDetails extends Analyzer {
 
   tab() {
     return {
-      title: t({
-        id: 'balance.astralPower.usage_title',
+      title: defineMessage({
+        id: 'druid.balance.astralPower.usage_title',
         message: 'Astral Power usage',
       }),
       url: 'astral-power-usage',

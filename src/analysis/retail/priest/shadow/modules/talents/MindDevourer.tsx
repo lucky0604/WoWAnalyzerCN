@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/priest';
@@ -76,7 +77,13 @@ class MindDevourer extends Analyzer {
       <Statistic category={STATISTIC_CATEGORY.TALENTS} size="flexible">
         <BoringSpellValueText spell={TALENTS.MIND_DEVOURER_TALENT}>
           <>
-            {this.getProcsUsed()}/{this.procsGained} <small>Procs Used</small>
+            {this.getProcsUsed()}/{this.procsGained}{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.mindDevourer.procsUsed',
+                message: 'Procs Used',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>
@@ -86,17 +93,26 @@ class MindDevourer extends Analyzer {
   get guideSubsection(): JSX.Element {
     const goodMD = {
       count: this.getProcsUsed(),
-      label: 'Mind Devourer procs Used',
+      label: t({
+        id: 'priest.shadow.mindDevourer.usedLabel',
+        message: 'Mind Devourer procs Used',
+      }),
     };
 
     const overMD = {
       count: this.procsOver,
-      label: 'Mind Devourer procs Overwritten',
+      label: t({
+        id: 'priest.shadow.mindDevourer.overwrittenLabel',
+        message: 'Mind Devourer procs Overwritten',
+      }),
     };
 
     const expiredMD = {
       count: this.procsExpired,
-      label: 'Mind Devourer procs Expired',
+      label: t({
+        id: 'priest.shadow.mindDevourer.expiredLabel',
+        message: 'Mind Devourer procs Expired',
+      }),
     };
 
     const explanation = (
@@ -105,19 +121,34 @@ class MindDevourer extends Analyzer {
           <b>
             <SpellLink spell={TALENTS.MIND_DEVOURER_TALENT} />
           </b>{' '}
-          is gained randomly from <SpellLink spell={TALENTS.MIND_BLAST_TALENT} /> casts.
+          {t({
+            id: 'priest.shadow.mindDevourer.gainedFrom',
+            message: 'is gained randomly from',
+          })}{' '}
+          <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />{' '}
+          {t({
+            id: 'priest.shadow.mindDevourer.casts',
+            message: 'casts.',
+          })}
         </p>
         <p>
-          Before the buff expires, cast <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />.
-          While you have this active, be careful using{' '}
-          <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />, as it may overwrite it.
+          {t({
+            id: 'priest.shadow.mindDevourer.usageInstructions',
+            message:
+              'Before the buff expires, use your insanity spender. While you have this active, be careful using Mind Blast, as it may overwrite it.',
+          })}
         </p>
       </>
     );
 
     const data = (
       <div>
-        <strong>Mind Devourer breakdown</strong>
+        <strong>
+          {t({
+            id: 'priest.shadow.mindDevourer.breakdown',
+            message: 'Mind Devourer breakdown',
+          })}
+        </strong>
         <GradiatedPerformanceBar good={goodMD} ok={overMD} bad={expiredMD} />
       </div>
     );

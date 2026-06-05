@@ -13,6 +13,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TIERS } from 'game/TIERS';
 import { formatNumber } from 'common/format';
 import SpellLink from 'interface/SpellLink';
+import { t } from '@lingui/core/macro';
 
 /**
  * (2) Set Augmentation: Eruption deals 15% increased damage and extends Ebon Might by an additional 0.5 sec.
@@ -49,7 +50,7 @@ class MID1Augmentation2P extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS.ERUPTION_TALENT} /> damage from tier
+            <SpellLink spell={TALENTS.ERUPTION_TALENT} /> {t({ id: 'evoker.augmentation.mid1Augmentation2P.damageFromTier', message: 'damage from tier' })}
           </label>
           <ItemDamageDone amount={this.extraDamage} />
         </div>

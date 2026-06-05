@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import talents from 'common/TALENTS/deathknight';
@@ -158,19 +160,32 @@ class KillingMachineEfficiency extends Analyzer {
         tooltip={
           <>
             <div>
-              You wasted {this.totalWastedProcs} out of {this.totalProcs} Killing Machine procs (
-              {formatPercentage(this.wastedProcRate)}%).
+              {t({
+                id: 'deathknight.frost.killingMachine.tooltip.wasted',
+                message: 'You wasted {wasted} out of {total} Killing Machine procs ({percent}%).',
+                values: {
+                  wasted: this.totalWastedProcs,
+                  total: this.totalProcs,
+                  percent: formatPercentage(this.wastedProcRate),
+                },
+              })}
             </div>
             <div>
-              {this.expiredKMProcs} procs expired without being used and {this.refreshedKMProcs}{' '}
-              procs were overwritten by new procs.
+              {t({
+                id: 'deathknight.frost.killingMachine.tooltip.breakdown',
+                message: '{expired} procs expired without being used and {overwritten} procs were overwritten by new procs.',
+                values: {
+                  expired: this.expiredKMProcs,
+                  overwritten: this.refreshedKMProcs,
+                },
+              })}
             </div>
           </>
         }
       >
         <BoringSpellValueText spell={SPELLS.KILLING_MACHINE}>
           <>
-            {formatPercentage(this.efficiency)} % <small>efficiency</small>
+            {formatPercentage(this.efficiency)} % <small>{t({ id: 'deathknight.frost.killingMachine.efficiency', message: 'efficiency' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>
@@ -181,34 +196,36 @@ class KillingMachineEfficiency extends Analyzer {
     const goodKms = {
       count:
         this.kmProcs - this.expiredKMProcs - this.refreshedKMProcs - this.procsWastedToResources,
-      label: 'Killing Machines cosumed',
+      label: t({ id: 'deathknight.frost.killingMachine.guide.goodKms', message: 'Killing Machines consumed' }),
     };
 
     const procsWastedToResources = {
       count: this.procsWastedToResources,
-      label: 'Killing Machines lost while you did not have enough Runes to spend it',
+      label: t({ id: 'deathknight.frost.killingMachine.guide.wastedToResources', message: 'Killing Machines lost while you did not have enough Runes to spend it' }),
     };
 
     const refreshedKms = {
       count: this.refreshedKMProcs + this.expiredKMProcs,
-      label: 'Killing Machines lost',
+      label: t({ id: 'deathknight.frost.killingMachine.guide.refreshedKms', message: 'Killing Machines lost' }),
     };
 
     const explanation = (
       <p>
-        <b>
-          <SpellLink spell={talents.KILLING_MACHINE_TALENT} />
-        </b>{' '}
-        is your most important proc. You want to waste as few of them as possible. If you are
-        playing 2H Frost it is even more important because{' '}
-        <SpellLink spell={talents.OBLITERATE_TALENT} /> will be <b>the most important</b> source of
-        damage in your build.
+        <Trans id="deathknight.frost.killingMachine.guide.explanation">
+          <b>
+            <SpellLink spell={talents.KILLING_MACHINE_TALENT} />
+          </b>{' '}
+          is your most important proc. You want to waste as few of them as possible. If you are
+          playing 2H Frost it is even more important because{' '}
+          <SpellLink spell={talents.OBLITERATE_TALENT} /> will be <b>the most important</b> source of
+          damage in your build.
+        </Trans>
       </p>
     );
 
     const data = (
       <div>
-        <strong>Killing Machine breakdown</strong>
+        <strong>{t({ id: 'deathknight.frost.killingMachine.guide.breakdown', message: 'Killing Machine breakdown' })}</strong>
         <GradiatedPerformanceBar good={goodKms} ok={procsWastedToResources} bad={refreshedKms} />
       </div>
     );

@@ -350,11 +350,11 @@ class BuffTargetHelper extends Analyzer {
     const tableRows = [];
     const headerRow = (
       <tr>
-        <th>Time</th>
-        <th>Player - Damage</th>
-        <th>Player - Damage</th>
-        <th>Player - Damage</th>
-        <th>Player - Damage</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.time', message: 'Time' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
       </tr>
     );
 
@@ -572,7 +572,7 @@ class BuffTargetHelper extends Analyzer {
 
   bossFilterToggleButton: JSX.Element = (
     <div className="filter-container">
-      <b>Only show boss damage</b>
+      <b>{t({ id: 'evoker.augmentation.buffTargetHelper.onlyBossDamage', message: 'Only show boss damage' })}</b>
       <div>
         <Toggle
           onClick={() => {

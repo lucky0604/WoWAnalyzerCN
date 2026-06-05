@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import HIT_TYPES from 'game/HIT_TYPES';
@@ -134,9 +135,9 @@ class Reversion extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <ul>
-            <li>Extra ticks: {this.reversionCritCount}</li>
-            <li>Extra duration from crits: {formatDuration(this.totalExtensionTime)}</li>
-            <li>Total healing from extensions: {formatNumber(this.totalAdditionalHealing)}</li>
+            <li>{t({ id: 'evoker.preservation.reversion.extraTicks', message: 'Extra ticks' })}: {this.reversionCritCount}</li>
+            <li>{t({ id: 'evoker.preservation.reversion.extraDurationFromCrits', message: 'Extra duration from crits' })}: {formatDuration(this.totalExtensionTime)}</li>
+            <li>{t({ id: 'evoker.preservation.reversion.totalHealingFromExtensions', message: 'Total healing from extensions' })}: {formatNumber(this.totalAdditionalHealing)}</li>
           </ul>
         }
       >
@@ -148,12 +149,11 @@ class Reversion extends Analyzer {
             <TooltipElement
               content={
                 <>
-                  Each hot was extended by an average of {(this.averageExtension / 1000).toFixed(1)}{' '}
-                  seconds
+                  {t({ id: 'evoker.preservation.reversion.eachHotExtended', message: 'Each hot was extended by an average of' })} {(this.averageExtension / 1000).toFixed(1)} {t({ id: 'evoker.preservation.reversion.seconds', message: 'seconds' })}
                 </>
               }
             >
-              {(this.averageDuration / 1000).toFixed(1)}s <small>average HoT duration</small>
+              {(this.averageDuration / 1000).toFixed(1)}s <small>{t({ id: 'evoker.preservation.reversion.averageHotDuration', message: 'average HoT duration' })}</small>
             </TooltipElement>
           </div>
         </TalentSpellText>

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import TALENTS from 'common/TALENTS/warrior';
 import { SpellLink } from 'interface';
@@ -37,21 +38,37 @@ class Avatar extends Analyzer {
   }
 
   subStatistic() {
+    const totalDamage = formatThousands(this.totalDamages);
+    const pct = formatPercentage(
+      this.owner.getPercentageOfTotalDamageDone(this.totalDamages),
+    );
     return (
       <StatisticListBoxItem
         title={
           <>
-            <SpellLink spell={TALENTS.AVATAR_TALENT} /> bonus damage
+            <SpellLink spell={TALENTS.AVATAR_TALENT} />{' '}
+            {t({
+              id: 'warrior.arms.avatar.bonusDamage',
+              message: 'bonus damage',
+            })}
           </>
         }
         value={`${formatThousands(this.dps)} DPS`}
         valueTooltip={
           <>
-            Your Avatar contributed {formatThousands(this.totalDamages)} total damage (
-            {formatPercentage(this.owner.getPercentageOfTotalDamageDone(this.totalDamages))} %).
+            {t({
+              id: 'warrior.arms.avatar.tooltip',
+              message:
+                'Your Avatar contributed {totalDamage} total damage ({pct} %).',
+              values: { totalDamage, pct },
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            This only accounts for the passive 20% increased damage of Avatar.
+            {t({
+              id: 'warrior.arms.avatar.tooltipNote',
+              message:
+                'This only accounts for the passive 20% increased damage of Avatar.',
+            })}
           </>
         }
       />

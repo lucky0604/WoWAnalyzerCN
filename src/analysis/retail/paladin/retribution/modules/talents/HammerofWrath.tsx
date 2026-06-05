@@ -2,6 +2,7 @@ import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, ResourceChangeEvent } from 'parser/core/Events';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import { TALENTS_PALADIN } from 'common/TALENTS';
+import { t } from '@lingui/core/macro';
 
 // TODO: Needs updating with ExecuteHelper
 
@@ -35,7 +36,11 @@ class HammerofWrath extends Analyzer {
     if (this.wasteHP) {
       addInefficientCastReason(
         event,
-        'Hammer of Wrath was cast while at max Holy Power. Make sure to use a Holy Power spender first to avoid overcapping.',
+        t({
+          id: 'paladin.retribution.hammerofWrath.inefficientCast',
+          message:
+            'Hammer of Wrath was cast while at max Holy Power. Make sure to use a Holy Power spender first to avoid overcapping.',
+        }),
       );
       this.wasteHP = false;
     }

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -185,8 +186,7 @@ class MasteryEffectiveness extends Analyzer {
         category={STATISTIC_CATEGORY.GENERAL}
         tooltip={
           <>
-            {this.totalEventsAffectedByMastery} out of {this.totalEvents} heals were affected by
-            mastery.
+            {this.totalEventsAffectedByMastery} {t({ id: 'evoker.preservation.masteryEffectiveness.outOf', message: 'out of' })} {this.totalEvents} {t({ id: 'evoker.preservation.masteryEffectiveness.healsAffected', message: 'heals were affected by mastery.' })}
           </>
         }
       >
@@ -196,7 +196,7 @@ class MasteryEffectiveness extends Analyzer {
           </label>
           <div className="value">
             {formatPercentage(this.percentOfHealingAffectedByMastery)}%
-            <small> of Healing Affected</small>
+            <small> {t({ id: 'evoker.preservation.masteryEffectiveness.ofHealingAffected', message: 'of Healing Affected' })}</small>
           </div>
           <div className="value">
             <ItemHealingDone amount={this.additionalHealingFromMastery} />

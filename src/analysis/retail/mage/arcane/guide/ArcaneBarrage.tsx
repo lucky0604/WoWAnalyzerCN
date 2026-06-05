@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { type JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -231,77 +233,125 @@ class ArcaneBarrageGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneBarrage}</b> is your {arcaneCharge} spender, removing the associated increased
-          mana costs and damage. In order to maintain the damage increase as long as possible, you
-          should only cast {arcaneBarrage} under the below conditions, which are tailored to your
-          current talent build.
+          <Trans id="mage.arcane.arcaneBarrage.guide.explanation1">
+            <b>{arcaneBarrage}</b> is your {arcaneCharge} spender, removing the associated increased
+            mana costs and damage. In order to maintain the damage increase as long as possible, you
+            should only cast {arcaneBarrage} under the below conditions, which are tailored to your
+            current talent build.
+          </Trans>
         </p>
         <p>
-          Regardless of the below, if {touchOfTheMagi} will be available in the next 4-5 seconds,
-          you should hold {arcaneBarrage} for {touchOfTheMagi}.
+          <Trans id="mage.arcane.arcaneBarrage.guide.explanation2">
+            Regardless of the below, if {touchOfTheMagi} will be available in the next 4-5 seconds,
+            you should hold {arcaneBarrage} for {touchOfTheMagi}.
+          </Trans>
         </p>
         {this.isSpellslingerMissile && (
           <ul>
             <li>
-              You have 20 stacks of {arcaneSalvo} and either 4 {arcaneCharge}s or have the{' '}
-              {orbBarrage} talent.
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile1">
+                You have 20 stacks of {arcaneSalvo} and either 4 {arcaneCharge}s or have the{' '}
+                {orbBarrage} talent.
+              </Trans>
             </li>
             <li>
-              You just casted, or are about to cast, {touchOfTheMagi} ({arcaneBarrage} should be
-              within a GCD of {touchOfTheMagi}, either before it or after it).
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile2">
+                You just casted, or are about to cast, {touchOfTheMagi} ({arcaneBarrage} should be
+                within a GCD of {touchOfTheMagi}, either before it or after it).
+              </Trans>
             </li>
-            <li>You don't have enough mana for {arcaneBlast}</li>
             <li>
-              You have 4 {arcaneCharge}s, an {overpoweredMissiles} and {clearcasting} proc, and at
-              least 5 {arcaneSalvo} stacks.
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile3">
+                You don't have enough mana for {arcaneBlast}
+              </Trans>
+            </li>
+            <li>
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile4">
+                You have 4 {arcaneCharge}s, an {overpoweredMissiles} and {clearcasting} proc, and at
+                least 5 {arcaneSalvo} stacks.
+              </Trans>
             </li>
           </ul>
         )}
         {this.isSpellslingerOrb && (
           <ul>
             <li>
-              You have 20 stacks of {arcaneSalvo} and either 4 {arcaneCharge}s or have the{' '}
-              {orbBarrage} talent.
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb1">
+                You have 20 stacks of {arcaneSalvo} and either 4 {arcaneCharge}s or have the{' '}
+                {orbBarrage} talent.
+              </Trans>
             </li>
             <li>
-              You just casted, or are about to cast, {touchOfTheMagi} ({arcaneBarrage} should be
-              within a GCD of {touchOfTheMagi}, either before it or after it).
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb2">
+                You just casted, or are about to cast, {touchOfTheMagi} ({arcaneBarrage} should be
+                within a GCD of {touchOfTheMagi}, either before it or after it).
+              </Trans>
             </li>
-            <li>You don't have enough mana for {arcaneBlast}</li>
             <li>
-              {arcaneSurge} or {touchOfTheMagi} will end in the next 1-2 seconds and you have 15 or
-              more {arcaneSalvo} stacks.
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb3">
+                You don't have enough mana for {arcaneBlast}
+              </Trans>
+            </li>
+            <li>
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb4">
+                {arcaneSurge} or {touchOfTheMagi} will end in the next 1-2 seconds and you have 15 or
+                more {arcaneSalvo} stacks.
+              </Trans>
             </li>
           </ul>
         )}
         {this.isSunfury && (
           <ul>
             <li>
-              You have 4 {arcaneCharge}s and 25 stacks of {arcaneSalvo}
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury1">
+                You have 4 {arcaneCharge}s and 25 stacks of {arcaneSalvo}
+              </Trans>
             </li>
             <li>
-              Your last cast was {touchOfTheMagi} or the {touchOfTheMagi} debuff will end in 1-2
-              seconds.
-            </li>
-            <li>You have {arcaneSoul}.</li>
-            <li>You don't have enough mana for {arcaneBlast}</li>
-            <li>
-              You have 4 {arcaneCharge}s, are not in a burn phase ({touchOfTheMagi} and{' '}
-              {arcaneSurge} are not active), and &lt; 19 stacks of {arcaneSalvo}.
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury2">
+                Your last cast was {touchOfTheMagi} or the {touchOfTheMagi} debuff will end in 1-2
+                seconds.
+              </Trans>
             </li>
             <li>
-              You have 4 {arcaneCharge}s, are not in a burn phase ({touchOfTheMagi} and{' '}
-              {arcaneSurge} are not active), {arcaneBarrage} will hit 3 or more enemies, and you
-              have a charge of {arcaneOrb} available.
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury3">
+                You have {arcaneSoul}.
+              </Trans>
+            </li>
+            <li>
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury4">
+                You don't have enough mana for {arcaneBlast}
+              </Trans>
+            </li>
+            <li>
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury5">
+                You have 4 {arcaneCharge}s, are not in a burn phase ({touchOfTheMagi} and{' '}
+                {arcaneSurge} are not active), and &lt; 19 stacks of {arcaneSalvo}.
+              </Trans>
+            </li>
+            <li>
+              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury6">
+                You have 4 {arcaneCharge}s, are not in a burn phase ({touchOfTheMagi} and{' '}
+                {arcaneSurge} are not active), {arcaneBarrage} will hit 3 or more enemies, and you
+                have a charge of {arcaneOrb} available.
+              </Trans>
             </li>
           </ul>
         )}
         {this.isSunfury && (
           <p>
-            <TipBox type="note" title="Meteorites">
-              If you are close to a multiple of 6 {arcaneSalvo} stacks (6, 12, 18), it is beneficial
-              to hold {arcaneBarrage} until you are above that threshold to maximize the number of
-              meteorites generated by {gloriousIncandescence}.
+            <TipBox
+              type="note"
+              title={t({
+                id: 'mage.arcane.arcaneBarrage.guide.meteoritesTitle',
+                message: 'Meteorites',
+              })}
+            >
+              <Trans id="mage.arcane.arcaneBarrage.guide.meteoritesDescription">
+                If you are close to a multiple of 6 {arcaneSalvo} stacks (6, 12, 18), it is beneficial
+                to hold {arcaneBarrage} until you are above that threshold to maximize the number of
+                meteorites generated by {gloriousIncandescence}.
+              </Trans>
             </TipBox>
           </p>
         )}
@@ -312,41 +362,72 @@ class ArcaneBarrageGuide extends Analyzer {
       const evaluation = this.evaluateBarrageCast(cast);
       const stats: PerCastStat[] = [
         {
-          label: 'Arcane Charges',
+          label: t({
+            id: 'mage.arcane.arcaneBarrage.guide.stat.arcaneCharges',
+            message: 'Arcane Charges',
+          }),
           value: `${cast.charges} / ${this.MAX_ARCANE_CHARGES}`,
-          tooltip: `The number of Arcane Charge you had when Arcane Barrage was cast.`,
+          tooltip: (
+            <Trans id="mage.arcane.arcaneBarrage.guide.stat.arcaneChargesTooltip">
+              The number of Arcane Charge you had when Arcane Barrage was cast.
+            </Trans>
+          ),
         },
         cast.targetsHit > 0
           ? {
-              label: 'Targets Hit',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.targetsHit',
+                message: 'Targets Hit',
+              }),
               value: `${cast.targetsHit}`,
-              tooltip: `The number of targets hit by the Arcane Barrage cast`,
+              tooltip: (
+                <Trans id="mage.arcane.arcaneBarrage.guide.stat.targetsHitTooltip">
+                  The number of targets hit by the Arcane Barrage cast
+                </Trans>
+              ),
             }
           : undefined,
         cast.mana !== undefined
           ? {
-              label: 'Mana',
+              label: t({ id: 'mage.arcane.arcaneBarrage.guide.stat.mana', message: 'Mana' }),
               value: `${formatPercentage(cast.mana, 0)}%`,
-              tooltip: `The player's mana before Arcane Barrage was cast.`,
+              tooltip: (
+                <Trans id="mage.arcane.arcaneBarrage.guide.stat.manaTooltip">
+                  The player's mana before Arcane Barrage was cast.
+                </Trans>
+              ),
             }
           : undefined,
         this.hasArcaneSalvo && cast.salvoStacks
           ? {
-              label: 'Arcane Salvo Stacks',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.arcaneSalvoStacks',
+                message: 'Arcane Salvo Stacks',
+              }),
               value: formatNumber(cast.salvoStacks),
-              tooltip: `The number of Arcane Salvo stacks the player had before Arcane Barrage was cast.`,
+              tooltip: (
+                <Trans id="mage.arcane.arcaneBarrage.guide.stat.arcaneSalvoStacksTooltip">
+                  The number of Arcane Salvo stacks the player had before Arcane Barrage was cast.
+                </Trans>
+              ),
             }
           : undefined,
         cast.precast
           ? {
-              label: 'Precast Spell',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.precastSpell',
+                message: 'Precast Spell',
+              }),
               value: <SpellIcon spell={cast.precast.ability.guid} />,
               tooltip: `Precast: ${cast.precast.ability.name}`,
             }
           : undefined,
         cast.activeBuffs.length > 0
           ? {
-              label: 'Active Buffs',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.activeBuffs',
+                message: 'Active Buffs',
+              }),
               value: `${cast.activeBuffs.length}`,
               tooltip: (
                 <>
@@ -359,9 +440,16 @@ class ArcaneBarrageGuide extends Analyzer {
           : undefined,
         cast.touchCD
           ? {
-              label: 'Touch CD',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.touchCd',
+                message: 'Touch CD',
+              }),
               value: formatDuration(cast.touchCD),
-              tooltip: `Cooldown Remaining on Touch of the Magi`,
+              tooltip: (
+                <Trans id="mage.arcane.arcaneBarrage.guide.stat.touchCdTooltip">
+                  Cooldown Remaining on Touch of the Magi
+                </Trans>
+              ),
             }
           : undefined,
       ].filter(Boolean) as PerCastStat[];
@@ -375,8 +463,18 @@ class ArcaneBarrageGuide extends Analyzer {
     });
 
     return (
-      <GuideSection spell={SPELLS.ARCANE_BARRAGE} explanation={explanation} title="Arcane Barrage">
-        <CastDetail title="Arcane Barrage Casts" casts={perCastData} />
+      <GuideSection
+        spell={SPELLS.ARCANE_BARRAGE}
+        explanation={explanation}
+        title={t({ id: 'mage.arcane.arcaneBarrage.guide.title', message: 'Arcane Barrage' })}
+      >
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.arcaneBarrage.guide.castDetailTitle',
+            message: 'Arcane Barrage Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

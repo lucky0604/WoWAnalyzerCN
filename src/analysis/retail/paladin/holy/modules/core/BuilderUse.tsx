@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, ResourceChangeEvent } from 'parser/core/Events';
 import { ResourceLink } from 'interface';
@@ -96,7 +97,7 @@ export default class BuilderUse extends Analyzer {
       },
       {
         color: '#A93226',
-        label: 'Wasted',
+        label: t({ id: 'paladin.holy.core.builderUse.wasted', message: 'Wasted' }),
         value: this.wastedBuilderCasts,
       },
     ];
@@ -119,7 +120,7 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)} size="flexible">
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> builder usage
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> {t({ id: 'paladin.holy.core.builderUse.builderUsage', message: 'builder usage' })}
           </label>
           {this.chart}
         </div>

@@ -17,7 +17,7 @@ class DotUptimes extends Analyzer {
 
   get guideSubsection() {
     const explanation = (
-      <>
+      <Trans id="priest.discipline.dotUptimes.explanation">
         <p>
           <b>
             <Trans id="priest.discipline.dotUptimes.explanation.title">
@@ -39,7 +39,7 @@ class DotUptimes extends Analyzer {
             <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} /> and increase your overall output.
           </Trans>
         </p>
-      </>
+      </Trans>
     );
 
     const data = <RoundedPanel>{this.shadowWordPain.subStatistic()}</RoundedPanel>;

@@ -17,6 +17,7 @@ import SpellLink from 'interface/SpellLink';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import ItemSetLink from 'interface/ItemSetLink';
 import { EVOKER_MID1_ID } from 'common/ITEMS';
+import { t } from '@lingui/core/macro';
 
 /**
  * (2) Set Devastation: Azure Sweep damage increased by 50%
@@ -57,9 +58,20 @@ class MID1Devastation2P extends Analyzer {
         category={STATISTIC_CATEGORY.ITEMS}
         tooltip={
           <>
-            <strong>2-piece:</strong>
-            <li>Damage from amp: {formatNumber(this.damageFromAmp)}</li>
-            <li>Damage from main target amp: {formatNumber(this.damageFromMainTargetAmp)}</li>
+            <strong>
+              {t({ id: 'evoker.devastation.mid12p.twoPiece', message: '2-piece:' })}
+            </strong>
+            <li>
+              {t({ id: 'evoker.devastation.mid12p.damageFromAmp', message: 'Damage from amp:' })}{' '}
+              {formatNumber(this.damageFromAmp)}
+            </li>
+            <li>
+              {t({
+                id: 'evoker.devastation.mid12p.damageFromMainTargetAmp',
+                message: 'Damage from main target amp:',
+              })}{' '}
+              {formatNumber(this.damageFromMainTargetAmp)}
+            </li>
           </>
         }
       >
@@ -71,11 +83,18 @@ class MID1Devastation2P extends Analyzer {
             <ItemSetLink id={EVOKER_MID1_ID}>MID Season 1 Tier Set 2-piece</ItemSetLink>
           </small>
           <div>
-            <strong>Damage from amp:</strong>
+            <strong>
+              {t({ id: 'evoker.devastation.mid12p.damageFromAmp', message: 'Damage from amp:' })}
+            </strong>
             <div className="value">
               <ItemDamageDone amount={this.damageFromAmp} />
             </div>
-            <strong>Damage from main target amp:</strong>
+            <strong>
+              {t({
+                id: 'evoker.devastation.mid12p.damageFromMainTargetAmp',
+                message: 'Damage from main target amp:',
+              })}
+            </strong>
             <div className="value">
               <ItemDamageDone amount={this.damageFromMainTargetAmp} />
             </div>

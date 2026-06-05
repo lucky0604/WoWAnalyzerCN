@@ -126,7 +126,7 @@ class Abilities extends CoreAbilities {
           majorIssueEfficiency: 0.7,
           extraSuggestion: (
             <>
-              <Trans id="balance.abilities.new_moon.extra_suggestion">
+              <Trans id="druid.balance.abilities.new_moon.extra_suggestion">
                 Your <SpellLink spell={TALENTS_DRUID.NEW_MOON_TALENT} />,{' '}
                 <SpellLink spell={SPELLS.HALF_MOON} /> and <SpellLink spell={SPELLS.FULL_MOON} /> cast
                 efficiency can be improved, try keeping yourself at low Moon charges at all times; you

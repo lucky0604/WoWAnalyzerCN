@@ -12,6 +12,8 @@ import SPELLS from 'common/SPELLS';
 import talents from 'common/TALENTS/rogue';
 import Enemies from 'parser/shared/modules/Enemies';
 import ComboPointTracker from 'analysis/retail/rogue/shared/ComboPointTracker';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 // TODO: Add a section to show commonly builders that were used poorly
 
@@ -44,12 +46,12 @@ export default class BuilderUse extends Analyzer {
     const items = [
       {
         color: GoodColor,
-        label: 'Effective Builders',
+        label: t({ id: 'rogue.outlaw.builderUse.effectiveBuilders', message: 'Effective Builders' }),
         value: this.effectiveBuilderCasts,
       },
       {
         color: BadColor,
-        label: 'Wasted Builders',
+        label: t({ id: 'rogue.outlaw.builderUse.wastedBuilders', message: 'Wasted Builders' }),
         value: this.wastedBuilderCasts,
       },
     ];
@@ -62,7 +64,9 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)}>
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> builder usage
+            <Trans id="rogue.outlaw.builderUse.builderUsage">
+              <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> builder usage
+            </Trans>
           </label>
           {this.chart}
         </div>

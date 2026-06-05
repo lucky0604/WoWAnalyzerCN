@@ -7,6 +7,7 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 /**
  * Your Call Pet additionally summons the first pet from your stable.
@@ -76,10 +77,30 @@ class AnimalCompanion extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Pet</th>
-                  <th>Dmg</th>
-                  <th>DPS</th>
-                  <th>Dmg without AC</th>
+                  <th>
+                    {t({
+                      id: 'hunter.beastmastery.animalCompanion.pet',
+                      message: 'Pet',
+                    })}
+                  </th>
+                  <th>
+                    {t({
+                      id: 'hunter.beastmastery.animalCompanion.dmg',
+                      message: 'Dmg',
+                    })}
+                  </th>
+                  <th>
+                    {t({
+                      id: 'hunter.beastmastery.animalCompanion.dps',
+                      message: 'DPS',
+                    })}
+                  </th>
+                  <th>
+                    {t({
+                      id: 'hunter.beastmastery.animalCompanion.dmgWithoutAc',
+                      message: 'Dmg without AC',
+                    })}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -93,7 +114,11 @@ class AnimalCompanion extends Analyzer {
                         ? formatNumber(pet.damage / 0.65) +
                           ' / ' +
                           formatNumber(pet.damage / 0.65 / (this.owner.fightDuration / 1000)) +
-                          ' DPS'
+                          ' ' +
+                          t({
+                            id: 'hunter.beastmastery.animalCompanion.dps',
+                            message: 'DPS',
+                          })
                         : ''}
                     </td>
                   </tr>
@@ -106,7 +131,11 @@ class AnimalCompanion extends Analyzer {
         <BoringSpellValueText spell={TALENTS.ANIMAL_COMPANION_TALENT}>
           <>
             {formatNumber(totalDamage)} /{' '}
-            {formatNumber(totalDamage / (this.owner.fightDuration / 1000))} DPS
+            {formatNumber(totalDamage / (this.owner.fightDuration / 1000))}{' '}
+            {t({
+              id: 'hunter.beastmastery.animalCompanion.dps',
+              message: 'DPS',
+            })}
           </>
         </BoringSpellValueText>
       </Statistic>

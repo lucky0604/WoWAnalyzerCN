@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
@@ -113,11 +114,13 @@ class Deluge extends Analyzer {
           <>
             <ul>
               <li>
-                {formatThousands(this.fromRiptideHealing)} from healing targets with{' '}
+                {formatThousands(this.fromRiptideHealing)}{' '}
+                {t({ id: 'shaman.restoration.deluge.fromRiptide', message: 'from healing targets with' })}{' '}
                 <SpellLink spell={TALENTS.RIPTIDE_TALENT} />
               </li>
               <li>
-                {formatThousands(this.fromHealingRainHealing)} from healing targets inside your{' '}
+                {formatThousands(this.fromHealingRainHealing)}{' '}
+                {t({ id: 'shaman.restoration.deluge.fromHealingRain', message: 'from healing targets inside your' })}{' '}
                 <SpellLink spell={TALENTS.HEALING_RAIN_TALENT} />
               </li>
             </ul>

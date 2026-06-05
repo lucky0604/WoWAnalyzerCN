@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatDuration, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -122,14 +123,15 @@ class Aurora extends Analyzer {
           <>
             <ul>
               <li>
-                Average Time until buff consumed:{' '}
+                {t({ id: 'paladin.holy.herald.aurora.averageTimeToConsume', message: 'Average Time until buff consumed' })}
+                :{' '}
                 {formatDuration(this.averageTimeUntilBuffConsumed / this.procsGained)}
               </li>
-              <li>Total Buffs: {this.procsGained}</li>
-              <li>Wasted Buffs: {this.procsWasted}</li>
-              <li>Damage: {formatNumber(this.damageDone)}</li>
-              <li>Healing: {formatNumber(this.healingDone)}</li>
-              <li>Overhealing: {formatNumber(this.overhealingDone)}</li>
+              <li>{t({ id: 'paladin.holy.herald.aurora.totalBuffs', message: 'Total Buffs' })}: {this.procsGained}</li>
+              <li>{t({ id: 'paladin.holy.herald.aurora.wastedBuffs', message: 'Wasted Buffs' })}: {this.procsWasted}</li>
+              <li>{t({ id: 'paladin.holy.herald.aurora.damage', message: 'Damage' })}: {formatNumber(this.damageDone)}</li>
+              <li>{t({ id: 'paladin.holy.herald.aurora.healing', message: 'Healing' })}: {formatNumber(this.healingDone)}</li>
+              <li>{t({ id: 'paladin.holy.herald.aurora.overhealing', message: 'Overhealing' })}: {formatNumber(this.overhealingDone)}</li>
             </ul>
           </>
         }

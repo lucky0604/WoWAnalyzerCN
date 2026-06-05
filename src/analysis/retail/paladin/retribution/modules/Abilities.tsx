@@ -3,6 +3,7 @@ import ISSUE_IMPORTANCE from 'parser/core/ISSUE_IMPORTANCE';
 import CoreAbilities from 'parser/core/modules/Abilities';
 import SPELL_CATEGORY from 'parser/core/SPELL_CATEGORY';
 import TALENTS from 'common/TALENTS/paladin';
+import { t } from '@lingui/core/macro';
 
 class Abilities extends CoreAbilities {
   spellbook() {
@@ -19,8 +20,11 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: true,
           recommendedEfficiency: 0.85,
-          extraSuggestion:
-            'It has a high damage per execute time and generates a lot of Holy Power. Only hold the ability if adds are coming out in 15 seconds or less.',
+          extraSuggestion: t({
+            id: 'paladin.retribution.abilities.wakeOfAshesSuggestion',
+            message:
+              'It has a high damage per execute time and generates a lot of Holy Power. Only hold the ability if adds are coming out in 15 seconds or less.',
+          }),
         },
       },
       {
@@ -43,8 +47,11 @@ class Abilities extends CoreAbilities {
           suggestion: true,
           recommendedEfficiency: 0.9,
           importance: ISSUE_IMPORTANCE.MAJOR,
-          extraSuggestion:
-            'This is our only cooldown and where most of our damage comes from. You really want to not lose a cast of this over a fight.',
+          extraSuggestion: t({
+            id: 'paladin.retribution.abilities.avengingWrathSuggestion',
+            message:
+              'This is our only cooldown and where most of our damage comes from. You really want to not lose a cast of this over a fight.',
+          }),
         },
       },
       {

@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -57,7 +58,10 @@ class Consecration extends Analyzer {
         <BoringSpellValue
           spell={SPELLS.CONSECRATION_CAST.id}
           value={`${formatPercentage(this.pctHitsMitigated)} %`}
-          label="Hits Mitigated w/ Consecration"
+          label={t({
+            id: 'paladin.protection.consecration.hitsMitigated',
+            message: 'Hits Mitigated w/ Consecration',
+          })}
         />
       </Statistic>
     );

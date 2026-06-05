@@ -11,6 +11,7 @@ import TalentSpellText from 'parser/ui/TalentSpellText';
 import { ResourceLink } from 'interface';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import Soup from 'interface/icons/Soup';
+import { t } from '@lingui/core/macro';
 
 /**
  * Eruption's Essence cost is reduced by 1.
@@ -42,7 +43,7 @@ class Volcanism extends Analyzer {
         <TalentSpellText talent={TALENTS.VOLCANISM_TALENT}>
           <Soup /> {this.essenceSaved}{' '}
           <small>
-            <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> saved
+            <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> {t({ id: 'evoker.augmentation.volcanism.saved', message: 'saved' })}
           </small>
         </TalentSpellText>
       </Statistic>

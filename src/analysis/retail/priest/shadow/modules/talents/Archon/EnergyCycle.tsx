@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Options } from 'parser/core/Module';
 import Statistic from 'parser/ui/Statistic';
@@ -40,7 +41,13 @@ class EnergyCycle extends Analyzer {
       <Statistic category={STATISTIC_CATEGORY.HERO_TALENTS} size="flexible">
         <BoringSpellValueText spell={TALENTS.ENERGY_CYCLE_TALENT}>
           <div>
-            <>{this.spirtsEnergyCycle}</> <small>extra spirits</small>
+            <>{this.spirtsEnergyCycle}</>{' '}
+            <small>
+              {t({
+                id: 'priest.shadow.energyCycle.extraSpirits',
+                message: 'extra spirits',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>

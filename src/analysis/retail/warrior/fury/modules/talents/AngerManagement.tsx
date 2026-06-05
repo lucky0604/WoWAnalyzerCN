@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { RAGE_SCALE_FACTOR } from 'analysis/retail/warrior/shared/modules/normalizers/rage/constants';
 import SPELLS from 'common/SPELLS/warrior';
 import TALENTS from 'common/TALENTS/warrior';
@@ -130,24 +131,27 @@ class AngerManagement extends Analyzer.withDependencies({
         size="flexible"
         tooltip={
           <>
-            Spent total of <strong>{formatThousands(this.totalRageSpent)} rage</strong>, resulting
-            in a total cooldown reduction of{' '}
+            {t({ id: 'warrior.fury.angerManagement.spentTotal', message: 'Spent total of' })}{' '}
+            <strong>{formatThousands(this.totalRageSpent)} {t({ id: 'warrior.fury.angerManagement.rage', message: 'rage' })}</strong>
+            {', '}
+            {t({ id: 'warrior.fury.angerManagement.resultingIn', message: 'resulting in a total cooldown reduction of' })}{' '}
             {formatDuration(
               this.recklessnessCDR.effective +
                 this.recklessnessCDR.wasted +
                 this.avatarCDR.effective +
                 this.avatarCDR.wasted,
             )}{' '}
-            of which {formatDuration(this.recklessnessCDR.wasted + this.avatarCDR.wasted)} was
-            wasted.
+            {t({ id: 'warrior.fury.angerManagement.ofWhich', message: 'of which' })}{' '}
+            {formatDuration(this.recklessnessCDR.wasted + this.avatarCDR.wasted)}{' '}
+            {t({ id: 'warrior.fury.angerManagement.wasted', message: 'was wasted.' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Ability</th>
-                  <th>Effective Reduction</th>
-                  <th>Wasted Reduction</th>
+                  <th>{t({ id: 'warrior.fury.angerManagement.ability', message: 'Ability' })}</th>
+                  <th>{t({ id: 'warrior.fury.angerManagement.effectiveReduction', message: 'Effective Reduction' })}</th>
+                  <th>{t({ id: 'warrior.fury.angerManagement.wastedReduction', message: 'Wasted Reduction' })}</th>
                 </tr>
               </thead>
               <tbody>
@@ -180,7 +184,7 @@ class AngerManagement extends Analyzer.withDependencies({
               <SpellLink spell={TALENTS.RECKLESSNESS_TALENT.id} style={{ fontSize: 16 }} />
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />
-              {this.extraRecklessnessCasts()} <small>extra casts</small>
+              {this.extraRecklessnessCasts()} <small>{t({ id: 'warrior.fury.angerManagement.extraCasts', message: 'extra casts' })}</small>
             </div>
           )}
           {this.hasAvatar && (
@@ -188,7 +192,7 @@ class AngerManagement extends Analyzer.withDependencies({
               <SpellLink spell={TALENTS.AVATAR_TALENT.id} style={{ fontSize: 16 }} />
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />
-              {this.extraAvatarCasts()} <small>extra casts</small>
+              {this.extraAvatarCasts()} <small>{t({ id: 'warrior.fury.angerManagement.extraCasts', message: 'extra casts' })}</small>
             </div>
           )}
         </BoringSpellValueText>

@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -51,10 +52,10 @@ export default class CoalescingWater extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
+          <Trans id="shaman.restoration.coalescingWater.tooltip">
             <strong>{formatNumber(this.healingDoneFromTalent)}</strong> bonus healing (
             {formatNumber(this.overhealingDoneFromTalent)} overhealing)
-          </>
+          </Trans>
         }
       >
         <TalentSpellText talent={TALENTS.COALESCING_WATER_TALENT}>

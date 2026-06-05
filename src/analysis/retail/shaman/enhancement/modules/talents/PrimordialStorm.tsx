@@ -17,6 +17,8 @@ import {
 import GuideSection from 'interface/guide/components/GuideSection';
 import CastOverview, { type StatisticData } from 'interface/guide/components/CastOverview';
 import CastDetail, { PerCastStat, type PerCastData } from 'interface/guide/components/CastDetail';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 interface MissedSundering {
   event: CastEvent;
@@ -150,17 +152,17 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
 
     if (details.shouldHaveHadDoomwinds && !details.hadDoomwinds) {
       lis.push(
-        <>
+        <Trans id="shaman.enhancement.primordialstorm.sync_missing">
           <SpellLink spell={this.syncSpell} /> was missing.
-        </>,
+        </Trans>,
       );
     }
 
     if (details.maelstromUsed < 10) {
       lis.push(
-        <>
+        <Trans id="shaman.enhancement.primordialstorm.low_maelstrom">
           Cast with less than 10 <SpellLink spell={TALENTS.MAELSTROM_WEAPON_TALENT} />
-        </>,
+        </Trans>,
       );
     }
 
@@ -169,14 +171,14 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
     } else if (lis.length > 1) {
       addInefficientCastReason(
         event,
-        <>
+        <Trans id="shaman.enhancement.primordialstorm.conditions_not_met">
           Cast without the following conditions met:
           <ul>
             {lis.map((x, i) => {
               return <li key={i}>{x}</li>;
             })}
           </ul>
-        </>,
+        </Trans>,
       );
     }
 
@@ -236,21 +238,21 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
     const stats: StatisticData[] = [
       {
         value: `${this.casts.length}`,
-        label: 'Total Casts',
+        label: t({ id: 'shaman.enhancement.primordialstorm.total_casts', message: 'Total Casts' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.primordialstorm.total_casts_tooltip">
             Total <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} /> casts.
-          </>
+          </Trans>
         ),
       },
       {
         value: `${sunderingsConsumed}/${this.totalSunderings}`,
-        label: 'Sundering → PStorm',
+        label: t({ id: 'shaman.enhancement.primordialstorm.sundering_to_pstorm', message: 'Sundering → PStorm' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.primordialstorm.sundering_to_pstorm_tooltip">
             <SpellLink spell={TALENTS.SUNDERING_TALENT} /> casts followed by{' '}
             <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} />.
-          </>
+          </Trans>
         ),
         performance:
           this.totalSunderings === 0
@@ -263,12 +265,12 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
       },
       {
         value: this.casts.length > 0 ? (totalMaelstromUsed / this.casts.length).toFixed(1) : '0.0',
-        label: 'Avg Maelstrom',
+        label: t({ id: 'shaman.enhancement.primordialstorm.avg_maelstrom', message: 'Avg Maelstrom' }),
         tooltip: (
-          <>
+          <Trans id="shaman.enhancement.primordialstorm.avg_maelstrom_tooltip">
             Average <SpellLink spell={TALENTS.MAELSTROM_WEAPON_TALENT} /> stacks spent on each{' '}
             <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} /> cast.
-          </>
+          </Trans>
         ),
       },
     ];
@@ -293,11 +295,11 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
       const stats: PerCastStat[] = [
         {
           value: `${details.maelstromUsed}`,
-          label: 'Maelstrom',
+          label: t({ id: 'shaman.enhancement.primordialstorm.maelstrom_label', message: 'Maelstrom' }),
           tooltip: (
-            <>
+            <Trans id="shaman.enhancement.primordialstorm.maelstrom_tooltip">
               <SpellLink spell={TALENTS.MAELSTROM_WEAPON_TALENT} /> stacks spent.
-            </>
+            </Trans>
           ),
           performance: spellUse.checklistItems.find((item) => item.check === 'maelstrom-weapon')
             ?.performance,
@@ -306,7 +308,15 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
 
       if (this.dwSyncRatio > 0) {
         stats.push({
-          value: details.shouldHaveHadDoomwinds ? (details.hadDoomwinds ? 'Yes' : 'No') : 'N/A',
+          value: details.shouldHaveHadDoomwinds ? (
+            details.hadDoomwinds ? (
+              <Trans id="shaman.enhancement.primordialstorm.yes">Yes</Trans>
+            ) : (
+              <Trans id="shaman.enhancement.primordialstorm.no">No</Trans>
+            )
+          ) : (
+            <Trans id="shaman.enhancement.primordialstorm.na">N/A</Trans>
+          ),
           label: this.syncSpell.name,
           tooltip: this.syncDescription,
           performance: spellUse.checklistItems.find((item) => item.check === 'doom-winds')
@@ -330,28 +340,30 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
       sortTimestamp: missed.timestamp,
       detailsIcon: null,
       tooltip: (
-        <>
+        <Trans id="shaman.enhancement.primordialstorm.missed_tooltip">
           <SpellLink spell={TALENTS.SUNDERING_TALENT} /> was cast without a follow-up{' '}
           <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} />.
-        </>
+        </Trans>
       ),
       stats: [
         {
-          value: 'Missed',
-          label: 'PStorm Not Cast',
+          value: <Trans id="shaman.enhancement.primordialstorm.missed">Missed</Trans>,
+          label: t({ id: 'shaman.enhancement.primordialstorm.pstorm_not_cast', message: 'PStorm Not Cast' }),
           tooltip: (
-            <>
+            <Trans id="shaman.enhancement.primordialstorm.pstorm_not_cast_tooltip">
               <SpellLink spell={TALENTS.SUNDERING_TALENT} /> was cast but no{' '}
               <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} />.
-            </>
+            </Trans>
           ),
           performance: QualitativePerformance.Fail,
         },
       ],
       details: (
         <div>
-          <SpellLink spell={TALENTS.SUNDERING_TALENT} /> cast without a{' '}
-          <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} />.
+          <Trans id="shaman.enhancement.primordialstorm.missed_details">
+            <SpellLink spell={TALENTS.SUNDERING_TALENT} /> cast without a{' '}
+            <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} />.
+          </Trans>
         </div>
       ),
     }));
@@ -368,7 +380,7 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
     return (
       <GuideSection spell={TALENTS.PRIMORDIAL_STORM_TALENT} explanation={this.description()}>
         <CastOverview spell={TALENTS.PRIMORDIAL_STORM_TALENT} stats={this.buildOverviewStats()} />
-        <CastDetail title="Primordial Storm Casts" casts={this.buildPerCastData()} />
+        <CastDetail title={t({ id: 'shaman.enhancement.primordialstorm.casts_title', message: 'Primordial Storm Casts' })} casts={this.buildPerCastData()} />
       </GuideSection>
     );
   }

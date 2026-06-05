@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatDuration } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
@@ -110,11 +111,13 @@ class NozTeachings extends Analyzer {
         tooltip={
           <>
             <div>
-              Total wasted <SpellLink spell={SPELLS.FIRE_BREATH} /> CDR:{' '}
+              {t({ id: 'evoker.preservation.nozTeachings.totalWasted', message: 'Total wasted' })}{' '}
+              <SpellLink spell={SPELLS.FIRE_BREATH} /> {t({ id: 'evoker.preservation.nozTeachings.cdr', message: 'CDR' })}:{' '}
               {formatDuration(this.fbWastedCdr)}
             </div>
             <div>
-              Total wasted <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> CDR:{' '}
+              {t({ id: 'evoker.preservation.nozTeachings.totalWasted', message: 'Total wasted' })}{' '}
+              <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> {t({ id: 'evoker.preservation.nozTeachings.cdr', message: 'CDR' })}:{' '}
               {formatDuration(this.dbWastedCdr)}
             </div>
           </>
@@ -131,13 +134,15 @@ class NozTeachings extends Analyzer {
           <div>
             {formatDuration(BASE_EMPOWER_CD - this.averageFbCdr)}{' '}
             <small>
-              average <SpellLink spell={SPELLS.FIRE_BREATH} /> cooldown
+              {t({ id: 'evoker.preservation.nozTeachings.average', message: 'average' })}{' '}
+              <SpellLink spell={SPELLS.FIRE_BREATH} /> {t({ id: 'evoker.preservation.nozTeachings.cooldown', message: 'cooldown' })}
             </small>
           </div>
           <div>
             {formatDuration(BASE_EMPOWER_CD - this.averageDbCdr)}{' '}
             <small>
-              average <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> cooldown
+              {t({ id: 'evoker.preservation.nozTeachings.average', message: 'average' })}{' '}
+              <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> {t({ id: 'evoker.preservation.nozTeachings.cooldown', message: 'cooldown' })}
             </small>
           </div>
         </TalentSpellText>

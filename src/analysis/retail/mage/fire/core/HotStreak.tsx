@@ -20,6 +20,7 @@ import {
   evaluateQualitativePerformanceByThreshold,
 } from 'parser/ui/QualitativePerformance';
 import { encodeTargetString } from 'parser/shared/modules/Enemies';
+import { t } from '@lingui/core/macro';
 
 export default class HotStreak extends Analyzer {
   hasFirestarter: boolean = this.selectedCombatant.hasTalent(TALENTS.FIRESTARTER_TALENT);
@@ -99,8 +100,11 @@ export default class HotStreak extends Analyzer {
       const damageTarget = encodeTargetString(event.targetID, event.targetInstance);
       castTarget === damageTarget && this.wastedCrits.push(event);
 
-      const tooltip =
-        'This cast crit while you already had Hot Streak and could have contributed towards your next Heating Up or Hot Streak. To avoid this, make sure you use your Hot Streak procs as soon as possible.';
+      const tooltip = t({
+        id: 'mage.fire.hotStreak.wastedCritTooltip',
+        message:
+          'This cast crit while you already had Hot Streak and could have contributed towards your next Heating Up or Hot Streak. To avoid this, make sure you use your Hot Streak procs as soon as possible.',
+      });
       highlightInefficientCast(cast, tooltip);
     }
   }

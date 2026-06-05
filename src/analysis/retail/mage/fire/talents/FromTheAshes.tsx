@@ -7,6 +7,7 @@ import SpellUsable from 'parser/shared/modules/SpellUsable';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
+import { Trans } from '@lingui/react/macro';
 
 const MS_REDUCTION = 500;
 
@@ -47,7 +48,7 @@ class FromTheAshes extends Analyzer {
       <Statistic size="flexible" category={STATISTIC_CATEGORY.TALENTS}>
         <BoringSpellValueText spell={TALENTS.FROM_THE_ASHES_TALENT}>
           <>
-            {formatNumber(this.cooldownReductionSeconds)}s <small>Fire Blast CDR</small>
+            {formatNumber(this.cooldownReductionSeconds)}s <small><Trans id="mage.fire.fromTheAshes.fireBlastCDR">Fire Blast CDR</Trans></small>
           </>
         </BoringSpellValueText>
       </Statistic>

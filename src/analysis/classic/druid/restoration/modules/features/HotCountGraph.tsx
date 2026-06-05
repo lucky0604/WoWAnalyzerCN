@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS/classic/druid';
 import SpellLink from 'interface/SpellLink';
 import { Options } from 'parser/core/Module';
@@ -33,13 +34,18 @@ class HotCountGraph extends BuffCountGraph {
   statistic() {
     return (
       <Panel
-        title="Hot Graph"
+        title={t({
+          id: 'classic.druid.restoration.hotGraph.statisticTitle',
+          message: 'Hot Graph',
+        })}
         position={100}
         explanation={
           <>
-            This graph shows the number of HoTs you had active over the course of the encounter.
-            Maintaining a steady stream of <SpellLink spell={SPELLS.WILD_GROWTH} /> and several{' '}
-            <SpellLink spell={SPELLS.REJUVENATION} /> is best to maximise healing.
+            {t({
+              id: 'classic.druid.restoration.hotGraph.statisticExplanation',
+              message:
+                'This graph shows the number of HoTs you had active over the course of the encounter. Maintaining a steady stream of Wild Growth and several Rejuvenations is best to maximise healing.',
+            })}
           </>
         }
       >

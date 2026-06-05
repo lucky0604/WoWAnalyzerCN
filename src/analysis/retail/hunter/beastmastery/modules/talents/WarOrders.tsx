@@ -8,6 +8,7 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { WAR_ORDERS_CDR_MS } from '../../constants';
+import { t } from '@lingui/core/macro';
 
 /**
  * Barbed Shot deals 10% increased damage, and
@@ -63,10 +64,20 @@ class WarOrders extends Analyzer {
         <BoringSpellValueText spell={TALENTS.WAR_ORDERS_TALENT}>
           <>
             {formatNumber(this.effectiveReductionMs / 1000)}s / {this.totalPossibleCDR / 1000}s{' '}
-            <small>effective CDR</small>
+            <small>
+              {t({
+                id: 'hunter.beastmastery.warOrders.effectiveCdr',
+                message: 'effective CDR',
+              })}
+            </small>
             <p />
             {formatPercentage(this.effectiveReductionMs / this.totalPossibleCDR)}%{' '}
-            <small>effectiveness</small>
+            <small>
+              {t({
+                id: 'hunter.beastmastery.warOrders.effectiveness',
+                message: 'effectiveness',
+              })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>

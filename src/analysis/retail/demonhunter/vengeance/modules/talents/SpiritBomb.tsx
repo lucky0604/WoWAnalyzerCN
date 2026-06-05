@@ -33,6 +33,8 @@ import {
 import { logSpellUseEvent } from 'parser/core/SpellUsage/SpellUsageSubSection';
 import CastPerformanceSummary from 'analysis/retail/demonhunter/shared/guide/CastPerformanceSummary';
 import ContextualSpellUsageSubSection from 'parser/core/SpellUsage/HideGoodCastsSpellUsageSubSection';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export default class SpiritBomb extends Analyzer {
   static dependencies = {
@@ -97,8 +99,12 @@ export default class SpiritBomb extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <th>Stacks</th>
-                  <th>Casts</th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.spiritBomb.stacks">Stacks</Trans>
+                  </th>
+                  <th>
+                    <Trans id="demonhunter.vengeance.spiritBomb.casts">Casts</Trans>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -114,7 +120,10 @@ export default class SpiritBomb extends Analyzer {
         }
       >
         <TalentSpellText talent={TALENTS.SPIRIT_BOMB_TALENT}>
-          {formatPercentage(this.percentGoodCasts)}% <small>good casts</small>
+          {formatPercentage(this.percentGoodCasts)}%{' '}
+          <small>
+            <Trans id="demonhunter.vengeance.spiritBomb.goodCasts">good casts</Trans>
+          </small>
         </TalentSpellText>
       </Statistic>
     );
@@ -123,14 +132,17 @@ export default class SpiritBomb extends Analyzer {
   guideSubsection() {
     const explanation = (
       <p>
-        <strong>
-          <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
-        </strong>{' '}
-        is your strongest AoE <strong>spender</strong> of <strong>Fury</strong> and{' '}
-        <strong>Soul Fragments</strong>. It consumes all available Soul Fragments (up to 6) and does
-        more damage for each Soul Fragment consumed. Cast it when you have {this.soulsOutOfMeta}+
-        Soul Fragments available. In <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />, cast it when
-        you have {this.soulsInMeta}+ Soul Fragments available.
+        <Trans id="demonhunter.vengeance.spiritBomb.guideExplanation">
+          <strong>
+            <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+          </strong>{' '}
+          is your strongest AoE <strong>spender</strong> of <strong>Fury</strong> and{' '}
+          <strong>Soul Fragments</strong>. It consumes all available Soul Fragments (up to 6) and
+          does more damage for each Soul Fragment consumed. Cast it when you have{' '}
+          {this.soulsOutOfMeta}+ Soul Fragments available. In{' '}
+          <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />, cast it when you have{' '}
+          {this.soulsInMeta}+ Soul Fragments available.
+        </Trans>
         <FieryDemiseExplanation />
       </p>
     );
@@ -146,7 +158,15 @@ export default class SpiritBomb extends Analyzer {
       <ContextualSpellUsageSubSection
         explanation={explanation}
         uses={this.cooldownUses}
-        castBreakdownSmallText={<> - Green is a good cast, Red is a bad cast.</>}
+        castBreakdownSmallText={
+          <>
+            {' '}
+            -{' '}
+            <Trans id="demonhunter.vengeance.spiritBomb.castBreakdown">
+              Green is a good cast, Red is a bad cast.
+            </Trans>
+          </>
+        }
         onPerformanceBoxClick={logSpellUseEvent}
         abovePerformanceDetails={
           <CastPerformanceSummary
@@ -190,8 +210,8 @@ export default class SpiritBomb extends Analyzer {
       checklistItems,
       performanceExplanation:
         actualPerformance !== QualitativePerformance.Fail
-          ? `${actualPerformance} Usage`
-          : 'Bad Usage',
+          ? `${actualPerformance} ${t({ id: 'demonhunter.vengeance.shared.usage', message: 'Usage' })}`
+          : t({ id: 'demonhunter.vengeance.shared.badUsage', message: 'Bad Usage' }),
     });
   }
 

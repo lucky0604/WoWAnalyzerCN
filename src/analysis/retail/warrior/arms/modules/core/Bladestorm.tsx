@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { SELECTED_PLAYER, Options } from 'parser/core/Analyzer';
 import Events, { CastEvent } from 'parser/core/Events';
@@ -88,8 +89,11 @@ class Bladestorm extends Analyzer {
 
     const aligned = remainingCooldown < WARBREAKER_FORGIVENESS;
     if (aligned && !this.currentCast.text) {
-      this.currentCast.text =
-        'Bladestorm was used while you had Colossus Smash/Warbreaker available or about to become available.';
+      this.currentCast.text = t({
+        id: 'warrior.arms.bladestorm.colossusSmashAvailable',
+        message:
+          'Bladestorm was used while you had Colossus Smash/Warbreaker available or about to become available.',
+      });
     }
     return aligned;
   }
@@ -99,8 +103,11 @@ class Bladestorm extends Analyzer {
 
     const aligned = remainingCooldown < AVATAR_FORGIVENESS;
     if (aligned && !this.currentCast.text) {
-      this.currentCast.text =
-        'Bladestorm was used while you had Avatar available or about to become available.';
+      this.currentCast.text = t({
+        id: 'warrior.arms.bladestorm.avatarAvailable',
+        message:
+          'Bladestorm was used while you had Avatar available or about to become available.',
+      });
     }
     return aligned;
   }

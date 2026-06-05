@@ -7,6 +7,7 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import { t } from '@lingui/core/macro';
 
 /**
  * While Bestial Wrath is active, Cobra Shot resets the cooldown on Kill
@@ -76,8 +77,14 @@ class KillerCobra extends Analyzer {
             {this.effectiveKillCommandResets + this.wastedKillerCobraCobraShots}{' '}
             <small>
               {this.effectiveKillCommandResets + this.wastedKillerCobraCobraShots === 1
-                ? 'reset'
-                : 'resets'}
+                ? t({
+                    id: 'hunter.beastmastery.killerCobra.reset',
+                    message: 'reset',
+                  })
+                : t({
+                    id: 'hunter.beastmastery.killerCobra.resets',
+                    message: 'resets',
+                  })}
             </small>
           </>
         </BoringSpellValueText>

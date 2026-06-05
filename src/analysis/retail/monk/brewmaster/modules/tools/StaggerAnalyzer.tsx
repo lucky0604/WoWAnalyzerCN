@@ -11,6 +11,7 @@ import TalentSpellText from 'parser/ui/TalentSpellText';
 import StaggerPool from '../core/StaggerPool';
 import Spell from 'common/SPELLS/Spell';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
+import { Trans } from '@lingui/react/macro';
 
 export default abstract class StaggerStatistic extends Analyzer.withDependencies({
   stagger: StaggerPool,
@@ -49,13 +50,17 @@ export default abstract class StaggerStatistic extends Analyzer.withDependencies
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <>
-            Removed <strong>{formatNumber(this.staggerRemoved)}</strong>{' '}
-            <SpellLink spell={SPELLS.STAGGER} /> over <strong>{this.removalEventCount}</strong>{' '}
-            clears (an average of{' '}
-            <strong>{formatNumber(this.staggerRemoved / this.removalEventCount)}</strong> per
-            clear).
-          </>
+          (() => {
+            const removed = formatNumber(this.staggerRemoved);
+            const count = this.removalEventCount;
+            const avg = formatNumber(this.staggerRemoved / this.removalEventCount);
+            return (
+              <Trans id="monk.brewmaster.staggerAnalyzer.tooltip">
+                Removed <strong>{removed}</strong> <SpellLink spell={SPELLS.STAGGER} /> over{' '}
+                <strong>{count}</strong> clears (an average of <strong>{avg}</strong> per clear).
+              </Trans>
+            );
+          })()
         }
       >
         <SpellTextWrapper ability={this.ability}>

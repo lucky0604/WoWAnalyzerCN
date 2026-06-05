@@ -49,7 +49,7 @@ const BreathOfEonsSection: FC<Props> = ({
           spellTracker: window.flightData,
           type: 'area',
           color: '#FF6B6B',
-          label: 'Flight Time',
+          label: t({ id: 'evoker.augmentation.breathOfEonsSection.flightTime', message: 'Flight Time' }),
           strokeWidth: 3,
         },
         {
@@ -70,14 +70,14 @@ const BreathOfEonsSection: FC<Props> = ({
           spellTracker: window.breathPerformance.damageProblemPoints,
           type: 'point',
           color: 'red',
-          label: 'Problem Points',
+          label: t({ id: 'evoker.augmentation.breathOfEonsSection.problemPoints', message: 'Problem Points' }),
           size: 120,
         },
         {
           spellTracker: window.breathPerformance.ebonMightProblems,
           type: 'point',
           color: 'red',
-          label: 'Problem Points',
+          label: t({ id: 'evoker.augmentation.breathOfEonsSection.problemPoints', message: 'Problem Points' }),
           size: 120,
         },
       ];
@@ -91,7 +91,7 @@ const BreathOfEonsSection: FC<Props> = ({
         dataSeries,
         window.start - 3000,
         window.end + 3000,
-        'Breath Window',
+        t({ id: 'evoker.augmentation.breathOfEonsSection.breathWindow', message: 'Breath Window' }),
         error,
       );
       graphData.push(newGraphData);
@@ -169,7 +169,7 @@ const BreathOfEonsSection: FC<Props> = ({
               </tr>
               <tr>
                 <td>
-                  <SpellLink spell={SPELLS.FIRE_BREATH} /> casts{' '}
+                  <Trans id="evoker.augmentation.breathOfEonsSection.fireBreathCasts"><SpellLink spell={SPELLS.FIRE_BREATH} /> casts</Trans>{' '}
                 </td>
                 <td>
                   {window.breathPerformance.fireBreaths} /{' '}
@@ -185,7 +185,7 @@ const BreathOfEonsSection: FC<Props> = ({
 
               <tr>
                 <td>
-                  <SpellLink spell={SPELLS.UPHEAVAL} /> casts{' '}
+                  <Trans id="evoker.augmentation.breathOfEonsSection.upheavalCasts"><SpellLink spell={SPELLS.UPHEAVAL} /> casts</Trans>{' '}
                 </td>
                 <td>
                   {window.breathPerformance.upheavals} /{' '}
@@ -201,7 +201,7 @@ const BreathOfEonsSection: FC<Props> = ({
               {window.breathPerformance.timeskipTalented && (
                 <tr>
                   <td>
-                    <SpellLink spell={TALENTS.TIME_SKIP_TALENT} /> casts{' '}
+                    <Trans id="evoker.augmentation.breathOfEonsSection.timeSkipCasts"><SpellLink spell={TALENTS.TIME_SKIP_TALENT} /> casts</Trans>{' '}
                   </td>
                   <td>
                     {window.breathPerformance.timeSkips} /{' '}
