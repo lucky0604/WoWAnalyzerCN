@@ -192,7 +192,7 @@ export default class FinisherUse extends Analyzer {
             You spent {cpsSpent} CPs casting <SpellLink spell={event.ability.guid} /> in stealth.
           </Trans>
         );
-        badCastExplanation = <Trans id="rogue.outlaw.finisherUse.inStealth">in stealth</Trans>;
+        badCastExplanation = t({ id: 'rogue.outlaw.finisherUse.inStealth', message: 'in stealth' });
       }
     }
 
@@ -204,7 +204,7 @@ export default class FinisherUse extends Analyzer {
         summary: (
           <div>
             <SpellLink spell={event.ability.guid} />{' '}
-            <Trans id="rogue.outlaw.finisherUse.comboPointManagement">Combo Point Management</Trans>
+            {t({ id: 'rogue.outlaw.finisherUse.comboPointManagement', message: 'Combo Point Management' })}
           </div>
         ),
         details: isGoodCP ? (
@@ -259,7 +259,7 @@ export default class FinisherUse extends Analyzer {
         summary: (
           <div>
             <SpellLink spell={event.ability.guid} />{' '}
-            <Trans id="rogue.outlaw.finisherUse.comboPointManagement">Combo Point Management</Trans>
+            {t({ id: 'rogue.outlaw.finisherUse.comboPointManagement', message: 'Combo Point Management' })}
           </div>
         ),
         details: isGoodCP ? (

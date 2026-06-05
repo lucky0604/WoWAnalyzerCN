@@ -2,7 +2,8 @@ import type { JSX } from 'react';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { cdDuration, cdSpell } from 'analysis/retail/druid/balance/constants';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import SpellLink from 'interface/SpellLink';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import Spell from 'common/SPELLS/Spell';
@@ -85,10 +86,10 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
     const data = (
       <div>
         <strong>
-          <Trans id="druid.balance.ca.per_cast_breakdown">Per-Cast Breakdown</Trans>
+          {t({ id: 'druid.balance.ca.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
         <small>
-          <Trans id="druid.balance.ca.click_expand"> - click to expand</Trans>
+          {t({ id: 'druid.balance.ca.click_expand', message: '- click to expand' })}
         </small>
         {this.caTrackers.map((cast, idx) => {
           const header = (
@@ -112,7 +113,7 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
 
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
-            label: <Trans id="druid.balance.ca.stay_active">Stay Active!</Trans>,
+            label: t({ id: 'druid.balance.ca.stay_active', message: 'Stay Active!' }),
             result: <PerformanceMark perf={percentActivePerf} />,
             details: (
               <Trans id="druid.balance.ca.active_time">

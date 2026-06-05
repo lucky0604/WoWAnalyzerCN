@@ -14,7 +14,7 @@ const ActiveMitigation = () => {
       <SubSection>
         <Explanation>
           <p>
-            <Trans id="paladin.protection.activeMitigation.wip">WIP!</Trans>
+            {t({ id: 'paladin.protection.activeMitigation.wip', message: 'WIP!' })}
           </p>
           <p>
             <Trans id="paladin.protection.activeMitigation.sotrDescription">

@@ -221,7 +221,7 @@ export default class SpenderUsage extends Analyzer {
         {/* Aggregate bar */}
         <div>
           <strong>
-            <Trans id="druid.balance.spender.spenders_per_eclipse">Spenders per Eclipse</Trans>
+            {t({ id: 'druid.balance.spender.spenders_per_eclipse', message: 'Spenders per Eclipse' })}
           </strong>
           <small>
             {' '}
@@ -249,7 +249,7 @@ export default class SpenderUsage extends Analyzer {
         <RoundedPanel>
           <div>
             <strong>
-              <Trans id="druid.balance.spender.per_eclipse_perf">Per-Eclipse Performance</Trans>
+              {t({ id: 'druid.balance.spender.per_eclipse_perf', message: 'Per-Eclipse Performance' })}
             </strong>{' '}
             -{' '}
             <Highlight color={GOOD_WINDOW_COLOR} textColor="black">

@@ -1078,12 +1078,12 @@ class HotHand extends Analyzer.withDependencies({
           </div>
           <div>
             {this.averageLavaLashCastsPerProc.toFixed(2)}{' '}
-            <small><Trans id="shaman.enhancement.hothand.avg_casts_per_proc">average casts per proc</Trans></small>
+            <small>{t({ id: 'shaman.enhancement.hothand.avg_casts_per_proc', message: 'average casts per proc' })}</small>
           </div>
           {this.hasTotemicMomentum && this.totemicMomentumProcsForStats > 0 && (
             <div>
               {formatDurationMillisMinSec(this.averageTotemicMomentumExtension, 1)}{' '}
-              <small><Trans id="shaman.enhancement.hothand.avg_extension_per_proc">average extension per proc</Trans></small>
+              <small>{t({ id: 'shaman.enhancement.hothand.avg_extension_per_proc', message: 'average extension per proc' })}</small>
             </div>
           )}
         </TalentSpellText>

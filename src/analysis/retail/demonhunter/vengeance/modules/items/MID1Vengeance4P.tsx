@@ -70,17 +70,17 @@ class MID1Vengeance4P extends Analyzer {
               <thead>
                 <tr>
                   <th>
-                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.metric">Metric</Trans>
+                    {t({ id: 'demonhunter.vengeance.mid1Vengeance4P.metric', message: 'Metric' })}
                   </th>
                   <th className="text-right">
-                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.value">Value</Trans>
+                    {t({ id: 'demonhunter.vengeance.mid1Vengeance4P.value', message: 'Value' })}
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th>
-                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.fractures">Fractures</Trans>
+                    {t({ id: 'demonhunter.vengeance.mid1Vengeance4P.fractures', message: 'Fractures' })}
                   </th>
                   <td className="text-right">{fractures}</td>
                 </tr>
@@ -94,7 +94,7 @@ class MID1Vengeance4P extends Analyzer {
                 </tr>
                 <tr>
                   <th>
-                    <Trans id="demonhunter.vengeance.mid1Vengeance4P.realProcs">Real procs</Trans>
+                    {t({ id: 'demonhunter.vengeance.mid1Vengeance4P.realProcs', message: 'Real procs' })}
                   </th>
                   <td className="text-right">{realProcs}</td>
                 </tr>
@@ -119,7 +119,7 @@ class MID1Vengeance4P extends Analyzer {
           </span>
           <small>
             {' '}
-            <Trans id="demonhunter.vengeance.mid1Vengeance4P.procRate">Proc rate</Trans>
+            {t({ id: 'demonhunter.vengeance.mid1Vengeance4P.procRate', message: 'Proc rate' })}
           </small>
         </BoringSpellValueText>
       </Statistic>

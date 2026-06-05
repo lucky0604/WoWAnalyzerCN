@@ -235,7 +235,7 @@ function BlackoutComboTipBox() {
                       'Combo buffs that were either overwritten or expired without being consumed.',
                   })}
                 >
-                  <Trans id="monk.brewmaster.blackoutCombo.wasted">Wasted</Trans>
+                  {t({ id: 'monk.brewmaster.blackoutCombo.wasted', message: 'Wasted' })}
                 </TooltipElement>
               ),
             }),
@@ -351,7 +351,7 @@ function CastEfficiencyTipBox({
                   message: 'Casts per Minute',
                 })}
               >
-                <Trans id="monk.brewmaster.castEfficiency.cpm">CPM</Trans>
+                {t({ id: 'monk.brewmaster.castEfficiency.cpm', message: 'CPM' })}
               </TooltipElement>,
               'cpm',
               false,

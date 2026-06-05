@@ -64,7 +64,7 @@ function HitTooltipContent({ hit, unmitigatedContent }: HitTooltipContentProps) 
     <div>
       <div>
         <strong>
-          <Trans id="demonhunter.vengeance.hitTimeline.time">Time:</Trans>
+          {t({ id: 'demonhunter.vengeance.hitTimeline.time', message: 'Time:' })}
         </strong>{' '}
         {formatDuration(hit.event.timestamp - info.fightStart)}
       </div>
@@ -218,7 +218,7 @@ export function HitBasedOverview({
       <strong>{spell.name} Uptime</strong>
       {uptime}
       <strong>
-        <Trans id="demonhunter.vengeance.hitTimeline.damageTaken">Damage Taken</Trans>
+        {t({ id: 'demonhunter.vengeance.hitTimeline.damageTaken', message: 'Damage Taken' })}
       </strong>{' '}
       <small>
         - Hits without {spell.name} are shown in{' '}

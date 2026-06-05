@@ -108,8 +108,8 @@ export default class VitalFlames extends Analyzer {
       <table className="table table-condensed">
         <thead>
           <tr>
-            <th><Trans id="monk.brewmaster.vital_flames.damaging_ability">Damaging Ability</Trans></th>
-            <th><Trans id="monk.brewmaster.vital_flames.healing">Healing</Trans></th>
+            <th>{t({ id: 'monk.brewmaster.vital_flames.damaging_ability', message: 'Damaging Ability' })}</th>
+            <th>{t({ id: 'monk.brewmaster.vital_flames.healing', message: 'Healing' })}</th>
             <th>(%)</th>
           </tr>
         </thead>
@@ -121,7 +121,7 @@ export default class VitalFlames extends Analyzer {
               <tr key={spellId}>
                 <td>
                   {spellId === '-1' ? (
-                    <em><Trans id="monk.brewmaster.vital_flames.unknown">Unknown</Trans></em>
+                    <em>{t({ id: 'monk.brewmaster.vital_flames.unknown', message: 'Unknown' })}</em>
                   ) : (
                     <SpellLink spell={Number.parseInt(spellId)} />
                   )}

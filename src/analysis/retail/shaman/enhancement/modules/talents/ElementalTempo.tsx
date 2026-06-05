@@ -248,19 +248,19 @@ class ElementalTempo extends Analyzer.withDependencies({
         </div>
         <div>
           <strong>{formatDurationMillisMinSec(cast.stacksSpent * CDR_MS_PER_STACK, 1)}</strong>{' '}
-          <Trans id="shaman.enhancement.elementaltempo.cdr_from">of CDR from</Trans>{' '}
+          {t({ id: 'shaman.enhancement.elementaltempo.cdr_from', message: 'of CDR from' })}{' '}
           <SpellLink spell={cast.spenderSpellId} /> @ {cast.stacksSpent}{' '}
           <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />
         </div>
         <div>
           <SpellLink spell={stormstrikeLabel} />:{' '}
           {formatDurationMillisMinSec(cast.stormstrike.wastedMs, 1)}{' '}
-          <Trans id="shaman.enhancement.elementaltempo.wasted">wasted</Trans>
+          {t({ id: 'shaman.enhancement.elementaltempo.wasted', message: 'wasted' })}
         </div>
         <div>
           <SpellLink spell={TALENTS.LAVA_LASH_TALENT} />:{' '}
           {formatDurationMillisMinSec(cast.lavaLash.wastedMs, 1)}{' '}
-          <Trans id="shaman.enhancement.elementaltempo.wasted">wasted</Trans>
+          {t({ id: 'shaman.enhancement.elementaltempo.wasted', message: 'wasted' })}
         </div>
       </>
     );

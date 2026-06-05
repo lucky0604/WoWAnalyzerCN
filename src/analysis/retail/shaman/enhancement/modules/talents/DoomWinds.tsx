@@ -680,9 +680,9 @@ class DoomWinds extends Analyzer.withDependencies({
         stats: [
           {
             value: cast.windowSource === 'cast' ? (
-              <Trans id="shaman.enhancement.doomwinds.cast_label">Cast</Trans>
+              t({ id: 'shaman.enhancement.doomwinds.cast_label', message: 'Cast' })
             ) : (
-              <Trans id="shaman.enhancement.doomwinds.proc_label">Proc</Trans>
+              t({ id: 'shaman.enhancement.doomwinds.proc_label', message: 'Proc' })
             ),
             label: t({ id: 'shaman.enhancement.doomwinds.source_label', message: 'Source' }),
             performance: QualitativePerformance.Perfect,
@@ -700,7 +700,7 @@ class DoomWinds extends Analyzer.withDependencies({
           {
             value: `${breakdown.unusedGlobalCooldowns}`,
             label: t({ id: 'shaman.enhancement.doomwinds.unused_gcds_label', message: 'Unused GCDs' }),
-            tooltip: <Trans id="shaman.enhancement.doomwinds.unused_gcds_tooltip">Estimated unused global cooldowns during this window.</Trans>,
+            tooltip: t({ id: 'shaman.enhancement.doomwinds.unused_gcds_tooltip', message: 'Estimated unused global cooldowns during this window.' }),
             performance: breakdown.gcdPerformance,
           },
         ],

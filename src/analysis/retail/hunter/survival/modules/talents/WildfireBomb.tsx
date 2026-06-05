@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { type ReactNode } from 'react';
 import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
@@ -96,12 +97,12 @@ class WildfireBomb extends Analyzer.withDependencies({
     const isPrePull =
       this.casts === 1 && !wasTipped && event.timestamp - this.owner.fight.start_time <= 5_000;
     let value: QualitativePerformance;
-    let header: JSX.Element;
+    let header: ReactNode;
     let color: string;
 
     if (isPrePull) {
       value = QualitativePerformance.Good;
-      header = <Trans id="hunter.survival.wildfireBomb.goodPrePull">Good: pre-pull cast.</Trans>;
+      header = t({ id: 'hunter.survival.wildfireBomb.goodPrePull', message: 'Good: pre-pull cast.' });
       color = GoodColor;
     } else if (wasTipped && hadSentinelProc) {
       value = QualitativePerformance.Perfect;
@@ -113,11 +114,11 @@ class WildfireBomb extends Analyzer.withDependencies({
       color = PerfectColor;
     } else if (wasTipped) {
       value = QualitativePerformance.Good;
-      header = <Trans id="hunter.survival.wildfireBomb.goodTipped">Good cast: tipped.</Trans>;
+      header = t({ id: 'hunter.survival.wildfireBomb.goodTipped', message: 'Good cast: tipped.' });
       color = GoodColor;
     } else {
       value = QualitativePerformance.Fail;
-      header = <Trans id="hunter.survival.wildfireBomb.badNoTip">Bad cast: no tip.</Trans>;
+      header = t({ id: 'hunter.survival.wildfireBomb.badNoTip', message: 'Bad cast: no tip.' });
       color = BadColor;
     }
 
@@ -204,7 +205,7 @@ class WildfireBomb extends Analyzer.withDependencies({
             <p>
               {this.casts}{' '}
               <small>
-                <Trans id="hunter.survival.wildfireBomb.casts">casts</Trans>
+                {t({ id: 'hunter.survival.wildfireBomb.casts', message: 'casts' })}
               </small>
             </p>
             <p>
@@ -226,7 +227,7 @@ class WildfireBomb extends Analyzer.withDependencies({
             <p>
               {avgTargetsHit.toFixed(2)}{' '}
               <small>
-                <Trans id="hunter.survival.wildfireBomb.avgTargetsHit">avg targets hit</Trans>
+                {t({ id: 'hunter.survival.wildfireBomb.avgTargetsHit', message: 'avg targets hit' })}
               </small>
             </p>
           </>

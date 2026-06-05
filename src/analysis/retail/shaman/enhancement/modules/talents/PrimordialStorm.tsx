@@ -353,12 +353,12 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
         stats.push({
           value: details.shouldHaveHadDoomwinds ? (
             details.hadDoomwinds ? (
-              <Trans id="shaman.enhancement.primordialstorm.yes">Yes</Trans>
+              t({ id: 'shaman.enhancement.primordialstorm.yes', message: 'Yes' })
             ) : (
-              <Trans id="shaman.enhancement.primordialstorm.no">No</Trans>
+              t({ id: 'shaman.enhancement.primordialstorm.no', message: 'No' })
             )
           ) : (
-            <Trans id="shaman.enhancement.primordialstorm.na">N/A</Trans>
+            t({ id: 'shaman.enhancement.primordialstorm.na', message: 'N/A' })
           ),
           label: this.syncSpell.name,
           tooltip: this.syncDescription,
@@ -406,7 +406,7 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
       ),
       stats: [
         {
-          value: <Trans id="shaman.enhancement.primordialstorm.missed">Missed</Trans>,
+          value: t({ id: 'shaman.enhancement.primordialstorm.missed', message: 'Missed' }),
           label: t({ id: 'shaman.enhancement.primordialstorm.pstorm_not_cast', message: 'PStorm Not Cast' }),
           tooltip: (
             <Trans id="shaman.enhancement.primordialstorm.pstorm_not_cast_tooltip">

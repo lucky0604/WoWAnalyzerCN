@@ -9,7 +9,8 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TALENTS from 'common/TALENTS/hunter';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { formatDurationMillisMinSec } from 'common/format';
 /**
  * Give the command to kill, causing your pet to savagely deal [Attack power * 0.6 * (1 + Versatility)] Physical damage to the enemy.
@@ -79,13 +80,13 @@ class KillCommand extends Analyzer {
             <p>
               {formatDurationMillisMinSec(this.effectiveReductionMs)}{' '}
               <small>
-                <Trans id="hunter.survival.killCommand.cooldownReduction">cooldown reduction.</Trans>
+                {t({ id: 'hunter.survival.killCommand.cooldownReduction', message: 'cooldown reduction.' })}
               </small>
             </p>
             <p>
               {formatDurationMillisMinSec(this.wastedReductionMs)}{' '}
               <small>
-                <Trans id="hunter.survival.killCommand.wasted">wasted.</Trans>
+                {t({ id: 'hunter.survival.killCommand.wasted', message: 'wasted.' })}
               </small>
             </p>
           </>

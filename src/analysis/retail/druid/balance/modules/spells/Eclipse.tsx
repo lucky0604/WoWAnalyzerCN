@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { SpellIcon, SpellLink } from 'interface';
 import { formatPercentage } from 'common/format';
@@ -137,17 +138,17 @@ export default class Eclipse extends Analyzer {
         <RoundedPanel>
           <div>
             <strong>
-              <Trans id="druid.balance.eclipse.uptimes_title">Eclipse uptimes</Trans>
+              {t({ id: 'druid.balance.eclipse.uptimes_title', message: 'Eclipse uptimes' })}
             </strong>{' '}
             -{' '}
             <Highlight color={SOLAR_ECLIPSE_COLOR} textColor="black">
-              <Trans id="druid.balance.eclipse.solar_legend">Solar</Trans>
+              {t({ id: 'druid.balance.eclipse.solar_legend', message: 'Solar' })}
             </Highlight>{' '}
             <Highlight color={LUNAR_ECLIPSE_COLOR} textColor="white">
-              <Trans id="druid.balance.eclipse.lunar_legend">Lunar</Trans>
+              {t({ id: 'druid.balance.eclipse.lunar_legend', message: 'Lunar' })}
             </Highlight>{' '}
             <Highlight color={CA_COLOR} textColor="black">
-              <Trans id="druid.balance.eclipse.ca_legend">Both (Celestial Alignment)</Trans>
+              {t({ id: 'druid.balance.eclipse.ca_legend', message: 'Both (Celestial Alignment)' })}
             </Highlight>
           </div>
           {this.uptimeBar}

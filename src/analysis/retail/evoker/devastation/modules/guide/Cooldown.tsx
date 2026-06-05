@@ -36,7 +36,7 @@ export function CooldownSection({ modules, info }: GuideProps<typeof CombatLogPa
         </Trans>
       </p>
       <div>
-        <Trans id="guide.evoker.devastation.sections.cooldowns.legend">Legend</Trans>
+        {t({ id: 'guide.evoker.devastation.sections.cooldowns.legend', message: 'Legend' })}
         <ul>
           <li>
             <Trans id="guide.evoker.devastation.sections.cooldowns.legend.gray">

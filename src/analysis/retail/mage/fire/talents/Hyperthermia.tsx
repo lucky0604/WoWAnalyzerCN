@@ -6,7 +6,8 @@ import Events, { CastEvent, ApplyBuffEvent } from 'parser/core/Events';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 class Hyperthermia extends Analyzer {
   totalProcs = 0;
@@ -45,10 +46,10 @@ class Hyperthermia extends Analyzer {
       <Statistic category={STATISTIC_CATEGORY.ITEMS} size="flexible">
         <BoringSpellValueText spell={SPELLS.HYPERTHERMIA_BUFF}>
           <div>
-            {formatNumber(this.totalProcs)} <small><Trans id="mage.fire.hyperthermia.totalProcs">Total Procs</Trans></small>
+            {formatNumber(this.totalProcs)} <small>{t({ id: 'mage.fire.hyperthermia.totalProcs', message: 'Total Procs' })}</small>
           </div>
           <div>
-            {formatNumber(this.castsPerProc)} <small><Trans id="mage.fire.hyperthermia.avgCastsPerProc">Avg. Casts per Proc</Trans></small>
+            {formatNumber(this.castsPerProc)} <small>{t({ id: 'mage.fire.hyperthermia.avgCastsPerProc', message: 'Avg. Casts per Proc' })}</small>
           </div>
         </BoringSpellValueText>
       </Statistic>

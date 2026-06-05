@@ -73,7 +73,7 @@ class LethalCalibration extends Analyzer.withDependencies({ spellUsable: SpellUs
           <>
             {(this.effectiveCDR / 1000).toFixed(1)}s{' '}
             <small>
-              <Trans id="hunter.survival.lethalCalibration.cdrGained">CDR gained</Trans>
+              {t({ id: 'hunter.survival.lethalCalibration.cdrGained', message: 'CDR gained' })}
             </small>
           </>
         </BoringSpellValueText>

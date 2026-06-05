@@ -35,7 +35,7 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <Section title={t({ id: 'druid.balance.core.title', message: 'Core' })}>
       <AlertWarning>
-        <Trans id="druid.balance.alert.apexTalents">Apex Talents not yet implemented.</Trans>
+        {t({ id: 'druid.balance.alert.apexTalents', message: 'Apex Talents not yet implemented.' })}
       </AlertWarning>
       <SubSection title={t({ id: 'druid.balance.alwaysBeCasting.title', message: 'Always be Casting' })}>
         <p>
@@ -175,7 +175,7 @@ function CooldownGraphSubsection({ info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
       <strong>
-        <Trans id="druid.balance.cooldownGraph.title">Cooldown Graph</Trans>
+        {t({ id: 'druid.balance.cooldownGraph.title', message: 'Cooldown Graph' })}
       </strong>{' '}
       -{' '}
       <Trans id="druid.balance.cooldownGraph.description">

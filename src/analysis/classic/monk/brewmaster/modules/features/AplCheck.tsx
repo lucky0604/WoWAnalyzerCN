@@ -12,7 +12,6 @@ import { AnyEvent } from 'parser/core/Events';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import { RJW_DAMAGE } from 'analysis/classic/monk/shared/RushingJadeWindLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
-import { t } from '@lingui/core/macro';
 
 const MAX_CHI = 5;
 const MAX_CHI_ASCENSION = 6;

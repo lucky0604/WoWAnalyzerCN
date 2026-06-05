@@ -236,7 +236,7 @@ class HolyPrismTargetsHit extends Analyzer {
             {this.subStatistic()}
             <p>
               <strong>
-                <Trans id="paladin.holy.talents.holyPrism.casts">Casts</Trans>
+                {t({ id: 'paladin.holy.talents.holyPrism.casts', message: 'Casts' })}
               </strong>
               {' '}
               <small>

@@ -25,7 +25,8 @@ import {
 } from 'parser/ui/QualitativePerformance';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 export default class HeatingUp extends Analyzer {
   static dependencies = {
@@ -184,7 +185,7 @@ export default class HeatingUp extends Analyzer {
         <BoringSpellValueText spell={SPELLS.HEATING_UP}>
           <>
             <SpellIcon spell={SPELLS.FIRE_BLAST} /> {formatPercentage(this.fireBlastUtilPercent, 0)}
-            % <small><Trans id="mage.fire.heatingUp.fireBlastUtilization">Fire Blast Utilization</Trans></small>
+            % <small>{t({ id: 'mage.fire.heatingUp.fireBlastUtilization', message: 'Fire Blast Utilization' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

@@ -24,7 +24,8 @@ import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import RESOURCE_TYPES, { getResource } from 'game/RESOURCE_TYPES';
 import typedKeys from 'common/typedKeys';
 import { EnhancementEventLinks } from '../../constants';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 /** Doom Winds and Deeply Rooted Elements last 2 sec longer,
  * and the cooldown of Ascendance is reduced by 60 sec.
@@ -186,7 +187,7 @@ class ThorimsInvocation extends Analyzer.withDependencies({
         <>
           {' '}
           (<strong>{formatNumber(proc.hits ?? 0)}</strong>{' '}
-          <Trans id="shaman.enhancement.thorims.hits">hits</Trans>)
+          {t({ id: 'shaman.enhancement.thorims.hits', message: 'hits' })})
         </>
       ) : null;
 
@@ -197,16 +198,16 @@ class ThorimsInvocation extends Analyzer.withDependencies({
           {': '}
           <strong>{formatNumber(proc.casts)}</strong>{' '}
           {proc.casts === 1 ? (
-            <Trans id="shaman.enhancement.thorims.cast_singular">cast</Trans>
+            t({ id: 'shaman.enhancement.thorims.cast_singular', message: 'cast' })
           ) : (
-            <Trans id="shaman.enhancement.thorims.cast_plural">casts</Trans>
+            t({ id: 'shaman.enhancement.thorims.cast_plural', message: 'casts' })
           )}
           {hitsComponent}
           {' - '}
           {includeTotalDamageIcon && <DamageIcon />} <strong>{formatNumber(proc.damage)}</strong>{' '}
-          <Trans id="shaman.enhancement.thorims.damage_done">damage done</Trans> (<DamageIcon />{' '}
+          {t({ id: 'shaman.enhancement.thorims.damage_done', message: 'damage done' })} (<DamageIcon />{' '}
           <strong>{formatNumber(proc.damage / proc.casts)}</strong>{' '}
-          <Trans id="shaman.enhancement.thorims.per_cast">per cast</Trans>)
+          {t({ id: 'shaman.enhancement.thorims.per_cast', message: 'per cast' })})
         </div>
       </>
     );
@@ -233,7 +234,7 @@ class ThorimsInvocation extends Analyzer.withDependencies({
       >
         <TalentSpellText talent={TALENTS.THORIMS_INVOCATION_TALENT}>
           <UptimeIcon /> {this.totalProcs}{' '}
-          <small><Trans id="shaman.enhancement.thorims.spells_cast">spells cast</Trans></small>
+          <small>{t({ id: 'shaman.enhancement.thorims.spells_cast', message: 'spells cast' })}</small>
         </TalentSpellText>
       </Statistic>
     );

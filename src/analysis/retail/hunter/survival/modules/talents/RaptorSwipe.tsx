@@ -1,6 +1,8 @@
 import type { JSX } from 'react';
+import { type ReactNode } from 'react';
 
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { encodeTargetString } from 'parser/shared/modules/Enemies';
@@ -70,20 +72,20 @@ class RaptorSwipe extends Analyzer {
     }
 
     let value: QualitativePerformance;
-    let header: JSX.Element;
+    let header: ReactNode;
     let color: string;
 
     if (!hitSomething) {
       value = QualitativePerformance.Fail;
-      header = <Trans id="hunter.survival.raptorSwipe.badMissedAll">Bad cast: missed all targets.</Trans>;
+      header = t({ id: 'hunter.survival.raptorSwipe.badMissedAll', message: 'Bad cast: missed all targets.' });
       color = BadColor;
     } else if (wasTipped) {
       value = QualitativePerformance.Good;
-      header = <Trans id="hunter.survival.raptorSwipe.goodTipped">Good cast: tipped.</Trans>;
+      header = t({ id: 'hunter.survival.raptorSwipe.goodTipped', message: 'Good cast: tipped.' });
       color = GoodColor;
     } else {
       value = QualitativePerformance.Fail;
-      header = <Trans id="hunter.survival.raptorSwipe.badNoTip">Bad cast: no tip.</Trans>;
+      header = t({ id: 'hunter.survival.raptorSwipe.badNoTip', message: 'Bad cast: no tip.' });
       color = BadColor;
     }
 
@@ -164,7 +166,7 @@ class RaptorSwipe extends Analyzer {
           <>
             {this.casts}{' '}
             <small>
-              <Trans id="hunter.survival.raptorSwipe.casts">casts</Trans>
+              {t({ id: 'hunter.survival.raptorSwipe.casts', message: 'casts' })}
             </small>
             <p>
               {this.tippedCasts}{' '}
@@ -179,7 +181,7 @@ class RaptorSwipe extends Analyzer {
                 <p>
                   {this.missedCasts}{' '}
                   <small>
-                    <Trans id="hunter.survival.raptorSwipe.missed">missed (hit no targets)</Trans>
+                    {t({ id: 'hunter.survival.raptorSwipe.missed', message: 'missed (hit no targets)' })}
                   </small>
                 </p>
               </>

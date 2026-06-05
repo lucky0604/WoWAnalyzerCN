@@ -1,5 +1,6 @@
 import { formatPercentage, formatNumber, formatThousands } from 'common/format';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import CooldownIcon from 'interface/icons/Cooldown';
 import UptimeIcon from 'interface/icons/Uptime';
@@ -156,15 +157,15 @@ class WaterElemental extends Analyzer {
           </Trans>
         }
       >
-        <BoringValueText label={<Trans id="mage.frost.waterElemental.label">Water Elemental</Trans>}>
+        <BoringValueText label={t({ id: 'mage.frost.waterElemental.label', message: 'Water Elemental' })}>
           <p>
             <UptimeIcon /> {formatPercentage(this.petActiveTimePercentage)}%{' '}
-            <small><Trans id="mage.frost.waterElemental.petUptime">Pet uptime</Trans></small>
+            <small>{t({ id: 'mage.frost.waterElemental.petUptime', message: 'Pet uptime' })}</small>
           </p>
           <p>
             <CooldownIcon />{' '}
             {formatNumber(this._waterboltDamage / (this.owner.fightDuration / 1000))}{' '}
-            <small><Trans id="mage.frost.waterElemental.petDPS">Pet DPS</Trans></small>
+            <small>{t({ id: 'mage.frost.waterElemental.petDPS', message: 'Pet DPS' })}</small>
           </p>
         </BoringValueText>
       </Statistic>

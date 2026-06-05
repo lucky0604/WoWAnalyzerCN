@@ -14,7 +14,8 @@ import { currentStacks } from 'parser/shared/modules/helpers/Stacks';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { SpellIcon, SpellLink } from 'interface';
 import UptimeStackBar, { getStackUptimesFromBuffHistory } from 'parser/ui/UptimeStackBar';
@@ -122,7 +123,7 @@ class Starlord extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="druid.balance.starlord.uptime_title">Starlord Uptime</Trans>
+            {t({ id: 'druid.balance.starlord.uptime_title', message: 'Starlord Uptime' })}
           </strong>
           {this.subStatistic()}
         </RoundedPanel>
@@ -187,13 +188,13 @@ class Starlord extends Analyzer {
               <thead>
                 <tr>
                   <th>
-                    <Trans id="druid.balance.starlord.haste_bonus">Haste-Bonus</Trans>
+                    {t({ id: 'druid.balance.starlord.haste_bonus', message: 'Haste-Bonus' })}
                   </th>
                   <th>
-                    <Trans id="druid.balance.starlord.time_s">Time (s)</Trans>
+                    {t({ id: 'druid.balance.starlord.time_s', message: 'Time (s)' })}
                   </th>
                   <th>
-                    <Trans id="druid.balance.starlord.time_pct">Time (%)</Trans>
+                    {t({ id: 'druid.balance.starlord.time_pct', message: 'Time (%)' })}
                   </th>
                 </tr>
               </thead>
@@ -216,7 +217,7 @@ class Starlord extends Analyzer {
           <>
             <HasteIcon /> {this.averageHaste.toFixed(2)} %{' '}
             <small>
-              <Trans id="druid.balance.starlord.avg_haste_label">average haste gained</Trans>
+              {t({ id: 'druid.balance.starlord.avg_haste_label', message: 'average haste gained' })}
             </small>
           </>
         </TalentSpellText>

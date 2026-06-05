@@ -242,9 +242,7 @@ function RunicPowerTable() {
         );
       })}
       <RunicPowerTableRow
-        label={
-          <Trans id="deathknight.blood.deathStrikeSection.other">Other</Trans>
-        }
+        label={t({ id: 'deathknight.blood.deathStrikeSection.other', message: 'Other' })}
         maxRp={maxRp}
         runesSpent={0}
         rpBonus={otherRp}
@@ -302,7 +300,7 @@ function RunicPowerTableRow({
   runesSpent,
   maxRp,
 }: {
-  label: JSX.Element;
+  label: React.ReactNode;
   rpAmount: number;
   runesSpent: number;
   rpWasted: number;

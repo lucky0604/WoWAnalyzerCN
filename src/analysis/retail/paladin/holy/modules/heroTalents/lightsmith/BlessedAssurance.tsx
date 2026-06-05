@@ -1,4 +1,5 @@
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -152,7 +153,7 @@ class BlessedAssurance extends Analyzer {
                   {formatNumber(this.healingTransfered)}
                 </li>
                 <li>
-                  <Trans id="paladin.holy.lightsmith.blessedAssurance.overhealing">Overhealing</Trans>
+                  {t({ id: 'paladin.holy.lightsmith.blessedAssurance.overhealing', message: 'Overhealing' })}
                   : {formatNumber(this.totalOverhealing)}
                 </li>
               </ul>

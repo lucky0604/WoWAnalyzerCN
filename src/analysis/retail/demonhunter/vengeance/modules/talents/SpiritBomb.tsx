@@ -100,10 +100,10 @@ export default class SpiritBomb extends Analyzer {
               <thead>
                 <tr>
                   <th>
-                    <Trans id="demonhunter.vengeance.spiritBomb.stacks">Stacks</Trans>
+                    {t({ id: 'demonhunter.vengeance.spiritBomb.stacks', message: 'Stacks' })}
                   </th>
                   <th>
-                    <Trans id="demonhunter.vengeance.spiritBomb.casts">Casts</Trans>
+                    {t({ id: 'demonhunter.vengeance.spiritBomb.casts', message: 'Casts' })}
                   </th>
                 </tr>
               </thead>
@@ -122,7 +122,7 @@ export default class SpiritBomb extends Analyzer {
         <TalentSpellText talent={TALENTS.SPIRIT_BOMB_TALENT}>
           {formatPercentage(this.percentGoodCasts)}%{' '}
           <small>
-            <Trans id="demonhunter.vengeance.spiritBomb.goodCasts">good casts</Trans>
+            {t({ id: 'demonhunter.vengeance.spiritBomb.goodCasts', message: 'good casts' })}
           </small>
         </TalentSpellText>
       </Statistic>

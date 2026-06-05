@@ -24,7 +24,6 @@ import { formatNumber } from 'common/format';
 import { UPHEAVAL_REVERBERATION_DAM_LINK } from '../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 /**

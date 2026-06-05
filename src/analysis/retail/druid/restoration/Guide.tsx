@@ -123,7 +123,7 @@ function CooldownBreakdownSubsection({
   return (
     <SubSection>
       <strong>
-        <Trans id="restoration.guide.spellBreakdowns">Spell Breakdowns</Trans>
+        {t({ id: 'restoration.guide.spellBreakdowns', message: 'Spell Breakdowns' })}
       </strong>
       <p />
       {info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) &&

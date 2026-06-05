@@ -10,7 +10,8 @@ import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 class FeveredIncantation extends Analyzer {
   damageEvents: DamageEvent[] = [];
@@ -61,7 +62,7 @@ class FeveredIncantation extends Analyzer {
             <ItemDamageDone amount={this.damageDuringBuff()} />
           </div>
           <div>
-            <UptimeIcon /> {formatPercentage(this.buffUptime)}% <small><Trans id="mage.fire.feveredIncantation.buffUptime">Buff uptime</Trans></small>
+            <UptimeIcon /> {formatPercentage(this.buffUptime)}% <small>{t({ id: 'mage.fire.feveredIncantation.buffUptime', message: 'Buff uptime' })}</small>
           </div>
         </BoringSpellValueText>
       </Statistic>

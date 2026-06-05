@@ -39,11 +39,11 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         </p>
       </Explanation>
       <p>
-        <Trans id="mage.frost.activeTime.label">Active Time:</Trans>{' '}
+        {t({ id: 'mage.frost.activeTime.label', message: 'Active Time:' })}{' '}
         <PerformanceStrong performance={modules.alwaysBeCasting.DowntimePerformance}>
           {formatPercentage(modules.alwaysBeCasting.activeTimePercentage, 1)}%
         </PerformanceStrong>{' '}
-        <Trans id="mage.frost.cancelledCasts.label">Cancelled Casts:</Trans>{' '}
+        {t({ id: 'mage.frost.cancelledCasts.label', message: 'Cancelled Casts:' })}{' '}
         <PerformanceStrong performance={modules.cancelledCasts.CancelledPerformance}>
           {formatPercentage(modules.cancelledCasts.cancelledPercentage, 1)}%
         </PerformanceStrong>{' '}

@@ -61,7 +61,7 @@ export default class TwinMoons extends Analyzer {
           <div>
             {this.owner.getPerMinute(this.extraHits).toFixed(1)}{' '}
             <small>
-              <Trans id="druid.balance.twin_moons.extra_mf_pm">extra moonfires per minute</Trans>
+              {t({ id: 'druid.balance.twin_moons.extra_mf_pm', message: 'extra moonfires per minute' })}
             </small>
           </div>
         </TalentSpellText>

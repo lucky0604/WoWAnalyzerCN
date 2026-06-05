@@ -86,8 +86,8 @@ class Reclamation extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <div><Trans id="paladin.holy.talents.reclamation.healingDone">Healing Done</Trans>: {formatNumber(this.healing)}</div>
-            <div><Trans id="paladin.holy.talents.reclamation.damageDone">Damage Done</Trans>: {formatNumber(this.damageDone)}</div>
+            <div>{t({ id: 'paladin.holy.talents.reclamation.healingDone', message: 'Healing Done' })}: {formatNumber(this.healing)}</div>
+            <div>{t({ id: 'paladin.holy.talents.reclamation.damageDone', message: 'Damage Done' })}: {formatNumber(this.damageDone)}</div>
             <div>
               <Trans id="paladin.holy.talents.reclamation.manaFromHolyShock">
                 Mana from <SpellLink spell={TALENTS_PALADIN.HOLY_SHOCK_TALENT} />

@@ -1,5 +1,6 @@
 import UptimeIcon from 'interface/icons/Uptime';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Analyzer from 'parser/core/Analyzer';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
 import UptimeMultiBarStatistic from 'parser/ui/UptimeMultiBarStatistic';
@@ -87,7 +88,7 @@ class DotUptimes extends Analyzer {
         title={
           <>
             <UptimeIcon />{' '}
-            <Trans id="druid.balance.dotUptimes.title">DoT Uptimes</Trans>
+            {t({ id: 'druid.balance.dotUptimes.title', message: 'DoT Uptimes' })}
           </>
         }
         position={STATISTIC_ORDER.CORE(1)}

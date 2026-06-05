@@ -71,7 +71,7 @@ export default class FelDevastation extends MajorCooldown<FelDevastationCooldown
           performance: QualitativePerformance.Fail,
           summary: (
             <div>
-              <Trans id="demonhunter.vengeance.felDevastation.hitTargets">Hit 1+ target</Trans>
+              {t({ id: 'demonhunter.vengeance.felDevastation.hitTargets', message: 'Hit 1+ target' })}
             </div>
           ),
           details: (

@@ -115,7 +115,7 @@ class SoulBarrier extends Analyzer {
         <TalentSpellText talent={TALENTS_DEMON_HUNTER.SOUL_BARRIER_TALENT}>
           <Uptime /> {formatPercentage(this.uptime)}%{' '}
           <small>
-            <Trans id="demonhunter.vengeance.soulBarrier.uptime">Uptime</Trans>
+            {t({ id: 'demonhunter.vengeance.soulBarrier.uptime', message: 'Uptime' })}
           </small>
         </TalentSpellText>
       </Statistic>

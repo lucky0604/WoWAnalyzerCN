@@ -88,7 +88,7 @@ class Bloodseeker extends Analyzer {
             <p>
               {formatPercentage(this.averageAttackSpeedGain)}%{' '}
               <small>
-                <Trans id="hunter.survival.bloodseeker.atkSpeedGain">atk speed gain</Trans>
+                {t({ id: 'hunter.survival.bloodseeker.atkSpeedGain', message: 'atk speed gain' })}
               </small>
             </p>
           </>

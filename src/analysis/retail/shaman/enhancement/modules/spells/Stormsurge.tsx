@@ -15,7 +15,8 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { SpellLink } from 'interface';
 import SpellUsable from 'analysis/retail/shaman/enhancement/modules/core/SpellUsable';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 class Stormsurge extends Analyzer.withDependencies({
   spellUsable: SpellUsable,
@@ -77,31 +78,31 @@ class Stormsurge extends Analyzer.withDependencies({
               {this.selectedCombatant.hasTalent(TALENTS.DEEPLY_ROOTED_ELEMENTS_TALENT) ||
               this.selectedCombatant.hasTalent(TALENTS.ASCENDANCE_ENHANCEMENT_TALENT) ? (
                 <>
-                  <Trans id="shaman.enhancement.stormsurge.reset_breakdown">Reset breakdown:</Trans>
+                  {t({ id: 'shaman.enhancement.stormsurge.reset_breakdown', message: 'Reset breakdown:' })}
                   <ul>
                     <li>
                       <strong>{this.stormStrikeResets}</strong>{' '}
                       <SpellLink spell={SPELLS.STORMSTRIKE} />{' '}
-                      <Trans id="shaman.enhancement.stormsurge.resets">resets</Trans>
+                      {t({ id: 'shaman.enhancement.stormsurge.resets', message: 'resets' })}
                     </li>
                     <li>
                       <strong>{this.windStrikeResets}</strong>{' '}
                       <SpellLink spell={SPELLS.WINDSTRIKE_CAST} />{' '}
-                      <Trans id="shaman.enhancement.stormsurge.resets">resets</Trans>
+                      {t({ id: 'shaman.enhancement.stormsurge.resets', message: 'resets' })}
                     </li>
                   </ul>
                 </>
               ) : (
                 <>
                   <strong>{this.stormStrikeResets}</strong> <SpellLink spell={SPELLS.STORMSTRIKE} />{' '}
-                  <Trans id="shaman.enhancement.stormsurge.resets">resets</Trans>
+                  {t({ id: 'shaman.enhancement.stormsurge.resets', message: 'resets' })}
                 </>
               )}
             </div>
             <div>
               <small>
                 <strong>{this.wasted}</strong>{' '}
-                <Trans id="shaman.enhancement.stormsurge.wasted_procs">wasted procs</Trans>
+                {t({ id: 'shaman.enhancement.stormsurge.wasted_procs', message: 'wasted procs' })}
               </small>
             </div>
           </>
@@ -112,7 +113,7 @@ class Stormsurge extends Analyzer.withDependencies({
             <UptimeIcon /> {formatNumber(this.stormStrikeResets + this.windStrikeResets)}{' '}
             <small>
               <SpellLink spell={SPELLS.STORMSTRIKE} />{' '}
-              <Trans id="shaman.enhancement.stormsurge.resets">resets</Trans>
+              {t({ id: 'shaman.enhancement.stormsurge.resets', message: 'resets' })}
             </small>
           </>
         </BoringSpellValueText>

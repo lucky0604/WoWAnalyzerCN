@@ -76,7 +76,7 @@ class WildfireShells extends Analyzer.withDependencies({ spellUsable: SpellUsabl
           <>
             {(this.effectiveCDR / 1000).toFixed(1)}s{' '}
             <small>
-              <Trans id="hunter.survival.wildfireShells.cdrGained">CDR gained</Trans>
+              {t({ id: 'hunter.survival.wildfireShells.cdrGained', message: 'CDR gained' })}
             </small>
           </>
         </BoringSpellValueText>

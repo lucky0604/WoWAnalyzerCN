@@ -22,7 +22,8 @@ import {
   evaluateQualitativePerformanceByThreshold,
   QualitativePerformance,
 } from 'parser/ui/QualitativePerformance';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 export default class CombustionCasts extends Analyzer {
   static dependencies = {
@@ -191,13 +192,13 @@ export default class CombustionCasts extends Analyzer {
               <tbody>
                 <tr>
                   <td>
-                    <small><Trans id="mage.fire.combustion.spellsCastDuringCombust">Spells cast during Combust</Trans></small>
+                    <small>{t({ id: 'mage.fire.combustion.spellsCastDuringCombust', message: 'Spells cast during Combust' })}</small>
                   </td>
                   <td>
-                    <small><Trans id="mage.fire.combustion.totalCasts">Total Casts</Trans></small>
+                    <small>{t({ id: 'mage.fire.combustion.totalCasts', message: 'Total Casts' })}</small>
                   </td>
                   <td>
-                    <small><Trans id="mage.fire.combustion.percentOfTotalCombustCasts">% of Total Combust Casts</Trans></small>
+                    <small>{t({ id: 'mage.fire.combustion.percentOfTotalCombustCasts', message: '% of Total Combust Casts' })}</small>
                   </td>
                 </tr>
                 {this.castBreakdown

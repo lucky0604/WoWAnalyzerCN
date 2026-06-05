@@ -103,16 +103,16 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
         </Trans>
       </p>
       <div>
-        <Trans id="warrior.fury.rotation.potentialInaccuracy">Potential areas of inaccuracy:</Trans>
+        {t({ id: 'warrior.fury.rotation.potentialInaccuracy', message: 'Potential areas of inaccuracy:' })}
         <ul>
-          <li><Trans id="warrior.fury.rotation.inaccuracy1">Holding abilities for upcoming add spawns or damage amps</Trans></li>
-          <li><Trans id="warrior.fury.rotation.inaccuracy2">Multiple targets</Trans></li>
-          <li><Trans id="warrior.fury.rotation.inaccuracy3">Movement or periods of downtime</Trans></li>
+          <li>{t({ id: 'warrior.fury.rotation.inaccuracy1', message: 'Holding abilities for upcoming add spawns or damage amps' })}</li>
+          <li>{t({ id: 'warrior.fury.rotation.inaccuracy2', message: 'Multiple targets' })}</li>
+          <li>{t({ id: 'warrior.fury.rotation.inaccuracy3', message: 'Movement or periods of downtime' })}</li>
         </ul>
       </div>
       <p>
-        <strong><Trans id="warrior.fury.rotation.note">NOTE:</Trans></strong>{' '}
-        <Trans id="warrior.fury.rotation.noteDescription">The priority list below does not include</Trans>{' '}
+        <strong>{t({ id: 'warrior.fury.rotation.note', message: 'NOTE:' })}</strong>{' '}
+        {t({ id: 'warrior.fury.rotation.noteDescription', message: 'The priority list below does not include' })}{' '}
         <SpellLink spell={TALENTS.REND_TALENT} icon />
       </p>
       <AplSectionData checker={AplCheck.check} apl={AplCheck.apl(info)} />

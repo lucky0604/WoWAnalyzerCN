@@ -12,7 +12,6 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 const DAMAGE_AMP_PER_RANK = 0.0075;

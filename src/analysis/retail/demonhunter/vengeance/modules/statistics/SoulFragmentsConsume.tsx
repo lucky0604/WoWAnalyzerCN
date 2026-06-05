@@ -110,7 +110,7 @@ class SoulFragmentsConsume extends Analyzer {
               <thead>
                 <tr>
                   <th>
-                    <Trans id="demonhunter.vengeance.soulFragmentsConsume.name">Name</Trans>
+                    {t({ id: 'demonhunter.vengeance.soulFragmentsConsume.name', message: 'Name' })}
                   </th>
                   <th>
                     <Trans id="demonhunter.vengeance.soulFragmentsConsume.soulsConsumed">
@@ -136,7 +136,7 @@ class SoulFragmentsConsume extends Analyzer {
                 </tr>
                 <tr>
                   <th>
-                    <Trans id="demonhunter.vengeance.soulFragmentsConsume.byTouch">By Touch</Trans>
+                    {t({ id: 'demonhunter.vengeance.soulFragmentsConsume.byTouch', message: 'By Touch' })}
                   </th>
                   <td>{soulsByTouch}</td>
                 </tr>
@@ -148,7 +148,7 @@ class SoulFragmentsConsume extends Analyzer {
         <BoringSpellValueText spell={SPELLS.SOUL_FRAGMENT_STACK}>
           {this.soulFragmentsTracker.soulsSpent}{' '}
           <small>
-            <Trans id="demonhunter.vengeance.soulFragmentsConsume.souls">Souls</Trans>
+            {t({ id: 'demonhunter.vengeance.soulFragmentsConsume.souls', message: 'Souls' })}
           </small>
         </BoringSpellValueText>
       </Statistic>

@@ -193,21 +193,21 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
       value = QualitativePerformance.Fail;
       header = (
         <h5 style={{ color: BadColor }}>
-          <Trans id="hunter.survival.boomstick.badNoTip">Bad cast: no Tip of the Spear.</Trans>
+          {t({ id: 'hunter.survival.boomstick.badNoTip', message: 'Bad cast: no Tip of the Spear.' })}
         </h5>
       );
     } else if (ticksHit === Boomstick.EXPECTED_TICKS) {
       value = QualitativePerformance.Good;
       header = (
         <h5 style={{ color: GoodColor }}>
-          <Trans id="hunter.survival.boomstick.goodAllTicks">Good cast: tipped with all ticks.</Trans>
+          {t({ id: 'hunter.survival.boomstick.goodAllTicks', message: 'Good cast: tipped with all ticks.' })}
         </h5>
       );
     } else if (wasClipped) {
       value = QualitativePerformance.Fail;
       header = (
         <h5 style={{ color: BadColor }}>
-          <Trans id="hunter.survival.boomstick.badClipped">Bad cast: channel clipped early.</Trans>
+          {t({ id: 'hunter.survival.boomstick.badClipped', message: 'Bad cast: channel clipped early.' })}
         </h5>
       );
       if (nextAbility && HasAbility(nextAbility)) {
@@ -349,20 +349,20 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
             <p>
               {this.totalHits}{' '}
               <small>
-                <Trans id="hunter.survival.boomstick.targetsHit">targets hit</Trans>
+                {t({ id: 'hunter.survival.boomstick.targetsHit', message: 'targets hit' })}
               </small>
             </p>
             <p>
               {(this.totalTicks > 0 ? this.totalHits / this.totalTicks : 0).toFixed(1)}{' '}
               <small>
-                <Trans id="hunter.survival.boomstick.avgTargetsPerTick">avg targets/tick</Trans>
+                {t({ id: 'hunter.survival.boomstick.avgTargetsPerTick', message: 'avg targets/tick' })}
               </small>
             </p>
             {this.clippedCasts > 0 && (
               <p>
                 {this.clippedCasts}{' '}
                 <small>
-                  <Trans id="hunter.survival.boomstick.clippedCasts">clipped casts</Trans>
+                  {t({ id: 'hunter.survival.boomstick.clippedCasts', message: 'clipped casts' })}
                 </small>
               </p>
             )}

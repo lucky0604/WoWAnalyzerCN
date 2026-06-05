@@ -1,6 +1,5 @@
 import { isTalent, Talent } from 'common/TALENTS/types';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';

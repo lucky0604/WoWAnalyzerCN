@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS/demonhunter';

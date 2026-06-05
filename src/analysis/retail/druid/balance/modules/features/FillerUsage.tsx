@@ -175,7 +175,7 @@ export default class FillerUsage extends Analyzer {
 
     const goodFillerData = {
       count: this.goodFillers,
-      label: <Trans id="druid.balance.filler.good_label">Good Fillers</Trans>,
+      label: t({ id: 'druid.balance.filler.good_label', message: 'Good Fillers' }),
     };
     const okFillerData = {
       count: this.okFillers,
@@ -201,7 +201,7 @@ export default class FillerUsage extends Analyzer {
     const data = (
       <div>
         <strong>
-          <Trans id="druid.balance.filler.breakdown_title">Filler cast breakdown</Trans>
+          {t({ id: 'druid.balance.filler.breakdown_title', message: 'Filler cast breakdown' })}
         </strong>
         <small>
           {' '}

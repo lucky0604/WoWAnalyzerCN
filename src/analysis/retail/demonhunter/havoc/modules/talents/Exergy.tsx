@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import { formatDuration, formatPercentage } from 'common/format';

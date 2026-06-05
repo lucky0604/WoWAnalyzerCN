@@ -16,7 +16,6 @@ import { ATONEMENT_DAMAGE_SOURCES } from '../../constants';
 import AtonementApplicationSource from '../features/AtonementApplicationSource';
 import isAtonement from './isAtonement';
 import { TALENTS_PRIEST } from 'common/TALENTS';
-import { t } from '@lingui/core/macro';
 
 enum SourceProvenance {
   Atonement = 'Atonement',

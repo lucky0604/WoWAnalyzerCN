@@ -171,7 +171,7 @@ class EarthShieldBreakdown extends Analyzer {
         smallTitle={!this.wide}
         category={STATISTIC_CATEGORY.TALENTS}
         position={STATISTIC_ORDER.CORE(1)}
-        footer={this.wide && <Trans id="shaman.restoration.earthShieldBreakdown.mouseoverFooter">Mouseover each section for additional details</Trans>}
+        footer={this.wide && t({ id: 'shaman.restoration.earthShieldBreakdown.mouseoverFooter', message: 'Mouseover each section for additional details' })}
         smallFooter
         wide={this.wide}
       >
