@@ -1,4 +1,5 @@
 import { GuideProps, Section } from 'interface/guide';
+import TALENTS from 'common/TALENTS/shaman';
 import CombatLogParser from './CombatLogParser';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
 import MaelstromUsage from './modules/guide/MaelstromUsage';
@@ -11,6 +12,10 @@ import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 export default function Guide(props: GuideProps<typeof CombatLogParser>) {
+  const combatant = props.info.combatant;
+  const isTotemic = combatant.hasTalent(TALENTS.SURGING_TOTEM_TALENT);
+  const isStormbringer = combatant.hasTalent(TALENTS.TEMPEST_TALENT);
+
   return (
     <>
       <Section title={t({ id: 'shaman.enhancement.section.preface', message: 'Preface & Disclaimers' })}>
@@ -42,6 +47,10 @@ export default function Guide(props: GuideProps<typeof CombatLogParser>) {
             </Trans>
           </p>
         </>
+      </Section>
+      <Section title="Hero Talent">
+        {isTotemic && props.modules.surgingTotem.guideSubsection}
+        {isStormbringer && props.modules.tempest.guideSubsection}
       </Section>
       <Cooldowns {...props} />
       <Section title={t({ id: 'shaman.enhancement.section.alwaysBeCasting', message: 'Always Be Casting' })}>

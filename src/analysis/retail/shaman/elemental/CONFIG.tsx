@@ -27,37 +27,37 @@ export default {
       </p>
       <p>
         <Trans id="shaman.elemental.config.more_resources">More resources for Elemental:</Trans>
-        <ul>
-          <li>
-            <a href="https://discord.gg/earthshrine" target="_blank" rel="noopener noreferrer">
-              <Trans id="shaman.elemental.config.class_discord">Shaman Class Discord</Trans>
-            </a>
-          </li>
-          <li>
-            <a href="https://stormearthandlava.com/" target="_blank" rel="noopener noreferrer">
-              <Trans id="shaman.elemental.config.storm_earth_lava">Storm, Earth and Lava</Trans>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.wowhead.com/elemental-shaman-guide"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Trans id="shaman.elemental.config.wowhead_guide">Wowhead Guide</Trans>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.icy-veins.com/wow/elemental-shaman-pve-dps-guide"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Trans id="shaman.elemental.config.icy_veins_guide">Icy Veins Guide</Trans>
-            </a>
-          </li>
-        </ul>
       </p>
+      <ul>
+        <li>
+          <a href="https://discord.gg/earthshrine" target="_blank" rel="noopener noreferrer">
+            <Trans id="shaman.elemental.config.class_discord">Shaman Class Discord</Trans>
+          </a>
+        </li>
+        <li>
+          <a href="https://stormearthandlava.com/" target="_blank" rel="noopener noreferrer">
+            <Trans id="shaman.elemental.config.storm_earth_lava">Storm, Earth and Lava</Trans>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.wowhead.com/elemental-shaman-guide"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Trans id="shaman.elemental.config.wowhead_guide">Wowhead Guide</Trans>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.icy-veins.com/wow/elemental-shaman-pve-dps-guide"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Trans id="shaman.elemental.config.icy_veins_guide">Icy Veins Guide</Trans>
+          </a>
+        </li>
+      </ul>
     </>
   ),
   // A recent example report to see interesting parts of the spec. Will be shown on the homepage.

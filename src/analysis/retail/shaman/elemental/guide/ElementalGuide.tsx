@@ -61,9 +61,6 @@ const CoreSection = (props: GuideProps<typeof CombatLogParser>) => {
   );
 };
 
-/**
- */
-
 /** The guide for Elemental Shamans. */
 export default function ElementalGuide(props: GuideProps<typeof CombatLogParser>) {
   return (

@@ -1,16 +1,12 @@
-import { GuideProps, SubSection, useAnalyzer, useInfo } from 'interface/guide';
+import { GuideProps, useAnalyzer, useInfo } from 'interface/guide';
 import { t } from '@lingui/core/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import TALENTS from 'common/TALENTS/shaman';
-import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
-import { GapHighlight } from 'parser/ui/CooldownBar';
 import CombatLogParser from 'analysis/retail/shaman/elemental/CombatLogParser';
-import { Cooldown } from 'interface/guide/components/CooldownGraphSubSection';
+import CooldownGraphSubsection, {
+  Cooldown,
+} from 'interface/guide/components/CooldownGraphSubSection';
 import SPELLS from 'common/SPELLS/shaman';
-
-interface Props {
-  checklist: Cooldown[];
-}
 
 const COOLDOWNS: Cooldown[] = [
   {
@@ -31,32 +27,11 @@ function Cooldowns({ modules }: GuideProps<typeof CombatLogParser>) {
   return modules.ascendance.guideSubsection;
 }
 
-export const ElementalCooldownGraphs = () => <CooldownGraphSubsection checklist={COOLDOWNS} />;
-
-const CooldownGraphSubsection = ({ checklist }: Props) => {
-  const info = useInfo();
-  const castEfficiency = useAnalyzer(CastEfficiency);
-  if (!info || !castEfficiency) {
-    return null;
-  }
-
-  return (
-    <SubSection title={t({ id: 'shaman.elemental.cooldowngraphs.title', message: 'Cooldown Graphs' })}>
-      {checklist
-        .filter((cooldown) => cooldown.isActive && cooldown.isActive(info.combatant))
-        .map((cooldown) => (
-          <CastEfficiencyBar
-            key={cooldown.spell.id}
-            spell={cooldown.spell}
-            gapHighlightMode={GapHighlight.All}
-            minimizeIcons={
-              (castEfficiency.getCastEfficiencyForSpell(cooldown.spell)?.casts ?? 0) > 10
-            }
-            useThresholds
-          />
-        ))}
-    </SubSection>
-  );
-};
+export const ElementalCooldownGraphs = () => (
+  <CooldownGraphSubsection
+    title={t({ id: 'shaman.elemental.cooldowngraphs.title', message: 'Cooldown Graphs' })}
+    cooldowns={COOLDOWNS}
+  />
+);
 
 export default Cooldowns;

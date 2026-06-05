@@ -1,17 +1,13 @@
-import { GuideProps, Section, SubSection, useAnalyzer, useInfo } from 'interface/guide';
+import { GuideProps, Section, useAnalyzer, useInfo } from 'interface/guide';
 import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS/shaman';
-import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
-import { GapHighlight } from 'parser/ui/CooldownBar';
 import CombatLogParser from 'analysis/retail/shaman/enhancement/CombatLogParser';
-import { Cooldown } from 'interface/guide/components/CooldownGraphSubSection';
-
-interface Props {
-  checklist: Cooldown[];
-}
+import CooldownGraphSubsection, {
+  Cooldown,
+} from 'interface/guide/components/CooldownGraphSubSection';
 
 const COOLDOWNS: Cooldown[] = [
   {
@@ -37,7 +33,7 @@ const COOLDOWNS: Cooldown[] = [
   },
 ];
 
-function Cooldowns({ info, modules, events }: GuideProps<typeof CombatLogParser>) {
+function Cooldowns({ modules }: GuideProps<typeof CombatLogParser>) {
   return (
     <Section title={t({ id: 'shaman.enhancement.cooldowns.core_title', message: 'Core' })}>
       {modules.hotHand.guideSubsection}
@@ -45,44 +41,12 @@ function Cooldowns({ info, modules, events }: GuideProps<typeof CombatLogParser>
       {modules.primordialStorm.guideSubsection}
       {modules.elementalTempo.guideSubsection}
       {modules.stormUnleashed.guideSubsection}
-      <SubSection title={t({ id: 'shaman.enhancement.cooldowns.cooldowns_title', message: 'Cooldowns' })}>
-        <p>
-          <Trans id="shaman.enhancement.cooldowns.description">
-            <strong>Cooldowns</strong> - this graph shows when you used your major cooldowns and how
-            long you waited to use them again. Unless you're holding these for specific raid events,
-            try to use these on as soon as they become available.
-          </Trans>
-        </p>
-        <CooldownGraphSubsection checklist={COOLDOWNS} />
-      </SubSection>
+      <CooldownGraphSubsection
+        title={t({ id: 'shaman.enhancement.cooldowns.cooldowns_title', message: 'Cooldowns' })}
+        cooldowns={COOLDOWNS}
+      />
     </Section>
   );
 }
-
-const CooldownGraphSubsection = ({ checklist }: Props) => {
-  const info = useInfo();
-  const castEfficiency = useAnalyzer(CastEfficiency);
-  if (!info || !castEfficiency) {
-    return null;
-  }
-
-  return (
-    <SubSection>
-      {checklist
-        .filter((cooldown) => cooldown.isActive && cooldown.isActive(info.combatant))
-        .map((cooldown) => (
-          <CastEfficiencyBar
-            key={cooldown.spell.id}
-            spell={cooldown.spell}
-            gapHighlightMode={GapHighlight.All}
-            minimizeIcons={
-              (castEfficiency.getCastEfficiencyForSpell(cooldown.spell)?.casts ?? 0) > 10
-            }
-            useThresholds
-          />
-        ))}
-    </SubSection>
-  );
-};
 
 export default Cooldowns;
