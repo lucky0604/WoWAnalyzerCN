@@ -31,7 +31,7 @@ export const StatBoxContainer = styled.div`
     border-right: 1px solid ${level1.border};
   }
 
-  & > *:first-child {
+  & > *:first-of-type {
     padding-left: 0;
   }
 
