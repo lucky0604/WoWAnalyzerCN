@@ -14,7 +14,6 @@ import TalentSpellText from 'parser/ui/TalentSpellText';
 const REDUCTION_MS = 5000;
 
 const BASE_EMPOWER_CD = 30000;
-const SPIRITUAL_CLARITY_REDUCTION = 10000;
 
 class NozTeachings extends Analyzer {
   static dependencies = {
@@ -22,13 +21,10 @@ class NozTeachings extends Analyzer {
   };
   protected spellUsable!: SpellUsable;
   hasFont = false;
-  sbCdr = 0;
   dbCdr = 0;
   fbCdr = 0;
-  sbWastedCdr = 0;
   dbWastedCdr = 0;
   fbWastedCdr = 0;
-  sbCasts = 0;
   dbCasts = 0;
   fbCasts = 0;
   hasSpiritualClarity = 0;
@@ -59,8 +55,6 @@ class NozTeachings extends Analyzer {
   }
 
   onCast(event: CastEvent) {
-    // oxlint-disable-next-line eslint/prefer-const -- baseline suppression
-    let sbCdr = 0;
     let dbCdr = 0;
     let fbCdr = 0;
     if (this.hasFont) {
@@ -70,10 +64,8 @@ class NozTeachings extends Analyzer {
       dbCdr = this.spellUsable.reduceCooldown(TALENTS_EVOKER.DREAM_BREATH_TALENT.id, REDUCTION_MS);
       fbCdr = this.spellUsable.reduceCooldown(SPELLS.FIRE_BREATH.id, REDUCTION_MS);
     }
-    this.sbCdr += sbCdr;
     this.dbCdr += dbCdr;
     this.fbCdr += fbCdr;
-    this.sbWastedCdr += REDUCTION_MS - sbCdr;
     this.dbWastedCdr += REDUCTION_MS - dbCdr;
     this.fbWastedCdr += REDUCTION_MS - fbCdr;
   }
@@ -86,20 +78,12 @@ class NozTeachings extends Analyzer {
     this.dbCasts += 1;
   }
 
-  onSbCast(event: EmpowerEndEvent) {
-    this.sbCasts += 1;
-  }
-
   get averageFbCdr() {
     return this.fbCdr / this.fbCasts - 1;
   }
 
   get averageDbCdr() {
     return this.dbCdr / this.dbCasts - 1;
-  }
-
-  get averageSbCdr() {
-    return this.sbCdr / this.sbCasts - 1;
   }
 
   statistic() {
@@ -112,12 +96,14 @@ class NozTeachings extends Analyzer {
           <>
             <div>
               {t({ id: 'evoker.preservation.nozTeachings.totalWasted', message: 'Total wasted' })}{' '}
-              <SpellLink spell={SPELLS.FIRE_BREATH} /> {t({ id: 'evoker.preservation.nozTeachings.cdr', message: 'CDR' })}:{' '}
+              <SpellLink spell={SPELLS.FIRE_BREATH} />{' '}
+              {t({ id: 'evoker.preservation.nozTeachings.cdr', message: 'CDR' })}:{' '}
               {formatDuration(this.fbWastedCdr)}
             </div>
             <div>
               {t({ id: 'evoker.preservation.nozTeachings.totalWasted', message: 'Total wasted' })}{' '}
-              <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> {t({ id: 'evoker.preservation.nozTeachings.cdr', message: 'CDR' })}:{' '}
+              <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} />{' '}
+              {t({ id: 'evoker.preservation.nozTeachings.cdr', message: 'CDR' })}:{' '}
               {formatDuration(this.dbWastedCdr)}
             </div>
           </>
@@ -125,24 +111,19 @@ class NozTeachings extends Analyzer {
       >
         <TalentSpellText talent={TALENTS_EVOKER.NOZDORMUS_TEACHINGS_TALENT}>
           <div>
-            {formatDuration(
-              BASE_EMPOWER_CD -
-                this.averageSbCdr -
-                SPIRITUAL_CLARITY_REDUCTION * this.hasSpiritualClarity,
-            )}{' '}
-          </div>
-          <div>
             {formatDuration(BASE_EMPOWER_CD - this.averageFbCdr)}{' '}
             <small>
               {t({ id: 'evoker.preservation.nozTeachings.average', message: 'average' })}{' '}
-              <SpellLink spell={SPELLS.FIRE_BREATH} /> {t({ id: 'evoker.preservation.nozTeachings.cooldown', message: 'cooldown' })}
+              <SpellLink spell={SPELLS.FIRE_BREATH} />{' '}
+              {t({ id: 'evoker.preservation.nozTeachings.cooldown', message: 'cooldown' })}
             </small>
           </div>
           <div>
             {formatDuration(BASE_EMPOWER_CD - this.averageDbCdr)}{' '}
             <small>
               {t({ id: 'evoker.preservation.nozTeachings.average', message: 'average' })}{' '}
-              <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> {t({ id: 'evoker.preservation.nozTeachings.cooldown', message: 'cooldown' })}
+              <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} />{' '}
+              {t({ id: 'evoker.preservation.nozTeachings.cooldown', message: 'cooldown' })}
             </small>
           </div>
         </TalentSpellText>

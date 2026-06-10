@@ -14,6 +14,8 @@ import { Trans } from '@lingui/react/macro';
 export function DragonRageSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   const rageWindows = Object.values(modules.dragonRage.rageWindowCounters);
 
+  if (rageWindows.length === 0) return null;
+
   const hasIridescence = info.combatant.hasTalent(TALENTS_EVOKER.IRIDESCENCE_TALENT);
   const hasMID1TierSet = info.combatant.has2PieceByTier(TIERS.MID1);
 
