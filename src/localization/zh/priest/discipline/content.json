@@ -75,7 +75,7 @@
   "priest.discipline.encroachingShadows.explanation": "<0><1>维持<2/></1>——它是救赎的高效伤害来源，也是触发<3/>的唯一途径。此减益的覆盖率应尽可能保持高位。如果你难以维持良好覆盖率，可以考虑使用<4/>。</0>",
   "priest.discipline.selfAtonementAnalysis.applicatorBreakdown": "<0/>施加分解",
   "priest.discipline.selfAtonementAnalysis.legend": "——绿色表示你未对自己施放的技能，红色表示你手动为自己施放救赎的技能。",
-  "priest.discipline.penance.importance": "<0><1><2/></1>对你的总输出贡献很大。完整引导所有光束至关重要。</0>",
+  "priest.discipline.penance.importance": "<0/><1/> <2>对你的总输出贡献很大。完整引导所有光束至关重要。</2>",
   "priest.discipline.penance.oracleNote": "<0><1>神谕者</1>的<2/>施放以防御为主，可通过<3/>提供的额外光束伤害实现单体治疗和团队范围治疗。</0>",
   "priest.discipline.penance.voidweaverNote": "<0><1>虚空编织者</1>的<2/>施放以进攻为主以求最大化输出。你仍可将其用作单体治疗和施加<3/>。</0>",
   "priest.discipline.penance.targetNotFriendly": "你的目标不是友方。",
@@ -84,5 +84,5 @@
   "priest.discipline.penance.legend": "——蓝色表示所有光束均已发射且你的目标类型合适。绿色表示你的目标不适合你的英雄专精。红色表示你在所有光束发射前停止了引导。",
   "priest.discipline.powerWordRadiance.castOnAtonedTarget": "真言术：耀对已拥有救赎的目标施放。",
   "priest.discipline.powerWordRadiance.lessThanFiveTargets": "真言术：耀给不到五个目标施加了救赎。",
-  "priest.discipline.powerWordRadiance.legend": "——<0>绿色</0>表示良好施放。<1>黄色</1>表示对已拥有<2/>的目标施放，或施放施加了不到五个救赎。<3>红色</3>表示上述两种情况同时发生。"
+  "priest.discipline.powerWordRadiance.legend": "<0/> <1>- <2>绿色</2>表示良好施放。<3>黄色</3>表示对已拥有<4/>的目标施放，或施放施加了不到五个救赎。<5>红色</5>表示上述两种情况同时发生。</1>"
 }

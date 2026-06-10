@@ -132,8 +132,8 @@ class Penance extends Analyzer {
             <strong>
               <SpellLink spell={SPELLS.PENANCE_CAST} />
             </strong>{' '}
-            has a large contribution to your through-put. Its important to finish channeling all its
-            bolts.
+            has a large contribution to your through-put. It's important to finish channeling all
+            its bolts.
           </Trans>
         </p>
 
@@ -142,8 +142,8 @@ class Penance extends Analyzer {
             <Trans id="priest.discipline.penance.oracleNote">
               An <strong>Oracle</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will be
               defensive in nature. Allowing for single target healing, and raid-wide healing through
-              your <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> by the extra damage from the
-              extra bolts fired by <SpellLink spell={TALENTS_PRIEST.TWINSIGHT_TALENT} />.
+              your <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> by the extra damage from
+              the extra bolts fired by <SpellLink spell={TALENTS_PRIEST.TWINSIGHT_TALENT} />.
             </Trans>
           </p>
         )}
@@ -151,9 +151,9 @@ class Penance extends Analyzer {
         {!this.hasTwinsight && (
           <p>
             <Trans id="priest.discipline.penance.voidweaverNote">
-              A <strong>Voidweaver</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will be
-              offensive in order to maximize throughput. You can still use it as a single target heal
-              and to apply <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />.
+              A <strong>Voidweaver</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will
+              be offensive in order to maximize throughput. You can still use it as a single target
+              heal and to apply <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />.
             </Trans>
           </p>
         )}
@@ -177,14 +177,31 @@ class Penance extends Analyzer {
           <>
             @ {this.owner.formatTimestamp(penanceCast.event.timestamp)}
             {this.hasTwinsight && !penanceCast.favourableTarget && (
-              <p>{t({ id: 'priest.discipline.penance.targetNotFriendly', message: 'Your target was not friendly.' })}</p>
+              <p>
+                {t({
+                  id: 'priest.discipline.penance.targetNotFriendly',
+                  message: 'Your target was not friendly.',
+                })}
+              </p>
             )}
             {!this.hasTwinsight && !penanceCast.favourableTarget && (
-              <p>{t({ id: 'priest.discipline.penance.targetFriendly', message: 'Your target was friendly.' })}</p>
+              <p>
+                {t({
+                  id: 'priest.discipline.penance.targetFriendly',
+                  message: 'Your target was friendly.',
+                })}
+              </p>
             )}
             {value === QualitativePerformance.Fail && (
               <p>
-                {(() => { const fired = penanceCast.firedBolts; const expected = penanceCast.expectedBolts; return t({ id: 'priest.discipline.penance.boltsFired', message: `${{fired}} out of ${{expected}} bolts were fired.` }); })()}
+                {(() => {
+                  const fired = penanceCast.firedBolts;
+                  const expected = penanceCast.expectedBolts;
+                  return t({
+                    id: 'priest.discipline.penance.boltsFired',
+                    message: `${{ fired }} out of ${{ expected }} bolts were fired.`,
+                  });
+                })()}
               </p>
             )}
           </>
@@ -197,9 +214,9 @@ class Penance extends Analyzer {
         <SpellLink spell={SPELLS.PENANCE_CAST} />{' '}
         <small>
           <Trans id="priest.discipline.penance.legend">
-            - Blue indicates that all bolts were fired and your target was favorable. Green indicates
-            your target was not favorable for your hero spec. Red means that you stopped channeling
-            before all bolts were fired.
+            - Blue indicates that all bolts were fired and your target was favorable. Green
+            indicates your target was not favorable for your hero spec. Red means that you stopped
+            channeling before all bolts were fired.
           </Trans>
         </small>
         <PerformanceBoxRow values={boxes} />

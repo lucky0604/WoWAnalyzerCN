@@ -27,6 +27,7 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+import Abilities from '../Abilities';
 import { SuddenDoomConsumption } from '../../normalizers/SuddenDoomLink';
 import RunicPowerTracker from '../core/RunicPowerTracker';
 import type { JSX } from 'react';
