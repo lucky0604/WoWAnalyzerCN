@@ -91,5 +91,8 @@ agent_flow/
 .mcp.json
 opencode.jsonc
 
+# AI session run artifacts
+.omo/
+
 # Redis dump
 dump.rdb
