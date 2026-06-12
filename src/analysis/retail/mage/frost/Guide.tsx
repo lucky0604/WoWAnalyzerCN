@@ -25,10 +25,17 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           </Trans>
         </b>
         <p>
-          <Trans id="mage.frost.activeTime.description1">
-            As mages we have <SpellLink spell={TALENTS.SHIMMER_TALENT} /> to continue casting while
-            dealing with mechanics that require movement.
-          </Trans>
+          <>
+            {t({
+              id: 'mage.frost.activeTime.description1.p1',
+              message: 'As mages we have ',
+            })}
+            <SpellLink spell={TALENTS.SHIMMER_TALENT} />
+            {t({
+              id: 'mage.frost.activeTime.description1.p2',
+              message: ' to continue casting while dealing with mechanics that require movement.',
+            })}
+          </>
         </p>
         <p>
           <Trans id="mage.frost.activeTime.description2">

@@ -29,23 +29,38 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
       <Statistic
         position={STATISTIC_ORDER.CORE(10)}
         tooltip={
-          <Trans id="mage.frost.alwaysBeCasting.statistic.tooltip">
+          <>
             <p>
-              Downtime is available time not used to cast anything (including not having your GCD
-              rolling). This can be caused by delays between casting spells, latency, cast
-              interrupting or just simply not casting anything (e.g. due to movement/stunned).
+              {t({
+                id: 'mage.frost.alwaysBeCasting.statistic.tooltip.p1',
+                message: 'Downtime is available time not used to cast anything (including not having your GCD rolling). This can be caused by delays between casting spells, latency, cast interrupting or just simply not casting anything (e.g. due to movement/stunned).',
+              })}
             </p>
             <ul>
               <li>
-                You spent <strong>{formatPercentage(this.activeTimePercentage)}%</strong> of your
-                time casting something.
+                {t({
+                  id: 'mage.frost.alwaysBeCasting.statistic.tooltip.li1',
+                  message: 'You spent ',
+                })}
+                <strong>{formatPercentage(this.activeTimePercentage)}%</strong>
+                {t({
+                  id: 'mage.frost.alwaysBeCasting.statistic.tooltip.li1a',
+                  message: ' of your time casting something.',
+                })}
               </li>
               <li>
-                You spent <strong>{formatPercentage(this.downtimePercentage)}%</strong> of your time
-                casting nothing at all.
+                {t({
+                  id: 'mage.frost.alwaysBeCasting.statistic.tooltip.li2',
+                  message: 'You spent ',
+                })}
+                <strong>{formatPercentage(this.downtimePercentage)}%</strong>
+                {t({
+                  id: 'mage.frost.alwaysBeCasting.statistic.tooltip.li2a',
+                  message: ' of your time casting nothing at all.',
+                })}
               </li>
             </ul>
-          </Trans>
+          </>
         }
       >
         <div className="pad">

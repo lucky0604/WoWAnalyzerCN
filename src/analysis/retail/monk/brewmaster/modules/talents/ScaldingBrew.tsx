@@ -13,6 +13,7 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const DAMAGE_AMP_PER_RANK = 0.0075;
 const BASE_DAMAGE_AMP = 0.075;
@@ -72,13 +73,16 @@ export default class ScaldingBrew extends Analyzer {
       this.missedHits += 1;
 
       if (this.lastCast) {
-        addInefficientCastReason(
-          this.lastCast,
-          <Trans id="monk.brewmaster.scaldingBrew.inefficientCast">
-            This cast did not benefit from <SpellLink spell={talents.SCALDING_BREW_TALENT} /> or
-            freshly apply the <SpellLink spell={talents.KEG_SMASH_TALENT} /> debuff.
-          </Trans>,
-        );
+          addInefficientCastReason(
+            this.lastCast,
+            <>
+              {t({ id: 'monk.brewmaster.scaldingBrew.inefficientCast.p1', message: 'This cast did not benefit from ' })}
+              <SpellLink spell={talents.SCALDING_BREW_TALENT} />
+              {t({ id: 'monk.brewmaster.scaldingBrew.inefficientCast.p2', message: ' or freshly apply the ' })}
+              <SpellLink spell={talents.KEG_SMASH_TALENT} />
+              {t({ id: 'monk.brewmaster.scaldingBrew.inefficientCast.p3', message: ' debuff.' })}
+            </>,
+          );
       }
     }
   }

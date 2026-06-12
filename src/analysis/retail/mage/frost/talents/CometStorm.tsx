@@ -125,10 +125,13 @@ class CometStorm extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="mage.frost.cometStorm.explanation1">
-            <b>{cometStorm}</b> is another important spell. You want to keep it on cooldown as much
-            as you can.
-          </Trans>
+          <>
+            <strong>{cometStorm}</strong>
+            {t({
+              id: 'mage.frost.cometStorm.explanation1.p1',
+              message: ' is another important spell. You want to keep it on cooldown as much as you can.',
+            })}
+          </>
         </p>
         <p>
           <Trans id="mage.frost.cometStorm.explanation2">
@@ -150,13 +153,25 @@ class CometStorm extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="mage.frost.cometStorm.castEfficiency">{cometStorm} cast efficiency</Trans>
+            <>
+              {cometStorm}
+              {t({
+                id: 'mage.frost.cometStorm.castEfficiency.p1',
+                message: ' cast efficiency',
+              })}
+            </>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
           </div>
           <strong>
-            <Trans id="mage.frost.cometStorm.castDetails">{cometStorm} cast details</Trans>
+            <>
+              {cometStorm}
+              {t({
+                id: 'mage.frost.cometStorm.castDetails.p1',
+                message: ' cast details',
+              })}
+            </>
           </strong>
           <PerformanceBoxRow values={this.castEntries} />
           <small>

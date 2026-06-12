@@ -5,7 +5,6 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import SPELLS from 'common/SPELLS/rogue';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 import RollTheBonesCastTracker, { RTBCast } from '../features/RollTheBonesCastTracker';
 
@@ -59,9 +58,11 @@ class RollTheBonesCounter extends Analyzer {
       >
         <div className="pad">
           <label>
-            <Trans id="rogue.outlaw.rollTheBonesCounter.distribution">
-              <SpellLink spell={SPELLS.ROLL_THE_BONES} /> distribution
-            </Trans>
+            <SpellLink spell={SPELLS.ROLL_THE_BONES} />{' '}
+            {t({
+              id: 'rogue.outlaw.rollTheBonesCounter.distribution',
+              message: 'distribution',
+            })}
           </label>
           {this.rolltheBonesBuffDistributionChart()}
         </div>

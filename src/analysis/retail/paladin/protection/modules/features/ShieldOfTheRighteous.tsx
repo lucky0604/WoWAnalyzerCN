@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatPercentage, formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon } from 'interface';
@@ -65,33 +64,36 @@ class ShieldOfTheRighteous extends Analyzer {
           id: 'paladin.protection.shieldOfTheRighteous.physicalHitsMitigated',
           message: 'Physical Hits Mitigated',
         })}
-        tooltip={
-          <>
-            <Trans id="paladin.protection.shieldOfTheRighteous.tooltip">
-              Shield of the Righteous usage breakdown:
+          tooltip={
+            <>
+              {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p1', message: 'Shield of the Righteous usage breakdown:' })}
               <ul>
                 <li>
-                  You were hit <strong>{this.sotrHits}</strong> times with your Shield of the
-                  Righteous buff (<strong>{formatThousands(this.sotrDamageTaken)}</strong> damage).
+                  {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p2', message: 'You were hit ' })}
+                  <strong>{t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.hits', message: '{count}', values: { count: this.sotrHits }})}</strong>
+                  {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p3', message: ' times with your Shield of the Righteous buff (' })}
+                  <strong>{t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.damage', message: '{damage}', values: { damage: formatThousands(this.sotrDamageTaken) }})}</strong>
+                  {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p4', message: ' damage).' })}
                 </li>
                 <li>
-                  You were hit <strong>{this.totalHits - this.sotrHits}</strong> times{' '}
+                  {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p5', message: 'You were hit ' })}
+                  <strong>{t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.hitsWo', message: '{count}', values: { count: this.totalHits - this.sotrHits }})}</strong>
+                  {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p6', message: ' times ' })}
                   <strong>
-                    <em>without</em>
-                  </strong>{' '}
-                  your Shield of the Righteous buff (
+                    <em>{t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.without', message: 'without' })}</em>
+                  </strong>
+                  {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p7', message: ' your Shield of the Righteous buff (' })}
                   <strong>
-                    {formatThousands(this.totalDamageTaken - this.sotrDamageTaken)}
-                  </strong>{' '}
-                  damage).
+                    {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.damage2', message: '{damage}', values: { damage: formatThousands(this.totalDamageTaken - this.sotrDamageTaken) }})}
+                  </strong>
+                  {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p8', message: ' damage).' })}
                 </li>
               </ul>
-              <strong>{formatPercentage(this.sotrHits / this.totalHits)}%</strong> of physical attacks
-              were mitigated with Shield of the Righteous.
+              <strong>{t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.pct', message: '{pct}%', values: { pct: formatPercentage(this.sotrHits / this.totalHits) }})}</strong>
+              {t({ id: 'paladin.protection.shieldOfTheRighteous.tooltip.p9', message: ' of physical attacks were mitigated with Shield of the Righteous.' })}
               <br />
-            </Trans>
-          </>
-        }
+            </>
+          }
       />
     );
   }

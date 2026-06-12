@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
@@ -182,55 +181,68 @@ class HolyPrismTargetsHit extends Analyzer {
 
   get guideSubsection(): JSX.Element {
     const explanation = (
-      <Trans id="paladin.holy.talents.holyPrism.guideExplanation">
+      <>
         <p>
           <b>
             <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
-          </b>{' '}
-          is a powerful AoE or single-target heal depending on who you cast it on:
+          </b>
+          {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.p1', message: ' is a powerful AoE or single-target heal depending on who you cast it on:' })}
           <ol>
             <li>
-              an enemy target for AoE healing (<span style={{ color: 'green' }}>best</span>)
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.li1', message: ' an enemy target for AoE healing ' })}
+              (<span style={{ color: 'green' }}>{t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.best', message: 'best' })}</span>)
             </li>
             <li>
-              an ally for single-target spot healing (<span style={{ color: 'yellow' }}>ok</span>)
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.li2', message: ' an ally for single-target spot healing ' })}
+              (<span style={{ color: 'yellow' }}>{t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.ok', message: 'ok' })}</span>)
             </li>
           </ol>
           {this.selectedCombatant.hasTalent(TALENTS.DIVINE_FAVOR_TALENT) && (
             <>
               {' '}
-              Casting <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> also procs{' '}
-              <SpellLink spell={TALENTS.DIVINE_FAVOR_TALENT} />, reducing the cast time and mana cost
-              of the preferred consuming spell,
-              <SpellLink spell={SPELLS.HOLY_LIGHT} />, significantly.
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.divineFavor.p1', message: 'Casting ' })}
+              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.divineFavor.p2', message: ' also procs ' })}
+              <SpellLink spell={TALENTS.DIVINE_FAVOR_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.divineFavor.p3', message: ', reducing the cast time and mana cost of the preferred consuming spell,' })}
+              <SpellLink spell={SPELLS.HOLY_LIGHT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.divineFavor.p4', message: ', significantly.' })}
             </>
           )}
           {this.selectedCombatant.hasTalent(TALENTS.SUNS_AVATAR_TALENT) && (
             <>
               {' '}
-              As Herald of the Sun, it is very important to line up your{' '}
-              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> casts with{' '}
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p1', message: 'As Herald of the Sun, it is very important to line up your ' })}
+              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p2', message: ' casts with ' })}
               <SpellLink
                 spell={this.hasAC ? SPELLS.AVENGING_CRUSADER.id : TALENTS.AVENGING_WRATH_TALENT.id}
-              />{' '}
-              and <SpellLink spell={TALENTS.AWAKENING_TALENT} /> windows as you apply{' '}
-              <SpellLink spell={TALENTS.DAWNLIGHT_TALENT} /> with your next two{' '}
-              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> spenders after casting{' '}
-              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> to take advantage of{' '}
-              <SpellLink spell={TALENTS.SUNS_AVATAR_TALENT} />.
+              />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p3', message: ' and ' })}
+              <SpellLink spell={TALENTS.AWAKENING_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p4', message: ' windows as you apply ' })}
+              <SpellLink spell={TALENTS.DAWNLIGHT_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p5', message: ' with your next two ' })}
+              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p6', message: ' spenders after casting ' })}
+              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p7', message: ' to take advantage of ' })}
+              <SpellLink spell={TALENTS.SUNS_AVATAR_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.guideExplanation.sunsAvatar.p8', message: '.' })}
             </>
           )}
         </p>
-      </Trans>
+      </>
     );
 
     const data = (
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="paladin.holy.talents.holyPrism.castEfficiency">
-              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> cast efficiency
-            </Trans>
+            <>
+              <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
+              {t({ id: 'paladin.holy.talents.holyPrism.castEfficiency', message: ' cast efficiency' })}
+            </>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
@@ -240,10 +252,11 @@ class HolyPrismTargetsHit extends Analyzer {
               </strong>
               {' '}
               <small>
-                <Trans id="paladin.holy.talents.holyPrism.castLegend">
-                  - Green indicates a correct <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} /> cast,
-                  while yellow indicates an ok cast.
-                </Trans>
+                <>
+                  {t({ id: 'paladin.holy.talents.holyPrism.castLegend.p1', message: '- Green indicates a correct ' })}
+                  <SpellLink spell={TALENTS.HOLY_PRISM_TALENT} />
+                  {t({ id: 'paladin.holy.talents.holyPrism.castLegend.p2', message: ' cast, while yellow indicates an ok cast.' })}
+                </>
               </small>
             </p>
             <PerformanceBoxRow values={this.castEntries} />

@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
 import Events, { HealEvent, CastEvent } from 'parser/core/Events';
@@ -67,14 +67,27 @@ export default class LivelyTotems extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
-          <Trans id="shaman.restoration.livelyTotems.tooltip">
-            <strong>{formatNumber(this.healingDoneFromTalent)}</strong> bonus healing (
-            {formatNumber(this.overhealingDoneFromTalent)} overhealing)
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+          <>
+            <strong>
+              {t({
+                id: 'shaman.restoration.livelyTotems.tooltip',
+                message: '{0} bonus healing ({1} overhealing)',
+                values: {
+                  0: formatNumber(this.healingDoneFromTalent),
+                  1: formatNumber(this.overhealingDoneFromTalent),
+                },
+              })}
+            </strong>
             <br />
-            {this.chainHealCasts} free chain heals, saving {formatNumber(this.manaSavedFromTalent)}{' '}
-            mana.
-          </Trans>
+            {t({
+              id: 'shaman.restoration.livelyTotems.tooltip.mana',
+              message: '{0} free chain heals, saving {1} mana.',
+              values: {
+                0: this.chainHealCasts,
+                1: formatNumber(this.manaSavedFromTalent),
+              },
+            })}
+          </>
         }
       >
         <TalentSpellText talent={TALENTS.LIVELY_TOTEMS_TALENT}>

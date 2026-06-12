@@ -1,6 +1,5 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { Options } from 'parser/core/Module';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
@@ -132,18 +131,29 @@ export default class Lunation extends Analyzer.withDependencies({ spellUsable: S
         tooltip={
           <>
             <p>
-              <Trans id="druid.shared.lunation.avg_cdr_tooltip_p1">
-                This is the cooldown reduction per <SpellLink spell={this.spell} /> cast, averaged
-                over the entire encounter. The total effective CDR over the entire encounter was{' '}
-                <strong>{(this.totalCdrMs / 1000).toFixed(0)}s</strong>.
-              </Trans>
+              {t({
+                id: 'druid.shared.lunation.avg_cdr_tooltip_p1',
+                message: 'This is the cooldown reduction per ',
+              })}
+              <SpellLink spell={this.spell} />
+              {t({
+                id: 'druid.shared.lunation.avg_cdr_tooltip_p1b',
+                message: ' cast, averaged over the entire encounter. The total effective CDR over the entire encounter was ',
+              })}
+              <strong>{(this.totalCdrMs / 1000).toFixed(0)}s</strong>.
             </p>
             <p>
-              <Trans id="druid.shared.lunation.avg_cdr_tooltip_p2">
-                The total 'raw' CDR over the entire encounter (including Arcane spells cast while{' '}
-                <SpellLink spell={this.spell} /> was not on CD) was{' '}
-                <strong>{(this.totalRawCdr / 1000).toFixed(0)}s</strong>.
-              </Trans>
+              {t({
+                id: 'druid.shared.lunation.avg_cdr_tooltip_p2',
+                message:
+                  "The total 'raw' CDR over the entire encounter (including Arcane spells cast while ",
+              })}
+              <SpellLink spell={this.spell} />
+              {t({
+                id: 'druid.shared.lunation.avg_cdr_tooltip_p2b',
+                message: ' was not on CD) was ',
+              })}
+              <strong>{(this.totalRawCdr / 1000).toFixed(0)}s</strong>.
             </p>
           </>
         }

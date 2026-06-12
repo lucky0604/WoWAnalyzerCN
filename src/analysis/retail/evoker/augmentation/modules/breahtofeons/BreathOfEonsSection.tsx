@@ -169,7 +169,7 @@ const BreathOfEonsSection: FC<Props> = ({
               </tr>
               <tr>
                 <td>
-                  <Trans id="evoker.augmentation.breathOfEonsSection.fireBreathCasts"><SpellLink spell={SPELLS.FIRE_BREATH} /> casts</Trans>{' '}
+                  <><SpellLink spell={SPELLS.FIRE_BREATH} />{t({id:'evoker.augmentation.breathOfEonsSection.fireBreathCasts.text',message:' casts'})}</>{' '}
                 </td>
                 <td>
                   {window.breathPerformance.fireBreaths} /{' '}
@@ -185,7 +185,7 @@ const BreathOfEonsSection: FC<Props> = ({
 
               <tr>
                 <td>
-                  <Trans id="evoker.augmentation.breathOfEonsSection.upheavalCasts"><SpellLink spell={SPELLS.UPHEAVAL} /> casts</Trans>{' '}
+                  <><SpellLink spell={SPELLS.UPHEAVAL} />{t({id:'evoker.augmentation.breathOfEonsSection.upheavalCasts.text',message:' casts'})}</>{' '}
                 </td>
                 <td>
                   {window.breathPerformance.upheavals} /{' '}
@@ -201,7 +201,7 @@ const BreathOfEonsSection: FC<Props> = ({
               {window.breathPerformance.timeskipTalented && (
                 <tr>
                   <td>
-                    <Trans id="evoker.augmentation.breathOfEonsSection.timeSkipCasts"><SpellLink spell={TALENTS.TIME_SKIP_TALENT} /> casts</Trans>{' '}
+                    <><SpellLink spell={TALENTS.TIME_SKIP_TALENT} />{t({id:'evoker.augmentation.breathOfEonsSection.timeSkipCasts.text',message:' casts'})}</>{' '}
                   </td>
                   <td>
                     {window.breathPerformance.timeSkips} /{' '}
@@ -264,29 +264,11 @@ const BreathOfEonsSection: FC<Props> = ({
     >
       <div>
         <p>
-          <Trans id="guide.augmentation.breathofeons.explanation1">
-            <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} /> is a powerful cooldown that you
-            should try to use during Bloodlust or increased damage phases, since it's a major damage
-            amplifier, replicating damage done by you and your DPS allies. It also activates many
-            talents, such as <SpellLink spell={TALENTS.DUPLICATE_2_AUGMENTATION_TALENT} />,{' '}
-            <SpellLink spell={TALENTS.IMMINENT_DESTRUCTION_AUGMENTATION_TALENT} />,{' '}
-            <SpellLink spell={TALENTS.OVERLORD_TALENT} />, and{' '}
-            <SpellLink spell={TALENTS.COMMAND_SQUADRON_TALENT} />, greatly increasing your personal
-            damage.
-          </Trans>
+          <><SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation1.p1',message:' is a powerful cooldown that you should try to use during Bloodlust or increased damage phases, since it\'s a major damage amplifier, replicating damage done by you and your DPS allies. It also activates many talents, such as '})}<SpellLink spell={TALENTS.DUPLICATE_2_AUGMENTATION_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation1.p2',message:', '})}<SpellLink spell={TALENTS.IMMINENT_DESTRUCTION_AUGMENTATION_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation1.p3',message:', '})}<SpellLink spell={TALENTS.OVERLORD_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation1.p4',message:', and '})}<SpellLink spell={TALENTS.COMMAND_SQUADRON_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation1.p5',message:', greatly increasing your personal damage.'})}</>
         </p>
         <div>
           <p>
-            <Trans id="guide.augmentation.breathofeons.explanation2">
-              You can use the graph below to visualize your buffs:{' '}
-              <SpellLink spell={SPELLS.SHIFTING_SANDS_BUFF} />,{' '}
-              <SpellLink spell={TALENTS.PRESCIENCE_TALENT} />, and your{' '}
-              <SpellLink spell={SPELLS.TEMPORAL_WOUND_DEBUFF} /> debuffs, for each individual{' '}
-              <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} /> window. Problem points such as:
-              letting <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> drop during your{' '}
-              <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} /> windows, or a mob dying before{' '}
-              <SpellLink spell={SPELLS.TEMPORAL_WOUND_DEBUFF} /> runs out, will be pointed out.
-            </Trans>
+            <>{t({id:'guide.augmentation.breathofeons.explanation2.p1',message:'You can use the graph below to visualize your buffs: '})}<SpellLink spell={SPELLS.SHIFTING_SANDS_BUFF} />{t({id:'guide.augmentation.breathofeons.explanation2.p2',message:', '})}<SpellLink spell={TALENTS.PRESCIENCE_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation2.p3',message:', and your '})}<SpellLink spell={SPELLS.TEMPORAL_WOUND_DEBUFF} />{t({id:'guide.augmentation.breathofeons.explanation2.p4',message:' debuffs, for each individual '})}<SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation2.p5',message:' window. Problem points such as: letting '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation2.p6',message:' drop during your '})}<SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />{t({id:'guide.augmentation.breathofeons.explanation2.p7',message:' windows, or a mob dying before '})}<SpellLink spell={SPELLS.TEMPORAL_WOUND_DEBUFF} />{t({id:'guide.augmentation.breathofeons.explanation2.p8',message:' runs out, will be pointed out.'})}</>
           </p>
         </div>
       </div>

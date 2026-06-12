@@ -8,7 +8,6 @@ import BoringResourceValue from 'parser/ui/BoringResourceValue';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 import FuryTracker from './FuryTracker';
 

@@ -3,7 +3,6 @@ import ChainHealNormalizer from '../../normalizers/ChainHealNormalizer';
 import talents from 'common/TALENTS/shaman';
 import UnleashLife from './UnleashLife';
 import Events, { BeginCastEvent, CastEvent, HealEvent } from 'parser/core/Events';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import {
   CHAIN_HEAL_TARGETS,
@@ -175,32 +174,52 @@ class FlowOfTheTides extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <Trans id="shaman.restoration.fott.total_tooltip">
-              <strong>{formatNumber(this.totalHealing)}</strong> total healing
-            </Trans>
+            <strong>
+              {t({
+                id: 'shaman.restoration.fott.total_tooltip',
+                message: '{0} total healing',
+                values: { 0: formatNumber(this.totalHealing) },
+              })}
+            </strong>
             <ul>
               <li>
-                <Trans id="shaman.restoration.fott.jumps">
-                  <strong>{formatNumber(this.healing)}</strong> healing from extra jumps (
-                  {this.extraJumps})
-                </Trans>
+                <strong>
+                  {t({
+                    id: 'shaman.restoration.fott.jumps',
+                    message: '{0} healing from extra jumps ({1})',
+                    values: { 0: formatNumber(this.healing), 1: this.extraJumps },
+                  })}
+                </strong>
               </li>
               <li>
-                <Trans id="shaman.restoration.fott.bonus">
-                  <strong>{formatNumber(this.bonusHealing)}</strong> extra healing from the{' '}
-                  {formatPercentage(FLOW_OF_THE_TIDES_INCREASE)}% increase
-                </Trans>
+                <strong>
+                  {t({
+                    id: 'shaman.restoration.fott.bonus',
+                    message: '{0} extra healing from the {1}% increase',
+                    values: {
+                      0: formatNumber(this.bonusHealing),
+                      1: formatPercentage(FLOW_OF_THE_TIDES_INCREASE),
+                    },
+                  })}
+                </strong>
               </li>
               <li>
-                <Trans id="shaman.restoration.fott.lost_riptides">
-                  <strong>{formatNumber(this.lostRiptides)}</strong> riptides consumed
-                </Trans>
+                <strong>
+                  {t({
+                    id: 'shaman.restoration.fott.lost_riptides',
+                    message: '{0} riptides consumed',
+                    values: { 0: formatNumber(this.lostRiptides) },
+                  })}
+                </strong>
               </li>
               <li>
-                <Trans id="shaman.restoration.fott.lost_riptide_duration">
-                  <strong>{(this.lostRiptideDuration / 1000).toFixed(2)}</strong> seconds of riptide
-                  lost
-                </Trans>
+                <strong>
+                  {t({
+                    id: 'shaman.restoration.fott.lost_riptide_duration',
+                    message: '{0} seconds of riptide lost',
+                    values: { 0: (this.lostRiptideDuration / 1000).toFixed(2) },
+                  })}
+                </strong>
               </li>
             </ul>
           </>

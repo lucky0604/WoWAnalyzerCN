@@ -24,10 +24,11 @@ function DefensivesSection() {
             raid by allowing healers to focus on keeping others alive.
           </Trans>
           <div>
-            <Trans id="dh.defensives.shortCD">
-              As a <span className="DemonHunter">Demon Hunter</span> you have access to a frequent
-              defensive CD in <SpellLink spell={SPELLS.BLUR} />.
-            </Trans>
+            {t({ id: 'dh.defensives.shortCD.p1', message: 'As a ' })}
+            <span className="DemonHunter">{t({ id: 'dh.defensives.shortCD.span', message: 'Demon Hunter' })}</span>
+            {t({ id: 'dh.defensives.shortCD.p2', message: ' you have access to a frequent defensive CD in ' })}
+            <SpellLink spell={SPELLS.BLUR} />
+            {t({ id: 'dh.defensives.shortCD.p3', message: '.' })}
           </div>
         </p>
         <p>

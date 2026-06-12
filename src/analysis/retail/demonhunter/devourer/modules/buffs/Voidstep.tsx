@@ -123,13 +123,13 @@ class Voidstep extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="guide.demonhunter.devourer.voidstep.explanation">
-            After each <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} /> and{' '}
-            <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> casts, you are granted a temporary
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> charge that deals
-            increased AoE damage. You should aim to consume this proc everytime, as it is free
-            damage.
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.voidstep.explanation.p1', message: 'After each ' })}
+          <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} />
+          {t({ id: 'guide.demonhunter.devourer.voidstep.explanation.p2', message: ' and ' })}
+          <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} />
+          {t({ id: 'guide.demonhunter.devourer.voidstep.explanation.p3', message: ' casts, you are granted a temporary ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.voidstep.explanation.p4', message: ' charge that deals increased AoE damage. You should aim to consume this proc everytime, as it is free damage.' })}
           <div>
             <Trans id="guide.demonhunter.devourer.voidstep.warning">
               If you can't afford the forced movement at a specific point, don't die trying.

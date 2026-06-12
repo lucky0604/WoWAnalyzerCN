@@ -117,10 +117,14 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                   const cdr = (ks.cdr / 1000).toFixed(2);
                   const wasted = (ks.wastedCDR / 1000).toFixed(2);
                   return (
-                    <Trans id="monk.brewmaster.cdr.ks">
-                      {casts} Keg Smash casts — <strong>{cdr}s</strong> (<strong>{wasted}s</strong>{' '}
-                      wasted)
-                    </Trans>
+                    <>
+                      {casts}
+                      {t({ id: 'monk.brewmaster.cdr.ks.p1', message: ' Keg Smash casts — ' })}
+                      <strong>{cdr}s</strong>
+                      {t({ id: 'monk.brewmaster.cdr.ks.p2', message: ' (' })}
+                      <strong>{wasted}s</strong>
+                      {t({ id: 'monk.brewmaster.cdr.ks.p3', message: ' wasted)' })}
+                    </>
                   );
                 })()}
               </li>
@@ -131,10 +135,18 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                     const cdr = (ks.bocCDR / 1000).toFixed(2);
                     const wasted = (ks.wastedBocCDR / 1000).toFixed(2);
                     return (
-                      <Trans id="monk.brewmaster.cdr.ks_boc">
-                        Using Blackout Combo on {hits} Keg Smash hits — <strong>{cdr}s</strong> (
-                        <strong>{wasted}s</strong> wasted)
-                      </Trans>
+                      <>
+                        {t({
+                          id: 'monk.brewmaster.cdr.ks_boc.p1',
+                          message: 'Using Blackout Combo on ',
+                        })}
+                        {hits}
+                        {t({ id: 'monk.brewmaster.cdr.ks_boc.p2', message: ' Keg Smash hits — ' })}
+                        <strong>{cdr}s</strong>
+                        {t({ id: 'monk.brewmaster.cdr.ks_boc.p3', message: ' (' })}
+                        <strong>{wasted}s</strong>
+                        {t({ id: 'monk.brewmaster.cdr.ks_boc.p4', message: ' wasted)' })}
+                      </>
                     );
                   })()}
                 </li>
@@ -146,10 +158,14 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                     const cdr = (tp.cdr / 1000).toFixed(2);
                     const wasted = (tp.wastedCDR / 1000).toFixed(2);
                     return (
-                      <Trans id="monk.brewmaster.cdr.tp">
-                        {casts} Tiger Palm hits — <strong>{cdr}s</strong> (
-                        <strong>{wasted}s</strong> wasted)
-                      </Trans>
+                      <>
+                        {casts}
+                        {t({ id: 'monk.brewmaster.cdr.tp.p1', message: ' Tiger Palm hits — ' })}
+                        <strong>{cdr}s</strong>
+                        {t({ id: 'monk.brewmaster.cdr.tp.p2', message: ' (' })}
+                        <strong>{wasted}s</strong>
+                        {t({ id: 'monk.brewmaster.cdr.tp.p3', message: ' wasted)' })}
+                      </>
                     );
                   })()}
                 </li>
@@ -160,10 +176,14 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                       const cdr = (tp.fpCdr / 1000).toFixed(2);
                       const wasted = (tp.wastedFpCdr / 1000).toFixed(2);
                       return (
-                        <Trans id="monk.brewmaster.cdr.tp_fp">
-                          {triggers} Face Palm triggers — <strong>{cdr}s</strong> (
-                          <strong>{wasted}s</strong> wasted)
-                        </Trans>
+                        <>
+                          {triggers}
+                          {t({ id: 'monk.brewmaster.cdr.tp_fp.p1', message: ' Face Palm triggers — ' })}
+                          <strong>{cdr}s</strong>
+                          {t({ id: 'monk.brewmaster.cdr.tp_fp.p2', message: ' (' })}
+                          <strong>{wasted}s</strong>
+                          {t({ id: 'monk.brewmaster.cdr.tp_fp.p3', message: ' wasted)' })}
+                        </>
                       );
                     })()}
                   </li>
@@ -178,10 +198,14 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                       2,
                     );
                     return (
-                      <Trans id="monk.brewmaster.cdr.bob">
-                        {casts} Black Ox Brew casts — <strong>{cdr}s</strong> (
-                        <strong>{wasted}s</strong> wasted)
-                      </Trans>
+                      <>
+                        {casts}
+                        {t({ id: 'monk.brewmaster.cdr.bob.p1', message: ' Black Ox Brew casts — ' })}
+                        <strong>{cdr}s</strong>
+                        {t({ id: 'monk.brewmaster.cdr.bob.p2', message: ' (' })}
+                        <strong>{wasted}s</strong>
+                        {t({ id: 'monk.brewmaster.cdr.bob.p3', message: ' wasted)' })}
+                      </>
                     );
                   })()}
                 </li>
@@ -192,9 +216,11 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
                     const triggers = anvilStave.count;
                     const cdr = (anvilStave.cdr / 1000).toFixed(2);
                     return (
-                      <Trans id="monk.brewmaster.cdr.anvil">
-                        {triggers} Anvil & Stave triggers - <strong>{cdr}s</strong>
-                      </Trans>
+                      <>
+                        {triggers}
+                        {t({ id: 'monk.brewmaster.cdr.anvil.p1', message: ' Anvil & Stave triggers - ' })}
+                        <strong>{cdr}s</strong>
+                      </>
                     );
                   })()}
                 </li>

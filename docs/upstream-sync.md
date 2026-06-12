@@ -206,7 +206,7 @@ CN 翻译版 Guide 放在 `src/localization/overrides/`，与上游源文件路�
 `scripts/upstream-i18n-core-files.txt` 列出的文件使用 upstream 的 `defineMessage` 模式。
 **只**在 `src/localization/zh/messages.json` 填翻译，不要改成 `t()`。
 
-#### 7. 同步后只需两步
+#### 7. 同步后三步流程
 
 ```bash
 # 第一步：一键修复所有 i18n 问题（Trans→t、defineMessage→t、修 import、修 JSX 语法）
@@ -215,6 +215,28 @@ node scripts/i18n-fix.mjs
 # 第二步：检查 + typecheck（覆盖文件变更检测、核心 i18n 一致性）
 bash scripts/post-merge-i18n-checks.sh backup/<branch>/<timestamp> midnight
 ```
+
+#### 8. 额外检查：Lingui v6 兼容性
+
+同步后新引入的代码可能包含在 `<Trans>` 中嵌套 `<SpellLink>`、`<br>`、`<strong>` 的写法，
+这会导致运行时错误（`<a> cannot be a descendant of <a>`、void element 错误等）。
+
+扫描新引入的含 JSX 元素的 `<Trans>` 块：
+
+```bash
+node scripts/i18n-fix.mjs --check-trans
+```
+
+输出示例：
+```
+[WARN] src/analysis/retail/shaman/restoration/modules/spells/ChainHeal.tsx
+  Line 43: <Trans> contains <SpellLink> — must be converted to t() + explicit JSX
+  Line 87: <Trans> contains <br> — must be converted to t() + explicit JSX
+
+Found 3 files with problematic <Trans> blocks
+```
+
+如果扫描出问题，需要手动将 `<Trans>` 转换为 `t()` + 显式 JSX 片段（参考 `docs/i18n-guide.md` 中的方式 3 说明）。
 
 可选步骤：
 

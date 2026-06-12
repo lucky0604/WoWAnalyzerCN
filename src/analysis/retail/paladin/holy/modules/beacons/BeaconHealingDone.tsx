@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { Ability, BeaconHealEvent } from 'parser/core/Events';
 import HealingValue from 'parser/shared/modules/HealingValue';
@@ -57,11 +58,11 @@ class BeaconHealingDone extends Analyzer {
           </Trans>
         }
         explanation={
-          <Trans id="paladin.holy.modules.beacons.beaconHealingDone.beaconHealingSources.explanation">
-            Beacon healing is triggered by the <b>raw</b> healing done of your primary spells. This
-            breakdown shows the amount of effective beacon healing replicated by each beacon
-            transfering heal.
-          </Trans>
+          <>
+            {t({ id: 'paladin.holy.modules.beacons.beaconHealingDone.beaconHealingSources.explanation.p1', message: 'Beacon healing is triggered by the ' })}
+            <b>{t({ id: 'paladin.holy.modules.beacons.beaconHealingDone.beaconHealingSources.explanation.raw', message: 'raw' })}</b>
+            {t({ id: 'paladin.holy.modules.beacons.beaconHealingDone.beaconHealingSources.explanation.p2', message: ' healing done of your primary spells. This breakdown shows the amount of effective beacon healing replicated by each beacon transfering heal.' })}
+          </>
         }
         position={120}
         pad={false}

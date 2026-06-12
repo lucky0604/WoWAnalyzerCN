@@ -106,17 +106,23 @@ class RaptorSwipe extends Analyzer {
         <h5 style={{ color }}>{header}</h5>
         <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
         <div>
-          <Trans id="hunter.survival.raptorSwipe.tooltipSwipeDamage">
-            <SpellLink spell={SPELLS.RAPTOR_SWIPE_DAMAGE} />: <strong>{targetsHit}</strong> targets
-            hit <small>({formatNumber(swipeDamage)} damage)</small>
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.RAPTOR_SWIPE_DAMAGE} />
+            {t({ id: 'hunter.survival.raptorSwipe.tooltipSwipeDamage.p1', message: ': ' })}
+            <strong>{targetsHit}</strong>
+            {t({ id: 'hunter.survival.raptorSwipe.tooltipSwipeDamage.p2', message: ' targets hit ' })}
+            <small>({formatNumber(swipeDamage)} damage)</small>
+          </>
         </div>
         {strikeAsOneDamage > 0 && (
           <div>
-            <Trans id="hunter.survival.raptorSwipe.tooltipStrikeAsOne">
-              <SpellLink spell={SPELLS.STRIKE_AS_ONE} />: <strong>{strikeAsOneTargets}</strong>{' '}
-              targets hit <small>({formatNumber(strikeAsOneDamage)} damage)</small>
-            </Trans>
+            <>
+              <SpellLink spell={SPELLS.STRIKE_AS_ONE} />
+              {t({ id: 'hunter.survival.raptorSwipe.tooltipStrikeAsOne.p1', message: ': ' })}
+              <strong>{strikeAsOneTargets}</strong>
+              {t({ id: 'hunter.survival.raptorSwipe.tooltipStrikeAsOne.p2', message: ' targets hit ' })}
+              <small>({formatNumber(strikeAsOneDamage)} damage)</small>
+            </>
           </div>
         )}
       </div>
@@ -128,12 +134,17 @@ class RaptorSwipe extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="hunter.survival.raptorSwipe.guideExplanation">
+        <>
           <strong>
             <SpellLink spell={TALENTS.RAPTOR_SWIPE_1_SURVIVAL_TALENT} />
-          </strong>{' '}
-          should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />.
-        </Trans>
+          </strong>
+          {t({
+            id: 'hunter.survival.raptorSwipe.guideExplanation.p1',
+            message: ' should always be cast with ',
+          })}
+          <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+          {t({ id: 'hunter.survival.raptorSwipe.guideExplanation.p2', message: '.' })}
+        </>
       </p>
     );
 

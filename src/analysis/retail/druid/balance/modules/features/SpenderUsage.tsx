@@ -184,31 +184,52 @@ export default class SpenderUsage extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="druid.balance.spender.explanation_p1">
-            <strong>Spender spells</strong> are{' '}
-            <strong>
-              <SpellLink spell={SPELLS.STARSURGE_MOONKIN} />
-            </strong>{' '}
-            and{' '}
-            <strong>
-              <SpellLink spell={SPELLS.STARFALL} />
-            </strong>
-            .
-          </Trans>
+          <strong>
+            {t({ id: 'druid.balance.spender.explanation_p1', message: 'Spender spells' })}
+          </strong>
+          {t({ id: 'druid.balance.spender.explanation_p1.p2', message: ' are ' })}
+          <strong>
+            <SpellLink spell={SPELLS.STARSURGE_MOONKIN} />
+          </strong>{' '}
+          {t({ id: 'druid.balance.spender.explanation_p1.p3', message: 'and ' })}
+          <strong>
+            <SpellLink spell={SPELLS.STARFALL} />
+          </strong>
+          .
         </p>
         <p>
-          <Trans id="druid.balance.spender.explanation_p2">
-            Aim to cast as many spenders as possible during each{' '}
-            <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> window. Use{' '}
-            <SpellLink spell={SPELLS.STARSURGE_MOONKIN} /> against 1 or 2 targets, and{' '}
-            <SpellLink spell={SPELLS.STARFALL} /> against 3 or more targets.
-          </Trans>
+          {t({
+            id: 'druid.balance.spender.explanation_p2',
+            message:
+              'Aim to cast as many spenders as possible during each ',
+          })}
+          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} />
+          {t({
+            id: 'druid.balance.spender.explanation_p2.p2',
+            message: ' window. Use ',
+          })}
+          <SpellLink spell={SPELLS.STARSURGE_MOONKIN} />
+          {t({
+            id: 'druid.balance.spender.explanation_p2.p3',
+            message: ' against 1 or 2 targets, and ',
+          })}
+          <SpellLink spell={SPELLS.STARFALL} />
+          {t({
+            id: 'druid.balance.spender.explanation_p2.p4',
+            message: ' against 3 or more targets.',
+          })}
         </p>
         <p>
-          <Trans id="druid.balance.spender.explanation_p3">
-            Avoid using spenders outside of <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} />{' '}
-            except to prevent overcapping Astral Power.
-          </Trans>
+          {t({
+            id: 'druid.balance.spender.explanation_p3',
+            message:
+              'Avoid using spenders outside of ',
+          })}
+          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} />
+          {t({
+            id: 'druid.balance.spender.explanation_p3.p2',
+            message: ' except to prevent overcapping Astral Power.',
+          })}
         </p>
       </>
     );

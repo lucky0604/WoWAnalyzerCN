@@ -88,10 +88,27 @@ class BladeRush extends Analyzer {
       return;
     }
     const tooltip = (
-      <Trans id="rogue.outlaw.bladeRush.castTooltip">
-        At {this.owner.formatTimestamp(event.timestamp)} you cast{' '}
-        <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> at {energy!.amount} energy
-      </Trans>
+      <>
+        {t({
+          id: 'rogue.outlaw.bladeRush.castTooltip.p1',
+          message: 'At ',
+        })}
+        {this.owner.formatTimestamp(event.timestamp)}
+        {t({
+          id: 'rogue.outlaw.bladeRush.castTooltip.p2',
+          message: ' you cast ',
+        })}
+        <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />
+        {t({
+          id: 'rogue.outlaw.bladeRush.castTooltip.p3',
+          message: ' at ',
+        })}
+        {energy!.amount}
+        {t({
+          id: 'rogue.outlaw.bladeRush.castTooltip.p4',
+          message: ' energy',
+        })}
+      </>
     );
 
     if (energy!.amount > MAX_ENERGY_THRESHOLD) {
@@ -136,14 +153,21 @@ class BladeRush extends Analyzer {
   get guide(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="rogue.outlaw.bladeRush.guideExplanation">
+        <>
           <strong>
             <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />
           </strong>{' '}
-          should be used whenever your energy drop under 70-80, this energy threshold increase with
-          target count. At around 9 targets it is safe to use{' '}
-          <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> on cooldown regardless of energy.
-        </Trans>
+          {t({
+            id: 'rogue.outlaw.bladeRush.guideExplanation.text',
+            message:
+              'should be used whenever your energy drops under 70-80, this energy threshold increases with target count. At around 9 targets it is safe to use ',
+          })}
+          <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />
+          {t({
+            id: 'rogue.outlaw.bladeRush.guideExplanation.suffix',
+            message: ' on cooldown regardless of energy.',
+          })}
+        </>
       </p>
     );
 
@@ -151,16 +175,22 @@ class BladeRush extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="rogue.outlaw.bladeRush.utilization">
-              <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} /> utilization
-            </Trans>
+            <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />{' '}
+            {t({
+              id: 'rogue.outlaw.bladeRush.utilization',
+              message: 'utilization',
+            })}
           </strong>
           <div>
             <small>
-              <Trans id="rogue.outlaw.bladeRush.greyPeriodsDescription">
-                Grey periods indicate periods where your energy went under the recommended energy
-                threshold but you did not use <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />.
-              </Trans>
+              <>
+                {t({
+                  id: 'rogue.outlaw.bladeRush.greyPeriodsDescription.p1',
+                  message:
+                    'Grey periods indicate periods where your energy went under the recommended energy threshold but you did not use ',
+                })}
+                <SpellLink spell={TALENTS.BLADE_RUSH_TALENT} />.
+              </>
             </small>
             {uptimeBarSubStatistic(
               this.owner.fight,

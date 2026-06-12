@@ -218,25 +218,16 @@ class DesperatePrayer extends MajorDefensiveBuff.withDependencies({
     return (
       <>
         <p>
-          <Trans id="priest.holy.desperatePrayer.description">
-            <SpellLink spell={TALENTS.DESPERATE_PRAYER_TALENT} /> increases your maximum health by{' '}
-            {maxHpBonusPct}% for {duration} seconds and instantly heals you for that amount.
-          </Trans>
+          <><SpellLink spell={TALENTS.DESPERATE_PRAYER_TALENT} /> {t({ id: 'priest.holy.desperatePrayer.description.p1', message: `increases your maximum health by ${maxHpBonusPct}% for ${duration} seconds and instantly heals you for that amount.` })}</>
         </p>
         {this.hasLightsInspiration && (
           <p>
-            <Trans id="priest.holy.desperatePrayer.lightsInspiration">
-              <SpellLink spell={TALENTS.LIGHTS_INSPIRATION_TALENT} /> boosts the max health increase
-              from 25% to 35%.
-            </Trans>
+              <><SpellLink spell={TALENTS.LIGHTS_INSPIRATION_TALENT} /> {t({ id: 'priest.holy.desperatePrayer.lightsInspiration.p1', message: 'boosts the max health increase from 25% to 35%.' })}</>
           </p>
         )}
         {this.hasDesperateMeasures && (
           <p>
-            <Trans id="priest.holy.desperatePrayer.desperateMeasures">
-              <SpellLink spell={TALENTS.DESPERATE_MEASURES_TALENT} /> extends the buff duration from
-              10 to 20 seconds.
-            </Trans>
+            <><SpellLink spell={TALENTS.DESPERATE_MEASURES_TALENT} /> {t({ id: 'priest.holy.desperatePrayer.desperateMeasures.p1', message: 'extends the buff duration from 10 to 20 seconds.' })}</>
           </p>
         )}
       </>

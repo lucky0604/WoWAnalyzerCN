@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/deathknight';
@@ -96,16 +97,34 @@ class Bloodworms extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.bloodworms.statistic.tooltip">
+          <>
             <p>
-              <strong>Damage:</strong> {formatThousands(this.totalDamage)} /{' '}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.bloodworms.statistic.tooltip.damage',
+                  message: 'Damage:',
+                })}
+              </strong>{' '}
+              {formatThousands(this.totalDamage)} /{' '}
               {this.owner.formatItemDamageDone(this.totalDamage)}
             </p>
             <p>
-              <strong>Number of worms summoned:</strong> {this.totalSummons}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.bloodworms.statistic.tooltip.summoned',
+                  message: 'Number of worms summoned:',
+                })}
+              </strong>{' '}
+              {this.totalSummons}
             </p>
-            <strong>Number of worms popped early:</strong> {this.poppedWorms}
-          </Trans>
+            <strong>
+              {t({
+                id: 'deathknight.blood.bloodworms.statistic.tooltip.poppedEarly',
+                message: 'Number of worms popped early:',
+              })}
+            </strong>{' '}
+            {this.poppedWorms}
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.BLOODWORMS_TALENT}>

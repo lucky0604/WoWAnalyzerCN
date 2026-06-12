@@ -7,7 +7,6 @@ import CoreAbilities from 'parser/core/modules/Abilities';
 import { SpellbookAbility } from 'parser/core/modules/Ability';
 import SPELL_CATEGORY from 'parser/core/SPELL_CATEGORY';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 class Abilities extends CoreAbilities {
   spellbook(): SpellbookAbility[] {
@@ -121,10 +120,17 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: true,
           extraSuggestion: (
-            <Trans id="rogue.outlaw.abilities.bladeRushSuggestion">
-              You should delay using it to line it up with{' '}
-              <SpellLink spell={SPELLS.BLADE_FLURRY} icon /> in AoE scenarios.
-            </Trans>
+            <>
+              {t({
+                id: 'rogue.outlaw.abilities.bladeRushSuggestion.p1',
+                message: 'You should delay using it to line it up with ',
+              })}
+              <SpellLink spell={SPELLS.BLADE_FLURRY} icon />
+              {t({
+                id: 'rogue.outlaw.abilities.bladeRushSuggestion.p2',
+                message: ' in AoE scenarios.',
+              })}
+            </>
           ),
         },
       },
@@ -138,10 +144,17 @@ class Abilities extends CoreAbilities {
         castEfficiency: {
           suggestion: true,
           extraSuggestion: (
-            <Trans id="rogue.outlaw.abilities.killingSpreeSuggestion">
-              You should delay using it to line it up with{' '}
-              <SpellLink spell={SPELLS.BLADE_FLURRY} icon /> in AoE scenarios.
-            </Trans>
+            <>
+              {t({
+                id: 'rogue.outlaw.abilities.killingSpreeSuggestion.p1',
+                message: 'You should delay using it to line it up with ',
+              })}
+              <SpellLink spell={SPELLS.BLADE_FLURRY} icon />
+              {t({
+                id: 'rogue.outlaw.abilities.killingSpreeSuggestion.p2',
+                message: ' in AoE scenarios.',
+              })}
+            </>
           ),
         },
         enabled: combatant.hasTalent(TALENTS.KILLING_SPREE_TALENT),

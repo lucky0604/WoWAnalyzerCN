@@ -1,6 +1,5 @@
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
@@ -83,21 +82,32 @@ export default class SupportiveImbuements extends Analyzer {
         tooltip={
           <>
             <p>
-              <Trans id="shaman.restoration.si.tooltip.p1">
-                The bonus healing done can be less than what the talent says because of the way
-                effective healing is calculated, if a spell overheals then healing increases are
-                deducted before the baseline healing of the ability.
-              </Trans>
+              {t({
+                id: 'shaman.restoration.si.tooltip.p1',
+                message:
+                  'The bonus healing done can be less than what the talent says because of the way effective healing is calculated, if a spell overheals then healing increases are deducted before the baseline healing of the ability.',
+              })}
             </p>
             <p>
-              <Trans id="shaman.restoration.si.tooltip.p2">
-                The extra healing done from duration extensions on{' '}
-                <SpellLink spell={TALENTS.HEALING_STREAM_TOTEM_RESTORATION_TALENT} /> and{' '}
-                <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} /> is an approximation. We sum the total
-                healing done by the totems over their duration and then extract a percentage of this
-                equal to the duration <SpellLink spell={TALENTS.SUPPORTIVE_IMBUEMENTS_TALENT} />{' '}
-                added to them.
-              </Trans>
+              <>
+                {t({
+                  id: 'shaman.restoration.si.tooltip.p2.p1',
+                  message: 'The extra healing done from duration extensions on',
+                })}{' '}
+                <SpellLink spell={TALENTS.HEALING_STREAM_TOTEM_RESTORATION_TALENT} />
+                {t({ id: 'shaman.restoration.si.tooltip.p2.p2', message: ' and ' })}
+                <SpellLink spell={SPELLS.STORMSTREAM_TOTEM} />
+                {t({
+                  id: 'shaman.restoration.si.tooltip.p2.p3',
+                  message:
+                    ' is an approximation. We sum the total healing done by the totems over their duration and then extract a percentage of this equal to the duration',
+                })}{' '}
+                <SpellLink spell={TALENTS.SUPPORTIVE_IMBUEMENTS_TALENT} />
+                {t({
+                  id: 'shaman.restoration.si.tooltip.p2.p4',
+                  message: 'added to them.',
+                })}
+              </>
             </p>
           </>
         }

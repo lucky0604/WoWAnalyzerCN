@@ -19,30 +19,60 @@ export default function ActiveTime({ modules, events, info }: GuideProps<typeof 
       <Explanation>
         <>
           <p>
-            <Trans id="guide.hunter.survival.sections.activeTime.melee">
-              Time not spent active is lost damage. Despite being melee, Survival has many ways to
-              continue to deal damage while out of melee range such as abilities like
-              <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />,{' '}
-              <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />.{' '}
-            </Trans>
+            <>
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.melee.p1',
+                message: 'Time not spent active is lost damage. Despite being melee, Survival has many ways to continue to deal damage while out of melee range such as abilities like',
+              })}
+              <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.melee.p2',
+                message: ', ',
+              })}
+              <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
+              {t({ id: 'guide.hunter.survival.sections.activeTime.melee.p3', message: '. ' })}
+            </>
           </p>
           <p>
-            <Trans id="guide.hunter.survival.sections.activeTime.movement">
-              Hunter has a number of movement abilities, such as
-              <SpellLink spell={SPELLS.ASPECT_OF_THE_CHEETAH} />,{' '}
-              <SpellLink spell={SPELLS.DISENGAGE} />, and
-              <SpellLink spell={SPELLS.HARPOON} />, which can be used to quickly get back to your
-              target.
-            </Trans>
+            <>
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.movement.p1',
+                message: 'Hunter has a number of movement abilities, such as',
+              })}
+              <SpellLink spell={SPELLS.ASPECT_OF_THE_CHEETAH} />
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.movement.p2',
+                message: ', ',
+              })}
+              <SpellLink spell={SPELLS.DISENGAGE} />
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.movement.p3',
+                message: ', and',
+              })}
+              <SpellLink spell={SPELLS.HARPOON} />
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.movement.p4',
+                message: ', which can be used to quickly get back to your target.',
+              })}
+            </>
           </p>
           <p>
-            <Trans id="guide.hunter.survival.sections.activeTime.eagle">
-              Survival also has a power short duration cooldown in
-              <SpellLink spell={SPELLS.ASPECT_OF_THE_EAGLE} />, to be ranged for a 15 seconds,
-              although this does not extend your auto-attacks for
-              <SpellLink spell={TALENTS.LUNGE_TALENT} />, it does allow you to maintain good quality
-              uptime.
-            </Trans>
+            <>
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.eagle.p1',
+                message: 'Survival also has a power short duration cooldown in',
+              })}
+              <SpellLink spell={SPELLS.ASPECT_OF_THE_EAGLE} />
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.eagle.p2',
+                message: ', to be ranged for a 15 seconds, although this does not extend your auto-attacks for',
+              })}
+              <SpellLink spell={TALENTS.LUNGE_TALENT} />
+              {t({
+                id: 'guide.hunter.survival.sections.activeTime.eagle.p3',
+                message: ', it does allow you to maintain good quality uptime.',
+              })}
+            </>
           </p>
           <p>
             <Trans id="guide.hunter.survival.sections.activeTime.compare">

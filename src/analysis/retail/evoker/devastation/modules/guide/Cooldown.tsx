@@ -28,12 +28,7 @@ export function CooldownSection({ modules, info }: GuideProps<typeof CombatLogPa
       })}
     >
       <p>
-        <Trans id="guide.evoker.devastation.sections.cooldowns.summary">
-          These cooldowns are essential for maximizing your damage output. Top performing Evokers are
-          able to acheive 100% efficiency with{' '}
-          <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />,{' '}
-          <SpellLink spell={SPELLS.FIRE_BREATH} />, and <SpellLink spell={SPELLS.ETERNITY_SURGE} />.
-        </Trans>
+        <>{t({id:'guide.evoker.devastation.sections.cooldowns.summary.p1',message:'These cooldowns are essential for maximizing your damage output. Top performing Evokers are able to acheive 100% efficiency with '})}<SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />{t({id:'guide.evoker.devastation.sections.cooldowns.summary.p2',message:', '})}<SpellLink spell={SPELLS.FIRE_BREATH} />{t({id:'guide.evoker.devastation.sections.cooldowns.summary.p3',message:', and '})}<SpellLink spell={SPELLS.ETERNITY_SURGE} />{t({id:'guide.evoker.devastation.sections.cooldowns.summary.p4',message:'.'})}</>
       </p>
       <div>
         {t({ id: 'guide.evoker.devastation.sections.cooldowns.legend', message: 'Legend' })}

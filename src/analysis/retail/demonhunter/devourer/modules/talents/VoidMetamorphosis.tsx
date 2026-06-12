@@ -183,9 +183,8 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     const smugglingChecklistItem: CooldownExpandableItem = {
       label: (
         <>
-          <Trans id="guide.demonhunter.devourer.vm.smuggled">
-            Smuggled <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} />
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.vm.smuggled.p1', message: 'Smuggled ' })}
+          <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} />
         </>
       ),
       result: <PerformanceMark perf={smugglingPerformance} />,
@@ -228,52 +227,59 @@ class VoidMetamorphosis extends Analyzer.withDependencies({
     const explanation = (
       <>
         <p>
-          <Trans id="guide.demonhunter.devourer.vm.explanation1">
-            As <span className="DemonHunter">Devourer</span>, the greater share of your damage is
-            dealt during <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />.
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation1.p1', message: 'As ' })}
+          <span className="DemonHunter">{t({ id: 'guide.demonhunter.devourer.vm.explanation1.span', message: 'Devourer' })}</span>
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation1.p2', message: ', the greater share of your damage is dealt during ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation1.p3', message: '.' })}
         </p>
         <p>
-          <Trans id="guide.demonhunter.devourer.vm.explanation2">
-            During <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />,{' '}
-            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> is constantly consumed. Fight this process
-            by generating <ResourceLink id={RESOURCE_TYPES.FURY.id} /> using your abilities.{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} />,{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} /> stop the fury
-            drain&mdash; use them on cooldown!
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation2.p1', message: 'During ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation2.p2', message: ', ' })}
+          <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation2.p3', message: ' is constantly consumed. Fight this process by generating ' })}
+          <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation2.p4', message: ' using your abilities. ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation2.p5', message: ', ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation2.p6', message: ' and ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation2.p7', message: ' stop the fury drain\u2014 use them on cooldown!' })}
           <div>
-            <Trans id="guide.demonhunter.devourer.vm.explanation3">
-              In order to extend{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> the longest, it
-              is mandatory to keep up near-perfect active time.
-            </Trans>
+            {t({ id: 'guide.demonhunter.devourer.vm.explanation3.p1', message: 'In order to extend ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+            {t({ id: 'guide.demonhunter.devourer.vm.explanation3.p2', message: ' the longest, it is mandatory to keep up near-perfect active time.' })}
           </div>
         </p>
         <hr />
         <p>
-          <Trans id="guide.demonhunter.devourer.vm.explanation4">
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> upgrades{' '}
-            <SpellLink spell={SPELLS.REAP} /> to <SpellLink spell={SPELLS.CULL} />. The latter
-            becomes uncommonly powerful and should be used as much as possible with 4{' '}
-            <SpellLink spell={SPELLS.SOUL_FRAGMENT_DEVOUR} /> or more.
-          </Trans>
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation4.p1', message: ' upgrades ' })}
+          <SpellLink spell={SPELLS.REAP} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation4.p2', message: ' to ' })}
+          <SpellLink spell={SPELLS.CULL} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation4.p3', message: '. The latter becomes uncommonly powerful and should be used as much as possible with 4 ' })}
+          <SpellLink spell={SPELLS.SOUL_FRAGMENT_DEVOUR} />
+          {t({ id: 'guide.demonhunter.devourer.vm.explanation4.p4', message: ' or more.' })}
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.HUNGERING_SLASH_TALENT) && (
           <>
             <hr />
             <p>
-              <Trans id="guide.demonhunter.devourer.vm.explanation5">
-                <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} /> becomes{' '}
-                <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> for much higher damage. You can press{' '}
-                <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} /> or{' '}
-                <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} /> right before
-                entering <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} /> to
-                convert one to the other. This allows for at least three{' '}
-                <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} /> casts during your cooldown window,
-                instead of two. This is referred to as smuggling.
-              </Trans>
+              <SpellLink spell={SPELLS.HUNGERING_SLASH_CAST} />
+              {t({ id: 'guide.demonhunter.devourer.vm.explanation5.p1', message: ' becomes ' })}
+              <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} />
+              {t({ id: 'guide.demonhunter.devourer.vm.explanation5.p2', message: ' for much higher damage. You can press ' })}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDBLADE_TALENT} />
+              {t({ id: 'guide.demonhunter.devourer.vm.explanation5.p3', message: ' or ' })}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_DEVOURER_TALENT} />
+              {t({ id: 'guide.demonhunter.devourer.vm.explanation5.p4', message: ' right before entering ' })}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+              {t({ id: 'guide.demonhunter.devourer.vm.explanation5.p5', message: ' to convert one to the other. This allows for at least three ' })}
+              <SpellLink spell={SPELLS.REAPERS_TOLL_CAST} />
+              {t({ id: 'guide.demonhunter.devourer.vm.explanation5.p6', message: ' casts during your cooldown window, instead of two. This is referred to as smuggling.' })}
             </p>
           </>
         )}

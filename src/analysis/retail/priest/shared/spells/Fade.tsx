@@ -14,7 +14,6 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
 import { defineMessage, t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { MessageDescriptor } from '@lingui/core';
 
 const TRANSLUCENT_IMAGE_DAMAGE_REDUCTION = 0.1;
@@ -91,13 +90,9 @@ class Fade extends MajorDefensiveBuff {
 
   description(): ReactNode {
     return (
-      <p>
-        <Trans id="priest.holy.fade.description">
-          With <SpellLink spell={TALENTS.TRANSLUCENT_IMAGE_TALENT} />,{' '}
-          <SpellLink spell={TALENTS.FADE_TALENT} /> reduces the damage you take by{' '}
-          {formatPercentage(TRANSLUCENT_IMAGE_DAMAGE_REDUCTION, 0)}% for its duration.
-        </Trans>
-      </p>
+        <p>
+          <>{t({ id: 'priest.holy.fade.description.p1', message: 'With ' })}<SpellLink spell={TALENTS.TRANSLUCENT_IMAGE_TALENT} />{t({ id: 'priest.holy.fade.description.p2', message: ', ' })}<SpellLink spell={TALENTS.FADE_TALENT} />{t({ id: 'priest.holy.fade.description.p3', message: ` reduces the damage you take by ${formatPercentage(TRANSLUCENT_IMAGE_DAMAGE_REDUCTION, 0)}% for its duration.` })}</>
+        </p>
     );
   }
 

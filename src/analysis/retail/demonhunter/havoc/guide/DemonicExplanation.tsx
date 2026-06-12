@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { useInfo } from 'interface/guide';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS/demonhunter';
@@ -11,11 +11,13 @@ const DemonicExplanation = () => {
   }
   return (
     <p>
-      <Trans id="demonhunter.havoc.demonicExplanation">
-        Always use after casting <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} /> so that
-        you can benefit from the <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} /> provided by{' '}
-        <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} />.
-      </Trans>
+      {t({ id: 'demonhunter.havoc.demonicExplanation.p1', message: 'Always use after casting ' })}
+      <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} />
+      {t({ id: 'demonhunter.havoc.demonicExplanation.p2', message: ' so that you can benefit from the ' })}
+      <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} />
+      {t({ id: 'demonhunter.havoc.demonicExplanation.p3', message: ' provided by ' })}
+      <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} />
+      {t({ id: 'demonhunter.havoc.demonicExplanation.p4', message: '.' })}
     </p>
   );
 };

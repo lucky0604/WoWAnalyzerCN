@@ -186,9 +186,10 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       overallPerf = wotwPerf; // WotW is more important than Stomp, overwrite the overall value.
       items.push({
         label: (
-          <Trans id="monk.brewmaster.niuzao.wotw_triggers">
-            <SpellLink spell={SPELLS.WISDOM_OF_THE_WALL_TALENT}>WotW</SpellLink> triggers
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.WISDOM_OF_THE_WALL_TALENT}>WotW</SpellLink>
+            {t({ id: 'monk.brewmaster.niuzao.wotw_triggers.p1', message: ' triggers' })}
+          </>
         ),
         details: (
           <>
@@ -199,9 +200,10 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       });
       items.push({
         label: (
-          <Trans id="monk.brewmaster.niuzao.available_immediately">
-            <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT} /> available immediately
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT} />
+            {t({ id: 'monk.brewmaster.niuzao.available_immediately_bof.p1', message: ' available immediately' })}
+          </>
         ),
         result:
           initialBoFCooldown > 1000 ? (
@@ -211,9 +213,13 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
                     ? t({ id: 'monk.brewmaster.niuzao.status.available', message: 'available' })
                     : t({ id: 'monk.brewmaster.niuzao.status.unavailable', message: 'unavailable' });
                   return (
-                    <Trans id="monk.brewmaster.niuzao.on_cd">
-                      On CD (<SpellLink spell={SPELLS.KEG_SMASH_TALENT}>KS</SpellLink> {status})
-                    </Trans>
+                    <>
+                      {t({ id: 'monk.brewmaster.niuzao.on_cd.p1', message: 'On CD (' })}
+                      <SpellLink spell={SPELLS.KEG_SMASH_TALENT}>KS</SpellLink>
+                      {t({ id: 'monk.brewmaster.niuzao.on_cd.p2', message: ' ' })}
+                      {status}
+                      {t({ id: 'monk.brewmaster.niuzao.on_cd.p3', message: ')' })}
+                    </>
                   );
                 })()}
             >
@@ -229,10 +235,11 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       });
       items.push({
         label: (
-          <Trans id="monk.brewmaster.niuzao.bof_resets">
-            Deterministic <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT}>BoF</SpellLink> resets
-            available
-          </Trans>
+          <>
+            {t({ id: 'monk.brewmaster.niuzao.bof_resets.p1', message: 'Deterministic ' })}
+            <SpellLink spell={SPELLS.BREATH_OF_FIRE_TALENT}>BoF</SpellLink>
+            {t({ id: 'monk.brewmaster.niuzao.bof_resets.p2', message: ' resets available' })}
+          </>
         ),
         result: (
           <PerformanceMark
@@ -281,9 +288,10 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       const initialBoKCooldown = cast.cooldowns.get(SPELLS.BLACKOUT_KICK.id) ?? 0;
       items.push({
         label: (
-          <Trans id="monk.brewmaster.niuzao.available_immediately">
-            <SpellLink spell={SPELLS.BLACKOUT_KICK} /> available immediately
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.BLACKOUT_KICK} />
+            {t({ id: 'monk.brewmaster.niuzao.available_immediately_bok.p1', message: ' available immediately' })}
+          </>
         ),
         result: (
           <PerformanceMark
@@ -317,9 +325,10 @@ export default class InvokeNiuzao extends Analyzer.withDependencies({
       overallPerf = stompPerf;
       items.push({
         label: (
-          <Trans id="monk.brewmaster.niuzao.stomp_triggers">
-            <SpellLink spell={SPELLS_COMMON.NIUZAO_STOMP_DAMAGE} /> triggers
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS_COMMON.NIUZAO_STOMP_DAMAGE} />
+            {t({ id: 'monk.brewmaster.niuzao.stomp_triggers.p1', message: ' triggers' })}
+          </>
         ),
         details: (
           <>

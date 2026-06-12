@@ -113,9 +113,11 @@ class CastBehavior extends Analyzer {
         <Statistic ultrawide size="flexible">
           <div className="pad">
             <label>
-              <Trans id="shaman.restoration.castBehaviour.statistic.tidalWaves">
-                <SpellLink spell={SPELLS.TIDAL_WAVES_BUFF} /> usage
-              </Trans>
+              <SpellLink spell={SPELLS.TIDAL_WAVES_BUFF} />{' '}
+              {t({
+                id: 'shaman.restoration.castBehaviour.statistic.tidalWaves',
+                message: 'usage',
+              })}
             </label>
             {this.twUsageRatioChart}
           </div>

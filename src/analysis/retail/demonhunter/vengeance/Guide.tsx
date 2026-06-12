@@ -79,18 +79,20 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
         })}
       >
         <p>
-          <Trans id="guide.demonhunter.vengeance.sections.core.soulFragments.summary">
-            Most of your abilities either <strong>build</strong> or <strong>spend</strong> Soul
-            Fragments. Never use a builder at max <SpellLink spell={SPELLS.SOUL_FRAGMENT} />s or when
-            doing so will cause you to overcap on <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
-            s.
-          </Trans>
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.summary.p1', message: 'Most of your abilities either ' })}
+          <strong>{t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.summary.bold1', message: 'build' })}</strong>
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.summary.p2', message: ' or ' })}
+          <strong>{t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.summary.bold2', message: 'spend' })}</strong>
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.summary.p3', message: ' Soul Fragments. Never use a builder at max ' })}
+          <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.summary.p4', message: 's or when doing so will cause you to overcap on ' })}
+          <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.summary.p5', message: 's.' })}
         </p>
         <p>
-          <Trans id="guide.demonhunter.vengeance.sections.core.soulFragments.chart">
-            The chart below shows your <SpellLink spell={SPELLS.SOUL_FRAGMENT} />s over the course of
-            the encounter.
-          </Trans>
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.chart.p1', message: 'The chart below shows your ' })}
+          <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.soulFragments.chart.p2', message: 's over the course of the encounter.' })}
         </p>
         {modules.soulFragmentsGraph.plot}
       </SubSection>
@@ -101,16 +103,10 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
         })}
       >
         <p>
-          <Trans id="guide.demonhunter.vengeance.sections.core.activeTime.summary">
-            <b>
-              Continuously casting throughout an encounter is the single most important thing for
-              achieving good DPS.
-            </b>
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            <br />
-            Some fights have unavoidable downtime due to phase transitions and the like, so in these
-            cases 0% downtime will not be possible - do the best you can.
-          </Trans>
+          <b>{t({ id: 'guide.demonhunter.vengeance.sections.core.activeTime.summary.bold', message: 'Continuously casting throughout an encounter is the single most important thing for achieving good DPS.' })}</b>
+          {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+          <br />
+          {t({ id: 'guide.demonhunter.vengeance.sections.core.activeTime.summary.rest', message: 'Some fights have unavoidable downtime due to phase transitions and the like, so in these cases 0% downtime will not be possible - do the best you can.' })}
         </p>
         <p>
           <Trans id="guide.demonhunter.vengeance.sections.core.activeTime.value">
@@ -157,12 +153,15 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       })}
     >
       <p>
-        <Trans id="guide.demonhunter.vengeance.sections.rotation.summary">
-          Vengeance's core rotation involves <strong>building</strong> and then{' '}
-          <strong>spending</strong> <ResourceLink id={RESOURCE_TYPES.FURY.id} /> and{' '}
-          <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
-          s, which heal for 6% of damage taken in the 5 seconds before they are absorbed.
-        </Trans>
+        {t({ id: 'guide.demonhunter.vengeance.sections.rotation.summary.p1', message: "Vengeance's core rotation involves " })}
+        <strong>{t({ id: 'guide.demonhunter.vengeance.sections.rotation.summary.bold1', message: 'building' })}</strong>
+        {t({ id: 'guide.demonhunter.vengeance.sections.rotation.summary.p2', message: ' and then ' })}
+        <strong>{t({ id: 'guide.demonhunter.vengeance.sections.rotation.summary.bold2', message: 'spending' })}</strong>
+        {' '}
+        <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+        {t({ id: 'guide.demonhunter.vengeance.sections.rotation.summary.p3', message: ' and ' })}
+        <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
+        {t({ id: 'guide.demonhunter.vengeance.sections.rotation.summary.p4', message: 's, which heal for 6% of damage taken in the 5 seconds before they are absorbed.' })}
       </p>
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
@@ -206,13 +205,9 @@ function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       })}
     >
       <p>
-        <Trans id="guide.demonhunter.vengeance.sections.cooldowns.summary">
-          Vengeance has multiple cooldowns that it can use to increase survivability or do large
-          amounts of damage. In order to maximize usages over the course of an encounter, you should
-          aim to send the cooldown as soon as it becomes available (as long as it can do damage on
-          target) if you won't need it for an upcoming mechanic. It is particularly important to use{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.FEL_DEVASTATION_TALENT} /> as often as possible.
-        </Trans>
+        {t({ id: 'guide.demonhunter.vengeance.sections.cooldowns.summary.p1', message: "Vengeance has multiple cooldowns that it can use to increase survivability or do large amounts of damage. In order to maximize usages over the course of an encounter, you should aim to send the cooldown as soon as it becomes available (as long as it can do damage on target) if you won't need it for an upcoming mechanic. It is particularly important to use " })}
+        <SpellLink spell={TALENTS_DEMON_HUNTER.FEL_DEVASTATION_TALENT} />
+        {t({ id: 'guide.demonhunter.vengeance.sections.cooldowns.summary.p2', message: ' as often as possible.' })}
       </p>
       <HideExplanationsToggle id="hide-explanations-cooldowns" />
       <HideGoodCastsToggle id="hide-good-casts-cooldowns" />

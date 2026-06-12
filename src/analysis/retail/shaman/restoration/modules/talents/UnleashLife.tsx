@@ -258,40 +258,73 @@ class UnleashLife extends Analyzer {
   private _tooltip(primary: TooltipData, secondary?: TooltipData) {
     return (
       <>
-        <Trans id="shaman.restoration.ul.used">
-          You used <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> on{' '}
+        <>
+          {t({
+            id: 'shaman.restoration.ul.used.p1',
+            message: 'You used',
+          })}{' '}
+          <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+          {t({ id: 'shaman.restoration.ul.used.p2', message: ' on ' })}
           <SpellLink spell={primary.spellId} />{' '}
-          <strong>{this.healingMap[primary.spellId].casts} </strong>times
-        </Trans>
+          <strong>
+            {t({
+              id: 'shaman.restoration.ul.used.p3',
+              message: '{0} times',
+              values: { 0: this.healingMap[primary.spellId].casts },
+            })}
+          </strong>
+        </>
         <hr />
         <ul>
           {secondary && secondary.active && (
             <li>
-              <Trans id="shaman.restoration.ul.total_healing">
-                <strong>{formatNumber(this.healingMap[primary.spellId].amount)}</strong> total
-                healing
-              </Trans>
+              <strong>
+                {t({
+                  id: 'shaman.restoration.ul.total_healing',
+                  message: '{0} total healing',
+                  values: { 0: formatNumber(this.healingMap[primary.spellId].amount) },
+                })}
+              </strong>
             </li>
           )}
           <li>
-            <Trans id="shaman.restoration.ul.extra_healing">
-              <strong>{formatNumber(primary.amount)}</strong> extra{' '}
-              <SpellLink spell={primary.spellId} /> healing
-            </Trans>
+            <strong>
+              {t({
+                id: 'shaman.restoration.ul.extra_healing.p1',
+                message: '{0} extra',
+                values: { 0: formatNumber(primary.amount) },
+              })}
+            </strong>{' '}
+            <SpellLink spell={primary.spellId} />
+            {t({
+              id: 'shaman.restoration.ul.extra_healing.p2',
+              message: ' healing',
+            })}
           </li>
           {secondary && secondary.active && (
             <li>
-              <Trans id="shaman.restoration.ul.extra_healing">
-                <strong>{formatNumber(secondary.amount)}</strong> extra{' '}
-                <SpellLink spell={secondary.spellId} /> healing
-              </Trans>
+              <strong>
+                {t({
+                  id: 'shaman.restoration.ul.extra_healing.p1',
+                  message: '{0} extra',
+                  values: { 0: formatNumber(secondary.amount) },
+                })}
+              </strong>{' '}
+              <SpellLink spell={secondary.spellId} />
+              {t({
+                id: 'shaman.restoration.ul.extra_healing.p2',
+                message: ' healing',
+              })}
             </li>
           )}
           <li>
-            <Trans id="shaman.restoration.ul.avg_healing">
-              <strong>{formatNumber(this._getAveragePerCast(primary.spellId))} </strong> healing per
-              use
-            </Trans>
+            <strong>
+              {t({
+                id: 'shaman.restoration.ul.avg_healing',
+                message: '{0} healing per use',
+                values: { 0: formatNumber(this._getAveragePerCast(primary.spellId)) },
+              })}
+            </strong>
           </li>
         </ul>
       </>
@@ -397,15 +430,18 @@ class UnleashLife extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="shaman.restoration.ul.explanation">
-          <b>
-            <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
-          </b>{' '}
-          is a very efficient and potent heal on a short cooldown that also provides a buff that
-          improves your next <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />,{' '}
-          <SpellLink spell={SPELLS.HEALING_WAVE} />, or <SpellLink spell={TALENTS.RIPTIDE_TALENT} />
-          .
-        </Trans>
+        <b>
+          <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+        </b>{' '}
+        {t({
+          id: 'shaman.restoration.ul.explanation',
+          message:
+            'is a very efficient and potent heal on a short cooldown that also provides a buff that improves your next',
+        })}{' '}
+        <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />,{' '}
+        <SpellLink spell={SPELLS.HEALING_WAVE} />
+        {t({ id: 'shaman.restoration.ul.explanation.riptide', message: ', or ' })}
+        <SpellLink spell={TALENTS.RIPTIDE_TALENT} />.
       </p>
     );
 
@@ -413,20 +449,22 @@ class UnleashLife extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="shaman.restoration.ul.efficiency">
-              <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> cast efficiency
-            </Trans>
+            <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+            {t({
+              id: 'shaman.restoration.ul.efficiency',
+              message: ' cast efficiency',
+            })}
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             {this.guideSubStatistic()} <br />
             <strong>{t({ id: 'shaman.restoration.ul.casts_label', message: 'Casts ' })}</strong>
             <small>
-              <Trans id="shaman.restoration.ul.casts_desc">
-                - Green indicates a good use of the{' '}
-                <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> buff, Yellow indicates an ok use,
-                and Red is an incorrect use or the buff expired.
-              </Trans>
+              <>
+                {t({ id: 'shaman.restoration.ul.casts_desc.p1', message: '- Green indicates a good use of the' })}{' '}
+                <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+                {t({ id: 'shaman.restoration.ul.casts_desc.p2', message: ' buff, Yellow indicates an ok use, and Red is an incorrect use or the buff expired.' })}
+              </>
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>
@@ -454,28 +492,40 @@ class UnleashLife extends Analyzer {
     if (this.goodSpells.includes(spellId)) {
       value = QualitativePerformance.Good;
       tooltip = (
-        <Trans id="shaman.restoration.ul.correct">
-          Correct cast: buffed <SpellLink spell={spellId} />
-        </Trans>
+        <>
+          {t({
+            id: 'shaman.restoration.ul.correct',
+            message: 'Correct cast: buffed',
+          })}{' '}
+          <SpellLink spell={spellId} />
+        </>
       );
     } else if (this.okSpells.includes(spellId)) {
       value = QualitativePerformance.Ok;
       tooltip = (
-        <Trans id="shaman.restoration.ul.ok">
-          Ok cast: buffed <SpellLink spell={spellId} />
-        </Trans>
+        <>
+          {t({
+            id: 'shaman.restoration.ul.ok',
+            message: 'Ok cast: buffed',
+          })}{' '}
+          <SpellLink spell={spellId} />
+        </>
       );
     } else {
       value = QualitativePerformance.Fail;
       tooltip = (
         <>
-          {t({ id: 'shaman.restoration.ul.incorrect', message: 'Incorrect cast:' })}
+          {t({ id: 'shaman.restoration.ul.incorrect', message: 'Incorrect cast:' })}{' '}
           {spellId === -1 ? (
             t({ id: 'shaman.restoration.ul.unused', message: 'Unused Buff!' })
           ) : (
-            <Trans id="shaman.restoration.ul.buffed_spell">
-              buffed <SpellLink spell={spellId} />
-            </Trans>
+            <>
+              {t({
+                id: 'shaman.restoration.ul.buffed_spell',
+                message: 'buffed',
+              })}{' '}
+              <SpellLink spell={spellId} />
+            </>
           )}
         </>
       );

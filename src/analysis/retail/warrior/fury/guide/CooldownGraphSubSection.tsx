@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Talent } from 'common/TALENTS/types';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide';
 import { TALENTS_WARRIOR } from 'common/TALENTS';
@@ -49,12 +49,10 @@ const CooldownGraphSubsection = () => {
   return (
     <SubSection>
       <p>
-        <Trans id="warrior.fury.cooldownGraph.description">
-          <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how
-          long you waited to use them again. Grey segments show when the spell was available, yellow
-          segments show when the spell was cooling down. Red segments highlight times when you could
-          have fit a whole extra use of the cooldown.
-        </Trans>
+        <>
+          <strong>{t({ id: 'warrior.fury.cooldownGraph.description.bold', message:'Cooldown Graph' })}</strong>
+          {t({ id: 'warrior.fury.cooldownGraph.description.text', message:' - this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.' })}
+        </>
       </p>
       {cooldowns.map((cooldownCheck) => (
         <CastEfficiencyBar

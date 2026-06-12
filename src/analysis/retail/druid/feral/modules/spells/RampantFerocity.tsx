@@ -106,9 +106,11 @@ class RampantFerocity extends Analyzer {
         tooltip={
           <>
             <div>
-              <Trans id="druid.feral.rf.avg_splash">
-                Average splash hits per Bite: <strong>{this.avgTargetsHit.toFixed(1)}</strong>
-              </Trans>
+              {t({
+                id: 'druid.feral.rf.avg_splash.p1',
+                message: 'Average splash hits per Bite: ',
+              })}
+              <strong>{this.avgTargetsHit.toFixed(1)}</strong>
             </div>
             {(hasApex || hasConvoke) && (
               <>

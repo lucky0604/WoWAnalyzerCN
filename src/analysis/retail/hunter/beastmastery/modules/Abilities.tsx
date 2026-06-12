@@ -5,7 +5,7 @@ import { SpellLink } from 'interface';
 import CoreAbilities from 'parser/core/modules/Abilities';
 import { SpellbookAbility } from 'parser/core/modules/Ability';
 import SPELL_CATEGORY from 'parser/core/SPELL_CATEGORY';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 class Abilities extends CoreAbilities {
   spellbook(): SpellbookAbility[] {
@@ -65,11 +65,15 @@ class Abilities extends CoreAbilities {
           suggestion: true,
           recommendedEfficiency: 0.9,
           extraSuggestion: (
-            <Trans id="hunter.beastmastery.abilities.bestialWrathExtraSuggestion">
-              <SpellLink spell={TALENTS.BESTIAL_WRATH_TALENT} /> should be cast on cooldown as its
-              cooldown is quickly reset again through{' '}
-              <SpellLink spell={TALENTS.BARBED_SHOT_TALENT} />.
-            </Trans>
+            <>
+              <SpellLink spell={TALENTS.BESTIAL_WRATH_TALENT} />
+              {t({
+                id: 'hunter.beastmastery.abilities.bestialWrathExtraSuggestion.p1',
+                message: ' should be cast on cooldown as its cooldown is quickly reset again through ',
+              })}
+              <SpellLink spell={TALENTS.BARBED_SHOT_TALENT} />
+              {t({ id: 'hunter.beastmastery.abilities.bestialWrathExtraSuggestion.p2', message: '.' })}
+            </>
           ),
         },
       },

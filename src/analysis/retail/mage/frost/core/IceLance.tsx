@@ -150,9 +150,18 @@ class IceLance extends Analyzer {
         if (icelance.hadThermalVoid) {
           addEnhancedCastReason(
             icelance.cast,
-            <Trans id="mage.frost.iceLance.enhancedReason">
-              This cast utilized <SpellLink spell={TALENTS.THERMAL_VOID_TALENT} /> and {FINGERS}
-            </Trans>,
+            <>
+              {t({
+                id: 'mage.frost.iceLance.enhancedReason.p1',
+                message: 'This cast utilized ',
+              })}
+              <SpellLink spell={TALENTS.THERMAL_VOID_TALENT} />
+              {t({
+                id: 'mage.frost.iceLance.enhancedReason.p2',
+                message: ' and ',
+              })}
+              {FINGERS}
+            </>,
           );
         }
       } else if (icelance.highestShatteredStacks >= this.targetFreezingCount) {
@@ -170,10 +179,23 @@ class IceLance extends Analyzer {
         // 4 is an arbitrary cut-off, but this will only highlight REALLY inefficient casts on the timeline.
         highlightInefficientCast(
           icelance.cast,
-          <Trans id="mage.frost.iceLance.shatterTooltip">
-            This cast shattered <strong>{icelance.highestShatteredStacks}</strong> {FREEZING} stack
+          <>
+            {t({
+              id: 'mage.frost.iceLance.shatterTooltip.p1',
+              message: 'This cast shattered ',
+            })}
+            <strong>{icelance.highestShatteredStacks}</strong>
+            {t({
+              id: 'mage.frost.iceLance.shatterTooltip.p2',
+              message: ' ',
+            })}
+            {FREEZING}
+            {t({
+              id: 'mage.frost.iceLance.shatterTooltip.p3',
+              message: ' stack',
+            })}
             {icelance.highestShatteredStacks === 1 ? '' : 's'}
-          </Trans>,
+          </>,
         );
       }
     });
@@ -224,10 +246,27 @@ class IceLance extends Analyzer {
           </Trans>
         </p>
         <p>
-          <Trans id="mage.frost.iceLance.explanation2">
-            Based on your talent setup, you should cast {ICE_LANCE} when your target has{' '}
-            <strong>{this.targetFreezingCount}</strong> or more {FREEZING} stacks.
-          </Trans>
+          <>
+            {t({
+              id: 'mage.frost.iceLance.explanation2.p1',
+              message: 'Based on your talent setup, you should cast ',
+            })}
+            {ICE_LANCE}
+            {t({
+              id: 'mage.frost.iceLance.explanation2.p2',
+              message: ' when your target has ',
+            })}
+            <strong>{this.targetFreezingCount}</strong>
+            {t({
+              id: 'mage.frost.iceLance.explanation2.p3',
+              message: ' or more ',
+            })}
+            {FREEZING}
+            {t({
+              id: 'mage.frost.iceLance.explanation2.p4',
+              message: ' stacks.',
+            })}
+          </>
         </p>
         {this.talentWarning && (
           <p>

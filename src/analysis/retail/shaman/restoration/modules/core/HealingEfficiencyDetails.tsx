@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
@@ -14,19 +13,35 @@ class HealingEfficiencyDetails extends CoreHealingEfficiencyDetails {
         title={t({ id: 'shared.healingEfficiency.title', message: 'Mana Efficiency' })}
         explanation={
           <>
-            <Trans id="shaman.restoration.healingEfficiencyDetails">
-              <SpellLink spell={SPELLS.RESURGENCE} /> mana gained is removed from the spell, meaning
-              the mana spent of that spell will be lower.
-              {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-              <br />
-              Healing that is caused by the <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> buff,
-              is added to <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> instead of the spell
-              that was buffed.
-              {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-              <br />
-              <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} /> is given the healing from its
-              healing buff and is removed from the spells that were buffed.
-            </Trans>
+            <SpellLink spell={SPELLS.RESURGENCE} />
+            {t({
+              id: 'shaman.restoration.healingEfficiencyDetails.p1',
+              message:
+                ' mana gained is removed from the spell, meaning the mana spent of that spell will be lower.',
+            })}
+            <br />
+            {t({
+              id: 'shaman.restoration.healingEfficiencyDetails.p2',
+              message: 'Healing that is caused by the',
+            })}{' '}
+            <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+            {t({
+              id: 'shaman.restoration.healingEfficiencyDetails.p2.buff',
+              message:
+                ' buff, is added to',
+            })}{' '}
+            <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+            {t({
+              id: 'shaman.restoration.healingEfficiencyDetails.p2.instead',
+              message: ' instead of the spell that was buffed.',
+            })}
+            <br />
+            <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} />
+            {t({
+              id: 'shaman.restoration.healingEfficiencyDetails.p3',
+              message:
+                ' is given the healing from its healing buff and is removed from the spells that were buffed.',
+            })}
           </>
         }
         pad={false}

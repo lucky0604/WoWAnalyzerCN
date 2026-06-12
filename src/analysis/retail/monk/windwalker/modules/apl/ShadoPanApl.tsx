@@ -5,6 +5,7 @@ import SpellLink from 'interface/SpellLink';
 import Combatant from 'parser/core/Combatant';
 import { Apl } from 'parser/shared/metrics/apl';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import {
   and,
   buffPresent,
@@ -45,10 +46,20 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         ),
         () => (
           <>
-            <Trans id="monk.windwalker.apl.tiger_palm_cap">
-              you have less than 4 <SpellLink spell={RESOURCE_TYPES.CHI} />, fewer than 2 stacks of{' '}
-              <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />, and are about to cap energy
-            </Trans>
+            {t({
+              id: 'monk.windwalker.apl.tiger_palm_cap.p1',
+              message: 'you have less than 4 ',
+            })}
+            <SpellLink spell={RESOURCE_TYPES.CHI} />
+            {t({
+              id: 'monk.windwalker.apl.tiger_palm_cap.p2',
+              message: ', fewer than 2 stacks of ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.apl.tiger_palm_cap.p3',
+              message: ', and are about to cap energy',
+            })}
           </>
         ),
       ),
@@ -65,10 +76,12 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         and(danceOfChiJiExpiring, notAtTwoBlackoutKickStacks, notInZenithWithObsidianSpiral),
         () => (
           <>
-            <Trans id="monk.windwalker.apl.sck_dance">
-              <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> has less than 4 seconds remaining, and
-              you have fewer than 2 stacks of <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
-            </Trans>
+            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+            {t({
+              id: 'monk.windwalker.apl.sck_dance.p1',
+              message: ' has less than 4 seconds remaining, and you have fewer than 2 stacks of ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
           </>
         ),
       ),
@@ -115,10 +128,20 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         or(buffPresent(SPELLS.COMBO_BREAKER_BUFF), buffPresent(TALENTS.ZENITH_TALENT)),
         () => (
           <>
-            <Trans id="monk.windwalker.apl.has_cb_or_zenith">
-              you have <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> or{' '}
-              <SpellLink spell={TALENTS.ZENITH_TALENT} /> is active
-            </Trans>
+            {t({
+              id: 'monk.windwalker.apl.has_cb_or_zenith.p1',
+              message: 'you have ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.apl.has_cb_or_zenith.p2',
+              message: ' or ',
+            })}
+            <SpellLink spell={TALENTS.ZENITH_TALENT} />
+            {t({
+              id: 'monk.windwalker.apl.has_cb_or_zenith.p3',
+              message: ' is active',
+            })}
           </>
         ),
       ),
@@ -129,10 +152,12 @@ export default function shadoPanApl(combatant: Combatant): Apl {
         and(buffPresent(TALENTS.ZENITH_TALENT), hasResource(RESOURCE_TYPES.CHI, { atLeast: 4 })),
         () => (
           <>
-            <Trans id="monk.windwalker.apl.zenith_sck">
-              <SpellLink spell={TALENTS.ZENITH_TALENT} /> is active and you have more than 3{' '}
-              <SpellLink spell={RESOURCE_TYPES.CHI} />
-            </Trans>
+            <SpellLink spell={TALENTS.ZENITH_TALENT} />
+            {t({
+              id: 'monk.windwalker.apl.zenith_sck.p1',
+              message: ' is active and you have more than 3 ',
+            })}
+            <SpellLink spell={RESOURCE_TYPES.CHI} />
           </>
         ),
       ),

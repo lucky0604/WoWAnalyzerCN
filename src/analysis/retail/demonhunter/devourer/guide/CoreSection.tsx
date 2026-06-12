@@ -24,22 +24,17 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
         })}
       >
         <p>
-          <Trans id="guide.demonhunter.devourer.sections.core.activeTime.summary">
-            <b>
-              Continuously casting throughout an encounter is the single most important thing for
-              achieving good DPS.
-            </b>
-            <div>
-              Some fights have unavoidable downtime due to phase transitions and the like, so in
-              these cases 0% downtime will not be possible - do the best you can.
-            </div>
-          </Trans>
+          <b>{t({ id: 'guide.demonhunter.devourer.sections.core.activeTime.summary.bold', message: 'Continuously casting throughout an encounter is the single most important thing for achieving good DPS.' })}</b>
+          <div>
+            {t({ id: 'guide.demonhunter.devourer.sections.core.activeTime.summary.rest', message: 'Some fights have unavoidable downtime due to phase transitions and the like, so in these cases 0% downtime will not be possible - do the best you can.' })}
+          </div>
         </p>
         <p>
-          <Trans id="guide.demonhunter.devourer.sections.core.activeTime.fillers">
-            Remember that you always have access to either <SpellLink spell={SPELLS.CONSUME} /> or{' '}
-            <SpellLink spell={SPELLS.DEVOUR} /> and that they can be cast while moving.
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.sections.core.activeTime.fillers.p1', message: 'Remember that you always have access to either ' })}
+          <SpellLink spell={SPELLS.CONSUME} />
+          {t({ id: 'guide.demonhunter.devourer.sections.core.activeTime.fillers.p2', message: ' or ' })}
+          <SpellLink spell={SPELLS.DEVOUR} />
+          {t({ id: 'guide.demonhunter.devourer.sections.core.activeTime.fillers.p3', message: ' and that they can be cast while moving.' })}
         </p>
         <p>
           <Trans id="guide.demonhunter.devourer.sections.core.activeTime.value">

@@ -77,19 +77,24 @@ export default class Fracture extends Analyzer {
   guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="demonhunter.vengeance.fracture.guideExplanation">
-          <strong>
-            <SpellLink spell={SPELLS.FRACTURE} />
-          </strong>{' '}
-          is your primary <strong>builder</strong> for{' '}
-          <ResourceLink id={RESOURCE_TYPES.FURY.id} /> and{' '}
-          <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
-          s. Cast it when you have less than 5 <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />s and
-          less than {this.#notMetaFuryLimit} <ResourceLink id={RESOURCE_TYPES.FURY.id}
-          />. In <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />, cast it when you have less than 4{' '}
-          <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />s and less than{' '}
-          {this.#inMetaFuryLimit} <ResourceLink id={RESOURCE_TYPES.FURY.id} />.
-        </Trans>
+        <strong><SpellLink spell={SPELLS.FRACTURE} /></strong>
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p1', message: ' is your primary ' })}
+        <strong>{t({ id: 'demonhunter.vengeance.fracture.guideExplanation.bold', message: 'builder' })}</strong>
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p2', message: ' for ' })}
+        <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p3', message: ' and ' })}
+        <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p4', message: 's. Cast it when you have less than 5 ' })}
+        <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p5', message: `s and less than ${this.#notMetaFuryLimit} ` })}
+        <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p6', message: '. In ' })}
+        <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p7', message: ', cast it when you have less than 4 ' })}
+        <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p8', message: `s and less than ${this.#inMetaFuryLimit} ` })}
+        <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+        {t({ id: 'demonhunter.vengeance.fracture.guideExplanation.p9', message: '.' })}
       </p>
     );
 
@@ -210,11 +215,11 @@ export default class Fracture extends Analyzer {
         summary: hasMetamorphosis ? inMetamorphosisSummary : nonMetamorphosisSummary,
         details: (
           <div>
-            <Trans id="demonhunter.vengeance.fracture.unableToDetermine">
-              Unable to determine from logs how much{' '}
-              <ResourceLink id={RESOURCE_TYPES.FURY.id} /> you had when you cast{' '}
-              <SpellLink spell={SPELLS.FRACTURE} />.
-            </Trans>
+            {t({ id: 'demonhunter.vengeance.fracture.unableToDetermine.p1', message: 'Unable to determine from logs how much ' })}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'demonhunter.vengeance.fracture.unableToDetermine.p2', message: ' you had when you cast ' })}
+            <SpellLink spell={SPELLS.FRACTURE} />
+            {t({ id: 'demonhunter.vengeance.fracture.unableToDetermine.p3', message: '.' })}
           </div>
         ),
       };

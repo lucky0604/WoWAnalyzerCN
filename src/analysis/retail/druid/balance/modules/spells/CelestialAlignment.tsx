@@ -72,14 +72,14 @@ export default class CelestialAlignment extends Analyzer.withDependencies(deps) 
 
     const explanation = (
       <p>
-        <Trans id="druid.balance.ca.explanation">
-          <strong>
-            <SpellLink spell={this.cdSpell} />
-          </strong>{' '}
-          is our primary damage cooldown. It's best used as soon as it's available, but can be held to
-          ensure you'll have full target uptime during its duration (don't use it when it will be
-          interrupted by a fight mechanic).
-        </Trans>
+        <strong>
+          <SpellLink spell={this.cdSpell} />
+        </strong>{' '}
+        {t({
+          id: 'druid.balance.ca.explanation',
+          message:
+            "is our primary damage cooldown. It's best used as soon as it's available, but can be held to ensure you'll have full target uptime during its duration (don't use it when it will be interrupted by a fight mechanic).",
+        })}
       </p>
     );
 

@@ -16,11 +16,18 @@ export default function MajorDefensivesSection(): JSX.Element | null {
     <Section title={<SpellLink spell={SPELLS.FORTIFYING_BREW} />}>
       <Explanation>
         <p>
-          <Trans id="monk.brewmaster.major_defensives.explain1">
-            Effectively using your major defensive cooldowns is a core part of playing tank well.
-            While Brewmaster has fewer cooldowns than in previous expansions, proper use of{' '}
-            <SpellLink spell={SPELLS.FORTIFYING_BREW} /> is still important.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.brewmaster.major_defensives.explain1.p1',
+              message:
+                'Effectively using your major defensive cooldowns is a core part of playing tank well. While Brewmaster has fewer cooldowns than in previous expansions, proper use of ',
+            })}
+            <SpellLink spell={SPELLS.FORTIFYING_BREW} />
+            {t({
+              id: 'monk.brewmaster.major_defensives.explain1.p2',
+              message: ' is still important.',
+            })}
+          </>
         </p>
         <p>
           <Trans id="monk.brewmaster.major_defensives.explain2">
@@ -29,20 +36,35 @@ export default function MajorDefensivesSection(): JSX.Element | null {
         </p>
         <ol>
           <li>
-            <Trans id="monk.brewmaster.major_defensives.spike_desc">
-              You should cover as many{' '}
+            <>
+              {t({
+                id: 'monk.brewmaster.major_defensives.spike_desc.p1',
+                message: 'You should cover as many ',
+              })}
               <TooltipElement
                 content={
-                  <Trans id="monk.brewmaster.major_defensives.spike_tooltip">
-                    A <strong>damage spike</strong> is when you take much more damage than normal in a
-                    small amount of time. These are visible on the Timeline below as tall spikes.
-                  </Trans>
+                  <>
+                    {t({
+                      id: 'monk.brewmaster.major_defensives.spike_tooltip.p1',
+                      message: 'A ',
+                    })}
+                    <strong>{t({ id: 'monk.brewmaster.major_defensives.spike_tooltip.bold', message: 'damage spike' })}</strong>
+                    {t({
+                      id: 'monk.brewmaster.major_defensives.spike_tooltip.p2',
+                      message:
+                        ' is when you take much more damage than normal in a small amount of time. These are visible on the Timeline below as tall spikes.',
+                    })}
+                  </>
                 }
               >
-                damage spikes
+                {t({ id: 'monk.brewmaster.major_defensives.spike_desc.p2', message: 'damage spikes' })}
               </TooltipElement>{' '}
-              as possible, and use any left over to cover periods of heavy, consistent damage.
-            </Trans>
+              {t({
+                id: 'monk.brewmaster.major_defensives.spike_desc.p3',
+                message:
+                  'as possible, and use any left over to cover periods of heavy, consistent damage.',
+              })}
+            </>
             <p>
               <small>
                 <Trans id="monk.brewmaster.major_defensives.spike_chart_legend">

@@ -80,20 +80,88 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.rogue.outlaw.sections.resources.comboPoints.summary">
-            Most of your abilities either <strong>build</strong> or <strong>spend</strong>{' '}
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />. Never use a builder at{' '}
-            <strong>6 or 7</strong> combo points. <strong>Spenders</strong> should typically be used
-            at <strong>6 or more</strong> combo points, but at <strong>5 or more</strong> if{' '}
+          <>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p1',
+              message: 'Most of your abilities either ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.bold',
+                message: 'build',
+              })}
+            </strong>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p2',
+              message: ' or ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.bold2',
+                message: 'spend',
+              })}
+            </strong>{' '}
+            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />.
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p3',
+              message: ' Never use a builder at ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.bold3',
+                message: '6 or 7',
+              })}
+            </strong>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p4',
+              message: ' combo points. ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.bold4',
+                message: 'Spenders',
+              })}
+            </strong>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p5',
+              message: ' should typically be used at ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.bold5',
+                message: '6 or more',
+              })}
+            </strong>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p6',
+              message: ' combo points, but at ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.bold6',
+                message: '5 or more',
+              })}
+            </strong>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p7',
+              message: ' if ',
+            })}
             <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} />
             {info.combatant.hasTalent(TALENTS.HIDDEN_OPPORTUNITY_TALENT) && (
               <>
-                , <SpellLink spell={SPELLS.AUDACITY_TALENT_BUFF} /> or{' '}
+                , <SpellLink spell={SPELLS.AUDACITY_TALENT_BUFF} />{' '}
+                {t({
+                  id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p8',
+                  message: 'or ',
+                })}
                 <SpellLink spell={SPELLS.OPPORTUNITY} />
               </>
             )}{' '}
-            is active.
-          </Trans>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.comboPoints.summary.p9',
+              message: 'is active.',
+            })}
+          </>
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>

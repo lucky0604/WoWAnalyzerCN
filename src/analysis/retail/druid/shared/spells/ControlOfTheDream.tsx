@@ -1,6 +1,5 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { Options } from 'parser/core/Module';
 import Events, { UpdateSpellUsableEvent, UpdateSpellUsableType } from 'parser/core/Events';
@@ -204,14 +203,18 @@ export default class ControlOfTheDream extends Analyzer.withDependencies({
         tooltip={
           <>
             <p>
-              <Trans id="druid.shared.cotd.early_cast_explain">
-                <b>Early Cast:</b> A cast benefiting from this Talent’s CD reduction.
-              </Trans>
+              <b>{t({ id: 'druid.shared.cotd.early_cast_explain', message: 'Early Cast:' })}</b>
+              {t({
+                id: 'druid.shared.cotd.early_cast_explain.p2',
+                message: ' A cast benefiting from this Talent\u2019s CD reduction.',
+              })}
             </p>
             <p>
-              <Trans id="druid.shared.cotd.eff_cdr_explain">
-                <b>Effective CDR:</b> Total CD time saved via Early Casts.
-              </Trans>
+              <b>{t({ id: 'druid.shared.cotd.eff_cdr_explain', message: 'Effective CDR:' })}</b>
+              {t({
+                id: 'druid.shared.cotd.eff_cdr_explain.p2',
+                message: ' Total CD time saved via Early Casts.',
+              })}
             </p>
           </>
         }

@@ -361,18 +361,32 @@ class TreeOfLife extends Analyzer {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <Trans id="restoration.tol.explanation">
-          <strong>
-            <SpellLink spell={TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT} />
-          </strong>{' '}
-          should generally be used 10-12 seconds before major damage hits so you can maximize the
-          mana discount on <SpellLink spell={SPELLS.REJUVENATION} /> during your ramp. While
-          Incarnation is active, you can otherwise continue your standard rotation. Its duration is
-          paused while channeling <SpellLink spell={SPELLS.TRANQUILITY_CAST} />, so combining the
-          two is usually a good idea. Be careful not to overvalue the Regrowth bonus: making{' '}
-          <SpellLink spell={SPELLS.REGROWTH} /> instant mostly front-loads the heal, since its
-          normal cast time is already equal to the global cooldown.
-        </Trans>
+        <strong>
+          <SpellLink spell={TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT} />
+        </strong>{' '}
+        {t({
+          id: 'restoration.tol.explanation_p1',
+          message:
+            'should generally be used 10-12 seconds before major damage hits so you can maximize the mana discount on',
+        })}{' '}
+        <SpellLink spell={SPELLS.REJUVENATION} />{' '}
+        {t({
+          id: 'restoration.tol.explanation_p2',
+          message:
+            'during your ramp. While Incarnation is active, you can otherwise continue your standard rotation. Its duration is paused while channeling',
+        })}{' '}
+        <SpellLink spell={SPELLS.TRANQUILITY_CAST} />,{' '}
+        {t({
+          id: 'restoration.tol.explanation_p3',
+          message:
+            'so combining the two is usually a good idea. Be careful not to overvalue the Regrowth bonus: making',
+        })}{' '}
+        <SpellLink spell={SPELLS.REGROWTH} />{' '}
+        {t({
+          id: 'restoration.tol.explanation_p4',
+          message:
+            'instant mostly front-loads the heal, since its normal cast time is already equal to the global cooldown.',
+        })}
       </p>
     );
 

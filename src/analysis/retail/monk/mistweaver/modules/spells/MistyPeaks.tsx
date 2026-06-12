@@ -11,7 +11,7 @@ import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import SpellLink from 'interface/SpellLink';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Combatants from 'parser/shared/modules/Combatants';
 import StatisticListBoxItem from 'parser/ui/StatisticListBoxItem';
 import {
@@ -137,26 +137,26 @@ class MistyPeaks extends Analyzer {
             return (
               <ul>
                 <li>
-                  <Trans id="monk.mistweaver.misty_peaks.procs">
-                    <SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT} /> procs: {procs}
-                  </Trans>
+                  <SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT} />
+                  {t({ id: 'monk.mistweaver.misty_peaks.procs.text', message: ' procs: ' })}
+                  {procs}
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.misty_peaks.extra_hits">
-                    <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> extra hits: {hits}
-                  </Trans>
+                  <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+                  {t({ id: 'monk.mistweaver.misty_peaks.extra_hits.text', message: ' extra hits: ' })}
+                  {hits}
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.misty_peaks.extra_healing">
-                    Extra <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> direct healing:{' '}
-                    {healing} ({overhealing} overheal)
-                  </Trans>
+                  {t({ id: 'monk.mistweaver.misty_peaks.extra_healing.p1', message: 'Extra ' })}
+                  <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+                  {t({ id: 'monk.mistweaver.misty_peaks.extra_healing.p2', message: ' direct healing: ' })}
+                  {healing} ({overhealing} overheal)
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.misty_peaks.bonus_healing">
-                    Bonus healing from <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> buff:{' '}
-                    {bonusHealing} ({bonusOverhealing} overheal)
-                  </Trans>
+                  {t({ id: 'monk.mistweaver.misty_peaks.bonus_healing.p1', message: 'Bonus healing from ' })}
+                  <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+                  {t({ id: 'monk.mistweaver.misty_peaks.bonus_healing.p2', message: ' buff: ' })}
+                  {bonusHealing} ({bonusOverhealing} overheal)
                 </li>
               </ul>
             );

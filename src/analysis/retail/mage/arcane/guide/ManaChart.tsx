@@ -77,35 +77,95 @@ class ManaChart extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="mage.arcane.manaChart.explanation1">
-            <b>Mana Management</b> is crucial for Arcane Mage performance. Proper mana usage
-            involves:
-          </Trans>
+          <>
+            <strong>
+              {t({
+                id: 'mage.arcane.manaChart.explanation1.bold',
+                message: 'Mana Management',
+              })}
+            </strong>
+            {t({
+              id: 'mage.arcane.manaChart.explanation1.p1',
+              message: ' is crucial for Arcane Mage performance. Proper mana usage involves:',
+            })}
+          </>
         </p>
         <ul>
           <li>
-            <Trans id="mage.arcane.manaChart.burnPhase">
-              <strong>Burn Phase:</strong> Use {arcaneSurge} and {touchOfTheMagi} while
-              maintaining mana for the full duration. Don't go OOM during major cooldowns.
-            </Trans>
+              <>
+                <strong>
+                  {t({
+                    id: 'mage.arcane.manaChart.burnPhase.bold',
+                    message: 'Burn Phase:',
+                  })}
+                </strong>
+                {t({
+                  id: 'mage.arcane.manaChart.burnPhase.p1',
+                  message: ' Use ',
+                })}
+                {arcaneSurge}
+                {t({
+                  id: 'mage.arcane.manaChart.burnPhase.p2',
+                  message: ' and ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.manaChart.burnPhase.p3',
+                  message: ' while maintaining mana for the full duration. Don\'t go OOM during major cooldowns.',
+                })}
+              </>
           </li>
           <li>
-            <Trans id="mage.arcane.manaChart.conservePhase">
-              <strong>Conserve Phase:</strong> Use {arcaneBarrage} at 4 stacks to maintain mana
-              efficiency while waiting for cooldowns.
-            </Trans>
-          </li>
-          <li>
-            <Trans id="mage.arcane.manaChart.manaRecovery">
-              <strong>Mana Recovery:</strong> Use {evocation} to restore mana during conserve
-              phases or between burn windows.
-            </Trans>
-          </li>
-          <li>
-            <Trans id="mage.arcane.manaChart.fightEnding">
-              <strong>Fight Ending:</strong> Aim to end fights with minimal mana remaining -
-              unused mana is wasted potential damage.
-            </Trans>
+              <>
+                <strong>
+                  {t({
+                    id: 'mage.arcane.manaChart.conservePhase.bold',
+                    message: 'Conserve Phase:',
+                  })}
+                </strong>
+                {t({
+                  id: 'mage.arcane.manaChart.conservePhase.p1',
+                  message: ' Use ',
+                })}
+                {arcaneBarrage}
+                {t({
+                  id: 'mage.arcane.manaChart.conservePhase.p2',
+                  message: ' at 4 stacks to maintain mana efficiency while waiting for cooldowns.',
+                })}
+              </>
+            </li>
+            <li>
+              <>
+                <strong>
+                  {t({
+                    id: 'mage.arcane.manaChart.manaRecovery.bold',
+                    message: 'Mana Recovery:',
+                  })}
+                </strong>
+                {t({
+                  id: 'mage.arcane.manaChart.manaRecovery.p1',
+                  message: ' Use ',
+                })}
+                {evocation}
+                {t({
+                  id: 'mage.arcane.manaChart.manaRecovery.p2',
+                  message: ' to restore mana during conserve phases or between burn windows.',
+                })}
+              </>
+            </li>
+            <li>
+              <>
+                <strong>
+                  {t({
+                    id: 'mage.arcane.manaChart.fightEnding.bold',
+                    message: 'Fight Ending:',
+                  })}
+                </strong>
+                {t({
+                  id: 'mage.arcane.manaChart.fightEnding.p1',
+                  message: ' Aim to end fights with minimal mana remaining - unused mana is wasted potential damage.',
+                })}
+              </>
           </li>
         </ul>
       </>

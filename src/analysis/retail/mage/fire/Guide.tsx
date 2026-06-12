@@ -18,23 +18,26 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
   const alwaysBeCastingSubsection = (
     <SubSection title={t({ id: 'mage.fire.subSection.activeTime', message: 'Active Time' })}>
       <Explanation>
-        <Trans id="mage.fire.activeTime.description">
-          Any time you are not casting something, that is damage that is lost. You should always
-          pre-plan your movement to decrease downtime, but can also lean on abilties like{' '}
+        <>
+          {t({
+            id: 'mage.fire.activeTime.description.p1',
+            message: 'Any time you are not casting something, that is damage that is lost. You should always pre-plan your movement to decrease downtime, but can also lean on abilties like ',
+          })}
           {info.combatant.hasTalent(TALENTS.SHIMMER_TALENT) ? (
             <SpellLink spell={TALENTS.SHIMMER_TALENT} />
           ) : (
             <SpellLink spell={SPELLS.BLINK} />
-          )}{' '}
-          to move faster or <SpellLink spell={TALENTS.SCORCH_TALENT} /> to continue casting while
-          you move. While some encounters have forced downtime, which WoWAnalyzer does not account
-          for, anything you can do to minimize your downtime will help your damage; even casting
-          against a target taking 99% reduced damage is an opportunity to fish for procs.
-          Additionally, to better contextualize your downtime, we recommend comparing your downtime
-          to another Fire Mage that did better than you on the same encounter with roughly the same
-          kill time. If you have less downtime than them, then maybe there is something you can do
-          to improve.
-        </Trans>
+          )}
+          {t({
+            id: 'mage.fire.activeTime.description.p2',
+            message: ' to move faster or ',
+          })}
+          <SpellLink spell={TALENTS.SCORCH_TALENT} />
+          {t({
+            id: 'mage.fire.activeTime.description.p3',
+            message: ' to continue casting while you move. While some encounters have forced downtime, which WoWAnalyzer does not account for, anything you can do to minimize your downtime will help your damage; even casting against a target taking 99% reduced damage is an opportunity to fish for procs. Additionally, to better contextualize your downtime, we recommend comparing your downtime to another Fire Mage that did better than you on the same encounter with roughly the same kill time. If you have less downtime than them, then maybe there is something you can do to improve.',
+          })}
+        </>
       </Explanation>
       <p>
         {t({ id: 'mage.fire.activeTime.label', message: 'Active Time:' })}{' '}
@@ -86,13 +89,27 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       <Section title={t({ id: 'mage.fire.section.core', message: 'Core' })}>{alwaysBeCastingSubsection}</Section>
       <Section title={t({ id: 'mage.fire.section.heatingUpAndHotStreak', message: 'Heating Up & Hot Streak' })}>
         <>
-          <Trans id="mage.fire.heatingUpAndHotStreak.description">
-            As a Fire Mage, the vast majority of your rotation revolves around generating, managing,
-            and spending your <SpellLink spell={SPELLS.HEATING_UP} /> and{' '}
-            <SpellLink spell={SPELLS.HOT_STREAK} /> procs. Regardless of whether{' '}
-            <SpellLink spell={TALENTS.COMBUSTION_TALENT} /> is active or not, learning to properly
-            utilize your procs will go a long way towards increasing your damage.
-          </Trans>
+          <>
+            {t({
+              id: 'mage.fire.heatingUpAndHotStreak.description.p1',
+              message: 'As a Fire Mage, the vast majority of your rotation revolves around generating, managing, and spending your ',
+            })}
+            <SpellLink spell={SPELLS.HEATING_UP} />
+            {t({
+              id: 'mage.fire.heatingUpAndHotStreak.description.p2',
+              message: ' and ',
+            })}
+            <SpellLink spell={SPELLS.HOT_STREAK} />
+            {t({
+              id: 'mage.fire.heatingUpAndHotStreak.description.p3',
+              message: ' procs. Regardless of whether ',
+            })}
+            <SpellLink spell={TALENTS.COMBUSTION_TALENT} />
+            {t({
+              id: 'mage.fire.heatingUpAndHotStreak.description.p4',
+              message: ' is active or not, learning to properly utilize your procs will go a long way towards increasing your damage.',
+            })}
+          </>
         </>
         {modules.heatingUpGuide.guideSubsection}
         {modules.hotStreakGuide.guideSubsection}
@@ -100,13 +117,27 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 
       <Section title={t({ id: 'mage.fire.section.buffsAndProcs', message: 'Buffs & Procs' })}>
         <>
-          <Trans id="mage.fire.buffsAndProcs.description">
-            Fire Mage has several buffs and procs that need to be managed properly in order to get the
-            most out of them and maximize your damage. <SpellLink spell={SPELLS.HOT_STREAK} /> and{' '}
-            <SpellLink spell={SPELLS.HEATING_UP} /> are your most important procs, but others such as{' '}
-            <SpellLink spell={TALENTS.HEAT_SHIMMER_TALENT} /> will also increase your damage in other
-            ways which will play a large part in maximizing your overall and burst damage.
-          </Trans>
+          <>
+            {t({
+              id: 'mage.fire.buffsAndProcs.description.p1',
+              message: 'Fire Mage has several buffs and procs that need to be managed properly in order to get the most out of them and maximize your damage. ',
+            })}
+            <SpellLink spell={SPELLS.HOT_STREAK} />
+            {t({
+              id: 'mage.fire.buffsAndProcs.description.p2',
+              message: ' and ',
+            })}
+            <SpellLink spell={SPELLS.HEATING_UP} />
+            {t({
+              id: 'mage.fire.buffsAndProcs.description.p3',
+              message: ' are your most important procs, but others such as ',
+            })}
+            <SpellLink spell={TALENTS.HEAT_SHIMMER_TALENT} />
+            {t({
+              id: 'mage.fire.buffsAndProcs.description.p4',
+              message: ' will also increase your damage in other ways which will play a large part in maximizing your overall and burst damage.',
+            })}
+          </>
         </>
         {info.combatant.hasTalent(TALENTS.HEAT_SHIMMER_TALENT) &&
           modules.heatShimmerGuide.guideSubsection}
@@ -114,11 +145,17 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 
       <Section title={t({ id: 'mage.fire.section.cooldowns', message: 'Cooldowns' })}>
         <>
-          <Trans id="mage.fire.cooldowns.description">
-            As is the case with most damage specs, properly utilizing your damage cooldowns will go a
-            long way towards improving your overall damage, especially{' '}
-            <SpellLink spell={TALENTS.COMBUSTION_TALENT} />.
-          </Trans>
+          <>
+            {t({
+              id: 'mage.fire.cooldowns.description.p1',
+              message: 'As is the case with most damage specs, properly utilizing your damage cooldowns will go a long way towards improving your overall damage, especially ',
+            })}
+            <SpellLink spell={TALENTS.COMBUSTION_TALENT} />
+            {t({
+              id: 'mage.fire.cooldowns.description.p2',
+              message: '.',
+            })}
+          </>
         </>
         {info.combatant.hasTalent(TALENTS.COMBUSTION_TALENT) &&
           modules.combustionGuide.guideSubsection}

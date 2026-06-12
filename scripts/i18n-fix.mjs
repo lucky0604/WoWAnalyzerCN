@@ -6,11 +6,15 @@
  *   - fix-t-expression-context.mjs
  *   - fix-trans-to-t-jsx.mjs
  *
- * Usage: node scripts/i18n-fix.mjs [--dry-run]
+ * Usage:
+ *   node scripts/i18n-fix.mjs              # Fix all i18n issues
+ *   node scripts/i18n-fix.mjs --dry-run    # Preview fixes only
+ *   node scripts/i18n-fix.mjs --check-trans # Scan for problematic <Trans> with <SpellLink>/<br>/<strong>/<b>
  */
 import fs from 'node:fs';
 import path from 'node:path';
 
+const CHECK_TRANS = process.argv.includes('--check-trans');
 const DRY_RUN = process.argv.includes('--dry-run');
 const ROOT = process.cwd();
 const OVERRIDES_PREFIX = `${path.sep}localization${path.sep}overrides${path.sep}`;
@@ -80,6 +84,68 @@ function ensureDefineMessageImport(content) {
 }
 
 const stats = { transToT: 0, defineMessageToT: 0, importFixed: 0, jsxFixed: 0, files: 0 };
+
+// --- Check mode: scan for problematic <Trans> blocks, no modifications ---
+if (CHECK_TRANS) {
+  let problemFiles = [];
+  const SUSPICIOUS_INSIDE = /<Trans[\s>][\s\S]*?(?:<SpellLink|<br[\s/>]|<strong[\s>]|<b[\s>])/;
+
+  for (const file of walk('src')) {
+    if (!file.endsWith('.tsx')) continue;
+    const content = fs.readFileSync(file, 'utf8');
+    if (!SUSPICIOUS_INSIDE.test(content)) continue;
+
+    // Find each problematic Trans block line
+    const lines = content.split('\n');
+    const matches = [];
+    for (let i = 0; i < lines.length; i++) {
+      if (/<Trans[\s>]/.test(lines[i])) {
+        // Check following lines for suspicious elements inside the Trans block
+        for (let j = i; j < Math.min(i + 20, lines.length); j++) {
+          const line = lines[j];
+          const closeTrans = line.includes('</Trans>');
+          const hasSpellLink = /<SpellLink/.test(line);
+          const hasBr = /<br[\s/>]/.test(line);
+          const hasStrong = /<strong[\s>]/.test(line);
+          const hasB = /<b[\s>]/.test(line);
+          const elements = [];
+          if (hasSpellLink) elements.push('<SpellLink>');
+          if (hasBr) elements.push('<br>');
+          if (hasStrong) elements.push('<strong>');
+          if (hasB) elements.push('<b>');
+          if (elements.length > 0) {
+            matches.push({ line: j + 1, elements, content: line.trim() });
+          }
+          if (closeTrans) break;
+        }
+      }
+    }
+
+    if (matches.length > 0) {
+      problemFiles.push({ file, matches });
+    }
+  }
+
+  // Output results
+  for (const { file, matches } of problemFiles) {
+    const rel = path.relative(ROOT, file);
+    console.log(`[WARN] ${rel}`);
+    for (const m of matches) {
+      console.log(`  Line ${m.line}: <Trans> contains ${m.elements.join(' & ')} — must be converted to t() + explicit JSX`);
+    }
+    console.log('');
+  }
+
+  const totalFiles = problemFiles.length;
+  const totalBlocks = problemFiles.reduce((s, f) => s + f.matches.length, 0);
+  if (totalFiles === 0) {
+    console.log('No problematic <Trans> blocks found. All clear.');
+  } else {
+    console.log(`Found ${totalFiles} file(s) with ${totalBlocks} problematic <Trans> block(s).`);
+    console.log('These must be manually converted to t() + explicit JSX (see docs/i18n-guide.md).');
+  }
+  process.exit(0);
+}
 
 for (const file of walk('src')) {
   const isOverride = file.includes(OVERRIDES_PREFIX);

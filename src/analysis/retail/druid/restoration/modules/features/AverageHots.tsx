@@ -1,4 +1,5 @@
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellIcon } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
@@ -47,11 +48,10 @@ class AverageHots extends Analyzer {
               </Trans>
             </p>
             <p>
-              <Trans id="restoration.average_hots.tooltip_p3">
-                This number includes all your healing, even heals that don't benefit from mastery
-                (like Trinkets, potions, Renewal, etc..) Your average mastery multiplier counting only
-                heals that benefit from mastery is <strong>{avgDruidBenefitMult}</strong>.
-              </Trans>
+              <>
+                {t({ id: 'restoration.average_hots.tooltip_p3.part1', message: "This number includes all your healing, even heals that don't benefit from mastery (like Trinkets, potions, Renewal, etc..) Your average mastery multiplier counting only heals that benefit from mastery is" })}{' '}
+                <strong>{avgDruidBenefitMult}</strong>.
+              </>
             </p>
           </>
         }

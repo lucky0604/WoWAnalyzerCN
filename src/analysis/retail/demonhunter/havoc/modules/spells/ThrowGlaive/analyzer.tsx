@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import SPELLS from 'common/SPELLS/demonhunter';
@@ -113,23 +112,18 @@ export default class ThrowGlaive extends Analyzer {
       <>
         <ExplanationSection>
           <p>
-            <Trans id="demonhunter.havoc.throwGlaive.description">
-              <strong>
-                <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} />
-              </strong>{' '}
-              throws a glaive at an enemy within 30 yards for a small amount of physical damage and
-              then bounces to the nearest enemy within 10 yards of the target.
-            </Trans>
+            <strong><SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} /></strong>
+            {t({ id: 'demonhunter.havoc.throwGlaive.description.p1', message: ' throws a glaive at an enemy within 30 yards for a small amount of physical damage and then bounces to the nearest enemy within 10 yards of the target.' })}
           </p>
         </ExplanationSection>
         <ExplanationSection>
           <p>
-            <Trans id="demonhunter.havoc.throwGlaive.value">
-              <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} /> gains significant value in your
-              rotation when you take <SpellLink spell={TALENTS.SOULSCAR_TALENT} /> and{' '}
-              <SpellLink spell={TALENTS.FURIOUS_THROWS_TALENT} />. It also gains value from the below
-              talents.
-            </Trans>
+            <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} />
+            {t({ id: 'demonhunter.havoc.throwGlaive.value.p1', message: ' gains significant value in your rotation when you take ' })}
+            <SpellLink spell={TALENTS.SOULSCAR_TALENT} />
+            {t({ id: 'demonhunter.havoc.throwGlaive.value.p2', message: ' and ' })}
+            <SpellLink spell={TALENTS.FURIOUS_THROWS_TALENT} />
+            {t({ id: 'demonhunter.havoc.throwGlaive.value.p3', message: '. It also gains value from the below talents.' })}
           </p>
           <ul>
             {this.selectedCombatant.hasTalent(TALENTS.BOUNCING_GLAIVES_TALENT) && (
@@ -161,13 +155,9 @@ export default class ThrowGlaive extends Analyzer {
       <div>
         <RoundedPanel>
           <p>
-            <Trans id="demonhunter.havoc.throwGlaive.timeAtCharges">
-              Time spent at{' '}
-              <strong>
-                <SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} />
-              </strong>{' '}
-              charges
-            </Trans>
+            {t({ id: 'demonhunter.havoc.throwGlaive.timeAtCharges.p1', message: 'Time spent at ' })}
+            <strong><SpellLink spell={SPELLS.THROW_GLAIVE_HAVOC} /></strong>
+            {t({ id: 'demonhunter.havoc.throwGlaive.timeAtCharges.p2', message: ' charges' })}
           </p>
           {this.chart}
         </RoundedPanel>

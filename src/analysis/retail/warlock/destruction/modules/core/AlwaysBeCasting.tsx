@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import { NumberThreshold, ThresholdStyle } from 'parser/core/ParseResults';
 import CoreAlwaysBeCasting from 'parser/shared/modules/AlwaysBeCasting';
@@ -35,16 +34,30 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
             <br />
             <ul>
               <li>
-                <Trans id="warlock.destruction.alwaysBeCasting.activeTime">
-                  You spent <strong>{formatPercentage(this.activeTimePercentage)}%</strong> of your
-                  time casting something.
-                </Trans>
+                <>
+                  {t({
+                    id: 'warlock.destruction.alwaysBeCasting.activeTime.p1',
+                    message: 'You spent ',
+                  })}
+                  <strong>{formatPercentage(this.activeTimePercentage)}%</strong>
+                  {t({
+                    id: 'warlock.destruction.alwaysBeCasting.activeTime.p2',
+                    message: ' of your time casting something.',
+                  })}
+                </>
               </li>
               <li>
-                <Trans id="warlock.destruction.alwaysBeCasting.downtime">
-                  You spent <strong>{formatPercentage(this.downtimePercentage)}%</strong> of your time
-                  casting nothing at all.
-                </Trans>
+                <>
+                  {t({
+                    id: 'warlock.destruction.alwaysBeCasting.downtime.p1',
+                    message: 'You spent ',
+                  })}
+                  <strong>{formatPercentage(this.downtimePercentage)}%</strong>
+                  {t({
+                    id: 'warlock.destruction.alwaysBeCasting.downtime.p2',
+                    message: ' of your time casting nothing at all.',
+                  })}
+                </>
               </li>
             </ul>
           </>

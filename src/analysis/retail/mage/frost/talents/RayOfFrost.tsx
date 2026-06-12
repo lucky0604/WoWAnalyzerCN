@@ -96,11 +96,13 @@ class RayOfFrost extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="mage.frost.rayOfFrost.explanation">
-            <b>{rayOfFrost}</b> is the most important long cooldown spell in Frost. You want to cast
-            it as soon as possible, but there are some rules to follow in order to get the most out
-            of it.
-          </Trans>
+          <>
+            <strong>{rayOfFrost}</strong>
+            {t({
+              id: 'mage.frost.rayOfFrost.explanation.p1',
+              message: ' is the most important long cooldown spell in Frost. You want to cast it as soon as possible, but there are some rules to follow in order to get the most out of it.',
+            })}
+          </>
         </p>
         <ol>
           <li>
@@ -122,13 +124,25 @@ class RayOfFrost extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="mage.frost.rayOfFrost.castEfficiency">{rayOfFrost} cast efficiency</Trans>
+            <>
+              {rayOfFrost}
+              {t({
+                id: 'mage.frost.rayOfFrost.castEfficiency.p1',
+                message: ' cast efficiency',
+              })}
+            </>
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
           </div>
           <strong>
-            <Trans id="mage.frost.rayOfFrost.castDetails">{rayOfFrost} cast details</Trans>
+            <>
+              {rayOfFrost}
+              {t({
+                id: 'mage.frost.rayOfFrost.castDetails.p1',
+                message: ' cast details',
+              })}
+            </>
           </strong>
           <PerformanceBoxRow values={this.castEntries} />
           <small>

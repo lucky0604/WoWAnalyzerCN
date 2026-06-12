@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import TALENTS from 'common/TALENTS/paladin';
 import { SpellLink } from 'interface';
@@ -96,23 +96,27 @@ class FirstAvenger extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <Trans id="paladin.protection.firstAvenger.tooltip">
-            You hit on average <b>{formatNumber(this.averageHitsPerCast)}</b> enemies per cast of{' '}
+          <>
+            {t({ id: 'paladin.protection.firstAvenger.tooltip.p1', message: 'You hit on average ' })}
+            <b>{t({ id: 'paladin.protection.firstAvenger.tooltip.avg', message: '{avg}', values: { avg: formatNumber(this.averageHitsPerCast) }})}</b>
+            {t({ id: 'paladin.protection.firstAvenger.tooltip.p2', message: ' enemies per cast of ' })}
             <SpellLink spell={TALENTS.SOARING_SHIELD_TALENT} />
             <br />
-            The extra hits from taking First Avenger contributed{' '}
-            <b>{formatNumber(this.totalExtraDamage)}</b> total extra damage.
-          </Trans>
+            {t({ id: 'paladin.protection.firstAvenger.tooltip.p3', message: 'The extra hits from taking First Avenger contributed ' })}
+            <b>{t({ id: 'paladin.protection.firstAvenger.tooltip.extra', message: '{extra}', values: { extra: formatNumber(this.totalExtraDamage) }})}</b>
+            {t({ id: 'paladin.protection.firstAvenger.tooltip.p4', message: ' total extra damage.' })}
+          </>
         }
       >
         <BoringSpellValue
           spell={TALENTS.SOARING_SHIELD_TALENT.id}
           value={formatNumber(this.averageExtraDamage)}
           label={
-            <Trans id="paladin.protection.firstAvenger.avgExtraDamage">
-              Average extra damage per cast of{' '}
-              <SpellLink spell={TALENTS.SOARING_SHIELD_TALENT} />.
-            </Trans>
+            <>
+              {t({ id: 'paladin.protection.firstAvenger.avgExtraDamage.p1', message: 'Average extra damage per cast of ' })}
+              <SpellLink spell={TALENTS.SOARING_SHIELD_TALENT} />
+              {t({ id: 'paladin.protection.firstAvenger.avgExtraDamage.p2', message: '.' })}
+            </>
           }
         />
       </Statistic>

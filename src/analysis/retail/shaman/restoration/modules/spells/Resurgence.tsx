@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
@@ -89,11 +90,18 @@ class Resurgence extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <Trans id="shaman.restoration.resurgence.statistic.tooltip">
-            <SpellLink spell={SPELLS.RESURGENCE} iconStyle={{ height: '1.25em' }} /> accounted for{' '}
-            {formatPercentage(this.totalResurgenceGain / this.totalMana, 0)}% of your total
-            available mana over the fight ({formatNumber(this.totalMana)} mana).
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.RESURGENCE} iconStyle={{ height: '1.25em' }} />
+            {t({
+              id: 'shaman.restoration.resurgence.statistic.tooltip',
+              message:
+                ' accounted for {0}% of your total available mana over the fight ({1} mana).',
+              values: {
+                0: formatPercentage(this.totalResurgenceGain / this.totalMana, 0),
+                1: formatNumber(this.totalMana),
+              },
+            })}
+          </>
         }
         dropdown={
           <>

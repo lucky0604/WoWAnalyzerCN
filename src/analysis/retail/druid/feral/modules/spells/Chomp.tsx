@@ -71,14 +71,19 @@ export default class Chomp extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="druid.feral.chomp.explanation">
-            <strong>
-              <SpellLink spell={TALENTS_DRUID.CHOMP_TALENT} />
-            </strong>{' '}
-            is a high-damage filler available when your energy drops below 30%. Use it as soon as
-            the condition is met and the cooldown is ready. Using it during{' '}
-            <SpellLink spell={SPELLS.TIGERS_FURY} /> is ideal, but don't hold it to align.
-          </Trans>
+          <strong>
+            <SpellLink spell={TALENTS_DRUID.CHOMP_TALENT} />
+          </strong>{' '}
+          {t({
+            id: 'druid.feral.chomp.explanation',
+            message:
+              "is a high-damage filler available when your energy drops below 30%. Use it as soon as the condition is met and the cooldown is ready. Using it during ",
+          })}
+          <SpellLink spell={SPELLS.TIGERS_FURY} />
+          {t({
+            id: 'druid.feral.chomp.explanation.p2',
+            message: " is ideal, but don't hold it to align.",
+          })}
         </p>
       </>
     );

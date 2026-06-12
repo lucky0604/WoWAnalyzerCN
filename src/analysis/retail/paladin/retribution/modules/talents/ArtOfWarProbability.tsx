@@ -9,8 +9,6 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { TALENTS_PALADIN } from 'common/TALENTS/paladin';
 import HIT_TYPES from 'game/HIT_TYPES';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
-
 class ArtOfWarProbability extends Analyzer {
   procsGained = 0;
   procChance = 0.15;
@@ -95,9 +93,10 @@ class ArtOfWarProbability extends Analyzer {
       >
         <BoringValueText
           label={
-            <Trans id="paladin.retribution.artOfWarProbability.bojResetChance">
-              <SpellLink spell={TALENTS_PALADIN.ART_OF_WAR_TALENT} /> BoJ Reset Chance
-            </Trans>
+            <>
+              <SpellLink spell={TALENTS_PALADIN.ART_OF_WAR_TALENT} />
+              {t({ id: 'paladin.retribution.artOfWarProbability.bojResetChance', message: ' BoJ Reset Chance' })}
+            </>
           }
         >
           {plotOneVariableBinomChart(this.procsGained, this.totalChances, this.procProbabilities)}

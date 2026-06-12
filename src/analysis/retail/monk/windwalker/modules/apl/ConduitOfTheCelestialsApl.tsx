@@ -5,6 +5,7 @@ import SpellLink from 'interface/SpellLink';
 import Combatant from 'parser/core/Combatant';
 import { Apl } from 'parser/shared/metrics/apl';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import {
   and,
   buffMissing,
@@ -51,10 +52,11 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
       spell: TALENTS.FISTS_OF_FURY_TALENT,
       condition: describe(activeHotJSRemaining({ atMost: 1000 }), () => (
         <>
-          <Trans id="monk.windwalker.apl.hotjs_remaining">
-            <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} /> has less than 1 second
-            remaining
-          </Trans>
+          <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} />
+          {t({
+            id: 'monk.windwalker.apl.hotjs_remaining',
+            message: ' has less than 1 second remaining',
+          })}
         </>
       )),
     },
@@ -66,9 +68,15 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
       spell: TALENTS.CELESTIAL_CONDUIT_WINDWALKER_TALENT,
       condition: describe(and(activeHotJSMissing(), celestialConduitCastable), () => (
         <>
-          <Trans id="monk.windwalker.apl.no_hotjs">
-            no <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} /> is active
-          </Trans>
+          {t({
+            id: 'monk.windwalker.apl.no_hotjs.p1',
+            message: 'no ',
+          })}
+          <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} />
+          {t({
+            id: 'monk.windwalker.apl.no_hotjs.p2',
+            message: ' is active',
+          })}
         </>
       )),
     },
@@ -87,10 +95,20 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
         ),
         () => (
           <>
-            <Trans id="monk.windwalker.apl.tiger_palm_cap">
-              you have less than 4 <SpellLink spell={RESOURCE_TYPES.CHI} />, fewer than 2 stacks of{' '}
-              <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />, and are about to cap energy
-            </Trans>
+            {t({
+              id: 'monk.windwalker.apl.tiger_palm_cap.p1',
+              message: 'you have less than 4 ',
+            })}
+            <SpellLink spell={RESOURCE_TYPES.CHI} />
+            {t({
+              id: 'monk.windwalker.apl.tiger_palm_cap.p2',
+              message: ', fewer than 2 stacks of ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.apl.tiger_palm_cap.p3',
+              message: ', and are about to cap energy',
+            })}
           </>
         ),
       ),
@@ -107,10 +125,12 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
         and(danceOfChiJiExpiring, notAtTwoBlackoutKickStacks, notInZenithWithObsidianSpiral),
         () => (
           <>
-            <Trans id="monk.windwalker.apl.sck_dance">
-              <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> has less than 4 seconds remaining, and
-              you have fewer than 2 stacks of <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
-            </Trans>
+            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+            {t({
+              id: 'monk.windwalker.apl.sck_dance.p1',
+              message: ' has less than 4 seconds remaining, and you have fewer than 2 stacks of ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
           </>
         ),
       ),
@@ -154,9 +174,11 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
       spell: SPELLS.BLACKOUT_KICK,
       condition: describe(buffPresent(SPELLS.COMBO_BREAKER_BUFF), () => (
         <>
-          <Trans id="monk.windwalker.apl.has_combo_breaker">
-            you have <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
-          </Trans>
+          {t({
+            id: 'monk.windwalker.apl.has_combo_breaker.p1',
+            message: 'you have ',
+          })}
+          <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
         </>
       )),
     },

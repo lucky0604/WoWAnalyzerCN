@@ -6,7 +6,7 @@ import DamageTracker from 'parser/shared/modules/AbilityTracker';
 
 import BetweenTheEyesDamageTracker from './BetweenTheEyesDamageTracker';
 import talents from 'common/TALENTS/rogue';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 class Dispatch extends Analyzer {
   get thresholds(): NumberThreshold {
@@ -26,11 +26,27 @@ class Dispatch extends Analyzer {
 
   get delayedCastSuggestion() {
     return (
-      <Trans id="rogue.outlaw.dispatch.delayedCastSuggestion">
-        You should delay Dispatch whenever <SpellLink spell={talents.GRAVEDIGGER_3_OUTLAW_TALENT} />{' '}
-        or <SpellLink spell={talents.ACE_UP_YOUR_SLEEVE_TALENT} /> procs and prioritize{' '}
-        <SpellLink spell={SPELLS.BETWEEN_THE_EYES} /> as your damaging spender.
-      </Trans>
+      <>
+        {t({
+          id: 'rogue.outlaw.dispatch.delayedCastSuggestion.p1',
+          message: 'You should delay Dispatch whenever ',
+        })}
+        <SpellLink spell={talents.GRAVEDIGGER_3_OUTLAW_TALENT} />{' '}
+        {t({
+          id: 'rogue.outlaw.dispatch.delayedCastSuggestion.p2',
+          message: 'or ',
+        })}
+        <SpellLink spell={talents.ACE_UP_YOUR_SLEEVE_TALENT} />
+        {t({
+          id: 'rogue.outlaw.dispatch.delayedCastSuggestion.p3',
+          message: ' procs and prioritize ',
+        })}
+        <SpellLink spell={SPELLS.BETWEEN_THE_EYES} />
+        {t({
+          id: 'rogue.outlaw.dispatch.delayedCastSuggestion.p4',
+          message: ' as your damaging spender.',
+        })}
+      </>
     );
   }
 

@@ -213,9 +213,16 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
       if (nextAbility && HasAbility(nextAbility)) {
         clippingInfo = (
           <div>
-            <Trans id="hunter.survival.boomstick.clippedBy">
-              <strong>Clipped by:</strong> <SpellLink spell={nextAbility.ability.guid} />
-            </Trans>
+            <>
+              <strong>
+                {t({
+                  id: 'hunter.survival.boomstick.clippedBy.bold',
+                  message: 'Clipped by:',
+                })}
+              </strong>
+              {t({ id: 'hunter.survival.boomstick.clippedBy.p1', message: ' ' })}
+              <SpellLink spell={nextAbility.ability.guid} />
+            </>
           </div>
         );
       }
@@ -256,10 +263,17 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
     const tickLines = tickResults.map((tick) =>
       tick.hit ? (
         <div key={tick.tickNumber}>
-          <Trans id="hunter.survival.boomstick.tickHit">
-            Tick {tick.tickNumber}: <strong>{tick.targetsHit}</strong> targets{' '}
+          <>
+            {t({
+              id: 'hunter.survival.boomstick.tickHit.p1',
+              message: 'Tick ',
+            })}
+            {tick.tickNumber}
+            {t({ id: 'hunter.survival.boomstick.tickHit.p2', message: ': ' })}
+            <strong>{tick.targetsHit}</strong>
+            {t({ id: 'hunter.survival.boomstick.tickHit.p3', message: ' targets ' })}
             <small>({formatNumber(tick.damage)} damage)</small>
-          </Trans>
+          </>
         </div>
       ) : (
         <div key={tick.tickNumber} style={{ color: BadColor }}>
@@ -294,9 +308,16 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
         )}
         {tickLines}
         <div>
-          <Trans id="hunter.survival.boomstick.totalDamage">
-            <strong>Total Damage:</strong> {formatNumber(castDamage)}
-          </Trans>
+          <>
+            <strong>
+              {t({
+                id: 'hunter.survival.boomstick.totalDamage.bold',
+                message: 'Total Damage:',
+              })}
+            </strong>
+            {t({ id: 'hunter.survival.boomstick.totalDamage.p1', message: ' ' })}
+            {formatNumber(castDamage)}
+          </>
         </div>
         {clippingInfo}
       </div>
@@ -306,15 +327,20 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="hunter.survival.boomstick.guideExplanation">
+        <>
           <strong>
             <SpellLink spell={TALENTS.BOOMSTICK_TALENT} />
-          </strong>{' '}
-          should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} /> active.
-          Additionally, avoid interrupting the channel early - let it complete all 4 ticks for maximum
-          damage. Because Boomstick is a directional cone ability, ensure you're facing targets to
-          avoid missing ticks.
-        </Trans>
+          </strong>
+          {t({
+            id: 'hunter.survival.boomstick.guideExplanation.p1',
+            message: ' should always be cast with ',
+          })}
+          <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} />
+          {t({
+            id: 'hunter.survival.boomstick.guideExplanation.p2',
+            message: ' active. Additionally, avoid interrupting the channel early - let it complete all 4 ticks for maximum damage. Because Boomstick is a directional cone ability, ensure you\'re facing targets to avoid missing ticks.',
+          })}
+        </>
       </p>
     );
 

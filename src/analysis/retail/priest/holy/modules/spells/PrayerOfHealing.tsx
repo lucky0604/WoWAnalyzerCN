@@ -9,7 +9,6 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { ChecklistUsageInfo, SpellUse } from 'parser/core/SpellUsage/core';
 import ContextualSpellUsageSubSection from 'parser/core/SpellUsage/HideGoodCastsSpellUsageSubSection';
 import { defineMessage, t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import styles from '../Styling.module.scss';
 
 class PrayerOfHealing extends Analyzer {
@@ -327,27 +326,16 @@ class PrayerOfHealing extends Analyzer {
         <strong>
           <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} />
         </strong>{' '}
-        <Trans id="priest.holy.prayerOfHealing.description">
-          is your primary healing tool. It provides substantial burst healing on its own and is the
-          most efficient way to reduce the cooldown of{' '}
-          <SpellLink spell={TALENTS.HOLY_WORD_SANCTIFY_TALENT} />.
-        </Trans>
+        <>{t({ id: 'priest.holy.prayerOfHealing.description.p1', message: 'is your primary healing tool. It provides substantial burst healing on its own and is the most efficient way to reduce the cooldown of ' })}<SpellLink spell={TALENTS.HOLY_WORD_SANCTIFY_TALENT} />{t({ id: 'priest.holy.prayerOfHealing.description.p2', message: '.' })}</>
         {this.hasLightweaverTalent && (
           <>
             {' '}
-            <Trans id="priest.holy.prayerOfHealing.lightweaverTip">
-              Try to cast it when you have stacks of{' '}
-              <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> to reduce cast time and mana cost.
-            </Trans>
+            <>{t({ id: 'priest.holy.prayerOfHealing.lightweaverTip.p1', message: 'Try to cast it when you have stacks of ' })}<SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />{t({ id: 'priest.holy.prayerOfHealing.lightweaverTip.p2', message: ' to reduce cast time and mana cost.' })}</>
           </>
         )}
         {this.hasSurgeTalent && this.hasSpiritwellTalent && (
           <p>
-            <Trans id="priest.holy.prayerOfHealing.surgeTip">
-              If talented into <SpellLink spell={TALENTS.SPIRITWELL_TALENT} />, you can cast{' '}
-              <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> when you have stacks of{' '}
-              <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />.
-            </Trans>
+            <>{t({ id: 'priest.holy.prayerOfHealing.surgeTip.p1', message: 'If talented into ' })}<SpellLink spell={TALENTS.SPIRITWELL_TALENT} />{t({ id: 'priest.holy.prayerOfHealing.surgeTip.p2', message: ', you can cast ' })}<SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} />{t({ id: 'priest.holy.prayerOfHealing.surgeTip.p3', message: ' when you have stacks of ' })}<SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />{t({ id: 'priest.holy.prayerOfHealing.surgeTip.p4', message: '.' })}</>
           </p>
         )}
       </section>
@@ -381,8 +369,7 @@ class PrayerOfHealing extends Analyzer {
     switch (scenario) {
       case 'lightweaver-both':
         castBreakdownSmallText = (
-          <Trans id="priest.holy.prayerOfHealing.castLegendPerfect">
-            {' '}
+          <>{' '}
             - <span className={styles.perfectCast}>蓝色</span>表示完美施放（
             <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />和
             <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />
@@ -393,14 +380,12 @@ class PrayerOfHealing extends Analyzer {
             <SpellLink spell={TALENTS.DIVINITY_TALENT} />
             激活，但无
             <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
-            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。
-          </Trans>
+            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。</>
         );
         break;
       case 'lightweaver-surge':
         castBreakdownSmallText = (
-          <Trans id="priest.holy.prayerOfHealing.castLegendPerfect">
-            {' '}
+          <>{' '}
             - <span className={styles.perfectCast}>蓝色</span>表示完美施放（
             <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />和
             <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />
@@ -410,45 +395,38 @@ class PrayerOfHealing extends Analyzer {
             <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />
             激活，但无
             <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
-            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。
-          </Trans>
+            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。</>
         );
         break;
       case 'lightweaver-divinity':
         castBreakdownSmallText = (
-          <Trans id="priest.holy.prayerOfHealing.castLegendGood">
-            {' '}
+          <>{' '}
             <span className={styles.goodCast}>绿色</span>表示良好施放（
             <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
             激活）。 <span className={styles.okCast}>黄色</span>表示一般施放（
             <SpellLink spell={TALENTS.DIVINITY_TALENT} />
             激活，但无
             <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
-            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。
-          </Trans>
+            ）。 <span className={styles.badCast}>红色</span>表示无任何增益激活的不良施放。</>
         );
         break;
       case 'lightweaver-only':
         castBreakdownSmallText = (
-          <Trans id="priest.holy.prayerOfHealing.castLegendSimple">
-            {' '}
+          <>{' '}
             - <span className={styles.goodCast}>绿色</span>表示良好施放（
             <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
-            激活）。 <span className={styles.badCast}>红色</span>表示无增益的不良施放。
-          </Trans>
+            激活）。 <span className={styles.badCast}>红色</span>表示无增益的不良施放。</>
         );
         break;
       case 'surge-divinity':
       case 'surge-only':
       case 'divinity-only':
         castBreakdownSmallText = (
-          <Trans id="priest.holy.prayerOfHealing.castLegendBuff">
-            {' '}
+          <>{' '}
             - <span className={styles.goodCast}>绿色</span>表示良好施放（
             <SpellLink spell={TALENTS.SURGE_OF_LIGHT_TALENT} />或
             <SpellLink spell={TALENTS.DIVINITY_TALENT} />
-            激活）。 <span className={styles.badCast}>红色</span>表示无增益的不良施放。
-          </Trans>
+            激活）。 <span className={styles.badCast}>红色</span>表示无增益的不良施放。</>
         );
         break;
       default:

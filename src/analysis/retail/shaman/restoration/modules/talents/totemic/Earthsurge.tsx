@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_SHAMAN } from 'common/TALENTS/shaman';
@@ -59,10 +59,16 @@ export default class Earthsurge extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.HERO_TALENTS}
         tooltip={
-          <Trans id="shaman.restoration.earthsurge.tooltip">
-            <strong>{formatNumber(this.healingDoneFromTalent)}</strong> bonus healing (
-            {formatNumber(this.overhealingDoneFromTalent)} overhealing)
-          </Trans>
+          <strong>
+            {t({
+              id: 'shaman.restoration.earthsurge.tooltip',
+              message: '{0} bonus healing ({1} overhealing)',
+              values: {
+                0: formatNumber(this.healingDoneFromTalent),
+                1: formatNumber(this.overhealingDoneFromTalent),
+              },
+            })}
+          </strong>
         }
       >
         <TalentSpellText talent={TALENTS_SHAMAN.EARTHSURGE_TALENT}>

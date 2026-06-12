@@ -97,37 +97,136 @@ class MeteorGuide extends Analyzer {
     const blastZone = <SpellLink spell={TALENTS.BLAST_ZONE_TALENT} />;
 
     const explanation = (
-      <Trans id="mage.fire.meteorGuide.explanation">
-        <b>{meteor}</b> is on somewhat of an awkward cooldown cadence, so it is primarily used to
-        prop up your {combustion} damage. As a result, you will often be holding {meteor} to ensure
-        it lines up with {combustion}. Refer to the below guidelines to get the most out of{' '}
-        {meteor}.
+      <>
+        <strong>{meteor}</strong>
+        {t({
+          id: 'mage.fire.meteorGuide.explanation.p1',
+          message: ' is on somewhat of an awkward cooldown cadence, so it is primarily used to prop up your ',
+        })}
+        {combustion}
+        {t({
+          id: 'mage.fire.meteorGuide.explanation.p2',
+          message: ' damage. As a result, you will often be holding ',
+        })}
+        {meteor}
+        {t({
+          id: 'mage.fire.meteorGuide.explanation.p3',
+          message: ' to ensure it lines up with ',
+        })}
+        {combustion}
+        {t({
+          id: 'mage.fire.meteorGuide.explanation.p4',
+          message: '. Refer to the below guidelines to get the most out of ',
+        })}
+        {meteor}
+        {t({
+          id: 'mage.fire.meteorGuide.explanation.p5',
+          message: '.',
+        })}
         <ul>
           <li>
-            Ensure you are aiming {meteor} so that it will hit your primary target and as many
-            additional targets as possible.
+            {t({
+              id: 'mage.fire.meteorGuide.explanation.li1',
+              message: 'Ensure you are aiming ',
+            })}
+            {meteor}
+            {t({
+              id: 'mage.fire.meteorGuide.explanation.li1a',
+              message: ' so that it will hit your primary target and as many additional targets as possible.',
+            })}
           </li>
           {this.hasBurnout && (
             <li>
-              If you have {burnout}, you should ensure {meteor} lands within 8 seconds of{' '}
-              {combustion} ending, so the {burnout} explosion includes {meteor}'s ignite
-              contributions.
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li2',
+                message: 'If you have ',
+              })}
+              {burnout}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li2a',
+                message: ', you should ensure ',
+              })}
+              {meteor}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li2b',
+                message: ' lands within 8 seconds of ',
+              })}
+              {combustion}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li2c',
+                message: ' ending, so the ',
+              })}
+              {burnout}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li2d',
+                message: " explosion includes ",
+              })}
+              {meteor}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li2e',
+                message: "'s ignite contributions.",
+              })}
             </li>
           )}
           {!this.hasBurnout && (
             <li>
-              Without {burnout}, you should cast {meteor} just before you activate {combustion},
-              ensuring {meteor} lands after {combustion} is activated.
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li3',
+                message: 'Without ',
+              })}
+              {burnout}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li3a',
+                message: ', you should cast ',
+              })}
+              {meteor}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li3b',
+                message: ' just before you activate ',
+              })}
+              {combustion}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li3c',
+                message: ', ensuring ',
+              })}
+              {meteor}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li3d',
+                message: ' lands after ',
+              })}
+              {combustion}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li3e',
+                message: ' is activated.',
+              })}
             </li>
           )}
           {this.hasBlastZone && (
             <li>
-              If you have {blastZone}, it is acceptable to cast {meteor} outside of {combustion} as
-              long as it will be available again for {combustion}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li4',
+                message: 'If you have ',
+              })}
+              {blastZone}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li4a',
+                message: ', it is acceptable to cast ',
+              })}
+              {meteor}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li4b',
+                message: ' outside of ',
+              })}
+              {combustion}
+              {t({
+                id: 'mage.fire.meteorGuide.explanation.li4c',
+                message: ' as long as it will be available again for ',
+              })}
+              {combustion}
             </li>
           )}
         </ul>
-      </Trans>
+      </>
     );
 
     return (

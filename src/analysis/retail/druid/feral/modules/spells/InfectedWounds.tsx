@@ -57,9 +57,15 @@ export default class InfectedWounds extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <Trans id="druid.feral.infected_wounds.tooltip">
-              Damage attributable to the 30% <strong>Rake</strong> bonus from Infected Wounds.
-            </Trans>
+            {t({
+              id: 'druid.feral.infected_wounds.tooltip',
+              message: 'Damage attributable to the 30% ',
+            })}
+            <strong>Rake</strong>
+            {t({
+              id: 'druid.feral.infected_wounds.tooltip.p2',
+              message: ' bonus from Infected Wounds.',
+            })}
             <ul>
               <li>
                 {t({ id: 'druid.feral.infected_wounds.direct_hits', message: 'Direct hits:' })}{' '}

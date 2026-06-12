@@ -14,6 +14,7 @@ import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import { SpellLink, TooltipElement } from 'interface';
 import { formatNumber } from 'common/format';
 
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 class JadefireStomp extends Analyzer {
   static dependencies = {
@@ -118,10 +119,13 @@ class JadefireStomp extends Analyzer {
                     const healing = formatNumber(this.healing);
                     const overheal = formatNumber(this.overhealing);
                     return (
-                      <Trans id="monk.shared.jfs.healing">
-                        {healing} <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} /> healing (
-                        {overheal} overheal){' '}
-                      </Trans>
+                      <>
+                        {healing}{' '}
+                        <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} />
+                        {t({ id: 'monk.shared.jfs.healing.p1', message: ' healing (' })}
+                        {overheal}
+                        {t({ id: 'monk.shared.jfs.healing.p2', message: ' overheal)' })}
+                      </>
                     );
                   })()}
                 </li>
@@ -130,10 +134,13 @@ class JadefireStomp extends Analyzer {
                     const healing = formatNumber(this.gomHealing);
                     const overheal = formatNumber(this.gomOverhealing);
                     return (
-                      <Trans id="monk.shared.jfs.gom_healing">
-                        {healing} <SpellLink spell={SPELLS.GUSTS_OF_MISTS} /> healing ({overheal}{' '}
-                        overheal)
-                      </Trans>
+                      <>
+                        {healing}{' '}
+                        <SpellLink spell={SPELLS.GUSTS_OF_MISTS} />
+                        {t({ id: 'monk.shared.jfs.gom_healing.p1', message: ' healing (' })}
+                        {overheal}
+                        {t({ id: 'monk.shared.jfs.gom_healing.p2', message: ' overheal)' })}
+                      </>
                     );
                   })()}
                 </li>

@@ -104,18 +104,40 @@ export default class EmpowerRuneWeapon extends Analyzer {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <Trans id="deathknight.frost.empowerRuneWeapon.guide.explanation">
-          <strong>
-            <SpellLink spell={talents.EMPOWER_RUNE_WEAPON_TALENT} />
-          </strong>{' '}
-          is an off-gcd <SpellLink spell={talents.KILLING_MACHINE_TALENT} /> and Runic Power
-          generator. It helps us reduce the number of no-KM{' '}
-          <SpellLink spell={talents.OBLITERATE_TALENT} />s we cast in a fight, as well as providing
-          a ton of resources. Furthermore, during{' '}
-          <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} /> with{' '}
-          <SpellLink spell={talents.OBLITERATION_TALENT} />, it gives a lot of free casts of{' '}
-          <SpellLink spell={talents.OBLITERATE_TALENT} /> which is a lot of value.
-        </Trans>
+        <strong>
+          <SpellLink spell={talents.EMPOWER_RUNE_WEAPON_TALENT} />
+        </strong>
+        {t({
+          id: 'deathknight.frost.empowerRuneWeapon.guide.explanation',
+          message: ' is an off-gcd ',
+        })}
+        <SpellLink spell={talents.KILLING_MACHINE_TALENT} />
+        {t({
+          id: 'deathknight.frost.empowerRuneWeapon.guide.explanation.p2',
+          message:
+            ' and Runic Power generator. It helps us reduce the number of no-KM ',
+        })}
+        <SpellLink spell={talents.OBLITERATE_TALENT} />
+        {t({
+          id: 'deathknight.frost.empowerRuneWeapon.guide.explanation.p3',
+          message:
+            's we cast in a fight, as well as providing a ton of resources. Furthermore, during ',
+        })}
+        <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} />
+        {t({
+          id: 'deathknight.frost.empowerRuneWeapon.guide.explanation.p4',
+          message: ' with ',
+        })}
+        <SpellLink spell={talents.OBLITERATION_TALENT} />
+        {t({
+          id: 'deathknight.frost.empowerRuneWeapon.guide.explanation.p5',
+          message: ', it gives a lot of free casts of ',
+        })}
+        <SpellLink spell={talents.OBLITERATE_TALENT} />
+        {t({
+          id: 'deathknight.frost.empowerRuneWeapon.guide.explanation.p6',
+          message: ' which is a lot of value.',
+        })}
       </p>
     );
 

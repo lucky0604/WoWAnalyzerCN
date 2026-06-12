@@ -188,14 +188,14 @@ class Rejuvenation extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="restoration.rejuv.explanation_p1">
-            <b>
-              <SpellLink spell={SPELLS.REJUVENATION} />
-            </b>{' '}
-            is your primary filler spell. It can be used on injured raiders or pre-cast on full
-            health raiders when ramping for incoming raid damage. Don't spam it unmotivated - you'll
-            run out of mana.
-          </Trans>
+          <b>
+            <SpellLink spell={SPELLS.REJUVENATION} />
+          </b>{' '}
+          {t({
+            id: 'restoration.rejuv.explanation_p1',
+            message:
+              "is your primary filler spell. It can be used on injured raiders or pre-cast on full health raiders when ramping for incoming raid damage. Don't spam it unmotivated - you'll run out of mana.",
+          })}
         </p>
         <p>
           <Trans id="restoration.rejuv.explanation_p2">
@@ -250,11 +250,30 @@ class Rejuvenation extends Analyzer {
         position={STATISTIC_ORDER.CORE(18)} // chosen for fixed ordering of general stats
         size="flexible"
         tooltip={
-          <Trans id="restoration.rejuv.statistic_tooltip">
-            You refreshed Rejuvenation early <strong>{this.earlyRefreshments} times</strong>, losing
-            a total of <strong>{this.timeLostInSeconds.toFixed(1)}s</strong> of HoT duration (
-            {this.timeLostInSecondsPerMinute.toFixed(1)}s per minute).
-          </Trans>
+          <>
+            {t({
+              id: 'restoration.rejuv.statistic_tooltip',
+              message: 'You refreshed Rejuvenation early ',
+            })}
+            <strong>
+              {this.earlyRefreshments}
+              {t({ id: 'restoration.rejuv.statistic_tooltip_times', message: ' times' })}
+            </strong>
+            {t({
+              id: 'restoration.rejuv.statistic_tooltip_losing',
+              message: ', losing a total of ',
+            })}
+            <strong>{this.timeLostInSeconds.toFixed(1)}s</strong>
+            {t({
+              id: 'restoration.rejuv.statistic_tooltip_duration',
+              message: ' of HoT duration (',
+            })}
+            {this.timeLostInSecondsPerMinute.toFixed(1)}
+            {t({
+              id: 'restoration.rejuv.statistic_tooltip_end',
+              message: 's per minute).',
+            })}
+          </>
         }
       >
         <BoringValue

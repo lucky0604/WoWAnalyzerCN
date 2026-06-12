@@ -24,7 +24,7 @@ import { formatNumber } from 'common/format';
 import { UPHEAVAL_REVERBERATION_DAM_LINK } from '../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 /**
  * (4) Set Augmentation: While Ebon Might is active, empower spells deal 20% increased damage and cool down 20% faster.
@@ -133,10 +133,7 @@ class MID1Augmentation2P extends Analyzer {
       >
         <div className="pad">
           <label>
-            <Trans id="evoker.augmentation.mid1Augmentation4P.damageLabel">
-            <SpellLink spell={SPELLS.FIRE_BREATH} /> and{' '}
-            <SpellLink spell={TALENTS.UPHEAVAL_TALENT} /> damage from tier
-          </Trans>
+            <><SpellLink spell={SPELLS.FIRE_BREATH} />{t({id:'evoker.augmentation.mid1Augmentation4P.damageLabel.p1',message:' and '})}<SpellLink spell={TALENTS.UPHEAVAL_TALENT} />{t({id:'evoker.augmentation.mid1Augmentation4P.damageLabel.p2',message:' damage from tier'})}</>
           </label>
           <ItemDamageDone amount={this.extraDamage} />
         </div>

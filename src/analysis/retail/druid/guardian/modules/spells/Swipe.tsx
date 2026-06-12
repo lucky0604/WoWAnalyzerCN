@@ -39,48 +39,54 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
         <br />
         {hasBerserk && (
           <>
-            <Trans id="druid.guardian.swipe.in_berserk">
-              in <SpellLink spell={cdSpell(this.selectedCombatant)} /> (Mangle or Thrash always
-              available)
-            </Trans>
+            {t({ id: 'druid.guardian.swipe.in_berserk', message: 'in ' })}
+            <SpellLink spell={cdSpell(this.selectedCombatant)} />
+            {t({
+              id: 'druid.guardian.swipe.in_berserk.p2',
+              message: ' (Mangle or Thrash always available)',
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingMangleCd === 0 && (
           <>
-            <Trans id="druid.guardian.swipe.mangle_available">
-              <SpellLink spell={SPELLS.MANGLE_BEAR} /> was available
-            </Trans>
+            <SpellLink spell={SPELLS.MANGLE_BEAR} />
+            {t({ id: 'druid.guardian.swipe.mangle_available', message: ' was available' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingMangleCd > 0 && remainingMangleCd < 1000 && (
           <>
-            <Trans id="druid.guardian.swipe.mangle_available_in">
-              <SpellLink spell={SPELLS.MANGLE_BEAR} /> is available in{' '}
-              {(remainingMangleCd / 1000).toFixed(1)} seconds.
-            </Trans>
+            <SpellLink spell={SPELLS.MANGLE_BEAR} />
+            {t({
+              id: 'druid.guardian.swipe.mangle_available_in',
+              message: ' is available in ',
+            })}
+            {(remainingMangleCd / 1000).toFixed(1)}
+            {t({ id: 'druid.guardian.swipe.mangle_available_in.p2', message: ' seconds.' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingThrashCd === 0 && (
           <>
-            <Trans id="druid.guardian.swipe.thrash_available">
-              <SpellLink spell={SPELLS.THRASH_BEAR} /> was available
-            </Trans>
+            <SpellLink spell={SPELLS.THRASH_BEAR} />
+            {t({ id: 'druid.guardian.swipe.thrash_available', message: ' was available' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
         )}
         {remainingThrashCd > 0 && remainingThrashCd < 1000 && (
           <>
-            <Trans id="druid.guardian.swipe.thrash_available_in">
-              <SpellLink spell={SPELLS.THRASH_BEAR} /> is available in{' '}
-              {(remainingThrashCd / 1000).toFixed(1)} seconds.
-            </Trans>
+            <SpellLink spell={SPELLS.THRASH_BEAR} />
+            {t({
+              id: 'druid.guardian.swipe.thrash_available_in',
+              message: ' is available in ',
+            })}
+            {(remainingThrashCd / 1000).toFixed(1)}
+            {t({ id: 'druid.guardian.swipe.thrash_available_in.p2', message: ' seconds.' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
           </>
@@ -98,14 +104,14 @@ export default class Swipe extends Analyzer.withDependencies({ spellUsable: Spel
     const explanation = (
       <>
         <p>
-          <Trans id="druid.guardian.swipe.explanation_p1">
-            <strong>
-              <SpellLink spell={SPELLS.SWIPE_BEAR} />
-            </strong>{' '}
-            is your filler spell. It does not generate rage and does very weak damage. Swipe is
-            barely better than an empty GCD and shouldn't be used if it delays another ability -
-            even by a little.
-          </Trans>
+          <strong>
+            <SpellLink spell={SPELLS.SWIPE_BEAR} />
+          </strong>{' '}
+          {t({
+            id: 'druid.guardian.swipe.explanation_p1',
+            message:
+              "is your filler spell. It does not generate rage and does very weak damage. Swipe is barely better than an empty GCD and shouldn't be used if it delays another ability - even by a little.",
+          })}
         </p>
         <p>
           <strong>

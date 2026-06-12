@@ -62,23 +62,33 @@ const reasonLabel = (reason: DeathStrikeReason) => {
       );
     case DeathStrikeReason.LowHealth:
       return (
-        <Trans id="deathknight.blood.usageSection.lowHpAt">
-          <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> at Low HP
-        </Trans>
+        <>
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />{' '}
+          {t({ id: 'deathknight.blood.usageSection.lowHpAt', message: 'at Low HP' })}
+        </>
       );
     case DeathStrikeReason.BloodShield:
       return (
         <TooltipElement
           content={
-            <Trans id="deathknight.blood.usageSection.bloodShieldTooltip">
-              Only counts absorbs that mitigate hits for more than{' '}
-              <strong>{formatPercentage(BLOOD_SHIELD_THRESHOLD, 0)}%</strong> of your HP.
-            </Trans>
+            <>
+              {t({
+                id: 'deathknight.blood.usageSection.bloodShieldTooltip',
+                message: 'Only counts absorbs that mitigate hits for more than ',
+              })}
+              <strong>{formatPercentage(BLOOD_SHIELD_THRESHOLD, 0)}%</strong>
+              {t({
+                id: 'deathknight.blood.usageSection.bloodShieldTooltip.p2',
+                message: ' of your HP.',
+              })}
+            </>
           }
         >
-          <Trans id="deathknight.blood.usageSection.bloodShield">
-            Generate <SpellLink spell={SPELLS.BLOOD_SHIELD} />
-          </Trans>
+          {t({
+            id: 'deathknight.blood.usageSection.bloodShield',
+            message: 'Generate ',
+          })}
+          <SpellLink spell={SPELLS.BLOOD_SHIELD} />
         </TooltipElement>
       );
     case DeathStrikeReason.DumpRP:
@@ -120,14 +130,24 @@ const DeathStrikeProblemDescription = ({ data }: { data: DeathStrikeProblem['dat
     <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> and{' '}
     <strong>{formatPercentage(data.hitPoints / data.maxHitPoints, 0)}%</strong> Health.{' '}
     {data.followupDamageTaken ? (
-      <Trans id="deathknight.blood.usageSection.problemDescFollowup">
-        In the next few seconds, you took{' '}
+      <>
+        {t({
+          id: 'deathknight.blood.usageSection.problemDescFollowup',
+          message: 'In the next few seconds, you took ',
+        })}
         <strong>
           {formatNumber(data.followupDamageTaken + (data.followupAbsorbedDamage ?? 0))}
-        </strong>{' '}
-        damage that this <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> could have helped
-        mitigate.
-      </Trans>
+        </strong>
+        {t({
+          id: 'deathknight.blood.usageSection.problemDescFollowup.p2',
+          message: ' damage that this ',
+        })}
+        <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+        {t({
+          id: 'deathknight.blood.usageSection.problemDescFollowup.p3',
+          message: ' could have helped mitigate.',
+        })}
+      </>
     ) : (
       <Trans id="deathknight.blood.usageSection.problemDescDefault">
         This left you low on resources and vulnerable to upcoming damage.
@@ -390,64 +410,154 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
     >
       <Explanation>
         <p>
-          <Trans id="deathknight.blood.deathStrikeSection.explanationParagraph1">
-            As a Blood Death Knight, <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> is both your
-            main defensive tool and one of your strongest damaging abilities. Balancing these two
-            uses is important to playing the spec well.
-          </Trans>
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph1',
+            message: 'As a Blood Death Knight, ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph1.p2',
+            message:
+              ' is both your main defensive tool and one of your strongest damaging abilities. Balancing these two uses is important to playing the spec well.',
+          })}
         </p>
         <p>
-          <Trans id="deathknight.blood.deathStrikeSection.explanationParagraph2Intro">
-            There are three main ways that you can use{' '}
-            <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> defensively:
-          </Trans>
+            {t({
+              id: 'deathknight.blood.deathStrikeSection.explanationParagraph2Intro',
+              message: 'There are three main ways that you can use ',
+            })}
+            <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+            {t({
+              id: 'deathknight.blood.deathStrikeSection.explanationParagraph2Intro.p2',
+              message: ' defensively:',
+            })}
           <ul>
             <li>
-              <Trans id="deathknight.blood.deathStrikeSection.explanationParagraph2LowHp">
-                You can use it while at <strong>low health</strong> to help recover, or
-              </Trans>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2LowHp',
+                message: 'You can use it while at ',
+              })}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.explanationParagraph2LowHp.bold',
+                  message: 'low health',
+                })}
+              </strong>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2LowHp.p2',
+                message: ' to help recover, or',
+              })}
             </li>
             <li>
-              <Trans id="deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamage">
-                You can use it{' '}
-                <TooltipElement
-                  content={
-                    <Trans id="deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamageTooltip">
-                      <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
-                      's healing is based on the total amount of damage you took in the previous 5
-                      seconds. This allows you to get a lot of healing from it, even if your HP
-                      never gets very low.
-                    </Trans>
-                  }
-                >
-                  after taking lots of damage
-                </TooltipElement>{' '}
-                for a <strong>large heal</strong>, or
-              </Trans>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamage',
+                message: 'You can use it ',
+              })}
+              <TooltipElement
+                content={
+                  <>
+                    <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+                    {t({
+                      id: 'deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamageTooltip',
+                      message:
+                        "'s healing is based on the total amount of damage you took in the previous 5 seconds. This allows you to get a lot of healing from it, even if your HP never gets very low.",
+                    })}
+                  </>
+                }
+              >
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamage.link',
+                  message: 'after taking lots of damage',
+                })}
+              </TooltipElement>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamage.p2',
+                message: ' for a ',
+              })}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamage.bold',
+                  message: 'large heal',
+                })}
+              </strong>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2AfterDamage.p3',
+                message: ', or',
+              })}
             </li>
             <li>
-              <Trans id="deathknight.blood.deathStrikeSection.explanationParagraph2BeforeHit">
-                You can use it to generate a{' '}
-                <strong>
-                  <SpellLink spell={SPELLS.BLOOD_SHIELD} />
-                </strong>{' '}
-                absorb <em>before</em> a large Physical hit to help you survive it.
-              </Trans>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2BeforeHit',
+                message: 'You can use it to generate a ',
+              })}
+              <strong>
+                <SpellLink spell={SPELLS.BLOOD_SHIELD} />
+              </strong>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2BeforeHit.p2',
+                message: ' absorb ',
+              })}
+              <em>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.explanationParagraph2BeforeHit.before',
+                  message: 'before',
+                })}
+              </em>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.explanationParagraph2BeforeHit.p3',
+                message: ' a large Physical hit to help you survive it.',
+              })}
             </li>
           </ul>
         </p>
         <p>
-          <Trans id="deathknight.blood.deathStrikeSection.explanationParagraph3Intro">
-            However, Blood currently has <em>too much</em>{' '}
-            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> for you to spend only on defensive
-            casts. If you try to only use <SpellLink spell={talents.DEATH_STRIKE_TALENT} />{' '}
-            defensively, you will waste most of the RP that you generate. To avoid this, weave casts
-            of <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> between your casts of{' '}
-            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> generators like{' '}
-            <SpellLink spell={talents.HEART_STRIKE_TALENT} /> to keep the extra from going to waste.
-            This is called <strong>dumping</strong>{' '}
-            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
-          </Trans>
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro',
+            message: 'However, Blood currently has ',
+          })}
+          <em>
+            {t({
+              id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.tooMuch',
+              message: 'too much',
+            })}
+          </em>
+          {' '}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.p2',
+            message:
+              ' for you to spend only on defensive casts. If you try to only use ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.p3',
+            message:
+              ' defensively, you will waste most of the RP that you generate. To avoid this, weave casts of ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.p4',
+            message: ' between your casts of ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.p5',
+            message: ' generators like ',
+          })}
+          <SpellLink spell={talents.HEART_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.p6',
+            message:
+              ' to keep the extra from going to waste. This is called ',
+          })}
+          <strong>
+            {t({
+              id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.dumping',
+              message: 'dumping',
+            })}
+          </strong>
+          {' '}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
         </p>
       </Explanation>
       <ContentRow>
@@ -465,12 +575,24 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
                 {formatNumber(healedDamage)} /{' '}
                 <TooltipElement
                   content={
-                    <Trans id="deathknight.blood.deathStrikeSection.healingDoneTooltip">
-                      You took <strong>{formatNumber(totalDamage)}</strong> total damage. The value
-                      shown here is a reasonable goal (~50% of damage taken) for how much you can
-                      heal back via <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> and{' '}
+                    <>
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.healingDoneTooltip',
+                        message: 'You took ',
+                      })}
+                      <strong>{formatNumber(totalDamage)}</strong>
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.healingDoneTooltip.p2',
+                        message:
+                          ' total damage. The value shown here is a reasonable goal (~50% of damage taken) for how much you can heal back via ',
+                      })}
+                      <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.healingDoneTooltip.p3',
+                        message: ' and ',
+                      })}
                       <SpellLink spell={SPELLS.BLOOD_SHIELD} />
-                    </Trans>
+                    </>
                   }
                 >
                   {formatNumber(healingTarget)}
@@ -486,18 +608,26 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
                       amount: ds.totalHealing,
                       color: GoodColor,
                       description: (
-                        <Trans id="deathknight.blood.deathStrikeSection.healingByDeathStrike">
-                          Healing by <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
-                        </Trans>
+                        <>
+                          {t({
+                            id: 'deathknight.blood.deathStrikeSection.healingByDeathStrike',
+                            message: 'Healing by ',
+                          })}
+                          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+                        </>
                       ),
                     },
                     {
                       amount: bloodShield.totalHealing,
                       color: color(MAGIC_SCHOOLS.ids.PHYSICAL),
                       description: (
-                        <Trans id="deathknight.blood.deathStrikeSection.absorbedByBloodShield">
-                          Physical damage absorbed by <SpellLink spell={SPELLS.BLOOD_SHIELD} />
-                        </Trans>
+                        <>
+                          {t({
+                            id: 'deathknight.blood.deathStrikeSection.absorbedByBloodShield',
+                            message: 'Physical damage absorbed by ',
+                          })}
+                          <SpellLink spell={SPELLS.BLOOD_SHIELD} />
+                        </>
                       ),
                     },
                     {
@@ -528,15 +658,34 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
               <td>
                 <TooltipElement
                   content={
-                    <Trans id="deathknight.blood.deathStrikeSection.runesSpentTooltip">
-                      While <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> does not cost{' '}
-                      <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> itself, every Rune spent
-                      generates 10 or more <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
+                    <>
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.runesSpentTooltip',
+                        message: 'While ',
+                      })}
+                      <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.runesSpentTooltip.p2',
+                        message: ' does not cost ',
+                      })}
+                      <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.runesSpentTooltip.p3',
+                        message: ' itself, every Rune spent generates 10 or more ',
+                      })}
+                      <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
                       {'\n'}
-                      You can roughly convert every 4 unspent{' '}
-                      <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> into 1 lost{' '}
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.runesSpentTooltip.p4',
+                        message: 'You can roughly convert every 4 unspent ',
+                      })}
+                      <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
+                      {t({
+                        id: 'deathknight.blood.deathStrikeSection.runesSpentTooltip.p5',
+                        message: ' into 1 lost ',
+                      })}
                       <SpellLink spell={talents.DEATH_STRIKE_TALENT} />.
-                    </Trans>
+                    </>
                   }
                 >
                   {t({
@@ -597,23 +746,49 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
       </ContentRow>
       {ds.doubleCastRate > 0.2 && (
         <AlertWarning>
-          <Trans id="deathknight.blood.deathStrikeSection.doubleCastWarning">
-            {formatPercentage(ds.doubleCastRate, 0)}% of your{' '}
-            <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> casts were within 2 GCDs of a previous
-            cast and did not do good healing. Repeatedly casting{' '}
-            <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> is highly inefficient due to the{' '}
-            <TooltipElement
-              content={
-                <Trans id="deathknight.blood.deathStrikeSection.doubleCastWarningTooltip">
-                  Death Strike now only heals you <strong>once</strong> for each damage event in the
-                  previous 5 seconds. Repeatedly casting Death Strike does usually give time for
-                  more healing to accumulate.
-                </Trans>
-              }
-            >
-              changes to <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
-            </TooltipElement>
-          </Trans>
+          {formatPercentage(ds.doubleCastRate, 0)}%
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.doubleCastWarning',
+            message: ' of your ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.doubleCastWarning.p2',
+            message:
+              ' casts were within 2 GCDs of a previous cast and did not do good healing. Repeatedly casting ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.doubleCastWarning.p3',
+            message: ' is highly inefficient due to the ',
+          })}
+          <TooltipElement
+            content={
+              <>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.doubleCastWarningTooltip',
+                  message: 'Death Strike now only heals you ',
+                })}
+                <strong>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.doubleCastWarningTooltip.once',
+                    message: 'once',
+                  })}
+                </strong>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.doubleCastWarningTooltip.p2',
+                  message:
+                    ' for each damage event in the previous 5 seconds. Repeatedly casting Death Strike does usually give time for more healing to accumulate.',
+                })}
+              </>
+            }
+          >
+            {t({
+              id: 'deathknight.blood.deathStrikeSection.doubleCastWarning.changes',
+              message: 'changes to ',
+            })}
+            <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          </TooltipElement>
         </AlertWarning>
       )}
     </SubSection>

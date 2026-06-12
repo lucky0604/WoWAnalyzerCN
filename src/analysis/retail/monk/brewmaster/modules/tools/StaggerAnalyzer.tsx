@@ -11,7 +11,7 @@ import TalentSpellText from 'parser/ui/TalentSpellText';
 import StaggerPool from '../core/StaggerPool';
 import Spell from 'common/SPELLS/Spell';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 export default abstract class StaggerStatistic extends Analyzer.withDependencies({
   stagger: StaggerPool,
@@ -55,10 +55,17 @@ export default abstract class StaggerStatistic extends Analyzer.withDependencies
             const count = this.removalEventCount;
             const avg = formatNumber(this.staggerRemoved / this.removalEventCount);
             return (
-              <Trans id="monk.brewmaster.staggerAnalyzer.tooltip">
-                Removed <strong>{removed}</strong> <SpellLink spell={SPELLS.STAGGER} /> over{' '}
-                <strong>{count}</strong> clears (an average of <strong>{avg}</strong> per clear).
-              </Trans>
+              <>
+                {t({ id: 'monk.brewmaster.staggerAnalyzer.tooltip.p1', message: 'Removed ' })}
+                <strong>{removed}</strong>
+                {t({ id: 'monk.brewmaster.staggerAnalyzer.tooltip.p2', message: ' ' })}
+                <SpellLink spell={SPELLS.STAGGER} />
+                {t({ id: 'monk.brewmaster.staggerAnalyzer.tooltip.p3', message: ' over ' })}
+                <strong>{count}</strong>
+                {t({ id: 'monk.brewmaster.staggerAnalyzer.tooltip.p4', message: ' clears (an average of ' })}
+                <strong>{avg}</strong>
+                {t({ id: 'monk.brewmaster.staggerAnalyzer.tooltip.p5', message: ' per clear).' })}
+              </>
             );
           })()
         }

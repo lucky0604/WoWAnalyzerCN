@@ -37,11 +37,20 @@ class EnergyDetails extends Analyzer {
               </Trans>
             </p>
             <p>
-              <Trans id="druid.feral.energy_details.tooltip_p2">
-                You spent <b>{formatPercentage(percentAtCap)}%</b> of the fight at capped energy,
-                causing you to miss out on <b>{this.owner.getPerMinute(gainWaste).toFixed(0)}</b>{' '}
-                energy per minute from regeneration.
-              </Trans>
+              {t({
+                id: 'druid.feral.energy_details.tooltip_p2.p1',
+                message: 'You spent ',
+              })}
+              <b>{formatPercentage(percentAtCap)}%</b>
+              {t({
+                id: 'druid.feral.energy_details.tooltip_p2.p2',
+                message: ' of the fight at capped energy, causing you to miss out on ',
+              })}
+              <b>{this.owner.getPerMinute(gainWaste).toFixed(0)}</b>{' '}
+              {t({
+                id: 'druid.feral.energy_details.tooltip_p2.p3',
+                message: 'energy per minute from regeneration.',
+              })}
             </p>
           </>
         }

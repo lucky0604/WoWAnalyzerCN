@@ -16,7 +16,6 @@ import Spell from 'common/SPELLS/Spell';
 import useTooltip from 'interface/useTooltip';
 import { abilityToSpell } from 'common/abilityToSpell';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 const HitTimelineContainer = styled.div`
   display: grid;
@@ -69,13 +68,13 @@ function HitTooltipContent({ hit, unmitigatedContent }: HitTooltipContentProps) 
         {formatDuration(hit.event.timestamp - info.fightStart)}
       </div>
       <div>
-        <Trans id="demonhunter.vengeance.hitTimeline.youTook">
-          You took <strong>{formatNumber(hit.event.amount)}</strong> from{' '}
-          <SpellLink spell={abilityToSpell(hit.event.ability)}>
-            {hit.event.ability.name}
-          </SpellLink>
-          .
-        </Trans>
+        {t({ id: 'demonhunter.vengeance.hitTimeline.youTook.p1', message: 'You took ' })}
+        <strong>{formatNumber(hit.event.amount)}</strong>
+        {t({ id: 'demonhunter.vengeance.hitTimeline.youTook.p2', message: ' from ' })}
+        <SpellLink spell={abilityToSpell(hit.event.ability)}>
+          {hit.event.ability.name}
+        </SpellLink>
+        {t({ id: 'demonhunter.vengeance.hitTimeline.youTook.p3', message: '.' })}
       </div>
       {!hit.mitigated && unmitigatedContent}
     </div>

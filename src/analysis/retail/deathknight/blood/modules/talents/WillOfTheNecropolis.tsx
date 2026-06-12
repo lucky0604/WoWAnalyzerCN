@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import TALENTS from 'common/TALENTS/deathknight';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -71,15 +72,33 @@ class WillOfTheNecropolis extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.willOfTheNecropolis.statistic.tooltip">
+          <>
             <p>
-              <strong>Total Damage Absorbed: </strong> {formatNumber(this.totalWotnAbsorbed)}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.willOfTheNecropolis.statistic.tooltip.totalAbsorbed',
+                  message: 'Total Damage Absorbed: ',
+                })}
+              </strong>
+              {formatNumber(this.totalWotnAbsorbed)}
             </p>
             <p>
-              <strong>Activated: </strong> {this.activated}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.willOfTheNecropolis.statistic.tooltip.activated',
+                  message: 'Activated: ',
+                })}
+              </strong>
+              {this.activated}
             </p>
-            <strong>Absorbed 5% Max Health or more count: </strong> {this.goodAbsorbCount}
-          </Trans>
+            <strong>
+              {t({
+                id: 'deathknight.blood.willOfTheNecropolis.statistic.tooltip.absorbCount',
+                message: 'Absorbed 5% Max Health or more count: ',
+              })}
+            </strong>
+            {this.goodAbsorbCount}
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.WILL_OF_THE_NECROPOLIS_TALENT}>

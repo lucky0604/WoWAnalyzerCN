@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import fetchWcl from 'common/fetchWclApi';
 import { formatThousands, formatNumber } from 'common/format';
 import makeWclUrl from 'common/makeWclUrl';
@@ -169,34 +170,28 @@ class DevotionAuraDamageReduction extends Analyzer {
 
   statistic() {
     const tooltip = (
-      <Trans id="paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip">
+      <>
         <p>
-          The total estimated damage reduced <strong>by the passive</strong> was{' '}
-          {formatThousands(this.passiveDamageReduced)} ({formatNumber(this.passiveDrps)} DRPS). This
-          has high accuracy.
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p1', message: 'The total estimated damage reduced ' })}
+          <strong>{t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.passive', message: 'by the passive' })}</strong>
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p2', message: ' was {damage} ({drps} DRPS). This has high accuracy.', values: { damage: formatThousands(this.passiveDamageReduced), drps: formatNumber(this.passiveDrps) }})}
         </p>
         <p>
-          The total estimated damage reduced <strong>during Aura Mastery</strong> was{' '}
-          {formatThousands(this.activeDamageReduced)} ({formatNumber(this.activeDrps)} DRPS). This
-          has a 99% accuracy.
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p3', message: 'The total estimated damage reduced ' })}
+          <strong>{t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.duringAM', message: 'during Aura Mastery' })}</strong>
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p4', message: ' was {damage} ({drps} DRPS). This has a 99% accuracy.', values: { damage: formatThousands(this.activeDamageReduced), drps: formatNumber(this.activeDrps) }})}
         </p>
         <p>
-          This value is calculated using the <i>Optional DRs</i> method. This results in the lowest
-          possible damage reduction value being shown. This should be the correct value in most
-          circumstances.
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p5', message: 'This value is calculated using the ' })}
+          <i>{t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.optionalDRs', message: 'Optional DRs' })}</i>
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p6', message: ' method. This results in the lowest possible damage reduction value being shown. This should be the correct value in most circumstances.' })}
         </p>
         <p>
-          Calculating the exact damage reduced by Devotion Aura is very time and resource consuming.
-          This method uses a very close estimation. The active damage reduced is calculated by
-          taking the total damage taken of the entire raid during{' '}
-          <SpellLink spell={SPELLS.AURA_MASTERY} /> and calculating the damage reduced during this
-          time. The passive damage reduction is calculated by taking the exact damage reduction
-          factor applicable and calculating the damage reduced if that full effect was applied to
-          the Paladin. Even though the passive damage reduction is split among other nearby players,
-          using your personal damage taken should average it out very closely. More extensive tests
-          that go over all damage events have shown that this is usually a close approximation.
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p7', message: 'Calculating the exact damage reduced by Devotion Aura is very time and resource consuming. This method uses a very close estimation. The active damage reduced is calculated by taking the total damage taken of the entire raid during ' })}
+          <SpellLink spell={SPELLS.AURA_MASTERY} />
+          {t({ id: 'paladin.holy.modules.talents.devotionAuraDamageReduction.tooltip.p8', message: ' and calculating the damage reduced during this time. The passive damage reduction is calculated by taking the exact damage reduction factor applicable and calculating the damage reduced if that full effect was applied to the Paladin. Even though the passive damage reduction is split among other nearby players, using your personal damage taken should average it out very closely. More extensive tests that go over all damage events have shown that this is usually a close approximation.' })}
         </p>
-      </Trans>
+      </>
     );
 
     return (

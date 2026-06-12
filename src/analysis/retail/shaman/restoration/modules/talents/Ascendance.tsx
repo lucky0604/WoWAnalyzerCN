@@ -15,7 +15,7 @@ import { EventType } from 'parser/core/Events';
 
 import CooldownThroughputTracker from '../features/CooldownThroughputTracker';
 
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 class Ascendance extends Analyzer {
   static dependencies = {
     cooldownThroughputTracker: CooldownThroughputTracker,
@@ -82,10 +82,12 @@ class Ascendance extends Analyzer {
           checklistItems: [
             {
               label: (
-                <Trans id="shaman.restoration.ascendance.casts_label">
-                  <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> or{' '}
-                  <SpellLink spell={SPELLS.HEALING_WAVE} /> casts
-                </Trans>
+                <>
+                  <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />
+                  {t({ id: 'shaman.restoration.ascendance.casts_label', message: ' or ' })}
+                  <SpellLink spell={SPELLS.HEALING_WAVE} />
+                  {t({ id: 'shaman.restoration.ascendance.casts_label.casts', message: ' casts' })}
+                </>
               ),
               result: (
                 <>
@@ -95,7 +97,7 @@ class Ascendance extends Analyzer {
             },
             {
               label: (
-                <Trans id="shaman.restoration.ascendance.used_label">
+                <>
                   <SpellLink
                     spell={
                       this.selectedCombatant.hasTalent(TALENTS.SURGING_TOTEM_TALENT)
@@ -103,8 +105,8 @@ class Ascendance extends Analyzer {
                         : TALENTS.ANCESTRAL_SWIFTNESS_TALENT
                     }
                   />{' '}
-                  used.
-                </Trans>
+                  {t({ id: 'shaman.restoration.ascendance.used_label', message: 'used.' })}
+                </>
               ),
               result: (
                 <>
@@ -132,43 +134,85 @@ class Ascendance extends Analyzer {
       <SubSection title={<SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} />}>
         <Explanation>
           <p>
-            <Trans id="shaman.restoration.ascendance.explanation_p1">
-              <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} /> is your major and most
-              important healing cooldown. A big percentage of your overall healing during a fight
-              will come from your casts while{' '}
-              <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} /> is active, so you don't
-              want to waste this time using low-value spells.{' '}
+            <>
+              <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} />
+              {t({
+                id: 'shaman.restoration.ascendance.explanation_p1.p1',
+                message:
+                  ' is your major and most important healing cooldown. A big percentage of your overall healing during a fight will come from your casts while',
+              })}{' '}
+              <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} />
+              {t({
+                id: 'shaman.restoration.ascendance.explanation_p1.p2',
+                message:
+                  " is active, so you don't want to waste this time using low-value spells.",
+              })}{' '}
               <b>
-                Almost all of your casts during{' '}
-                <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} /> should be either{' '}
-                <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> or{' '}
+                {t({
+                  id: 'shaman.restoration.ascendance.explanation_p1.bold',
+                  message: 'Almost all of your casts during',
+                })}{' '}
+                <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} />
+                {t({
+                  id: 'shaman.restoration.ascendance.explanation_p1.bold2',
+                  message: 'should be either',
+                })}{' '}
+                <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />
+                {t({ id: 'shaman.restoration.ascendance.explanation_p1.bold3', message: ' or ' })}
                 <SpellLink spell={SPELLS.HEALING_WAVE} />
               </b>
-            </Trans>
+            </>
           </p>
           <p>
-            <Trans id="shaman.restoration.ascendance.explanation_p2">
-              The best way to use <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} /> is to
-              cast <SpellLink spell={TALENTS.RIPTIDE_TALENT} /> and{' '}
-              <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} /> beforehand to have all your buffs
-              ready going into it, and then using{' '}
+            <>
+              {t({
+                id: 'shaman.restoration.ascendance.explanation_p2.p1',
+                message: 'The best way to use',
+              })}{' '}
+              <SpellLink spell={TALENTS.ASCENDANCE_RESTORATION_TALENT} />
+              {t({
+                id: 'shaman.restoration.ascendance.explanation_p2.p2',
+                message: 'is to cast',
+              })}{' '}
+              <SpellLink spell={TALENTS.RIPTIDE_TALENT} />
+              {t({ id: 'shaman.restoration.ascendance.explanation_p2.p3', message: 'and' })}{' '}
+              <SpellLink spell={TALENTS.UNLEASH_LIFE_TALENT} />
+              {t({
+                id: 'shaman.restoration.ascendance.explanation_p2.p4',
+                message:
+                  'beforehand to have all your buffs ready going into it, and then using',
+              })}{' '}
               <SpellLink
                 spell={
                   this.selectedCombatant.hasTalent(TALENTS.SURGING_TOTEM_TALENT)
                     ? TALENTS.NATURES_SWIFTNESS_TALENT
                     : TALENTS.ANCESTRAL_SWIFTNESS_TALENT
                 }
-              />{' '}
-              during it.
-            </Trans>
+              />
+              {t({
+                id: 'shaman.restoration.ascendance.explanation_p2.p5',
+                message: 'during it.',
+              })}
+            </>
           </p>
           {this.selectedCombatant.hasTalent(TALENTS.SURGING_TOTEM_TALENT) ? (
             <p>
-              <Trans id="shaman.restoration.ascendance.explanation_p3">
-                For Totemic, <SpellLink spell={TALENTS.HEALING_STREAM_TOTEM_RESTORATION_TALENT} />{' '}
-                is also a good cast, as it will automatically cast a{' '}
-                <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> as well.
-              </Trans>
+              <>
+                {t({
+                  id: 'shaman.restoration.ascendance.explanation_p3.p1',
+                  message: 'For Totemic,',
+                })}{' '}
+                <SpellLink spell={TALENTS.HEALING_STREAM_TOTEM_RESTORATION_TALENT} />
+                {t({
+                  id: 'shaman.restoration.ascendance.explanation_p3.p2',
+                  message: 'is also a good cast, as it will automatically cast a',
+                })}{' '}
+                <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />
+                {t({
+                  id: 'shaman.restoration.ascendance.explanation_p3.p3',
+                  message: 'as well.',
+                })}
+              </>
             </p>
           ) : (
             <></>

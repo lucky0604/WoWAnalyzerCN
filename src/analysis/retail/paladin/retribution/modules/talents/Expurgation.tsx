@@ -8,7 +8,7 @@ import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
 import SpellLink from 'interface/SpellLink';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const BAR_COLOR = '#C27217';
 const GUIDE_EXPLANATION_PERCENT = 30;
@@ -52,16 +52,20 @@ class Expurgation extends Analyzer {
     const explanation = (
       <>
         <strong>
-          <Trans id="paladin.retribution.expurgation.maintainDebuff">
-            Maintain <SpellLink spell={SPELLS.EXPURGATION_DEBUFF} /> on the boss.
-          </Trans>
+          <>
+            {t({ id: 'paladin.retribution.expurgation.maintainDebuff.p1', message: 'Maintain ' })}
+            <SpellLink spell={SPELLS.EXPURGATION_DEBUFF} />
+            {t({ id: 'paladin.retribution.expurgation.maintainDebuff.p2', message: ' on the boss.' })}
+          </>
         </strong>
         <p>
-          <Trans id="paladin.retribution.expurgation.explanation">
-            It is applied by <SpellLink spell={TALENTS_PALADIN.BLADE_OF_JUSTICE_TALENT} /> and it
-            increases your damage done to the boss through{' '}
-            <SpellLink spell={TALENTS_PALADIN.HOLY_FLAMES_TALENT} />.
-          </Trans>
+          <>
+            {t({ id: 'paladin.retribution.expurgation.explanation.p1', message: 'It is applied by ' })}
+            <SpellLink spell={TALENTS_PALADIN.BLADE_OF_JUSTICE_TALENT} />
+            {t({ id: 'paladin.retribution.expurgation.explanation.p2', message: ' and it increases your damage done to the boss through ' })}
+            <SpellLink spell={TALENTS_PALADIN.HOLY_FLAMES_TALENT} />
+            {t({ id: 'paladin.retribution.expurgation.explanation.p3', message: '.' })}
+          </>
         </p>
       </>
     );
@@ -69,9 +73,10 @@ class Expurgation extends Analyzer {
     const data = (
       <RoundedPanel>
         <strong>
-          <Trans id="paladin.retribution.expurgation.uptime">
-            <SpellLink spell={SPELLS.EXPURGATION_DEBUFF.id} /> uptime
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.EXPURGATION_DEBUFF.id} />
+            {t({ id: 'paladin.retribution.expurgation.uptime', message: ' uptime' })}
+          </>
         </strong>
         {this.subStatistic()}
       </RoundedPanel>

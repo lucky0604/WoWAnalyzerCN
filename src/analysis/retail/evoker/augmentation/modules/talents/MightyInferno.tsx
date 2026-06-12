@@ -24,7 +24,6 @@ import StatTracker from 'parser/shared/modules/StatTracker';
 import { InformationIcon } from 'interface/icons';
 import { SpellLink } from 'interface/index';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 interface infernoApplication {
   playerID: number;
@@ -155,10 +154,7 @@ class MightyInferno extends Analyzer {
             <li>{t({ id: 'evoker.augmentation.mightyInferno.damageFromExtension', message: 'Damage from extension' })}: {formatNumber(this.extensionDamage)}</li>
             {this.hasReceivedExternalInfernos && (
               <li>
-                <Trans id="evoker.augmentation.mightyInferno.externalInfernos">
-                  You received <SpellLink spell={TALENTS.INFERNOS_BLESSING_TALENT} /> from another
-                  Evoker, which can cause these damage numbers to be too large.
-                </Trans>
+                <>{t({id:'evoker.augmentation.mightyInferno.externalInfernos.p1',message:'You received '})}<SpellLink spell={TALENTS.INFERNOS_BLESSING_TALENT} />{t({id:'evoker.augmentation.mightyInferno.externalInfernos.p2',message:' from another Evoker, which can cause these damage numbers to be too large.'})}</>
               </li>
             )}
           </>

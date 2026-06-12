@@ -81,11 +81,12 @@ class HighTolerance extends Analyzer {
           (() => {
             const wasted = formatDurationMinSec(this.wastedCdr / 1000);
             return (
-              <Trans id="monk.brewmaster.high_tolerance.tooltip">
-                {wasted} CDR wasted. Note that{' '}
-                <strong>High Tolerance has a bug</strong> causing cooldown reduction to be applied
-                before consuming a charge.
-              </Trans>
+              <>
+                {wasted}
+                {t({ id: 'monk.brewmaster.high_tolerance.tooltip.p1', message: ' CDR wasted. Note that ' })}
+                <strong>{t({ id: 'monk.brewmaster.high_tolerance.tooltip.bold', message: 'High Tolerance has a bug' })}</strong>
+                {t({ id: 'monk.brewmaster.high_tolerance.tooltip.p2', message: ' causing cooldown reduction to be applied before consuming a charge.' })}
+              </>
             );
           })()
         }

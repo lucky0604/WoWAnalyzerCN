@@ -25,7 +25,6 @@ import uptimeBarSubStatistic from 'parser/ui/UptimeBarSubStatistic';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import Spell from 'common/SPELLS/Spell';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 type DotInformation =
   | {
@@ -173,18 +172,12 @@ class EncroachingShadows extends Analyzer {
 
   get guideSubsection(): JSX.Element {
     const explanation = (
-      <Trans id="priest.discipline.encroachingShadows.explanation">
+      <>
         <p>
-          <b>
-            Maintain <SpellLink spell={SPELLS.SHADOW_WORD_PAIN} />
-          </b>{' '}
-          at all times. It is an efficient source of damage for atonement, and is the sole source of
-          procs for <SpellLink spell={TALENTS_PRIEST.POWER_OF_THE_DARK_SIDE_TALENT} />. The uptime
-          of this debuff should be kept as high as possible. Consider using{' '}
-          <SpellLink spell={TALENTS_PRIEST.PAINFUL_PUNISHMENT_TALENT} /> if you struggle to keep a
-          good uptime.
+          <strong>{t({ id: 'priest.discipline.encroachingShadows.explanation.bold', message: 'Maintain ' })}<SpellLink spell={SPELLS.SHADOW_WORD_PAIN} /></strong>{' '}
+          {t({ id: 'priest.discipline.encroachingShadows.explanation.p1', message: 'at all times. It is an efficient source of damage for atonement, and is the sole source of procs for ' })}<SpellLink spell={TALENTS_PRIEST.POWER_OF_THE_DARK_SIDE_TALENT} />{t({ id: 'priest.discipline.encroachingShadows.explanation.p2', message: '. The uptime of this debuff should be kept as high as possible. Consider using ' })}<SpellLink spell={TALENTS_PRIEST.PAINFUL_PUNISHMENT_TALENT} />{t({ id: 'priest.discipline.encroachingShadows.explanation.p3', message: ' if you struggle to keep a good uptime.' })}
         </p>
-      </Trans>
+      </>
     );
 
     const data = (

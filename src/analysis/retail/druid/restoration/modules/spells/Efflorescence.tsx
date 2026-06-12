@@ -1,6 +1,5 @@
 import type { JSX } from 'react';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink, TooltipElement } from 'interface';
@@ -131,32 +130,35 @@ class Efflorescence extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="restoration.efflo.explanation">
-          <b>
-            <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
-          </b>{' '}
-          is extremely mana efficient if you place it where raiders are standing. Under the boss is
-          usually a safe bet. While it's acceptable to let it drop during heavy movement, you should
-          otherwise keep it active at all times.
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
+        </b>{' '}
+        {t({
+          id: 'restoration.efflo.explanation',
+          message:
+            "is extremely mana efficient if you place it where raiders are standing. Under the boss is usually a safe bet. While it's acceptable to let it drop during heavy movement, you should otherwise keep it active at all times.",
+        })}
       </p>
     );
 
     const lifeTreadingExplanation = (
       <p>
-        <Trans id="restoration.efflo.lifetreading_explanation">
-          <b>
-            <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
-          </b>{' '}
-          is free and provides strong healing, especially when Lifebloom is maintained on a target
-          stacked with the raid. Keep Lifebloom on a squishier melee player for consistent value.
-          With
-          <b>
-            <SpellLink spell={TALENTS_DRUID.LIFETREADING_TALENT} />
-          </b>
-          {', '} Efflorescence follows the Lifebloom target, so aim to maintain near 100% uptime on
-          Lifebloom.
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.EFFLORESCENCE_CAST} />
+        </b>{' '}
+        {t({
+          id: 'restoration.efflo.lifetreading_explanation',
+          message:
+            'is free and provides strong healing, especially when Lifebloom is maintained on a target stacked with the raid. Keep Lifebloom on a squishier melee player for consistent value. With',
+        })}{' '}
+        <b>
+          <SpellLink spell={TALENTS_DRUID.LIFETREADING_TALENT} />
+        </b>
+        {t({
+          id: 'restoration.efflo.lifetreading_explanation_2',
+          message:
+            ', Efflorescence follows the Lifebloom target, so aim to maintain near 100% uptime on Lifebloom.',
+        })}
       </p>
     );
 

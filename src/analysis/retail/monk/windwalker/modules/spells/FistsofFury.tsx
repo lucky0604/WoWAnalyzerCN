@@ -177,23 +177,45 @@ class FistsofFury extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="monk.windwalker.fof.explanation1">
-            <b>
+          <>
+            <strong>
               <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} />
-            </b>{' '}
-            is one of your primary dps skills, and should be channeled to completion. It ticks{' '}
-            {BASE_FISTS_OF_FURY_TICKS} times over the duration of the channel.{' '}
-            <SpellLink spell={TALENTS_MONK.CRASHING_FISTS_TALENT} /> now increases its damage rather
-            than extending the channel.
-          </Trans>
+            </strong>{' '}
+            {t({
+              id: 'monk.windwalker.fof.explanation1.p1',
+              message:
+                'is one of your primary dps skills, and should be channeled to completion. It ticks ',
+            })}
+            {BASE_FISTS_OF_FURY_TICKS}
+            {t({
+              id: 'monk.windwalker.fof.explanation1.p2',
+              message: ' times over the duration of the channel. ',
+            })}
+            <SpellLink spell={TALENTS_MONK.CRASHING_FISTS_TALENT} />
+            {t({
+              id: 'monk.windwalker.fof.explanation1.p3',
+              message: ' now increases its damage rather than extending the channel.',
+            })}
+          </>
         </p>
         <p>
-          <Trans id="monk.windwalker.fof.explanation2">
-            With <SpellLink spell={TALENTS_MONK.MOMENTUM_BOOST_TALENT} />, each tick of{' '}
-            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> ramps the damage of the next
-            tick. That means the back half of the channel is worth significantly more than the front
-            half, so clipping it early is especially punishing.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.windwalker.fof.explanation2.p1',
+              message: 'With ',
+            })}
+            <SpellLink spell={TALENTS_MONK.MOMENTUM_BOOST_TALENT} />
+            {t({
+              id: 'monk.windwalker.fof.explanation2.p2',
+              message: ', each tick of ',
+            })}
+            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} />
+            {t({
+              id: 'monk.windwalker.fof.explanation2.p3',
+              message:
+                ' ramps the damage of the next tick. That means the back half of the channel is worth significantly more than the front half, so clipping it early is especially punishing.',
+            })}
+          </>
         </p>
       </>
     );
@@ -202,16 +224,20 @@ class FistsofFury extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="monk.windwalker.fof.cast_efficiency">
-              <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> cast efficiency
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} />{' '}
+            {t({
+              id: 'monk.windwalker.fof.cast_efficiency',
+              message: 'cast efficiency',
+            })}
           </strong>
           {this.guideSubStatistic()}
           <hr />
           <strong>
-            <Trans id="monk.windwalker.fof.clip_analysis">
-              <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> clip analysis
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} />{' '}
+            {t({
+              id: 'monk.windwalker.fof.clip_analysis',
+              message: 'clip analysis',
+            })}
           </strong>
           <div style={{ display: 'flex' }}>
             <div style={{ flex: '1', marginRight: '4rem' }}>

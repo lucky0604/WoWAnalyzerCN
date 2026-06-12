@@ -112,12 +112,11 @@ class GrandCrusader extends Analyzer.withDependencies({
         position={STATISTIC_ORDER.DEFAULT}
         size="flexible"
         tooltip={
-          <Trans id="paladin.protection.grandCrusader.tooltip">
-            Grand Crusader reset the cooldown of Avenger's Shield {this.gcProcs} times.
+          <>
+            {t({ id: 'paladin.protection.grandCrusader.tooltip.p1', message: "Grand Crusader reset the cooldown of Avenger's Shield {count} times.", values: { count: this.gcProcs }})}
             <br />
-            You had {this.resetChances} chances for Grand Crusader to trigger with a{' '}
-            {formatPercentage(this.procChance, 0)}% chance to trigger.
-          </Trans>
+            {t({ id: 'paladin.protection.grandCrusader.tooltip.p2', message: 'You had {chances} chances for Grand Crusader to trigger with a {pct}% chance to trigger.', values: { chances: this.resetChances, pct: formatPercentage(this.procChance, 0) }})}
+          </>
         }
         dropdown={
           <div style={{ padding: '8px' }}>

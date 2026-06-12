@@ -1,5 +1,5 @@
 import { ConvokeSpirits } from 'analysis/retail/druid/shared';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import ItemPercentDamageDone from 'parser/ui/ItemPercentDamageDone';
@@ -21,15 +21,18 @@ class ConvokeSpiritsBalance extends ConvokeSpirits {
         tooltip={
           <>
             <p>
-              <Trans id="druid.balance.convoke.damage_caveat">
-                <strong>
-                  Damage amount listed considers only the direct damage and non-refreshable DoT damage
-                  done by convoked abilities!{' '}
-                </strong>
-                (Non-refreshable DoTs are Starfall and Feral Frenzy) Refreshable DoTs, heals, and
-                Astral Power gains are all not considered by this number, making it almost certainly
-                an undercount of Convoke's true value.
-              </Trans>
+              <strong>
+                {t({
+                  id: 'druid.balance.convoke.damage_caveat',
+                  message:
+                    'Damage amount listed considers only the direct damage and non-refreshable DoT damage done by convoked abilities! ',
+                })}
+              </strong>
+              {t({
+                id: 'druid.balance.convoke.damage_caveat.p2',
+                message:
+                  "(Non-refreshable DoTs are Starfall and Feral Frenzy) Refreshable DoTs, heals, and Astral Power gains are all not considered by this number, making it almost certainly an undercount of Convoke's true value.",
+              })}
             </p>
             {this.baseTooltip}
           </>

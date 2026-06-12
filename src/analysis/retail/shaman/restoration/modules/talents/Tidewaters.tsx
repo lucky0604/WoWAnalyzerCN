@@ -1,6 +1,6 @@
 import SPELLS from 'common/SPELLS';
-import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import TALENTS_SHAMAN from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent } from 'parser/core/Events';
@@ -62,12 +62,21 @@ export default class Tidewaters extends Analyzer {
           <>
             <ul>
               <li>
-                <Trans id="shaman.restoration.tidewaters.casts_tooltip">
-                  You cast {this.healingRainCasts}{' '}
-                  <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} /> over the course of the
-                  fight, that healed {this.tidewatersHealingEvents} targets under{' '}
+                <>
+                  {t({
+                    id: 'shaman.restoration.tidewaters.casts_tooltip.p1',
+                    message: 'You cast',
+                  })}{' '}
+                  {this.healingRainCasts}{' '}
+                  <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} />
+                  {t({
+                    id: 'shaman.restoration.tidewaters.casts_tooltip.p2',
+                    message: 'over the course of the fight, that healed',
+                  })}{' '}
+                  {this.tidewatersHealingEvents}
+                  {t({ id: 'shaman.restoration.tidewaters.casts_tooltip.p3', message: ' targets under ' })}
                   <SpellLink spell={TALENTS_SHAMAN.RIPTIDE_TALENT} />.
-                </Trans>
+                </>
               </li>
               <li>
                 <Trans id="shaman.restoration.tidewaters.overheal">

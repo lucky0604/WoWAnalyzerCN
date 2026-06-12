@@ -205,17 +205,23 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                         message: 'Did Not Overcap Vitality',
                       }),
                 details: (
-                  <Trans id="monk.brewmaster.aoh.cap.details">
-                    You generated an estimated {formatNumber(spend.estimatedVitality)} Vitality to
-                    spend with <SpellLink spell={this.activeSpender} />, which is{' '}
+                  <>
+                    {t({ id: 'monk.brewmaster.aoh.cap.details.p1', message: 'You generated an estimated ' })}
+                    {formatNumber(spend.estimatedVitality)}
+                    {t({ id: 'monk.brewmaster.aoh.cap.details.p2', message: ' Vitality to spend with ' })}
+                    <SpellLink spell={this.activeSpender} />
+                    {t({ id: 'monk.brewmaster.aoh.cap.details.p3', message: ', which is ' })}
                     {spend.estimatedVitality > spend.maxHp ? (
-                      <strong>more than</strong>
+                      <strong>{t({ id: 'monk.brewmaster.aoh.cap.details.bold', message: 'more than' })}</strong>
                     ) : (
-                      <>less than</>
+                      <>{t({ id: 'monk.brewmaster.aoh.cap.details.less', message: 'less than' })}</>
                     )}{' '}
-                    your max HP of {formatNumber(spend.maxHp)}. Damage/Healing from{' '}
-                    <SpellLink spell={SPELLS.ASPECT_OF_HARMONY_DOT} /> is capped by your max HP.
-                  </Trans>
+                    {t({ id: 'monk.brewmaster.aoh.cap.details.p4', message: 'your max HP of ' })}
+                    {formatNumber(spend.maxHp)}
+                    {t({ id: 'monk.brewmaster.aoh.cap.details.p5', message: '. Damage/Healing from ' })}
+                    <SpellLink spell={SPELLS.ASPECT_OF_HARMONY_DOT} />
+                    {t({ id: 'monk.brewmaster.aoh.cap.details.p6', message: ' is capped by your max HP.' })}
+                  </>
                 ),
               },
             )
@@ -239,17 +245,19 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                   </Trans>
                 ),
                 details: (
-                  <Trans id="monk.brewmaster.aoh.missing.details">
-                    You lost {formatNumber(spend.missingDamage)} damage from targets dying or
-                    becoming immune. The <SpellLink spell={SPELLS.ASPECT_OF_HARMONY_DOT} /> DoT does
-                    not redistribute damage when enemies die.{' '}
+                  <>
+                    {t({ id: 'monk.brewmaster.aoh.missing.details.p1', message: 'You lost ' })}
+                    {formatNumber(spend.missingDamage)}
+                    {t({ id: 'monk.brewmaster.aoh.missing.details.p2', message: ' damage from targets dying or becoming immune. The ' })}
+                    <SpellLink spell={SPELLS.ASPECT_OF_HARMONY_DOT} />
+                    {t({ id: 'monk.brewmaster.aoh.missing.details.p3', message: ' DoT does not redistribute damage when enemies die. ' })}
                     {chained && (
                       <Trans id="monk.brewmaster.aoh.missing.chained">
                         This use was <em>chained</em> from a previous usage so the amount lost may
                         be incorrect.
                       </Trans>
                     )}
-                  </Trans>
+                  </>
                 ),
               },
             )

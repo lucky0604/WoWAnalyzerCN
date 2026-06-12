@@ -125,49 +125,70 @@ export default class FillerUsage extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="druid.balance.filler.explanation_p1">
-            <strong>Filler spells</strong> are{' '}
-            <strong>
-              <SpellLink spell={SPELLS.WRATH} />
-            </strong>{' '}
-            and{' '}
-            <strong>
-              <SpellLink spell={SPELLS.STARFIRE} />
-            </strong>
-            .
-          </Trans>
+          <strong>{t({ id: 'druid.balance.filler.explanation_p1', message: 'Filler spells' })}</strong>
+          {t({ id: 'druid.balance.filler.explanation_p1.p2', message: ' are ' })}
+          <strong>
+            <SpellLink spell={SPELLS.WRATH} />
+          </strong>{' '}
+          {t({ id: 'druid.balance.filler.explanation_p1.p3', message: 'and ' })}
+          <strong>
+            <SpellLink spell={SPELLS.STARFIRE} />
+          </strong>
+          .
         </p>
         <p>
-          <Trans id="druid.balance.filler.explanation_p2">
-            They are spammable and generate Astral Power. Use <SpellLink spell={SPELLS.WRATH} /> in
-            single target and <SpellLink spell={SPELLS.STARFIRE} /> against multiple stacked
-            targets.
-          </Trans>
+          {t({
+            id: 'druid.balance.filler.explanation_p2',
+            message:
+              'They are spammable and generate Astral Power. Use ',
+          })}
+          <SpellLink spell={SPELLS.WRATH} />
+          {t({
+            id: 'druid.balance.filler.explanation_p2.p2',
+            message:
+              ' in single target and ',
+          })}
+          <SpellLink spell={SPELLS.STARFIRE} />
+          {t({
+            id: 'druid.balance.filler.explanation_p2.p3',
+            message: ' against multiple stacked targets.',
+          })}
         </p>
         <p>
-          <Trans id="druid.balance.filler.explanation_p3">
-            Your fillers are greatly buffed by their corresponding{' '}
-            <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> - aim to enter an Eclipse that
-            matches your current target count.
-          </Trans>
+          {t({
+            id: 'druid.balance.filler.explanation_p3',
+            message: 'Your fillers are greatly buffed by their corresponding ',
+          })}
+          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} />
+          {t({
+            id: 'druid.balance.filler.explanation_p3.p2',
+            message: ' - aim to enter an Eclipse that matches your current target count.',
+          })}
         </p>
         {this.hasLunarCalling && (
           <p>
             <i>
-              <Trans id="druid.balance.filler.explanation_lc">
-                However, because you took <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} />,
-                you can only enter Lunar Eclipse. When Eclipse drops you must use Wrath to reenter
-                Eclipse.
-              </Trans>
+              {t({
+                id: 'druid.balance.filler.explanation_lc',
+                message: 'However, because you took ',
+              })}
+              <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} />
+              {t({
+                id: 'druid.balance.filler.explanation_lc.p2',
+                message:
+                  ', you can only enter Lunar Eclipse. When Eclipse drops you must use Wrath to reenter Eclipse.',
+              })}
             </i>
           </p>
         )}
         {!this.hasLunarCalling && (
           <p>
-            <Trans id="druid.balance.filler.explanation_no_lc">
-              If you make a mistake and find yourself in Lunar Eclipse with no stacked targets or in
-              Solar Eclipse with stacked targets, you should use <SpellLink spell={SPELLS.WRATH} />.
-            </Trans>
+            {t({
+              id: 'druid.balance.filler.explanation_no_lc',
+              message:
+                'If you make a mistake and find yourself in Lunar Eclipse with no stacked targets or in Solar Eclipse with stacked targets, you should use ',
+            })}
+            <SpellLink spell={SPELLS.WRATH} />.
           </p>
         )}
       </>

@@ -75,10 +75,15 @@ class BuilderUse extends Analyzer {
         value: this.effectiveBuilderCasts,
         tooltip: (
           <>
-            <Trans id="druid.feral.builder_use.hardcast_note">
-              This only counts hardcasts -{' '}
-              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
-            </Trans>
+            {t({
+              id: 'druid.feral.builder_use.hardcast_note',
+              message: 'This only counts hardcasts - ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />
+            {t({
+              id: 'druid.feral.builder_use.hardcast_note.p2',
+              message: ' procs are omitted.',
+            })}
           </>
         ),
       },
@@ -88,10 +93,15 @@ class BuilderUse extends Analyzer {
         value: this.wastedBuilderCasts,
         tooltip: (
           <>
-            <Trans id="druid.feral.builder_use.hardcast_note">
-              This only counts hardcasts -{' '}
-              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
-            </Trans>
+            {t({
+              id: 'druid.feral.builder_use.hardcast_note',
+              message: 'This only counts hardcasts - ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />
+            {t({
+              id: 'druid.feral.builder_use.hardcast_note.p2',
+              message: ' procs are omitted.',
+            })}
           </>
         ),
       },

@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { SpellLink } from 'interface';
@@ -41,10 +41,10 @@ export default class ArdentDefender extends MajorDefensiveBuff {
   description(): ReactNode {
     return (
       <p>
-        <Trans id="paladin.protection.ardentDefender.description">
-          <SpellLink spell={TALENTS.ARDENT_DEFENDER_TALENT} /> reduces the damage you take by 20%.
-          And will prevent your next death while the buff is active.
-        </Trans>
+        <>
+          <SpellLink spell={TALENTS.ARDENT_DEFENDER_TALENT} />
+          {t({ id: 'paladin.protection.ardentDefender.description', message: ' reduces the damage you take by 20%. And will prevent your next death while the buff is active.' })}
+        </>
       </p>
     );
   }

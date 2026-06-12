@@ -73,25 +73,21 @@ class DancingRuneWeapon extends Analyzer {
     if (spellId === TALENTS.CONSUMPTION_TALENT.id) {
       return (
         <>
-          <Trans id="deathknight.blood.drw.spellLinks.consumption">
-            and (if in AoE) <SpellLink spell={spellId} />
-          </Trans>
+          <Trans id="deathknight.blood.drw.spellLinks.consumption"
+          >and (if in AoE) </Trans>
+          <SpellLink spell={spellId} />
         </>
       );
     } else if (index + 2 === ALLOWED_CASTS_DURING_DRW.length) {
       return (
         <>
-          <Trans id="deathknight.blood.drw.spellLinks.last">
-            <SpellLink spell={spellId} />
-          </Trans>
+          <SpellLink spell={spellId} />
         </>
       );
     } else {
       return (
         <>
-          <Trans id="deathknight.blood.drw.spellLinks.default">
-            <SpellLink spell={spellId} />,
-          </Trans>
+          <SpellLink spell={spellId} />,
         </>
       );
     }

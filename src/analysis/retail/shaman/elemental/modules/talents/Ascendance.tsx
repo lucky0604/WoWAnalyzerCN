@@ -1,6 +1,5 @@
 import { formatDurationMillisMinSec } from 'common/format';
 import { t, defineMessage } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import SPELLS from 'common/SPELLS/shaman';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -279,13 +278,31 @@ class Ascendance extends Analyzer.withDependencies({
       value: `${cast.spendersCast}/${maxSpenders}`,
       label: t({ id: 'shaman.elemental.ascendance.spenders', message: 'Spenders' }),
       tooltip: (
-        <Trans id="shaman.elemental.ascendance.spenders_tooltip">
-          You cast <strong>{cast.spendersCast}</strong> out of a maximum of{' '}
-          <strong>{maxSpenders}</strong> <SpellLink spell={this.spender.spell} /> casts this window,
-          based on starting <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />, net{' '}
-          <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> gained during Ascendance, and any gain
-          that happened too late to convert into another spender.
-        </Trans>
+        <>
+          {t({
+            id: 'shaman.elemental.ascendance.spenders_tooltip.p1',
+            message: 'You cast ',
+          })}
+          <strong>{cast.spendersCast}</strong>
+          {t({
+            id: 'shaman.elemental.ascendance.spenders_tooltip.p2',
+            message: ' out of a maximum of ',
+          })}
+          <strong>{maxSpenders}</strong>{' '}
+          <SpellLink spell={this.spender.spell} />
+          {t({
+            id: 'shaman.elemental.ascendance.spenders_tooltip.p3',
+            message: ' casts this window, based on starting ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+          {t({ id: 'shaman.elemental.ascendance.spenders_tooltip.p4', message: ', net ' })}
+          <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+          {t({
+            id: 'shaman.elemental.ascendance.spenders_tooltip.p5',
+            message:
+              ' gained during Ascendance, and any gain that happened too late to convert into another spender.',
+          })}
+        </>
       ),
       performance: evaluateQualitativePerformanceByThreshold({
         actual: missedSpenders,
@@ -355,9 +372,12 @@ class Ascendance extends Analyzer.withDependencies({
       }),
       tooltip: (
         <>
-          <Trans id="shaman.elemental.ascendance.non_overload_tooltip">
-            Spells cast that cannot trigger <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />:
-          </Trans>
+          {t({
+            id: 'shaman.elemental.ascendance.non_overload_tooltip.p1',
+            message: 'Spells cast that cannot trigger ',
+          })}
+          <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />
+          {t({ id: 'shaman.elemental.ascendance.non_overload_tooltip.p2', message: ':' })}
           {nonOverloadSpellBreakdown.length > 0 ? (
             <ul>
               {nonOverloadSpellBreakdown.map((spell) => (
@@ -478,27 +498,49 @@ class Ascendance extends Analyzer.withDependencies({
       <>
         <ol>
           <li>
-            <Trans id="shaman.elemental.ascendance.uptime">
-              <strong>Uptime</strong>: You want to maximize the number of casts inside each{' '}
-              <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} /> window. Pairing it with{' '}
-              <SpellLink spell={TALENTS.SPIRITWALKERS_GRACE_TALENT} /> can help preserve uptime
-              while moving.
-            </Trans>
+            <strong>
+              {t({ id: 'shaman.elemental.ascendance.uptime.bold', message: 'Uptime' })}
+            </strong>
+            {t({
+              id: 'shaman.elemental.ascendance.uptime.p1',
+              message: ': You want to maximize the number of casts inside each ',
+            })}
+            <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} />
+            {t({
+              id: 'shaman.elemental.ascendance.uptime.p2',
+              message: ' window. Pairing it with ',
+            })}
+            <SpellLink spell={TALENTS.SPIRITWALKERS_GRACE_TALENT} />
+            {t({
+              id: 'shaman.elemental.ascendance.uptime.p3',
+              message: ' can help preserve uptime while moving.',
+            })}
           </li>
           <li>
-            <Trans id="shaman.elemental.ascendance.avoid">
-              Try to avoid spending globals on spells that do not contribute much during{' '}
-              <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />, such as{' '}
-              <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} /> or{' '}
-              <SpellLink spell={SPELLS.FLAME_SHOCK} /> refreshes.
-            </Trans>
+            {t({
+              id: 'shaman.elemental.ascendance.avoid.p1',
+              message:
+                'Try to avoid spending globals on spells that do not contribute much during ',
+            })}
+            <SpellLink spell={SPELLS.ELEMENTAL_MASTERY} />
+            {t({ id: 'shaman.elemental.ascendance.avoid.p2', message: ', such as ' })}
+            <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} />
+            {t({ id: 'shaman.elemental.ascendance.avoid.p3', message: ' or ' })}
+            <SpellLink spell={SPELLS.FLAME_SHOCK} />
+            {t({ id: 'shaman.elemental.ascendance.avoid.p4', message: ' refreshes.' })}
           </li>
           <li>
-            <Trans id="shaman.elemental.ascendance.stormkeeper">
-              If possible, cast <SpellLink spell={TALENTS.STORMKEEPER_TALENT} /> before{' '}
-              <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} /> so the window is not spent
-              on setup.
-            </Trans>
+            {t({
+              id: 'shaman.elemental.ascendance.stormkeeper.p1',
+              message: 'If possible, cast ',
+            })}
+            <SpellLink spell={TALENTS.STORMKEEPER_TALENT} />
+            {t({ id: 'shaman.elemental.ascendance.stormkeeper.p2', message: ' before ' })}
+            <SpellLink spell={TALENTS.ASCENDANCE_ELEMENTAL_TALENT} />
+            {t({
+              id: 'shaman.elemental.ascendance.stormkeeper.p3',
+              message: ' so the window is not spent on setup.',
+            })}
           </li>
         </ol>
       </>

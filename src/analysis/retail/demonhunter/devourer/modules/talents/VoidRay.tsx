@@ -55,40 +55,34 @@ class VoidRay extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="guide.demonhunter.devourer.voidRay.explanation">
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} /> should always be fully
-            channeled due to interactions it has with different talents:
-          </Trans>
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_RAY_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.voidRay.explanation.p1', message: ' should always be fully channeled due to interactions it has with different talents:' })}
           <ul>
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.FINAL_BREATH_TALENT) && (
               <li>
-                <Trans id="guide.demonhunter.devourer.voidRay.finalBreath">
-                  The last tick deals increased damage thanks to{' '}
-                  <SpellLink spell={TALENTS_DEMON_HUNTER.FINAL_BREATH_TALENT} />.
-                </Trans>
+                {t({ id: 'guide.demonhunter.devourer.voidRay.finalBreath.p1', message: 'The last tick deals increased damage thanks to ' })}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.FINAL_BREATH_TALENT} />
+                {t({ id: 'guide.demonhunter.devourer.voidRay.finalBreath.p2', message: '.' })}
               </li>
             )}
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.MOMENT_OF_CRAVING_TALENT) && (
               <li>
-                <Trans id="guide.demonhunter.devourer.voidRay.momentOfCraving">
-                  You get the very important{' '}
-                  <SpellLink spell={TALENTS_DEMON_HUNTER.MOMENT_OF_CRAVING_TALENT} />
-                  {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.ERADICATE_TALENT) && (
-                    <>
-                      {' '}
-                      and <SpellLink spell={TALENTS_DEMON_HUNTER.ERADICATE_TALENT} />
-                    </>
-                  )}
-                  .
-                </Trans>
+                {t({ id: 'guide.demonhunter.devourer.voidRay.momentOfCraving.p1', message: 'You get the very important ' })}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.MOMENT_OF_CRAVING_TALENT} />
+                {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.ERADICATE_TALENT) && (
+                  <>
+                    {t({ id: 'guide.demonhunter.devourer.voidRay.momentOfCraving.p2', message: ' and ' })}
+                    <SpellLink spell={TALENTS_DEMON_HUNTER.ERADICATE_TALENT} />
+                  </>
+                )}
+                {t({ id: 'guide.demonhunter.devourer.voidRay.momentOfCraving.p3', message: '.' })}
               </li>
             )}
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.VOIDFALL_TALENT) && (
               <li>
-                <Trans id="guide.demonhunter.devourer.voidRay.voidfall">
-                  As Annihilator, fully channeling grants a{' '}
-                  <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDFALL_TALENT} /> stack.
-                </Trans>
+                {t({ id: 'guide.demonhunter.devourer.voidRay.voidfall.p1', message: 'As Annihilator, fully channeling grants a ' })}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.VOIDFALL_TALENT} />
+                {t({ id: 'guide.demonhunter.devourer.voidRay.voidfall.p2', message: ' stack.' })}
               </li>
             )}
           </ul>

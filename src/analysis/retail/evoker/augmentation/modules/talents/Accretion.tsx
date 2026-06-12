@@ -246,18 +246,10 @@ class Accretion extends Analyzer {
         tooltip={
           <>
             <p>
-              <Trans id="evoker.augmentation.accretion.averagedGain">
-                These values are averaged gain from extra casts of{' '}
-                <SpellLink spell={TALENTS.UPHEAVAL_TALENT} />, based on your overall damage.
-              </Trans>
+              <>{t({id:'evoker.augmentation.accretion.averagedGain.p1',message:'These values are averaged gain from extra casts of '})}<SpellLink spell={TALENTS.UPHEAVAL_TALENT} />{t({id:'evoker.augmentation.accretion.averagedGain.p2',message:', based on your overall damage.'})}</>
             </p>
             <p>
-              <Trans id="evoker.augmentation.accretion.realisticRange">
-                Realistically these values can, and will, range more broadly in actual gameplay since
-                when you get the extra casts off will matter a lot. eg. extra casts inside of{' '}
-                <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} /> , or alongside your allies big CDs
-                for <SpellLink spell={SPELLS.SHIFTING_SANDS_BUFF} /> will increase the value provided.
-              </Trans>
+              <>{t({id:'evoker.augmentation.accretion.realisticRange.p1',message:'Realistically these values can, and will, range more broadly in actual gameplay since when you get the extra casts off will matter a lot. eg. extra casts inside of '})}<SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />{t({id:'evoker.augmentation.accretion.realisticRange.p2',message:' , or alongside your allies big CDs for '})}<SpellLink spell={SPELLS.SHIFTING_SANDS_BUFF} />{t({id:'evoker.augmentation.accretion.realisticRange.p3',message:' will increase the value provided.'})}</>
             </p>
             <Trans id="evoker.augmentation.accretion.opportunityCost">
               This also doesn't take opportunity cost into account.
@@ -285,16 +277,10 @@ class Accretion extends Analyzer {
               <SpellLink spell={TALENTS.ACCRETION_TALENT} />
             </label>
             <p>
-              <Trans id="evoker.augmentation.accretion.notEnoughCDR">
-                You didn't gain enough CDR to get any extra casts of{' '}
-                <SpellLink spell={TALENTS.UPHEAVAL_TALENT} />.
-              </Trans>
+              <>{t({id:'evoker.augmentation.accretion.notEnoughCDR.p1',message:"You didn't gain enough CDR to get any extra casts of "})}<SpellLink spell={TALENTS.UPHEAVAL_TALENT} />{t({id:'evoker.augmentation.accretion.notEnoughCDR.p2',message:'.'})}</>
             </p>
             <p>
-              <Trans id="evoker.augmentation.accretion.notEnoughCDRReason">
-                This is either caused by you not casting{' '}
-                <SpellLink spell={TALENTS.ERUPTION_TALENT} /> enough, or the fight being too short.
-              </Trans>
+              <>{t({id:'evoker.augmentation.accretion.notEnoughCDRReason.p1',message:'This is either caused by you not casting '})}<SpellLink spell={TALENTS.ERUPTION_TALENT} />{t({id:'evoker.augmentation.accretion.notEnoughCDRReason.p2',message:' enough, or the fight being too short.'})}</>
             </p>
           </div>
         )}

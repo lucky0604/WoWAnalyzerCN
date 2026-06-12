@@ -90,10 +90,16 @@ export default class Eclipse extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="druid.balance.eclipse.explanation_p1">
-            Cast <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> on cooldown. It has a 32-second
-            cooldown, lasts 15 seconds, and dramatically increases your damage.
-          </Trans>
+          {t({
+            id: 'druid.balance.eclipse.explanation_p1',
+            message: 'Cast ',
+          })}
+          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} />
+          {t({
+            id: 'druid.balance.eclipse.explanation_p1b',
+            message:
+              ' on cooldown. It has a 32-second cooldown, lasts 15 seconds, and dramatically increases your damage.',
+          })}
         </p>
         <p>
           <Trans id="druid.balance.eclipse.explanation_p2">
@@ -109,25 +115,47 @@ export default class Eclipse extends Analyzer {
           </ul>
         </p>
         <p>
-          <Trans id="druid.balance.eclipse.explanation_p3">
-            <SpellLink spell={SPELLS.WRATH} /> is single target. <SpellLink spell={SPELLS.STARFIRE} />{' '}
-            cleaves.{' '}
-          </Trans>
+          <SpellLink spell={SPELLS.WRATH} />
+          {t({
+            id: 'druid.balance.eclipse.explanation_p3',
+            message: ' is single target. ',
+          })}
+          <SpellLink spell={SPELLS.STARFIRE} />
+          {t({
+            id: 'druid.balance.eclipse.explanation_p3b',
+            message: ' cleaves. ',
+          })}
         </p>
         <p>
-          <Trans id="druid.balance.eclipse.explanation_p4">
-            Choose <SpellLink spell={SPELLS.ECLIPSE_LUNAR} /> when hitting 3 or more stacked targets.
-            Choose <SpellLink spell={SPELLS.ECLIPSE_SOLAR} /> for 1 to 2 targets.
-          </Trans>
+          {t({
+            id: 'druid.balance.eclipse.explanation_p4',
+            message: 'Choose ',
+          })}
+          <SpellLink spell={SPELLS.ECLIPSE_LUNAR} />
+          {t({
+            id: 'druid.balance.eclipse.explanation_p4b',
+            message: ' when hitting 3 or more stacked targets. Choose ',
+          })}
+          <SpellLink spell={SPELLS.ECLIPSE_SOLAR} />
+          {t({
+            id: 'druid.balance.eclipse.explanation_p4c',
+            message: ' for 1 to 2 targets.',
+          })}
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.LUNAR_CALLING_TALENT) && (
           <p>
-            <Trans id="druid.balance.eclipse.explanation_lc">
-              <strong>
-                <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} /> talented:{' '}
-              </strong>
-              This talent restricts you from casting <SpellLink spell={SPELLS.ECLIPSE_SOLAR} />
-            </Trans>
+            <strong>
+              <SpellLink spell={TALENTS_DRUID.LUNAR_CALLING_TALENT} />
+              {t({
+                id: 'druid.balance.eclipse.explanation_lc',
+                message: ' talented: ',
+              })}
+            </strong>
+            {t({
+              id: 'druid.balance.eclipse.explanation_lc_b',
+              message: 'This talent restricts you from casting ',
+            })}
+            <SpellLink spell={SPELLS.ECLIPSE_SOLAR} />
           </p>
         )}
       </>

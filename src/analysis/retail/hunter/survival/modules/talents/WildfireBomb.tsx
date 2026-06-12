@@ -126,20 +126,38 @@ class WildfireBomb extends Analyzer.withDependencies({
     const tooltip = (
       <div>
         <h5 style={{ color }}>{header}</h5>
-        <Trans id="hunter.survival.wildfireBomb.tooltipTargeting">
-          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
+        <>
+          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
+          {t({
+            id: 'hunter.survival.wildfireBomb.tooltipTargeting.p1',
+            message: ' targeting ',
+          })}
           <strong>{targetName || 'unknown'}</strong>
-        </Trans>
+        </>
         <div>
-          <Trans id="hunter.survival.wildfireBomb.tooltipTargetsHit">
-            <strong>{targetsHit}</strong> targets hit{' '}
+          <>
+            <strong>{targetsHit}</strong>
+            {t({
+              id: 'hunter.survival.wildfireBomb.tooltipTargetsHit.p1',
+              message: ' targets hit ',
+            })}
             <small>({formatNumber(castDamage)} damage)</small>
-          </Trans>
+          </>
         </div>
         <div>
-          <Trans id="hunter.survival.wildfireBomb.tooltipTotalDamage">
-            <strong>Total Damage:</strong> {formatNumber(castDamage)}
-          </Trans>
+          <>
+            <strong>
+              {t({
+                id: 'hunter.survival.wildfireBomb.tooltipTotalDamage.bold',
+                message: 'Total Damage:',
+              })}
+            </strong>
+            {t({
+              id: 'hunter.survival.wildfireBomb.tooltipTotalDamage.p1',
+              message: ' ',
+            })}
+            {formatNumber(castDamage)}
+          </>
         </div>
       </div>
     );
@@ -150,19 +168,31 @@ class WildfireBomb extends Analyzer.withDependencies({
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="hunter.survival.wildfireBomb.guideExplanation">
+        <>
           <strong>
             <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
-          </strong>{' '}
-          should always be cast with <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} />.
-        </Trans>
+          </strong>
+          {t({
+            id: 'hunter.survival.wildfireBomb.guideExplanation.p1',
+            message: ' should always be cast with ',
+          })}
+          <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST.id} />
+          {t({ id: 'hunter.survival.wildfireBomb.guideExplanation.p2', message: '.' })}
+        </>
         {this.selectedCombatant.hasTalent(TALENTS.SENTINEL_TALENT) && (
           <>
             {' '}
-            <Trans id="hunter.survival.wildfireBomb.guideSentinelNote">
-              Bombs that hit a target with <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} /> are
-              perfect casts.
-            </Trans>
+            <>
+              {t({
+                id: 'hunter.survival.wildfireBomb.guideSentinelNote.p1',
+                message: 'Bombs that hit a target with ',
+              })}
+              <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} />
+              {t({
+                id: 'hunter.survival.wildfireBomb.guideSentinelNote.p2',
+                message: ' are perfect casts.',
+              })}
+            </>
           </>
         )}
       </p>

@@ -18,7 +18,6 @@ import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import { formatPercentage } from 'common/format';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import Abilities from 'parser/core/modules/Abilities';
 
 /**
@@ -84,11 +83,7 @@ class Epiphany extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.EPIPHANY_TALENT} />
         </b>{' '}
-        <Trans id="priest.holy.epiphany.description">
-          gives your Holy Word spells a 25% chance to make your next{' '}
-          <SpellLink spell={SPELLS.PRAYER_OF_MENDING_CAST} /> cost no cooldown. Use Prayer of
-          Mending immediately when you get a proc to avoid wasting it.
-        </Trans>
+        <>{t({ id: 'priest.holy.epiphany.description.p1', message: 'gives your Holy Word spells a 25% chance to make your next ' })}<SpellLink spell={SPELLS.PRAYER_OF_MENDING_CAST} />{t({ id: 'priest.holy.epiphany.description.p2', message: ' cost no cooldown. Use Prayer of Mending immediately when you get a proc to avoid wasting it.' })}</>
       </p>
     );
 

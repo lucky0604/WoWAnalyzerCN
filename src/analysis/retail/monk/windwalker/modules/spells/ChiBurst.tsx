@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -19,15 +19,26 @@ class ChiBurst extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="monk.windwalker.chiburst.explanation">
-          <b>
+        <>
+          <strong>
             <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} />
-          </b>{' '}
-          is a filler spell that is also very good at resetting{' '}
-          <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} />.{' '}
-          <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} /> ideally should be used when anything
-          else would break mastery, or when movement is required.
-        </Trans>
+          </strong>{' '}
+          {t({
+            id: 'monk.windwalker.chiburst.explanation.p1',
+            message: 'is a filler spell that is also very good at resetting ',
+          })}
+          <SpellLink spell={TALENTS_MONK.JADEFIRE_STOMP_TALENT} />
+          {t({
+            id: 'monk.windwalker.chiburst.explanation.p2',
+            message: '. ',
+          })}
+          <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} />
+          {t({
+            id: 'monk.windwalker.chiburst.explanation.p3',
+            message:
+              ' ideally should be used when anything else would break mastery, or when movement is required.',
+          })}
+        </>
       </p>
     );
 
@@ -35,9 +46,11 @@ class ChiBurst extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="monk.windwalker.chiburst.cast_efficiency">
-              <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} /> cast efficiency
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.CHI_BURST_TALENT} />{' '}
+            {t({
+              id: 'monk.windwalker.chiburst.cast_efficiency',
+              message: 'cast efficiency',
+            })}
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>

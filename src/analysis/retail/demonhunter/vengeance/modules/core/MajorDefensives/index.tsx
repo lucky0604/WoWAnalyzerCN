@@ -79,18 +79,19 @@ const MajorDefensives = () => {
             </li>
           </ol>
           <p>
-            <Trans id="demonhunter.vengeance.majorDefensives.explanation3">
-              Vengeance Demon Hunter is unique in that two of our major defensives (
-              <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> and{' '}
-              <SpellLink spell={SPELLS.FRAILTY} /> [with{' '}
-              <SpellLink spell={TALENTS.VOID_REAVER_TALENT} />
-              ]) are applied to enemies instead of ourselves. This leads to some headaches when
-              trying to diagram how certain spells/talents (like{' '}
-              <SpellLink spell={TALENTS.BURNING_ALIVE_TALENT} />) affect your damage intake. Until
-              we get around to allowing you to toggle which enemy you're looking at in the below
-              timeline, <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> and{' '}
-              <SpellLink spell={SPELLS.FRAILTY} /> are excluded.
-            </Trans>
+            {t({ id: 'demonhunter.vengeance.majorDefensives.explanation3.p1', message: 'Vengeance Demon Hunter is unique in that two of our major defensives (' })}
+            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.majorDefensives.explanation3.p2', message: ' and ' })}
+            <SpellLink spell={SPELLS.FRAILTY} />
+            {t({ id: 'demonhunter.vengeance.majorDefensives.explanation3.p3', message: ' [with ' })}
+            <SpellLink spell={TALENTS.VOID_REAVER_TALENT} />
+            {t({ id: 'demonhunter.vengeance.majorDefensives.explanation3.p4', message: ']) are applied to enemies instead of ourselves. This leads to some headaches when trying to diagram how certain spells/talents (like ' })}
+            <SpellLink spell={TALENTS.BURNING_ALIVE_TALENT} />
+            {t({ id: 'demonhunter.vengeance.majorDefensives.explanation3.p5', message: ') affect your damage intake. Until we get around to allowing you to toggle which enemy you\'re looking at in the below timeline, ' })}
+            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.majorDefensives.explanation3.p6', message: ' and ' })}
+            <SpellLink spell={SPELLS.FRAILTY} />
+            {t({ id: 'demonhunter.vengeance.majorDefensives.explanation3.p7', message: ' are excluded.' })}
           </p>
         </Explanation>
       </SubSection>

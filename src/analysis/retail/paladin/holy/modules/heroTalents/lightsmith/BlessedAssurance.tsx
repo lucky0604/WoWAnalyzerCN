@@ -117,11 +117,13 @@ class BlessedAssurance extends Analyzer {
           <>
             {!this.hasAC && (
               <div>
-                <Trans id="paladin.holy.lightsmith.blessedAssurance.noHealingWithoutAC">
-                  No healing to be received from{' '}
-                  <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} /> if{' '}
-                  <SpellLink spell={TALENTS.AVENGING_CRUSADER_TALENT} /> is not taken.
-                </Trans>
+                <>
+                  {t({ id: 'paladin.holy.lightsmith.blessedAssurance.noHealingWithoutAC.p1', message: 'No healing to be received from ' })}
+                  <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />
+                  {t({ id: 'paladin.holy.lightsmith.blessedAssurance.noHealingWithoutAC.p2', message: ' if ' })}
+                  <SpellLink spell={TALENTS.AVENGING_CRUSADER_TALENT} />
+                  {t({ id: 'paladin.holy.lightsmith.blessedAssurance.noHealingWithoutAC.p3', message: ' is not taken.' })}
+                </>
               </div>
             )}
             <p>
@@ -138,17 +140,20 @@ class BlessedAssurance extends Analyzer {
                   {this.blessedAssuranceCrusaderStrikesInsideAC}
                 </li>
                 <li>
-                  <Trans id="paladin.holy.lightsmith.blessedAssurance.healingFrom">
-                    Healing from <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />
-                  </Trans>
+                  <>
+                    {t({ id: 'paladin.holy.lightsmith.blessedAssurance.healingFrom', message: 'Healing from ' })}
+                    <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />
+                  </>
                   :{' '}
                   {formatNumber(this.healingDone)}
                 </li>
                 <li>
-                  <Trans id="paladin.holy.lightsmith.blessedAssurance.beaconHealingVia">
-                    Healing from <SpellLink spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} /> via{' '}
+                  <>
+                    {t({ id: 'paladin.holy.lightsmith.blessedAssurance.beaconHealingVia.p1', message: 'Healing from ' })}
+                    <SpellLink spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} />
+                    {t({ id: 'paladin.holy.lightsmith.blessedAssurance.beaconHealingVia.p2', message: ' via ' })}
                     <SpellLink spell={TALENTS.BLESSED_ASSURANCE_TALENT} />
-                  </Trans>
+                  </>
                   :{' '}
                   {formatNumber(this.healingTransfered)}
                 </li>

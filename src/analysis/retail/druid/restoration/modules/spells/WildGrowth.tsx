@@ -151,13 +151,14 @@ class WildGrowth extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="restoration.wildgrowth.explanation_p1">
-            <b>
-              <SpellLink spell={SPELLS.WILD_GROWTH} />
-            </b>{' '}
-            is your best healing spell when multiple raiders are injured. It quickly heals a lot, but
-            has a high mana cost. Use Wild Growth when there are at least 3 injured targets.
-          </Trans>
+          <b>
+            <SpellLink spell={SPELLS.WILD_GROWTH} />
+          </b>{' '}
+          {t({
+            id: 'restoration.wildgrowth.explanation_p1',
+            message:
+              'is your best healing spell when multiple raiders are injured. It quickly heals a lot, but has a high mana cost. Use Wild Growth when there are at least 3 injured targets.',
+          })}
         </p>
         <p>
           <Trans id="restoration.wildgrowth.explanation_p2">
@@ -193,15 +194,26 @@ class WildGrowth extends Analyzer {
         size="flexible"
         position={STATISTIC_ORDER.CORE(19)} // chosen for fixed ordering of general stats
         tooltip={
-          <Trans id="restoration.wildgrowth.statistic_tooltip">
-            This is the average number of effective hits per Wild Growth cast. Because its healing
-            is so frontloaded, we consider a hit effective only if it does less than{' '}
-            {formatPercentage(OVERHEAL_THRESHOLD, 0)}% overhealing over its first{' '}
-            {(OVERHEAL_BUFFER / 1000).toFixed(0)} seconds.
+          <>
+            {t({
+              id: 'restoration.wildgrowth.statistic_tooltip_p1',
+              message:
+                'This is the average number of effective hits per Wild Growth cast. Because its healing is so frontloaded, we consider a hit effective only if it does less than',
+            })}{' '}
+            {formatPercentage(OVERHEAL_THRESHOLD, 0)}%{' '}
+            {t({
+              id: 'restoration.wildgrowth.statistic_tooltip_p2',
+              message: 'overhealing over its first',
+            })}{' '}
+            {(OVERHEAL_BUFFER / 1000).toFixed(0)}{' '}
+            {t({ id: 'restoration.wildgrowth.statistic_tooltip_p3', message: 'seconds.' })}
             <br /> <br />
-            This statistic only considers hardcasts, Wild Growths procced by Convoke the Spirits are
-            ignored.
-          </Trans>
+            {t({
+              id: 'restoration.wildgrowth.statistic_tooltip_p4',
+              message:
+                'This statistic only considers hardcasts, Wild Growths procced by Convoke the Spirits are ignored.',
+            })}
+          </>
         }
       >
         <BoringValue

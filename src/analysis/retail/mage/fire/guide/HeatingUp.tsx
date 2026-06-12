@@ -140,19 +140,81 @@ class HeatingUpGuide extends Analyzer {
     const scorch = <SpellLink spell={TALENTS.SCORCH_TALENT} />;
 
     const explanation = (
-      <Trans id="mage.fire.heatingUpGuide.explanation">
-        Managing your <b>{heatingUp}</b> procs and your {fireBlast} charges are very important to{' '}
-        ensure you are converting as many procs into {hotStreak} as possible throughout the fight.
+      <>
+        {t({
+          id: 'mage.fire.heatingUpGuide.explanation.p1',
+          message: 'Managing your ',
+        })}
+        <strong>{heatingUp}</strong>
+        {t({
+          id: 'mage.fire.heatingUpGuide.explanation.p2',
+          message: ' procs and your ',
+        })}
+        {fireBlast}
+        {t({
+          id: 'mage.fire.heatingUpGuide.explanation.p3',
+          message: ' charges are very important to ensure you are converting as many procs into ',
+        })}
+        {hotStreak}
+        {t({
+          id: 'mage.fire.heatingUpGuide.explanation.p4',
+          message: ' as possible throughout the fight.',
+        })}
         <ul>
           <li>
-            Use {fireBlast} to convert {heatingUp} into {hotStreak}.
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li1',
+              message: 'Use ',
+            })}
+            {fireBlast}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li1a',
+              message: ' to convert ',
+            })}
+            {heatingUp}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li1b',
+              message: ' into ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li1c',
+              message: '.',
+            })}
           </li>
           <li>
-            Unless you are guaranteed to crit ({combustion}, {firestarter}, {scorch} during execute,{' '}
-            etc.), or are capped/about to cap on charges, don't use {fireBlast} without {heatingUp}.
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li2',
+              message: "Unless you are guaranteed to crit (",
+            })}
+            {combustion}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li2a',
+              message: ', ',
+            })}
+            {firestarter}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li2b',
+              message: ', ',
+            })}
+            {scorch}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li2c',
+              message: " during execute, etc.), or are capped/about to cap on charges, don't use ",
+            })}
+            {fireBlast}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li2d',
+              message: ' without ',
+            })}
+            {heatingUp}
+            {t({
+              id: 'mage.fire.heatingUpGuide.explanation.li2e',
+              message: '.',
+            })}
           </li>
         </ul>
-      </Trans>
+      </>
     );
 
     return (

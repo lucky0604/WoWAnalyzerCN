@@ -6,7 +6,7 @@ import SpellUsable from 'analysis/retail/hunter/marksmanship/modules/core/SpellU
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/hunter';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveDamage } from 'parser/core/EventCalculateLib';
 import Events, { DamageEvent } from 'parser/core/Events';
@@ -68,10 +68,24 @@ class SurgingShots extends Analyzer {
                 this.aimedShotCasts,
                 SURGING_SHOTS_RESET_CHANCE,
               )}
-              <Trans id="hunter.marksmanship.surgingShots.procLikelihood">
-                Likelihood of getting <em>exactly</em> as many procs as estimated on a fight given
-                your number of <SpellLink spell={TALENTS.AIMED_SHOT_TALENT} /> casts.
-              </Trans>
+              <>
+                {t({
+                  id: 'hunter.marksmanship.surgingShots.procLikelihood.p1',
+                  message: 'Likelihood of getting ',
+                })}
+                <em>
+                  {t({
+                    id: 'hunter.marksmanship.surgingShots.procLikelihood.em',
+                    message: 'exactly',
+                  })}
+                </em>
+                {t({
+                  id: 'hunter.marksmanship.surgingShots.procLikelihood.p2',
+                  message: ' as many procs as estimated on a fight given your number of ',
+                })}
+                <SpellLink spell={TALENTS.AIMED_SHOT_TALENT} />
+                {t({ id: 'hunter.marksmanship.surgingShots.procLikelihood.p3', message: ' casts.' })}
+              </>
             </div>
           </>
         }

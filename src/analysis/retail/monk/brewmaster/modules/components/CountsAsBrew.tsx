@@ -4,7 +4,6 @@ import talents from 'common/TALENTS/monk';
 import { SpellLink, TooltipElement } from 'interface';
 import { ReactNode } from 'react';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 const ESTIMATED_BREW_CDR = 0.45;
 
@@ -37,11 +36,13 @@ const CountsAsBrew = ({
       <TooltipElement
         hoverable
         content={
-          <Trans id="monk.brewmaster.countsAsBrew.tooltip">
-            This means that it benefits from the cooldown reduction on spells like{' '}
-            <SpellLink spell={talents.KEG_SMASH_TALENT} /> and{' '}
-            <SpellLink spell={SPELLS.TIGER_PALM} />.
-          </Trans>
+          <>
+            {t({ id: 'monk.brewmaster.countsAsBrew.tooltip.p1', message: 'This means that it benefits from the cooldown reduction on spells like ' })}
+            <SpellLink spell={talents.KEG_SMASH_TALENT} />
+            {t({ id: 'monk.brewmaster.countsAsBrew.tooltip.p2', message: ' and ' })}
+            <SpellLink spell={SPELLS.TIGER_PALM} />
+            {t({ id: 'monk.brewmaster.countsAsBrew.tooltip.p3', message: '.' })}
+          </>
         }
       >
         {t({

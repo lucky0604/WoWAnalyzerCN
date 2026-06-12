@@ -26,11 +26,27 @@ const MajorDefensives = () => {
           </Trans>
         </p>
         <p>
-          <Trans id="mage.shared.defensives.explanation2">
-            As an <span className="Mage">Mage</span> you have access to many defensives CDs such
-            as <SpellLink spell={TALENTS.ICE_BLOCK_TALENT} /> /{' '}
-            <SpellLink spell={TALENTS.ICE_COLD_TALENT} />.
-          </Trans>
+          <>
+            {t({
+              id: 'mage.shared.defensives.explanation2.p1',
+              message: 'As an ',
+            })}
+            <span className="Mage">Mage</span>
+            {t({
+              id: 'mage.shared.defensives.explanation2.p2',
+              message: ' you have access to many defensives CDs such as ',
+            })}
+            <SpellLink spell={TALENTS.ICE_BLOCK_TALENT} />
+            {t({
+              id: 'mage.shared.defensives.explanation2.p3',
+              message: ' / ',
+            })}
+            <SpellLink spell={TALENTS.ICE_COLD_TALENT} />
+            {t({
+              id: 'mage.shared.defensives.explanation2.p4',
+              message: '.',
+            })}
+          </>
         </p>
         <p>
           <Trans id="mage.shared.defensives.explanation3">
@@ -39,20 +55,41 @@ const MajorDefensives = () => {
         </p>
         <ol>
           <li>
-            <Trans id="mage.shared.defensives.point1">
-              You should cover as many{' '}
+            <>
+              {t({
+                id: 'mage.shared.defensives.point1.p1',
+                message: 'You should cover as many ',
+              })}
               <TooltipElement
                 content={
-                  <Trans id="mage.shared.defensives.damageSpikeTooltip">
-                    A <strong>damage spike</strong> is when you take much more damage than normal in
-                    a small amount of time. These are visible on the Timeline below as tall spikes.
-                  </Trans>
+                  <>
+                    {t({
+                      id: 'mage.shared.defensives.damageSpikeTooltip.p1',
+                      message: 'A ',
+                    })}
+                    <strong>
+                      {t({
+                        id: 'mage.shared.defensives.damageSpikeTooltip.bold',
+                        message: 'damage spike',
+                      })}
+                    </strong>
+                    {t({
+                      id: 'mage.shared.defensives.damageSpikeTooltip.p2',
+                      message: ' is when you take much more damage than normal in a small amount of time. These are visible on the Timeline below as tall spikes.',
+                    })}
+                  </>
                 }
               >
-                damage spikes
-              </TooltipElement>{' '}
-              as possible, and use any left over to cover periods of heavy, consistent damage.
-            </Trans>
+                {t({
+                  id: 'mage.shared.defensives.point1.tooltipLabel',
+                  message: 'damage spikes',
+                })}
+              </TooltipElement>
+              {t({
+                id: 'mage.shared.defensives.point1.p2',
+                message: ' as possible, and use any left over to cover periods of heavy, consistent damage.',
+              })}
+            </>
             <p>
               <small>
                 <Trans id="mage.shared.defensives.point1Note">

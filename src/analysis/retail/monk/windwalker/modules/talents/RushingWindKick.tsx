@@ -4,7 +4,6 @@ import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import { t, defineMessage } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import GuideSection from 'interface/guide/components/GuideSection';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
@@ -218,19 +217,41 @@ class RushingWindKick extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="monk.windwalker.rwk.explanation1">
-            The <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_WINDWALKER_TALENT} /> talent gives
-            consumed <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks a 60% chance to make
-            your next cast of <SpellLink spell={SPELLS.RUSHING_WIND_KICK_CAST} /> available.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.windwalker.rwk.explanation1.p1',
+              message: 'The ',
+            })}
+            <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_WINDWALKER_TALENT} />
+            {t({
+              id: 'monk.windwalker.rwk.explanation1.p2',
+              message: ' talent gives consumed ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.rwk.explanation1.p3',
+              message: ' stacks a 60% chance to make your next cast of ',
+            })}
+            <SpellLink spell={SPELLS.RUSHING_WIND_KICK_CAST} />
+            {t({
+              id: 'monk.windwalker.rwk.explanation1.p4',
+              message: ' available.',
+            })}
+          </>
         </p>
         <p>
-          <Trans id="monk.windwalker.rwk.explanation2">
-            Follow the suggested APL and use this proc before another consumed{' '}
-            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> could replace it or before it expires.
-            Holding briefly is fine, but this is still a proc you want converted cleanly inside the
-            normal rotation.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.windwalker.rwk.explanation2.p1',
+              message: 'Follow the suggested APL and use this proc before another consumed ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.rwk.explanation2.p2',
+              message:
+                ' could replace it or before it expires. Holding briefly is fine, but this is still a proc you want converted cleanly inside the normal rotation.',
+            })}
+          </>
         </p>
       </>
     );

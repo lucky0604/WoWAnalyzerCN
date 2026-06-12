@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
@@ -91,18 +92,60 @@ class PresenceOfMindGuide extends Analyzer {
     const clearcasting = <SpellLink spell={SPELLS.CLEARCASTING_ARCANE} />;
 
     const explanation = (
-      <Trans id="mage.arcane.presenceOfMind.guide.explanation">
-        <b>{presenceOfMind}</b> is a fairly simple ability that makes your next two {arcaneBlast}{' '}
-        casts instant. There is not much to play around here, so you should generally cast this when
-        all of the below are true to avoid hardcasting {arcaneBlast} with low {arcaneCharge}s.
+      <>
+        <strong>{presenceOfMind}</strong>
+        {t({
+          id: 'mage.arcane.presenceOfMind.guide.explanation.p1',
+          message: ' is a fairly simple ability that makes your next two ',
+        })}
+        {arcaneBlast}
+        {t({
+          id: 'mage.arcane.presenceOfMind.guide.explanation.p2',
+          message: ' casts instant. There is not much to play around here, so you should generally cast this when all of the below are true to avoid hardcasting ',
+        })}
+        {arcaneBlast}
+        {t({
+          id: 'mage.arcane.presenceOfMind.guide.explanation.p3',
+          message: ' with low ',
+        })}
+        {arcaneCharge}
+        {t({
+          id: 'mage.arcane.presenceOfMind.guide.explanation.p4',
+          message: 's.',
+        })}
         <ul>
-          <li>You have &lt; 2 {arcaneCharge}s</li>
           <li>
-            You do not have {arcaneOrb} or {clearcasting}
+            {t({
+              id: 'mage.arcane.presenceOfMind.guide.explanation.li1',
+              message: 'You have < 2 ',
+            })}
+            {arcaneCharge}
+            {t({
+              id: 'mage.arcane.presenceOfMind.guide.explanation.li1a',
+              message: 's',
+            })}
           </li>
-          <li>{arcaneOrb} will not be available in the next 5 seconds.</li>
+          <li>
+            {t({
+              id: 'mage.arcane.presenceOfMind.guide.explanation.li2',
+              message: 'You do not have ',
+            })}
+            {arcaneOrb}
+            {t({
+              id: 'mage.arcane.presenceOfMind.guide.explanation.li2a',
+              message: ' or ',
+            })}
+            {clearcasting}
+          </li>
+          <li>
+            {arcaneOrb}
+            {t({
+              id: 'mage.arcane.presenceOfMind.guide.explanation.li3',
+              message: ' will not be available in the next 5 seconds.',
+            })}
+          </li>
         </ul>
-      </Trans>
+      </>
     );
 
     return (

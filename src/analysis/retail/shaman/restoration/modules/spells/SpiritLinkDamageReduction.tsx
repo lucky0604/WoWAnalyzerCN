@@ -69,18 +69,24 @@ class SpiritLinkDamageReduction extends Analyzer {
 
   statistic() {
     const tooltip = (
-      <Trans id="shaman.restoration.slt.statistic.tooltip">
-        The total estimated damage reduced during Spirit Link was{' '}
-        {formatThousands(this.damageReduced)} ({formatNumber(this.drps)} DRPS). This has a 99%
-        accuracy.
-        {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+      <>
+        {t({
+          id: 'shaman.restoration.slt.statistic.tooltip.p1',
+          message:
+            'The total estimated damage reduced during Spirit Link was {0} ({1} DRPS). This has a 99% accuracy.',
+          values: {
+            0: formatThousands(this.damageReduced),
+            1: formatNumber(this.drps),
+          },
+        })}
         <br />
-        {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
-        This value is calculated using the <i>Optional DRs</i> method. This results in the lowest
-        possible damage reduction value being shown. This should be the correct value in most
-        circumstances. Health redistribution is not part of this calculated value.
-      </Trans>
+        {t({
+          id: 'shaman.restoration.slt.statistic.tooltip.p2',
+          message:
+            'This value is calculated using the Optional DRs method. This results in the lowest possible damage reduction value being shown. This should be the correct value in most circumstances. Health redistribution is not part of this calculated value.',
+        })}
+      </>
     );
 
     return (

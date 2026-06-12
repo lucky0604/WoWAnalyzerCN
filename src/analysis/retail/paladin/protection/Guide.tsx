@@ -31,11 +31,11 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       <Section title={t({ id: 'paladin.protection.section.rotation', message: 'Rotation' })}>
         {!info.combatant.hasTalent(talents.LIGHTS_GUIDANCE_TALENT) && (
           <AlertWarning>
-            <Trans id="paladin.protection.rotation.lightsmithNotImplemented">
-              Rotational analysis for{' '}
-              <SpellLink spell={talents.HOLY_ARMAMENTS_TALENT}>Lightsmith</SpellLink> is not
-              implemented at this time.
-            </Trans>
+            <>
+              {t({ id: 'paladin.protection.rotation.lightsmithNotImplemented.p1', message: 'Rotational analysis for ' })}
+              <SpellLink spell={talents.HOLY_ARMAMENTS_TALENT}>Lightsmith</SpellLink>
+              {t({ id: 'paladin.protection.rotation.lightsmithNotImplemented.p2', message: ' is not implemented at this time.' })}
+            </>
           </AlertWarning>
         )}
         <AplSectionData checker={check} apl={apl} />
@@ -70,13 +70,19 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
         title={t({ id: 'paladin.protection.subsection.holyPower', message: 'Holy Power' })}
       >
         <p>
-          <Trans id="paladin.protection.holyPower.description">
-            Most of your rotational abilities either <strong>build</strong> or{' '}
-            <strong>spend</strong> <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />. Never use a
-            builder at max <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> or when doing so will
-            cause you to overcap on{' '}
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
-          </Trans>
+          <>
+            {t({ id: 'paladin.protection.holyPower.description.p1', message: 'Most of your rotational abilities either ' })}
+            <strong>{t({ id: 'paladin.protection.holyPower.description.build', message: 'build' })}</strong>
+            {t({ id: 'paladin.protection.holyPower.description.p2', message: ' or ' })}
+            <strong>{t({ id: 'paladin.protection.holyPower.description.spend', message: 'spend' })}</strong>
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({ id: 'paladin.protection.holyPower.description.p3', message: '. Never use a builder at max ' })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({ id: 'paladin.protection.holyPower.description.p4', message: ' or when doing so will cause you to overcap on ' })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({ id: 'paladin.protection.holyPower.description.p5', message: '.' })}
+          </>
         </p>
         <SideBySidePanels>
           <RoundedPanel>

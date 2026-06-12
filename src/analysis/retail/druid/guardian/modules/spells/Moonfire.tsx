@@ -23,13 +23,14 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
   get guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="druid.guardian.moonfire.explanation">
-          <strong>
-            <SpellLink spell={SPELLS.MOONFIRE_CAST} />
-          </strong>{' '}
-          is a DoT that can be applied to any number of targets. It's worth maintaining full uptime
-          on low target counts.
-        </Trans>
+        <strong>
+          <SpellLink spell={SPELLS.MOONFIRE_CAST} />
+        </strong>{' '}
+        {t({
+          id: 'druid.guardian.moonfire.explanation',
+          message:
+            "is a DoT that can be applied to any number of targets. It's worth maintaining full uptime on low target counts.",
+        })}
       </p>
     );
 
@@ -64,10 +65,16 @@ export default class Moonfire extends Analyzer.withDependencies(deps) {
         size="flexible"
         tooltip={
           <>
-            <Trans id="druid.guardian.moonfire.uptime_tooltip">
-              Your <strong>Moonfire</strong> uptime is{' '}
-              <strong>{formatPercentage(this.uptime)}%</strong>
-            </Trans>
+            {t({
+              id: 'druid.guardian.moonfire.uptime_tooltip.p1',
+              message: 'Your ',
+            })}
+            <strong>Moonfire</strong>
+            {t({
+              id: 'druid.guardian.moonfire.uptime_tooltip.p2',
+              message: ' uptime is ',
+            })}
+            <strong>{formatPercentage(this.uptime)}%</strong>
           </>
         }
       >

@@ -1,6 +1,5 @@
 import type { JSX } from 'react';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -258,45 +257,57 @@ class Lifebloom extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="restoration.lifebloom.explanation_p1">
-            <b>
-              <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />
-            </b>{' '}
-            can only be active on one target at a time and its baseline throughput is similar to
-            Rejuvenation. However, it causes <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> procs
-            and so is a big benefit to your mana efficiency. You should aim for 100% Lifebloom
-            uptime.
-          </Trans>
+          <b>
+            <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />
+          </b>{' '}
+          {t({
+            id: 'restoration.lifebloom.explanation_p1',
+            message:
+              'can only be active on one target at a time and its baseline throughput is similar to Rejuvenation. However, it causes',
+          })}{' '}
+          <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />
+          {t({
+            id: 'restoration.lifebloom.explanation_p1_2',
+            message:
+              'procs and so is a big benefit to your mana efficiency. You should aim for 100% Lifebloom uptime.',
+          })}
         </p>
         {this.hasEverbloom && (
           <p>
-            <Trans id="restoration.lifebloom.explanation_everbloom">
-              Because you took{' '}
-              <strong>
-                <SpellLink spell={TALENTS_DRUID.EVERBLOOM_1_RESTORATION_TALENT} />
-              </strong>
-              , target swapping your lifebloom becomes punishing. Any time you swap targets,
-              Lifebloom resets to 1 stack and loses throughput.
-              <br />
-              <strong>{this.nonThreeStackCasts} casts not refreshing a 3-stack Lifebloom</strong>
-            </Trans>
+            {t({
+              id: 'restoration.lifebloom.explanation_everbloom',
+              message: 'Because you took',
+            })}{' '}
+            <strong>
+              <SpellLink spell={TALENTS_DRUID.EVERBLOOM_1_RESTORATION_TALENT} />
+            </strong>
+            {t({
+              id: 'restoration.lifebloom.explanation_everbloom_2',
+              message:
+                ', target swapping your lifebloom becomes punishing. Any time you swap targets, Lifebloom resets to 1 stack and loses throughput.',
+            })}
+            <br />
+            <strong>{this.nonThreeStackCasts} casts not refreshing a 3-stack Lifebloom</strong>
           </p>
         )}
         {this.hasVerdancy && (
           <p>
-            <Trans id="restoration.lifebloom.explanation_verdancy">
-              Because you took{' '}
-              <strong>
-                <SpellLink spell={TALENTS_DRUID.VERDANCY_TALENT} />
-              </strong>
-              , you should take extra care to allow your Lifeblooms to bloom. Refreshing lifebloom
-              early or swapping targets before the existing Lifebloom has completed both will cause
-              the bloom to be skipped - avoid doing this.
-              <br />
-              <strong>
-                Lifebloom refreshes that bloomed: {formatPercentage(this.verdancyBloomRate, 1)}%
-              </strong>
-            </Trans>
+            {t({
+              id: 'restoration.lifebloom.explanation_verdancy',
+              message: 'Because you took',
+            })}{' '}
+            <strong>
+              <SpellLink spell={TALENTS_DRUID.VERDANCY_TALENT} />
+            </strong>
+            {t({
+              id: 'restoration.lifebloom.explanation_verdancy_2',
+              message:
+                ', you should take extra care to allow your Lifeblooms to bloom. Refreshing lifebloom early or swapping targets before the existing Lifebloom has completed both will cause the bloom to be skipped - avoid doing this.',
+            })}
+            <br />
+            <strong>
+              Lifebloom refreshes that bloomed: {formatPercentage(this.verdancyBloomRate, 1)}%
+            </strong>
           </p>
         )}
       </>

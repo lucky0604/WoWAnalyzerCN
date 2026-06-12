@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -51,10 +51,11 @@ class FailedBeaconTransfers extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <Trans id="paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip">
-              The amount of <strong>raw</strong> healing that didn't transfer to one or more beacon
-              targets due to an issue such as Line of Sight or phasing.
-            </Trans>
+            <>
+              {t({ id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.p1', message: 'The amount of ' })}
+              <strong>{t({ id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.raw', message: 'raw' })}</strong>
+              {t({ id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.p2', message: " healing that didn't transfer to one or more beacon targets due to an issue such as Line of Sight or phasing." })}
+            </>
           </>
         }
       >

@@ -39,25 +39,46 @@ export default function DeathStrikeSection() {
   return (
     <>
       <p>
-        <Trans id="deathknight.blood.deathStrikeSection.intro">
-          Blood DK is built around <SpellLink spell={talents.DEATH_STRIKE_TALENT} />. It is the core
-          of your toolkit, and many of your abilities exist only to fuel it. Blood's core loop is
-          simple:
-        </Trans>
+        {t({
+          id: 'deathknight.blood.deathStrikeSection.intro',
+          message: 'Blood DK is built around ',
+        })}
+        <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+        {t({
+          id: 'deathknight.blood.deathStrikeSection.intro.p2',
+          message:
+            ". It is the core of your toolkit, and many of your abilities exist only to fuel it. Blood's core loop is simple:",
+        })}
       </p>
       <ol>
         <li>
-          <Trans id="deathknight.blood.deathStrikeSection.convertRunes">
-            Convert <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> into{' '}
-            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> using abilities like{' '}
-            <SpellLink spell={talents.HEART_STRIKE_TALENT} />
-          </Trans>
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.convertRunes',
+            message: 'Convert ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.convertRunes.p2',
+            message: ' into ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.convertRunes.p3',
+            message: ' using abilities like ',
+          })}
+          <SpellLink spell={talents.HEART_STRIKE_TALENT} />
         </li>
         <li>
-          <Trans id="deathknight.blood.deathStrikeSection.spendRp">
-            Spend <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> on{' '}
-            <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
-          </Trans>
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.spendRp',
+            message: 'Spend ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.spendRp.p2',
+            message: ' on ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
         </li>
       </ol>
       <p>
@@ -67,44 +88,100 @@ export default function DeathStrikeSection() {
         </Trans>
       </p>
       <p>
-        <Trans id="deathknight.blood.deathStrikeSection.resourceOverloaded">
-          Blood is currently <strong>resource overloaded.</strong> That means that your active play
-          revolves around trying to spend as many of your resources as you can without wasting
-          them&mdash;and without leaving yourself vulnerable to damage by over-spending.
-        </Trans>
+        {t({
+          id: 'deathknight.blood.deathStrikeSection.resourceOverloaded',
+          message: 'Blood is currently ',
+        })}
+        <strong>
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.resourceOverloaded.bold',
+            message: 'resource overloaded.',
+          })}
+        </strong>
+        {t({
+          id: 'deathknight.blood.deathStrikeSection.resourceOverloaded.p2',
+          message:
+            " That means that your active play revolves around trying to spend as many of your resources as you can without wasting them\u2014and without leaving yourself vulnerable to damage by over-spending.",
+        })}
       </p>
       <SubSection
         title={
-          <Trans id="deathknight.blood.deathStrikeSection.generatingRpTitle">
-            Generating <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> for{' '}
+          <>
+            {t({
+              id: 'deathknight.blood.deathStrikeSection.generatingRpTitle',
+              message: 'Generating ',
+            })}
+            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+            {t({
+              id: 'deathknight.blood.deathStrikeSection.generatingRpTitle.p2',
+              message: ' for ',
+            })}
             <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
-          </Trans>
+          </>
         }
       >
         <div style={{ display: 'grid', gridTemplateColumns: '45% 1fr', gap: '2em' }}>
           <div>
             <p>
-              <Trans id="deathknight.blood.deathStrikeSection.mostImportant">
-                The most important thing about <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> is
-                being able to cast it&mdash;which means generating{' '}
-                <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> to spend on it.
-              </Trans>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.mostImportant',
+                message: 'The most important thing about ',
+              })}
+              <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.mostImportant.p2',
+                message: ' is being able to cast it\u2014which means generating ',
+              })}
+              <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.mostImportant.p3',
+                message: ' to spend on it.',
+              })}
             </p>
             <RunicPowerTable />
             <p style={{ marginTop: '1em' }}>
-              <Trans id="deathknight.blood.deathStrikeSection.runeGeneration">
-                Every rune you spend generates 10 <Highlight color={RuneColor}>Base</Highlight> RP .
-                {' '}
-                <SpellLink spell={talents.HEART_STRIKE_TALENT} /> generates 5+{' '}
-                <Highlight textColor="#111" color={RunicPowerColor}>
-                  Bonus
-                </Highlight>{' '}
-                RP beyond that, which should make it your main{' '}
-                <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> generator. You can
-                only store 125 RP at once; generating more than that is called <em>overcapping</em>{' '}
-                and results in <Highlight color={WastedRPColor}>Wasted</Highlight> RP. You should have
-                very little <Highlight color={WastedRPColor}>Wasted</Highlight> RP.
-              </Trans>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration',
+                message: 'Every rune you spend generates 10 ',
+              })}
+              <Highlight color={RuneColor}>Base</Highlight>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration.p2',
+                message: ' RP . ',
+              })}
+              <SpellLink spell={talents.HEART_STRIKE_TALENT} />
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration.p3',
+                message: ' generates 5+ ',
+              })}
+              <Highlight textColor="#111" color={RunicPowerColor}>
+                Bonus
+              </Highlight>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration.p4',
+                message: ' RP beyond that, which should make it your main ',
+              })}
+              <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration.p5',
+                message:
+                  ' generator. You can only store 125 RP at once; generating more than that is called ',
+              })}
+              <em>{t({ id: 'deathknight.blood.deathStrikeSection.runeGeneration.overcapping', message: 'overcapping' })}</em>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration.p6',
+                message: ' and results in ',
+              })}
+              <Highlight color={WastedRPColor}>Wasted</Highlight>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration.p7',
+                message: ' RP. You should have very little ',
+              })}
+              <Highlight color={WastedRPColor}>Wasted</Highlight>
+              {t({
+                id: 'deathknight.blood.deathStrikeSection.runeGeneration.p8',
+                message: ' RP.',
+              })}
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
@@ -150,22 +227,49 @@ export default function DeathStrikeSection() {
               </Explanation>
               <RuneCooldownBar timeline={runes.runesReady} />
               <p>
-                <Trans id="deathknight.blood.deathStrikeSection.youWasted">
-                  You wasted <strong>{Math.round(runes.runesWasted)}</strong>{' '}
-                  <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> ( ~
-                  {formatPercentage(1 - runes.runeEfficiency)}% of{' '}
-                  {Math.round(runes.runesMaxCasts)} total) by having fewer than 3 Runes recharging.
-                </Trans>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.youWasted',
+                  message: 'You wasted ',
+                })}
+                <strong>{Math.round(runes.runesWasted)}</strong>
+                {' '}
+                <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.youWasted.p2',
+                  message: ' ( ~{runePct}% of {maxCasts} total) by having fewer than 3 Runes recharging.',
+                  values: {
+                    runePct: formatPercentage(1 - runes.runeEfficiency),
+                    maxCasts: Math.round(runes.runesMaxCasts),
+                  },
+                })}
               </p>
               <Explanation as="p">
-                <Trans id="deathknight.blood.deathStrikeSection.remember">
-                  Remember that <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> cannot be spent directly
-                  on defensives! As long as you are not{' '}
-                  <Highlight color={WastedRPColor}>wasting</Highlight>{' '}
-                  <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink> or allowing{' '}
-                  <SpellLink spell={SPELLS.BONE_SHIELD} /> to drop, having few or no available{' '}
-                  <ResourceLink id={RESOURCE_TYPES.RUNES.id} /> is okay!
-                </Trans>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.remember',
+                  message: 'Remember that ',
+                })}
+                <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.remember.p2',
+                  message: ' cannot be spent directly on defensives! As long as you are not ',
+                })}
+                <Highlight color={WastedRPColor}>wasting</Highlight>
+                {' '}
+                <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.remember.p3',
+                  message: ' or allowing ',
+                })}
+                <SpellLink spell={SPELLS.BONE_SHIELD} />
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.remember.p4',
+                  message: ' to drop, having few or no available ',
+                })}
+                <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.remember.p5',
+                  message: ' is okay!',
+                })}
               </Explanation>
             </SuggestionBox>
             <RuneWaste />

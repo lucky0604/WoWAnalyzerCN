@@ -36,11 +36,18 @@ class Abilities extends CoreAbilities {
           suggestion: true,
           recommendedEfficiency: 0.8,
           extraSuggestion: (
-            <Trans id="deathknight.frost.abilities.empowerRuneWeapon.suggestion">
-              You should use this with every{' '}
-              <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} /> if it is talented. Otherwise
-              use it with <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} />.
-            </Trans>
+            <>
+              {t({
+                id: 'deathknight.frost.abilities.empowerRuneWeapon.suggestion',
+                message: 'You should use this with every ',
+              })}
+              <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
+              {t({
+                id: 'deathknight.frost.abilities.empowerRuneWeapon.suggestion.p2',
+                message: ' if it is talented. Otherwise use it with ',
+              })}
+              <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} />.
+            </>
           ),
         },
         timelineSortIndex: 1,
@@ -70,11 +77,19 @@ class Abilities extends CoreAbilities {
           suggestion: true,
           recommendedEfficiency: 0.9,
           extraSuggestion: (
-            <Trans id="deathknight.frost.abilities.frostwyrmsFury.suggestion">
-              Although you normally want to use this off CD, you can save it to line it up with{' '}
-              <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} icon />. You can also hold it if you
-              know there will be an opportunity to hit many enemies.
-            </Trans>
+            <>
+              {t({
+                id: 'deathknight.frost.abilities.frostwyrmsFury.suggestion',
+                message:
+                  'Although you normally want to use this off CD, you can save it to line it up with ',
+              })}
+              <SpellLink spell={talents.PILLAR_OF_FROST_TALENT} icon />
+              {t({
+                id: 'deathknight.frost.abilities.frostwyrmsFury.suggestion.p2',
+                message:
+                  '. You can also hold it if you know there will be an opportunity to hit many enemies.',
+              })}
+            </>
           ),
         },
         enabled: combatant.hasTalent(talents.FROSTWYRMS_FURY_TALENT),

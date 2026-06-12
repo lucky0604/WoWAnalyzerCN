@@ -593,12 +593,7 @@ class BuffTargetHelper extends Analyzer {
         <div className="grid">
           <div>
             <p>
-              <Trans id="guide.augmentation.buffHelper.desc1">
-                This module will help you with finding the optimal buff targets for{' '}
-                <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> and{' '}
-                <SpellLink spell={TALENTS.PRESCIENCE_TALENT} />. It will show you the top 4 DPS for
-                each of your Ebon Might windows. Refreshing Ebon Might is counted as a new window.
-              </Trans>
+              <>{t({id:'guide.augmentation.buffHelper.desc1.p1',message:'This module will help you with finding the optimal buff targets for '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.buffHelper.desc1.p2',message:' and '})}<SpellLink spell={TALENTS.PRESCIENCE_TALENT} />{t({id:'guide.augmentation.buffHelper.desc1.p3',message:'. It will show you the top 4 DPS for each of your Ebon Might windows. Refreshing Ebon Might is counted as a new window.'})}</>
             </p>
             <p>
               <Trans id="guide.augmentation.buffHelper.desc2">

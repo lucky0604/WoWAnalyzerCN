@@ -314,9 +314,7 @@ class ElementalTempo extends Analyzer.withDependencies({
             tooltip: (
               <>
                 {formatDurationMillisMinSec(cast.stormstrike.effectiveMs, 1)}{' '}
-                <Trans id="shaman.enhancement.elementaltempo.effective_total_cdr">effective /{' '}
-                {formatDurationMillisMinSec(totalCdr, 1)} total CDR applied to{' '}
-                <SpellLink spell={stormstrikeLabel} />.</Trans>
+                <>{t({ id: 'shaman.enhancement.elementaltempo.effective_total_cdr.p1', message: 'effective / ' })}{formatDurationMillisMinSec(totalCdr, 1)}{t({ id: 'shaman.enhancement.elementaltempo.effective_total_cdr.p2', message: ' total CDR applied to ' })}<SpellLink spell={stormstrikeLabel} />{t({ id: 'shaman.enhancement.elementaltempo.effective_total_cdr.p3', message: '.' })}</>
               </>
             ),
             performance: scoreToQualitativePerformance(
@@ -329,9 +327,7 @@ class ElementalTempo extends Analyzer.withDependencies({
             tooltip: (
               <>
                 {formatDurationMillisMinSec(cast.lavaLash.effectiveMs, 1)}{' '}
-                <Trans id="shaman.enhancement.elementaltempo.effective_total_cdr_ll">effective /{' '}
-                {formatDurationMillisMinSec(totalCdr, 1)} total CDR applied to{' '}
-                <SpellLink spell={TALENTS.LAVA_LASH_TALENT} />.</Trans>
+                <>{t({ id: 'shaman.enhancement.elementaltempo.effective_total_cdr_ll.p1', message: 'effective / ' })}{formatDurationMillisMinSec(totalCdr, 1)}{t({ id: 'shaman.enhancement.elementaltempo.effective_total_cdr_ll.p2', message: ' total CDR applied to ' })}<SpellLink spell={TALENTS.LAVA_LASH_TALENT} />{t({ id: 'shaman.enhancement.elementaltempo.effective_total_cdr_ll.p3', message: '.' })}</>
               </>
             ),
             performance: scoreToQualitativePerformance(
@@ -355,10 +351,7 @@ class ElementalTempo extends Analyzer.withDependencies({
         value: `${this.casts.length}`,
         label: t({ id: 'shaman.enhancement.elementaltempo.total_spenders', message: 'Total Spenders' }),
         tooltip: (
-          <Trans id="shaman.enhancement.elementaltempo.total_spenders_tooltip">
-            Total <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> spender casts evaluated for{' '}
-            <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />.
-          </Trans>
+          <>{t({ id: 'shaman.enhancement.elementaltempo.total_spenders_tooltip.p1', message: 'Total ' })}<SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />{t({ id: 'shaman.enhancement.elementaltempo.total_spenders_tooltip.p2', message: ' spender casts evaluated for ' })}<SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />{t({ id: 'shaman.enhancement.elementaltempo.total_spenders_tooltip.p3', message: '.' })}</>
         ),
       },
       {
@@ -368,10 +361,7 @@ class ElementalTempo extends Analyzer.withDependencies({
             : '0.0',
         label: t({ id: 'shaman.enhancement.elementaltempo.avg_stacks_spent', message: 'Avg Stacks Spent' }),
         tooltip: (
-          <Trans id="shaman.enhancement.elementaltempo.avg_stacks_spent_tooltip">
-            Average number of <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} /> stacks consumed per
-            tracked spender cast.
-          </Trans>
+          <>{t({ id: 'shaman.enhancement.elementaltempo.avg_stacks_spent_tooltip.p1', message: 'Average number of ' })}<SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />{t({ id: 'shaman.enhancement.elementaltempo.avg_stacks_spent_tooltip.p2', message: ' stacks consumed per tracked spender cast.' })}</>
         ),
       },
       {
@@ -381,20 +371,14 @@ class ElementalTempo extends Analyzer.withDependencies({
         )}%`,
         label: t({ id: 'shaman.enhancement.elementaltempo.avg_waste', message: 'Avg Waste' }),
         tooltip: (
-          <Trans id="shaman.enhancement.elementaltempo.avg_waste_tooltip">
-            Weighted average percentage of <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />{' '}
-            cooldown reduction that was wasted.
-          </Trans>
+          <>{t({ id: 'shaman.enhancement.elementaltempo.avg_waste_tooltip.p1', message: 'Weighted average percentage of ' })}<SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />{t({ id: 'shaman.enhancement.elementaltempo.avg_waste_tooltip.p2', message: ' cooldown reduction that was wasted.' })}</>
         ),
       },
       {
         value: `${perfectCasts}`,
         label: t({ id: 'shaman.enhancement.elementaltempo.perfect_casts', message: 'Perfect Casts' }),
         tooltip: (
-          <Trans id="shaman.enhancement.elementaltempo.perfect_casts_tooltip">
-            Number of spender casts that wasted no{' '}
-            <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} /> cooldown reduction.
-          </Trans>
+          <>{t({ id: 'shaman.enhancement.elementaltempo.perfect_casts_tooltip.p1', message: 'Number of spender casts that wasted no ' })}<SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />{t({ id: 'shaman.enhancement.elementaltempo.perfect_casts_tooltip.p2', message: ' cooldown reduction.' })}</>
         ),
         performance: QualitativePerformance.Perfect,
       },

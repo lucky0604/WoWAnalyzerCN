@@ -8,7 +8,6 @@ import ExplanationRow from 'interface/guide/components/ExplanationRow';
 import PassFailBar from 'interface/guide/components/PassFailBar';
 import { useMemo, type JSX } from 'react';
 import BlackoutCombo from './index';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 
 enum ComboEffect {
@@ -66,42 +65,47 @@ export default function BlackoutComboSection(): JSX.Element | null {
       <ExplanationRow leftPercent={45}>
         <div>
           <p>
-            <Trans id="monk.brewmaster.blackout_combo.recommended">
-              The recommended way to use <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} />
-              's combo bonuses is:
-            </Trans>
+            <>
+              {t({ id: 'monk.brewmaster.blackout_combo.recommended.p1', message: "The recommended way to use " })}
+              <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} />
+              {t({ id: 'monk.brewmaster.blackout_combo.recommended.p2', message: "'s combo bonuses is:" })}
+            </>
           </p>
           <ul>
             <li style={{ opacity: hasPta ? 0.5 : 1 }}>
               <div>
                 <strong>
-                  <Trans id="monk.brewmaster.blackout_combo.tp_always">
-                    <SpellLink spell={SPELLS.TIGER_PALM} />: Almost Always.
-                  </Trans>
+                  <>
+                    <SpellLink spell={SPELLS.TIGER_PALM} />
+                    {t({ id: 'monk.brewmaster.blackout_combo.tp_always.p1', message: ': Almost Always.' })}
+                  </>
                 </strong>
               </div>
               <div>
-                <Trans id="monk.brewmaster.blackout_combo.tp_desc">
-                  Comboing <SpellLink spell={SPELLS.TIGER_PALM} /> is the best way to use{' '}
-                  <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} /> for damage in single-target
-                  and light AoE settings. You will frequently see high ranked raiders using this
-                  option.
-                </Trans>
+                <>
+                  {t({ id: 'monk.brewmaster.blackout_combo.tp_desc.p1', message: 'Comboing ' })}
+                  <SpellLink spell={SPELLS.TIGER_PALM} />
+                  {t({ id: 'monk.brewmaster.blackout_combo.tp_desc.p2', message: ' is the best way to use ' })}
+                  <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} />
+                  {t({ id: 'monk.brewmaster.blackout_combo.tp_desc.p3', message: ' for damage in single-target and light AoE settings. You will frequently see high ranked raiders using this option.' })}
+                </>
               </div>
             </li>
             <li>
               <div>
                 <strong>
-                  <Trans id="monk.brewmaster.blackout_combo.ks_sometimes">
-                    <SpellLink spell={talents.KEG_SMASH_TALENT} />: Sometimes.
-                  </Trans>
+                  <>
+                    <SpellLink spell={talents.KEG_SMASH_TALENT} />
+                    {t({ id: 'monk.brewmaster.blackout_combo.ks_sometimes.p1', message: ': Sometimes.' })}
+                  </>
                 </strong>
               </div>
               <div>
-                <Trans id="monk.brewmaster.blackout_combo.ks_desc">
-                  Purely defensive, but not bad. This is more often used in multi-target settings
-                  where <SpellLink spell={SPELLS.TIGER_PALM} /> is less valuable.
-                </Trans>
+                <>
+                  {t({ id: 'monk.brewmaster.blackout_combo.ks_desc.p1', message: 'Purely defensive, but not bad. This is more often used in multi-target settings where ' })}
+                  <SpellLink spell={SPELLS.TIGER_PALM} />
+                  {t({ id: 'monk.brewmaster.blackout_combo.ks_desc.p2', message: ' is less valuable.' })}
+                </>
               </div>
             </li>
           </ul>
@@ -112,10 +116,10 @@ export default function BlackoutComboSection(): JSX.Element | null {
               <td>
                 <TooltipElement
                   content={
-                    <Trans id="monk.brewmaster.blackout_combo.buff_tooltip">
-                      <SpellLink spell={SPELLS.BLACKOUT_COMBO_BUFF} /> is a buff. If you wait long
-                      enough before using a combo spell, it will expire and do nothing!
-                    </Trans>
+                    <>
+                      <SpellLink spell={SPELLS.BLACKOUT_COMBO_BUFF} />
+                      {t({ id: 'monk.brewmaster.blackout_combo.buff_tooltip.p1', message: ' is a buff. If you wait long enough before using a combo spell, it will expire and do nothing!' })}
+                    </>
                   }
                 >
                   {t({ id: 'monk.brewmaster.blackout_combo.combos_used', message: 'Combos Used' })}

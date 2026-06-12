@@ -122,23 +122,35 @@ export default class FeralFrenzy extends Analyzer {
     const explanation = (
       <div>
         <p>
-          <Trans id="druid.feral.ff.explanation">
-            <strong>
-              <SpellLink spell={talent} />
-            </strong>{' '}
-            is a brief but extremely powerful bleed. Use it on cooldown. As it gives 5 combo points,
-            it's best used at 2 or fewer combo points in order not to waste them.
-            {this.isFrantic &&
-              ' Should be used within as large of packs as possible for you to gain the most benefit out of it.'}
-          </Trans>
+          <strong>
+            <SpellLink spell={talent} />
+          </strong>{' '}
+          {t({
+            id: 'druid.feral.ff.explanation',
+            message:
+              'is a brief but extremely powerful bleed. Use it on cooldown. As it gives 5 combo points, ' +
+              "it's best used at 2 or fewer combo points in order not to waste them.",
+          })}
+          {this.isFrantic &&
+            t({
+              id: 'druid.feral.ff.explanation.frantic',
+              message:
+                ' Should be used within as large of packs as possible for you to gain the most benefit out of it.',
+            })}
         </p>
         {this.isFocused && (
           <p>
             {' '}
-            <Trans id="druid.feral.ff.focused_explanation">
-              With <SpellLink spell={TALENTS_DRUID.FOCUSED_FRENZY_TALENT} />, always use it during{' '}
-              <SpellLink spell={SPELLS.TIGERS_FURY} />.
-            </Trans>
+            {t({
+              id: 'druid.feral.ff.focused_explanation',
+              message: 'With ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.FOCUSED_FRENZY_TALENT} />
+            {t({
+              id: 'druid.feral.ff.focused_explanation.p2',
+              message: ', always use it during ',
+            })}
+            <SpellLink spell={SPELLS.TIGERS_FURY} />.
           </p>
         )}
       </div>
@@ -172,9 +184,10 @@ export default class FeralFrenzy extends Analyzer {
           if (this.isFocused) {
             checklistItems.push({
               label: (
-                <Trans id="druid.feral.ff.tf_active">
-                  <SpellLink spell={SPELLS.TIGERS_FURY} /> active
-                </Trans>
+                <>
+                  <SpellLink spell={SPELLS.TIGERS_FURY} />
+                  {t({ id: 'druid.feral.ff.tf_active', message: ' active' })}
+                </>
               ),
               result: <PassFailCheckmark pass={cast.tfOnCast} />,
             });
@@ -223,9 +236,15 @@ export default class FeralFrenzy extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <Trans id="druid.feral.ff.damage_tooltip">
-              Total damage dealt by <SpellLink spell={this.talent} /> (initial hits + bleed).
-            </Trans>
+            {t({
+              id: 'druid.feral.ff.damage_tooltip',
+              message: 'Total damage dealt by ',
+            })}
+            <SpellLink spell={this.talent} />
+            {t({
+              id: 'druid.feral.ff.damage_tooltip.p2',
+              message: ' (initial hits + bleed).',
+            })}
           </>
         }
         dropdown={this.castBreakdownTable}

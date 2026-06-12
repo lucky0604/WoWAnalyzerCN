@@ -76,11 +76,17 @@ class FinisherUse extends Analyzer {
         value: this.maxCpFinishers,
         tooltip: (
           <>
-            <Trans id="druid.feral.finisher_use.high_cp_tooltip">
-              This only counts casts that actually spent CPs -{' '}
-              <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} /> and{' '}
-              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> procs are omitted.
-            </Trans>
+            {t({
+              id: 'druid.feral.finisher_use.high_cp_tooltip',
+              message: 'This only counts casts that actually spent CPs - ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} />
+            {t({ id: 'druid.feral.finisher_use.high_cp_tooltip.p2', message: ' and ' })}
+            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />
+            {t({
+              id: 'druid.feral.finisher_use.high_cp_tooltip.p3',
+              message: ' procs are omitted.',
+            })}
           </>
         ),
       },
@@ -90,10 +96,16 @@ class FinisherUse extends Analyzer {
         value: this.lowCpRipApplies,
         tooltip: (
           <>
-            <Trans id="druid.feral.finisher_use.low_cp_rips_tooltip">
-              When <SpellLink spell={SPELLS.RIP} /> is missing from a target, it's better to apply
-              it at low CPs than wait for max - but ideally you refresh before it drops at all.
-            </Trans>
+            {t({
+              id: 'druid.feral.finisher_use.low_cp_rips_tooltip',
+              message: 'When ',
+            })}
+            <SpellLink spell={SPELLS.RIP} />
+            {t({
+              id: 'druid.feral.finisher_use.low_cp_rips_tooltip.p2',
+              message:
+                " is missing from a target, it's better to apply it at low CPs than wait for max - but ideally you refresh before it drops at all.",
+            })}
           </>
         ),
       },

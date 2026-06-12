@@ -9,6 +9,7 @@ import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import { SpellLink } from 'interface';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 /*
   The purpose of this analyzer is to highlight inefficient atonement applications when using the binding heals talent.
@@ -46,24 +47,17 @@ class SelfAtonementAnalyzer extends Analyzer {
 
   get guideSubsection(): JSX.Element {
     const explanation = (
-      <Trans id="priest.discipline.selfAtonementAnalysis.explanation">
+      <>
         <p>
-          <b>
-            <SpellLink spell={SPELLS.FLASH_HEAL} />
-          </b>{' '}
-          applies <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> to yourself when used on
-          another target while using <SpellLink spell={TALENTS_PRIEST.BINDING_HEALS_TALENT} />. It is
-          the most mana efficient way to apply atonements and you should avoid to ever apply{' '}
-          <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> manually to yourself.
+          <strong><SpellLink spell={SPELLS.FLASH_HEAL} /></strong>{' '}
+          {t({ id: 'priest.discipline.selfAtonementAnalysis.explanation.p1', message: 'applies ' })}<SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />{t({ id: 'priest.discipline.selfAtonementAnalysis.explanation.p2', message: ' to yourself when used on another target while using ' })}<SpellLink spell={TALENTS_PRIEST.BINDING_HEALS_TALENT} />{t({ id: 'priest.discipline.selfAtonementAnalysis.explanation.p3', message: '. It is the most mana efficient way to apply atonements and you should avoid to ever apply ' })}<SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />{t({ id: 'priest.discipline.selfAtonementAnalysis.explanation.p4', message: ' manually to yourself.' })}
         </p>
-      </Trans>
+      </>
     );
     const data = (
       <div>
         <strong>
-          <Trans id="priest.discipline.selfAtonementAnalysis.applicatorBreakdown">
-            <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> applicator breakdown
-          </Trans>
+          <><SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> {t({ id: 'priest.discipline.selfAtonementAnalysis.applicatorBreakdown', message: 'applicator breakdown' })}</>
         </strong>
         <small>
           {' '}

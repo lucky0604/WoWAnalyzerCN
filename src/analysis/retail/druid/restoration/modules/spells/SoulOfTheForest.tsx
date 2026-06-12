@@ -312,26 +312,41 @@ class SoulOfTheForest extends Analyzer {
 
     const explanation = (
       <p>
-        <Trans id="restoration.sotf.explanation">
-          <strong>
-            <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} />
-          </strong>{' '}
-          procs should be consumed with <SpellLink spell={SPELLS.REJUVENATION} /> or{' '}
-          <SpellLink spell={SPELLS.REGROWTH} />.{' '}
-          {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
-            <>
-              <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> can overwrite procs - always use your
-              proc before casting Convoke. Never let a proc expire.
-            </>
-          )}
-          {hasPota && (
-            <>
-              {' '}
-              With <SpellLink spell={TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT} />, make sure your
-              target is within 20 yards of at least 2 other allies when consuming a proc.
-            </>
-          )}
-        </Trans>
+        <strong>
+          <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} />
+        </strong>{' '}
+        {t({
+          id: 'restoration.sotf.explanation_p1',
+          message: 'procs should be consumed with',
+        })}{' '}
+        <SpellLink spell={SPELLS.REJUVENATION} />{' '}
+        {t({ id: 'restoration.sotf.explanation_p2', message: 'or' })}{' '}
+        <SpellLink spell={SPELLS.REGROWTH} />.{' '}
+        {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
+          <>
+            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />{' '}
+            {t({
+              id: 'restoration.sotf.explanation_convoke',
+              message:
+                'can overwrite procs - always use your proc before casting Convoke. Never let a proc expire.',
+            })}
+          </>
+        )}
+        {hasPota && (
+          <>
+            {' '}
+            {t({
+              id: 'restoration.sotf.explanation_pota',
+              message: 'With',
+            })}{' '}
+            <SpellLink spell={TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT} />,{' '}
+            {t({
+              id: 'restoration.sotf.explanation_pota_p2',
+              message:
+                'make sure your target is within 20 yards of at least 2 other allies when consuming a proc.',
+            })}
+          </>
+        )}
       </p>
     );
 

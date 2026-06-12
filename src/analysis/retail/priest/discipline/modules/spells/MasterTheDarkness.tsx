@@ -8,7 +8,6 @@ import Events, { CastEvent } from 'parser/core/Events';
 import { Options } from 'parser/core/Module';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 
 class MasterTheDarkness extends Analyzer {
@@ -43,16 +42,12 @@ class MasterTheDarkness extends Analyzer {
     }
 
     const explanation = (
-      <Trans id="priest.discipline.masterTheDarkness.explanation">
+      <>
         <p>
-          <strong>
-            <SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} />
-          </strong>{' '}
-          gives your <SpellLink spell={SPELLS.PENANCE_CAST} /> a chance to upgrade your{' '}
-          <SpellLink spell={SPELLS.POWER_WORD_SHIELD} /> to <SpellLink spell={SPELLS.VOID_SHIELD} />
-          . Casting Penance while the upgrade is already active wastes a potential new proc.
+          <strong><SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} /></strong>{' '}
+          {t({ id: 'priest.discipline.masterTheDarkness.explanation.p1', message: 'gives your ' })}<SpellLink spell={SPELLS.PENANCE_CAST} />{t({ id: 'priest.discipline.masterTheDarkness.explanation.p2', message: ' a chance to upgrade your ' })}<SpellLink spell={SPELLS.POWER_WORD_SHIELD} />{t({ id: 'priest.discipline.masterTheDarkness.explanation.p3', message: ' to ' })}<SpellLink spell={SPELLS.VOID_SHIELD} />{t({ id: 'priest.discipline.masterTheDarkness.explanation.p4', message: '. Casting Penance while the upgrade is already active wastes a potential new proc.' })}
         </p>
-      </Trans>
+      </>
     );
 
     const boxes = this.wastedPenanceCasts.map((event) => ({
@@ -60,10 +55,7 @@ class MasterTheDarkness extends Analyzer {
       tooltip: (
         <>
           {this.owner.formatTimestamp(event.timestamp)}:{' '}
-          <Trans id="priest.discipline.masterTheDarkness.castWhileActive">
-            <SpellLink spell={SPELLS.PENANCE_CAST} /> cast while{' '}
-            <SpellLink spell={SPELLS.MASTER_THE_DARKNESS_BUFF} /> was already active.
-          </Trans>
+          <><SpellLink spell={SPELLS.PENANCE_CAST} />{t({ id: 'priest.discipline.masterTheDarkness.castWhileActive.p1', message: ' cast while ' })}<SpellLink spell={SPELLS.MASTER_THE_DARKNESS_BUFF} />{t({ id: 'priest.discipline.masterTheDarkness.castWhileActive.p2', message: ' was already active.' })}</>
         </>
       ),
     }));
@@ -71,10 +63,7 @@ class MasterTheDarkness extends Analyzer {
     const data = (
       <div>
         <p>
-          <Trans id="priest.discipline.masterTheDarkness.wastedProcs">
-            Wasted <SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} />{' '}
-            procs:
-          </Trans>{' '}
+          <>{t({ id: 'priest.discipline.masterTheDarkness.wastedProcs.p1', message: 'Wasted ' })}<SpellLink spell={TALENTS_PRIEST.MASTER_THE_DARKNESS_1_DISCIPLINE_TALENT} />{t({ id: 'priest.discipline.masterTheDarkness.wastedProcs.p2', message: ' procs:' })}</>{' '}
           <strong>{this.wastedPenanceCasts.length}</strong>
         </p>
         {this.wastedPenanceCasts.length > 0 ? (

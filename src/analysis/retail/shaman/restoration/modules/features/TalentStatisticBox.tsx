@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer from 'parser/core/Analyzer';
@@ -66,20 +65,23 @@ class TalentStatisticBox extends Analyzer {
       <StatisticsListBox
         title={t({ id: 'shaman.restoration.talentBox.title', message: 'Healing Contribution' })}
         tooltip={
-          <Trans id="shaman.restoration.talentBox.tooltip">
-            The purpose of this is to show the overall HPS impact of each talent. So not only what
-            the talent itself did, but also feeding and synergy or interactions with other spells or
-            talents. The percentage shown is what you'd lose without the talent, ignoring what you'd
-            gain from the other options.
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+          <>
+            {t({
+              id: 'shaman.restoration.talentBox.tooltip',
+              message:
+                'The purpose of this is to show the overall HPS impact of each talent. So not only what the talent itself did, but also feeding and synergy or interactions with other spells or talents. The percentage shown is what you\'d lose without the talent, ignoring what you\'d gain from the other options.',
+            })}
             <br />
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <strong>Not Supported:</strong>
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+            <strong>
+              {t({
+                id: 'shaman.restoration.talentBox.not_supported',
+                message: 'Not Supported:',
+              })}
+            </strong>
             <br />
-            Echo of the Elements
-          </Trans>
+            {t({ id: 'shaman.restoration.talentBox.echo', message: 'Echo of the Elements' })}
+          </>
         }
         position={STATISTIC_ORDER.CORE(5)}
         bodyStyle={{}} // idk

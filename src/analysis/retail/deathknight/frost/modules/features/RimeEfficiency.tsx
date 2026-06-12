@@ -131,22 +131,56 @@ class RimeEfficiency extends Analyzer {
 
     const explanation = (
       <p>
-        <Trans id="deathknight.frost.rimeEfficiency.guide.explanation">
-          <strong>
-            <SpellLink spell={SPELLS.RIME} />
-          </strong>{' '}
-          turns <SpellLink spell={talents.HOWLING_BLAST_TALENT} /> from a weak ability you only use
-          to apply Frost Fever to a powerful spell that jumps to the top of the priority list. This
-          is especially true if <SpellLink spell={talents.AVALANCHE_TALENT} /> or{' '}
-          <SpellLink spell={talents.ICEBREAKER_TALENT} /> are talented. Rime has a chance to proc
-          whenever you cast <SpellLink spell={talents.OBLITERATE_TALENT} /> and you prevent wasting
-          the proc by making sure to consume Rime before casting Obliterate. You should aim to
-          consume as many Rimes as you can. However, there are times when other spells take priority
-          such as casting <SpellLink spell={talents.FROST_STRIKE_TALENT} /> to refresh{' '}
-          <SpellLink spell={talents.ICY_TALONS_TALENT} /> or using{' '}
-          <SpellLink spell={talents.OBLITERATE_TALENT} /> to maintain{' '}
-          <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} /> when your RP is low.
-        </Trans>
+        <strong>
+          <SpellLink spell={SPELLS.RIME} />
+        </strong>
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation',
+          message: ' turns ',
+        })}
+        <SpellLink spell={talents.HOWLING_BLAST_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p2',
+          message:
+            ' from a weak ability you only use to apply Frost Fever to a powerful spell that jumps to the top of the priority list. This is especially true if ',
+        })}
+        <SpellLink spell={talents.AVALANCHE_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p3',
+          message: ' or ',
+        })}
+        <SpellLink spell={talents.ICEBREAKER_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p4',
+          message:
+            ' are talented. Rime has a chance to proc whenever you cast ',
+        })}
+        <SpellLink spell={talents.OBLITERATE_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p5',
+          message:
+            ' and you prevent wasting the proc by making sure to consume Rime before casting Obliterate. You should aim to consume as many Rimes as you can. However, there are times when other spells take priority such as casting ',
+        })}
+        <SpellLink spell={talents.FROST_STRIKE_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p6',
+          message: ' to refresh ',
+        })}
+        <SpellLink spell={talents.ICY_TALONS_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p7',
+          message: ' or using ',
+        })}
+        <SpellLink spell={talents.OBLITERATE_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p8',
+          message: ' to maintain ',
+        })}
+        <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
+        {t({
+          id: 'deathknight.frost.rimeEfficiency.guide.explanation.p9',
+          message: ' when your RP is low.',
+        })}
       </p>
     );
 

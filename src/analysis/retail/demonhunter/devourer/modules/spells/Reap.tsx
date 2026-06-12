@@ -11,7 +11,6 @@ import Events, { CastEvent } from 'parser/core/Events';
 import { BoxRowEntry } from 'interface/guide/components/PerformanceBoxRow';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import {
   MOMENT_OF_CRAVING_ADDITIONAL_SOUL_ABSORB_CAPACITY,
   REAP_CULL_MAX_SOUL_ABSORB_CAPACITY,
@@ -57,10 +56,9 @@ class Reap extends Analyzer {
     let value = QualitativePerformance.Good;
     let tooltip = (
       <>
-        <Trans id="guide.demonhunter.devourer.reap.goodCast">
-          Great! This cast gave you enough souls to access{' '}
-          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />.
-        </Trans>
+        {t({ id: 'guide.demonhunter.devourer.reap.goodCast.p1', message: 'Great! This cast gave you enough souls to access ' })}
+        <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+        {t({ id: 'guide.demonhunter.devourer.reap.goodCast.p2', message: '.' })}
       </>
     );
 
@@ -68,10 +66,9 @@ class Reap extends Analyzer {
       value = QualitativePerformance.Fail;
       tooltip = (
         <>
-          <Trans id="guide.demonhunter.devourer.reap.alreadyEnough">
-            You already had enough souls to enter{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />!
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.reap.alreadyEnough.p1', message: 'You already had enough souls to enter ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.reap.alreadyEnough.p2', message: '!' })}
         </>
       );
     } else if (
@@ -81,19 +78,18 @@ class Reap extends Analyzer {
       value = QualitativePerformance.Ok;
       tooltip = (
         <>
-          <Trans id="guide.demonhunter.devourer.reap.tooEarly">
-            You cast <SpellLink spell={SPELLS.REAP} /> a tad too early. ({soulsPostCast} souls after
-            cast)
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.reap.tooEarly.p1', message: 'You cast ' })}
+          <SpellLink spell={SPELLS.REAP} />
+          {t({ id: 'guide.demonhunter.devourer.reap.tooEarly.p2', message: ` a tad too early. (${soulsPostCast} souls after cast)` })}
         </>
       );
     } else if (soulsPostCast < soulsRequiredVoidMeta) {
       value = QualitativePerformance.Fail;
       tooltip = (
         <>
-          <Trans id="guide.demonhunter.devourer.reap.wayTooEarly">
-            You cast <SpellLink spell={SPELLS.REAP} /> too early! ({soulsPostCast} souls after cast)
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.reap.wayTooEarly.p1', message: 'You cast ' })}
+          <SpellLink spell={SPELLS.REAP} />
+          {t({ id: 'guide.demonhunter.devourer.reap.wayTooEarly.p2', message: ` too early! (${soulsPostCast} souls after cast)` })}
         </>
       );
     }
@@ -105,22 +101,24 @@ class Reap extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="guide.demonhunter.devourer.reap.explanation">
-            Outside <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />, you have
-            access to <SpellLink spell={SPELLS.REAP} />,{' '}
-            {this.#hasScythesEmbraceTalent ? (
-              <>
-                which is very strong thanks to{' '}
-                <SpellLink spell={TALENTS_DEMON_HUNTER.SCYTHES_EMBRACE_TALENT} /> and should be
-                pressed on cooldown
-              </>
-            ) : (
-              <>
-                which is only to be used to quickly absorb the last few souls you need to get into{' '}
-                <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />.
-              </>
-            )}
-          </Trans>
+          {t({ id: 'guide.demonhunter.devourer.reap.explanation.p1', message: 'Outside ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+          {t({ id: 'guide.demonhunter.devourer.reap.explanation.p2', message: ', you have access to ' })}
+          <SpellLink spell={SPELLS.REAP} />
+          {t({ id: 'guide.demonhunter.devourer.reap.explanation.p3', message: ', ' })}
+          {this.#hasScythesEmbraceTalent ? (
+            <>
+              {t({ id: 'guide.demonhunter.devourer.reap.explanation.scythes', message: 'which is very strong thanks to ' })}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.SCYTHES_EMBRACE_TALENT} />
+              {t({ id: 'guide.demonhunter.devourer.reap.explanation.scythes2', message: ' and should be pressed on cooldown' })}
+            </>
+          ) : (
+            <>
+              {t({ id: 'guide.demonhunter.devourer.reap.explanation.noScythes', message: 'which is only to be used to quickly absorb the last few souls you need to get into ' })}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.VOID_METAMORPHOSIS_TALENT} />
+              {t({ id: 'guide.demonhunter.devourer.reap.explanation.noScythes2', message: '.' })}
+            </>
+          )}
         </p>
       </>
     );

@@ -131,10 +131,14 @@ class TipOfTheSpear extends BuffStackTracker {
             {event.ability.name} cast without Tip of the Spear.
           </Trans>
         </h5>
-        <Trans id="hunter.survival.tipOfTheSpear.targeting">
-          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
+        <>
+          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
+          {t({
+            id: 'hunter.survival.tipOfTheSpear.targeting.p1',
+            message: ' targeting ',
+          })}
           <strong>{targetName || 'unknown'}</strong>
-        </Trans>
+        </>
       </div>
     );
 
@@ -243,35 +247,70 @@ class TipOfTheSpear extends BuffStackTracker {
     const tooltip = (
       <div>
         <h5 style={{ color }}>{header}</h5>
-        <Trans id="hunter.survival.tipOfTheSpear.tooltipTargeting">
-          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> targeting{' '}
+        <>
+          <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
+          {t({
+            id: 'hunter.survival.tipOfTheSpear.tooltipTargeting.p1',
+            message: ' targeting ',
+          })}
           <strong>{targetName || 'unknown'}</strong>
-        </Trans>
+        </>
         <div>
-          <Trans id="hunter.survival.tipOfTheSpear.tooltipCurrentStacks">
-            Current stacks: <strong>{currentStacks}</strong> →{' '}
+          <>
+            {t({
+              id: 'hunter.survival.tipOfTheSpear.tooltipCurrentStacks.p1',
+              message: 'Current stacks: ',
+            })}
+            <strong>{currentStacks}</strong>
+            {t({
+              id: 'hunter.survival.tipOfTheSpear.tooltipCurrentStacks.p2',
+              message: ' → ',
+            })}
             <strong>{Math.min(potentialStacks, MAX_STACKS)}</strong>
-          </Trans>
+          </>
         </div>
         <div>
-          <Trans id="hunter.survival.tipOfTheSpear.tooltipFocus">
-            Focus before cast: <strong>{preCastFocus}</strong> | Gained:{' '}
+          <>
+            {t({
+              id: 'hunter.survival.tipOfTheSpear.tooltipFocus.p1',
+              message: 'Focus before cast: ',
+            })}
+            <strong>{preCastFocus}</strong>
+            {t({
+              id: 'hunter.survival.tipOfTheSpear.tooltipFocus.p2',
+              message: ' | Gained: ',
+            })}
             <strong>{focusGained}</strong>
             {focusWasted > 0 && (
               <>
-                {' '}
-                | Wasted: <strong>{focusWasted}</strong>
+                {t({
+                  id: 'hunter.survival.tipOfTheSpear.tooltipFocus.p3',
+                  message: ' | Wasted: ',
+                })}
+                <strong>{focusWasted}</strong>
               </>
             )}
-          </Trans>
+          </>
         </div>
         {this.hasPrimalSurge && (
           <div>
             <small>
-              <Trans id="hunter.survival.tipOfTheSpear.tooltipPrimalSurge">
-                (With <SpellLink spell={TALENTS.PRIMAL_SURGE_TALENT} />, generates {stacksGained}{' '}
-                stacks)
-              </Trans>
+              <>
+                {t({
+                  id: 'hunter.survival.tipOfTheSpear.tooltipPrimalSurge.p1',
+                  message: '(With ',
+                })}
+                <SpellLink spell={TALENTS.PRIMAL_SURGE_TALENT} />
+                {t({
+                  id: 'hunter.survival.tipOfTheSpear.tooltipPrimalSurge.p2',
+                  message: ', generates ',
+                })}
+                {stacksGained}
+                {t({
+                  id: 'hunter.survival.tipOfTheSpear.tooltipPrimalSurge.p3',
+                  message: ' stacks)',
+                })}
+              </>
             </small>
           </div>
         )}
@@ -292,11 +331,17 @@ class TipOfTheSpear extends BuffStackTracker {
 
   get guideSubsectionKillCommand() {
     const packLeaderExplanation = (
-      <Trans id="hunter.survival.tipOfTheSpear.guideKcPackLeader">
-        {' '}
-        Aim to Kill Command only at 0 stacks, or at most 1 stack if{' '}
-        <SpellLink spell={TALENTS.HOWL_OF_THE_PACK_LEADER_TALENT} /> is ready to spawn a beast.
-      </Trans>
+      <>
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideKcPackLeader.p1',
+          message: ' Aim to Kill Command only at 0 stacks, or at most 1 stack if ',
+        })}
+        <SpellLink spell={TALENTS.HOWL_OF_THE_PACK_LEADER_TALENT} />
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideKcPackLeader.p2',
+          message: ' is ready to spawn a beast.',
+        })}
+      </>
     );
     const sentinelExplanation = (
       <Trans id="hunter.survival.tipOfTheSpear.guideKcSentinel">
@@ -307,12 +352,20 @@ class TipOfTheSpear extends BuffStackTracker {
 
     const explanation = (
       <p>
-        <Trans id="hunter.survival.tipOfTheSpear.guideKcExplanation">
+        <>
           <strong>
             <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
-          </strong>{' '}
-          generates <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks.
-        </Trans>
+          </strong>
+          {t({
+            id: 'hunter.survival.tipOfTheSpear.guideKcExplanation.p1',
+            message: ' generates ',
+          })}
+          <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+          {t({
+            id: 'hunter.survival.tipOfTheSpear.guideKcExplanation.p2',
+            message: ' stacks.',
+          })}
+        </>
         {this.isPackLeader ? packLeaderExplanation : sentinelExplanation}
         <p>
           <Trans id="hunter.survival.tipOfTheSpear.guideKcLowFocus">
@@ -341,45 +394,100 @@ class TipOfTheSpear extends BuffStackTracker {
 
   get guideSubsectionUntipped() {
     const takedownNote = this.hasTwinFangs ? (
-      <Trans id="hunter.survival.tipOfTheSpear.guideUntippedTakedownTwinFangs">
-        {' '}
-        With <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />,{' '}
-        <SpellLink spell={TALENTS.TAKEDOWN_TALENT} /> generates{' '}
-        <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks but is excluded from this summary
-        as it is often cast in response to an event occurring.
-      </Trans>
+      <>
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedTakedownTwinFangs.p1',
+          message: ' With ',
+        })}
+        <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedTakedownTwinFangs.p2',
+          message: ', ',
+        })}
+        <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedTakedownTwinFangs.p3',
+          message: ' generates ',
+        })}
+        <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedTakedownTwinFangs.p4',
+          message: ' stacks but is excluded from this summary as it is often cast in response to an event occurring.',
+        })}
+      </>
     ) : (
-      <Trans id="hunter.survival.tipOfTheSpear.guideUntippedTakedownNoTwinFangs">
-        {' '}
-        <SpellLink spell={TALENTS.TAKEDOWN_TALENT} /> should be tipped in this build.
-      </Trans>
+      <>
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedTakedownNoTwinFangs.p1',
+          message: ' ',
+        })}
+        <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedTakedownNoTwinFangs.p2',
+          message: ' should be tipped in this build.',
+        })}
+      </>
     );
 
     const wfbPackLeaderNote = this.isPackLeader ? (
-      <Trans id="hunter.survival.tipOfTheSpear.guideUntippedWfbPackLeader">
-        {' '}
-        <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} /> cast with &lt;{LOW_FOCUS_THRESHOLD} focus
-        while in Pack Leader is excused (KC is likely unavailable too).
-      </Trans>
+      <>
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedWfbPackLeader.p1',
+          message: ' ',
+        })}
+        <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedWfbPackLeader.p2',
+          message: ' cast with <',
+        })}
+        {LOW_FOCUS_THRESHOLD}
+        {t({
+          id: 'hunter.survival.tipOfTheSpear.guideUntippedWfbPackLeader.p3',
+          message: ' focus while in Pack Leader is excused (KC is likely unavailable too).',
+        })}
+      </>
     ) : null;
 
     const explanation = (
       <>
         <p>
-          <Trans id="hunter.survival.tipOfTheSpear.guideUntippedExplanation">
-            Each entry below is a tippable ability cast <strong>without</strong>{' '}
-            <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />. These should be rare.{' '}
-          </Trans>
+          <>
+            {t({
+              id: 'hunter.survival.tipOfTheSpear.guideUntippedExplanation.p1',
+              message: 'Each entry below is a tippable ability cast ',
+            })}
+            <strong>
+              {t({
+                id: 'hunter.survival.tipOfTheSpear.guideUntippedExplanation.bold',
+                message: 'without',
+              })}
+            </strong>
+            {t({
+              id: 'hunter.survival.tipOfTheSpear.guideUntippedExplanation.p2',
+              message: ' ',
+            })}
+            <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+            {t({
+              id: 'hunter.survival.tipOfTheSpear.guideUntippedExplanation.p3',
+              message: '. These should be rare. ',
+            })}
+          </>
         </p>
         <p>
           {takedownNote}
           {wfbPackLeaderNote}
           {this.selectedCombatant.hasTalent(TALENTS.BOOMSTICK_TALENT) && (
-            <Trans id="hunter.survival.tipOfTheSpear.guideUntippedBoomstickOpener">
-              {' '}
-              The opener <SpellLink spell={TALENTS.BOOMSTICK_TALENT} /> (within the first 10s) is
-              excused. It is cast untipped to build Mongoose Fury stacks before Takedown.
-            </Trans>
+            <>
+              {t({
+                id: 'hunter.survival.tipOfTheSpear.guideUntippedBoomstickOpener.p1',
+                message: ' The opener ',
+              })}
+              <SpellLink spell={TALENTS.BOOMSTICK_TALENT} />
+              {t({
+                id: 'hunter.survival.tipOfTheSpear.guideUntippedBoomstickOpener.p2',
+                message: ' (within the first 10s) is excused. It is cast untipped to build Mongoose Fury stacks before Takedown.',
+              })}
+            </>
           )}
         </p>
       </>
@@ -395,9 +503,13 @@ class TipOfTheSpear extends BuffStackTracker {
       ) : (
         <div>
           <p>
-            <Trans id="hunter.survival.tipOfTheSpear.notActiveWhenCast">
-              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> not active when cast:
-            </Trans>
+            <>
+              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+              {t({
+                id: 'hunter.survival.tipOfTheSpear.notActiveWhenCast',
+                message: ' not active when cast:',
+              })}
+            </>
           </p>
           <PerformanceBoxRow values={this.untippedCastEntries} />
         </div>
@@ -415,9 +527,13 @@ class TipOfTheSpear extends BuffStackTracker {
       >
         <BoringValueText
           label={
-            <Trans id="hunter.survival.tipOfTheSpear.stacksWasted">
-              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks wasted
-            </Trans>
+            <>
+              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+              {t({
+                id: 'hunter.survival.tipOfTheSpear.stacksWasted',
+                message: ' stacks wasted',
+              })}
+            </>
           }
         >
           {this.wastedStacks} / {this.killCommandCasts}

@@ -13,7 +13,7 @@ import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent } from 'parser/core/Events';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 export class DiffuseMagic extends MajorDefensiveBuff {
   constructor(options: Options) {
@@ -44,17 +44,17 @@ export class DiffuseMagic extends MajorDefensiveBuff {
 
   description(): ReactNode {
     return (
-      <Trans id="monk.brewmaster.diffuse_magic.desc">
+      <>
         <p>
-          <SpellLink spell={talents.DIFFUSE_MAGIC_TALENT} /> is a strong defensive against{' '}
-          <em>Magic damage</em>, but useless against Physical. This makes it a niche spell that is
-          sometimes the best spell in your kit, and sometimes not even talented.
+          <SpellLink spell={talents.DIFFUSE_MAGIC_TALENT} />
+          {t({ id: 'monk.brewmaster.diffuse_magic.desc.p1', message: ' is a strong defensive against ' })}
+          <em>{t({ id: 'monk.brewmaster.diffuse_magic.desc.p2', message: 'Magic damage' })}</em>
+          {t({ id: 'monk.brewmaster.diffuse_magic.desc.p3', message: ', but useless against Physical. This makes it a niche spell that is sometimes the best spell in your kit, and sometimes not even talented.' })}
         </p>
         <p>
-          It also has the ability to transfer some debuffs on you to their caster, but most boss
-          abilities are immune.
+          {t({ id: 'monk.brewmaster.diffuse_magic.desc.p4', message: 'It also has the ability to transfer some debuffs on you to their caster, but most boss abilities are immune.' })}
         </p>
-      </Trans>
+      </>
     );
   }
 

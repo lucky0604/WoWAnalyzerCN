@@ -15,6 +15,7 @@ import {
 import { AnyEvent, CastEvent, EventMeta, EventType } from 'parser/core/Events';
 import { useMemo, type JSX } from 'react';
 import { replace } from 'parser/core/EventMetaLib';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 interface WastedMeta extends EventMeta {
@@ -100,14 +101,31 @@ export function ResourceWasteProblemRenderer({
   return (
     <Container>
       <div>
-        <Trans id="deathknight.blood.resourceWaste.fromToWasted">
-          From {formatDuration(problem.range.start - info.fightStart)} to{' '}
-          {formatDuration(problem.range.end - info.fightStart)}, you wasted{' '}
-          <strong>{problem.severity}</strong> <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />,
-          equivalent to{' '}
-          <strong>{((problem.severity ?? 0) / deathStrikeCost).toFixed(1)}</strong> casts of{' '}
-          <SpellLink spell={talents.DEATH_STRIKE_TALENT} /> without any buffs.
-        </Trans>
+        {t({
+          id: 'deathknight.blood.resourceWaste.fromToWasted.p1',
+          message: 'From {start} to {end}, you wasted ',
+          values: {
+            start: formatDuration(problem.range.start - info.fightStart),
+            end: formatDuration(problem.range.end - info.fightStart),
+          },
+        })}
+        <strong>{problem.severity}</strong>
+        {' '}
+        <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+        {t({
+          id: 'deathknight.blood.resourceWaste.fromToWasted.p2',
+          message: ', equivalent to ',
+        })}
+        <strong>{((problem.severity ?? 0) / deathStrikeCost).toFixed(1)}</strong>
+        {t({
+          id: 'deathknight.blood.resourceWaste.fromToWasted.p3',
+          message: ' casts of ',
+        })}
+        <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+        {t({
+          id: 'deathknight.blood.resourceWaste.fromToWasted.p4',
+          message: ' without any buffs.',
+        })}
       </div>
       <EmbeddedTimelineContainer secondWidth={60} secondsShown={9} style={{ alignSelf: 'center' }}>
         <SpellTimeline>
@@ -122,15 +140,25 @@ export function ResourceWasteProblemRenderer({
       </EmbeddedTimelineContainer>
       {(problem.severity ?? 0) >= ossuaryCost && (
         <div>
-          <Trans id="deathknight.blood.resourceWaste.withOssuary">
-            With <SpellLink spell={talents.OSSUARY_TALENT} />, you would be able to cast{' '}
-            <SpellLink spell={talents.DEATH_STRIKE_TALENT} />{' '}
-            <strong>
-              {extraCasts} additional time{extraCasts === 1 ? '' : 's'}
-            </strong>{' '}
-            and end this sequence with the same amount of{' '}
-            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
-          </Trans>
+          {t({
+            id: 'deathknight.blood.resourceWaste.withOssuary',
+            message: 'With ',
+          })}
+          <SpellLink spell={talents.OSSUARY_TALENT} />
+          {t({
+            id: 'deathknight.blood.resourceWaste.withOssuary.p2',
+            message: ', you would be able to cast ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          {' '}
+          <strong>
+            {extraCasts} additional time{extraCasts === 1 ? '' : 's'}
+          </strong>
+          {t({
+            id: 'deathknight.blood.resourceWaste.withOssuary.p4',
+            message: ' and end this sequence with the same amount of ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
         </div>
       )}
     </Container>

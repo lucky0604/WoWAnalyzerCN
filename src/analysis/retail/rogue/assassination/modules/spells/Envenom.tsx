@@ -48,14 +48,30 @@ export default class Envenom extends Analyzer {
     const targetCps = getTargetComboPoints(this.selectedCombatant);
     const explanation = (
       <p>
-        <Trans id="rogue.assassination.envenom.explanation">
+        <>
           <strong>
             <SpellLink spell={SPELLS.ENVENOM} />
           </strong>{' '}
-          is your direct damage finisher. Use it when you already have a{' '}
-          <SpellLink spell={SPELLS.RUPTURE} /> applied to your target. Always use{' '}
-          <SpellLink spell={SPELLS.ENVENOM} /> at {targetCps}+ CPs.
-        </Trans>
+          {t({
+            id: 'rogue.assassination.envenom.explanation.p1',
+            message: 'is your direct damage finisher. Use it when you already have a ',
+          })}
+          <SpellLink spell={SPELLS.RUPTURE} />
+          {t({
+            id: 'rogue.assassination.envenom.explanation.p2',
+            message: ' applied to your target. Always use ',
+          })}
+          <SpellLink spell={SPELLS.ENVENOM} />
+          {t({
+            id: 'rogue.assassination.envenom.explanation.p3',
+            message: ' at ',
+          })}
+          {targetCps}
+          {t({
+            id: 'rogue.assassination.envenom.explanation.p4',
+            message: '+ CPs.',
+          })}
+        </>
       </p>
     );
 
@@ -66,12 +82,21 @@ export default class Envenom extends Analyzer {
         abovePerformanceDetails={
           <RoundedPanelWithBottomMargin>
             <div>
-              <Trans id="rogue.assassination.envenom.uptimeHeader">
+              <>
                 <strong>
-                  <SpellLink spell={SPELLS.ENVENOM} /> uptime
+                  <SpellLink spell={SPELLS.ENVENOM} />
+                  {t({
+                    id: 'rogue.assassination.envenom.uptimeHeader.bold',
+                    message: ' uptime',
+                  })}
                 </strong>
-                <small> - Try to get as close to 100% as the encounter allows!</small>
-              </Trans>
+                <small>
+                  {t({
+                    id: 'rogue.assassination.envenom.uptimeHeader.text',
+                    message: ' - Try to get as close to 100% as the encounter allows!',
+                  })}
+                </small>
+              </>
             </div>
             {uptimeBarSubStatistic(this.owner.fight, {
               spells: [SPELLS.ENVENOM],
@@ -143,49 +168,129 @@ export default class Envenom extends Analyzer {
     if (acceptableTimeLeftOnRupture) {
       details = (
         <div>
-          <Trans id="rogue.assassination.envenom.detailsGoodRupture">
-            You cast <SpellLink spell={SPELLS.ENVENOM} /> with{' '}
-            {formatDurationMillisMinSec(timeLeftOnRupture)} left on{' '}
+          <>
+            {t({
+              id: 'rogue.assassination.envenom.detailsGoodRupture.p1',
+              message: 'You cast ',
+            })}
+            <SpellLink spell={SPELLS.ENVENOM} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsGoodRupture.p2',
+              message: ' with ',
+            })}
+            {formatDurationMillisMinSec(timeLeftOnRupture)}
+            {t({
+              id: 'rogue.assassination.envenom.detailsGoodRupture.p3',
+              message: ' left on ',
+            })}
             <SpellLink spell={SPELLS.RUPTURE} />.
-          </Trans>
+          </>
         </div>
       );
     } else if (timeLeftOnRupture > 1000) {
       details = (
         <div>
-          <Trans id="rogue.assassination.envenom.detailsBadRupture">
-            You cast <SpellLink spell={SPELLS.ENVENOM} /> with{' '}
-            {formatDurationMillisMinSec(timeLeftOnRupture)} left on{' '}
-            <SpellLink spell={SPELLS.RUPTURE} />. Try not to cast{' '}
-            <SpellLink spell={SPELLS.ENVENOM} /> with less than{' '}
-            {formatDurationMillisMinSec(MIN_ACCEPTABLE_TIME_LEFT_ON_RUPTURE_MS)} left on{' '}
-            <SpellLink spell={SPELLS.RUPTURE} />, as it may cause you to miss pandemic-ing{' '}
+          <>
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRupture.p1',
+              message: 'You cast ',
+            })}
+            <SpellLink spell={SPELLS.ENVENOM} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRupture.p2',
+              message: ' with ',
+            })}
+            {formatDurationMillisMinSec(timeLeftOnRupture)}
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRupture.p3',
+              message: ' left on ',
+            })}
             <SpellLink spell={SPELLS.RUPTURE} />.
-          </Trans>
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRupture.p4',
+              message: ' Try not to cast ',
+            })}
+            <SpellLink spell={SPELLS.ENVENOM} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRupture.p5',
+              message: ' with less than ',
+            })}
+            {formatDurationMillisMinSec(MIN_ACCEPTABLE_TIME_LEFT_ON_RUPTURE_MS)}
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRupture.p6',
+              message: ' left on ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />,
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRupture.p7',
+              message: ' as it may cause you to miss pandemic-ing ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />.
+          </>
         </div>
       );
     } else if (timeLeftOnRupture > 0) {
       details = (
         <div>
-          <Trans id="rogue.assassination.envenom.detailsBadRuptureShort">
-            You cast <SpellLink spell={SPELLS.ENVENOM} /> with less than 1s left on{' '}
-            <SpellLink spell={SPELLS.RUPTURE} />. Try not to cast{' '}
-            <SpellLink spell={SPELLS.ENVENOM} /> with less than{' '}
-            {formatDurationMillisMinSec(MIN_ACCEPTABLE_TIME_LEFT_ON_RUPTURE_MS)} left on{' '}
-            <SpellLink spell={SPELLS.RUPTURE} />, as it may cause you to miss pandemic-ing{' '}
+          <>
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRuptureShort.p1',
+              message: 'You cast ',
+            })}
+            <SpellLink spell={SPELLS.ENVENOM} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRuptureShort.p2',
+              message: ' with less than 1s left on ',
+            })}
             <SpellLink spell={SPELLS.RUPTURE} />.
-          </Trans>
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRuptureShort.p3',
+              message: ' Try not to cast ',
+            })}
+            <SpellLink spell={SPELLS.ENVENOM} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRuptureShort.p4',
+              message: ' with less than ',
+            })}
+            {formatDurationMillisMinSec(MIN_ACCEPTABLE_TIME_LEFT_ON_RUPTURE_MS)}
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRuptureShort.p5',
+              message: ' left on ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />,
+            {t({
+              id: 'rogue.assassination.envenom.detailsBadRuptureShort.p6',
+              message: ' as it may cause you to miss pandemic-ing ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />.
+          </>
         </div>
       );
     } else {
       details = (
         <div>
-          <Trans id="rogue.assassination.envenom.detailsNoRupture">
-            You cast <SpellLink spell={SPELLS.ENVENOM} /> with no{' '}
-            <SpellLink spell={SPELLS.RUPTURE} /> applied to the target. Always ensure that your target
-            has <SpellLink spell={SPELLS.RUPTURE} /> applied before casting{' '}
+          <>
+            {t({
+              id: 'rogue.assassination.envenom.detailsNoRupture.p1',
+              message: 'You cast ',
+            })}
+            <SpellLink spell={SPELLS.ENVENOM} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsNoRupture.p2',
+              message: ' with no ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsNoRupture.p3',
+              message: ' applied to the target. Always ensure that your target has ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />
+            {t({
+              id: 'rogue.assassination.envenom.detailsNoRupture.p4',
+              message: ' applied before casting ',
+            })}
             <SpellLink spell={SPELLS.ENVENOM} />.
-          </Trans>
+          </>
         </div>
       );
     }
@@ -227,10 +332,23 @@ export default class Envenom extends Analyzer {
     } else {
       details = (
         <div>
-          <Trans id="rogue.assassination.envenom.spentCpsBad">
-            You spent {cpsSpent} CPs. Try to always spend {targetCps}+ CPs when casting{' '}
+          <>
+            {t({
+              id: 'rogue.assassination.envenom.spentCpsBad.p1',
+              message: 'You spent ',
+            })}
+            {cpsSpent}
+            {t({
+              id: 'rogue.assassination.envenom.spentCpsBad.p2',
+              message: ' CPs. Try to always spend ',
+            })}
+            {targetCps}
+            {t({
+              id: 'rogue.assassination.envenom.spentCpsBad.p3',
+              message: '+ CPs when casting ',
+            })}
             <SpellLink spell={SPELLS.ENVENOM} />.
-          </Trans>
+          </>
         </div>
       );
     }

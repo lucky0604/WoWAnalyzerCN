@@ -88,10 +88,13 @@ export default class FinisherUse extends Analyzer {
         }),
         value: this.animachargedCasts,
         tooltip: (
-          <Trans id="rogue.assassination.finisher.animachargedFinishersTooltip">
-            This includes finishers cast using an Animacharged CP from{' '}
+          <>
+            {t({
+              id: 'rogue.assassination.finisher.animachargedFinishersTooltip.p1',
+              message: 'This includes finishers cast using an Animacharged CP from ',
+            })}
             <SpellLink spell={TALENTS.ECHOING_REPRIMAND_TALENT} />.
-          </Trans>
+          </>
         ),
       });
     }

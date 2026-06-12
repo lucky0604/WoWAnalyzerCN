@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import { SpellIcon } from 'interface';
@@ -70,10 +71,11 @@ class MissingBeacons extends Analyzer {
           </Trans>
         }
         tooltip={
-          <Trans id="paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip">
-            The amount of <strong>raw</strong> healing that didn't transfer to one or more beacon
-            targets due to a missing beacon. When a beacon drops, re-apply it quickly.
-          </Trans>
+          <>
+            {t({ id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.p1', message: 'The amount of ' })}
+            <strong>{t({ id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.raw', message: 'raw' })}</strong>
+            {t({ id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.p2', message: " healing that didn't transfer to one or more beacon targets due to a missing beacon. When a beacon drops, re-apply it quickly." })}
+          </>
         }
       />
     );

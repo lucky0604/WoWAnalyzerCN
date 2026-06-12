@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -57,15 +58,29 @@ class RuneOfTheFallenCrusader extends Analyzer {
         category={STATISTIC_CATEGORY.ITEMS}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.shared.runeOfTheFallenCrusader.statistic.tooltip">
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            <strong>Uptime: </strong> {formatPercentage(this.uptime)}% <br />
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            <strong>Healing: </strong> {formatNumber(this.healing)} <br />
-            <strong>Overhealing: </strong> {formatNumber(this.overhealing)} (
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            {formatPercentage(this.overhealPercentage)} %) <br />
-          </Trans>
+          <>
+            <strong>
+              {t({
+                id: 'deathknight.shared.runeOfTheFallenCrusader.statistic.tooltip.uptime',
+                message: 'Uptime: ',
+              })}
+            </strong>
+            {formatPercentage(this.uptime)}% <br />
+            <strong>
+              {t({
+                id: 'deathknight.shared.runeOfTheFallenCrusader.statistic.tooltip.healing',
+                message: 'Healing: ',
+              })}
+            </strong>
+            {formatNumber(this.healing)} <br />
+            <strong>
+              {t({
+                id: 'deathknight.shared.runeOfTheFallenCrusader.statistic.tooltip.overhealing',
+                message: 'Overhealing: ',
+              })}
+            </strong>
+            {formatNumber(this.overhealing)} ({formatPercentage(this.overhealPercentage)} %) <br />
+          </>
         }
       >
         <BoringSpellValueText spell={SPELLS.RUNE_OF_THE_FALLEN_CRUSADER}>

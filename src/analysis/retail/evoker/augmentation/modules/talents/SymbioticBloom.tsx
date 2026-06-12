@@ -90,10 +90,7 @@ class SymbioticBloom extends Analyzer {
         tooltip={
           <>
             <p>
-              <Trans id="evoker.augmentation.symbioticBloom.contributed">
-                <SpellLink spell={TALENTS.SYMBIOTIC_BLOOM_TALENT} /> contributed{' '}
-                {formatNumber(this.totalHealingFromSymbioticBloomBuff)} healing.
-              </Trans>
+              <><SpellLink spell={TALENTS.SYMBIOTIC_BLOOM_TALENT} />{t({id:'evoker.augmentation.symbioticBloom.contributed.p1',message:' contributed '})}{formatNumber(this.totalHealingFromSymbioticBloomBuff)}{t({id:'evoker.augmentation.symbioticBloom.contributed.p2',message:' healing.'})}</>
             </p>
             <p>
               <Trans id="evoker.augmentation.symbioticBloom.note">

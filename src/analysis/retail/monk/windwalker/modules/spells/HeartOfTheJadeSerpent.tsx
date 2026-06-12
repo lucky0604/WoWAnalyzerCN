@@ -1,5 +1,4 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import { default as HotJS } from 'analysis/retail/monk/shared/hero/ConduitOfTheCelestials/talents/HeartOfTheJadeSerpent';
 import spells from 'common/SPELLS/monk';
@@ -103,25 +102,29 @@ class HeartOfTheJadeSerpent extends HotJS {
       <>
         {this.currentFof === 0 && (
           <div>
-            <Trans id="monk.windwalker.hotjs.not_used">
-              <SpellLink spell={spells.FISTS_OF_FURY_CAST} /> was not used during the window
-            </Trans>
+            <SpellLink spell={spells.FISTS_OF_FURY_CAST} />
+            {t({
+              id: 'monk.windwalker.hotjs.not_used',
+              message: ' was not used during the window',
+            })}
           </div>
         )}
         {this.currentSotwl !== 0 && (
           <div>
-            <Trans id="monk.windwalker.hotjs.should_not_use_sotwl">
-              <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> should not be used
-              within the window
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} />
+            {t({
+              id: 'monk.windwalker.hotjs.should_not_use_sotwl',
+              message: ' should not be used within the window',
+            })}
           </div>
         )}
         {this.currentUnityWithin !== 0 && (
           <div>
-            <Trans id="monk.windwalker.hotjs.should_not_use_unity">
-              <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> should not be used within the
-              window
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />
+            {t({
+              id: 'monk.windwalker.hotjs.should_not_use_unity',
+              message: ' should not be used within the window',
+            })}
           </div>
         )}
       </>
@@ -155,31 +158,63 @@ class HeartOfTheJadeSerpent extends HotJS {
     const explanation = (
       <>
         <p>
-          <Trans id="monk.windwalker.hotjs.explanation1">
+          <>
             <strong>
               <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />
             </strong>{' '}
-            massively reduces the cooldowns of your major abilities, and as such at least one{' '}
-            <SpellLink spell={spells.FISTS_OF_FURY_CAST} /> should be cast in each buff window.
-          </Trans>
+            {t({
+              id: 'monk.windwalker.hotjs.explanation1.p1',
+              message:
+                'massively reduces the cooldowns of your major abilities, and as such at least one ',
+            })}
+            <SpellLink spell={spells.FISTS_OF_FURY_CAST} />
+            {t({
+              id: 'monk.windwalker.hotjs.explanation1.p2',
+              message: ' should be cast in each buff window.',
+            })}
+          </>
         </p>
         <p>
-          <Trans id="monk.windwalker.hotjs.explanation2">
-            This buff is actived whenever{' '}
-            <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> or{' '}
-            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> (as part of{' '}
-            <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} />) are cast. To
-            avoid clipping the window short, casting either of them while{' '}
-            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> is active should be
-            avoided.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.windwalker.hotjs.explanation2.p1',
+              message: 'This buff is actived whenever ',
+            })}
+            <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} />
+            {t({
+              id: 'monk.windwalker.hotjs.explanation2.p2',
+              message: ' or ',
+            })}
+            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />
+            {t({
+              id: 'monk.windwalker.hotjs.explanation2.p3',
+              message: ' (as part of ',
+            })}
+            <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} />
+            {t({
+              id: 'monk.windwalker.hotjs.explanation2.p4',
+              message: ') are cast. To avoid clipping the window short, casting either of them while ',
+            })}
+            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />
+            {t({
+              id: 'monk.windwalker.hotjs.explanation2.p5',
+              message: ' is active should be avoided.',
+            })}
+          </>
         </p>
         <p>
-          <Trans id="monk.windwalker.hotjs.explanation3">
-            While active, muliple major abilities have massively hastened cooldowns. These can
-            easily reset atleast once during the duration with high enough haste, or with help from{' '}
-            <SpellLink spell={spells.BLACKOUT_KICK} />.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.windwalker.hotjs.explanation3.p1',
+              message:
+                'While active, muliple major abilities have massively hastened cooldowns. These can easily reset atleast once during the duration with high enough haste, or with help from ',
+            })}
+            <SpellLink spell={spells.BLACKOUT_KICK} />
+            {t({
+              id: 'monk.windwalker.hotjs.explanation3.p2',
+              message: '.',
+            })}
+          </>
         </p>
       </>
     );
@@ -188,22 +223,39 @@ class HeartOfTheJadeSerpent extends HotJS {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="monk.windwalker.hotjs.utilization">
-              <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> utilization
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />{' '}
+            {t({
+              id: 'monk.windwalker.hotjs.utilization',
+              message: 'utilization',
+            })}
           </strong>
           <div>
             <strong>
               {t({ id: 'monk.windwalker.hotjs.buff_windows', message: 'Buff Windows' })}{' '}
             </strong>
             <small>
-              <Trans id="monk.windwalker.hotjs.blue_perfect">
-                - Blue indicates a perfect cast (
-                <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} /> was cast atleast one time,
-                and neither <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} /> nor{' '}
-                <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> were cast), yellow indicates
-                one mistake, while red indicates multiple mistakes.
-              </Trans>
+              <>
+                {t({
+                  id: 'monk.windwalker.hotjs.blue_perfect.p1',
+                  message: '- Blue indicates a perfect cast (',
+                })}
+                <SpellLink spell={TALENTS_MONK.FISTS_OF_FURY_TALENT} />
+                {t({
+                  id: 'monk.windwalker.hotjs.blue_perfect.p2',
+                  message: ' was cast atleast one time, and neither ',
+                })}
+                <SpellLink spell={TALENTS_MONK.STRIKE_OF_THE_WINDLORD_TALENT} />
+                {t({
+                  id: 'monk.windwalker.hotjs.blue_perfect.p3',
+                  message: ' nor ',
+                })}
+                <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />
+                {t({
+                  id: 'monk.windwalker.hotjs.blue_perfect.p4',
+                  message:
+                    ' were cast), yellow indicates one mistake, while red indicates multiple mistakes.',
+                })}
+              </>
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>

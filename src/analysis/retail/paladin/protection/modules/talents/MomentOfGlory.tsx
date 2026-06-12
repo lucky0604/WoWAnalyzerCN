@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import TALENTS from 'common/TALENTS/paladin';
 import { SpellLink } from 'interface';
@@ -70,11 +69,15 @@ class MomentOfGlory extends Analyzer.withDependencies({ spellUsable: SpellUsable
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <Trans id="paladin.protection.momentOfGlory.tooltip">
-            You hit <b>{formatNumber(this.damageBoostedHits)}</b> targets with a{' '}
-            <SpellLink spell={TALENTS.AVENGERS_SHIELD_TALENT} /> boosted with{' '}
-            <SpellLink spell={TALENTS.MOMENT_OF_GLORY_TALENT} />.
-          </Trans>
+          <>
+            {t({ id: 'paladin.protection.momentOfGlory.tooltip.p1', message: 'You hit ' })}
+            <b>{t({ id: 'paladin.protection.momentOfGlory.tooltip.hits', message: '{count}', values: { count: formatNumber(this.damageBoostedHits) }})}</b>
+            {t({ id: 'paladin.protection.momentOfGlory.tooltip.p2', message: ' targets with a ' })}
+            <SpellLink spell={TALENTS.AVENGERS_SHIELD_TALENT} />
+            {t({ id: 'paladin.protection.momentOfGlory.tooltip.p3', message: ' boosted with ' })}
+            <SpellLink spell={TALENTS.MOMENT_OF_GLORY_TALENT} />
+            {t({ id: 'paladin.protection.momentOfGlory.tooltip.p4', message: '.' })}
+          </>
         }
       >
         <BoringSpellValue

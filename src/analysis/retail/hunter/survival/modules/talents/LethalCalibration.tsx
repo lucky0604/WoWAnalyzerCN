@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import TALENTS from 'common/TALENTS/hunter';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, DamageEvent, GetRelatedEvents } from 'parser/core/Events';
@@ -57,16 +56,23 @@ class LethalCalibration extends Analyzer.withDependencies({ spellUsable: SpellUs
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <Trans id="hunter.survival.lethalCalibration.statisticTooltip">
+          <>
             <p>
-              Lethal Calibration reduced Boomstick's cooldown by{' '}
-              <strong>{(this.effectiveCDR / 1000).toFixed(1)}s</strong> total.
+              {t({
+                id: 'hunter.survival.lethalCalibration.tooltip.p1',
+                message: "Lethal Calibration reduced Boomstick's cooldown by ",
+              })}
+              <strong>{(this.effectiveCDR / 1000).toFixed(1)}s</strong>
+              {t({ id: 'hunter.survival.lethalCalibration.tooltip.p2', message: ' total.' })}
             </p>
             <p>
-              <strong>{(this.wastedCDR / 1000).toFixed(1)}s</strong> was wasted (Boomstick not on
-              cooldown).
+              <strong>{(this.wastedCDR / 1000).toFixed(1)}s</strong>
+              {t({
+                id: 'hunter.survival.lethalCalibration.tooltip.p3',
+                message: ' was wasted (Boomstick not on cooldown).',
+              })}
             </p>
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.LETHAL_CALIBRATION_TALENT}>

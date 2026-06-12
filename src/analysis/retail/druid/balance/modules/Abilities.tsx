@@ -1,5 +1,5 @@
 import CoreAbilities from 'analysis/retail/druid/shared/core/Abilities';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import SPELL_CATEGORY from 'parser/core/SPELL_CATEGORY';
@@ -126,12 +126,26 @@ class Abilities extends CoreAbilities {
           majorIssueEfficiency: 0.7,
           extraSuggestion: (
             <>
-              <Trans id="druid.balance.abilities.new_moon.extra_suggestion">
-                Your <SpellLink spell={TALENTS_DRUID.NEW_MOON_TALENT} />,{' '}
-                <SpellLink spell={SPELLS.HALF_MOON} /> and <SpellLink spell={SPELLS.FULL_MOON} /> cast
-                efficiency can be improved, try keeping yourself at low Moon charges at all times; you
-                should (almost) never be at max (3) charges.
-              </Trans>
+              {t({
+                id: 'druid.balance.abilities.new_moon.extra_suggestion.p1',
+                message: 'Your ',
+              })}
+              <SpellLink spell={TALENTS_DRUID.NEW_MOON_TALENT} />
+              {t({
+                id: 'druid.balance.abilities.new_moon.extra_suggestion.p2',
+                message: ', ',
+              })}
+              <SpellLink spell={SPELLS.HALF_MOON} />
+              {t({
+                id: 'druid.balance.abilities.new_moon.extra_suggestion.p3',
+                message: ' and ',
+              })}
+              <SpellLink spell={SPELLS.FULL_MOON} />
+              {t({
+                id: 'druid.balance.abilities.new_moon.extra_suggestion.p4',
+                message:
+                  ' cast efficiency can be improved, try keeping yourself at low Moon charges at all times; you should (almost) never be at max (3) charges.',
+              })}
             </>
           ),
         },

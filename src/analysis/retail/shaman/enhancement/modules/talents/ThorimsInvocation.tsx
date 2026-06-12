@@ -24,7 +24,6 @@ import { addInefficientCastReason } from 'parser/core/EventMetaLib';
 import RESOURCE_TYPES, { getResource } from 'game/RESOURCE_TYPES';
 import typedKeys from 'common/typedKeys';
 import { EnhancementEventLinks } from '../../constants';
-import { Trans } from '@lingui/react/macro'
 import { t } from '@lingui/core/macro';
 
 /** Doom Winds and Deeply Rooted Elements last 2 sec longer,
@@ -148,18 +147,12 @@ class ThorimsInvocation extends Analyzer.withDependencies({
       ) {
         addInefficientCastReason(
           event,
-          <Trans id="shaman.enhancement.thorims.should_reprime">
-            You should have re-primed <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> by
-            casting <SpellLink spell={SPELLS.LIGHTNING_BOLT} />
-          </Trans>,
+          <>{t({ id: 'shaman.enhancement.thorims.should_reprime.p1', message: 'You should have re-primed ' })}<SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />{t({ id: 'shaman.enhancement.thorims.should_reprime.p2', message: ' by casting ' })}<SpellLink spell={SPELLS.LIGHTNING_BOLT} /></>,
         );
       } else if (hits < 2) {
         addInefficientCastReason(
           event,
-          <Trans id="shaman.enhancement.thorims.not_primed">
-            <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> was not primed with{' '}
-            <SpellLink spell={SPELLS.LIGHTNING_BOLT} />
-          </Trans>,
+          <><SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />{t({ id: 'shaman.enhancement.thorims.not_primed.p1', message: ' was not primed with ' })}<SpellLink spell={SPELLS.LIGHTNING_BOLT} /></>,
         );
       }
     }

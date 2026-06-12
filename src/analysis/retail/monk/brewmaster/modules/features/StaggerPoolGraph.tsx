@@ -19,7 +19,6 @@ import PurifyingBrew from '../talents/PurifyingBrew';
 import HighTolerance from '../spells/HighTolerance';
 import { OkColor } from 'interface/guide';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 interface StaggerEvent {
   timestamp: number;
@@ -306,14 +305,17 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
         <Panel
           title={t({ id: 'monk.brewmaster.stagger.title', message: 'Stagger' })}
           explanation={
-            <Trans id="monk.brewmaster.stagger.graph_explanation">
-              Damage you take is placed into a <em>pool</em> by <SpellLink spell={SPELLS.STAGGER} />
-              . This damage is then removed by the damage-over-time component of{' '}
-              <SpellLink spell={SPELLS.STAGGER} /> or by{' '}
-              <SpellLink spell={talents.PURIFYING_BREW_TALENT} /> (or other sources of
-              purification). This plot shows the amount of damage pooled over the course of the
-              fight.
-            </Trans>
+            <>
+              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p1', message: 'Damage you take is placed into a ' })}
+              <em>{t({ id: 'monk.brewmaster.stagger.graph_explanation.p2', message: 'pool' })}</em>
+              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p3', message: ' by ' })}
+              <SpellLink spell={SPELLS.STAGGER} />
+              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p4', message: '. This damage is then removed by the damage-over-time component of ' })}
+              <SpellLink spell={SPELLS.STAGGER} />
+              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p5', message: ' or by ' })}
+              <SpellLink spell={talents.PURIFYING_BREW_TALENT} />
+              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p6', message: ' (or other sources of purification). This plot shows the amount of damage pooled over the course of the fight.' })}
+            </>
           }
         >
           {this.plot}

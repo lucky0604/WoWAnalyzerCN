@@ -119,13 +119,14 @@ class OvercapShieldOfTheRighteous extends Analyzer {
           size="flexible"
           category={STATISTIC_CATEGORY.GENERAL}
           tooltip={
-            <Trans id="paladin.protection.overcapSotr.tooltip">
-              You lost {formatNumber(Math.max(0, lostUptimeDueToOvercap / SECOND))} seconds due to
-              overcapping <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} />.<br />
-              Overcapping occurs when you cast{' '}
-              <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} /> with more than{' '}
-              {formatNumber(SOTR_SOFT_CAP / SECOND)} seconds left on the buff.
-            </Trans>
+            <>
+              {t({ id: 'paladin.protection.overcapSotr.tooltip.p1', message: 'You lost {seconds} seconds due to overcapping ', values: { seconds: formatNumber(Math.max(0, lostUptimeDueToOvercap / SECOND)) }})}
+              <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} />
+              <br />
+              {t({ id: 'paladin.protection.overcapSotr.tooltip.p2', message: 'Overcapping occurs when you cast ' })}
+              <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} />
+              {t({ id: 'paladin.protection.overcapSotr.tooltip.p3', message: ' with more than {seconds} seconds left on the buff.', values: { seconds: formatNumber(SOTR_SOFT_CAP / SECOND) }})}
+            </>
           }
           dropdown={
             <>

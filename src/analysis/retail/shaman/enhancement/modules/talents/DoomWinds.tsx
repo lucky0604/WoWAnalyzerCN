@@ -30,7 +30,6 @@ import { getApplicableRules, HighPriorityAbilities } from '../../common';
 import GuideSection from 'interface/guide/components/GuideSection';
 import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
 import { SpellSequence, type CastInSequence } from 'interface/guide/components/CastSequence';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 
 type WindowSource = 'cast' | 'proc';
@@ -155,10 +154,7 @@ class DoomWinds extends Analyzer.withDependencies({
         condition: (event) =>
           this.selectedCombatant.hasBuff(SPELLS.HOT_HAND_BUFF.id, event.timestamp),
         enhancedCastReason: () => (
-          <Trans id="shaman.enhancement.doomwinds.ll_priority">
-            <SpellLink spell={TALENTS.LAVA_LASH_TALENT} /> takes priority during{' '}
-            <SpellLink spell={TALENTS.HOT_HAND_TALENT} />.
-          </Trans>
+          <><SpellLink spell={TALENTS.LAVA_LASH_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.ll_priority.p1', message: ' takes priority during ' })}<SpellLink spell={TALENTS.HOT_HAND_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.ll_priority.p2', message: '.' })}</>
         ),
       });
     }
@@ -541,11 +537,7 @@ class DoomWinds extends Analyzer.withDependencies({
         if (damageEvents.length < 2) {
           addInefficientCastReason(
             event,
-            <Trans id="shaman.enhancement.doomwinds.thorims_wrong_primed">
-              <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> cast{' '}
-              <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> when it should have been primed
-              to cast <SpellLink spell={SPELLS.LIGHTNING_BOLT} />.
-            </Trans>,
+            <><SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.thorims_wrong_primed.p1', message: ' cast ' })}<SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.thorims_wrong_primed.p2', message: ' when it should have been primed to cast ' })}<SpellLink spell={SPELLS.LIGHTNING_BOLT} />{t({ id: 'shaman.enhancement.doomwinds.thorims_wrong_primed.p3', message: '.' })}</>,
           );
         }
       }
@@ -691,9 +683,7 @@ class DoomWinds extends Analyzer.withDependencies({
             value: `${breakdown.triggerStats.total}/${breakdown.triggerOpportunities.estimatedMaximumTriggers}`,
             label: t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_label', message: 'Thorim Triggers' }),
             tooltip: (
-              <Trans id="shaman.enhancement.doomwinds.thorim_triggers_tooltip">
-                Estimated maximum <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> triggers.
-              </Trans>
+              <>{t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_tooltip.p1', message: 'Estimated maximum ' })}<SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_tooltip.p2', message: ' triggers.' })}</>
             ),
             performance: breakdown.triggerPerformance,
           },
@@ -706,10 +696,7 @@ class DoomWinds extends Analyzer.withDependencies({
         ],
         details: (
           <>
-            <Trans id="shaman.enhancement.doomwinds.thorim_may_trigger">
-              <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> may have been able to trigger
-              from the following sources:
-            </Trans>
+            <><SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.thorim_may_trigger.p1', message: ' may have been able to trigger from the following sources:' })}</>
             <ul>
               <li>
                 <SpellLink spell={primaryStrikeSpell} />: {primaryTriggers}/
@@ -719,12 +706,7 @@ class DoomWinds extends Analyzer.withDependencies({
                     breakdown.triggerOpportunities.unreducedMaximumPrimaryCasts && (
                     <ul>
                       <li>
-                        <Trans id="shaman.enhancement.doomwinds.hot_hand_priority">
-                          <SpellLink spell={TALENTS.LAVA_LASH_TALENT} /> has higher priority during{' '}
-                          <SpellLink spell={TALENTS.HOT_HAND_TALENT} />, reducing expected triggers
-                          from <SpellLink spell={primaryStrikeSpell} /> to{' '}
-                          {breakdown.triggerOpportunities.maximumPrimaryCasts}.
-                        </Trans>
+                        <><SpellLink spell={TALENTS.LAVA_LASH_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.hot_hand_priority.p1', message: ' has higher priority during ' })}<SpellLink spell={TALENTS.HOT_HAND_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.hot_hand_priority.p2', message: ', reducing expected triggers from ' })}<SpellLink spell={primaryStrikeSpell} />{t({ id: 'shaman.enhancement.doomwinds.hot_hand_priority.p3', message: ' to ' })}{breakdown.triggerOpportunities.maximumPrimaryCasts}{t({ id: 'shaman.enhancement.doomwinds.hot_hand_priority.p4', message: '.' })}</>
                       </li>
                     </ul>
                   )}

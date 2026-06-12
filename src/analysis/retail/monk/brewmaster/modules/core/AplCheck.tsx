@@ -7,7 +7,6 @@ import * as cnd from 'parser/shared/metrics/apl/conditions';
 import talents from 'common/TALENTS/monk';
 import { AnyEvent } from 'parser/core/Events';
 import { SpellLink, TooltipElement } from 'interface';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 
 const withCombo = cnd.buffPresent(SPELLS_COMMON.BLACKOUT_COMBO_BUFF);
@@ -29,26 +28,30 @@ const CHP_SETUP = {
     <>
       <TooltipElement
         content={
-          <Trans id="monk.brewmaster.apl.charred_passions_tooltip">
+          <>
             <p>
-              Applying <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} /> before using{' '}
-              <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} /> can be a damage gain, but if you
-              find yourself doing it too often it means you are missing{' '}
-              <SpellLink spell={talents.BREATH_OF_FIRE_TALENT} /> casts during your normal rotation.
+              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p1', message: 'Applying ' })}
+              <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} />
+              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p2', message: ' before using ' })}
+              <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} />
+              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p3', message: ' can be a damage gain, but if you find yourself doing it too often it means you are missing ' })}
+              <SpellLink spell={talents.BREATH_OF_FIRE_TALENT} />
+              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p4', message: ' casts during your normal rotation.' })}
             </p>
             <p>
-              You might run into this condition naturally when dealing with forced downtime, such as
-              tank mechanics that require you to run away.
+              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p5', message: 'You might run into this condition naturally when dealing with forced downtime, such as tank mechanics that require you to run away.' })}
             </p>
-          </Trans>
+          </>
         }
       >
         {t({ id: 'monk.brewmaster.apl.optional', message: '(Optional)' })}
       </TooltipElement>{' '}
-      <Trans id="monk.brewmaster.apl.apply_charred_passions">
-        Apply <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} /> when it is missing before using{' '}
+      <>
+        {t({ id: 'monk.brewmaster.apl.apply_charred_passions.p1', message: 'Apply ' })}
+        <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} />
+        {t({ id: 'monk.brewmaster.apl.apply_charred_passions.p2', message: ' when it is missing before using ' })}
         <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} />
-      </Trans>
+      </>
     </>
   ),
 };
@@ -64,10 +67,13 @@ const standardApl = build([
       (tenseVal) => {
         const tense = tenseAlt(tenseVal, 'is', 'was');
         return (
-          <Trans id="monk.brewmaster.apl.niusao_active">
-            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink> {tense}{' '}
-            active (as <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>
+            {' '}{tense}{' '}
+            {t({ id: 'monk.brewmaster.apl.niusao_active.p1', message: 'active (as ' })}
+            <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>
+            {t({ id: 'monk.brewmaster.apl.niusao_active.p2', message: ')' })}
+          </>
         );
       },
     ),
@@ -82,10 +88,13 @@ const standardApl = build([
       (tenseVal) => {
         const tense = tenseAlt(tenseVal, 'is', 'was');
         return (
-          <Trans id="monk.brewmaster.apl.niusao_active">
-            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink> {tense}{' '}
-            active (as <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
-          </Trans>
+          <>
+            <SpellLink spell={SPELLS.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>
+            {' '}{tense}{' '}
+            {t({ id: 'monk.brewmaster.apl.niusao_active_ks.p1', message: 'active (as ' })}
+            <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>
+            {t({ id: 'monk.brewmaster.apl.niusao_active_ks.p2', message: ')' })}
+          </>
         );
       },
     ),
@@ -105,10 +114,13 @@ const standardApl = build([
           cnd.spellCooldownRemaining(SPELLS.BLACKOUT_KICK, { atLeast: 2000 }),
         ),
         (tense) => (
-          <Trans id="monk.brewmaster.apl.combo_filler">
-            it {tenseAlt(tense, 'is', 'was')} a correct{' '}
-            <SpellLink spell={SPELLS.BLACKOUT_COMBO_TALENT}>Combo</SpellLink> filler
-          </Trans>
+          <>
+            {t({ id: 'monk.brewmaster.apl.combo_filler.p1', message: 'it ' })}
+            {tenseAlt(tense, 'is', 'was')}
+            {t({ id: 'monk.brewmaster.apl.combo_filler.p2', message: ' a correct ' })}
+            <SpellLink spell={SPELLS.BLACKOUT_COMBO_TALENT}>Combo</SpellLink>
+            {t({ id: 'monk.brewmaster.apl.combo_filler.p3', message: ' filler' })}
+          </>
         ),
       ),
     ),
@@ -128,10 +140,13 @@ const standardApl = build([
       cnd.hasTalent(talents.FLURRY_STRIKES_TALENT),
     ),
     description: (
-      <Trans id="monk.brewmaster.apl.cast_keg_smash_charges">
-        Cast <SpellLink spell={SPELLS.KEG_SMASH_TALENT} /> at or near 2 charges (as{' '}
-        <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>)
-      </Trans>
+      <>
+        {t({ id: 'monk.brewmaster.apl.cast_keg_smash_charges.p1', message: 'Cast ' })}
+        <SpellLink spell={SPELLS.KEG_SMASH_TALENT} />
+        {t({ id: 'monk.brewmaster.apl.cast_keg_smash_charges.p2', message: ' at or near 2 charges (as ' })}
+        <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>
+        {t({ id: 'monk.brewmaster.apl.cast_keg_smash_charges.p3', message: ')' })}
+      </>
     ),
   },
   SPELLS.BREATH_OF_FIRE_TALENT,

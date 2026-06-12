@@ -132,17 +132,20 @@ export default class SpiritBomb extends Analyzer {
   guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="demonhunter.vengeance.spiritBomb.guideExplanation">
-          <strong>
-            <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
-          </strong>{' '}
-          is your strongest AoE <strong>spender</strong> of <strong>Fury</strong> and{' '}
-          <strong>Soul Fragments</strong>. It consumes all available Soul Fragments (up to 6) and
-          does more damage for each Soul Fragment consumed. Cast it when you have{' '}
-          {this.soulsOutOfMeta}+ Soul Fragments available. In{' '}
-          <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />, cast it when you have{' '}
-          {this.soulsInMeta}+ Soul Fragments available.
-        </Trans>
+        <strong><SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /></strong>
+        {t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.p1', message: ' is your strongest AoE ' })}
+        <strong>{t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.bold1', message: 'spender' })}</strong>
+        {t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.p2', message: ' of ' })}
+        <strong>{t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.bold2', message: 'Fury' })}</strong>
+        {t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.p3', message: ' and ' })}
+        <strong>{t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.bold3', message: 'Soul Fragments' })}</strong>
+        {t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.p4', message: '. It consumes all available Soul Fragments (up to 6) and does more damage for each Soul Fragment consumed. Cast it when you have ' })}
+        {this.soulsOutOfMeta}
+        {t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.p5', message: '+ Soul Fragments available. In ' })}
+        <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />
+        {t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.p6', message: ', cast it when you have ' })}
+        {this.soulsInMeta}
+        {t({ id: 'demonhunter.vengeance.spiritBomb.guideExplanation.p7', message: '+ Soul Fragments available.' })}
         <FieryDemiseExplanation />
       </p>
     );

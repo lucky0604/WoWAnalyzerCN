@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import {
   absoluteMitigation,
   MajorDefensiveBuff,
@@ -34,10 +34,8 @@ class BlurAnalyzer extends MajorDefensiveBuff {
   description(): ReactNode {
     return (
       <p>
-        <Trans id="dh.blur.desc">
-          <SpellLink spell={SPELLS.BLUR} /> reduces the damage you take by{' '}
-          {BLUR_MITIGATION_PERCENT * 100}%.
-        </Trans>
+        <SpellLink spell={SPELLS.BLUR} />
+        {t({ id: 'dh.blur.desc.p1', message: ` reduces the damage you take by ${BLUR_MITIGATION_PERCENT * 100}%.` })}
       </p>
     );
   }

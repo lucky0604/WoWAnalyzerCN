@@ -26,10 +26,14 @@ export default function CooldownSection({ modules, info }: GuideProps<typeof Com
       })}
     >
       <p>
-        <Trans id="guide.hunter.survival.sections.cooldowns.summary">
-          These cooldowns are essential for maximizing your damage output.
-          <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />.
-        </Trans>
+        <>
+          {t({
+            id: 'guide.hunter.survival.sections.cooldowns.summary.p1',
+            message: 'These cooldowns are essential for maximizing your damage output.',
+          })}
+          <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />
+          {t({ id: 'guide.hunter.survival.sections.cooldowns.summary.p2', message: '.' })}
+        </>
       </p>
       <div>
         {t({ id: 'guide.hunter.survival.sections.cooldowns.legend', message: 'Legend' })}

@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_PALADIN } from 'common/TALENTS/paladin';
@@ -89,16 +88,18 @@ class Reclamation extends Analyzer {
             <div>{t({ id: 'paladin.holy.talents.reclamation.healingDone', message: 'Healing Done' })}: {formatNumber(this.healing)}</div>
             <div>{t({ id: 'paladin.holy.talents.reclamation.damageDone', message: 'Damage Done' })}: {formatNumber(this.damageDone)}</div>
             <div>
-              <Trans id="paladin.holy.talents.reclamation.manaFromHolyShock">
-                Mana from <SpellLink spell={TALENTS_PALADIN.HOLY_SHOCK_TALENT} />
-              </Trans>
+              <>
+                {t({ id: 'paladin.holy.talents.reclamation.manaFromHolyShock', message: 'Mana from ' })}
+                <SpellLink spell={TALENTS_PALADIN.HOLY_SHOCK_TALENT} />
+              </>
               :{' '}
               {formatNumber(this.resourceGained.get(TALENTS.HOLY_SHOCK_TALENT.id) || 0)}
             </div>
             <div>
-              <Trans id="paladin.holy.talents.reclamation.manaFromCrusaderStrike">
-                Mana from <SpellLink spell={SPELLS.CRUSADER_STRIKE} />
-              </Trans>
+              <>
+                {t({ id: 'paladin.holy.talents.reclamation.manaFromCrusaderStrike', message: 'Mana from ' })}
+                <SpellLink spell={SPELLS.CRUSADER_STRIKE} />
+              </>
               :{' '}
               {formatNumber(this.resourceGained.get(SPELLS.CRUSADER_STRIKE.id) || 0)}
             </div>

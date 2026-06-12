@@ -126,10 +126,8 @@ class RakeUptimeAndSnapshots extends Snapshots {
         {perfExplanation}
         <div>
           @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>{' '}
-          <Trans id="druid.feral.moonfire.targetting">
-            targetting{' '}
-            <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
-          </Trans>
+          {t({ id: 'druid.feral.moonfire.targetting', message: 'targetting ' })}
+          <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
         </div>
         {prevSnapshotNames !== null && (
           <div>
@@ -146,19 +144,15 @@ class RakeUptimeAndSnapshots extends Snapshots {
           </div>
         )}
         <div>
-          <Trans id="druid.feral.moonfire.snapshots">
-            Snapshots:{' '}
-            <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
-          </Trans>
+          {t({ id: 'druid.feral.moonfire.snapshots', message: 'Snapshots: ' })}
+          <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
         </div>
         {prevSnapshotNames !== null && (
           <div>
-            <Trans id="druid.feral.moonfire.prev_snapshots">
-              Prev Snapshots:{' '}
-              <strong>
-                {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
-              </strong>
-            </Trans>
+            {t({ id: 'druid.feral.moonfire.prev_snapshots', message: 'Prev Snapshots: ' })}
+            <strong>
+              {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
+            </strong>
           </div>
         )}
       </>
@@ -179,17 +173,22 @@ class RakeUptimeAndSnapshots extends Snapshots {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="druid.feral.rake.explanation">
-          <b>
-            <SpellLink spell={SPELLS.RAKE} />
-          </b>{' '}
-          is your highest damage-per-energy single target builder. Try to keep it active on all
-          targets (except when in a many-target AoE situation). Rake snapshots{' '}
-          <SpellLink spell={SPELLS.TIGERS_FURY} /> and{' '}
-          <SpellLink spell={TALENTS_DRUID.POUNCING_STRIKES_TALENT} /> - when forced to refresh with
-          a weaker snapshot, try to wait until the last moment in order to overwrite the minimum
-          amount of the stronger DoT.
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.RAKE} />
+        </b>{' '}
+        {t({
+          id: 'druid.feral.rake.explanation',
+          message:
+            'is your highest damage-per-energy single target builder. Try to keep it active on all targets (except when in a many-target AoE situation). Rake snapshots ',
+        })}
+        <SpellLink spell={SPELLS.TIGERS_FURY} />
+        {t({ id: 'druid.feral.rake.explanation.p2', message: ' and ' })}
+        <SpellLink spell={TALENTS_DRUID.POUNCING_STRIKES_TALENT} />
+        {t({
+          id: 'druid.feral.rake.explanation.p3',
+          message:
+            ' - when forced to refresh with a weaker snapshot, try to wait until the last moment in order to overwrite the minimum amount of the stronger DoT.',
+        })}
       </p>
     );
 

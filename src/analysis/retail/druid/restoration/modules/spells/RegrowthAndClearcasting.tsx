@@ -340,43 +340,68 @@ class RegrowthAndClearcasting extends Analyzer {
     const hasAbundance = this.selectedCombatant.hasTalent(TALENTS_DRUID.ABUNDANCE_TALENT);
     const explanation = this.hasNaturesBounty ? (
       <p>
-        <Trans id="restoration.regrowth.explanation_nb">
-          <b>
-            <SpellLink spell={SPELLS.REGROWTH} />
-          </b>{' '}
-          is for spot healing. The HoT is normally very weak, but with{' '}
-          <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} /> it becomes important to play
-          around. Try to avoid overwriting existing Regrowth HoTs when choosing targets in order to
-          maximize cleave healing from <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />.
-          Also be careful not to cast Regrowth without a{' '}
-          <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> proc
-          {hasAbundance && (
-            <>
-              {' '}
-              or enough <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks
-            </>
-          )}
-          , as it is very mana inefficient otherwise.
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.REGROWTH} />
+        </b>{' '}
+        {t({
+          id: 'restoration.regrowth.explanation_nb',
+          message:
+            'is for spot healing. The HoT is normally very weak, but with',
+        })}{' '}
+        <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />{' '}
+        {t({
+          id: 'restoration.regrowth.explanation_nb_p2',
+          message:
+            'it becomes important to play around. Try to avoid overwriting existing Regrowth HoTs when choosing targets in order to maximize cleave healing from',
+        })}{' '}
+        <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />.
+        {' '}
+        {t({
+          id: 'restoration.regrowth.explanation_nb_p3',
+          message:
+            'Also be careful not to cast Regrowth without a',
+        })}{' '}
+        <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />{' '}
+        {t({ id: 'restoration.regrowth.explanation_nb_p4', message: 'proc' })}
+        {hasAbundance && (
+          <>
+            {' '}
+            {t({
+              id: 'restoration.regrowth.explanation_nb_p5',
+              message: 'or enough',
+            })}{' '}
+            <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />{' '}
+            {t({ id: 'restoration.regrowth.explanation_nb_p6', message: 'stacks' })}
+          </>
+        )}
+        {t({
+          id: 'restoration.regrowth.explanation_nb_p7',
+          message: ', as it is very mana inefficient otherwise.',
+        })}
       </p>
     ) : (
       <p>
-        <Trans id="restoration.regrowth.explanation_base">
-          <b>
-            <SpellLink spell={SPELLS.REGROWTH} />
-          </b>{' '}
-          is for spot healing. The HoT is very weak — Regrowth is only efficient when its direct
-          portion is effective. Try to minimize overheal on the direct portion. Exceptions are when
-          Regrowth is free due to <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> /{' '}
-          <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />
-          {hasAbundance && (
-            <>
-              {' '}
-              or cheap due to <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
-            </>
-          )}
-          .
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.REGROWTH} />
+        </b>{' '}
+        {t({
+          id: 'restoration.regrowth.explanation_base',
+          message:
+            'is for spot healing. The HoT is very weak — Regrowth is only efficient when its direct portion is effective. Try to minimize overheal on the direct portion. Exceptions are when Regrowth is free due to',
+        })}{' '}
+        <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> /{' '}
+        <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />
+        {hasAbundance && (
+          <>
+            {' '}
+            {t({
+              id: 'restoration.regrowth.explanation_base_p2',
+              message: 'or cheap due to',
+            })}{' '}
+            <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
+          </>
+        )}
+        .
       </p>
     );
 
@@ -430,71 +455,148 @@ class RegrowthAndClearcasting extends Analyzer {
         size="flexible"
         position={STATISTIC_ORDER.CORE(20)} // chosen for fixed ordering of general stats
         tooltip={
-          <Trans id="restoration.regrowth.statistic_tooltip">
-            <SpellLink spell={SPELLS.REGROWTH} /> is mana inefficient relative to{' '}
-            <SpellLink spell={SPELLS.REJUVENATION} /> and should only be cast when free due to{' '}
+          <>
+            <SpellLink spell={SPELLS.REGROWTH} />{' '}
+            {t({
+              id: 'restoration.regrowth.statistic_tooltip_p1',
+              message:
+                'is mana inefficient relative to',
+            })}{' '}
+            <SpellLink spell={SPELLS.REJUVENATION} />{' '}
+            {t({
+              id: 'restoration.regrowth.statistic_tooltip_p2',
+              message:
+                'and should only be cast when free due to',
+            })}{' '}
             <SpellLink spell={SPELLS.INNERVATE} />, <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />{' '}
-            or <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />,{' '}
+            {t({
+              id: 'restoration.regrowth.statistic_tooltip_p3',
+              message: 'or',
+            })}{' '}
+            <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />,{' '}
             {this.hasAbundance && (
               <>
-                cheap due to {ABUNDANCE_EXCEPTION_STACKS}+{' '}
-                <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> stacks,
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_p4',
+                  message: 'cheap due to',
+                })}{' '}
+                {ABUNDANCE_EXCEPTION_STACKS}+{' '}
+                <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />{' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_p5',
+                  message: 'stacks,',
+                })}
               </>
             )}{' '}
-            or to save a critically low health target.
+            {t({
+              id: 'restoration.regrowth.statistic_tooltip_p6',
+              message: 'or to save a critically low health target.',
+            })}
             <br />
             <br />
             <strong>
-              You hardcast {this.totalRegrowths} <SpellLink spell={SPELLS.REGROWTH} />
+              {t({
+                id: 'restoration.regrowth.statistic_tooltip_p7',
+                message: 'You hardcast',
+              })}{' '}
+              {this.totalRegrowths} <SpellLink spell={SPELLS.REGROWTH} />
             </strong>
             <ul>
               <li>
                 <SpellIcon spell={SPELLS.INNERVATE} />{' '}
                 <SpellIcon spell={SPELLS.CLEARCASTING_BUFF} />{' '}
-                <SpellIcon spell={SPELLS.NATURES_SWIFTNESS} /> Free Casts:{' '}
+                <SpellIcon spell={SPELLS.NATURES_SWIFTNESS} />{' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_free_casts',
+                  message: 'Free Casts:',
+                })}{' '}
                 <strong>{this.freeRegrowths}</strong>
               </li>
               {this.hasAbundance && (
                 <li>
-                  <SpellIcon spell={SPELLS.ABUNDANCE_BUFF} /> Cheap Casts:{' '}
+                  <SpellIcon spell={SPELLS.ABUNDANCE_BUFF} />{' '}
+                  {t({
+                    id: 'restoration.regrowth.statistic_tooltip_cheap_casts',
+                    message: 'Cheap Casts:',
+                  })}{' '}
                   <strong>{this.abundanceRegrowths}</strong>
                 </li>
               )}
               <li>
-                <HealthIcon /> Full Price Triage ({'<'}
-                {formatPercentage(TRIAGE_THRESHOLD, 0)}% HP) Casts:{' '}
+                <HealthIcon />{' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_triage',
+                  message: 'Full Price Triage',
+                })}{' '}
+                ({'<'}{formatPercentage(TRIAGE_THRESHOLD, 0)}% HP){' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_casts',
+                  message: 'Casts:',
+                })}{' '}
                 <strong>{this.triageRegrowths}</strong>
               </li>
               {this.okRegrowths > 0 && (
                 <li>
-                  Ok Casts: <strong>{this.okRegrowths}</strong>
+                  {t({
+                    id: 'restoration.regrowth.statistic_tooltip_ok_casts',
+                    message: 'Ok Casts:',
+                  })}{' '}
+                  <strong>{this.okRegrowths}</strong>
                 </li>
               )}
               <li>
-                <CrossIcon /> Bad Casts: <strong>{this.badRegrowths}</strong>
+                <CrossIcon />{' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_bad_casts',
+                  message: 'Bad Casts:',
+                })}{' '}
+                <strong>{this.badRegrowths}</strong>
               </li>
             </ul>
             <br />
             <strong>
-              You gained {this.totalClearcasts} <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />
+              {t({
+                id: 'restoration.regrowth.statistic_tooltip_cc_gained',
+                message: 'You gained',
+              })}{' '}
+              {this.totalClearcasts} <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />
             </strong>
             <ul>
               <li>
-                <SpellIcon spell={SPELLS.REGROWTH} /> Used: <strong>{this.usedClearcasts}</strong>
+                <SpellIcon spell={SPELLS.REGROWTH} />{' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_used',
+                  message: 'Used:',
+                })}{' '}
+                <strong>{this.usedClearcasts}</strong>
               </li>
               <li>
-                <CrossIcon /> Overwritten: <strong>{this.overwrittenClearcasts}</strong>
+                <CrossIcon />{' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_overwritten',
+                  message: 'Overwritten:',
+                })}{' '}
+                <strong>{this.overwrittenClearcasts}</strong>
               </li>
               <li>
-                <UptimeIcon /> Expired: <strong>{this.expiredClearcasts}</strong>
+                <UptimeIcon />{' '}
+                {t({
+                  id: 'restoration.regrowth.statistic_tooltip_expired',
+                  message: 'Expired:',
+                })}{' '}
+                <strong>{this.expiredClearcasts}</strong>
               </li>
               {this.endingClearcasts > 0 && (
                 <li>
-                  Still active at fight end: <strong>{this.endingClearcasts}</strong>
+                  {t({
+                    id: 'restoration.regrowth.statistic_tooltip_active',
+                    message: 'Still active at fight end:',
+                  })}{' '}
+                  <strong>{this.endingClearcasts}</strong>
                 </li>
               )}
             </ul>
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={SPELLS.REGROWTH}>

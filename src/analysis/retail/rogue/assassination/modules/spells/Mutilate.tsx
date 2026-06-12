@@ -24,15 +24,39 @@ export default class Mutilate extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <p>
-        <Trans id="rogue.assassination.mutilate.explanation">
-          Assassination's primary non-stealth single target builder is{' '}
+        <>
+          {t({
+            id: 'rogue.assassination.mutilate.explanation.p1',
+            message: "Assassination's primary non-stealth single target builder is ",
+          })}
           <strong>
             <SpellLink spell={SPELLS.MUTILATE} />
           </strong>
-          . You should never use <SpellLink spell={SPELLS.MUTILATE} /> during{' '}
-          <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> or <SpellLink spell={SPELLS.VANISH_BUFF} />,
-          and should be casting <SpellLink spell={SPELLS.AMBUSH} /> instead.
-        </Trans>
+          {t({
+            id: 'rogue.assassination.mutilate.explanation.p2',
+            message: '. You should never use ',
+          })}
+          <SpellLink spell={SPELLS.MUTILATE} />
+          {t({
+            id: 'rogue.assassination.mutilate.explanation.p3',
+            message: ' during ',
+          })}
+          <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} />
+          {t({
+            id: 'rogue.assassination.mutilate.explanation.p4',
+            message: ' or ',
+          })}
+          <SpellLink spell={SPELLS.VANISH_BUFF} />
+          {t({
+            id: 'rogue.assassination.mutilate.explanation.p5',
+            message: ', and should be casting ',
+          })}
+          <SpellLink spell={SPELLS.AMBUSH} />
+          {t({
+            id: 'rogue.assassination.mutilate.explanation.p6',
+            message: ' instead.',
+          })}
+        </>
       </p>
     );
 
@@ -94,16 +118,36 @@ export default class Mutilate extends Analyzer {
     );
     const details = isBuffActive ? (
       <div>
-        <Trans id="rogue.assassination.mutilate.subterfugeActiveDetail">
-          You cast <SpellLink spell={SPELLS.MUTILATE} /> when you should have cast a stealth spell due
-          to having <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> active.
-        </Trans>
+        <>
+          {t({
+            id: 'rogue.assassination.mutilate.subterfugeActiveDetail.p1',
+            message: 'You cast ',
+          })}
+          <SpellLink spell={SPELLS.MUTILATE} />
+          {t({
+            id: 'rogue.assassination.mutilate.subterfugeActiveDetail.p2',
+            message: ' when you should have cast a stealth spell due to having ',
+          })}
+          <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} />
+          {t({
+            id: 'rogue.assassination.mutilate.subterfugeActiveDetail.p3',
+            message: ' active.',
+          })}
+        </>
       </div>
     ) : (
       <div>
-        <Trans id="rogue.assassination.mutilate.subterfugeNotActiveDetail">
-          You did not have <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} /> active. Good job!
-        </Trans>
+        <>
+          {t({
+            id: 'rogue.assassination.mutilate.subterfugeNotActiveDetail.p1',
+            message: 'You did not have ',
+          })}
+          <SpellLink spell={SPELLS.SUBTERFUGE_BUFF} />
+          {t({
+            id: 'rogue.assassination.mutilate.subterfugeNotActiveDetail.p2',
+            message: ' active. Good job!',
+          })}
+        </>
       </div>
     );
     return createChecklistItem(
@@ -129,16 +173,36 @@ export default class Mutilate extends Analyzer {
     );
     const details = isBuffActive ? (
       <div>
-        <Trans id="rogue.assassination.mutilate.vanishActiveDetail">
-          You cast <SpellLink spell={SPELLS.MUTILATE} /> when you should have cast a stealth spell due
-          to having <SpellLink spell={SPELLS.VANISH_BUFF} /> active.
-        </Trans>
+        <>
+          {t({
+            id: 'rogue.assassination.mutilate.vanishActiveDetail.p1',
+            message: 'You cast ',
+          })}
+          <SpellLink spell={SPELLS.MUTILATE} />
+          {t({
+            id: 'rogue.assassination.mutilate.vanishActiveDetail.p2',
+            message: ' when you should have cast a stealth spell due to having ',
+          })}
+          <SpellLink spell={SPELLS.VANISH_BUFF} />
+          {t({
+            id: 'rogue.assassination.mutilate.vanishActiveDetail.p3',
+            message: ' active.',
+          })}
+        </>
       </div>
     ) : (
       <div>
-        <Trans id="rogue.assassination.mutilate.VanishNotActiveDetail">
-          You did not have <SpellLink spell={SPELLS.VANISH_BUFF} /> active. Good job!
-        </Trans>
+        <>
+          {t({
+            id: 'rogue.assassination.mutilate.VanishNotActiveDetail.p1',
+            message: 'You did not have ',
+          })}
+          <SpellLink spell={SPELLS.VANISH_BUFF} />
+          {t({
+            id: 'rogue.assassination.mutilate.VanishNotActiveDetail.p2',
+            message: ' active. Good job!',
+          })}
+        </>
       </div>
     );
     return createChecklistItem(

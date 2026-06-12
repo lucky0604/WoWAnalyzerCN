@@ -22,15 +22,25 @@ export function IntroSection() {
         </Trans>
       </p>
       <p>
-        <Trans id="guide.hunter.survival.sections.intro.accuracy">
-          The accuracy and problems pointed out here are <b>guidelines</b> and don't factor in raid
-          conditions or edge cases. To find a good measure of success, you should compare your
-          results to other top Hunters in the same fight with Warcraft Logs (e.g{' '}
+        <>
+          <b>
+            {t({
+              id: 'guide.hunter.survival.sections.intro.accuracy.bold',
+              message: 'guidelines',
+            })}
+          </b>
+          {t({
+            id: 'guide.hunter.survival.sections.intro.accuracy.p1',
+            message: " and don't factor in raid conditions or edge cases. To find a good measure of success, you should compare your results to other top Hunters in the same fight with Warcraft Logs (e.g ",
+          })}
           <a href="https://www.warcraftlogs.com/zone/rankings/46?boss=3176&class=Hunter&spec=Survival">
-            Heroic Imperator Averzian Top 100
+            {t({
+              id: 'guide.hunter.survival.sections.intro.accuracy.link',
+              message: 'Heroic Imperator Averzian Top 100',
+            })}
           </a>
-          ).
-        </Trans>
+          {t({ id: 'guide.hunter.survival.sections.intro.accuracy.p2', message: ').' })}
+        </>
       </p>
       <p>
         <Trans id="guide.hunter.survival.sections.intro.questions">

@@ -9,7 +9,6 @@ import BoringValue from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 import { GIFT_OF_THE_OX_SPELLS } from '../../constants';
 import { ExpelOxOrbs } from '../../normalizers/ExpelHarm';
@@ -92,11 +91,19 @@ export default class GiftOfTheOx extends Analyzer {
             const expelHarmConsumed = formatNumber(this.expelHarmOrbsConsumed);
             const expelHarmCasts = formatNumber(this.expelHarmCasts);
             return (
-              <Trans id="monk.brewmaster.gotox.tooltip">
-                You generated {generated} healing spheres and consumed {consumed} of them, healing for{' '}
-                <b>{healing}</b>. {expelHarmConsumed} of these were consumed with Expel Harm over{' '}
-                {expelHarmCasts} casts.
-              </Trans>
+              <>
+                {t({ id: 'monk.brewmaster.gotox.tooltip.p1', message: 'You generated ' })}
+                {generated}
+                {t({ id: 'monk.brewmaster.gotox.tooltip.p2', message: ' healing spheres and consumed ' })}
+                {consumed}
+                {t({ id: 'monk.brewmaster.gotox.tooltip.p3', message: ' of them, healing for ' })}
+                <b>{healing}</b>
+                {t({ id: 'monk.brewmaster.gotox.tooltip.p4', message: '. ' })}
+                {expelHarmConsumed}
+                {t({ id: 'monk.brewmaster.gotox.tooltip.p5', message: ' of these were consumed with Expel Harm over ' })}
+                {expelHarmCasts}
+                {t({ id: 'monk.brewmaster.gotox.tooltip.p6', message: ' casts.' })}
+              </>
             );
           })()
         }

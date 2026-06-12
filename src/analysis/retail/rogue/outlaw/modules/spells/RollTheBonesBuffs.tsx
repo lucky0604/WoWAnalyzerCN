@@ -76,39 +76,58 @@ class RollTheBonesBuffs extends Analyzer {
         </p>
         <ul>
           <li>
-            <Trans id="rogue.outlaw.rollTheBonesBuffs.oneOfAKindDesc">
+            <>
               <b>
                 <SpellLink spell={SPELLS.ONE_OF_A_KIND} />
               </b>{' '}
-              - <SpellLink spell={SPELLS.SINISTER_STRIKE} /> has a 20% increased chance to strike
-              twice and grant <SpellLink spell={SPELLS.OPPORTUNITY} />
-            </Trans>
+              - <SpellLink spell={SPELLS.SINISTER_STRIKE} />{' '}
+              {t({
+                id: 'rogue.outlaw.rollTheBonesBuffs.oneOfAKindDesc.text',
+                message: 'has a 20% increased chance to strike twice and grant ',
+              })}
+              <SpellLink spell={SPELLS.OPPORTUNITY} />
+            </>
           </li>
           <li>
-            <Trans id="rogue.outlaw.rollTheBonesBuffs.doubleTroubleDesc">
+            <>
               <b>
                 <SpellLink spell={SPELLS.DOUBLE_TROUBLE} />
               </b>{' '}
-              - <SpellLink spell={SPELLS.SINISTER_STRIKE} /> and <SpellLink spell={SPELLS.AMBUSH} />{' '}
-              generate 1 additional combo point and deal 15% increased damage
-            </Trans>
+              - <SpellLink spell={SPELLS.SINISTER_STRIKE} />{' '}
+              {t({
+                id: 'rogue.outlaw.rollTheBonesBuffs.doubleTroubleDesc.text',
+                message: 'and ',
+              })}
+              <SpellLink spell={SPELLS.AMBUSH} />{' '}
+              {t({
+                id: 'rogue.outlaw.rollTheBonesBuffs.doubleTroubleDesc.text2',
+                message: 'generate 1 additional combo point and deal 15% increased damage',
+              })}
+            </>
           </li>
           <li>
-            <Trans id="rogue.outlaw.rollTheBonesBuffs.tripleThreatDesc">
+            <>
               <b>
                 <SpellLink spell={SPELLS.TRIPLE_THREAT} />
               </b>{' '}
-              - <SpellLink spell={SPELLS.RESTLESS_BLADES_TALENT} /> cooldown reduction increased by
-              30%.
-            </Trans>
+              - <SpellLink spell={SPELLS.RESTLESS_BLADES_TALENT} />{' '}
+              {t({
+                id: 'rogue.outlaw.rollTheBonesBuffs.tripleThreatDesc.text',
+                message: 'cooldown reduction increased by 30%.',
+              })}
+            </>
           </li>
           <li>
-            <Trans id="rogue.outlaw.rollTheBonesBuffs.jackpotDesc">
+            <>
               <b>
                 <SpellLink spell={SPELLS.JACKPOT} />
               </b>{' '}
-              - Critical strike chance increased by 10%.
-            </Trans>
+              -{' '}
+              {t({
+                id: 'rogue.outlaw.rollTheBonesBuffs.jackpotDesc.text',
+                message: 'Critical strike chance increased by 10%.',
+              })}
+            </>
           </li>
         </ul>
       </>
@@ -138,9 +157,8 @@ class RollTheBonesBuffs extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="rogue.outlaw.rollTheBonesBuffs.uptime">
-              <SpellLink spell={SPELLS.ROLL_THE_BONES} /> uptime
-            </Trans>
+            <SpellLink spell={SPELLS.ROLL_THE_BONES} />{' '}
+            {t({ id: 'rogue.outlaw.rollTheBonesBuffs.uptime', message: 'uptime' })}
           </strong>
           {uptimeBarSubStatistic(this.owner.fight, rollTheBonesBarSpec, subBuffsBarSpecs)}
         </RoundedPanel>

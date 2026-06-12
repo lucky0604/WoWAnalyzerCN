@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import Backdraft from '../analyzers/Backdraft';
 import { ReactNode } from 'react';
 import { ExplanationAndDataSubSection } from 'interface/guide/components/ExplanationRow';
@@ -35,17 +34,33 @@ export function BackdraftGuide({ analyzer, fightStart, fightEnd }: BackdraftGuid
   const explanation = (
     <>
       <p>
-        <Trans id="warlock.destruction.backdraftGuide.empowers">
-          <SpellLink spell={SPELLS.BACKDRAFT} /> empowers your next Chaos Bolt, Incinerate, or Soul
-          Fire casts.
-        </Trans>
+        <>
+          <SpellLink spell={SPELLS.BACKDRAFT} />
+          {t({
+            id: 'warlock.destruction.backdraftGuide.empowers',
+            message: ' empowers your next Chaos Bolt, Incinerate, or Soul Fire casts.',
+          })}
+        </>
       </p>
       <small>
-        <Trans id="warlock.destruction.backdraftGuide.preferSpending">
-          Prefer spending stacks on <SpellLink spell={SPELLS.CHAOS_BOLT} /> or{' '}
-          <SpellLink spell={TALENTS.SOUL_FIRE_TALENT} /> (green) over{' '}
-          <SpellLink spell={SPELLS.INCINERATE} /> (yellow).
-        </Trans>
+        <>
+          {t({
+            id: 'warlock.destruction.backdraftGuide.preferSpending.p1',
+            message: 'Prefer spending stacks on ',
+          })}
+          <SpellLink spell={SPELLS.CHAOS_BOLT} />
+          {t({ id: 'warlock.destruction.backdraftGuide.preferSpending.p2', message: ' or ' })}
+          <SpellLink spell={TALENTS.SOUL_FIRE_TALENT} />
+          {t({
+            id: 'warlock.destruction.backdraftGuide.preferSpending.p3',
+            message: ' (green) over ',
+          })}
+          <SpellLink spell={SPELLS.INCINERATE} />
+          {t({
+            id: 'warlock.destruction.backdraftGuide.preferSpending.p4',
+            message: ' (yellow).',
+          })}
+        </>
       </small>
     </>
   );

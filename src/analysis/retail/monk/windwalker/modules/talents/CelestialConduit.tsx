@@ -1,7 +1,6 @@
 import { TALENTS_MONK } from 'common/TALENTS';
 import { Options } from 'parser/core/Module';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import {
   CastInfo,
@@ -41,9 +40,11 @@ class CelestialConduit extends CommonCelestialConduit {
     return (
       <>
         <strong>
-          <Trans id="monk.windwalker.celestial_conduit.utilization">
-            <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> utilization
-          </Trans>
+          <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} />{' '}
+          {t({
+            id: 'monk.windwalker.celestial_conduit.utilization',
+            message: 'utilization',
+          })}
         </strong>
         <div>
           <strong>
@@ -53,11 +54,17 @@ class CelestialConduit extends CommonCelestialConduit {
             })}{' '}
           </strong>
           <small>
-            <Trans id="monk.windwalker.celestial_conduit.blue_perfect">
-              - Blue indicates a perfect cast (
-              <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> was channeled
-              to completion)
-            </Trans>
+            <>
+              {t({
+                id: 'monk.windwalker.celestial_conduit.blue_perfect.p1',
+                message: '- Blue indicates a perfect cast (',
+              })}
+              <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} />
+              {t({
+                id: 'monk.windwalker.celestial_conduit.blue_perfect.p2',
+                message: ' was channeled to completion)',
+              })}
+            </>
           </small>
           <PerformanceBoxRow values={this.castEntries(this.castInfoList)} />
         </div>
@@ -68,13 +75,24 @@ class CelestialConduit extends CommonCelestialConduit {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <Trans id="monk.windwalker.celestial_conduit.explanation">
-          <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} /> should be cast
-          towards the end of a <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />{' '}
-          window, so that the secondary cast of{' '}
-          <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> triggers a new window. The channel
-          should always be fully completed when possible.
-        </Trans>
+        <>
+          <SpellLink spell={TALENTS_MONK.CELESTIAL_CONDUIT_WINDWALKER_TALENT} />
+          {t({
+            id: 'monk.windwalker.celestial_conduit.explanation.p1',
+            message: ' should be cast towards the end of a ',
+          })}
+          <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />
+          {t({
+            id: 'monk.windwalker.celestial_conduit.explanation.p2',
+            message: ' window, so that the secondary cast of ',
+          })}
+          <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />
+          {t({
+            id: 'monk.windwalker.celestial_conduit.explanation.p3',
+            message:
+              ' triggers a new window. The channel should always be fully completed when possible.',
+          })}
+        </>
       </p>
     );
 

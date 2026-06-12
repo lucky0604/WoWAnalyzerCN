@@ -22,15 +22,7 @@ export function IntroSection() {
         </Trans>
       </p>
       <p>
-        <Trans id="guide.evoker.devastation.sections.preface.2">
-          The accuracy and problems pointed out here are <b>guidelines</b> and don't factor in raid
-          conditions or edge cases. To find a good measure of success, you should compare your
-          results to other top Evokers in the same fight with Warcraft Logs (e.g{' '}
-          <a href="https://www.warcraftlogs.com/zone/rankings/46?boss=3176&class=Evoker&spec=Devastation">
-            Heroic Imperator Averzian Top 100
-          </a>
-          ).
-        </Trans>
+        <>{t({id:'guide.evoker.devastation.sections.preface.2.p1',message:'The accuracy and problems pointed out here are '})}<b>{t({id:'guide.evoker.devastation.sections.preface.2.bold',message:'guidelines'})}</b>{t({id:'guide.evoker.devastation.sections.preface.2.p2',message:" and don't factor in raid conditions or edge cases. To find a good measure of success, you should compare your results to other top Evokers in the same fight with Warcraft Logs (e.g "})}<a href="https://www.warcraftlogs.com/zone/rankings/46?boss=3176&class=Evoker&spec=Devastation">{t({id:'guide.evoker.devastation.sections.preface.2.link',message:'Heroic Imperator Averzian Top 100'})}</a>{t({id:'guide.evoker.devastation.sections.preface.2.p3',message:').'})}</>
       </p>
       <p>
         <Trans id="guide.evoker.devastation.sections.preface.3">

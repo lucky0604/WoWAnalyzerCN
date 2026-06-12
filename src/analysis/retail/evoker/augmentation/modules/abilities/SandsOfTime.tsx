@@ -117,34 +117,21 @@ class SandsOfTime extends Analyzer {
           : QualitativePerformance.Fail;
     const summary = (
       <div>
-        <Trans id="guide.augmentation.sandsOfTime.extended">
-          Extended with <SpellLink spell={spell} />
-        </Trans>
+        <>{t({id:'guide.augmentation.sandsOfTime.extended.p1',message:'Extended with '})}<SpellLink spell={spell} /></>
       </div>
     );
     const details =
       extendedDuplicate && extendedEbonMight ? (
         <div>
-          <Trans id="guide.augmentation.sandsOfTime.extendedBoth">
-            You extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} /> by casting{' '}
-            <SpellLink spell={spell} />. Great job!
-          </Trans>
+          <>{t({id:'guide.augmentation.sandsOfTime.extendedBoth.p1',message:'You extended your '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.extendedBoth.p2',message:' and '})}<SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />{t({id:'guide.augmentation.sandsOfTime.extendedBoth.p3',message:' by casting '})}<SpellLink spell={spell} />{t({id:'guide.augmentation.sandsOfTime.extendedBoth.p4',message:'. Great job!'})}</>
         </div>
       ) : extendedEbonMight ? (
         <div>
-          <Trans id="guide.augmentation.sandsOfTime.extendedEbon">
-            You extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> buff by casting{' '}
-            <SpellLink spell={spell} />. Good job!
-          </Trans>
+          <>{t({id:'guide.augmentation.sandsOfTime.extendedEbon.p1',message:'You extended your '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.extendedEbon.p2',message:' buff by casting '})}<SpellLink spell={spell} />{t({id:'guide.augmentation.sandsOfTime.extendedEbon.p3',message:'. Good job!'})}</>
         </div>
       ) : (
         <div>
-          <Trans id="guide.augmentation.sandsOfTime.missed">
-            <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> wasn't active. You should always try and
-            cast <SpellLink spell={spell} /> inside of your{' '}
-            <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> window.
-          </Trans>
+          <><SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.missed.p1',message:" wasn't active. You should always try and cast "})}<SpellLink spell={spell} />{t({id:'guide.augmentation.sandsOfTime.missed.p2',message:' inside of your '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.missed.p3',message:' window.'})}</>
         </div>
       );
 
@@ -179,26 +166,14 @@ class SandsOfTime extends Analyzer {
     const explanation = (
       <section>
         <p>
-          <Trans id="guide.augmentation.sandsOfTime.explanation1">
-            <strong>
+          <><strong>
               <SpellLink spell={SPELLS.SANDS_OF_TIME} />
-            </strong>{' '}
-            extends the duration of your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
-            {this.selectedCombatant.hasTalent(TALENTS.DUPLICATE_2_AUGMENTATION_TALENT) && (
-              <>
-                and <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />
-              </>
-            )}{' '}
-            when casting <SpellLink spell={SPELLS.FIRE_BREATH} />,{' '}
-            <SpellLink spell={SPELLS.UPHEAVAL} />, <SpellLink spell={TALENTS.ERUPTION_TALENT} /> or{' '}
-            <SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />.
-          </Trans>
+            </strong>{t({id:'guide.augmentation.sandsOfTime.explanation1.p1',message:' extends the duration of your '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.explanation1.p2',message:' '})}{this.selectedCombatant.hasTalent(TALENTS.DUPLICATE_2_AUGMENTATION_TALENT) && (
+              <>{t({id:'guide.augmentation.sandsOfTime.explanation1.and',message:'and '})}<SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} /></>
+            )}{t({id:'guide.augmentation.sandsOfTime.explanation1.p3',message:' when casting '})}<SpellLink spell={SPELLS.FIRE_BREATH} />{t({id:'guide.augmentation.sandsOfTime.explanation1.p4',message:', '})}<SpellLink spell={SPELLS.UPHEAVAL} />{t({id:'guide.augmentation.sandsOfTime.explanation1.p5',message:', '})}<SpellLink spell={TALENTS.ERUPTION_TALENT} />{t({id:'guide.augmentation.sandsOfTime.explanation1.p6',message:' or '})}<SpellLink spell={TALENTS.BREATH_OF_EONS_TALENT} />{t({id:'guide.augmentation.sandsOfTime.explanation1.p7',message:'.'})}</>
         </p>
         <p>
-          <Trans id="guide.augmentation.sandsOfTime.explanation2">
-            You should never cast these spells outside your{' '}
-            <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> windows.
-          </Trans>
+          <>{t({id:'guide.augmentation.sandsOfTime.explanation2.p1',message:'You should never cast these spells outside your '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.explanation2.p2',message:' windows.'})}</>
         </p>
       </section>
     );
@@ -214,10 +189,7 @@ class SandsOfTime extends Analyzer {
             <span className="goodCast">
               {t({ id: 'guide.augmentation.sandsOfTime.goodCastLabel', message: 'Green' })}
             </span>{' '}
-            <Trans id="guide.augmentation.sandsOfTime.goodCastText">
-              is a good cast where you extended your <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
-              window,{' '}
-            </Trans>
+            <>{t({id:'guide.augmentation.sandsOfTime.goodCastText.p1',message:'is a good cast where you extended your '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.goodCastText.p2',message:' window, '})}</>
             <span className="badCast">
               {t({ id: 'guide.augmentation.sandsOfTime.badCastLabel', message: 'red' })}
             </span>{' '}
@@ -230,10 +202,7 @@ class SandsOfTime extends Analyzer {
                 <span className="perfectCast">
                   {t({ id: 'guide.augmentation.sandsOfTime.perfectCastLabel', message: 'Blue' })}
                 </span>{' '}
-                <Trans id="guide.augmentation.sandsOfTime.perfectCastText">
-                  is a cast where you extended both <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{' '}
-                  and <SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />.
-                </Trans>
+                <>{t({id:'guide.augmentation.sandsOfTime.perfectCastText.p1',message:'is a cast where you extended both '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.perfectCastText.p2',message:' and '})}<SpellLink spell={TALENTS.DUPLICATE_1_AUGMENTATION_TALENT} />{t({id:'guide.augmentation.sandsOfTime.perfectCastText.p3',message:'.'})}</>
               </>
             )}
           </>

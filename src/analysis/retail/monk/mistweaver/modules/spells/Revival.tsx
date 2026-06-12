@@ -7,7 +7,6 @@ import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { getLowestPerf, QualitativePerformance } from 'parser/ui/QualitativePerformance';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
@@ -115,12 +114,11 @@ class Revival extends Analyzer {
     const explanationPercent = 55;
     const explanation = (
       <p>
-        <Trans id="monk.mistweaver.revival.explanation">
-          <strong>
-            <SpellLink spell={this.getRevivalTalent()} />
-          </strong>{' '}
-          is a fairly straightforward cooldown that should be used to heal burst damage events.
-        </Trans>
+        <strong>
+          <SpellLink spell={this.getRevivalTalent()} />
+        </strong>
+        {' '}
+        {t({ id: 'monk.mistweaver.revival.explanation.text', message: 'is a fairly straightforward cooldown that should be used to heal burst damage events.' })}
       </p>
     );
     const data = (

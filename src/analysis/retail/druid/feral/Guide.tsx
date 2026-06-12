@@ -37,23 +37,41 @@ function ResourceUseSection({ modules, events, info }: GuideProps<typeof CombatL
             it's important to send abilities as fast as possible to maximize DPS.
           </Trans>
         </p>
-        <Trans id="druid.feral.guide.energy_chart">
-          The chart below shows your energy over the course of the encounter. You spent{' '}
-          <strong>{formatPercentage(modules.energyTracker.percentAtCap, 1)}%</strong> of the
-          encounter capped on Energy.
-        </Trans>
+        {t({
+          id: 'druid.feral.guide.energy_chart',
+          message:
+            'The chart below shows your energy over the course of the encounter. You spent ',
+        })}
+        <strong>{formatPercentage(modules.energyTracker.percentAtCap, 1)}%</strong>
+        {t({
+          id: 'druid.feral.guide.energy_chart.p2',
+          message: ' of the encounter capped on Energy.',
+        })}
         {modules.energyGraph.plot}
       </SubSection>
       <SubSection
         title={t({ id: 'druid.feral.guide.combo_points', message: 'Combo Points' })}
       >
         <p>
-          <Trans id="druid.feral.guide.combo_points_description">
-            Most of your abilities either <strong>build</strong> or <strong>spend</strong> Combo
-            Points. Never use a builder at max CPs, and always wait until {ACCEPTABLE_CPS} to use a
-            spender (with the exception of your opening <SpellLink spell={SPELLS.RIP} />
-            ).
-          </Trans>
+          {t({
+            id: 'druid.feral.guide.combo_points_description',
+            message: 'Most of your abilities either ',
+          })}
+          <strong>{t({ id: 'druid.feral.guide.combo_points_description.build', message: 'build' })}</strong>
+          {t({ id: 'druid.feral.guide.combo_points_description.or', message: ' or ' })}
+          <strong>{t({ id: 'druid.feral.guide.combo_points_description.spend', message: 'spend' })}</strong>
+          {t({
+            id: 'druid.feral.guide.combo_points_description.p2',
+            message:
+              ' Combo Points. Never use a builder at max CPs, and always wait until ',
+          })}
+          {ACCEPTABLE_CPS}
+          {t({
+            id: 'druid.feral.guide.combo_points_description.p3',
+            message: ' to use a spender (with the exception of your opening ',
+          })}
+          <SpellLink spell={SPELLS.RIP} />
+          {t({ id: 'druid.feral.guide.combo_points_description.p4', message: ').' })}
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>
@@ -67,30 +85,50 @@ function ResourceUseSection({ modules, events, info }: GuideProps<typeof CombatL
 function CoreRotationSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <Section title={t({ id: 'druid.feral.guide.core_rotation', message: 'Core Rotation' })}>
-      <p>
-        <Trans id="druid.feral.guide.core_rotation_description">
-          Feral's core rotation involves performing <strong>builder</strong> abilites to gain combo
-          points, then using powerful <strong>spender</strong> abilities to consume the combo points.
-          Maintain your damage over time effects on targets, then fill with your direct damage
-          abilities. Refer to the spec guide for{' '}
+        <p>
+          {t({
+            id: 'druid.feral.guide.core_rotation_description',
+            message:
+              "Feral's core rotation involves performing ",
+          })}
+          <strong>{t({ id: 'druid.feral.guide.core_rotation_description.build', message: 'builder' })}</strong>
+          {t({
+            id: 'druid.feral.guide.core_rotation_description.p2',
+            message: ' abilites to gain combo points, then using powerful ',
+          })}
+          <strong>{t({ id: 'druid.feral.guide.core_rotation_description.spend', message: 'spender' })}</strong>
+          {t({
+            id: 'druid.feral.guide.core_rotation_description.p3',
+            message:
+              ' abilities to consume the combo points. Maintain your damage over time effects on targets, then fill with your direct damage abilities. Refer to the spec guide for ',
+          })}
           <a
             href="https://www.wowhead.com/feral-druid-rotation-guide"
             target="_blank"
             rel="noopener noreferrer"
           >
-            rotation details
+            {t({
+              id: 'druid.feral.guide.core_rotation_description.link',
+              message: 'rotation details',
+            })}
           </a>
           .
-        </Trans>
-      </p>
-      <p>
-        <Trans id="druid.feral.guide.core_rotation_primary">
-          Correct usage of <SpellLink spell={SPELLS.FEROCIOUS_BITE} />,{' '}
-          <SpellLink spell={SPELLS.RIP} />, and <SpellLink spell={SPELLS.RAKE} /> are the most
-          important factors for high single target damage.
-          <b> Master these before optimizing the items in the next section.</b>
-        </Trans>
-      </p>
+        </p>
+        <p>
+          {t({
+            id: 'druid.feral.guide.core_rotation_primary.p1',
+            message: 'Correct usage of ',
+          })}
+          <SpellLink spell={SPELLS.FEROCIOUS_BITE} />, <SpellLink spell={SPELLS.RIP} />,{' '}
+          {t({ id: 'druid.feral.guide.core_rotation_primary.p2', message: 'and ' })}
+          <SpellLink spell={SPELLS.RAKE} />
+          {t({
+            id: 'druid.feral.guide.core_rotation_primary.p3',
+            message:
+              ' are the most important factors for high single target damage.',
+          })}
+          <b>{t({ id: 'druid.feral.guide.core_rotation_primary.p4', message: ' Master these before optimizing the items in the next section.' })}</b>
+        </p>
       {modules.ferociousBite.guideSubsection}
       {modules.ripUptime.guideSubsection}
       {modules.rakeUptime.guideSubsection}
@@ -122,14 +160,18 @@ function AdvancedRotationSection({ modules, events, info }: GuideProps<typeof Co
 function CooldownSection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <Section title={t({ id: 'druid.feral.guide.cooldowns', message: 'Cooldowns' })}>
-      <p>
-        <Trans id="druid.feral.guide.cooldowns_description">
-          Feral's cooldowns are powerful and should not be held on to for long. In order to maximize
-          usages over the course of an encounter, you should aim to send the cooldown as soon as it
-          becomes available (as long as it can do damage on target). It is particularly important to
-          use <SpellLink spell={SPELLS.TIGERS_FURY} /> as often as possible.
-        </Trans>
-      </p>
+        <p>
+          {t({
+            id: 'druid.feral.guide.cooldowns_description',
+            message:
+              "Feral's cooldowns are powerful and should not be held on to for long. In order to maximize usages over the course of an encounter, you should aim to send the cooldown as soon as it becomes available (as long as it can do damage on target). It is particularly important to use ",
+          })}
+          <SpellLink spell={SPELLS.TIGERS_FURY} />
+          {t({
+            id: 'druid.feral.guide.cooldowns_description.p2',
+            message: ' as often as possible.',
+          })}
+        </p>
       <CooldownGraphSubsection modules={modules} events={events} info={info} />
       <CooldownBreakdownSubsection modules={modules} events={events} info={info} />
     </Section>
@@ -147,12 +189,18 @@ function CooldownGraphSubsection({ modules, events, info }: GuideProps<typeof Co
   // TODO: Add once Focused Frenzy/Frantic Frenzy is figured out
   return (
     <SubSection>
-      <Trans id="druid.feral.guide.cooldown_graph_description">
-        <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
-        you waited to use them again. Grey segments show when the spell was available, yellow
-        segments show when the spell was cooling down. Red segments highlight times when you could
-        have fit a whole extra use of the cooldown.
-      </Trans>
+      <strong>
+        {t({
+          id: 'druid.feral.guide.cooldown_graph_description',
+          message: 'Cooldown Graph',
+        })}
+      </strong>{' '}
+      -{' '}
+      {t({
+        id: 'druid.feral.guide.cooldown_graph_description.p2',
+        message:
+          'this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.',
+      })}
       <CastEfficiencyBar
         spell={SPELLS.TIGERS_FURY}
         gapHighlightMode={GapHighlight.FullCooldown}

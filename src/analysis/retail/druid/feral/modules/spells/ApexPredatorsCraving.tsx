@@ -159,85 +159,108 @@ class ApexPredatorsCraving extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <Trans id="druid.feral.apc.tooltip_p1">
-              This is the damage done by the free <SpellLink spell={SPELLS.FEROCIOUS_BITE} />{' '}
-              procced by Apex Predator's Craving
-            </Trans>
+            {t({
+              id: 'druid.feral.apc.tooltip_p1',
+              message: 'This is the damage done by the free ',
+            })}
+            <SpellLink spell={SPELLS.FEROCIOUS_BITE} />{' '}
+            {t({
+              id: 'druid.feral.apc.tooltip_p1.p2',
+              message: "procced by Apex Predator's Craving",
+            })}
             {this.hasRf && (
               <>
                 {' '}
-                <Trans id="druid.feral.apc.rampant_ferocity_splash">
-                  and the <SpellLink spell={SPELLS.RAMPANT_FEROCITY} /> splash from those free bites
-                </Trans>
+                {t({
+                  id: 'druid.feral.apc.rampant_ferocity_splash',
+                  message: 'and the ',
+                })}
+                <SpellLink spell={SPELLS.RAMPANT_FEROCITY} />
+                {t({
+                  id: 'druid.feral.apc.rampant_ferocity_splash.p2',
+                  message: ' splash from those free bites',
+                })}
               </>
             )}
             {this.hasSotf && (
               <>
-                <Trans id="druid.feral.apc.sotf_energy">
-                  , and the effective energy gained due to{' '}
-                  <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} /> from those bites
-                </Trans>
+                {t({
+                  id: 'druid.feral.apc.sotf_energy',
+                  message: ', and the effective energy gained due to ',
+                })}
+                <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} />
+                {t({
+                  id: 'druid.feral.apc.sotf_energy.p2',
+                  message: ' from those bites',
+                })}
               </>
             )}
-            <Trans id="druid.feral.apc.procs_summary">
-              . You gained <strong>{this.buffsGainedPerMinute.toFixed(1)} procs per minute</strong>,
-              for a total of <strong>{this.buffsGained} procs</strong>:
-            </Trans>
+            {t({
+              id: 'druid.feral.apc.procs_summary.p1',
+              message: '. You gained ',
+            })}
+            <strong>{this.buffsGainedPerMinute.toFixed(1)} procs per minute</strong>
+            {t({
+              id: 'druid.feral.apc.procs_summary.p2',
+              message: ', for a total of ',
+            })}
+            <strong>{this.buffsGained} procs</strong>:
             <ul>
               <li>
                 <SpellIcon spell={SPELLS.FEROCIOUS_BITE} />{' '}
-                <Trans id="druid.feral.apc.used">
-                  Used: <strong>{this.buffsUsed}</strong>
-                </Trans>
+                {t({ id: 'druid.feral.apc.used', message: 'Used: ' })}
+                <strong>{this.buffsUsed}</strong>
               </li>
               <li>
                 <CrossIcon />{' '}
-                <Trans id="druid.feral.apc.overwritten">
-                  Overwritten: <strong>{this.buffsOverwritten}</strong>
-                </Trans>
+                {t({ id: 'druid.feral.apc.overwritten', message: 'Overwritten: ' })}
+                <strong>{this.buffsOverwritten}</strong>
               </li>
               <li>
                 <UptimeIcon />{' '}
-                <Trans id="druid.feral.apc.expired">
-                  Expired: <strong>{this.buffsExpired}</strong>
-                </Trans>
+                {t({ id: 'druid.feral.apc.expired', message: 'Expired: ' })}
+                <strong>{this.buffsExpired}</strong>
               </li>
               {this.buffsActive > 0 && (
                 <li>
-                  <Trans id="druid.feral.apc.still_active">
-                    Still active at fight end: <strong>{this.buffsActive}</strong>
-                  </Trans>
+                  {t({
+                    id: 'druid.feral.apc.still_active',
+                    message: 'Still active at fight end: ',
+                  })}
+                  <strong>{this.buffsActive}</strong>
                 </li>
               )}
             </ul>
             {this.hasSotf && (
               <>
-                <Trans id="druid.feral.apc.sotf_total">
-                  Total <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} /> energy gained
-                  from free bites was <strong>{this.sotfEnergyGained}</strong>.
-                </Trans>
+                {t({ id: 'druid.feral.apc.sotf_total.p1', message: 'Total ' })}
+                <SpellLink spell={SPELLS.SOUL_OF_THE_FOREST_FERAL_ENERGY} />
+                {t({
+                  id: 'druid.feral.apc.sotf_total.p2',
+                  message: ' energy gained from free bites was ',
+                })}
+                <strong>{this.sotfEnergyGained}</strong>.
                 <ul>
                   <li>
                     <UpArrowIcon />{' '}
-                    <Trans id="druid.feral.apc.sotf_effective">
-                      Effective: <strong>{this.sotfEnergyEffective}</strong>
-                    </Trans>
+                    {t({ id: 'druid.feral.apc.sotf_effective', message: 'Effective: ' })}
+                    <strong>{this.sotfEnergyEffective}</strong>
                   </li>
                   <li>
                     <CrossIcon />{' '}
-                    <Trans id="druid.feral.apc.sotf_wasted">
-                      Wasted: <strong>{this.sotfEnergyWasted}</strong>
-                    </Trans>
+                    {t({ id: 'druid.feral.apc.sotf_wasted', message: 'Wasted: ' })}
+                    <strong>{this.sotfEnergyWasted}</strong>
                   </li>
                 </ul>
               </>
             )}
             {this.hasRf && (
               <>
-                <Trans id="druid.feral.apc.rf_breakdown">
-                  Breakdown between direct bite damage and from{' '}
-                  <SpellLink spell={SPELLS.RAMPANT_FEROCITY} />
-                </Trans>
+                {t({
+                  id: 'druid.feral.apc.rf_breakdown',
+                  message: 'Breakdown between direct bite damage and from ',
+                })}
+                <SpellLink spell={SPELLS.RAMPANT_FEROCITY} />
                 <ul>
                   <li>
                     <SpellLink spell={SPELLS.FEROCIOUS_BITE} />:{' '}

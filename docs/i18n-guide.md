@@ -136,6 +136,41 @@ label: t({ id: 'spec.module.label', message: 'Original English' }),
 - 会重构整段 JSX，上游对该段的任何改动都会冲突
 - 尽量避免，除非段落内嵌了 React 组件
 
+> **⚠️ Lingui v6 限制**：`<Trans>` 内不能使用以下元素，否则会触发 DOM/React 运行时错误：
+> - `<SpellLink>` — 它渲染为 `<a>` 标签，嵌套在 `<Trans>` 内会产生 `<a> cannot be a descendant of <a>`
+> - `<br/>` — 在 Lingui v6 的 `<Trans>` 内会导致 void element 错误
+> - `<strong>` / `<b>` — 在 v6 中会触发 indexed-element mismatch 运行时警告
+>
+> **必须改为 `t()` + 显式 JSX 片段：**
+> ```tsx
+> // 不要这样做
+> <Trans id="spec.module.desc">Use <SpellLink spell={SPELL} /> when available</Trans>
+>
+> // 改为
+> <>
+>   {t({ id: 'spec.module.desc.p1', message: 'Use ' })}
+>   <SpellLink spell={SPELL} />
+>   {t({ id: 'spec.module.desc.p2', message: ' when available' })}
+> </>
+> ```
+>
+> **包含 `<br/>` 的方案：**
+> ```tsx
+> <>
+>   {t({ id: 'spec.module.line1', message: 'First line' })}
+>   <br />
+>   {t({ id: 'spec.module.line2', message: 'Second line' })}
+> </>
+> ```
+>
+> **包含 `<strong>` 的方案：**
+> ```tsx
+> <>
+>   <strong>{t({ id: 'spec.module.strong', message: 'Important' })}</strong>
+>   {t({ id: 'spec.module.after', message: ' - remaining text' })}
+> </>
+> ```
+
 ### 方式 4：文件覆盖（零冲突，适用于大段翻译的文件）
 
 将整个文件的 CN 翻译版放到 `src/localization/overrides/`，上游原文件保持不变。详见[文件覆盖系统](#文件覆盖系统)。
@@ -454,7 +489,17 @@ bash scripts/post-merge-i18n-checks.sh backup/{branch}/{timestamp} midnight
 - `zh/messages.json` 中的空翻译条目
 - `pnpm run typecheck`
 
-#### 第五步：可选操作
+#### 第五步：额外检查 — Lingui v6 兼容性
+
+同步后新引入的上游代码可能包含在 `<Trans>` 中嵌套 `<SpellLink>`、`<br>`、`<strong>` 的写法（这在 Lingui v6 中会导致运行时错误）。
+
+```bash
+node scripts/i18n-fix.mjs --check-trans
+```
+
+如果扫描出问题，需要手动将相关 `<Trans>` 转换为 `t()` + 显式 JSX 片段（参考本文档[方式 3](#方式-3trans-包装-jsx-段落中高冲突)中的说明和代码示例）。
+
+#### 第六步：可选操作
 
 ```bash
 # 查找遗漏的翻译
@@ -536,6 +581,7 @@ import { defineMessage } from '@lingui/core/macro';
 | ---------------------------------------- | --------------------------------------- | ------------------ |
 | `scripts/sync-upstream.sh`               | 合并上游最新代码                        | 定期同步时         |
 | `scripts/i18n-fix.mjs`                   | 一键修复所有 i18n 问题                  | 同步后运行         |
+| `scripts/i18n-fix.mjs --check-trans`     | 扫描含 `<SpellLink>`/`<br>` 的 `<Trans>` | 同步后运行         |
 | `scripts/post-merge-i18n-checks.sh`      | 合并后检查（导入、覆盖变更、typecheck） | 同步后运行         |
 | `scripts/migrate-guides-to-overrides.sh` | 批量迁移 Guide 到覆盖目录               | 新增覆盖文件时     |
 | `scripts/generate-override-registry.mjs` | 更新覆盖文件注册表                      | 手动新增覆盖文件后 |
@@ -554,4 +600,9 @@ import { defineMessage } from '@lingui/core/macro';
 4. **Guide.tsx 翻译**应放在 `src/localization/overrides/` 目录，不要直接修改 `src/analysis/` 中的 Guide
 5. **新增 `content.json` 后**不需要修改 `I18nProvider.tsx`，`import.meta.glob` 会自动发现
 6. **Message ID 格式**：`{class}.{spec}.{module}.{key}`
-7. **同步上游后**只需运行两个命令：`node scripts/i18n-fix.mjs` 然后 `bash scripts/post-merge-i18n-checks.sh`
+7. **同步上游后**运行以下完整流程：
+    ```bash
+    node scripts/i18n-fix.mjs                           # 自动修复 i18n 问题
+    bash scripts/post-merge-i18n-checks.sh <backup> midnight  # 标准检查
+    node scripts/i18n-fix.mjs --check-trans             # 扫描含 JSX 的 <Trans> 块
+    ```

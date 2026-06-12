@@ -85,10 +85,8 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
       <>
         <div>
           @ <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>{' '}
-          <Trans id="druid.feral.moonfire.targetting">
-            targetting{' '}
-            <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
-          </Trans>
+          {t({ id: 'druid.feral.moonfire.targetting', message: 'targetting ' })}
+          <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
         </div>
         {prevSnapshotNames !== null && (
           <div>
@@ -105,19 +103,15 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
           </div>
         )}
         <div>
-          <Trans id="druid.feral.moonfire.snapshots">
-            Snapshots:{' '}
-            <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
-          </Trans>
+          {t({ id: 'druid.feral.moonfire.snapshots', message: 'Snapshots: ' })}
+          <strong>{snapshotNames.length === 0 ? 'NONE' : snapshotNames.join(', ')}</strong>
         </div>
         {prevSnapshotNames !== null && (
           <div>
-            <Trans id="druid.feral.moonfire.prev_snapshots">
-              Prev Snapshots:{' '}
-              <strong>
-                {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
-              </strong>
-            </Trans>
+            {t({ id: 'druid.feral.moonfire.prev_snapshots', message: 'Prev Snapshots: ' })}
+            <strong>
+              {prevSnapshotNames.length === 0 ? 'NONE' : prevSnapshotNames.join(', ')}
+            </strong>
           </div>
         )}
       </>
@@ -138,13 +132,19 @@ class MoonfireUptimeAndSnapshots extends Snapshots {
     // TODO this is basically copy pasta'd from Rake - can they be unified?
     const explanation = (
       <p>
-        <Trans id="druid.feral.moonfire.explanation">
-          <b>
-            <SpellLink spell={SPELLS.MOONFIRE_FERAL} />
-          </b>{' '}
-          (with <SpellLink spell={TALENTS_DRUID.LUNAR_INSPIRATION_TALENT} />) is another builder DoT
-          that behaves like a long-range (but weaker) Rake. For usage advice, see the Rake section.
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.MOONFIRE_FERAL} />
+        </b>{' '}
+        {t({
+          id: 'druid.feral.moonfire.explanation.p1',
+          message: '(with ',
+        })}
+        <SpellLink spell={TALENTS_DRUID.LUNAR_INSPIRATION_TALENT} />
+        {t({
+          id: 'druid.feral.moonfire.explanation.p2',
+          message:
+            ') is another builder DoT that behaves like a long-range (but weaker) Rake. For usage advice, see the Rake section.',
+        })}
       </p>
     );
 

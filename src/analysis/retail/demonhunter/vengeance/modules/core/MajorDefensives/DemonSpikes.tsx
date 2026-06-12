@@ -6,7 +6,7 @@ import { SpellLink } from 'interface';
 import { ReactNode } from 'react';
 import { i18n } from '@lingui/core';
 import { isMessageDescriptor } from 'localization/isMessageDescriptor';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import StatTracker from 'parser/shared/modules/StatTracker';
 import { getArmorMitigationForEvent } from 'parser/retail/armorMitigation';
 import {
@@ -71,10 +71,10 @@ export default class DemonSpikes extends MajorDefensiveBuff {
   description(): ReactNode {
     return (
       <p>
-        <Trans id="demonhunter.vengeance.demonSpikes.description">
-          <SpellLink spell={SPELLS.DEMON_SPIKES} /> nearly <strong>doubles</strong> the amount of
-          armor that you have and is critical to have up while actively tanking melee hits.
-        </Trans>
+        <SpellLink spell={SPELLS.DEMON_SPIKES} />
+        {t({ id: 'demonhunter.vengeance.demonSpikes.description.p1', message: ' nearly ' })}
+        <strong>{t({ id: 'demonhunter.vengeance.demonSpikes.description.bold', message: 'doubles' })}</strong>
+        {t({ id: 'demonhunter.vengeance.demonSpikes.description.p2', message: ' the amount of armor that you have and is critical to have up while actively tanking melee hits.' })}
       </p>
     );
   }

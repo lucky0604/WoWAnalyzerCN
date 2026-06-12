@@ -13,7 +13,6 @@ import { TALENTS_PRIEST } from 'common/TALENTS';
 import Events, { DamageEvent, HealEvent } from 'parser/core/Events';
 import EOLAttrib from '../../core/EchoOfLightAttributor';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 /**
  * Power Surge (Archon)
@@ -167,11 +166,7 @@ class PowerSurgeAndDivineHaloHoly extends Analyzer {
                 <br />
                 {/* oxlint-disable-next-line @wowanalyzer/no-br */}
                 <br />
-                <Trans id="priest.holy.powerSurge.energyCompressionNote">
-                  {'This includes the amp from '}
-                  <SpellLink spell={TALENTS_PRIEST.ENERGY_COMPRESSION_TALENT} />
-                  {' if you are talented into it.'}
-                </Trans>
+                <>{t({ id: 'priest.holy.powerSurge.energyCompressionNote.p1', message: 'This includes the amp from ' })}<SpellLink spell={TALENTS_PRIEST.ENERGY_COMPRESSION_TALENT} />{t({ id: 'priest.holy.powerSurge.energyCompressionNote.p2', message: ' if you are talented into it.' })}</>
               </>
             )}
           </>
@@ -179,15 +174,7 @@ class PowerSurgeAndDivineHaloHoly extends Analyzer {
       >
         <TalentSpellText talent={TALENTS_PRIEST.POWER_SURGE_TALENT}>
           <small>
-            <Trans id="priest.holy.powerSurge.all6Events">
-              {'All 6 events per cast of '}
-              <SpellLink spell={TALENTS_PRIEST.HALO_HOLY_TALENT} />
-              {' from the base spell and both '}
-              <SpellLink spell={TALENTS_PRIEST.POWER_SURGE_TALENT} />
-              {' and '}
-              <SpellLink spell={TALENTS_PRIEST.DIVINE_HALO_TALENT} />
-              {' did:'}
-            </Trans>
+            <>{t({ id: 'priest.holy.powerSurge.all6Events.p1', message: 'All 6 events per cast of ' })}<SpellLink spell={TALENTS_PRIEST.HALO_HOLY_TALENT} />{t({ id: 'priest.holy.powerSurge.all6Events.p2', message: ' from the base spell and both ' })}<SpellLink spell={TALENTS_PRIEST.POWER_SURGE_TALENT} />{t({ id: 'priest.holy.powerSurge.all6Events.p3', message: ' and ' })}<SpellLink spell={TALENTS_PRIEST.DIVINE_HALO_TALENT} />{t({ id: 'priest.holy.powerSurge.all6Events.p4', message: ' did:' })}</>
           </small>
           {/* oxlint-disable-next-line @wowanalyzer/no-br */}
           <br />

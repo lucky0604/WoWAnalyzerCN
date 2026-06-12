@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { DamageEvent } from 'parser/core/Events';
 import SPELLS from 'common/SPELLS/paladin';
@@ -57,10 +57,10 @@ export default class GuardianOfAncientKings extends MajorDefensiveBuff {
   description(): ReactNode {
     return (
       <p>
-        <Trans id="paladin.protection.guardianOfAncientKings.description">
-          <SpellLink spell={this.goakSpell} /> reduces the damage you take by 50%. This grants
-          incredible survivablity and makes it your biggest defensive cooldown.
-        </Trans>
+        <>
+          <SpellLink spell={this.goakSpell} />
+          {t({ id: 'paladin.protection.guardianOfAncientKings.description', message: ' reduces the damage you take by 50%. This grants incredible survivablity and makes it your biggest defensive cooldown.' })}
+        </>
       </p>
     );
   }

@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import TALENTS from 'common/TALENTS/paladin';
 import HIT_TYPES from 'game/HIT_TYPES';
@@ -57,16 +56,15 @@ class HolyShieldSpellBlock extends Analyzer {
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
-          <Trans id="paladin.protection.holyShield.tooltip">
-            Holy Shield blocked {formatNumber(this.holyShieldProcsCount)} out of{' '}
-            {formatNumber(this.spellsHitPlayerCount)} spells.
+          <>
+            {t({ id: 'paladin.protection.holyShield.tooltip.p1', message: 'Holy Shield blocked {blocked} out of {total} spells.', values: { blocked: formatNumber(this.holyShieldProcsCount), total: formatNumber(this.spellsHitPlayerCount) }})}
             <br />
-            This represents{' '}
+            {t({ id: 'paladin.protection.holyShield.tooltip.p2', message: 'This represents ' })}
             <em>
-              {formatPercentage(this.holyShieldProcsCount / this.spellsHitPlayerCount)} %
-            </em>{' '}
-            of spells blocked.
-          </Trans>
+              {t({ id: 'paladin.protection.holyShield.tooltip.pct', message: '{pct} %', values: { pct: formatPercentage(this.holyShieldProcsCount / this.spellsHitPlayerCount) }})}
+            </em>
+            {t({ id: 'paladin.protection.holyShield.tooltip.p3', message: ' of spells blocked.' })}
+          </>
         }
       >
         <BoringSpellValue

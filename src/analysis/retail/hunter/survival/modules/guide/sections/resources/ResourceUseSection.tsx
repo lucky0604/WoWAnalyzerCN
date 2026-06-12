@@ -30,12 +30,19 @@ export default function ResourceUseSection(modules: ModulesOf<typeof CombatLogPa
         })}
       >
         <p>
-          <Trans id="guide.hunter.survival.sections.resources.focus.summary">
-            With proper <SpellLink spell={TALENTS.TIP_OF_THE_SPEAR_TALENT} /> management, you should
-            avoid most issues with focus and waste will be minimal to non-existant. It will
-            occasionally be impossible to avoid capping{' '}
-            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />.
-          </Trans>
+          <>
+            {t({
+              id: 'guide.hunter.survival.sections.resources.focus.summary.p1',
+              message: 'With proper ',
+            })}
+            <SpellLink spell={TALENTS.TIP_OF_THE_SPEAR_TALENT} />
+            {t({
+              id: 'guide.hunter.survival.sections.resources.focus.summary.p2',
+              message: ' management, you should avoid most issues with focus and waste will be minimal to non-existant. It will occasionally be impossible to avoid capping ',
+            })}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.survival.sections.resources.focus.summary.p3', message: '.' })}
+          </>
         </p>
         <p>
           <Trans id="guide.hunter.survival.sections.resources.focus.wasted">

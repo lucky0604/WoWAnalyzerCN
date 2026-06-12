@@ -10,7 +10,6 @@ import {
   red,
 } from 'analysis/retail/demonhunter/vengeance/guide/HitTimeline';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export default function FieryBrandSubSection() {
   const info = useInfo();
@@ -29,19 +28,21 @@ export default function FieryBrandSubSection() {
       <ExplanationRow>
         <Explanation>
           <p>
-            <Trans id="demonhunter.vengeance.fieryBrand.guideSection.description">
-              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> reduces the damage dealt
-              to you by targets with its debuff by <strong>40%</strong>.
-            </Trans>
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.description.p1', message: ' reduces the damage dealt to you by targets with its debuff by ' })}
+            <strong>{t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.description.bold', message: '40%' })}</strong>
+            {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.description.p2', message: '.' })}
           </p>
           <p>
-            <Trans id="demonhunter.vengeance.fieryBrand.guideSection.chart">
-              This chart shows your{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> uptime along with the
-              damage that you took. <strong>You do not need 100% uptime!</strong> However, damage
-              taken without <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> active
-              (shown in <Highlight color={red}>red</Highlight>) is dangerous!
-            </Trans>
+            {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.chart.p1', message: 'This chart shows your ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.chart.p2', message: ' uptime along with the damage that you took. ' })}
+            <strong>{t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.chart.bold', message: 'You do not need 100% uptime!' })}</strong>
+            {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.chart.p3', message: ' However, damage taken without ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.chart.p4', message: ' active (shown in ' })}
+            <Highlight color={red}>{t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.chart.red', message: 'red' })}</Highlight>
+            {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.chart.p5', message: ') is dangerous!' })}
           </p>
         </Explanation>
         <HitBasedOverview
@@ -49,10 +50,12 @@ export default function FieryBrandSubSection() {
           hitBasedAnalyzer={fieryBrand}
           spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT}
           unmitigatedContent={
-            <Trans id="demonhunter.vengeance.fieryBrand.guideSection.unmitigated">
-              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> would have reduced this
-              by <strong>40%</strong>.
-            </Trans>
+            <>
+              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+              {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.unmitigated.p1', message: ' would have reduced this by ' })}
+              <strong>{t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.unmitigated.bold', message: '40%' })}</strong>
+              {t({ id: 'demonhunter.vengeance.fieryBrand.guideSection.unmitigated.p2', message: '.' })}
+            </>
           }
         />
       </ExplanationRow>

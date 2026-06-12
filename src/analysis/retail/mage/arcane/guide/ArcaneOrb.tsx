@@ -190,12 +190,23 @@ class ArcaneOrbGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="mage.arcane.arcaneOrb.guide.explanation1">
-            <b>{arcaneOrb}</b>'s primary purpose is to quickly generate {arcaneCharge}s, generating at
-            least 2 charges per cast with an additional charge per target hit. The way you utilize{' '}
-            {arcaneOrb} is heavily dependent on your talent build, so refer to the below guidelines
-            based on your chosen talents.
-          </Trans>
+          <>
+            <strong>{arcaneOrb}</strong>
+            {t({
+              id: 'mage.arcane.arcaneOrb.guide.explanation1.p1',
+              message: "'s primary purpose is to quickly generate ",
+            })}
+            {arcaneCharge}
+            {t({
+              id: 'mage.arcane.arcaneOrb.guide.explanation1.p2',
+              message: 's, generating at least 2 charges per cast with an additional charge per target hit. The way you utilize ',
+            })}
+            {arcaneOrb}
+            {t({
+              id: 'mage.arcane.arcaneOrb.guide.explanation1.p3',
+              message: ' is heavily dependent on your talent build, so refer to the below guidelines based on your chosen talents.',
+            })}
+          </>
         </p>
         {this.isSunfury && (
           <p>

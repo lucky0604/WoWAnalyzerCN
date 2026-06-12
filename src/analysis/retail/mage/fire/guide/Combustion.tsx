@@ -132,25 +132,108 @@ class CombustionGuide extends Analyzer {
     const flamestrike = <SpellLink spell={SPELLS.FLAMESTRIKE} />;
 
     const explanation = (
-      <Trans id="mage.fire.combustionGuide.explanation">
-        <b>{combustion}</b> is a very strong burst cooldown with a short duration. To maximize your
-        burst, use as many instant casts as possible to maximize {hotStreak}s gained and spent
-        before {combustion} ends.
+      <>
+        <strong>{combustion}</strong>
+        {t({
+          id: 'mage.fire.combustionGuide.explanation.p1',
+          message: ' is a very strong burst cooldown with a short duration. To maximize your burst, use as many instant casts as possible to maximize ',
+        })}
+        {hotStreak}
+        {t({
+          id: 'mage.fire.combustionGuide.explanation.p2',
+          message: 's gained and spent before ',
+        })}
+        {combustion}
+        {t({
+          id: 'mage.fire.combustionGuide.explanation.p3',
+          message: ' ends.',
+        })}
         <ul>
           <li>
-            Hardcast an ability like {fireball} or {pyroblast} and activate {combustion} as close to
-            the end of your hardcast as possible. This will give you maximum uptime of {combustion}{' '}
-            and allow your hardcast to land while {combustion} is active.
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li1',
+              message: 'Hardcast an ability like ',
+            })}
+            {fireball}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li1a',
+              message: ' or ',
+            })}
+            {pyroblast}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li1b',
+              message: ' and activate ',
+            })}
+            {combustion}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li1c',
+              message: ' as close to the end of your hardcast as possible. This will give you maximum uptime of ',
+            })}
+            {combustion}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li1d',
+              message: ' and allow your hardcast to land while ',
+            })}
+            {combustion}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li1e',
+              message: ' is active.',
+            })}
           </li>
           <li>
-            Spend as many {hotStreak}s as possible during {combustion} and avoid any downtime.
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li2',
+              message: 'Spend as many ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li2a',
+              message: 's as possible during ',
+            })}
+            {combustion}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li2b',
+              message: ' and avoid any downtime.',
+            })}
           </li>
           <li>
-            Don't hardcast {fireball}, {pyroblast}, or {flamestrike} during {combustion}. Use{' '}
-            {scorch} if you are running low on {fireblast} charges.
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li3',
+              message: "Don't hardcast ",
+            })}
+            {fireball}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li3a',
+              message: ', ',
+            })}
+            {pyroblast}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li3b',
+              message: ', or ',
+            })}
+            {flamestrike}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li3c',
+              message: ' during ',
+            })}
+            {combustion}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li3d',
+              message: '. Use ',
+            })}
+            {scorch}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li3e',
+              message: ' if you are running low on ',
+            })}
+            {fireblast}
+            {t({
+              id: 'mage.fire.combustionGuide.explanation.li3f',
+              message: ' charges.',
+            })}
           </li>
         </ul>
-      </Trans>
+      </>
     );
 
     const combustSequences = this.combustion.combustCasts.map((cb) => {

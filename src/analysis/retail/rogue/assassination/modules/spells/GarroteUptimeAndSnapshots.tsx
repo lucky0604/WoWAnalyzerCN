@@ -254,16 +254,22 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="rogue.assassination.garrote.explanation">
+        <>
           <strong>
             <SpellLink spell={SPELLS.GARROTE} />
           </strong>{' '}
-          is your highest damage-per-energy single target builder. Try to keep it active on all
-          targets (except when in a many-target AoE situation). Garrote snapshots{' '}
-          <SpellLink spell={TALENTS.IMPROVED_GARROTE_TALENT} /> - when forced to refresh with a weaker
-          snapshot, try to wait until the last moment in order to overwrite the minimum amount of the
-          stronger DoT.
-        </Trans>
+          {t({
+            id: 'rogue.assassination.garrote.explanation.p1',
+            message:
+              'is your highest damage-per-energy single target builder. Try to keep it active on all targets (except when in a many-target AoE situation). Garrote snapshots ',
+          })}
+          <SpellLink spell={TALENTS.IMPROVED_GARROTE_TALENT} />
+          {t({
+            id: 'rogue.assassination.garrote.explanation.p2',
+            message:
+              ' - when forced to refresh with a weaker snapshot, try to wait until the last moment in order to overwrite the minimum amount of the stronger DoT.',
+          })}
+        </>
       </p>
     );
 
@@ -274,10 +280,20 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
         abovePerformanceDetails={
           <RoundedPanelWithBottomMargin>
             <div>
-              <Trans id="rogue.assassination.garrote.uptimeHeader">
-                <strong>Garrote uptime / snapshots</strong>
-                <small> - Try to get as close to 100% as the encounter allows!</small>
-              </Trans>
+              <>
+                <strong>
+                  {t({
+                    id: 'rogue.assassination.garrote.uptimeHeader.bold',
+                    message: 'Garrote uptime / snapshots',
+                  })}
+                </strong>
+                <small>
+                  {t({
+                    id: 'rogue.assassination.garrote.uptimeHeader.text',
+                    message: ' - Try to get as close to 100% as the encounter allows!',
+                  })}
+                </small>
+              </>
             </div>
             {this.subStatistic()}
           </RoundedPanelWithBottomMargin>

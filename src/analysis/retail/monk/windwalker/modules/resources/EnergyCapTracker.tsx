@@ -71,11 +71,23 @@ class EnergyCapTracker extends RegenResourceCapTracker {
               </Trans>
             </p>
             <p>
-              <Trans id="monk.windwalker.energy_cap.tooltip2">
-                You spent <b>{formatPercentage(this.cappedProportion)}%</b> of the fight at capped
-                energy, causing you to miss out on <b>{this.missedRegenPerMinute.toFixed(1)}</b>{' '}
-                energy per minute from regeneration.
-              </Trans>
+              <>
+                {t({
+                  id: 'monk.windwalker.energy_cap.tooltip2.p1',
+                  message: 'You spent ',
+                })}
+                <strong>{formatPercentage(this.cappedProportion)}%</strong>
+                {t({
+                  id: 'monk.windwalker.energy_cap.tooltip2.p2',
+                  message:
+                    ' of the fight at capped energy, causing you to miss out on ',
+                })}
+                <strong>{this.missedRegenPerMinute.toFixed(1)}</strong>
+                {t({
+                  id: 'monk.windwalker.energy_cap.tooltip2.p3',
+                  message: ' energy per minute from regeneration.',
+                })}
+              </>
             </p>
           </>
         }

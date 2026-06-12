@@ -25,11 +25,7 @@ const MajorDefensives = () => {
           </Trans>
         </p>
         <p>
-          <Trans id="evoker.defensives.shortCD">
-            As an <span className="Evoker">Evoker</span> you have access to short CD defensives such
-            as <SpellLink spell={TALENTS.OBSIDIAN_SCALES_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS.ZEPHYR_TALENT} />.
-          </Trans>
+          <>{t({id:'evoker.defensives.shortCD.p1',message:'As an '})}<span className="Evoker">{t({id:'evoker.defensives.shortCD.span',message:'Evoker'})}</span>{t({id:'evoker.defensives.shortCD.p2',message:' you have access to short CD defensives such as '})}<SpellLink spell={TALENTS.OBSIDIAN_SCALES_TALENT} />{t({id:'evoker.defensives.shortCD.p3',message:' and '})}<SpellLink spell={TALENTS.ZEPHYR_TALENT} />{t({id:'evoker.defensives.shortCD.p4',message:'.'})}</>
         </p>
         <p>
           <Trans id="evoker.defensives.twoThings">
@@ -38,20 +34,18 @@ const MajorDefensives = () => {
         </p>
         <ol>
           <li>
-            <Trans id="evoker.defensives.coverSpikes">
-              You should cover as many{' '}
+            <>{t({id:'evoker.defensives.coverSpikes.p1',message:'You should cover as many '})}
               <TooltipElement
                 content={
                   <>
-                    A <strong>damage spike</strong> is when you take much more damage than normal in
-                    a small amount of time. These are visible on the Timeline below as tall spikes.
+                    {t({id:'evoker.defensives.coverSpikes.tooltip.p1',message:'A '})}<strong>{t({id:'evoker.defensives.coverSpikes.tooltip.bold',message:'damage spike'})}</strong>{t({id:'evoker.defensives.coverSpikes.tooltip.p2',message:' is when you take much more damage than normal in a small amount of time. These are visible on the Timeline below as tall spikes.'})}
                   </>
                 }
               >
-                damage spikes
-              </TooltipElement>{' '}
-              as possible, and use any left over to cover periods of heavy, consistent damage.
-            </Trans>
+                {t({id:'evoker.defensives.coverSpikes.damageSpikes',message:'damage spikes'})}
+              </TooltipElement>
+              {t({id:'evoker.defensives.coverSpikes.p2',message:' as possible, and use any left over to cover periods of heavy, consistent damage.'})}
+            </>
             <p>
               <small>
                 <Trans id="evoker.defensives.coverSpikesNote">

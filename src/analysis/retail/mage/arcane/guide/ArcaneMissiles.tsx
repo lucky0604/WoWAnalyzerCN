@@ -181,33 +181,101 @@ class ArcaneMissilesGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="mage.arcane.arcaneMissiles.guide.explanation1">
-            <b>{arcaneMissiles}</b> is a channelled rotational ability that generates {arcaneSalvo}{' '}
-            stacks and also spends your {clearcasting} procs. Your use of {arcaneMissiles} will vary
-            depending on your talent build, so you should refer to the below information to determine
-            when/if you should cast {arcaneMissiles} depening on your current talent build.
-          </Trans>
+          <>
+            <strong>{arcaneMissiles}</strong>
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.explanation1.p1',
+              message: ' is a channelled rotational ability that generates ',
+            })}
+            {arcaneSalvo}
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.explanation1.p2',
+              message: ' stacks and also spends your ',
+            })}
+            {clearcasting}
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.explanation1.p3',
+              message: ' procs. Your use of ',
+            })}
+            {arcaneMissiles}
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.explanation1.p4',
+              message: ' will vary depending on your talent build, so you should refer to the below information to determine when/if you should cast ',
+            })}
+            {arcaneMissiles}
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.explanation1.p5',
+              message: ' depening on your current talent build.',
+            })}
+          </>
         </p>
         {this.isSpellslingerMissile && (
           <p>
-            <Trans id="mage.arcane.arcaneMissiles.guide.spellslingerMissileExplanation">
-              Cast {arcaneMissiles} if one of the below are true:
-            </Trans>
+            <>
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.spellslingerMissileExplanation.p1',
+                message: 'Cast ',
+              })}
+              {arcaneMissiles}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.spellslingerMissileExplanation.p2',
+                message: ' if one of the below are true:',
+              })}
+            </>
             <ul>
               <li>
-                <Trans id="mage.arcane.arcaneMissiles.guide.conditionMissile1">
-                  You have an {overpoweredMissiles} proc and &lt; 10 {arcaneSalvo} stacks.
-                </Trans>
+                <>
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile1.p1',
+                    message: 'You have an ',
+                  })}
+                  {overpoweredMissiles}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile1.p2',
+                    message: ' proc and < 10 ',
+                  })}
+                  {arcaneSalvo}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile1.p3',
+                    message: ' stacks.',
+                  })}
+                </>
               </li>
               <li>
-                <Trans id="mage.arcane.arcaneMissiles.guide.conditionMissile2">
-                  You don't have an {overpoweredMissiles} proc and have &lt; 15 {arcaneSalvo} stacks.
-                </Trans>
+                <>
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile2.p1',
+                    message: "You don't have an ",
+                  })}
+                  {overpoweredMissiles}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile2.p2',
+                    message: ' proc and have < 15 ',
+                  })}
+                  {arcaneSalvo}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile2.p3',
+                    message: ' stacks.',
+                  })}
+                </>
               </li>
               <li>
-                <Trans id="mage.arcane.arcaneMissiles.guide.conditionMissile3">
-                  You have &lt; 2 {arcaneCharge}s and have {highVoltage} talented
-                </Trans>
+                <>
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile3.p1',
+                    message: 'You have < 2 ',
+                  })}
+                  {arcaneCharge}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile3.p2',
+                    message: 's and have ',
+                  })}
+                  {highVoltage}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.conditionMissile3.p3',
+                    message: ' talented',
+                  })}
+                </>
               </li>
             </ul>
           </p>
@@ -221,13 +289,32 @@ class ArcaneMissilesGuide extends Analyzer {
                 message: 'Talent Build Conflict',
               })}
             >
-              <Trans id="mage.arcane.arcaneMissiles.guide.talentConflictOverpoweredMissiles">
-                You currently have both {orbMastery} and {overpoweredMissiles} talented. These two
-                talents represent two different playstyles with different rotations, so taking both of
-                them creeates conflict within your rotation. It is highly recommended to either choose
-                the Spellslinger Missiles build with {overpoweredMissiles} or the Spellslinger Orb
-                build with {orbMastery}.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.talentConflictOverpoweredMissiles.p1',
+                  message: 'You currently have both ',
+                })}
+                {orbMastery}
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.talentConflictOverpoweredMissiles.p2',
+                  message: ' and ',
+                })}
+                {overpoweredMissiles}
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.talentConflictOverpoweredMissiles.p3',
+                  message: ' talented. These two talents represent two different playstyles with different rotations, so taking both of them creeates conflict within your rotation. It is highly recommended to either choose the Spellslinger Missiles build with ',
+                })}
+                {overpoweredMissiles}
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.talentConflictOverpoweredMissiles.p4',
+                  message: ' or the Spellslinger Orb build with ',
+                })}
+                {orbMastery}
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.talentConflictOverpoweredMissiles.p5',
+                  message: '.',
+                })}
+              </>
             </TipBox>
           </>
         )) ||
@@ -240,13 +327,37 @@ class ArcaneMissilesGuide extends Analyzer {
                   message: 'Talent Build Conflict',
                 })}
               >
-                <Trans id="mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage">
-                  You currently have both {orbMastery} and {highVoltage} talented. These two talents
-                  represent two different playstyles with different rotations, so taking both of them
-                  creeates conflict within your rotation. It is highly recommended to either choose
-                  the Spellslinger Missiles build with {overpoweredMissiles} and {highVoltage} or the
-                  Spellslinger Orb build with {orbMastery}.
-                </Trans>
+                <>
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage.p1',
+                    message: 'You currently have both ',
+                  })}
+                  {orbMastery}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage.p2',
+                    message: ' and ',
+                  })}
+                  {highVoltage}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage.p3',
+                    message: ' talented. These two talents represent two different playstyles with different rotations, so taking both of them creeates conflict within your rotation. It is highly recommended to either choose the Spellslinger Missiles build with ',
+                  })}
+                  {overpoweredMissiles}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage.p4',
+                    message: ' and ',
+                  })}
+                  {highVoltage}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage.p5',
+                    message: ' or the Spellslinger Orb build with ',
+                  })}
+                  {orbMastery}
+                  {t({
+                    id: 'mage.arcane.arcaneMissiles.guide.talentConflictHighVoltage.p6',
+                    message: '.',
+                  })}
+                </>
               </TipBox>
             </>
           )) ||

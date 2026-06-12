@@ -1,5 +1,5 @@
 import { squided } from 'CONTRIBUTORS';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -18,42 +18,33 @@ const config: Config = {
   description: (
     <>
       <p>
-        <Trans id="restoration.config.description.p1">
-          Welcome to the Resto Druid analyzer! We hope you find the guide and statistics useful.
-        </Trans>
+        {t({ id: 'restoration.config.description.p1', message: 'Welcome to the Resto Druid analyzer! We hope you find the guide and statistics useful.' })}
       </p>
       <p>
-        <Trans id="restoration.config.description.p2">
-          If you questions, comments, or suggestions about this analyzer, you can reach the
-          WoWAnalyzer team on{' '}
-          <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>, on{' '}
-          <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
-          <a href="/contributor/squided">squided</a>) directly on Discord. We're always interested
-          in improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
-          easier to understand. The whole project is open source and welcomes contributions so you
-          can directly improve it too!
-        </Trans>
+        {t({ id: 'restoration.config.description.p2a', message: 'If you questions, comments, or suggestions about this analyzer, you can reach the WoWAnalyzer team on' })}
+        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>,{' '}
+        {t({ id: 'restoration.config.description.p2b', message: 'on' })}
+        <a href="https://discord.gg/AxphPxU">Discord</a>,{' '}
+        {t({ id: 'restoration.config.description.p2c', message: 'or message me' })}
+        (<a href="/contributor/squided">squided</a>){' '}
+        {t({ id: 'restoration.config.description.p2d', message: 'directly on Discord. We\'re always interested in improving the analyzer, whether it\'s in-depth theorycraft or rewording some text to be easier to understand. The whole project is open source and welcomes contributions so you can directly improve it too!' })}
       </p>
       <p>
-        <Trans id="restoration.config.description.p3">
-          If you have gameplay questions, check out:
-        </Trans>
+        {t({ id: 'restoration.config.description.p3', message: 'If you have gameplay questions, check out:' })}
         <ul>
           <li>
             <a href="https://www.wowhead.com/restoration-druid-guide">
-              <Trans id="restoration.config.wowhead_guide">Resto guide on Wowhead</Trans>
+              {t({ id: 'restoration.config.wowhead_guide', message: 'Resto guide on Wowhead' })}
             </a>
           </li>
           <li>
             <a href="https://www.dreamgrove.gg/blog/resto/compendium">
-              <Trans id="restoration.config.compendium">Resto compendium on Dreamgrove.gg</Trans>
+              {t({ id: 'restoration.config.compendium', message: 'Resto compendium on Dreamgrove.gg' })}
             </a>
           </li>
           <li>
             <a href="https://discord.gg/dreamgrove" target="_blank" rel="noopener noreferrer">
-              <Trans id="restoration.config.dreamgrove_discord">
-                Dreamgrove - the Druid community Discord
-              </Trans>
+              {t({ id: 'restoration.config.dreamgrove_discord', message: 'Dreamgrove - the Druid community Discord' })}
             </a>
           </li>
         </ul>

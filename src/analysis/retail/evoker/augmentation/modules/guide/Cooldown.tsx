@@ -8,7 +8,6 @@ import SPELLS from 'common/SPELLS/evoker';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 import CombatLogParser from '../../CombatLogParser';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
   const castEfficiency = useAnalyzer(CastEfficiency);
@@ -28,12 +27,7 @@ export function CooldownSection({ modules, info }: GuideProps<typeof CombatLogPa
       {modules.breathOfEonsRotational.guideSubsection()}
       <SubSection>
         <p>
-          <Trans id="guide.evoker.augmentation.sections.cooldowns.summary">
-            <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how
-            long you waited to use them again. Grey segments show when the spell was available,
-            yellow segments show when the spell was cooling down. Red segments highlight times when
-            you could have fit a whole extra use of the cooldown.
-          </Trans>
+          <><strong>{t({id:'guide.evoker.augmentation.sections.cooldowns.summary.bold',message:'Cooldown Graph'})}</strong>{t({id:'guide.evoker.augmentation.sections.cooldowns.summary.text',message:' - this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.'})}</>
         </p>
         {info.combatant.hasTalent(TALENTS.BREATH_OF_EONS_TALENT) && (
           <CastEfficiencyBar

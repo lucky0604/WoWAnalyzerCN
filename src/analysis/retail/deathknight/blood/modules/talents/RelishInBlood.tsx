@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -75,19 +76,35 @@ class RelishInBlood extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.relishInBlood.statistic.tooltip">
+          <>
             <p>
-              <strong>RP wasted: </strong> {this.runicPowerWasted} (
-              {formatPercentage(this.rpWastePercentage)} %)
+              <strong>
+                {t({
+                  id: 'deathknight.blood.relishInBlood.statistic.tooltip.rpWasted',
+                  message: 'RP wasted: ',
+                })}
+              </strong>
+              {this.runicPowerWasted} ({formatPercentage(this.rpWastePercentage)} %)
             </p>
             <p>
-              <strong>Healing: </strong> {formatNumber(this.healing)}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.relishInBlood.statistic.tooltip.healing',
+                  message: 'Healing: ',
+                })}
+              </strong>
+              {formatNumber(this.healing)}
             </p>
             <p>
-              <strong>Overhealing: </strong> {formatNumber(this.overhealing)} (
-              {formatPercentage(this.overhealPercentage)} %)
+              <strong>
+                {t({
+                  id: 'deathknight.blood.relishInBlood.statistic.tooltip.overhealing',
+                  message: 'Overhealing: ',
+                })}
+              </strong>
+              {formatNumber(this.overhealing)} ({formatPercentage(this.overhealPercentage)} %)
             </p>
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.RELISH_IN_BLOOD_TALENT}>

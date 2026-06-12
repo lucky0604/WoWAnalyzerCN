@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import { SpellIcon } from 'interface';
@@ -104,19 +105,20 @@ class ImbuedInfusion extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <Trans id="paladin.holy.modules.talents.imbuedinfusion.tooltip">
+            <>
               <p>
-                You consumed Infusion of Light <b>{this.wastedHolyShockReductionCount}</b> time
-                {this.wastedHolyShockReductionCount === 1 ? '' : 's'} when Holy Shock was off
-                cooldown.
+                {t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.p1', message: 'You consumed Infusion of Light ' })}
+                <b>{t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.count', message: '{count}', values: { count: this.wastedHolyShockReductionCount }})}</b>
+                {t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.p2', message: ' time{s} when Holy Shock was off cooldown.', values: { s: this.wastedHolyShockReductionCount === 1 ? '' : 's' }})}
               </p>
               <p>
-                This wasted <b>{(this.wastedHolyShockReductionMs / 1000).toFixed(1)}</b> seconds of
-                Holy Shock cooldown reduction, preventing you from{' '}
-                <b>{Math.floor(this.holyShocksCastsLost)}</b> additional Holy Shock cast
-                {this.holyShocksCastsLost === 1 ? '' : 's'}.
+                {t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.p3', message: 'This wasted ' })}
+                <b>{t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.seconds', message: '{seconds}', values: { seconds: (this.wastedHolyShockReductionMs / 1000).toFixed(1) }})}</b>
+                {t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.p4', message: ' seconds of Holy Shock cooldown reduction, preventing you from ' })}
+                <b>{t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.casts', message: '{casts}', values: { casts: Math.floor(this.holyShocksCastsLost) }})}</b>
+                {t({ id: 'paladin.holy.modules.talents.imbuedinfusion.tooltip.p5', message: ' additional Holy Shock cast{s}.', values: { s: this.holyShocksCastsLost === 1 ? '' : 's' }})}
               </p>
-            </Trans>
+            </>
           </>
         }
       >

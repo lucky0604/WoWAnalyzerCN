@@ -89,24 +89,50 @@ export default class CrimsonTempestUsage extends Analyzer {
     if (hasAnythingToSpread) {
       details = (
         <div>
-          <Trans id="rogue.assassination.crimsontempest.spreadSuccess">
-            You successfully spread <SpellLink spell={SPELLS.GARROTE} /> and{' '}
-            <SpellLink spell={SPELLS.RUPTURE} /> to nearby targets.
-          </Trans>
+          <>
+            {t({
+              id: 'rogue.assassination.crimsontempest.spreadSuccess.p1',
+              message: 'You successfully spread ',
+            })}
+            <SpellLink spell={SPELLS.GARROTE} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.spreadSuccess.p2',
+              message: ' and ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.spreadSuccess.p3',
+              message: ' to nearby targets.',
+            })}
+          </>
         </div>
       );
     } else {
       details = (
         <div>
-          <Trans id="rogue.assassination.crimsontempest.spreadFail">
-            You cast <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} /> but no targets had both{' '}
-            <SpellLink spell={SPELLS.GARROTE} /> and <SpellLink spell={SPELLS.RUPTURE} /> to spread.
-          </Trans>
+          <>
+            {t({
+              id: 'rogue.assassination.crimsontempest.spreadFail.p1',
+              message: 'You cast ',
+            })}
+            <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.spreadFail.p2',
+              message: ' but no targets had both ',
+            })}
+            <SpellLink spell={SPELLS.GARROTE} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.spreadFail.p3',
+              message: ' and ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.spreadFail.p4',
+              message: ' to spread.',
+            })}
+          </>
         </div>
       );
-      if (this.lastCastEvent) {
-        addInefficientCastReason(this.lastCastEvent, details);
-      }
     }
 
     return {
@@ -134,11 +160,27 @@ export default class CrimsonTempestUsage extends Analyzer {
     if (totalWasted) {
       details = (
         <div>
-          <Trans id="rogue.assassination.crimsontempest.wastedComboPointsDetail">
-            This cast generated <strong>0 Combo Points</strong> because you were already capped. Try
-            to use <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} /> only when you have room for
-            Combo Points.
-          </Trans>
+          <>
+            {t({
+              id: 'rogue.assassination.crimsontempest.wastedComboPointsDetail.p1',
+              message: 'This cast generated ',
+            })}
+            <strong>
+              {t({
+                id: 'rogue.assassination.crimsontempest.wastedComboPointsDetail.bold',
+                message: '0 Combo Points',
+              })}
+            </strong>
+            {t({
+              id: 'rogue.assassination.crimsontempest.wastedComboPointsDetail.p2',
+              message: ' because you were already capped. Try to use ',
+            })}
+            <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.wastedComboPointsDetail.p3',
+              message: ' only when you have room for Combo Points.',
+            })}
+          </>
         </div>
       );
       if (this.lastCastEvent) {
@@ -168,20 +210,54 @@ export default class CrimsonTempestUsage extends Analyzer {
     const explanation = (
       <div>
         <p>
-          <Trans id="rogue.assassination.crimsontempest.explanation">
+          <>
             <strong>
               <SpellLink spell={TALENTS.CRIMSON_TEMPEST_TALENT} />
             </strong>{' '}
-            is now a <strong>builder</strong>. It should spread your{' '}
-            <SpellLink spell={SPELLS.GARROTE} /> and <SpellLink spell={SPELLS.RUPTURE} />.
-          </Trans>
+            {t({
+              id: 'rogue.assassination.crimsontempest.explanation.p1',
+              message: 'is now a ',
+            })}
+            <strong>
+              {t({
+                id: 'rogue.assassination.crimsontempest.explanation.bold',
+                message: 'builder',
+              })}
+            </strong>
+            {t({
+              id: 'rogue.assassination.crimsontempest.explanation.p2',
+              message: '. It should spread your ',
+            })}
+            <SpellLink spell={SPELLS.GARROTE} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.explanation.p3',
+              message: ' and ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />.
+          </>
         </p>
         <p>
-          <Trans id="rogue.assassination.crimsontempest.envenomNote">
-            Even if you still have targets without <SpellLink spell={SPELLS.GARROTE} /> or{' '}
-            <SpellLink spell={SPELLS.RUPTURE} />, you should keep using{' '}
-            <SpellLink spell={SPELLS.ENVENOM} /> at 5+ CP.
-          </Trans>
+          <>
+            {t({
+              id: 'rogue.assassination.crimsontempest.envenomNote.p1',
+              message: 'Even if you still have targets without ',
+            })}
+            <SpellLink spell={SPELLS.GARROTE} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.envenomNote.p2',
+              message: ' or ',
+            })}
+            <SpellLink spell={SPELLS.RUPTURE} />,
+            {t({
+              id: 'rogue.assassination.crimsontempest.envenomNote.p3',
+              message: ' you should keep using ',
+            })}
+            <SpellLink spell={SPELLS.ENVENOM} />
+            {t({
+              id: 'rogue.assassination.crimsontempest.envenomNote.p4',
+              message: ' at 5+ CP.',
+            })}
+          </>
         </p>
       </div>
     );

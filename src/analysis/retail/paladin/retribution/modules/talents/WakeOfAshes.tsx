@@ -12,7 +12,6 @@ import { TALENTS_PALADIN } from 'common/TALENTS';
 import { getCastsDuringWake } from '../../normalizers/WakeOfAshesNormalizer';
 import { TIERS } from 'game/TIERS';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 interface WakeOfAshesCooldownCast extends CooldownTrigger<CastEvent> {
   hammerOfLightCasts: number;
   targetHasExecutionSentenceOnCast: boolean;
@@ -46,35 +45,41 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
       <>
         <ExplanationSection>
           <p>
-            <Trans id="paladin.retribution.wakeOfAshes.description1">
-              Thanks to <SpellLink spell={TALENTS_PALADIN.RADIANT_GLORY_TALENT} />,{' '}
-              <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> becomes your main offensive
-              cooldown.
-            </Trans>
+            <>
+              {t({ id: 'paladin.retribution.wakeOfAshes.description1.p1', message: 'Thanks to ' })}
+              <SpellLink spell={TALENTS_PALADIN.RADIANT_GLORY_TALENT} />
+              {t({ id: 'paladin.retribution.wakeOfAshes.description1.p2', message: ', ' })}
+              <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} />
+              {t({ id: 'paladin.retribution.wakeOfAshes.description1.p3', message: ' becomes your main offensive cooldown.' })}
+            </>
           </p>
           {this.hasExecutionSentenceTalented && (
             <p>
-              <Trans id="paladin.retribution.wakeOfAshes.executionSentenceDescription">
-                You want to press <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />{' '}
-                before <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> and fit as much
-                damage as possible during that window.
-              </Trans>
+              <>
+                {t({ id: 'paladin.retribution.wakeOfAshes.executionSentenceDescription.p1', message: 'You want to press ' })}
+                <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />
+                {t({ id: 'paladin.retribution.wakeOfAshes.executionSentenceDescription.p2', message: ' before ' })}
+                <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} />
+                {t({ id: 'paladin.retribution.wakeOfAshes.executionSentenceDescription.p3', message: ' and fit as much damage as possible during that window.' })}
+              </>
             </p>
           )}
           {this.isTemplar && (
             <p>
-              <Trans id="paladin.retribution.wakeOfAshes.templarDescription">
-                <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} /> is your highest damage ability. It is
-                available right after every <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} />{' '}
-                casts.
-              </Trans>
+              <>
+                <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />
+                {t({ id: 'paladin.retribution.wakeOfAshes.templarDescription.p1', message: ' is your highest damage ability. It is available right after every ' })}
+                <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} />
+                {t({ id: 'paladin.retribution.wakeOfAshes.templarDescription.p2', message: ' casts.' })}
+              </>
               {playerHasTWW3_4Piece && (
                 <>
                   {' '}
-                  <Trans id="paladin.retribution.wakeOfAshes.tierSetDescription">
-                    With the season 3 Tier Set, you will be able to use it a second time each{' '}
-                    <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} /> cast.
-                  </Trans>
+                  <>
+                    {t({ id: 'paladin.retribution.wakeOfAshes.tierSetDescription.p1', message: 'With the season 3 Tier Set, you will be able to use it a second time each ' })}
+                    <SpellLink spell={TALENTS_PALADIN.WAKE_OF_ASHES_TALENT} />
+                    {t({ id: 'paladin.retribution.wakeOfAshes.tierSetDescription.p2', message: ' cast.' })}
+                  </>
                 </>
               )}
             </p>
@@ -123,23 +128,28 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
   private executionSentencePerformance(cast: WakeOfAshesCooldownCast): UsageInfo {
     let performance = QualitativePerformance.Perfect;
     const summary = (
-      <Trans id="paladin.retribution.wakeOfAshes.targetHadExecutionSentence">
-        Target had <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} /> applied.
-      </Trans>
+      <>
+        {t({ id: 'paladin.retribution.wakeOfAshes.targetHadExecutionSentence.p1', message: 'Target had ' })}
+        <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />
+        {t({ id: 'paladin.retribution.wakeOfAshes.targetHadExecutionSentence.p2', message: ' applied.' })}
+      </>
     );
     let details = (
-      <Trans id="paladin.retribution.wakeOfAshes.targetAlreadyHadExecutionSentence">
-        Target already had <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} /> applied.
-      </Trans>
+      <>
+        {t({ id: 'paladin.retribution.wakeOfAshes.targetAlreadyHadExecutionSentence.p1', message: 'Target already had ' })}
+        <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />
+        {t({ id: 'paladin.retribution.wakeOfAshes.targetAlreadyHadExecutionSentence.p2', message: ' applied.' })}
+      </>
     );
 
     if (!cast.targetHasExecutionSentenceOnCast) {
       performance = QualitativePerformance.Fail;
       details = (
-        <Trans id="paladin.retribution.wakeOfAshes.targetDidNotHaveExecutionSentence">
-          Target did not have <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />{' '}
-          applied.
-        </Trans>
+        <>
+          {t({ id: 'paladin.retribution.wakeOfAshes.targetDidNotHaveExecutionSentence.p1', message: 'Target did not have ' })}
+          <SpellLink spell={TALENTS_PALADIN.EXECUTION_SENTENCE_TALENT} />
+          {t({ id: 'paladin.retribution.wakeOfAshes.targetDidNotHaveExecutionSentence.p2', message: ' applied.' })}
+        </>
       );
     }
 
@@ -166,10 +176,12 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
         performance: QualitativePerformance.Good,
         summary: summary,
         details: (
-          <Trans id="paladin.retribution.wakeOfAshes.hammerOfLightGood">
-            You cast <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} /> {numberOfHammerOfLightCast} time
-            {numberOfHammerOfLightCast > 1 ? 's' : ''} during your cooldowns, nice !
-          </Trans>
+          <>
+            {t({ id: 'paladin.retribution.wakeOfAshes.hammerOfLightGood.p1', message: 'You cast ' })}
+            <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />
+            {' '}
+            {t({ id: 'paladin.retribution.wakeOfAshes.hammerOfLightGood.p2', message: '{count} time{s} during your cooldowns, nice !', values: { count: numberOfHammerOfLightCast, s: numberOfHammerOfLightCast > 1 ? 's' : '' }})}
+          </>
         ),
       };
     }
@@ -180,16 +192,18 @@ class WakeOfAshes extends MajorCooldown<WakeOfAshesCooldownCast> {
       details: (
         <>
           {numberOfHammerOfLightCast === 0 ? (
-            <Trans id="paladin.retribution.wakeOfAshes.hammerOfLightNone">
-              You did not cast {<SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />} during your cooldowns.
-              Expected casts : {expectedNumberOfHammerOfLightCast}+
-            </Trans>
+            <>
+              {t({ id: 'paladin.retribution.wakeOfAshes.hammerOfLightNone.p1', message: 'You did not cast ' })}
+              <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />
+              {t({ id: 'paladin.retribution.wakeOfAshes.hammerOfLightNone.p2', message: ' during your cooldowns. Expected casts : {expected}+', values: { expected: expectedNumberOfHammerOfLightCast }})}
+            </>
           ) : (
-            <Trans id="paladin.retribution.wakeOfAshes.hammerOfLightFew">
-              You only cast {<SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />}{' '}
-              {numberOfHammerOfLightCast} time{numberOfHammerOfLightCast > 1 ? 's' : ''} during your
-              cooldowns. Expected casts : {expectedNumberOfHammerOfLightCast}+
-            </Trans>
+            <>
+              {t({ id: 'paladin.retribution.wakeOfAshes.hammerOfLightFew.p1', message: 'You only cast ' })}
+              <SpellLink spell={SPELLS.HAMMER_OF_LIGHT} />
+              {' '}
+              {t({ id: 'paladin.retribution.wakeOfAshes.hammerOfLightFew.p2', message: '{count} time{s} during your cooldowns. Expected casts : {expected}+', values: { count: numberOfHammerOfLightCast, s: numberOfHammerOfLightCast > 1 ? 's' : '', expected: expectedNumberOfHammerOfLightCast }})}
+            </>
           )}
         </>
       ),

@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS/demonhunter';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS/demonhunter';
@@ -100,25 +100,16 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
     if (isHavoc) {
       return (
         <>
-          <Trans id="demonhunter.havoc.theHunt.description">
-            <strong>
-              <SpellLink spell={this.spell} />
-            </strong>{' '}
-            is a powerful burst of damage that also provides some healing with the DoT that it
-            applies.
-          </Trans>
+          <strong><SpellLink spell={this.spell} /></strong>
+          {t({ id: 'demonhunter.havoc.theHunt.description.p1', message: ' is a powerful burst of damage that also provides some healing with the DoT that it applies.' })}
           <InitiativeExplanation />
         </>
       );
     }
     return (
       <>
-        <Trans id="demonhunter.havoc.theHunt.description">
-          <strong>
-            <SpellLink spell={this.spell} />
-          </strong>{' '}
-          is a powerful burst of damage that also provides some healing with the DoT that it applies.
-        </Trans>
+        <strong><SpellLink spell={this.spell} /></strong>
+        {t({ id: 'demonhunter.havoc.theHunt.description.p1', message: ' is a powerful burst of damage that also provides some healing with the DoT that it applies.' })}
       </>
     );
   }
@@ -215,16 +206,16 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
         performance: QualitativePerformance.Perfect,
         summary: (
           <div>
-            <Trans id="demonhunter.havoc.theHunt.hadInitiativeBuff">
-              Had <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff
-            </Trans>
+            {t({ id: 'demonhunter.havoc.theHunt.hadInitiativeBuff.p1', message: 'Had ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />
+            {t({ id: 'demonhunter.havoc.theHunt.hadInitiativeBuff.p2', message: ' buff' })}
           </div>
         ),
         details: (
           <div>
-            <Trans id="demonhunter.havoc.theHunt.hadInitiativeBuffDetails">
-              Had <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff.
-            </Trans>
+            {t({ id: 'demonhunter.havoc.theHunt.hadInitiativeBuffDetails.p1', message: 'Had ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />
+            {t({ id: 'demonhunter.havoc.theHunt.hadInitiativeBuffDetails.p2', message: ' buff.' })}
           </div>
         ),
       };
@@ -234,20 +225,17 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
         performance: QualitativePerformance.Good,
         summary: (
           <div>
-            <Trans id="demonhunter.havoc.theHunt.castAfterVR">
-              Cast shortly after casting{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
-            </Trans>
+            {t({ id: 'demonhunter.havoc.theHunt.castAfterVR.p1', message: 'Cast shortly after casting ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
           </div>
         ),
         details: (
           <div>
-            <Trans id="demonhunter.havoc.theHunt.castAfterVRDetails">
-              Cast shortly after casting{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />. You might have been
-              damaged and lost your <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> buff,
-              but that's okay, you still did your rotation correctly.
-            </Trans>
+            {t({ id: 'demonhunter.havoc.theHunt.castAfterVRDetails.p1', message: 'Cast shortly after casting ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+            {t({ id: 'demonhunter.havoc.theHunt.castAfterVRDetails.p2', message: '. You might have been damaged and lost your ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />
+            {t({ id: 'demonhunter.havoc.theHunt.castAfterVRDetails.p3', message: " buff, but that's okay, you still did your rotation correctly." })}
           </div>
         ),
       };
@@ -256,22 +244,19 @@ class TheHunt extends MajorCooldown<TheHuntCooldownCast> {
       performance: QualitativePerformance.Fail,
       summary: (
         <div>
-          <Trans id="demonhunter.havoc.theHunt.castWithoutVR">
-            Cast without previously casting{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
-          </Trans>
+          {t({ id: 'demonhunter.havoc.theHunt.castWithoutVR.p1', message: 'Cast without previously casting ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
         </div>
       ),
       details: (
         <div>
-          <Trans id="demonhunter.havoc.theHunt.castWithoutVRDetails">
-            Cast without previously casting{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />. Try casting{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> before casting for the
-            critical strike chance buff that it applies (courtesy of{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />
-            ).
-          </Trans>
+          {t({ id: 'demonhunter.havoc.theHunt.castWithoutVRDetails.p1', message: 'Cast without previously casting ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+          {t({ id: 'demonhunter.havoc.theHunt.castWithoutVRDetails.p2', message: '. Try casting ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+          {t({ id: 'demonhunter.havoc.theHunt.castWithoutVRDetails.p3', message: ' before casting for the critical strike chance buff that it applies (courtesy of ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />
+          {t({ id: 'demonhunter.havoc.theHunt.castWithoutVRDetails.p4', message: ').' })}
         </div>
       ),
     };

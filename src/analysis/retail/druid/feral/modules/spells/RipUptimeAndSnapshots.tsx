@@ -136,11 +136,10 @@ class RipUptimeAndSnapshots extends Snapshots {
           {perfExplanation}
           <div>
             @ <strong>{this.owner.formatTimestamp(timestamp)}</strong>{' '}
-            <Trans id="druid.feral.rip.targeting_with_cps">
-              targetting{' '}
-              <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>{' '}
-              using <strong>{cpsUsed} CPs</strong>
-            </Trans>
+            {t({ id: 'druid.feral.rip.targeting_with_cps', message: 'targetting ' })}
+            <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>{' '}
+            {t({ id: 'druid.feral.rip.targeting_with_cps.p2', message: 'using ' })}
+            <strong>{cpsUsed} CPs</strong>
           </div>
           {!wasNewApplication && (
             <div>
@@ -157,9 +156,8 @@ class RipUptimeAndSnapshots extends Snapshots {
             </div>
           )}
           <div>
-            <Trans id="druid.feral.moonfire.snapshots">
-              Snapshots: <strong>{snapshots.map((ss) => ss.name).join(', ')}</strong>
-            </Trans>
+            {t({ id: 'druid.feral.moonfire.snapshots', message: 'Snapshots: ' })}
+            <strong>{snapshots.map((ss) => ss.name).join(', ')}</strong>
           </div>
         </>
       );
@@ -195,25 +193,40 @@ class RipUptimeAndSnapshots extends Snapshots {
     const hasPw = this.selectedCombatant.hasTalent(TALENTS_DRUID.PRIMAL_WRATH_TALENT);
     const explanation = (
       <p>
-        <Trans id="druid.feral.rip.explanation">
-          <b>
-            <SpellLink spell={SPELLS.RIP} />
-          </b>{' '}
-          is your highest damage-per-energy single target spender. Try to maintain 100% uptime.{' '}
-          {hasPw ? (
-            <>
-              Use <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} /> to apply it when you can
-              hit more than one target.
-            </>
-          ) : (
-            <>
-              You can even keep it active on multiple targets, though if a fight will frequently
-              have multiple targets consider speccing for{' '}
-              <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />.
-            </>
-          )}{' '}
-          Only refresh in the pandemic window (last 30% of duration).
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.RIP} />
+        </b>{' '}
+        {t({
+          id: 'druid.feral.rip.explanation',
+          message:
+            "is your highest damage-per-energy single target spender. Try to maintain 100% uptime. ",
+        })}
+        {hasPw ? (
+          <>
+            {t({
+              id: 'druid.feral.rip.explanation.pw',
+              message: 'Use ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />
+            {t({
+              id: 'druid.feral.rip.explanation.pw2',
+              message: ' to apply it when you can hit more than one target.',
+            })}
+          </>
+        ) : (
+          <>
+            {t({
+              id: 'druid.feral.rip.explanation.no_pw',
+              message:
+                'You can even keep it active on multiple targets, though if a fight will frequently have multiple targets consider speccing for ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />.
+          </>
+        )}{' '}
+        {t({
+          id: 'druid.feral.rip.explanation.pw3',
+          message: 'Only refresh in the pandemic window (last 30% of duration).',
+        })}
       </p>
     );
 

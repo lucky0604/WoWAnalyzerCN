@@ -16,7 +16,7 @@ import Events, { DamageEvent, EventType } from 'parser/core/Events';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import { ReactNode } from 'react';
 import CountsAsBrew, { brewCooldownDisplay } from '../../components/CountsAsBrew';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const FORT_BREW_BASE_DR = 0.2;
 const FORT_BREW_IRONSHELL_AMOUNT = 0.3;
@@ -52,41 +52,57 @@ export class FortifyingBrew extends MajorDefensiveBuff {
     return (
       <>
         <p>
-          <Trans id="monk.brewmaster.fortifying_brew.desc">
-            <SpellLink spell={talents.FORTIFYING_BREW_TALENT} /> is a flexible cooldown that combines
-            with several talents for boosting its defensive power or reducing its cooldown.{' '}
-          </Trans>
+          <>
+            <SpellLink spell={talents.FORTIFYING_BREW_TALENT} />
+            {t({
+              id: 'monk.brewmaster.fortifying_brew.desc.p1',
+              message:
+                ' is a flexible cooldown that combines with several talents for boosting its defensive power or reducing its cooldown. ',
+            })}
+          </>
           <CountsAsBrew
             baseCooldown={60 * 6}
             cdTooltip={
               (() => {
                 const duration = formatDurationMinSec(brewCooldownDisplay(4 * 60));
                 return (
-                  <Trans id="monk.brewmaster.fortifying_brew.reduced_to">
-                    Reduced to {duration} with{' '}
-                    <SpellLink spell={talents.EXPEDITIOUS_FORTIFICATION_TALENT} />.
-                  </Trans>
+                  <>
+                    {t({ id: 'monk.brewmaster.fortifying_brew.reduced_to.p1', message: 'Reduced to ' })}
+                    {duration}
+                    {t({ id: 'monk.brewmaster.fortifying_brew.reduced_to.p2', message: ' with ' })}
+                    <SpellLink spell={talents.EXPEDITIOUS_FORTIFICATION_TALENT} />
+                    {t({ id: 'monk.brewmaster.fortifying_brew.reduced_to.p3', message: '.' })}
+                  </>
                 );
               })()
             }
           />
         </p>
         <p>
-          <Trans id="monk.brewmaster.fortifying_brew.reactive_desc">
-            Due to its variable cooldown, it is difficult to plan usage in advance&mdash;making it a
-            good choice for{' '}
+          <>
+            {t({
+              id: 'monk.brewmaster.fortifying_brew.reactive_desc.p1',
+              message:
+                'Due to its variable cooldown, it is difficult to plan usage in advance\u2014making it a good choice for ',
+            })}
             <TooltipElement
               content={
-                <Trans id="monk.brewmaster.fortifying_brew.reactive_tooltip">
-                  A cooldown use is <strong>reactive</strong> if you are <em>reacting</em> to the
-                  damage in the moment, not pre-planning your use before the fight.
-                </Trans>
+                  <>
+                    {t({ id: 'monk.brewmaster.fortifying_brew.reactive_tooltip.p1', message: 'A cooldown use is ' })}
+                    <strong>{t({ id: 'monk.brewmaster.fortifying_brew.reactive_tooltip.bold', message: 'reactive' })}</strong>
+                    {t({ id: 'monk.brewmaster.fortifying_brew.reactive_tooltip.p2', message: ' if you are ' })}
+                    <em>{t({ id: 'monk.brewmaster.fortifying_brew.reactive_tooltip.em', message: 'reacting' })}</em>
+                    {t({ id: 'monk.brewmaster.fortifying_brew.reactive_tooltip.p3', message: ' to the damage in the moment, not pre-planning your use before the fight.' })}
+                  </>
               }
             >
-              reactive
+              {t({ id: 'monk.brewmaster.fortifying_brew.reactive_desc.p2', message: 'reactive' })}
             </TooltipElement>{' '}
-            use if your other cooldowns can cover major damage events.
-          </Trans>
+            {t({
+              id: 'monk.brewmaster.fortifying_brew.reactive_desc.p3',
+              message: 'use if your other cooldowns can cover major damage events.',
+            })}
+          </>
         </p>
       </>
     );
@@ -123,9 +139,10 @@ export class FortifyingBrew extends MajorDefensiveBuff {
         amount: baseDamage,
         color: color(MAGIC_SCHOOLS.ids.PHYSICAL),
         description: (
-          <Trans id="monk.brewmaster.fortifying_brew.base">
-            Base <SpellLink spell={talents.FORTIFYING_BREW_TALENT} />
-          </Trans>
+          <>
+            {t({ id: 'monk.brewmaster.fortifying_brew.base.p1', message: 'Base ' })}
+            <SpellLink spell={talents.FORTIFYING_BREW_TALENT} />
+          </>
         ),
       },
       {

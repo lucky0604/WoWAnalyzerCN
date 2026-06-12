@@ -122,17 +122,25 @@ class AncestralVigor extends Analyzer {
       this.disableStatistics = true;
     }
     const tooltip = this.loaded ? (
-      <Trans id="shaman.restoration.av.statistic.tooltip.active">
-        The amount of players that would have died without your max health increase buffs{' '}
-        <SpellLink spell={TALENTS.ANCESTRAL_VIGOR_TALENT} /> and{' '}
+      <>
+        {t({
+          id: 'shaman.restoration.av.statistic.tooltip.active.p1',
+          message: 'The amount of players that would have died without your max health increase buffs',
+        })}{' '}
+        <SpellLink spell={TALENTS.ANCESTRAL_VIGOR_TALENT} />
+        {t({ id: 'shaman.restoration.av.statistic.tooltip.active.p2', message: ' and ' })}
         <SpellLink spell={TALENTS.DOWNPOUR_TALENT} />.
-      </Trans>
+      </>
     ) : (
-      <Trans id="shaman.restoration.av.statistic.tooltip.inactive">
-        Click to analyze how many lives were saved by your max health increase buffs{' '}
-        <SpellLink spell={TALENTS.ANCESTRAL_VIGOR_TALENT} /> and{' '}
+      <>
+        {t({
+          id: 'shaman.restoration.av.statistic.tooltip.inactive.p1',
+          message: 'Click to analyze how many lives were saved by your max health increase buffs',
+        })}{' '}
+        <SpellLink spell={TALENTS.ANCESTRAL_VIGOR_TALENT} />
+        {t({ id: 'shaman.restoration.av.statistic.tooltip.inactive.p2', message: ' and ' })}
         <SpellLink spell={TALENTS.DOWNPOUR_TALENT} />.
-      </Trans>
+      </>
     );
     if (this.disableStatistics) {
       return (

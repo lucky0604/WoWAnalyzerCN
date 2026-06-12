@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Harrek } from 'CONTRIBUTORS';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
@@ -8,39 +8,40 @@ import Config, { SupportLevel } from 'parser/Config';
 import CHANGELOG from './CHANGELOG';
 
 const CONFIG: Config = {
-  // The people that have contributed to this spec recently. People don't have to sign up to be long-time maintainers to be included in this list. If someone built a large part of the spec or contributed something recently to that spec, they can be added to the contributors list. If someone goes MIA, they may be removed after major changes or during a new expansion.
+  // The people that have contributed to this spec recently. People don't have to sign up to be long-time maintainers to be included in this list. If someone built a large part of the spec or contributed something recently to that spec, they can be added to the contributors list. If someone goes MIA, they may be removed after major changes or during a major expansion.
   contributors: [Harrek],
   branch: GameBranch.Retail,
   // The WoW client patch this spec was last updated.
   patchCompatibility: '12.0.5',
   supportLevel: SupportLevel.MaintainedFull,
-  // Explain the status of this spec's analysis here. Try to mention how complete it is, and perhaps show links to places users can learn more.
+  // Explain the status of this spec's analysis here. Try to mention how complete it is, and show links to places users can learn more.
   // If this spec's analysis does not show a complete picture please mention this in the `<Warning>` component.
   description: (
-    <Trans id="shaman.restoration.config.description">
-      Welcome to the Resto Shaman analyzer! We hope you find these suggestions and statistics
-      useful.
+    <>
+      {t({ id: 'shaman.restoration.config.description.p1', message: 'Welcome to the Resto Shaman analyzer! We hope you find these suggestions and statistics useful.' })}
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
-      If you want to learn more about Resto Shaman, join the Resto Shaman community at the{' '}
+      {t({ id: 'shaman.restoration.config.description.p2', message: 'If you want to learn more about Resto Shaman, join the Resto Shaman community at the' })}
       <a href="https://discord.gg/earthshrine" target="_blank" rel="noopener noreferrer">
         Earthshrine
       </a>{' '}
-      discord server and make sure to visit the guides on{' '}
-      <a href="https://www.wowhead.com/restoration-shaman-guide">Wowhead</a> and{' '}
+      {t({ id: 'shaman.restoration.config.description.p3', message: 'discord server and make sure to visit the guides on' })}
+      <a href="https://www.wowhead.com/restoration-shaman-guide">Wowhead</a>{' '}
+      {t({ id: 'shaman.restoration.config.description.p4', message: 'and' })}
       <a href="https://www.icy-veins.com/wow/restoration-shaman-pve-healing-guide">Icy Veins</a>.
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
       <AlertWarning>
-        If there is something missing, incorrect, or inaccurate, please report it on{' '}
-        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a> or contact us on{' '}
+        {t({ id: 'shaman.restoration.config.description.p5', message: 'If there is something missing, incorrect, or inaccurate, please report it on' })}
+        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>{' '}
+        {t({ id: 'shaman.restoration.config.description.p6', message: 'or contact us on' })}
         <a href="https://discord.gg/AxphPxU">Discord</a>.
       </AlertWarning>
-    </Trans>
+    </>
   ),
   // A recent example report to see interesting parts of the spec. Will be shown on the homepage.
   exampleReport:

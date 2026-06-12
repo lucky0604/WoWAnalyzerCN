@@ -158,34 +158,38 @@ class HitCountAoE extends Analyzer {
     return (
       <SubSection>
         <p>
-          <Trans id="druid.feral.aoe.explanation">
-            <strong>AoE Abilities</strong> should usually only be used when you can hit more than
-            one target, but some of them have applications on single target. The following charts
-            count only hardcasts - procs from{' '}
-            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> are excluded.
-          </Trans>
+          <strong>{t({ id: 'druid.feral.aoe.explanation', message: 'AoE Abilities' })}</strong>
+          {t({
+            id: 'druid.feral.aoe.explanation.p2',
+            message:
+              ' should usually only be used when you can hit more than one target, but some of them have applications on single target. The following charts count only hardcasts - procs from ',
+          })}
+          <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />
+          {t({ id: 'druid.feral.aoe.explanation.p3', message: ' are excluded.' })}
         </p>
         <SideBySidePanels>
           <RoundedPanel>
             <div>
-              <Trans id="druid.feral.aoe.swipe_usage">
-                <strong>
-                  <SpellLink spell={SPELLS.SWIPE_CAT} />
-                </strong>{' '}
-                should only be used on multiple targets
-              </Trans>
+              <strong>
+                <SpellLink spell={SPELLS.SWIPE_CAT} />
+              </strong>{' '}
+              {t({
+                id: 'druid.feral.aoe.swipe_usage',
+                message: 'should only be used on multiple targets',
+              })}
             </div>
             {this.swipeChart}
           </RoundedPanel>
           {hasPw && (
             <RoundedPanel>
               <div>
-                <Trans id="druid.feral.aoe.pw_usage">
-                  <strong>
-                    <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />
-                  </strong>{' '}
-                  should only be used on multiple targets
-                </Trans>
+                <strong>
+                  <SpellLink spell={TALENTS_DRUID.PRIMAL_WRATH_TALENT} />
+                </strong>{' '}
+                {t({
+                  id: 'druid.feral.aoe.pw_usage',
+                  message: 'should only be used on multiple targets',
+                })}
               </div>
               {this.pwChart}
             </RoundedPanel>
@@ -217,25 +221,35 @@ class HitCountAoE extends Analyzer {
                 <TooltipElement
                   content={
                     <>
-                      <Trans id="druid.feral.aoe.tooltip_detail">
-                        This statistic does not include casts from Convoke the Spirits. You cast{' '}
-                        {tracker.spell.name} <strong>{tracker.casts}</strong> times.
-                      </Trans>
+                      {t({
+                        id: 'druid.feral.aoe.tooltip_detail',
+                        message:
+                          'This statistic does not include casts from Convoke the Spirits. You cast ',
+                      })}
+                      {tracker.spell.name}{' '}
+                      <strong>{tracker.casts}</strong>
+                      {t({ id: 'druid.feral.aoe.tooltip_detail.p2', message: ' times.' })}
                       <ul>
                         <li>
-                          <Trans id="druid.feral.aoe.hit_nothing_count">
-                            <strong>{tracker.zeroHitCasts}</strong> hit nothing
-                          </Trans>
+                          <strong>{tracker.zeroHitCasts}</strong>
+                          {t({
+                            id: 'druid.feral.aoe.hit_nothing_count',
+                            message: ' hit nothing',
+                          })}
                         </li>
                         <li>
-                          <Trans id="druid.feral.aoe.hit_one_count">
-                            <strong>{tracker.oneHitCasts}</strong> hit one target
-                          </Trans>
+                          <strong>{tracker.oneHitCasts}</strong>
+                          {t({
+                            id: 'druid.feral.aoe.hit_one_count',
+                            message: ' hit one target',
+                          })}
                         </li>
                         <li>
-                          <Trans id="druid.feral.aoe.hit_multi_count">
-                            <strong>{tracker.multiHitCasts}</strong> hit multiple targets
-                          </Trans>
+                          <strong>{tracker.multiHitCasts}</strong>
+                          {t({
+                            id: 'druid.feral.aoe.hit_multi_count',
+                            message: ' hit multiple targets',
+                          })}
                         </li>
                       </ul>
                     </>

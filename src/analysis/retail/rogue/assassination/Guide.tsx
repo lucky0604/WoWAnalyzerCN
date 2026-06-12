@@ -73,11 +73,38 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.rogue.assassination.sections.resources.comboPoints.summary">
-            Most of your abilities either <strong>build</strong> or <strong>spend</strong>{' '}
-            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />. Never use a builder at max CPs, and
-            always wait until {getTargetComboPoints(info.combatant)}+ CPs to use a spender.
-          </Trans>
+          <>
+            {t({
+              id: 'guide.rogue.assassination.sections.resources.comboPoints.summary.p1',
+              message: 'Most of your abilities either ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.assassination.sections.resources.comboPoints.summary.bold',
+                message: 'build',
+              })}
+            </strong>
+            {t({
+              id: 'guide.rogue.assassination.sections.resources.comboPoints.summary.p2',
+              message: ' or ',
+            })}
+            <strong>
+              {t({
+                id: 'guide.rogue.assassination.sections.resources.comboPoints.summary.bold2',
+                message: 'spend',
+              })}
+            </strong>{' '}
+            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />
+            {t({
+              id: 'guide.rogue.assassination.sections.resources.comboPoints.summary.p3',
+              message: '. Never use a builder at max CPs, and always wait until ',
+            })}
+            {getTargetComboPoints(info.combatant)}
+            {t({
+              id: 'guide.rogue.assassination.sections.resources.comboPoints.summary.p4',
+              message: '+ CPs to use a spender.',
+            })}
+          </>
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>
@@ -97,20 +124,52 @@ function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParse
       })}
     >
       <p>
-        <Trans id="guide.rogue.assassination.sections.coreRotation.summary">
-          Assassination's core rotation involves performing <strong>builder</strong> abilites up to{' '}
-          {modules.comboPointTracker.maxResource} combo points, then using a <strong>spender</strong>{' '}
-          ability. Maintain your damage over time effects on targets, then fill with your direct
-          damage abilities. Refer to the spec guide for{' '}
+        <>
+          {t({
+            id: 'guide.rogue.assassination.sections.coreRotation.summary.p1',
+            message: "Assassination's core rotation involves performing ",
+          })}
+          <strong>
+            {t({
+              id: 'guide.rogue.assassination.sections.coreRotation.summary.bold',
+              message: 'builder',
+            })}
+          </strong>
+          {t({
+            id: 'guide.rogue.assassination.sections.coreRotation.summary.p2',
+            message: ' abilites up to ',
+          })}
+          {modules.comboPointTracker.maxResource}
+          {t({
+            id: 'guide.rogue.assassination.sections.coreRotation.summary.p3',
+            message: ' combo points, then using a ',
+          })}
+          <strong>
+            {t({
+              id: 'guide.rogue.assassination.sections.coreRotation.summary.bold2',
+              message: 'spender',
+            })}
+          </strong>{' '}
+          {t({
+            id: 'guide.rogue.assassination.sections.coreRotation.summary.p4',
+            message:
+              'ability. Maintain your damage over time effects on targets, then fill with your direct damage abilities. Refer to the spec guide for ',
+          })}
           <a
             href="https://www.wowhead.com/assassination-rogue-rotation-guide"
             target="_blank"
             rel="noopener noreferrer"
           >
-            rotation details
+            {t({
+              id: 'guide.rogue.assassination.sections.coreRotation.summary.link',
+              message: 'rotation details',
+            })}
           </a>
-          . See below for spell usage details.
-        </Trans>
+          {t({
+            id: 'guide.rogue.assassination.sections.coreRotation.summary.p5',
+            message: '. See below for spell usage details.',
+          })}
+        </>
       </p>
       <HideExplanationsToggle id="hide-explanations-rotation" />
       <HideGoodCastsToggle id="hide-good-casts-rotation" />
@@ -136,12 +195,18 @@ function CooldownSection({ info, modules }: GuideProps<typeof CombatLogParser>) 
         })}
       >
         <p>
-          <Trans id="guide.rogue.assassination.sections.cooldowns.summary">
-            Assassination's cooldowns are decently powerful but should not be held on to for long. In
-            order to maximize usages over the course of an encounter, you should aim to send the
-            cooldown as soon as it becomes available (as long as it can do damage on target). It is
-            particularly important to use <SpellLink spell={SPELLS.VANISH} /> as often as possible.
-          </Trans>
+          <>
+            {t({
+              id: 'guide.rogue.assassination.sections.cooldowns.summary.p1',
+              message:
+                "Assassination's cooldowns are decently powerful but should not be held on to for long. In order to maximize usages over the course of an encounter, you should aim to send the cooldown as soon as it becomes available (as long as it can do damage on target). It is particularly important to use ",
+            })}
+            <SpellLink spell={SPELLS.VANISH} />
+            {t({
+              id: 'guide.rogue.assassination.sections.cooldowns.summary.p2',
+              message: ' as often as possible.',
+            })}
+          </>
         </p>
         <HideExplanationsToggle id="hide-explanations-rotation" />
         <HideGoodCastsToggle id="hide-good-casts-rotation" />

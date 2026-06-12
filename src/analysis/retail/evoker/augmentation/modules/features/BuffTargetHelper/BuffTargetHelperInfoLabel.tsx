@@ -1,6 +1,6 @@
 import { AlertInfo, SpellLink } from 'interface';
 import TALENTS from 'common/TALENTS/evoker';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 const BuffTargetHelperInfoLabel: React.FC = () => {
   return (
@@ -8,10 +8,9 @@ const BuffTargetHelperInfoLabel: React.FC = () => {
       <AlertInfo style={{ marginBottom: 30 }}>
         <p>
           <b>
-            <Trans id="evoker.augmentation.buffTargetHelper.t31Note">
-              Because you have T31 4pc, the note generated assumes the first{' '}
-              <SpellLink spell={TALENTS.PRESCIENCE_TALENT} /> you cast on pull is a long one.
-            </Trans>
+            {t({id:'evoker.augmentation.buffTargetHelper.t31Note.p1',message:'Because you have T31 4pc, the note generated assumes the first '})}
+            <SpellLink spell={TALENTS.PRESCIENCE_TALENT} />
+            {t({id:'evoker.augmentation.buffTargetHelper.t31Note.p2',message:' you cast on pull is a long one.'})}
           </b>
         </p>
       </AlertInfo>

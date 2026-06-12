@@ -3,7 +3,7 @@ import SPELLS from 'common/SPELLS/demonhunter';
 import Events, { DamageEvent } from 'parser/core/Events';
 import { SpellLink } from 'interface';
 import { ReactNode } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS';
 import {
   absoluteMitigation,
@@ -36,10 +36,10 @@ export default class FieryBrand extends MajorDefensiveDebuff {
   description(): ReactNode {
     return (
       <p>
-        <Trans id="demonhunter.vengeance.fieryBrandCore.description">
-          <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> reduces the damage dealt to
-          you by targets with its debuff by <strong>40%</strong>.
-        </Trans>
+        <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+        {t({ id: 'demonhunter.vengeance.fieryBrandCore.description.p1', message: ' reduces the damage dealt to you by targets with its debuff by ' })}
+        <strong>{t({ id: 'demonhunter.vengeance.fieryBrandCore.description.bold', message: '40%' })}</strong>
+        {t({ id: 'demonhunter.vengeance.fieryBrandCore.description.p2', message: '.' })}
       </p>
     );
   }

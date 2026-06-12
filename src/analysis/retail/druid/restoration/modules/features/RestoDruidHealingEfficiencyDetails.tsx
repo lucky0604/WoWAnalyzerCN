@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -14,14 +13,15 @@ class RestoDruidHealingEfficiencyDetails extends HealingEfficiencyDetails {
       <Panel
         title={t({ id: 'shared.healingEfficiency.title', message: 'Mana Efficiency' })}
         explanation={
-          <Trans id="restoration.healing_efficiency.explanation">
-            These stats include only your hardcasts - procs and casts due to{' '}
-            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> are not included in this chart. <br />
-            Additional healing enabled by a HoT's mastery stack ARE counted here, but further
-            implications of the cast (like a{' '}
-            <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} /> proc from
-            Swiftmend) are not counted.
-          </Trans>
+          <>
+            {t({ id: 'restoration.healing_efficiency.explanation.part1', message: "These stats include only your hardcasts - procs and casts due to" })}{' '}
+            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />{' '}
+            {t({ id: 'restoration.healing_efficiency.explanation.part2', message: "are not included in this chart." })}
+            <br />
+            {t({ id: 'restoration.healing_efficiency.explanation.part3', message: "Additional healing enabled by a HoT's mastery stack ARE counted here, but further implications of the cast (like a" })}{' '}
+            <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} />{' '}
+            {t({ id: 'restoration.healing_efficiency.explanation.part4', message: "proc from Swiftmend) are not counted." })}
+          </>
         }
         position={120}
       >

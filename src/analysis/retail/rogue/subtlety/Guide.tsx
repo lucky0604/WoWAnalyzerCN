@@ -67,11 +67,23 @@ function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParse
   return (
     <Section title={t({ id: 'rogue.subtlety.guide.sections.coreRotation.title', message: 'Core Rotation' })}>
       <p>
-        <Trans id="rogue.subtlety.guide.sections.coreRotation.summary">
-          Subtlety's core rotation involves generating combo points with builders and spending them on
-          finishers. Cooldowns like <SpellLink spell={TALENTS.SHADOW_BLADES_TALENT} /> and{' '}
-          <SpellLink spell={SPELLS.SHADOW_DANCE} /> should be optimized.
-        </Trans>
+        <>
+          {t({
+            id: 'rogue.subtlety.guide.sections.coreRotation.summary.p1',
+            message:
+              "Subtlety's core rotation involves generating combo points with builders and spending them on finishers. Cooldowns like ",
+          })}
+          <SpellLink spell={TALENTS.SHADOW_BLADES_TALENT} />
+          {t({
+            id: 'rogue.subtlety.guide.sections.coreRotation.summary.p2',
+            message: ' and ',
+          })}
+          <SpellLink spell={SPELLS.SHADOW_DANCE} />
+          {t({
+            id: 'rogue.subtlety.guide.sections.coreRotation.summary.p3',
+            message: ' should be optimized.',
+          })}
+        </>
       </p>
       <HideExplanationsToggle id="hide-explanations-rotation" />
       {modules.shadowDanceGuide.guideSubsection}

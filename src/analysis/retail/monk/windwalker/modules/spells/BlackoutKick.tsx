@@ -2,7 +2,6 @@ import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import { SpellIcon, SpellLink } from 'interface';
 import { t, defineMessage } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, RemoveBuffEvent, RemoveBuffStackEvent } from 'parser/core/Events';
 import { ThresholdStyle } from 'parser/core/ParseResults';
@@ -134,10 +133,22 @@ class BlackoutKick extends Analyzer {
       ));
       addInefficientCastReason(
         event,
-        <Trans id="monk.windwalker.blackout_kick.inefficient_cast">
-          You cast this <SpellLink spell={SPELLS.BLACKOUT_KICK} /> while {oxfordCommaJoin(linkList)}{' '}
-          was available.
-        </Trans>,
+        <>
+          {t({
+            id: 'monk.windwalker.blackout_kick.inefficient_cast.p1',
+            message: 'You cast this ',
+          })}
+          <SpellLink spell={SPELLS.BLACKOUT_KICK} />
+          {t({
+            id: 'monk.windwalker.blackout_kick.inefficient_cast.p2',
+            message: ' while ',
+          })}
+          {oxfordCommaJoin(linkList)}
+          {t({
+            id: 'monk.windwalker.blackout_kick.inefficient_cast.p3',
+            message: ' was available.',
+          })}
+        </>,
       );
     }
 

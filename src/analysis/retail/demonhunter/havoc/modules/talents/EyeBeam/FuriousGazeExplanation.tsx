@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { SpellLink } from 'interface';
 import SPELLS from 'common/SPELLS/demonhunter';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS';
@@ -16,10 +16,7 @@ const DemonicExplanation = ({ lineBreak }: Props) => {
     <>
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       {lineBreak ? <br /> : ' '}
-      <Trans id="demonhunter.havoc.furiousGazeWillGrant">
-        It will grant <SpellLink spell={SPELLS.FURIOUS_GAZE} /> for a short duration when cast due to{' '}
-        <SpellLink spell={TALENTS_DEMON_HUNTER.FURIOUS_GAZE_TALENT} />.
-      </Trans>
+      {t({ id: 'demonhunter.havoc.furiousGazeWillGrant.p1', message: 'It will grant ' })} <SpellLink spell={SPELLS.FURIOUS_GAZE} /> {t({ id: 'demonhunter.havoc.furiousGazeWillGrant.p2', message: ' for a short duration when cast due to' })} {' '} {t({ id: 'demonhunter.havoc.furiousGazeWillGrant.p3', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.FURIOUS_GAZE_TALENT} /> {t({ id: 'demonhunter.havoc.furiousGazeWillGrant.p4', message: '.' })}
     </>
   );
 };

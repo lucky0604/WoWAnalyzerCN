@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import Analyzer from 'parser/core/Analyzer';
 import StatisticBar from 'parser/ui/StatisticBar';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
@@ -29,21 +28,45 @@ class ImmolateUptime extends Analyzer {
 
         {!this.selectedCombatant.hasTalent(TALENTS_WARLOCK.WITHER_TALENT) && (
           <p>
-            <Trans id="warlock.destruction.immolateUptime.maintainImmolate">
-              Maintain <SpellLink spell={SPELLS.IMMOLATE} /> on the boss at all times. This DoT
-              contributes significant damage and enables rotational synergies with{' '}
-              <SpellLink spell={SPELLS.CONFLAGRATE} /> and other Destruction talents.
-            </Trans>
+            <>
+              {t({
+                id: 'warlock.destruction.immolateUptime.maintainImmolate.p1',
+                message: 'Maintain ',
+              })}
+              <SpellLink spell={SPELLS.IMMOLATE} />
+              {t({
+                id: 'warlock.destruction.immolateUptime.maintainImmolate.p2',
+                message:
+                  ' on the boss at all times. This DoT contributes significant damage and enables rotational synergies with ',
+              })}
+              <SpellLink spell={SPELLS.CONFLAGRATE} />
+              {t({
+                id: 'warlock.destruction.immolateUptime.maintainImmolate.p3',
+                message: ' and other Destruction talents.',
+              })}
+            </>
           </p>
         )}
 
         {this.selectedCombatant.hasTalent(TALENTS_WARLOCK.WITHER_TALENT) && (
           <p>
-            <Trans id="warlock.destruction.immolateUptime.maintainWither">
-              When playing Hellcaller, maintain <SpellLink spell={SPELLS.WITHER_DEBUFF} />. This DoT
-              contributes a massive amount of damage and enables rotational synergies with{' '}
-              <SpellLink spell={SPELLS.CONFLAGRATE} /> and other Destruction talents.
-            </Trans>
+            <>
+              {t({
+                id: 'warlock.destruction.immolateUptime.maintainWither.p1',
+                message: 'When playing Hellcaller, maintain ',
+              })}
+              <SpellLink spell={SPELLS.WITHER_DEBUFF} />
+              {t({
+                id: 'warlock.destruction.immolateUptime.maintainWither.p2',
+                message:
+                  '. This DoT contributes a massive amount of damage and enables rotational synergies with ',
+              })}
+              <SpellLink spell={SPELLS.CONFLAGRATE} />
+              {t({
+                id: 'warlock.destruction.immolateUptime.maintainWither.p3',
+                message: ' and other Destruction talents.',
+              })}
+            </>
           </p>
         )}
       </>

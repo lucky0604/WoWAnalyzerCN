@@ -161,25 +161,26 @@ class SuddenAmbush extends Analyzer {
         <>
           <div>
             <strong>
-              <Trans id="druid.feral.sa.consumed_with">
-                Consumed with <SpellLink spell={spell} />
-              </Trans>
+              {t({ id: 'druid.feral.sa.consumed_with', message: 'Consumed with ' })}
+              <SpellLink spell={spell} />
             </strong>
           </div>
           {isRake && (
             <h5 style={{ color: BadColor }}>
-              <Trans id="druid.feral.sa.rake_warning">
-                Sudden Ambush only buffs Rake's initial damage now, not the bleed. Prefer using it
-                on <SpellLink spell={SPELLS.SHRED} /> or <SpellLink spell={SPELLS.SWIPE_CAT} />{' '}
-                instead.
-              </Trans>
+              {t({
+                id: 'druid.feral.sa.rake_warning.p1',
+                message:
+                  "Sudden Ambush only buffs Rake's initial damage now, not the bleed. Prefer using it on ",
+              })}
+              <SpellLink spell={SPELLS.SHRED} />
+              {t({ id: 'druid.feral.sa.rake_warning.p2', message: ' or ' })}
+              <SpellLink spell={SPELLS.SWIPE_CAT} />
+              {t({ id: 'druid.feral.sa.rake_warning.p3', message: ' instead.' })}
             </h5>
           )}
           @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>{' '}
-          <Trans id="druid.feral.moonfire.targetting">
-            targetting{' '}
-            <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
-          </Trans>
+          {t({ id: 'druid.feral.moonfire.targetting', message: 'targetting ' })}
+          <strong>{targetName || t({ id: 'druid.shared.unknown', message: 'unknown' })}</strong>
         </>
       ),
     });
@@ -218,18 +219,34 @@ class SuddenAmbush extends Analyzer {
 
   get guideSubsection(): JSX.Element {
     const explanation = (
-      <p>
-        <Trans id="druid.feral.sa.explanation">
+        <p>
           <strong>
             <SpellLink spell={TALENTS_DRUID.SUDDEN_AMBUSH_TALENT} />
           </strong>{' '}
-          buffs your next <SpellLink spell={SPELLS.SHRED} />, <SpellLink spell={SPELLS.SWIPE_CAT} />
-          , or <SpellLink spell={SPELLS.RAKE} />. You should spend the proc on{' '}
-          <SpellLink spell={SPELLS.SHRED} /> (single target) or{' '}
-          <SpellLink spell={SPELLS.SWIPE_CAT} /> (AoE). Avoid using it on{' '}
-          <SpellLink spell={SPELLS.RAKE} /> as it only buffs the initial damage, not the bleed.
-        </Trans>
-      </p>
+          {t({
+            id: 'druid.feral.sa.explanation.p2',
+            message: 'buffs your next ',
+          })}
+          <SpellLink spell={SPELLS.SHRED} />, <SpellLink spell={SPELLS.SWIPE_CAT} />,{' '}
+          {t({ id: 'druid.feral.sa.explanation.p3', message: 'or ' })}
+          <SpellLink spell={SPELLS.RAKE} />
+          {t({
+            id: 'druid.feral.sa.explanation.p4',
+            message: '. You should spend the proc on ',
+          })}
+          <SpellLink spell={SPELLS.SHRED} />
+          {t({ id: 'druid.feral.sa.explanation.p5', message: ' (single target) or ' })}
+          <SpellLink spell={SPELLS.SWIPE_CAT} />
+          {t({
+            id: 'druid.feral.sa.explanation.p6',
+            message: ' (AoE). Avoid using it on ',
+          })}
+          <SpellLink spell={SPELLS.RAKE} />
+          {t({
+            id: 'druid.feral.sa.explanation.p7',
+            message: ' as it only buffs the initial damage, not the bleed.',
+          })}
+        </p>
     );
 
     const data = (
@@ -265,32 +282,32 @@ class SuddenAmbush extends Analyzer {
               </Trans>
             </p>
             <div>
-              <Trans id="druid.feral.sa.utilization">
-                Buff Utilization: <strong>{formatPercentage(this.saUtil, 1)}%</strong>
-              </Trans>
+              {t({ id: 'druid.feral.sa.utilization', message: 'Buff Utilization: ' })}
+              <strong>{formatPercentage(this.saUtil, 1)}%</strong>
             </div>
             <ul>
               <li>
-                <Trans id="druid.feral.sa.used_procs_count">
-                  <SpellIcon spell={TALENTS_DRUID.SUDDEN_AMBUSH_TALENT} /> Used:{' '}
-                  <strong>{this.saUsed}</strong>
-                </Trans>
+                <SpellIcon spell={TALENTS_DRUID.SUDDEN_AMBUSH_TALENT} />
+                {t({ id: 'druid.feral.sa.used_procs_count', message: ' Used: ' })}
+                <strong>{this.saUsed}</strong>
               </li>
               <li>
-                <Trans id="druid.feral.sa.overwritten_procs_count">
-                  <CrossIcon /> Overwritten: <strong>{this.saOverwritten}</strong>
-                </Trans>
+                <CrossIcon />
+                {t({ id: 'druid.feral.sa.overwritten_procs_count', message: ' Overwritten: ' })}
+                <strong>{this.saOverwritten}</strong>
               </li>
               <li>
-                <Trans id="druid.feral.sa.expired_procs_count">
-                  <UptimeIcon /> Expired: <strong>{this.saExpired}</strong>
-                </Trans>
+                <UptimeIcon />
+                {t({ id: 'druid.feral.sa.expired_procs_count', message: ' Expired: ' })}
+                <strong>{this.saExpired}</strong>
               </li>
               {this.saEnding > 0 && (
                 <li>
-                  <Trans id="druid.feral.sa.ending_active">
-                    Still active at fight end: <strong>{this.saEnding}</strong>
-                  </Trans>
+                  {t({
+                    id: 'druid.feral.sa.ending_active',
+                    message: 'Still active at fight end: ',
+                  })}
+                  <strong>{this.saEnding}</strong>
                 </li>
               )}
             </ul>
@@ -299,25 +316,25 @@ class SuddenAmbush extends Analyzer {
             </div>
             <ul>
               <li>
-                <Trans id="druid.feral.sa.shred_boosted">
-                  <SpellLink spell={SPELLS.SHRED} />: Boosted <strong>{this.boostedShreds}</strong>{' '}
-                  hits for{' '}
-                  <strong>&gt;{this.owner.formatItemDamageDone(this.boostedShredDamage)}</strong>
-                </Trans>
+                <SpellLink spell={SPELLS.SHRED} />:
+                {t({ id: 'druid.feral.sa.shred_boosted', message: ' Boosted ' })}
+                <strong>{this.boostedShreds}</strong>
+                {t({ id: 'druid.feral.sa.shred_boosted.p2', message: ' hits for ' })}
+                <strong>&gt;{this.owner.formatItemDamageDone(this.boostedShredDamage)}</strong>
               </li>
               <li>
-                <Trans id="druid.feral.sa.swipe_boosted">
-                  <SpellLink spell={SPELLS.SWIPE_CAT} />: Boosted{' '}
-                  <strong>{this.boostedSwipes}</strong> hits for{' '}
-                  <strong>&gt;{this.owner.formatItemDamageDone(this.boostedSwipeDamage)}</strong>
-                </Trans>
+                <SpellLink spell={SPELLS.SWIPE_CAT} />:
+                {t({ id: 'druid.feral.sa.swipe_boosted', message: ' Boosted ' })}
+                <strong>{this.boostedSwipes}</strong>
+                {t({ id: 'druid.feral.sa.swipe_boosted.p2', message: ' hits for ' })}
+                <strong>&gt;{this.owner.formatItemDamageDone(this.boostedSwipeDamage)}</strong>
               </li>
               <li>
-                <Trans id="druid.feral.sa.rake_boosted">
-                  <SpellLink spell={SPELLS.RAKE} />: Boosted <strong>{this.boostedRakes}</strong>{' '}
-                  hits for{' '}
-                  <strong>&gt;{this.owner.formatItemDamageDone(this.boostedRakeDamage)}</strong>
-                </Trans>
+                <SpellLink spell={SPELLS.RAKE} />:
+                {t({ id: 'druid.feral.sa.rake_boosted', message: ' Boosted ' })}
+                <strong>{this.boostedRakes}</strong>
+                {t({ id: 'druid.feral.sa.rake_boosted.p2', message: ' hits for ' })}
+                <strong>&gt;{this.owner.formatItemDamageDone(this.boostedRakeDamage)}</strong>
               </li>
             </ul>
           </>

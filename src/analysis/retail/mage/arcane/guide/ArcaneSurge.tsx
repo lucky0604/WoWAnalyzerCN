@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
@@ -154,13 +155,13 @@ class ArcaneSurgeGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="mage.arcane.arcaneSurge.guide.explanation1">
-            <b>{arcaneSurge}</b> is your primary damage cooldown and will essentially convert all of
-            your mana into damage and then gives you a massive damage and mana regeneration buff that
-            lasts for 15 seconds. There is not much to play around with this cooldown, but casting it
-            does begin your major burn phase, so you should ensure you are ready to execute that burn
-            phase uninterupted.
-          </Trans>
+          <>
+            <strong>{arcaneSurge}</strong>
+            {t({
+              id: 'mage.arcane.arcaneSurge.guide.explanation1.p1',
+              message: ' is your primary damage cooldown and will essentially convert all of your mana into damage and then gives you a massive damage and mana regeneration buff that lasts for 15 seconds. There is not much to play around with this cooldown, but casting it does begin your major burn phase, so you should ensure you are ready to execute that burn phase uninterupted.',
+            })}
+          </>
         </p>
         {this.isSpellslinger && (
           <p>

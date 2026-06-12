@@ -1,6 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import ChainHealNormalizer from '../../normalizers/ChainHealNormalizer';
 import talents from 'common/TALENTS/shaman';
 import UnleashLife from './UnleashLife';
@@ -131,21 +130,34 @@ class AncestralReach extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <Trans id="shaman.restoration.ar.total_tooltip">
-              <strong>{formatNumber(this.totalHealing)}</strong> total healing
-            </Trans>
+            <strong>
+              {t({
+                id: 'shaman.restoration.ar.total_tooltip',
+                message: '{0} total healing',
+                values: { 0: formatNumber(this.totalHealing) },
+              })}
+            </strong>
             <ul>
               <li>
-                <Trans id="shaman.restoration.ar.jumps">
-                  <strong>{formatNumber(this.healing)}</strong> healing from extra jumps (
-                  {this.extraJumps})
-                </Trans>
+                <strong>
+                  {t({
+                    id: 'shaman.restoration.ar.jumps',
+                    message: '{0} healing from extra jumps ({1})',
+                    values: { 0: formatNumber(this.healing), 1: this.extraJumps },
+                  })}
+                </strong>
               </li>
               <li>
-                <Trans id="shaman.restoration.ar.bonus">
-                  <strong>{formatNumber(this.bonusHealing)}</strong> extra healing from the{' '}
-                  {formatPercentage(ANCESTRAL_REACH_INCREASE)}% increase
-                </Trans>
+                <strong>
+                  {t({
+                    id: 'shaman.restoration.ar.bonus',
+                    message: '{0} extra healing from the {1}% increase',
+                    values: {
+                      0: formatNumber(this.bonusHealing),
+                      1: formatPercentage(ANCESTRAL_REACH_INCREASE),
+                    },
+                  })}
+                </strong>
               </li>
             </ul>
           </>

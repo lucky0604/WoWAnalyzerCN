@@ -16,6 +16,7 @@ import {
   PERFECTLY_BALANCED_GLAIVE_SCALING_FRACTURE,
   CYCLE_OF_BINDING_SIGIL_CDR,
 } from 'analysis/retail/demonhunter/vengeance/constants';
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 
 class Abilities extends SharedAbilities {
@@ -34,11 +35,13 @@ class Abilities extends SharedAbilities {
           suggestion: true,
           recommendedEfficiency: 0.9,
           extraSuggestion: (
-            <Trans id="guide.demonhunter.vengeance.abilities.immolationAuraSuggestion">
-              This is a great Fury filler spell. Try to always cast it on cooldown, specially when
-              using the <SpellLink spell={TALENTS.FALLOUT_TALENT} /> talent in order to maximize
-              your <SpellLink spell={SPELLS.SOUL_FRAGMENT} /> generation.
-            </Trans>
+            <>
+              {t({ id: 'guide.demonhunter.vengeance.abilities.immolationAuraSuggestion.p1', message: 'This is a great Fury filler spell. Try to always cast it on cooldown, specially when using the ' })}
+              <SpellLink spell={TALENTS.FALLOUT_TALENT} />
+              {t({ id: 'guide.demonhunter.vengeance.abilities.immolationAuraSuggestion.p2', message: ' talent in order to maximize your ' })}
+              <SpellLink spell={SPELLS.SOUL_FRAGMENT} />
+              {t({ id: 'guide.demonhunter.vengeance.abilities.immolationAuraSuggestion.p3', message: ' generation.' })}
+            </>
           ),
         },
         damageSpellIds: [
@@ -252,11 +255,11 @@ class Abilities extends SharedAbilities {
           suggestion: true,
           recommendedEfficiency: 0.8,
           extraSuggestion: (
-            <Trans id="guide.demonhunter.vengeance.abilities.soulCarverSuggestion">
-              The only time you should delay casting{' '}
-              <SpellLink spell={TALENTS.SOUL_CARVER_TALENT} /> is when you're expecting are
-              preparing for a burst window.
-            </Trans>
+            <>
+              {t({ id: 'guide.demonhunter.vengeance.abilities.soulCarverSuggestion.p1', message: "The only time you should delay casting " })}
+              <SpellLink spell={TALENTS.SOUL_CARVER_TALENT} />
+              {t({ id: 'guide.demonhunter.vengeance.abilities.soulCarverSuggestion.p2', message: " is when you're expecting are preparing for a burst window." })}
+            </>
           ),
         },
       },
@@ -277,11 +280,11 @@ class Abilities extends SharedAbilities {
           suggestion: true,
           recommendedEfficiency: 0.9,
           extraSuggestion: (
-            <Trans id="guide.demonhunter.vengeance.abilities.sigilOfSpiteSuggestion">
-              The only time you should delay casting{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.SIGIL_OF_SPITE_TALENT} /> is when you're
-              expecting adds to spawn soon.
-            </Trans>
+            <>
+              {t({ id: 'guide.demonhunter.vengeance.abilities.sigilOfSpiteSuggestion.p1', message: "The only time you should delay casting " })}
+              <SpellLink spell={TALENTS_DEMON_HUNTER.SIGIL_OF_SPITE_TALENT} />
+              {t({ id: 'guide.demonhunter.vengeance.abilities.sigilOfSpiteSuggestion.p2', message: " is when you're expecting adds to spawn soon." })}
+            </>
           ),
         },
       },

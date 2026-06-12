@@ -230,12 +230,13 @@ class Swiftmend extends Analyzer {
     }
 
     const baseText = this.hasVi ? (
-      <Trans id="restoration.swiftmend.base_text_vi">
-        is our spot heal that extends all HoTs on its target due to{' '}
-        <SpellLink spell={TALENTS_DRUID.VERDANT_INFUSION_TALENT} />. Try to cast on your{' '}
-        <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} /> target to reduce manual Lifebloom
-        re-applications.
-      </Trans>
+      <>
+        {t({ id: 'restoration.swiftmend.base_text_vi.part1', message: 'is our spot heal that extends all HoTs on its target due to' })}{' '}
+        <SpellLink spell={TALENTS_DRUID.VERDANT_INFUSION_TALENT} />.{' '}
+        {t({ id: 'restoration.swiftmend.base_text_vi.part2', message: 'Try to cast on your' })}{' '}
+        <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />{' '}
+        {t({ id: 'restoration.swiftmend.base_text_vi.part3', message: 'target to reduce manual Lifebloom re-applications.' })}
+      </>
     ) : (
       <Trans id="restoration.swiftmend.base_text_no_vi">
         is our spot heal that removes a HoT on its target, slightly hurting overall throughput. Aim

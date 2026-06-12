@@ -163,29 +163,124 @@ class HotStreakGuide extends Analyzer {
     const ignite = <SpellLink spell={SPELLS.IGNITE} />;
 
     const explanation = (
-      <Trans id="mage.fire.hotStreakGuide.explanation">
-        <b>{hotStreak}</b> makes your next {pyroblast} or {flamestrike} instant cast, making it a
-        large contributor to your direct damage and ticking {ignite} damage. The majority of your
-        rotation revolves around getting as many of these procs as possible.
+      <>
+        <strong>{hotStreak}</strong>
+        {t({
+          id: 'mage.fire.hotStreakGuide.explanation.p1',
+          message: ' makes your next ',
+        })}
+        {pyroblast}
+        {t({
+          id: 'mage.fire.hotStreakGuide.explanation.p2',
+          message: ' or ',
+        })}
+        {flamestrike}
+        {t({
+          id: 'mage.fire.hotStreakGuide.explanation.p3',
+          message: ' instant cast, making it a large contributor to your direct damage and ticking ',
+        })}
+        {ignite}
+        {t({
+          id: 'mage.fire.hotStreakGuide.explanation.p4',
+          message: ' damage. The majority of your rotation revolves around getting as many of these procs as possible.',
+        })}
         <ul>
-          <li>Use your procs and don't let them expire.</li>
           <li>
-            You can't generate {heatingUp} while you have {hotStreak}, so spend {hotStreak} quickly
-            to avoid wasted crits.
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li1',
+              message: "Use your procs and don't let them expire.",
+            })}
           </li>
           <li>
-            When you have {hotStreak} and are not guaranteed to crit, you should cast{' '}
-            {this.isFrostfire ? frostfireBolt : fireball} immediately before your instant{' '}
-            {pyroblast} to increase the chance of getting another {heatingUp} or {hotStreak}.
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li2',
+              message: "You can't generate ",
+            })}
+            {heatingUp}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li2a',
+              message: ' while you have ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li2b',
+              message: ', so spend ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li2c',
+              message: ' quickly to avoid wasted crits.',
+            })}
           </li>
           <li>
-            If you have {hotStreak} and are guaranteed to crit via {combustion} or {firestarter} you
-            can press {pyroblast} twice at the end of your{' '}
-            {this.isFrostfire ? frostfireBolt : fireball} cast since both spells will crit and
-            immediately give you another {hotStreak}.
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li3',
+              message: 'When you have ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li3a',
+              message: ' and are not guaranteed to crit, you should cast ',
+            })}
+            {this.isFrostfire ? frostfireBolt : fireball}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li3b',
+              message: ' immediately before your instant ',
+            })}
+            {pyroblast}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li3c',
+              message: ' to increase the chance of getting another ',
+            })}
+            {heatingUp}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li3d',
+              message: ' or ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li3e',
+              message: '.',
+            })}
+          </li>
+          <li>
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li4',
+              message: 'If you have ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li4a',
+              message: ' and are guaranteed to crit via ',
+            })}
+            {combustion}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li4b',
+              message: ' or ',
+            })}
+            {firestarter}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li4c',
+              message: ' you can press ',
+            })}
+            {pyroblast}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li4d',
+              message: ' twice at the end of your ',
+            })}
+            {this.isFrostfire ? frostfireBolt : fireball}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li4e',
+              message: ' cast since both spells will crit and immediately give you another ',
+            })}
+            {hotStreak}
+            {t({
+              id: 'mage.fire.hotStreakGuide.explanation.li4f',
+              message: '.',
+            })}
           </li>
         </ul>
-      </Trans>
+      </>
     );
 
     return (

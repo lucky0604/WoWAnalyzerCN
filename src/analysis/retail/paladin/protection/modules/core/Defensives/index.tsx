@@ -34,21 +34,21 @@ const MajorDefensives = () => {
           </p>
           <ol>
             <li>
-              <Trans id="paladin.protection.defensives.coverSpikes">
-                You should cover as many{' '}
+              <>
+                {t({ id: 'paladin.protection.defensives.coverSpikes.p1', message: 'You should cover as many ' })}
                 <TooltipElement
                   content={
-                    <Trans id="paladin.protection.defensives.damageSpikeTooltip">
-                      A <strong>damage spike</strong> is when you take much more damage than normal
-                      in a small amount of time. These are visible on the Timeline below as tall
-                      spikes.
-                    </Trans>
+                    <>
+                      {t({ id: 'paladin.protection.defensives.damageSpikeTooltip.p1', message: 'A ' })}
+                      <strong>{t({ id: 'paladin.protection.defensives.damageSpikeTooltip.damageSpike', message: 'damage spike' })}</strong>
+                      {t({ id: 'paladin.protection.defensives.damageSpikeTooltip.p2', message: ' is when you take much more damage than normal in a small amount of time. These are visible on the Timeline below as tall spikes.' })}
+                    </>
                   }
                 >
-                  damage spikes
-                </TooltipElement>{' '}
-                as possible, and use any left over to cover periods of heavy, consistent damage.
-              </Trans>
+                  {t({ id: 'paladin.protection.defensives.coverSpikes.damageSpikes', message: 'damage spikes' })}
+                </TooltipElement>
+                {t({ id: 'paladin.protection.defensives.coverSpikes.p2', message: ' as possible, and use any left over to cover periods of heavy, consistent damage.' })}
+              </>
               <br />
               <small>
                 <Trans id="paladin.protection.defensives.spikeHighlight">

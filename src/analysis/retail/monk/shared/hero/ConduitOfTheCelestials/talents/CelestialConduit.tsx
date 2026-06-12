@@ -257,10 +257,11 @@ class CelestialConduit extends Analyzer {
       cooldownPerfs.push(perf);
       cooldownItems.push({
         label: (
-          <Trans id="monk.shared.cc.cooldown_on_cast">
-            <SpellLink spell={spellId} /> on cooldown when casting{' '}
+          <>
+            <SpellLink spell={spellId} />
+            {t({ id: 'monk.shared.cc.cooldown_on_cast.p1', message: ' on cooldown when casting ' })}
             <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />
-          </Trans>
+          </>
         ),
         result: (
           <>
@@ -328,14 +329,15 @@ class CelestialConduit extends Analyzer {
           </strong>
         </p>
         <p>
-          <Trans id="monk.shared.cc.explanation">
-            Before casting <SpellLink spell={currentSpell} />, make sure that all spells reduced by{' '}
-            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} /> are on cooldown so
-            that the extra CDR granted when casting{' '}
-            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} /> is not wasted. Additionally, make
-            sure to never cancel the spell and to hit at least 5 targets in order to get the maximum
-            healing/damage buff (up to 30%).
-          </Trans>
+          <>
+            {t({ id: 'monk.shared.cc.explanation.p1', message: 'Before casting ' })}
+            <SpellLink spell={currentSpell} />
+            {t({ id: 'monk.shared.cc.explanation.p2', message: ', make sure that all spells reduced by ' })}
+            <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />
+            {t({ id: 'monk.shared.cc.explanation.p3', message: ' are on cooldown so that the extra CDR granted when casting ' })}
+            <SpellLink spell={TALENTS_MONK.UNITY_WITHIN_TALENT} />
+            {t({ id: 'monk.shared.cc.explanation.p4', message: ' is not wasted. Additionally, make sure to never cancel the spell and to hit at least 5 targets in order to get the maximum healing/damage buff (up to 30%).' })}
+          </>
         </p>
       </>
     );

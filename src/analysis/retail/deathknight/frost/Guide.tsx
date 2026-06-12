@@ -24,27 +24,38 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           {modules.runeGraph.plot}
         </SubSection>
         <SubSection title={t({ id: 'deathknight.frost.guide.sections.resources.runicPower.title', message: 'Runic Power' })}>
-          <Trans id="deathknight.frost.guide.sections.resources.runicPower.summary">
-            Runic Power is builder/spender resource for Death Knights. For Frost Death Knights, it
-            is linked to Runes through <SpellLink spell={spells.RUNIC_EMPOWERMENT} />. Spending
-            Runes grants Runic Power, and spending Runic Power can recover Runes. This makes it
-            important to not waste Runic Power, both so you can maximize spender casts and to get
-            more casts of your Rune based abilities. However, because Rune spenders are a higher
-            priority than Runic Power spenders, it is okay to waste Runic Power if you are using the
-            GCD on a Rune spender instead.
-          </Trans>
+          {t({
+            id: 'deathknight.frost.guide.sections.resources.runicPower.summary',
+            message:
+              'Runic Power is builder/spender resource for Death Knights. For Frost Death Knights, it is linked to Runes through ',
+          })}
+          <SpellLink spell={spells.RUNIC_EMPOWERMENT} />
+          {t({
+            id: 'deathknight.frost.guide.sections.resources.runicPower.summary.p2',
+            message:
+              '. Spending Runes grants Runic Power, and spending Runic Power can recover Runes. This makes it important to not waste Runic Power, both so you can maximize spender casts and to get more casts of your Rune based abilities. However, because Rune spenders are a higher priority than Runic Power spenders, it is okay to waste Runic Power if you are using the GCD on a Rune spender instead.',
+          })}
           {modules.runicPowerGraph.plot}
         </SubSection>
         {info.combatant.hasTalent(talents.BREATH_OF_SINDRAGOSA_TALENT) && (
           <SubSection title={t({ id: 'deathknight.frost.guide.sections.resources.cooldowns.title', message: 'Resource Cooldowns' })}>
-            <Trans id="deathknight.frost.guide.sections.resources.cooldowns.summary">
-              Getting the most out of resource cooldowns while playing{' '}
-              <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
-              is crucial to achieving good performance with this build. You want to use your
-              resource cooldowns as often as possible to maximize how many resources you can put
-              into a single <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} /> cast without
-              wasting any of the resources granted.
-            </Trans>
+            {t({
+              id: 'deathknight.frost.guide.sections.resources.cooldowns.summary',
+              message:
+                'Getting the most out of resource cooldowns while playing ',
+            })}
+            <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
+            {t({
+              id: 'deathknight.frost.guide.sections.resources.cooldowns.summary.p2',
+              message:
+                ' is crucial to achieving good performance with this build. You want to use your resource cooldowns as often as possible to maximize how many resources you can put into a single ',
+            })}
+            <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
+            {t({
+              id: 'deathknight.frost.guide.sections.resources.cooldowns.summary.p3',
+              message:
+                ' cast without wasting any of the resources granted.',
+            })}
             {info.combatant.hasTalent(talents.EMPOWER_RUNE_WEAPON_TALENT) &&
               modules.empowerRuneWeapon.guideCastBreakdown}
           </SubSection>

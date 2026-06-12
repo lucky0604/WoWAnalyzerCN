@@ -12,7 +12,6 @@ import { ChecklistUsageInfo, SpellUse, UsageInfo } from 'parser/core/SpellUsage/
 import MajorCooldown, { CooldownTrigger } from 'parser/core/MajorCooldowns/MajorCooldown';
 import { isDefined } from 'common/typeGuards';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 interface SoulCarverCooldownCast extends CooldownTrigger<CastEvent> {
   hasFrailtyDebuff: boolean;
@@ -38,12 +37,8 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
   description() {
     return (
       <>
-        <Trans id="guide.demonhunter.vengeance.soulCarver.description">
-          <strong>
-            <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />
-          </strong>{' '}
-          is a burst of damage that also generates a decent chunk of Soul Fragments.
-        </Trans>
+        <strong><SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} /></strong>
+        {t({ id: 'guide.demonhunter.vengeance.soulCarver.description.p1', message: ' is a burst of damage that also generates a decent chunk of Soul Fragments.' })}
         <VulnerabilityExplanation />
         <FieryDemiseExplanation />
       </>
@@ -135,19 +130,20 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
         performance: QualitativePerformance.Fail,
         summary: (
           <div>
-            <Trans id="demonhunter.vengeance.soulCarver.fieryBrandNotApplied">
-              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> not applied to target
-            </Trans>
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.fieryBrandNotApplied.p1', message: ' not applied to target' })}
           </div>
         ),
         details: (
           <div>
-            <Trans id="demonhunter.vengeance.soulCarver.fieryBrandNotAppliedDetail">
-              <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> not applied to target.
-              Make sure to apply <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />{' '}
-              before casting <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} /> so that
-              you benefit from <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_DEMISE_TALENT} />.
-            </Trans>
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.fieryBrandNotAppliedDetail.p1', message: ' not applied to target. Make sure to apply ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.fieryBrandNotAppliedDetail.p2', message: ' before casting ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.fieryBrandNotAppliedDetail.p3', message: ' so that you benefit from ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_DEMISE_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.fieryBrandNotAppliedDetail.p4', message: '.' })}
           </div>
         ),
       };
@@ -156,16 +152,14 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
       performance: QualitativePerformance.Perfect,
       summary: (
         <div>
-          <Trans id="demonhunter.vengeance.soulCarver.fieryBrandApplied">
-            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> applied to target
-          </Trans>
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.fieryBrandApplied.p1', message: ' applied to target' })}
         </div>
       ),
       details: (
         <div>
-          <Trans id="demonhunter.vengeance.soulCarver.fieryBrandAppliedDetail">
-            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} /> applied to target.
-          </Trans>
+            <SpellLink spell={TALENTS_DEMON_HUNTER.FIERY_BRAND_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.fieryBrandAppliedDetail.p1', message: ' applied to target.' })}
         </div>
       ),
     };
@@ -180,18 +174,18 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
         performance: QualitativePerformance.Fail,
         summary: (
           <div>
-            <Trans id="demonhunter.vengeance.soulCarver.frailtyNotApplied">
-              <SpellLink spell={SPELLS.FRAILTY} /> not applied to target
-            </Trans>
+            <SpellLink spell={SPELLS.FRAILTY} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.frailtyNotApplied.p1', message: ' not applied to target' })}
           </div>
         ),
         details: (
           <div>
-            <Trans id="demonhunter.vengeance.soulCarver.frailtyNotAppliedDetail">
-              <SpellLink spell={SPELLS.FRAILTY} /> not applied to target. Make sure to apply{' '}
-              <SpellLink spell={SPELLS.FRAILTY} /> before casting{' '}
-              <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />.
-            </Trans>
+            <SpellLink spell={SPELLS.FRAILTY} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.frailtyNotAppliedDetail.p1', message: ' not applied to target. Make sure to apply ' })}
+            <SpellLink spell={SPELLS.FRAILTY} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.frailtyNotAppliedDetail.p2', message: ' before casting ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.SOUL_CARVER_TALENT} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.frailtyNotAppliedDetail.p3', message: '.' })}
           </div>
         ),
       };
@@ -201,16 +195,14 @@ export default class SoulCarver extends MajorCooldown<SoulCarverCooldownCast> {
       performance: QualitativePerformance.Perfect,
       summary: (
         <div>
-          <Trans id="demonhunter.vengeance.soulCarver.frailtyApplied">
-            <SpellLink spell={SPELLS.FRAILTY} /> applied to target
-          </Trans>
+            <SpellLink spell={SPELLS.FRAILTY} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.frailtyApplied.p1', message: ' applied to target' })}
         </div>
       ),
       details: (
         <div>
-          <Trans id="demonhunter.vengeance.soulCarver.frailtyAppliedDetail">
-            <SpellLink spell={SPELLS.FRAILTY} /> applied to target.
-          </Trans>
+            <SpellLink spell={SPELLS.FRAILTY} />
+            {t({ id: 'demonhunter.vengeance.soulCarver.frailtyAppliedDetail.p1', message: ' applied to target.' })}
         </div>
       ),
     };

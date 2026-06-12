@@ -113,14 +113,12 @@ class Innervate extends Analyzer {
   get guideCastBreakdown() {
     const explanation = (
       <p>
-        <Trans id="restoration.innervate.explanation">
+        <>
           <strong>
             <SpellLink spell={SPELLS.INNERVATE} />
           </strong>{' '}
-          is best used during your ramp, or any time when you expect to spam cast. Typically it
-          should be used as soon as it's available. Remember to spam cast expensive spells to make
-          the most of it.
-        </Trans>
+          {t({ id: 'restoration.innervate.explanation', message: "is best used during your ramp, or any time when you expect to spam cast. Typically it should be used as soon as it's available. Remember to spam cast expensive spells to make the most of it." })}
+        </>
       </p>
     );
 

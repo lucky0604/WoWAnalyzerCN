@@ -2,7 +2,6 @@ import type { JSX } from 'react';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
@@ -78,13 +77,16 @@ class TouchOfKarma extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="monk.windwalker.karma.explanation">
-          <b>
+        <>
+          <strong>
             <SpellLink spell={SPELLS.TOUCH_OF_KARMA_CAST} />
-          </b>{' '}
-          is both a defensive and offensive cooldown, although it is mostly used offensively. It
-          should be used any time enough damage will be taken to break the shield.
-        </Trans>
+          </strong>{' '}
+          {t({
+            id: 'monk.windwalker.karma.explanation',
+            message:
+              'is both a defensive and offensive cooldown, although it is mostly used offensively. It should be used any time enough damage will be taken to break the shield.',
+          })}
+        </>
       </p>
     );
 
@@ -92,9 +94,11 @@ class TouchOfKarma extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="monk.windwalker.karma.efficiency">
-              <SpellLink spell={SPELLS.TOUCH_OF_KARMA_CAST} /> cast efficiency
-            </Trans>
+            <SpellLink spell={SPELLS.TOUCH_OF_KARMA_CAST} />{' '}
+            {t({
+              id: 'monk.windwalker.karma.efficiency',
+              message: 'cast efficiency',
+            })}
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>

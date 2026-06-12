@@ -140,22 +140,32 @@ class Flourish extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="restoration.flourish.explanation_p1">
-            <strong>
-              <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} />
-            </strong>{' '}
-            extends your active HoTs during <SpellLink spell={SPELLS.TRANQUILITY_CAST} />. The value
-            in raid depends heavily on what HoTs are already out when Tranquility starts and during
-            its ticks, so ramping with Rejuvenation and Wild Growth first is still important.
-          </Trans>
+          <strong>
+            <SpellLink spell={TALENTS_DRUID.FLOURISH_TALENT} />
+          </strong>{' '}
+          {t({
+            id: 'restoration.flourish.explanation_p1',
+            message: 'extends your active HoTs during ',
+          })}
+          <SpellLink spell={SPELLS.TRANQUILITY_CAST} />
+          {t({
+            id: 'restoration.flourish.explanation_p1_2',
+            message:
+              '. The value in raid depends heavily on what HoTs are already out when Tranquility starts and during its ticks, so ramping with Rejuvenation and Wild Growth first is still important.',
+          })}
         </p>
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
           <p>
-            <Trans id="restoration.flourish.explanation_p2">
-              When pairing this with <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />, the Convoke
-              should ALWAYS be cast first. This is because the Convoke will produce many HoTs which
-              can be extended.
-            </Trans>
+            {t({
+              id: 'restoration.flourish.explanation_p2',
+              message: 'When pairing this with ',
+            })}
+            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
+            {t({
+              id: 'restoration.flourish.explanation_p2_2',
+              message:
+                ', the Convoke should ALWAYS be cast first. This is because the Convoke will produce many HoTs which can be extended.',
+            })}
           </p>
         )}
       </>
@@ -188,9 +198,10 @@ class Flourish extends Analyzer {
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
             label: (
-              <Trans id="restoration.flourish.wg_ramp">
-                <SpellLink spell={SPELLS.WILD_GROWTH} /> ramp
-              </Trans>
+              <>
+                <SpellLink spell={SPELLS.WILD_GROWTH} />{' '}
+                {t({ id: 'restoration.flourish.wg_ramp', message: 'ramp' })}
+              </>
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
             details: (
@@ -199,9 +210,10 @@ class Flourish extends Analyzer {
           });
           checklistItems.push({
             label: (
-              <Trans id="restoration.flourish.rejuv_ramp">
-                <SpellLink spell={SPELLS.REJUVENATION} /> ramp
-              </Trans>
+              <>
+                <SpellLink spell={SPELLS.REJUVENATION} />{' '}
+                {t({ id: 'restoration.flourish.rejuv_ramp', message: 'ramp' })}
+              </>
             ),
             result: <PassFailCheckmark pass={rejuvRamp} />,
             details: (
@@ -244,38 +256,50 @@ class Flourish extends Analyzer {
             {this.selectedCombatant.hasTalent(TALENTS_DRUID.CENARIUS_GUIDANCE_TALENT) && (
               <>
                 <br />
-                <Trans id="restoration.flourish.tooltip_p2">
-                  This value does not include Flourish extension procs from{' '}
-                  <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> tranquility procs.
-                  <br />
-                  Excluded Convoke Flourish extension healing:{' '}
-                  <strong>
-                    {this.owner.formatItemHealingDone(
-                      this.convokeSpirits.totalFlourishExtensionHealing,
-                    )}
-                  </strong>
-                </Trans>
+                {t({
+                  id: 'restoration.flourish.tooltip_p2',
+                  message: 'This value does not include Flourish extension procs from ',
+                })}
+                <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />
+                {t({
+                  id: 'restoration.flourish.tooltip_p2_2',
+                  message: ' tranquility procs.',
+                })}
+                <br />
+                {t({
+                  id: 'restoration.flourish.tooltip_p2_3',
+                  message: 'Excluded Convoke Flourish extension healing: ',
+                })}
+                <strong>
+                  {this.owner.formatItemHealingDone(
+                    this.convokeSpirits.totalFlourishExtensionHealing,
+                  )}
+                </strong>
               </>
             )}
             <ul>
               <li>
-                <Trans id="restoration.flourish.tooltip_extension">
-                  Extension:{' '}
-                  <strong>{this.owner.formatItemHealingDone(this.totalExtensionHealing)}</strong>
-                </Trans>
+                {t({
+                  id: 'restoration.flourish.tooltip_extension',
+                  message: 'Extension: ',
+                })}
+                <strong>{this.owner.formatItemHealingDone(this.totalExtensionHealing)}</strong>
               </li>
               <li>
-                <Trans id="restoration.flourish.tooltip_wg_extended">
-                  Wild Growths Casts Extended:{' '}
-                  <strong>
-                    {this.wgsExtended} / {this.hardcastCount}
-                  </strong>
-                </Trans>
+                {t({
+                  id: 'restoration.flourish.tooltip_wg_extended',
+                  message: 'Wild Growths Casts Extended: ',
+                })}
+                <strong>
+                  {this.wgsExtended} / {this.hardcastCount}
+                </strong>
               </li>
               <li>
-                <Trans id="restoration.flourish.tooltip_avg_healing">
-                  Average Healing per Cast: <strong>{formatNumber(this.healingPerCast)}</strong>
-                </Trans>
+                {t({
+                  id: 'restoration.flourish.tooltip_avg_healing',
+                  message: 'Average Healing per Cast: ',
+                })}
+                <strong>{formatNumber(this.healingPerCast)}</strong>
               </li>
             </ul>
             <br />

@@ -127,9 +127,10 @@ class CastBehavior extends Analyzer {
         <Statistic ultrawide size="flexible">
           <div className="pad">
             <label>
-              <Trans id="paladin.holy.modules.castBehavior.infusionOfLightUsage">
-                <SpellLink spell={SPELLS.INFUSION_OF_LIGHT} /> usage
-              </Trans>
+              <>
+                <SpellLink spell={SPELLS.INFUSION_OF_LIGHT} />
+                {t({ id: 'paladin.holy.modules.castBehavior.infusionOfLightUsage', message: ' usage' })}
+              </>
             </label>
 
             {this.iolCastRatioChart()}

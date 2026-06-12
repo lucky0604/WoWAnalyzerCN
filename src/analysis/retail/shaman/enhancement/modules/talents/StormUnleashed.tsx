@@ -18,6 +18,7 @@ import { EnhancementEventLinks } from '../../constants';
 import { SubSection } from 'interface/guide';
 import BuffUptimeBar from 'interface/guide/components/BuffUptimeBar';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 class StormUnleashed extends Analyzer {
   totalProcs = 0;
@@ -96,19 +97,10 @@ class StormUnleashed extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="shaman.enhancement.stormunleashed.explanation1">
-            <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> allows you to cast{' '}
-            <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> without triggering it's cooldown, and{' '}
-            while <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> is already on cooldown.
-          </Trans>
+          <><SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} />{t({ id: 'shaman.enhancement.stormunleashed.explanation1.p1', message: ' allows you to cast ' })}<SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} />{t({ id: 'shaman.enhancement.stormunleashed.explanation1.p2', message: " without triggering it's cooldown, and while " })}<SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} />{t({ id: 'shaman.enhancement.stormunleashed.explanation1.p3', message: ' is already on cooldown.' })}</>
         </p>
         <p>
-          <Trans id="shaman.enhancement.stormunleashed.explanation2">
-            <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> is a significant damage source in
-            single target, so it's important to avoid unnecessarily wasting potential casts by holding
-            on to the <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> proc for too long, and either
-            letting it expire or be overwritten.
-          </Trans>
+          <><SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} />{t({ id: 'shaman.enhancement.stormunleashed.explanation2.p1', message: ' is a significant damage source in single target, so it\'s important to avoid unnecessarily wasting potential casts by holding on to the ' })}<SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} />{t({ id: 'shaman.enhancement.stormunleashed.explanation2.p2', message: ' proc for too long, and either letting it expire or be overwritten.' })}</>
         </p>
       </>
     );
@@ -117,10 +109,7 @@ class StormUnleashed extends Analyzer {
       <>
         <SubSection title={<SpellLink spell={SPELLS.CRASH_LIGHTNING_BUFF} />}>
           <p>
-            <Trans id="shaman.enhancement.stormunleashed.graph_description">
-              The graph below shows your uptime and stack count of{' '}
-              <SpellLink spell={SPELLS.CRASH_LIGHTNING_BUFF} />.
-            </Trans>
+            <>{t({ id: 'shaman.enhancement.stormunleashed.graph_description.p1', message: 'The graph below shows your uptime and stack count of ' })}<SpellLink spell={SPELLS.CRASH_LIGHTNING_BUFF} />{t({ id: 'shaman.enhancement.stormunleashed.graph_description.p2', message: '.' })}</>
           </p>
           <BuffUptimeBar
             spell={SPELLS.CRASH_LIGHTNING_BUFF}
@@ -133,9 +122,7 @@ class StormUnleashed extends Analyzer {
             <>
               <hr />
               <SubSection>
-                <Trans id="shaman.enhancement.stormunleashed.wasted_procs">
-                  You wasted <SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} /> procs:
-                </Trans>
+                <>{t({ id: 'shaman.enhancement.stormunleashed.wasted_procs.p1', message: 'You wasted ' })}<SpellLink spell={SPELLS.STORM_UNLEASHED_BUFF} />{t({ id: 'shaman.enhancement.stormunleashed.wasted_procs.p2', message: ' procs:' })}</>
                 <ul>
                   {this.wastedRefreshes > 0 && (
                     <li>

@@ -73,16 +73,10 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="demonhunter.havoc.sections.core.activeTime.summary">
-            <b>
-              Continuously casting throughout an encounter is the single most important thing for
-              achieving good DPS.
-            </b>
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            <br />
-            Some fights have unavoidable downtime due to phase transitions and the like, so in these
-            cases 0% downtime will not be possible - do the best you can.
-          </Trans>
+          <b>{t({ id: 'demonhunter.havoc.sections.core.activeTime.summary.bold', message: 'Continuously casting throughout an encounter is the single most important thing for achieving good DPS.' })}</b>
+          {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+          <br />
+          {t({ id: 'demonhunter.havoc.sections.core.activeTime.summary.rest', message: 'Some fights have unavoidable downtime due to phase transitions and the like, so in these cases 0% downtime will not be possible - do the best you can.' })}
         </p>
         <p>
           {t({ id: 'demonhunter.havoc.sections.core.activeTime.value', message: 'Active Time:' })}{' '}
@@ -113,19 +107,18 @@ function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       {info.combatant.hasTalent(TALENTS.ESSENCE_BREAK_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="demonhunter.havoc.sections.cooldowns.essenceBreak.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
-            </Trans>
+            {t({ id: 'demonhunter.havoc.sections.cooldowns.essenceBreak.soon.p1', message: 'Per-cast breakdown for ' })}
+            <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} />
+            {t({ id: 'demonhunter.havoc.sections.cooldowns.essenceBreak.soon.p2', message: ' coming soon!' })}
           </div>,
           <></>,
         )}
       {info.combatant.hasTalent(TALENTS.ART_OF_THE_GLAIVE_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ART_OF_THE_GLAIVE_TALENT} /> coming
-              soon!
-            </Trans>
+            {t({ id: 'demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon.p1', message: 'Per-cast breakdown for ' })}
+            <SpellLink spell={TALENTS.ART_OF_THE_GLAIVE_TALENT} />
+            {t({ id: 'demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon.p2', message: ' coming soon!' })}
           </div>,
           <></>,
         )}
@@ -152,9 +145,9 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       {info.combatant.hasTalent(TALENTS.ESSENCE_BREAK_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="demonhunter.havoc.sections.rotation.essenceBreak.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
-            </Trans>
+            {t({ id: 'demonhunter.havoc.sections.rotation.essenceBreak.soon.p1', message: 'Per-cast breakdown for ' })}
+            <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} />
+            {t({ id: 'demonhunter.havoc.sections.rotation.essenceBreak.soon.p2', message: ' coming soon!' })}
           </div>,
           <></>,
         )}
@@ -170,10 +163,8 @@ function DefensivesSection({ modules }: GuideProps<typeof CombatLogParser>) {
         title={t({ id: 'demonhunter.havoc.sections.defensives.title', message: 'Defensives' })}
       >
       <p>
-        <Trans id="demonhunter.havoc.sections.defensives.blur.summary">
-          <SpellLink spell={SPELLS.BLUR} /> is Havoc's primary personal defensive. Using it well helps
-          you survive dangerous moments more reliably and reduces avoidable pressure on your healers.
-        </Trans>
+        <SpellLink spell={SPELLS.BLUR} />
+        {t({ id: 'demonhunter.havoc.sections.defensives.blur.summary.p1', message: " is Havoc's primary personal defensive. Using it well helps you survive dangerous moments more reliably and reduces avoidable pressure on your healers." })}
       </p>
       <p>
         <Trans id="demonhunter.havoc.sections.defensives.blur.timing">

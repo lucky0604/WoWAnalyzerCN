@@ -1,6 +1,6 @@
 import Analyzer, { Options } from 'parser/core/Analyzer';
 import { TALENTS_DRUID } from 'common/TALENTS';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import CastEfficiency from 'parser/shared/modules/CastEfficiency';
 import SpellLink from 'interface/SpellLink';
 import CastEfficiencyPanel from 'interface/guide/components/CastEfficiencyPanel';
@@ -29,15 +29,16 @@ export default class WildMushroom extends Analyzer.withDependencies(deps) {
 
   get guideSubsection() {
     const explanation = (
-      <p>
-        <Trans id="druid.balance.wild_mushroom.explanation">
+        <p>
           <strong>
             <SpellLink spell={TALENTS_DRUID.WILD_MUSHROOM_TALENT} />
           </strong>{' '}
-          is a charge based AoE spell. It's only useful as an instant movement filler in ST, but is
-          strong in AoE. It's acceptable to cap charges during ST, but remember to use them in AoE.
-        </Trans>
-      </p>
+          {t({
+            id: 'druid.balance.wild_mushroom.explanation',
+            message:
+              "is a charge based AoE spell. It's only useful as an instant movement filler in ST, but is strong in AoE. It's acceptable to cap charges during ST, but remember to use them in AoE.",
+          })}
+        </p>
     );
 
     const data = <CastEfficiencyPanel spell={TALENTS_DRUID.WILD_MUSHROOM_TALENT} useThresholds />;

@@ -13,7 +13,6 @@ import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import { getCurrentRSKTalent } from '../../constants';
 import { Talent } from 'common/TALENTS/types';
 
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 const CAST_BUFFER_MS = 250;
 
@@ -81,19 +80,21 @@ class RisingSunKick extends Analyzer {
         <b>
           <SpellLink spell={this.currentRskTalent} />
         </b>{' '}
-        <Trans id="monk.mistweaver.risingSunKick.explanation">
-          is one of your primary damaging spells but is also your highest priority healing spell
-          (alongside <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />) due to its synergy with{' '}
-          <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />
-          {this.selectedCombatant.hasTalent(TALENTS_MONK.POOL_OF_MISTS_TALENT) && (
-            <>
-              , <SpellLink spell={TALENTS_MONK.POOL_OF_MISTS_TALENT} />
-            </>
-          )}
-          , and <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />. Using it as much as
-          possible is essential for maintaining high counts of{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />.
-        </Trans>
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p1', message: "is one of your primary damaging spells but is also your highest priority healing spell (alongside " })}
+        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p2', message: ") due to its synergy with " })}
+        <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />
+        {this.selectedCombatant.hasTalent(TALENTS_MONK.POOL_OF_MISTS_TALENT) && (
+          <>
+            {t({ id: 'monk.mistweaver.risingSunKick.explanation.p3', message: ", " })}
+            <SpellLink spell={TALENTS_MONK.POOL_OF_MISTS_TALENT} />
+          </>
+        )}
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p4', message: ", and " })}
+        <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p5', message: ". Using it as much as possible is essential for maintaining high counts of " })}
+        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p6', message: "." })}
       </p>
     );
 

@@ -1,6 +1,6 @@
 import SPELLS from 'common/SPELLS';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+
 import SpellLink from 'interface/SpellLink';
 import Events from 'parser/core/Events';
 import { Options } from 'parser/core/Module';
@@ -81,15 +81,33 @@ class HotCountGraph extends BuffCountGraph {
         title={t({ id: 'restoration.hotgraph.title', message: 'Hot Graph' })}
         position={100}
         explanation={
-          <Trans id="restoration.hotgraph.explanation">
-            This graph shows the number of HoTs you had active over the course of the encounter. It
-            can help you evaluate how effective you were at 'ramping' before using your cooldowns.
-            Having a <SpellLink spell={SPELLS.WILD_GROWTH} /> and several{' '}
-            <SpellLink spell={SPELLS.REJUVENATION} /> out before casting{' '}
-            <SpellLink spell={SPELLS.TRANQUILITY_CAST} /> or{' '}
-            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> can drastically increase their
-            effectiveness.
-          </Trans>
+          <>
+            {t({
+              id: 'restoration.hotgraph.explanation',
+              message:
+                "This graph shows the number of HoTs you had active over the course of the encounter. It can help you evaluate how effective you were at 'ramping' before using your cooldowns. Having a ",
+            })}
+            <SpellLink spell={SPELLS.WILD_GROWTH} />
+            {t({
+              id: 'restoration.hotgraph.explanation_p2',
+              message: ' and several ',
+            })}
+            <SpellLink spell={SPELLS.REJUVENATION} />
+            {t({
+              id: 'restoration.hotgraph.explanation_p3',
+              message: ' out before casting ',
+            })}
+            <SpellLink spell={SPELLS.TRANQUILITY_CAST} />
+            {t({
+              id: 'restoration.hotgraph.explanation_p4',
+              message: ' or ',
+            })}
+            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
+            {t({
+              id: 'restoration.hotgraph.explanation_p5',
+              message: ' can drastically increase their effectiveness.',
+            })}
+          </>
         }
       >
         {this.plot}

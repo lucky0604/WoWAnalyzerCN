@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -58,9 +59,7 @@ class Glaciate extends Analyzer {
         <TalentSpellText talent={TALENTS.GLACIATE_TALENT}>
           {formatDurationMillisMinSec(this.totalReduction)}{' '}
           <small>
-            <Trans id="mage.frost.glaciate.cdr">
-              <SpellLink spell={TALENTS.RAY_OF_FROST_TALENT} /> CDR
-            </Trans>
+            <><SpellLink spell={TALENTS.RAY_OF_FROST_TALENT} />{' '}{t({id:'mage.frost.glaciate.cdr.p1',message:'CDR'})}</>
           </small>
         </TalentSpellText>
       </Statistic>

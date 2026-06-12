@@ -69,27 +69,11 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
       })}
     >
       <p>
-        <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary">
-          You should always aim to chain <SpellLink spell={SPELLS.DISINTEGRATE} />. Chaining refers
-          to recasting <SpellLink spell={SPELLS.DISINTEGRATE} /> while already channeling a{' '}
-          <SpellLink spell={SPELLS.DISINTEGRATE} /> after the penultimate (second to last) tick in
-          order to channel two <SpellLink spell={SPELLS.DISINTEGRATE} /> in a row without downtime or
-          losing a tick. This is essentially just the same Pandemic effect that DoTs have since{' '}
-          <SpellLink spell={SPELLS.DISINTEGRATE} /> functions as a DoT.
-        </Trans>
+        <>{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary.p1',message:'You should always aim to chain '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary.p2',message:'. Chaining refers to recasting '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary.p3',message:' while already channeling a '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary.p4',message:' after the penultimate (second to last) tick in order to channel two '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary.p5',message:' in a row without downtime or losing a tick. This is essentially just the same Pandemic effect that DoTs have since '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.summary.p6',message:' functions as a DoT.'})}</>
       </p>
       {isEarlyChainingOptimal && (
         <p>
-          <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining">
-            Inside of <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /> you should be clipping{' '}
-            <SpellLink spell={SPELLS.DISINTEGRATE} /> after the third tick with more important spells
-            such <SpellLink spell={SPELLS.FIRE_BREATH} />,{' '}
-            <SpellLink spell={SPELLS.ETERNITY_SURGE} />,{' '}
-            <SpellLink spell={SPELLS.SHATTERING_STAR} /> or{' '}
-            <SpellLink spell={SPELLS.BURNOUT_BUFF} />. As well as early chaining your{' '}
-            <SpellLink spell={SPELLS.DISINTEGRATE} /> after the third tick to maximize resources
-            generation and expenditure.
-          </Trans>
+          <>{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p1',message:'Inside of '})}<SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p2',message:' you should be clipping '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p3',message:' after the third tick with more important spells such '})}<SpellLink spell={SPELLS.FIRE_BREATH} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p4',message:', '})}<SpellLink spell={SPELLS.ETERNITY_SURGE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p5',message:', '})}<SpellLink spell={SPELLS.SHATTERING_STAR} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p6',message:' or '})}<SpellLink spell={SPELLS.BURNOUT_BUFF} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p7',message:'. As well as early chaining your '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.earlyChaining.p8',message:' after the third tick to maximize resources generation and expenditure.'})}</>
         </p>
       )}
       <p>
@@ -106,10 +90,7 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
         explanation={
           <div>
             <p>
-              <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.outsideDR">
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> efficiency outside of{' '}
-                <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
-              </Trans>
+              <><SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.outsideDR.p1',message:' efficiency outside of '})}<SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /></>
             </p>
             <p>
               {t({
@@ -132,10 +113,7 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
         explanation={
           <div>
             <p>
-              <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.duringDR">
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> efficiency during{' '}
-                <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
-              </Trans>
+              <><SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.duringDR.p1',message:' efficiency during '})}<SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /></>
             </p>
             <p>
               {t({
@@ -162,9 +140,7 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
           explanation={
             <div>
               <p>
-                <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.massDisintegrate">
-                  <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} /> efficiency
-                </Trans>
+                <><SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.disintegrate.massDisintegrate.p1',message:' efficiency'})}</>
               </p>
               <p>
                 {t({
@@ -212,15 +188,10 @@ function NoWastedProcsSubsection({ modules, info }: GuideProps<typeof CombatLogP
         explanationPercent={EXPLANATION_PERCENTAGE}
         explanation={
           <p>
-            <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.essenceBurst">
-              <SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} /> procs are essential because they help
-              you cast your primary damaging spells,
-              <SpellLink spell={SPELLS.DISINTEGRATE} /> and{' '}
-              <SpellLink spell={TALENTS_EVOKER.PYRE_TALENT} />, for free.
+            <><SpellLink spell={SPELLS.ESSENCE_BURST_BUFF} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.essenceBurst.p1',message:' procs are essential because they help you cast your primary damaging spells, '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.essenceBurst.p2',message:' and '})}<SpellLink spell={TALENTS_EVOKER.PYRE_TALENT} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.essenceBurst.p3',message:', for free.'})}
               <div>
-                <strong>None should go to waste.</strong>
-              </div>
-            </Trans>
+                <strong>{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.essenceBurst.bold',message:'None should go to waste.'})}</strong>
+              </div></>
           </p>
         }
         data={
@@ -239,16 +210,10 @@ function NoWastedProcsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.burnout">
-                <SpellLink spell={TALENTS_EVOKER.BURNOUT_TALENT} /> procs allow you to cast{' '}
-                <SpellLink spell={SPELLS.LIVING_FLAME_CAST} /> instantly.
+              <><SpellLink spell={TALENTS_EVOKER.BURNOUT_TALENT} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.burnout.p1',message:' procs allow you to cast '})}<SpellLink spell={SPELLS.LIVING_FLAME_CAST} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.burnout.p2',message:' instantly.'})}
                 <div>
-                  <strong>
-                    Ideally none should go to waste, but some may drop during an intense{' '}
-                    <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} /> window.
-                  </strong>
-                </div>
-              </Trans>
+                  <strong>{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.burnout.bold.p1',message:'Ideally none should go to waste, but some may drop during an intense '})}<SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedProcs.burnout.bold.p2',message:' window.'})}</strong>
+                </div></>
             </p>
           }
           data={
@@ -333,16 +298,11 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.imminentDestruction">
-                <strong>
+              <><strong>
                   <SpellLink
                     spell={TALENTS_EVOKER.IMMINENT_DESTRUCTION_DEVASTATION_TALENT}
                   />
-                </strong>{' '}
-                reduces the <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> cost of your next{' '}
-                <strong>{IMMINENT_DESTRUCTION_INITIAL_STACKS_DEVA}</strong>{' '}
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> and <SpellLink spell={SPELLS.PYRE} />.
-              </Trans>
+                </strong>{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.imminentDestruction.p1',message:' reduces the '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.imminentDestruction.p2',message:' cost of your next '})}<strong>{IMMINENT_DESTRUCTION_INITIAL_STACKS_DEVA}</strong>{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.imminentDestruction.p3',message:' '})}<SpellLink spell={SPELLS.DISINTEGRATE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.imminentDestruction.p4',message:' and '})}<SpellLink spell={SPELLS.PYRE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.imminentDestruction.p5',message:'.'})}</>
               <div>
                 <strong>
                   {t({
@@ -367,20 +327,12 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun">
-                <strong>
+              <><strong>
                   <SpellLink spell={TALENTS_EVOKER.STRAFING_RUN_TALENT} />
-                </strong>{' '}
-                allows <SpellLink spell={SPELLS.DEEP_BREATH} /> to be cast again within{' '}
-                {formatDurationMillisMinSec(STRAFING_RUN_DURATION, 0)} of being used.
-              </Trans>
+                </strong>{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.p1',message:' allows '})}<SpellLink spell={SPELLS.DEEP_BREATH} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.p2',message:' to be cast again within '})}{formatDurationMillisMinSec(STRAFING_RUN_DURATION, 0)}{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.p3',message:' of being used.'})}</>
               {hasMassDisintegrate && (
                 <div>
-                  <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.scalecommander">
-                    When playing as Scalecommander, you should wait with re-casting{' '}
-                    <SpellLink spell={SPELLS.DEEP_BREATH} /> until{' '}
-                    <SpellLink spell={TALENTS_EVOKER.MELT_ARMOR_TALENT} /> runs out.
-                  </Trans>
+                  <>{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.scalecommander.p1',message:'When playing as Scalecommander, you should wait with re-casting '})}<SpellLink spell={SPELLS.DEEP_BREATH} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.scalecommander.p2',message:' until '})}<SpellLink spell={TALENTS_EVOKER.MELT_ARMOR_TALENT} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.strafingRun.scalecommander.p3',message:' runs out.'})}</>
                 </div>
               )}
               <div>
@@ -407,13 +359,9 @@ function NoWastedBuffsSubsection({ modules, info }: GuideProps<typeof CombatLogP
           explanationPercent={EXPLANATION_PERCENTAGE}
           explanation={
             <p>
-              <Trans id="guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.azureSweep">
-                <strong>
+              <><strong>
                   <SpellLink spell={TALENTS_EVOKER.AZURE_SWEEP_TALENT} />
-                </strong>{' '}
-                is an upgraded version of <SpellLink spell={SPELLS.AZURE_STRIKE} /> that is gained
-                after casting <SpellLink spell={SPELLS.ETERNITY_SURGE} />.
-              </Trans>
+                </strong>{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.azureSweep.p1',message:' is an upgraded version of '})}<SpellLink spell={SPELLS.AZURE_STRIKE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.azureSweep.p2',message:' that is gained after casting '})}<SpellLink spell={SPELLS.ETERNITY_SURGE} />{t({id:'guide.evoker.devastation.sections.damageEfficiency.noWastedBuffs.azureSweep.p3',message:'.'})}</>
               <div>
                 <strong>
                   {t({

@@ -158,9 +158,11 @@ class DANCE_OF_CHI_JI extends Analyzer {
       addEnhancedCastReason(
         event,
         <>
-          <Trans id="monk.windwalker.docj.empowered_cast">
-            This cast was empowered by <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
-          </Trans>
+          {t({
+            id: 'monk.windwalker.docj.empowered_cast.p1',
+            message: 'This cast was empowered by ',
+          })}
+          <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
         </>,
       );
     } else {
@@ -294,11 +296,22 @@ class DANCE_OF_CHI_JI extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="monk.windwalker.docj.explanation1">
-            The <SpellLink spell={TALENTS_MONK.DANCE_OF_CHI_JI_WINDWALKER_TALENT} /> talent gives
-            your Chi spenders a chance to grant a free cast of{' '}
-            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> at roughly one proc per minute.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.windwalker.docj.explanation1.p1',
+              message: 'The ',
+            })}
+            <SpellLink spell={TALENTS_MONK.DANCE_OF_CHI_JI_WINDWALKER_TALENT} />
+            {t({
+              id: 'monk.windwalker.docj.explanation1.p2',
+              message: ' talent gives your Chi spenders a chance to grant a free cast of ',
+            })}
+            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />
+            {t({
+              id: 'monk.windwalker.docj.explanation1.p3',
+              message: ' at roughly one proc per minute.',
+            })}
+          </>
         </p>
         <p>
           <Trans id="monk.windwalker.docj.explanation2">
@@ -308,12 +321,28 @@ class DANCE_OF_CHI_JI extends Analyzer {
           </Trans>
         </p>
         <p>
-          <Trans id="monk.windwalker.docj.explanation3">
-            Because consuming <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} /> also guarantees a{' '}
-            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stack, spending it should be planned
-            with your current <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} /> stacks in mind so you
-            do not immediately force a new overcap there.
-          </Trans>
+          <>
+            {t({
+              id: 'monk.windwalker.docj.explanation3.p1',
+              message: 'Because consuming ',
+            })}
+            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+            {t({
+              id: 'monk.windwalker.docj.explanation3.p2',
+              message: ' also guarantees a ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.docj.explanation3.p3',
+              message: ' stack, spending it should be planned with your current ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.docj.explanation3.p4',
+              message:
+                ' stacks in mind so you do not immediately force a new overcap there.',
+            })}
+          </>
         </p>
       </>
     );

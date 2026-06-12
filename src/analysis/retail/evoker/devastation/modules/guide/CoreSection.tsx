@@ -42,14 +42,7 @@ export function CoreSection({ modules, events, info }: GuideProps<typeof CombatL
         })}
       >
         <p>
-          <Trans id="guide.evoker.devastation.sections.core.essenceGraph.summary">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />. You should
-            avoid overcapping <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> generation is lost DPS. Sometimes it
-            will be impossible to avoid overcapping <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{' '}
-            - due to handling mechanics, high rolling{' '}
-            <SpellLink spell={SPELLS.ESSENCE_BURST_DEV_BUFF} /> procs or during intermission phases.
-          </Trans>
+          <>{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p1',message:'Your primary resource is '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p2',message:'. You should avoid overcapping '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p3',message:' - lost '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p4',message:' generation is lost DPS. Sometimes it will be impossible to avoid overcapping '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p5',message:' - due to handling mechanics, high rolling '})}<SpellLink spell={SPELLS.ESSENCE_BURST_DEV_BUFF} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p6',message:' procs or during intermission phases.'})}</>
         </p>
         <p>
           <Trans id="guide.evoker.devastation.sections.core.essenceGraph.wasted">
@@ -75,14 +68,7 @@ export function CoreSection({ modules, events, info }: GuideProps<typeof CombatL
         })}
       >
         <p>
-          <Trans id="guide.evoker.devastation.sections.core.alwaysBeCasting.summary">
-            <em>
-              <b>
-                Continuously chaining casts throughout an encounter is the single most important
-                thing for achieving good DPS as a caster.
-              </b>
-            </em>
-          </Trans>
+          <em><b>{t({id:'guide.evoker.devastation.sections.core.alwaysBeCasting.summary.bold',message:'Continuously chaining casts throughout an encounter is the single most important thing for achieving good DPS as a caster.'})}</b></em>
         </p>
         <p>
           <Trans id="guide.evoker.devastation.sections.core.alwaysBeCasting.summary2">

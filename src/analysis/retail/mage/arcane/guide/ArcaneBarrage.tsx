@@ -233,108 +233,328 @@ class ArcaneBarrageGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="mage.arcane.arcaneBarrage.guide.explanation1">
-            <b>{arcaneBarrage}</b> is your {arcaneCharge} spender, removing the associated increased
-            mana costs and damage. In order to maintain the damage increase as long as possible, you
-            should only cast {arcaneBarrage} under the below conditions, which are tailored to your
-            current talent build.
-          </Trans>
+          <>
+            <strong>{arcaneBarrage}</strong>
+            {t({
+              id: 'mage.arcane.arcaneBarrage.guide.explanation1.p1',
+              message: ' is your ',
+            })}
+            {arcaneCharge}
+            {t({
+              id: 'mage.arcane.arcaneBarrage.guide.explanation1.p2',
+              message: ' spender, removing the associated increased mana costs and damage. In order to maintain the damage increase as long as possible, you should only cast ',
+            })}
+            {arcaneBarrage}
+            {t({
+              id: 'mage.arcane.arcaneBarrage.guide.explanation1.p3',
+              message: ' under the below conditions, which are tailored to your current talent build.',
+            })}
+          </>
         </p>
         <p>
-          <Trans id="mage.arcane.arcaneBarrage.guide.explanation2">
-            Regardless of the below, if {touchOfTheMagi} will be available in the next 4-5 seconds,
-            you should hold {arcaneBarrage} for {touchOfTheMagi}.
-          </Trans>
+          <>
+            {t({
+              id: 'mage.arcane.arcaneBarrage.guide.explanation2.p1',
+              message: 'Regardless of the below, if ',
+            })}
+            {touchOfTheMagi}
+            {t({
+              id: 'mage.arcane.arcaneBarrage.guide.explanation2.p2',
+              message: ' will be available in the next 4-5 seconds, you should hold ',
+            })}
+            {arcaneBarrage}
+            {t({
+              id: 'mage.arcane.arcaneBarrage.guide.explanation2.p3',
+              message: ' for ',
+            })}
+            {touchOfTheMagi}
+            {t({
+              id: 'mage.arcane.arcaneBarrage.guide.explanation2.p4',
+              message: '.',
+            })}
+          </>
         </p>
         {this.isSpellslingerMissile && (
           <ul>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile1">
-                You have 20 stacks of {arcaneSalvo} and either 4 {arcaneCharge}s or have the{' '}
-                {orbBarrage} talent.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile1.p1',
+                  message: 'You have 20 stacks of ',
+                })}
+                {arcaneSalvo}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile1.p2',
+                  message: ' and either 4 ',
+                })}
+                {arcaneCharge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile1.p3',
+                  message: 's or have the ',
+                })}
+                {orbBarrage}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile1.p4',
+                  message: ' talent.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile2">
-                You just casted, or are about to cast, {touchOfTheMagi} ({arcaneBarrage} should be
-                within a GCD of {touchOfTheMagi}, either before it or after it).
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile2.p1',
+                  message: 'You just casted, or are about to cast, ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile2.p2',
+                  message: ' (',
+                })}
+                {arcaneBarrage}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile2.p3',
+                  message: ' should be within a GCD of ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile2.p4',
+                  message: ', either before it or after it).',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile3">
-                You don't have enough mana for {arcaneBlast}
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile3.p1',
+                  message: "You don't have enough mana for ",
+                })}
+                {arcaneBlast}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionMissile4">
-                You have 4 {arcaneCharge}s, an {overpoweredMissiles} and {clearcasting} proc, and at
-                least 5 {arcaneSalvo} stacks.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile4.p1',
+                  message: 'You have 4 ',
+                })}
+                {arcaneCharge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile4.p2',
+                  message: 's, an ',
+                })}
+                {overpoweredMissiles}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile4.p3',
+                  message: ' and ',
+                })}
+                {clearcasting}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile4.p4',
+                  message: ' proc, and at least 5 ',
+                })}
+                {arcaneSalvo}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionMissile4.p5',
+                  message: ' stacks.',
+                })}
+              </>
             </li>
           </ul>
         )}
         {this.isSpellslingerOrb && (
           <ul>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb1">
-                You have 20 stacks of {arcaneSalvo} and either 4 {arcaneCharge}s or have the{' '}
-                {orbBarrage} talent.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb1.p1',
+                  message: 'You have 20 stacks of ',
+                })}
+                {arcaneSalvo}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb1.p2',
+                  message: ' and either 4 ',
+                })}
+                {arcaneCharge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb1.p3',
+                  message: 's or have the ',
+                })}
+                {orbBarrage}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb1.p4',
+                  message: ' talent.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb2">
-                You just casted, or are about to cast, {touchOfTheMagi} ({arcaneBarrage} should be
-                within a GCD of {touchOfTheMagi}, either before it or after it).
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb2.p1',
+                  message: 'You just casted, or are about to cast, ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb2.p2',
+                  message: ' (',
+                })}
+                {arcaneBarrage}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb2.p3',
+                  message: ' should be within a GCD of ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb2.p4',
+                  message: ', either before it or after it).',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb3">
-                You don't have enough mana for {arcaneBlast}
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb3.p1',
+                  message: "You don't have enough mana for ",
+                })}
+                {arcaneBlast}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionOrb4">
-                {arcaneSurge} or {touchOfTheMagi} will end in the next 1-2 seconds and you have 15 or
-                more {arcaneSalvo} stacks.
-              </Trans>
+              <>
+                {arcaneSurge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb4.p1',
+                  message: ' or ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb4.p2',
+                  message: ' will end in the next 1-2 seconds and you have 15 or more ',
+                })}
+                {arcaneSalvo}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionOrb4.p3',
+                  message: ' stacks.',
+                })}
+              </>
             </li>
           </ul>
         )}
         {this.isSunfury && (
           <ul>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury1">
-                You have 4 {arcaneCharge}s and 25 stacks of {arcaneSalvo}
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury1.p1',
+                  message: 'You have 4 ',
+                })}
+                {arcaneCharge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury1.p2',
+                  message: 's and 25 stacks of ',
+                })}
+                {arcaneSalvo}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury2">
-                Your last cast was {touchOfTheMagi} or the {touchOfTheMagi} debuff will end in 1-2
-                seconds.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury2.p1',
+                  message: 'Your last cast was ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury2.p2',
+                  message: ' or the ',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury2.p3',
+                  message: ' debuff will end in 1-2 seconds.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury3">
-                You have {arcaneSoul}.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury3.p1',
+                  message: 'You have ',
+                })}
+                {arcaneSoul}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury3.p2',
+                  message: '.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury4">
-                You don't have enough mana for {arcaneBlast}
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury4.p1',
+                  message: "You don't have enough mana for ",
+                })}
+                {arcaneBlast}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury5">
-                You have 4 {arcaneCharge}s, are not in a burn phase ({touchOfTheMagi} and{' '}
-                {arcaneSurge} are not active), and &lt; 19 stacks of {arcaneSalvo}.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury5.p1',
+                  message: 'You have 4 ',
+                })}
+                {arcaneCharge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury5.p2',
+                  message: 's, are not in a burn phase (',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury5.p3',
+                  message: ' and ',
+                })}
+                {arcaneSurge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury5.p4',
+                  message: ' are not active), and < 19 stacks of ',
+                })}
+                {arcaneSalvo}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury5.p5',
+                  message: '.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="mage.arcane.arcaneBarrage.guide.conditionSunfury6">
-                You have 4 {arcaneCharge}s, are not in a burn phase ({touchOfTheMagi} and{' '}
-                {arcaneSurge} are not active), {arcaneBarrage} will hit 3 or more enemies, and you
-                have a charge of {arcaneOrb} available.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury6.p1',
+                  message: 'You have 4 ',
+                })}
+                {arcaneCharge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury6.p2',
+                  message: 's, are not in a burn phase (',
+                })}
+                {touchOfTheMagi}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury6.p3',
+                  message: ' and ',
+                })}
+                {arcaneSurge}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury6.p4',
+                  message: ' are not active), ',
+                })}
+                {arcaneBarrage}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury6.p5',
+                  message: ' will hit 3 or more enemies, and you have a charge of ',
+                })}
+                {arcaneOrb}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.conditionSunfury6.p6',
+                  message: ' available.',
+                })}
+              </>
             </li>
           </ul>
         )}
@@ -347,11 +567,27 @@ class ArcaneBarrageGuide extends Analyzer {
                 message: 'Meteorites',
               })}
             >
-              <Trans id="mage.arcane.arcaneBarrage.guide.meteoritesDescription">
-                If you are close to a multiple of 6 {arcaneSalvo} stacks (6, 12, 18), it is beneficial
-                to hold {arcaneBarrage} until you are above that threshold to maximize the number of
-                meteorites generated by {gloriousIncandescence}.
-              </Trans>
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.meteoritesDescription.p1',
+                  message: 'If you are close to a multiple of 6 ',
+                })}
+                {arcaneSalvo}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.meteoritesDescription.p2',
+                  message: ' stacks (6, 12, 18), it is beneficial to hold ',
+                })}
+                {arcaneBarrage}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.meteoritesDescription.p3',
+                  message: ' until you are above that threshold to maximize the number of meteorites generated by ',
+                })}
+                {gloriousIncandescence}
+                {t({
+                  id: 'mage.arcane.arcaneBarrage.guide.meteoritesDescription.p4',
+                  message: '.',
+                })}
+              </>
             </TipBox>
           </p>
         )}

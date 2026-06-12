@@ -55,14 +55,28 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
           </Trans>
         </p>
         <p>
-          <Trans id="druid.balance.alwaysBeCasting.movementTips">
-            Minimize movement-based interruptions by pooling{' '}
-            <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> in advance and using instant-cast{' '}
-            <SpellLink spell={SPELLS.STARSURGE_MOONKIN} /> and{' '}
-            <SpellLink spell={SPELLS.STARFALL_CAST} /> while moving. Some fights have unavoidable
-            downtime due to phase transitions and the like, so in these cases 0% downtime will not be
-            possible - do the best you can.
-          </Trans>
+          {t({
+            id: 'druid.balance.alwaysBeCasting.movementTips',
+            message:
+              'Minimize movement-based interruptions by pooling ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} />
+          {t({
+            id: 'druid.balance.alwaysBeCasting.movementTips.p2',
+            message:
+              ' in advance and using instant-cast ',
+          })}
+          <SpellLink spell={SPELLS.STARSURGE_MOONKIN} />
+          {t({
+            id: 'druid.balance.alwaysBeCasting.movementTips.p3',
+            message: ' and ',
+          })}
+          <SpellLink spell={SPELLS.STARFALL_CAST} />
+          {t({
+            id: 'druid.balance.alwaysBeCasting.movementTips.p4',
+            message:
+              ' while moving. Some fights have unavoidable downtime due to phase transitions and the like, so in these cases 0% downtime will not be possible - do the best you can.',
+          })}
         </p>
         <p>
           <Trans id="druid.balance.activeTime.label">
@@ -88,12 +102,27 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
       </SubSection>
       <SubSection title={t({ id: 'druid.balance.astralPower.title', message: 'Astral Power' })}>
         <p>
-          <Trans id="druid.balance.astralPower.description">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} />. Most of
-            your spells generate Astral Power, which can be spent to cast{' '}
-            <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} /> or{' '}
-            <SpellLink spell={SPELLS.STARFALL_CAST} />. Avoid capping Astral Power!
-          </Trans>
+          {t({
+            id: 'druid.balance.astralPower.description',
+            message:
+              'Your primary resource is ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} />
+          {t({
+            id: 'druid.balance.astralPower.description.p2',
+            message:
+              '. Most of your spells generate Astral Power, which can be spent to cast ',
+          })}
+          <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} />
+          {t({
+            id: 'druid.balance.astralPower.description.p3',
+            message: ' or ',
+          })}
+          <SpellLink spell={SPELLS.STARFALL_CAST} />
+          {t({
+            id: 'druid.balance.astralPower.description.p4',
+            message: '. Avoid capping Astral Power!',
+          })}
         </p>
         <Trans id="druid.balance.astralPower.wasted">
           The chart below shows your Astral Power over the course of the encounter. You wasted{' '}
@@ -118,22 +147,42 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
   return (
     <Section title={t({ id: 'druid.balance.rotation.title', message: 'Rotation' })}>
       <p>
-        <Trans id="druid.balance.rotation.description">
-          Balance's core rotation involves casting the correct{' '}
-          <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} /> for the situation, maximizing DoT
-          uptimes, and spending Astral Power to avoid overcapping. After fulfilling these priorities,
-          open GCDs are filled with
-          <SpellLink spell={SPELLS.WRATH} /> or <SpellLink spell={SPELLS.STARFIRE} /> depending on
-          Eclipse type and target count. Refer to{' '}
-          <a
-            href="https://www.wowhead.com/guide/classes/druid/balance/rotation-cooldowns-pve-dps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            the spec guide
-          </a>{' '}
-          for more rotation details.
-        </Trans>
+        {t({
+          id: 'druid.balance.rotation.description.p1',
+          message:
+            "Balance's core rotation involves casting the correct ",
+        })}
+        <SpellLink spell={TALENTS_DRUID.ECLIPSE_TALENT} />
+        {t({
+          id: 'druid.balance.rotation.description.p2',
+          message:
+            ' for the situation, maximizing DoT uptimes, and spending Astral Power to avoid overcapping. After fulfilling these priorities, open GCDs are filled with',
+        })}
+        <SpellLink spell={SPELLS.WRATH} />
+        {t({
+          id: 'druid.balance.rotation.description.p3',
+          message: ' or ',
+        })}
+        <SpellLink spell={SPELLS.STARFIRE} />
+        {t({
+          id: 'druid.balance.rotation.description.p4',
+          message:
+            ' depending on Eclipse type and target count. Refer to ',
+        })}
+        <a
+          href="https://www.wowhead.com/guide/classes/druid/balance/rotation-cooldowns-pve-dps"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t({
+            id: 'druid.balance.rotation.description.link',
+            message: 'the spec guide',
+          })}
+        </a>
+        {t({
+          id: 'druid.balance.rotation.description.p5',
+          message: ' for more rotation details.',
+        })}
       </p>
 
       <Section title={t({ id: 'druid.balance.dotUptimes.title', message: 'DoTs' })}>

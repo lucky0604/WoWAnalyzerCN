@@ -12,7 +12,6 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 class SoulBarrier extends Analyzer {
   static dependencies = {
@@ -90,25 +89,20 @@ class SoulBarrier extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <Trans id="demonhunter.vengeance.soulBarrier.avgBuffLength">
-              Average Buff Length: <strong>{formatNumber(avgBuffLength)} seconds</strong>
-            </Trans>
+            {t({ id: 'demonhunter.vengeance.soulBarrier.avgBuffLength.p1', message: 'Average Buff Length: ' })}
+            <strong>{formatNumber(avgBuffLength)} {t({ id: 'demonhunter.vengeance.soulBarrier.avgBuffLength.seconds', message: 'seconds' })}</strong>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <Trans id="demonhunter.vengeance.soulBarrier.totalDamageAbsorbed">
-              Total Damage Absorbed: <strong>{formatNumber(this.totalAbsorbed)}</strong>
-            </Trans>
+            {t({ id: 'demonhunter.vengeance.soulBarrier.totalDamageAbsorbed.p1', message: 'Total Damage Absorbed: ' })}
+            <strong>{formatNumber(this.totalAbsorbed)}</strong>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <Trans id="demonhunter.vengeance.soulBarrier.healing">
-              Healing{' '}
-              <strong>{this.owner.formatItemHealingDone(this.totalAbsorbed)}</strong>
-            </Trans>
+            {t({ id: 'demonhunter.vengeance.soulBarrier.healing.p1', message: 'Healing ' })}
+            <strong>{this.owner.formatItemHealingDone(this.totalAbsorbed)}</strong>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            <Trans id="demonhunter.vengeance.soulBarrier.totalCasts">
-              Total Casts: <strong>{this.casts}</strong>
-            </Trans>
+            {t({ id: 'demonhunter.vengeance.soulBarrier.totalCasts.p1', message: 'Total Casts: ' })}
+            <strong>{this.casts}</strong>
           </>
         }
       >

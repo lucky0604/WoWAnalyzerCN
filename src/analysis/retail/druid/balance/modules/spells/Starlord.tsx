@@ -107,15 +107,20 @@ class Starlord extends Analyzer {
   get guideSubsection() {
     const explanation = (
       <>
-        <Trans id="druid.balance.starlord.explanation">
-          <strong>
-            <SpellLink spell={TALENTS_DRUID.STARLORD_TALENT} />
-          </strong>{' '}
-          grants a significant haste bonus that increases with each stack, try to maximize time spent
-          at 3 stacks. Since gaining a stack does <i>not</i> refresh the duration, 100% uptime is
-          impossible. Plan ahead by pooling Astral Power as Starlord is about to expire so you can
-          quickly rebuild to 3 stacks.
-        </Trans>
+        <strong>
+          <SpellLink spell={TALENTS_DRUID.STARLORD_TALENT} />
+        </strong>{' '}
+        {t({
+          id: 'druid.balance.starlord.explanation',
+          message:
+            'grants a significant haste bonus that increases with each stack, try to maximize time spent at 3 stacks. Since gaining a stack does ',
+        })}
+        <i>{t({ id: 'druid.balance.starlord.not_italic', message: 'not' })}</i>
+        {t({
+          id: 'druid.balance.starlord.explanation_p2',
+          message:
+            ' refresh the duration, 100% uptime is impossible. Plan ahead by pooling Astral Power as Starlord is about to expire so you can quickly rebuild to 3 stacks.',
+        })}
       </>
     );
 

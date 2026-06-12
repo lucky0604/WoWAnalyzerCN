@@ -108,12 +108,23 @@ class HeatShimmerGuide extends Analyzer {
     const scorch = <SpellLink spell={TALENTS.SCORCH_TALENT} />;
 
     const explanation = (
-      <Trans id="mage.fire.heatShimmerGuide.explanation">
-        <b>{heatShimmer}</b> is a buff that has a chance to proc from your {ignite} ticks, making
-        your next {scorch} cast instant and treated as if the target is under 30% health
-        (guaranteeing that it crits). Make sure you use this proc quickly so that it does not expire
-        or get munched.
-      </Trans>
+      <>
+        <strong>{heatShimmer}</strong>
+        {t({
+          id: 'mage.fire.heatShimmerGuide.explanation.p1',
+          message: ' is a buff that has a chance to proc from your ',
+        })}
+        {ignite}
+        {t({
+          id: 'mage.fire.heatShimmerGuide.explanation.p2',
+          message: ' ticks, making your next ',
+        })}
+        {scorch}
+        {t({
+          id: 'mage.fire.heatShimmerGuide.explanation.p3',
+          message: ' cast instant and treated as if the target is under 30% health (guaranteeing that it crits). Make sure you use this proc quickly so that it does not expire or get munched.',
+        })}
+      </>
     );
 
     return (

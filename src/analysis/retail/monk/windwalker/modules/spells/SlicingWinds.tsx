@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -19,12 +19,15 @@ class SlicingWinds extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="monk.windwalker.slicing_winds.explanation">
-          <b>
+        <>
+          <strong>
             <SpellLink spell={TALENTS_MONK.SLICING_WINDS_TALENT} />
-          </b>{' '}
-          is one of your strongest medium-length cooldown dps abilities.
-        </Trans>
+          </strong>{' '}
+          {t({
+            id: 'monk.windwalker.slicing_winds.explanation',
+            message: 'is one of your strongest medium-length cooldown dps abilities.',
+          })}
+        </>
       </p>
     );
 
@@ -32,9 +35,11 @@ class SlicingWinds extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="monk.windwalker.slicing_winds.cast_efficiency">
-              <SpellLink spell={TALENTS_MONK.SLICING_WINDS_TALENT} /> cast efficiency
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.SLICING_WINDS_TALENT} />{' '}
+            {t({
+              id: 'monk.windwalker.slicing_winds.cast_efficiency',
+              message: 'cast efficiency',
+            })}
           </strong>
           {this.guideSubStatistic()}
         </RoundedPanel>

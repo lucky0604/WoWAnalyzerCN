@@ -30,42 +30,71 @@ class DotUptimes extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="druid.balance.dotUptimes.explanation">
-            <b>
-              <SpellLink spell={SPELLS.MOONFIRE_CAST} />
-            </b>{' '}
-            and{' '}
-            <b>
-              <SpellLink spell={SPELLS.SUNFIRE} />
-            </b>{' '}
-            are high damage-per-cast-time DoTs that synergize well with many talents like{' '}
-            <SpellLink spell={TALENTS_DRUID.SHOOTING_STARS_TALENT} />.
-          </Trans>
+          <b>
+            <SpellLink spell={SPELLS.MOONFIRE_CAST} />
+          </b>{' '}
+          {t({ id: 'druid.balance.dotUptimes.explanation.p1', message: 'and ' })}
+          <b>
+            <SpellLink spell={SPELLS.SUNFIRE} />
+          </b>{' '}
+          {t({
+            id: 'druid.balance.dotUptimes.explanation.p2',
+            message:
+              'are high damage-per-cast-time DoTs that synergize well with many talents like ',
+          })}
+          <SpellLink spell={TALENTS_DRUID.SHOOTING_STARS_TALENT} />.
         </p>
         <ul>
           <li>
-            <Trans id="druid.balance.dotUptimes.priority">
-              <strong>Priority:</strong> Maintain 100% uptime, but only if the target will live long
-              enough for the DoT to deal more damage than a cast of <SpellLink spell={SPELLS.WRATH} />{' '}
-              or <SpellLink spell={SPELLS.STARFIRE} />.
-            </Trans>
+            <strong>
+              {t({
+                id: 'druid.balance.dotUptimes.priority',
+                message: 'Priority:',
+              })}
+            </strong>{' '}
+            {t({
+              id: 'druid.balance.dotUptimes.priority.p2',
+              message:
+                'Maintain 100% uptime, but only if the target will live long enough for the DoT to deal more damage than a cast of ',
+            })}
+            <SpellLink spell={SPELLS.WRATH} />
+            {t({ id: 'druid.balance.dotUptimes.priority.p3', message: ' or ' })}
+            <SpellLink spell={SPELLS.STARFIRE} />.
           </li>
           <li>
-            <Trans id="druid.balance.dotUptimes.efficiency">
-              <strong>Efficiency:</strong> Refresh DoTs during the Pandemic window (last 30%) to
-              extend the duration without wasting Global Cooldowns. If your Useful Casts score is
-              low, you may be over-refreshing DoTs while moving. To optimize movement, pool{' '}
-              <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> ahead of time and cast{' '}
-              <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} /> or{' '}
-              <SpellLink spell={SPELLS.STARFALL_CAST} /> while moving.
-            </Trans>
+            <strong>
+              {t({
+                id: 'druid.balance.dotUptimes.efficiency',
+                message: 'Efficiency:',
+              })}
+            </strong>{' '}
+            {t({
+              id: 'druid.balance.dotUptimes.efficiency.p2',
+              message:
+                'Refresh DoTs during the Pandemic window (last 30%) to extend the duration without wasting Global Cooldowns. If your Useful Casts score is low, you may be over-refreshing DoTs while moving. To optimize movement, pool ',
+            })}
+            <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} />
+            {t({
+              id: 'druid.balance.dotUptimes.efficiency.p3',
+              message: ' ahead of time and cast ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.STARSURGE_SHARED_TALENT} />
+            {t({ id: 'druid.balance.dotUptimes.efficiency.p4', message: ' or ' })}
+            <SpellLink spell={SPELLS.STARFALL_CAST} />
+            {t({ id: 'druid.balance.dotUptimes.efficiency.p5', message: ' while moving.' })}
           </li>
           <li>
-            <Trans id="druid.balance.dotUptimes.benchmark">
-              <strong>Uptime benchmark:</strong> Total uptime often drops during transitions or
-              intermissions. Use top-ranking reports as a benchmark for what is realistic on a
-              per-fight basis.
-            </Trans>
+            <strong>
+              {t({
+                id: 'druid.balance.dotUptimes.benchmark',
+                message: 'Uptime benchmark:',
+              })}
+            </strong>{' '}
+            {t({
+              id: 'druid.balance.dotUptimes.benchmark.p2',
+              message:
+                'Total uptime often drops during transitions or intermissions. Use top-ranking reports as a benchmark for what is realistic on a per-fight basis.',
+            })}
           </li>
         </ul>
       </>

@@ -97,18 +97,22 @@ class FerociousBite extends Analyzer {
         {perfExplanation}
         <div>
           @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>{' '}
-          <Trans id="druid.feral.fb.targeting_with_cps">
-            targetting <strong>{this.owner.getTargetName(event)}</strong> using{' '}
-            <strong>{cpsUsed} CPs</strong>
-          </Trans>
+          {t({ id: 'druid.feral.fb.targeting_with_cps', message: 'targetting ' })}
+          <strong>{this.owner.getTargetName(event)}</strong>
+          {t({ id: 'druid.feral.fb.targeting_with_cps.p2', message: ' using ' })}
+          <strong>{cpsUsed} CPs</strong>
         </div>
         <div>
           {timeLeftOnRip === 0 ? (
             <strong>{t({ id: 'druid.feral.fb.no_rip', message: 'No Rip on target!' })}</strong>
           ) : (
-            <Trans id="druid.feral.fb.rip_time_remaining">
-              Time remaining on Rip: <strong>{(timeLeftOnRip / 1000).toFixed(1)}s</strong>
-            </Trans>
+            <>
+              {t({
+                id: 'druid.feral.fb.rip_time_remaining',
+                message: 'Time remaining on Rip: ',
+              })}
+              <strong>{(timeLeftOnRip / 1000).toFixed(1)}s</strong>
+            </>
           )}
         </div>
       </>
@@ -126,14 +130,22 @@ class FerociousBite extends Analyzer {
       this.selectedCombatant.hasTalent(TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT);
     const explanation = (
       <p>
-        <Trans id="druid.feral.fb.explanation">
-          <strong>
-            <SpellLink spell={SPELLS.FEROCIOUS_BITE} />
-          </strong>{' '}
-          is your direct damage finisher. Use it when you've already applied Rip to enemies. Use
-          Bite with at least {MIN_ACCEPTABLE_CPS} CPs, or {MIN_ACCEPTABLE_CPS + 1}+ during{' '}
-          <SpellLink spell={SPELLS.BERSERK_CAT} />.
-        </Trans>
+        <strong>
+          <SpellLink spell={SPELLS.FEROCIOUS_BITE} />
+        </strong>{' '}
+        {t({
+          id: 'druid.feral.fb.explanation.p2',
+          message:
+            "is your direct damage finisher. Use it when you've already applied Rip to enemies. Use Bite with at least ",
+        })}
+        {MIN_ACCEPTABLE_CPS}
+        {t({
+          id: 'druid.feral.fb.explanation.p3',
+          message: ' CPs, or ',
+        })}
+        {MIN_ACCEPTABLE_CPS + 1}+
+        {t({ id: 'druid.feral.fb.explanation.p4', message: ' during ' })}
+        <SpellLink spell={SPELLS.BERSERK_CAT} />.
       </p>
     );
 
@@ -141,12 +153,18 @@ class FerociousBite extends Analyzer {
       <div>
         {hasConvokeOrApex && (
           <p>
-            <Trans id="druid.feral.fb.procs_omitted_note">
-              The below cast evaluations consider only CP spending Bites -{' '}
-              <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} /> and{' '}
-              <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} /> procs aren't
-              included.
-            </Trans>
+            {t({
+              id: 'druid.feral.fb.procs_omitted_note',
+              message:
+                'The below cast evaluations consider only CP spending Bites - ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT} />
+            {t({ id: 'druid.feral.fb.procs_omitted_note.p2', message: ' and ' })}
+            <SpellLink spell={TALENTS_DRUID.APEX_PREDATORS_CRAVING_TALENT} />
+            {t({
+              id: 'druid.feral.fb.procs_omitted_note.p3',
+              message: " procs aren't included.",
+            })}
           </p>
         )}
         <CastSummaryAndBreakdown

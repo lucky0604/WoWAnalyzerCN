@@ -128,33 +128,19 @@ class Penance extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="priest.discipline.penance.importance">
-            <strong>
-              <SpellLink spell={SPELLS.PENANCE_CAST} />
-            </strong>{' '}
-            has a large contribution to your through-put. It's important to finish channeling all
-            its bolts.
-          </Trans>
+            <><strong><SpellLink spell={SPELLS.PENANCE_CAST} /></strong>{' '}
+            {t({ id: 'priest.discipline.penance.importance.p1', message: "has a large contribution to your through-put. It's important to finish channeling all its bolts." })}</>
         </p>
 
         {this.hasTwinsight && (
           <p>
-            <Trans id="priest.discipline.penance.oracleNote">
-              An <strong>Oracle</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will be
-              defensive in nature. Allowing for single target healing, and raid-wide healing through
-              your <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} /> by the extra damage from
-              the extra bolts fired by <SpellLink spell={TALENTS_PRIEST.TWINSIGHT_TALENT} />.
-            </Trans>
+              <>{t({ id: 'priest.discipline.penance.oracleNote.p1', message: 'An ' })}<strong>{t({ id: 'priest.discipline.penance.oracleNote.bold', message: 'Oracle' })}</strong>{t({ id: 'priest.discipline.penance.oracleNote.p2', message: "'s " })}<SpellLink spell={SPELLS.PENANCE_CAST} />{t({ id: 'priest.discipline.penance.oracleNote.p3', message: ' casts will be defensive in nature. Allowing for single target healing, and raid-wide healing through your ' })}<SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />{t({ id: 'priest.discipline.penance.oracleNote.p4', message: ' by the extra damage from the extra bolts fired by ' })}<SpellLink spell={TALENTS_PRIEST.TWINSIGHT_TALENT} />{t({ id: 'priest.discipline.penance.oracleNote.p5', message: '.' })}</>
           </p>
         )}
 
         {!this.hasTwinsight && (
           <p>
-            <Trans id="priest.discipline.penance.voidweaverNote">
-              A <strong>Voidweaver</strong>'s <SpellLink spell={SPELLS.PENANCE_CAST} /> casts will
-              be offensive in order to maximize throughput. You can still use it as a single target
-              heal and to apply <SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />.
-            </Trans>
+              <>{t({ id: 'priest.discipline.penance.voidweaverNote.p1', message: 'A ' })}<strong>{t({ id: 'priest.discipline.penance.voidweaverNote.bold', message: 'Voidweaver' })}</strong>{t({ id: 'priest.discipline.penance.voidweaverNote.p2', message: "'s " })}<SpellLink spell={SPELLS.PENANCE_CAST} />{t({ id: 'priest.discipline.penance.voidweaverNote.p3', message: ' casts will be offensive in order to maximize throughput. You can still use it as a single target heal and to apply ' })}<SpellLink spell={TALENTS_PRIEST.ATONEMENT_TALENT} />{t({ id: 'priest.discipline.penance.voidweaverNote.p4', message: '.' })}</>
           </p>
         )}
       </>

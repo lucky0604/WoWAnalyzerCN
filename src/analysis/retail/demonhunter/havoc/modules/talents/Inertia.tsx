@@ -133,17 +133,18 @@ export default class Inertia extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="demonhunter.havoc.inertia.description">
-            <strong>
-              <SpellLink spell={TALENTS_DEMON_HUNTER.INERTIA_TALENT} />
-            </strong>{' '}
-            creates a short burst window tied to your movement tools. After using{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_HAVOC_TALENT} /> or{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />, your next{' '}
-            <SpellLink spell={SPELLS.FEL_RUSH_CAST} /> or{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.FELBLADE_TALENT} /> triggers{' '}
-            <SpellLink spell={SPELLS.INERTIA_BUFF} /> for 5 seconds.
-          </Trans>
+          <strong><SpellLink spell={TALENTS_DEMON_HUNTER.INERTIA_TALENT} /></strong>
+          {t({ id: 'demonhunter.havoc.inertia.description.p1', message: ' creates a short burst window tied to your movement tools. After using ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.THE_HUNT_HAVOC_TALENT} />
+          {t({ id: 'demonhunter.havoc.inertia.description.p2', message: ' or ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />
+          {t({ id: 'demonhunter.havoc.inertia.description.p3', message: ', your next ' })}
+          <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
+          {t({ id: 'demonhunter.havoc.inertia.description.p4', message: ' or ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.FELBLADE_TALENT} />
+          {t({ id: 'demonhunter.havoc.inertia.description.p5', message: ' triggers ' })}
+          <SpellLink spell={SPELLS.INERTIA_BUFF} />
+          {t({ id: 'demonhunter.havoc.inertia.description.p6', message: ' for 5 seconds.' })}
         </p>
         <p>
           <Trans id="demonhunter.havoc.inertia.description2">
@@ -384,11 +385,11 @@ export default class Inertia extends Analyzer {
       summary,
       details: (
         <div>
-          <Trans id="demonhunter.havoc.inertia.setup.fail">
-            You triggered <SpellLink spell={SPELLS.INERTIA_BUFF} /> but did not turn it into an
-            immediate burst sequence. Try entering the window with an instant setup into{' '}
-            <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} />.
-          </Trans>
+          {t({ id: 'demonhunter.havoc.inertia.setup.fail.p1', message: 'You triggered ' })}
+          <SpellLink spell={SPELLS.INERTIA_BUFF} />
+          {t({ id: 'demonhunter.havoc.inertia.setup.fail.p2', message: ' but did not turn it into an immediate burst sequence. Try entering the window with an instant setup into ' })}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} />
+          {t({ id: 'demonhunter.havoc.inertia.setup.fail.p3', message: '.' })}
         </div>
       ),
     };
@@ -408,17 +409,16 @@ export default class Inertia extends Analyzer {
         ),
         details: (
           <div>
-            <Trans id="demonhunter.havoc.inertia.eyeBeam.perfectDetails">
-              You fully fit <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} /> inside{' '}
-              <SpellLink spell={SPELLS.INERTIA_BUFF} />
-            </Trans>
+            {t({ id: 'demonhunter.havoc.inertia.eyeBeam.perfectDetails.p1', message: 'You fully fit ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} />
+            {t({ id: 'demonhunter.havoc.inertia.eyeBeam.perfectDetails.p2', message: ' inside ' })}
+            <SpellLink spell={SPELLS.INERTIA_BUFF} />
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.FURIOUS_GAZE_TALENT) &&
             window.triggeredFuriousGaze ? (
               <>
                 {' '}
-                <Trans id="demonhunter.havoc.inertia.eyeBeam.perfectDetailsFuriousGaze">
-                  and gained <SpellLink spell={SPELLS.FURIOUS_GAZE} />
-                </Trans>
+                {t({ id: 'demonhunter.havoc.inertia.eyeBeam.perfectDetailsFuriousGaze.p1', message: 'and gained ' })}
+                <SpellLink spell={SPELLS.FURIOUS_GAZE} />
               </>
             ) : null}
             .
@@ -440,16 +440,14 @@ export default class Inertia extends Analyzer {
         ),
         details: (
           <div>
-            <Trans id="demonhunter.havoc.inertia.eyeBeam.okDetails">
-              You started <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} /> inside the
-              Inertia window, but part of the channel fell outside the buff
-            </Trans>
+            {t({ id: 'demonhunter.havoc.inertia.eyeBeam.okDetails.p1', message: 'You started ' })}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} />
+            {t({ id: 'demonhunter.havoc.inertia.eyeBeam.okDetails.p2', message: ' inside the Inertia window, but part of the channel fell outside the buff' })}
             {this.selectedCombatant.hasTalent(TALENTS_DEMON_HUNTER.FURIOUS_GAZE_TALENT) &&
             !window.triggeredFuriousGaze ? (
               <>
-                <Trans id="demonhunter.havoc.inertia.eyeBeam.okDetailsMissedFG">
-                  , so you also missed <SpellLink spell={SPELLS.FURIOUS_GAZE} />
-                </Trans>
+                {t({ id: 'demonhunter.havoc.inertia.eyeBeam.okDetailsMissedFG.p1', message: ', so you also missed ' })}
+                <SpellLink spell={SPELLS.FURIOUS_GAZE} />
               </>
             ) : null}
             .
@@ -469,11 +467,11 @@ export default class Inertia extends Analyzer {
         </div>
       ),
       details: (
-        <div>
-          <Trans id="demonhunter.havoc.inertia.eyeBeam.failDetails">
-            This window did not include <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} />.
-          </Trans>
-        </div>
+      <div>
+        {t({ id: 'demonhunter.havoc.inertia.eyeBeam.failDetails.p1', message: 'This window did not include ' })}
+        <SpellLink spell={TALENTS_DEMON_HUNTER.EYE_BEAM_TALENT} />
+        {t({ id: 'demonhunter.havoc.inertia.eyeBeam.failDetails.p2', message: '.' })}
+      </div>
       ),
     };
   }
@@ -481,9 +479,9 @@ export default class Inertia extends Analyzer {
   private payloadPerformance(window: InertiaWindow): UsageInfo {
     const summary = (
       <div>
-        <Trans id="demonhunter.havoc.inertia.payload.title">
-          Landed <SpellLink spell={SPELLS.DEATH_SWEEP} /> inside the window
-        </Trans>
+        {t({ id: 'demonhunter.havoc.inertia.payload.title.p1', message: 'Landed ' })}
+        <SpellLink spell={SPELLS.DEATH_SWEEP} />
+        {t({ id: 'demonhunter.havoc.inertia.payload.title.p2', message: ' inside the window' })}
       </div>
     );
 
@@ -492,12 +490,11 @@ export default class Inertia extends Analyzer {
         performance: QualitativePerformance.Perfect,
         summary,
         details: (
-          <div>
-            <Trans id="demonhunter.havoc.inertia.payload.perfect">
-              You landed {window.deathSweepCasts.length} <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
-              casts during the window.
-            </Trans>
-          </div>
+        <div>
+          {t({ id: 'demonhunter.havoc.inertia.payload.perfect.p1', message: `You landed ${window.deathSweepCasts.length} ` })}
+          <SpellLink spell={SPELLS.DEATH_SWEEP} />
+          {t({ id: 'demonhunter.havoc.inertia.payload.perfect.p2', message: ' casts during the window.' })}
+        </div>
         ),
       };
     }
@@ -507,12 +504,11 @@ export default class Inertia extends Analyzer {
         performance: QualitativePerformance.Good,
         summary,
         details: (
-          <div>
-            <Trans id="demonhunter.havoc.inertia.payload.good">
-              You landed one <SpellLink spell={SPELLS.DEATH_SWEEP} /> during the window, but the
-              ideal burst aims for two when the sequence and haste line up.
-            </Trans>
-          </div>
+        <div>
+          {t({ id: 'demonhunter.havoc.inertia.payload.good.p1', message: 'You landed one ' })}
+          <SpellLink spell={SPELLS.DEATH_SWEEP} />
+          {t({ id: 'demonhunter.havoc.inertia.payload.good.p2', message: ' during the window, but the ideal burst aims for two when the sequence and haste line up.' })}
+        </div>
         ),
       };
     }
@@ -522,9 +518,9 @@ export default class Inertia extends Analyzer {
       summary,
       details: (
         <div>
-          <Trans id="demonhunter.havoc.inertia.payload.fail">
-            You did not land <SpellLink spell={SPELLS.DEATH_SWEEP} /> during this Inertia window.
-          </Trans>
+          {t({ id: 'demonhunter.havoc.inertia.payload.fail.p1', message: 'You did not land ' })}
+          <SpellLink spell={SPELLS.DEATH_SWEEP} />
+          {t({ id: 'demonhunter.havoc.inertia.payload.fail.p2', message: ' during this Inertia window.' })}
         </div>
       ),
     };
@@ -543,12 +539,11 @@ export default class Inertia extends Analyzer {
           </div>
         ),
         details: (
-          <div>
-            <Trans id="demonhunter.havoc.inertia.spender.good">
-              You followed the window with {window.annihilationCasts.length}{' '}
-              <SpellLink spell={SPELLS.ANNIHILATION} /> cast(s).
-            </Trans>
-          </div>
+        <div>
+          {t({ id: 'demonhunter.havoc.inertia.spender.good.p1', message: `You followed the window with ${window.annihilationCasts.length} ` })}
+          <SpellLink spell={SPELLS.ANNIHILATION} />
+          {t({ id: 'demonhunter.havoc.inertia.spender.good.p2', message: ' cast(s).' })}
+        </div>
         ),
       };
     }
@@ -565,10 +560,11 @@ export default class Inertia extends Analyzer {
       ),
       details: (
         <div>
-          <Trans id="demonhunter.havoc.inertia.spender.fail">
-            Try to fit at least one <SpellLink spell={SPELLS.ANNIHILATION} /> into the window after
-            your <SpellLink spell={SPELLS.DEATH_SWEEP} /> casts.
-          </Trans>
+          {t({ id: 'demonhunter.havoc.inertia.spender.fail.p1', message: 'Try to fit at least one ' })}
+          <SpellLink spell={SPELLS.ANNIHILATION} />
+          {t({ id: 'demonhunter.havoc.inertia.spender.fail.p2', message: ' into the window after your ' })}
+          <SpellLink spell={SPELLS.DEATH_SWEEP} />
+          {t({ id: 'demonhunter.havoc.inertia.spender.fail.p3', message: ' casts.' })}
         </div>
       ),
     };

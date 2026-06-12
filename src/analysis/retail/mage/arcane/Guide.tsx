@@ -1,5 +1,6 @@
 import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
+
 import { Section, GuideProps, SubSection } from 'interface/guide';
 import CombatLogParser from './CombatLogParser';
 import Explanation from 'interface/guide/components/Explanation';
@@ -23,21 +24,37 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       title={t({ id: 'mage.arcane.subSection.activeTime', message: 'Active Time' })}
     >
       <Explanation>
-        <Trans id="mage.arcane.activeTime.description">
-          Any time you are not casting something, that is damage that is lost. Mage has many ways to
-          decrease downtime, such as using <SpellLink spell={SPELLS.BLINK} /> to get somewhere
-          faster so you can continue casting or using{' '}
-          <SpellLink spell={TALENTS.SLIPSTREAM_TALENT} /> to cast/channel{' '}
-          <SpellLink spell={TALENTS.ARCANE_MISSILES_TALENT} /> or{' '}
-          <SpellLink spell={TALENTS.EVOCATION_TALENT} /> while you are moving; even phases where the
-          only target is taking 99% reduced damage is an opportunity to fish for{' '}
-          <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> procs. While some encounters have forced
-          downtime, which WoWAnalyzer does not account for, anything you can do to minimize your
-          downtime will help your damage. Additionally, to better contextualize your downtime, we
-          recommend comparing your downtime to another Arcane Mage that did better than you on the
-          same encounter with roughly the same kill time. If you have less downtime than them, then
-          maybe there is something you can do to improve.
-        </Trans>
+        <>
+          {t({
+            id: 'mage.arcane.activeTime.description.p1',
+            message: 'Any time you are not casting something, that is damage that is lost. Mage has many ways to decrease downtime, such as using ',
+          })}
+          <SpellLink spell={SPELLS.BLINK} />
+          {t({
+            id: 'mage.arcane.activeTime.description.p2',
+            message: ' to get somewhere faster so you can continue casting or using ',
+          })}
+          <SpellLink spell={TALENTS.SLIPSTREAM_TALENT} />
+          {t({
+            id: 'mage.arcane.activeTime.description.p3',
+            message: ' to cast/channel ',
+          })}
+          <SpellLink spell={TALENTS.ARCANE_MISSILES_TALENT} />
+          {t({
+            id: 'mage.arcane.activeTime.description.p4',
+            message: ' or ',
+          })}
+          <SpellLink spell={TALENTS.EVOCATION_TALENT} />
+          {t({
+            id: 'mage.arcane.activeTime.description.p5',
+            message: ' while you are moving; even phases where the only target is taking 99% reduced damage is an opportunity to fish for ',
+          })}
+          <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />
+          {t({
+            id: 'mage.arcane.activeTime.description.p6',
+            message: ' procs. While some encounters have forced downtime, which WoWAnalyzer does not account for, anything you can do to minimize your downtime will help your damage. Additionally, to better contextualize your downtime, we recommend comparing your downtime to another Arcane Mage that did better than you on the same encounter with roughly the same kill time. If you have less downtime than them, then maybe there is something you can do to improve.',
+          })}
+        </>
       </Explanation>
       <p>
         {t({ id: 'mage.arcane.activeTime.label', message: 'Active Time:' })}{' '}
@@ -98,19 +115,42 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       <Section
         title={t({ id: 'mage.arcane.section.burnPhase', message: 'Burn Phase' })}
       >
-        <Trans id="mage.arcane.burnPhase.description">
-          The largest contribution to your overall damage is going to come from your major and minor
-          burn phases. These burn phases happen roughly every 45s, alternating between your major
-          burn and your minor burn, and typically revolve around stacking as much damage as possible
-          into your <SpellLink spell={TALENTS.TOUCH_OF_THE_MAGI_TALENT} /> as possible. To do this,
-          you will stack other buffs such as and <SpellLink spell={TALENTS.ARCANE_TEMPO_TALENT} />{' '}
-          to allow your other damaging abilities such as <SpellLink spell={SPELLS.ARCANE_BLAST} />{' '}
-          and <SpellLink spell={TALENTS.ARCANE_MISSILES_TALENT} /> (with{' '}
-          <SpellLink spell={SPELLS.CLEARCASTING_ARCANE} />) to hit harder. As such, you want to make
-          sure you are casting as much as possible during{' '}
-          <SpellLink spell={TALENTS.TOUCH_OF_THE_MAGI_TALENT} /> and that you properly setup for
-          that window ahead of time.
-        </Trans>
+        <>
+          {t({
+            id: 'mage.arcane.burnPhase.description.p1',
+            message: 'The largest contribution to your overall damage is going to come from your major and minor burn phases. These burn phases happen roughly every 45s, alternating between your major burn and your minor burn, and typically revolve around stacking as much damage as possible into your ',
+          })}
+          <SpellLink spell={TALENTS.TOUCH_OF_THE_MAGI_TALENT} />
+          {t({
+            id: 'mage.arcane.burnPhase.description.p2',
+            message: ' as possible. To do this, you will stack other buffs such as and ',
+          })}
+          <SpellLink spell={TALENTS.ARCANE_TEMPO_TALENT} />
+          {t({
+            id: 'mage.arcane.burnPhase.description.p3',
+            message: ' to allow your other damaging abilities such as ',
+          })}
+          <SpellLink spell={SPELLS.ARCANE_BLAST} />
+          {t({
+            id: 'mage.arcane.burnPhase.description.p4',
+            message: ' and ',
+          })}
+          <SpellLink spell={TALENTS.ARCANE_MISSILES_TALENT} />
+          {t({
+            id: 'mage.arcane.burnPhase.description.p5',
+            message: ' (with ',
+          })}
+          <SpellLink spell={SPELLS.CLEARCASTING_ARCANE} />
+          {t({
+            id: 'mage.arcane.burnPhase.description.p6',
+            message: ') to hit harder. As such, you want to make sure you are casting as much as possible during ',
+          })}
+          <SpellLink spell={TALENTS.TOUCH_OF_THE_MAGI_TALENT} />
+          {t({
+            id: 'mage.arcane.burnPhase.description.p7',
+            message: ' and that you properly setup for that window ahead of time.',
+          })}
+        </>
 
         {info.combatant.hasTalent(TALENTS.ARCANE_SURGE_TALENT) &&
           modules.arcaneSurgeGuide.guideSubsection}
@@ -134,11 +174,17 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       <Section
         title={t({ id: 'mage.arcane.section.cooldowns', message: 'Cooldowns' })}
       >
-        <Trans id="mage.arcane.cooldowns.description">
-          As is the case with most damage specs, properly utilizing your damage cooldowns will go a
-          long way towards improving your overall damage, especially{' '}
-          <SpellLink spell={TALENTS.ARCANE_SURGE_TALENT} />.
-        </Trans>
+        <>
+          {t({
+            id: 'mage.arcane.cooldowns.description.p1',
+            message: 'As is the case with most damage specs, properly utilizing your damage cooldowns will go a long way towards improving your overall damage, especially ',
+          })}
+          <SpellLink spell={TALENTS.ARCANE_SURGE_TALENT} />
+          {t({
+            id: 'mage.arcane.cooldowns.description.p2',
+            message: '.',
+          })}
+        </>
         <CastEfficiencyBar
           spell={TALENTS.ARCANE_SURGE_TALENT}
           gapHighlightMode={GapHighlight.FullCooldown}

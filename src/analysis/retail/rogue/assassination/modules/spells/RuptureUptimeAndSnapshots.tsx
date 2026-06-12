@@ -208,13 +208,16 @@ export default class RuptureUptimeAndSnapshots extends DotSnapshots {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="rogue.assassination.rupture.explanation">
+        <>
           <strong>
             <SpellLink spell={SPELLS.RUPTURE} />
           </strong>{' '}
-          is your highest damage-per-energy spender. Try to maintain 100% uptime. Don't refresh
-          early.
-        </Trans>
+          {t({
+            id: 'rogue.assassination.rupture.explanation.text',
+            message:
+              "is your highest damage-per-energy spender. Try to maintain 100% uptime. Don't refresh early.",
+          })}
+        </>
       </p>
     );
 
@@ -225,10 +228,20 @@ export default class RuptureUptimeAndSnapshots extends DotSnapshots {
         abovePerformanceDetails={
           <RoundedPanelWithBottomMargin>
             <div>
-              <Trans id="rogue.assassination.rupture.uptimeHeader">
-                <strong>Rupture uptime</strong>
-                <small> - Try to get as close to 100% as the encounter allows!</small>
-              </Trans>
+              <>
+                <strong>
+                  {t({
+                    id: 'rogue.assassination.rupture.uptimeHeader.bold',
+                    message: 'Rupture uptime',
+                  })}
+                </strong>
+                <small>
+                  {t({
+                    id: 'rogue.assassination.rupture.uptimeHeader.text',
+                    message: ' - Try to get as close to 100% as the encounter allows!',
+                  })}
+                </small>
+              </>
             </div>
             {this.subStatistic()}
           </RoundedPanelWithBottomMargin>

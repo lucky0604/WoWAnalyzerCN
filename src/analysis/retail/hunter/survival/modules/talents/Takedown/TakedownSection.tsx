@@ -1,4 +1,4 @@
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { SubSection, useAnalyzer, useInfo } from 'interface/guide';
 import { JSX } from 'react';
 import Takedown from './Takedown';
@@ -30,20 +30,46 @@ export default function TakedownSection(): JSX.Element | null {
       <Explanation>
         {hasTwinFangs ? (
           <p>
-            <Trans id="hunter.survival.takedownSection.withTwinFangs">
-              With <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />, Takedown generates{' '}
-              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks on its own. Aim to enter
-              Takedown with 0 stacks to maximise effectiveness of Twin Fangs.
-            </Trans>
+            <>
+              {t({
+                id: 'hunter.survival.takedownSection.withTwinFangs.p1',
+                message: 'With ',
+              })}
+              <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />
+              {t({
+                id: 'hunter.survival.takedownSection.withTwinFangs.p2',
+                message: ', Takedown generates ',
+              })}
+              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+              {t({
+                id: 'hunter.survival.takedownSection.withTwinFangs.p3',
+                message: ' stacks on its own. Aim to enter Takedown with 0 stacks to maximise effectiveness of Twin Fangs.',
+              })}
+            </>
           </p>
         ) : (
           <p>
-            <Trans id="hunter.survival.takedownSection.withoutTwinFangs">
-              Without <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />, Takedown does not generate{' '}
-              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} /> stacks on its own. Use{' '}
-              <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} /> before Takedown to maximise
-              stacks during Takedown.
-            </Trans>
+            <>
+              {t({
+                id: 'hunter.survival.takedownSection.withoutTwinFangs.p1',
+                message: 'Without ',
+              })}
+              <SpellLink spell={TALENTS.TWIN_FANGS_TALENT} />
+              {t({
+                id: 'hunter.survival.takedownSection.withoutTwinFangs.p2',
+                message: ', Takedown does not generate ',
+              })}
+              <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
+              {t({
+                id: 'hunter.survival.takedownSection.withoutTwinFangs.p3',
+                message: ' stacks on its own. Use ',
+              })}
+              <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
+              {t({
+                id: 'hunter.survival.takedownSection.withoutTwinFangs.p4',
+                message: ' before Takedown to maximise stacks during Takedown.',
+              })}
+            </>
           </p>
         )}
       </Explanation>

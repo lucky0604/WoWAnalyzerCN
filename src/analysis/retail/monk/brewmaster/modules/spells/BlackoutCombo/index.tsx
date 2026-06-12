@@ -99,10 +99,13 @@ class BlackoutCombo extends Analyzer {
                 const totalProcs = this.blackoutComboBuffs;
                 const usedProcs = this.blackoutComboConsumed;
                 return (
-                  <Trans id="monk.brewmaster.blackoutCombo.tooltipLine1">
-                    You got total <strong>{totalProcs}</strong> Blackout Combo procs and used{' '}
-                    <strong>{usedProcs}</strong> of them.
-                  </Trans>
+                  <>
+                    {t({ id: 'monk.brewmaster.blackoutCombo.tooltipLine1.p1', message: 'You got total ' })}
+                    <strong>{totalProcs}</strong>
+                    {t({ id: 'monk.brewmaster.blackoutCombo.tooltipLine1.p2', message: ' Blackout Combo procs and used ' })}
+                    <strong>{usedProcs}</strong>
+                    {t({ id: 'monk.brewmaster.blackoutCombo.tooltipLine1.p3', message: ' of them.' })}
+                  </>
                 );
               })()}
             </p>

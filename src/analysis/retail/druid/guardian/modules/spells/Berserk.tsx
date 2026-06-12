@@ -212,9 +212,13 @@ export default class Berserk extends Analyzer.withDependencies({
       });
       detailItems.push({
         label: (
-          <Trans id="druid.guardian.berserk.rage_spent_ironfur">
-            Rage spent on <SpellLink spell={SPELLS.IRONFUR} />
-          </Trans>
+          <>
+            {t({
+              id: 'druid.guardian.berserk.rage_spent_ironfur',
+              message: 'Rage spent on ',
+            })}
+            <SpellLink spell={SPELLS.IRONFUR} />
+          </>
         ),
         details: (
           <Trans id="druid.guardian.berserk.rage_amount">
@@ -224,10 +228,15 @@ export default class Berserk extends Analyzer.withDependencies({
       });
       detailItems.push({
         label: (
-          <Trans id="druid.guardian.berserk.rage_spent_maul_raze">
-            Rage spent on <SpellLink spell={SPELLS.MAUL} /> &amp;{' '}
+          <>
+            {t({
+              id: 'druid.guardian.berserk.rage_spent_maul_raze',
+              message: 'Rage spent on ',
+            })}
+            <SpellLink spell={SPELLS.MAUL} />
+            {t({ id: 'druid.guardian.berserk.rage_spent_maul_raze.p2', message: ' & ' })}
             <SpellLink spell={TALENTS_DRUID.RAZE_TALENT} />
-          </Trans>
+          </>
         ),
         details: (
           <Trans id="druid.guardian.berserk.rage_amount">
@@ -256,13 +265,14 @@ export default class Berserk extends Analyzer.withDependencies({
 
     const explanation = (
       <p>
-        <Trans id="druid.guardian.berserk.explanation">
-          <strong>
-            <SpellLink spell={this.cdSpell} />
-          </strong>{' '}
-          is our primary damage cooldown and also a very powerful defensive cooldown. It's
-          particularly potent in AoE. You should maximize ability use while its active.
-        </Trans>
+        <strong>
+          <SpellLink spell={this.cdSpell} />
+        </strong>{' '}
+        {t({
+          id: 'druid.guardian.berserk.explanation',
+          message:
+            "is our primary damage cooldown and also a very powerful defensive cooldown. It's particularly potent in AoE. You should maximize ability use while its active.",
+        })}
       </p>
     );
 

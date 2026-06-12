@@ -100,32 +100,103 @@ class TouchOfTheMagiGuide extends Analyzer {
     const sunfuryExecution = <SpellLink spell={TALENTS.SUNFURY_EXECUTION_TALENT} />;
 
     const explanation = (
-      <Trans id="mage.arcane.touchOfTheMagi.guide.explanation">
-        <b>{touchOfTheMagi}</b> is a short debuff available for each burn phase and grants you 4{' '}
-        {arcaneCharge}s and accumulates 20% of your damage for the duration. When the debuff expires
-        it explodes dealing damage to the target and reduced damage to nearby targets. Following the
-        below guidelines will help you get the most out of the debuff:
+      <>
+        <strong>{touchOfTheMagi}</strong>
+        {t({
+          id: 'mage.arcane.touchOfTheMagi.guide.explanation.p1',
+          message: ' is a short debuff available for each burn phase and grants you 4 ',
+        })}
+        {arcaneCharge}
+        {t({
+          id: 'mage.arcane.touchOfTheMagi.guide.explanation.p2',
+          message: 's and accumulates 20% of your damage for the duration. When the debuff expires it explodes dealing damage to the target and reduced damage to nearby targets. Following the below guidelines will help you get the most out of the debuff:',
+        })}
         <ul>
           {this.isSpellslinger && (
             <li>
-              Just before casting {touchOfTheMagi}, you should cast {arcaneBarrage} to expend all of
-              your {arcaneCharge}s and then cast {touchOfTheMagi} while {arcaneBarrage} is in the
-              air.
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li1',
+                message: 'Just before casting ',
+              })}
+              {touchOfTheMagi}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li1a',
+                message: ', you should cast ',
+              })}
+              {arcaneBarrage}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li1b',
+                message: ' to expend all of your ',
+              })}
+              {arcaneCharge}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li1c',
+                message: 's and then cast ',
+              })}
+              {touchOfTheMagi}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li1d',
+                message: ' while ',
+              })}
+              {arcaneBarrage}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li1e',
+                message: ' is in the air.',
+              })}
             </li>
           )}
           {this.isSunfury && (
             <li>
-              Instead of using {arcaneBarrage} just before {touchOfTheMagi}, you should use it
-              immediately after to buff the damage of the {arcaneBarrage} via {sunfuryExecution}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li2',
+                message: 'Instead of using ',
+              })}
+              {arcaneBarrage}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li2a',
+                message: ' just before ',
+              })}
+              {touchOfTheMagi}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li2b',
+                message: ', you should use it immediately after to buff the damage of the ',
+              })}
+              {arcaneBarrage}
+              {t({
+                id: 'mage.arcane.touchOfTheMagi.guide.explanation.li2c',
+                message: ' via ',
+              })}
+              {sunfuryExecution}
             </li>
           )}
           <li>
-            If {arcaneSurge} will be available within the next 40 seconds, you should hold{' '}
-            {touchOfTheMagi} to ensure {arcaneSurge} can be used while the {touchOfTheMagi} debuff
-            is active.
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation.li3',
+              message: 'If ',
+            })}
+            {arcaneSurge}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation.li3a',
+              message: ' will be available within the next 40 seconds, you should hold ',
+            })}
+            {touchOfTheMagi}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation.li3b',
+              message: ' to ensure ',
+            })}
+            {arcaneSurge}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation.li3c',
+              message: ' can be used while the ',
+            })}
+            {touchOfTheMagi}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation.li3d',
+              message: ' debuff is active.',
+            })}
           </li>
         </ul>
-      </Trans>
+      </>
     );
 
     const activeTimeTooltip = (

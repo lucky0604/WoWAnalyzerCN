@@ -4,6 +4,7 @@
  */
 
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import talents from 'common/TALENTS/deathknight';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
@@ -60,9 +61,10 @@ const exterminateCnd = cnd.describe(
     cnd.buffPresent(SPELLS.EXTERMINATE_PAINFUL_DEATH_BUFF),
   ),
   (tense) => (
-    <Trans id="deathknight.blood.runeWaste.exterminateAvailable">
-      <SpellLink spell={talents.EXTERMINATE_TALENT} /> {tenseAlt(tense, 'is', 'was')} available
-    </Trans>
+    <>
+      <SpellLink spell={talents.EXTERMINATE_TALENT} /> {tenseAlt(tense, 'is', 'was')}{' '}
+      {t({ id: 'deathknight.blood.runeWaste.exterminateAvailable', message: 'available' })}
+    </>
   ),
 );
 
@@ -109,10 +111,12 @@ const runeRules = {
           ),
         ),
         (tense) => (
-          <Trans id="deathknight.blood.runeWaste.drwAboutToEnd">
+          <>
             <SpellLink spell={talents.DANCING_RUNE_WEAPON_TALENT} /> {tenseAlt(tense, 'is', 'was')}{' '}
-            about to end to refresh <SpellLink spell={SPELLS.BONE_SHIELD} /> to max stacks
-          </Trans>
+            {t({ id: 'deathknight.blood.runeWaste.drwAboutToEnd', message: 'about to end to refresh ' })}
+            <SpellLink spell={SPELLS.BONE_SHIELD} />
+            {t({ id: 'deathknight.blood.runeWaste.drwAboutToEnd.p2', message: ' to max stacks' })}
+          </>
         ),
       ),
     },
@@ -122,10 +126,11 @@ const runeRules = {
       condition: cnd.describe(
         cnd.and(cnd.buffPresent(SPELLS.DANCING_RUNE_WEAPON_TALENT_BUFF), boneShieldLow(1)),
         () => (
-          <Trans id="deathknight.blood.runeWaste.boneShieldLowDuringDrw">
-            <SpellLink spell={SPELLS.BONE_SHIELD} /> is at 0 or 1 stacks during{' '}
+          <>
+            <SpellLink spell={SPELLS.BONE_SHIELD} />
+            {t({ id: 'deathknight.blood.runeWaste.boneShieldLowDuringDrw', message: ' is at 0 or 1 stacks during ' })}
             <SpellLink spell={talents.DANCING_RUNE_WEAPON_TALENT} />
-          </Trans>
+          </>
         ),
       ),
     },
@@ -194,17 +199,24 @@ function boneShieldViolations(violations: Violation[]) {
 const DescribeBoneShieldWaste: ViolationExplainer<any>['describe'] = ({ violation }) => {
   const isMarrowrend = violation.actualCast.ability.guid === talents.MARROWREND_TALENT.id;
   return (
-    <Trans id="deathknight.blood.runeWaste.boneShieldWasteDescription">
+    <>
       <p>
-        <ActualCastDescription event={violation.actualCast} /> when{' '}
-        <SpellLink spell={SPELLS.BONE_SHIELD} /> was present and did not need to be refreshed.
+        <ActualCastDescription event={violation.actualCast} />
+        {t({ id: 'deathknight.blood.runeWaste.boneShieldWasteDescription.p1', message: ' when ' })}
+        <SpellLink spell={SPELLS.BONE_SHIELD} />
+        {t({ id: 'deathknight.blood.runeWaste.boneShieldWasteDescription.p2', message: ' was present and did not need to be refreshed.' })}
       </p>
       <p>
-        You could have generated <strong>{isMarrowrend ? 10 : 5}+</strong> additional{' '}
-        <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> by casting{' '}
-        <SpellLink spell={talents.HEART_STRIKE_TALENT} /> {isMarrowrend ? 'twice' : ''} instead.
+        {t({ id: 'deathknight.blood.runeWaste.boneShieldWasteDescription.p3', message: 'You could have generated ' })}
+        <strong>{isMarrowrend ? 10 : 5}+</strong>
+        {t({ id: 'deathknight.blood.runeWaste.boneShieldWasteDescription.p4', message: ' additional ' })}
+        <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+        {t({ id: 'deathknight.blood.runeWaste.boneShieldWasteDescription.p5', message: ' by casting ' })}
+        <SpellLink spell={talents.HEART_STRIKE_TALENT} />
+        {' '}{isMarrowrend ? t({ id: 'deathknight.blood.runeWaste.boneShieldWasteDescription.twice', message: 'twice' }) : ''}
+        {t({ id: 'deathknight.blood.runeWaste.boneShieldWasteDescription.p6', message: ' instead.' })}
       </p>
-    </Trans>
+    </>
   );
 };
 
@@ -236,9 +248,10 @@ export function RuneWaste(): JSX.Element | null {
     <SuggestionBox
       performance={perf}
       title={
-        <Trans id="deathknight.blood.runeWaste.heartStrikePrimaryRp">
-          <SpellLink spell={talents.HEART_STRIKE_TALENT} /> should be your primary source of RP.
-        </Trans>
+        <>
+          <SpellLink spell={talents.HEART_STRIKE_TALENT} />
+          {t({ id: 'deathknight.blood.runeWaste.heartStrikePrimaryRp', message: ' should be your primary source of RP.' })}
+        </>
       }
       description={
         <Trans id="deathknight.blood.runeWaste.heartStrikeBonusRp">
@@ -252,14 +265,20 @@ export function RuneWaste(): JSX.Element | null {
     >
       <div>
         <p>
-          <Trans id="deathknight.blood.runeWaste.marrowrendTooMuch">
-            Using <SpellLink spell={talents.MARROWREND_TALENT} /> too much is one of the most common
-            problems. <SpellLink spell={talents.MARROWREND_TALENT} /> generates less{' '}
-            <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> and does less damage per Rune than{' '}
-            <SpellLink spell={talents.HEART_STRIKE_TALENT} />.{' '}
-            <SpellLink spell={talents.MARROWREND_TALENT} /> should <em>only</em> be used to apply and
-            refresh <SpellLink spell={SPELLS.BONE_SHIELD} />!
-          </Trans>
+          {t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch', message: 'Using ' })}
+          <SpellLink spell={talents.MARROWREND_TALENT} />
+          {t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch.p2', message: ' too much is one of the most common problems. ' })}
+          <SpellLink spell={talents.MARROWREND_TALENT} />
+          {t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch.p3', message: ' generates less ' })}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+          {t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch.p4', message: ' and does less damage per Rune than ' })}
+          <SpellLink spell={talents.HEART_STRIKE_TALENT} />
+          {t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch.p5', message: '. ' })}
+          <SpellLink spell={talents.MARROWREND_TALENT} />
+          {t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch.p6', message: ' should ' })}
+          <em>{t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch.only', message: 'only' })}</em>
+          {t({ id: 'deathknight.blood.runeWaste.marrowrendTooMuch.p7', message: ' be used to apply and refresh ' })}
+          <SpellLink spell={SPELLS.BONE_SHIELD} />!
         </p>
         <ViolationProblemList
           describer={DescribeBoneShieldWaste}

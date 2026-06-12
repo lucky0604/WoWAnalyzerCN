@@ -211,15 +211,29 @@ class KillingMachineEfficiency extends Analyzer {
 
     const explanation = (
       <p>
-        <Trans id="deathknight.frost.killingMachine.guide.explanation">
-          <b>
-            <SpellLink spell={talents.KILLING_MACHINE_TALENT} />
-          </b>{' '}
-          is your most important proc. You want to waste as few of them as possible. If you are
-          playing 2H Frost it is even more important because{' '}
-          <SpellLink spell={talents.OBLITERATE_TALENT} /> will be <b>the most important</b> source of
-          damage in your build.
-        </Trans>
+        <b>
+          <SpellLink spell={talents.KILLING_MACHINE_TALENT} />
+        </b>
+        {t({
+          id: 'deathknight.frost.killingMachine.guide.explanation',
+          message:
+            ' is your most important proc. You want to waste as few of them as possible. If you are playing 2H Frost it is even more important because ',
+        })}
+        <SpellLink spell={talents.OBLITERATE_TALENT} />
+        {t({
+          id: 'deathknight.frost.killingMachine.guide.explanation.p2',
+          message: ' will be ',
+        })}
+        <b>
+          {t({
+            id: 'deathknight.frost.killingMachine.guide.explanation.bold',
+            message: 'the most important',
+          })}
+        </b>
+        {t({
+          id: 'deathknight.frost.killingMachine.guide.explanation.p3',
+          message: ' source of damage in your build.',
+        })}
       </p>
     );
 

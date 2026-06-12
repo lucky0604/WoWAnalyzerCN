@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_SHAMAN } from 'common/TALENTS/shaman';
 import { SpellIcon, SpellLink, TooltipElement } from 'interface';
@@ -105,17 +106,30 @@ class HealingRain extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="shaman.restoration.healingRain.guideExplanation">
-          <b>
-            <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} />
-          </b>{' '}
-          is one of your best sources of consistent throughput and can be augmented to do more healing
-          through <SpellLink spell={TALENTS.OVERFLOWING_SHORES_TALENT} /> and more damage through{' '}
-          <SpellLink spell={TALENTS.ACID_RAIN_TALENT} />. Aside from being strong throughput, this{' '}
-          spell also buffs <SpellLink spell={SPELLS.HEALING_WAVE} /> and{' '}
-          <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} /> through{' '}
-          <SpellLink spell={TALENTS.DELUGE_TALENT} />
-        </Trans>
+        <b>
+          <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} />
+        </b>{' '}
+        {t({
+          id: 'shaman.restoration.healingRain.guideExplanation',
+          message:
+            'is one of your best sources of consistent throughput and can be augmented to do more healing through',
+        })}{' '}
+        <SpellLink spell={TALENTS.OVERFLOWING_SHORES_TALENT} />
+        {t({
+          id: 'shaman.restoration.healingRain.guideExplanation.damage',
+          message: 'and more damage through',
+        })}{' '}
+        <SpellLink spell={TALENTS.ACID_RAIN_TALENT} />
+        {t({
+          id: 'shaman.restoration.healingRain.guideExplanation.deluge',
+          message:
+            '. Aside from being strong throughput, this spell also buffs',
+        })}{' '}
+        <SpellLink spell={SPELLS.HEALING_WAVE} />
+        {t({ id: 'shaman.restoration.healingRain.guideExplanation.and', message: 'and' })}{' '}
+        <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />
+        {t({ id: 'shaman.restoration.healingRain.guideExplanation.through', message: 'through' })}{' '}
+        <SpellLink spell={TALENTS.DELUGE_TALENT} />
       </p>
     );
 
@@ -123,9 +137,11 @@ class HealingRain extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="shaman.restoration.healingRain.castEfficiency">
-              <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} /> cast efficiency
-            </Trans>
+            <SpellLink spell={TALENTS_SHAMAN.HEALING_RAIN_TALENT} />
+            {t({
+              id: 'shaman.restoration.healingRain.castEfficiency',
+              message: ' cast efficiency',
+            })}
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}

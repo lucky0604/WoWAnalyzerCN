@@ -1,5 +1,6 @@
 import Analyzer, { SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { Options } from 'parser/core/Module';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import SPELLS from 'common/SPELLS';
@@ -87,11 +88,13 @@ class DoubleClawedRake extends Analyzer {
               </Trans>
             </p>
             <p>
-              <Trans id="druid.feral.dcr.tooltip_p2">
-                Over the course of this encounter, <strong>{this.extraRakes}</strong> extra Rake DoTs
-                were created by this talent, or{' '}
-                <strong>{this.owner.getPerMinute(this.extraRakes).toFixed(1)} per minute</strong>.
-              </Trans>
+              <strong>{this.extraRakes}</strong>
+              {t({
+                id: 'druid.feral.dcr.tooltip_p2.p2',
+                message:
+                  ' extra Rake DoTs were created by this talent, or ',
+              })}
+              <strong>{this.owner.getPerMinute(this.extraRakes).toFixed(1)} per minute</strong>.
             </p>
           </>
         }

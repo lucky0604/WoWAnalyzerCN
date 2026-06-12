@@ -7,7 +7,7 @@ import { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import Events, { HealEvent } from 'parser/core/Events';
 import EOLAttrib from './EchoOfLightAttributor';
 import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 
 /**
  * this is just the display function for talents powered by the core of EOLAttrib
@@ -72,25 +72,21 @@ class EchoOfLightDisplay extends Analyzer {
         position={STATISTIC_ORDER.CORE(1)}
         size="flexible"
         tooltip={
-          <Trans id="priest.holy.echoOfLight.tooltip">
-            {'This module works by closely approximating '}
+          <>
+            {t({ id: 'priest.holy.echoOfLight.tooltip.p1', message: 'This module works by closely approximating ' })}
             <SpellLink spell={SPELLS.ECHO_OF_LIGHT_MASTERY} />
-            {
-              ', which can proc from most direct heals. This includes non spec direct heals such as enchants, trinkets, etc. '
-            }
+            {t({ id: 'priest.holy.echoOfLight.tooltip.p2', message: ', which can proc from most direct heals. This includes non spec direct heals such as enchants, trinkets, etc. ' })}
             <SpellLink spell={SPELLS.ECHO_OF_LIGHT_MASTERY} />
-            {
-              " SHOULD NOT proc on pet heals or HoTs. There can always be exceptions that have to be updated in the back end blacklist. If there is a heal listed that shouldn't be please contact a maintainer."
-            }
+            {t({ id: 'priest.holy.echoOfLight.tooltip.p3', message: " SHOULD NOT proc on pet heals or HoTs. There can always be exceptions that have to be updated in the back end blacklist. If there is a heal listed that shouldn't be please contact a maintainer." })}
             {/* oxlint-disable-next-line @wowanalyzer/no-br */}
             <br />
             {/* oxlint-disable-next-line @wowanalyzer/no-br */}
             <br />
-            {'The current error between measured and approximated is '}
+            {t({ id: 'priest.holy.echoOfLight.tooltip.line1', message: 'The current error between measured and approximated is ' })}
             <ItemPercentHealingDone
               amount={this.totalCalcEol - this.totalMeasuredEol}
             ></ItemPercentHealingDone>
-          </Trans>
+          </>
         }
         dropdown={
           <>

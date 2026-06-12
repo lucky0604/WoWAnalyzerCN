@@ -12,7 +12,6 @@ import { getHeal } from '../../../normalizers/CastLinkNormalizer';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../../Guide';
 import GradiatedPerformanceBar from 'interface/guide/components/GradiatedPerformanceBar';
-import { Trans } from '@lingui/react/macro';
 import { defineMessage, t } from '@lingui/core/macro';
 import { LW_CAST_TIME_DECREASE } from '../../../constants';
 import EOLAttrib from '../../core/EchoOfLightAttributor';
@@ -87,12 +86,7 @@ class Lightweaver extends Analyzer {
         <b>
           <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />
         </b>{' '}
-        <Trans id="priest.holy.lightweaver.description">
-          increases healing of <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> and reduces
-          its mana cost. Try to cast <SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} /> more
-          often to consume <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> stacks and save mana in
-          situations when at least three party members are injured.
-        </Trans>
+        <>{t({ id: 'priest.holy.lightweaver.description.p1', message: 'increases healing of ' })}<SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} />{t({ id: 'priest.holy.lightweaver.description.p2', message: ' and reduces its mana cost. Try to cast ' })}<SpellLink spell={TALENTS.PRAYER_OF_HEALING_TALENT} />{t({ id: 'priest.holy.lightweaver.description.p3', message: ' more often to consume ' })}<SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />{t({ id: 'priest.holy.lightweaver.description.p4', message: ' stacks and save mana in situations when at least three party members are injured.' })}</>
       </p>
     );
 
@@ -128,12 +122,7 @@ class Lightweaver extends Analyzer {
         </strong>
         <small>
           {' '}
-          <Trans id="priest.holy.lightweaver.castBreakdownLegend">
-            – <span className={styles.goodCast}>Green</span> is a good cast.{' '}
-            <span className={styles.okCast}>Yellow</span> is a cast with Surge of Light buff.{' '}
-            <span className={styles.badCast}>Red</span> is a cast with four stacks of{' '}
-            <SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} /> already active.
-          </Trans>
+          <>{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.p1', message: '– ' })}<span className={styles.goodCast}>{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.green', message: 'Green' })}</span>{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.p2', message: ' is a good cast. ' })}<span className={styles.okCast}>{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.yellow', message: 'Yellow' })}</span>{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.p3', message: ' is a cast with Surge of Light buff. ' })}<span className={styles.badCast}>{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.red', message: 'Red' })}</span>{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.p4', message: ' is a cast with four stacks of ' })}<SpellLink spell={TALENTS.LIGHTWEAVER_TALENT} />{t({ id: 'priest.holy.lightweaver.castBreakdownLegend.p5', message: ' already active.' })}</>
         </small>
         <GradiatedPerformanceBar
           good={goodFlashHeals}

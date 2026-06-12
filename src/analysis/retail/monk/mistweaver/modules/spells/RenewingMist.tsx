@@ -13,7 +13,6 @@ import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 import Vivify from './Vivify';
 
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 class RenewingMist extends Analyzer {
   static dependencies = {
@@ -77,20 +76,23 @@ class RenewingMist extends Analyzer {
         <b>
           <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
         </b>{' '}
-        <Trans id="monk.mistweaver.renewingMist.explanation">
-          <b>
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-          </b>{' '}
-          is your primary healing spell. You can use it on any target and it will either stay on the
-          target, jump targets if the chosen target has a{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> and there are players in range, or
-          pandemic if there are no players to jump to in range. Using{' '}
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> as much as possible is extremely important
-          due to its synergy with <SpellLink spell={SPELLS.VIVIFY} />,{' '}
-          <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />,{' '}
-          <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />, and{' '}
-          <SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT} />.
-        </Trans>
+        <b>
+          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+        </b>
+        {' '}
+        {t({ id: 'monk.mistweaver.renewingMist.explanation.p1', message: "is your primary healing spell. You can use it on any target and it will either stay on the target, jump targets if the chosen target has a " })}
+        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+        {t({ id: 'monk.mistweaver.renewingMist.explanation.p2', message: " and there are players in range, or pandemic if there are no players to jump to in range. Using " })}
+        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+        {t({ id: 'monk.mistweaver.renewingMist.explanation.p3', message: " as much as possible is extremely important due to its synergy with " })}
+        <SpellLink spell={SPELLS.VIVIFY} />
+        {t({ id: 'monk.mistweaver.renewingMist.explanation.p4', message: ", " })}
+        <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />
+        {t({ id: 'monk.mistweaver.renewingMist.explanation.p5', message: ", " })}
+        <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />
+        {t({ id: 'monk.mistweaver.renewingMist.explanation.p6', message: ", and " })}
+        <SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT} />
+        {t({ id: 'monk.mistweaver.renewingMist.explanation.p7', message: "." })}
       </p>
     );
 

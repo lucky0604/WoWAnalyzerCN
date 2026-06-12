@@ -55,14 +55,13 @@ class LifeCocoon extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.LIFE_COCOON_TALENT} />
         </b>{' '}
-        <Trans id="monk.mistweaver.lifeCocoon.explanation">
-          is a strong external cooldown that has many supporting talents in{' '}
-          <SpellLink spell={TALENTS_MONK.MISTS_OF_LIFE_TALENT} />,{' '}
-          <SpellLink spell={TALENTS_MONK.CHRYSALIS_TALENT} />, and{' '}
-          <SpellLink spell={TALENTS_MONK.CALMING_COALESCENCE_TALENT} />, and is important as often
-          as possible while still getting good value from it. Similar to your other cooldowns, this
-          just means don't hold it for so long that you miss out on an entire cast.
-        </Trans>
+        {t({ id: 'monk.mistweaver.lifeCocoon.explanation.p1', message: "is a strong external cooldown that has many supporting talents in " })}
+        <SpellLink spell={TALENTS_MONK.MISTS_OF_LIFE_TALENT} />
+        {t({ id: 'monk.mistweaver.lifeCocoon.explanation.p2', message: ", " })}
+        <SpellLink spell={TALENTS_MONK.CHRYSALIS_TALENT} />
+        {t({ id: 'monk.mistweaver.lifeCocoon.explanation.p3', message: ", and " })}
+        <SpellLink spell={TALENTS_MONK.CALMING_COALESCENCE_TALENT} />
+        {t({ id: 'monk.mistweaver.lifeCocoon.explanation.p4', message: ", and is important as often as possible while still getting good value from it. Similar to your other cooldowns, this just means don't hold it for so long that you miss out on an entire cast." })}
       </p>
     );
 

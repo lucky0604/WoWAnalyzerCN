@@ -230,16 +230,36 @@ class Zenith extends Analyzer.withDependencies({
 
     const explanation = (
       <p>
-        <Trans id="monk.windwalker.zenith.explanation">
-          <b>
+        <>
+          <strong>
             <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} />
-          </b>{' '}
-          resets <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} /> and for 15 seconds
-          reduces Chi costs by 1 while making <SpellLink spell={SPELLS.BLACKOUT_KICK} /> reduce the
-          cooldown of affected abilities by an additional 1 second. Casting{' '}
-          <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} /> grants 2 charges of{' '}
-          <SpellLink spell={TALENTS_MONK.ZENITH_STOMP_TALENT} />, and each cast generates 2 Chi.
-        </Trans>
+          </strong>{' '}
+          {t({
+            id: 'monk.windwalker.zenith.explanation.p1',
+            message: 'resets ',
+          })}
+          <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} />
+          {t({
+            id: 'monk.windwalker.zenith.explanation.p2',
+            message: ' and for 15 seconds reduces Chi costs by 1 while making ',
+          })}
+          <SpellLink spell={SPELLS.BLACKOUT_KICK} />
+          {t({
+            id: 'monk.windwalker.zenith.explanation.p3',
+            message:
+              ' reduce the cooldown of affected abilities by an additional 1 second. Casting ',
+          })}
+          <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} />
+          {t({
+            id: 'monk.windwalker.zenith.explanation.p4',
+            message: ' grants 2 charges of ',
+          })}
+          <SpellLink spell={TALENTS_MONK.ZENITH_STOMP_TALENT} />
+          {t({
+            id: 'monk.windwalker.zenith.explanation.p5',
+            message: ', and each cast generates 2 Chi.',
+          })}
+        </>
       </p>
     );
 
@@ -256,9 +276,11 @@ class Zenith extends Analyzer.withDependencies({
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="monk.windwalker.zenith.cast_efficiency">
-              <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} /> cast efficiency
-            </Trans>
+            <SpellLink spell={TALENTS_MONK.ZENITH_TALENT} />{' '}
+            {t({
+              id: 'monk.windwalker.zenith.cast_efficiency',
+              message: 'cast efficiency',
+            })}
           </strong>
           {this.guideSubStatistic()}
           <div style={styleObj}>

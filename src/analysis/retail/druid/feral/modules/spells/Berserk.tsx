@@ -133,14 +133,14 @@ class Berserk extends Analyzer {
   get guideCastBreakdown(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="druid.feral.berserk.explanation">
-          <strong>
-            <SpellLink spell={this.cdSpell} />
-          </strong>{' '}
-          is our primary damage cooldown. It's best used as soon as it's available, but can be held
-          to ensure you'll have full target uptime during its duration (don't use it when it will be
-          interrupted by a fight mechanic).{' '}
-        </Trans>
+        <strong>
+          <SpellLink spell={this.cdSpell} />
+        </strong>{' '}
+        {t({
+          id: 'druid.feral.berserk.explanation',
+          message:
+            "is our primary damage cooldown. It's best used as soon as it's available, but can be held to ensure you'll have full target uptime during its duration (don't use it when it will be interrupted by a fight mechanic). ",
+        })}
       </p>
     );
 
@@ -187,19 +187,26 @@ class Berserk extends Analyzer {
 
           if (this.hasConvoke && this.hasHeartOfTheLion) {
             checklistItems.push({
-              label: (
+               label: (
                 <>
-                  <Trans id="druid.feral.berserk.convoke_during">
-                    <SpellLink spell={SPELLS.CONVOKE_SPIRITS} /> during Berserk{' '}
-                  </Trans>
+                  <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
+                  {t({
+                    id: 'druid.feral.berserk.convoke_during',
+                    message: ' during Berserk ',
+                  })}
                   <Tooltip
                     hoverable
                     content={
                       <>
-                        <Trans id="druid.feral.berserk.convoke_during_tooltip">
-                          With <SpellLink spell={TALENTS_DRUID.BERSERK_HEART_OF_THE_LION_TALENT} />,
-                          Convoke and Berserk have the same CD and should always be used together.
-                        </Trans>
+                        {t({
+                          id: 'druid.feral.berserk.convoke_during_tooltip',
+                          message: 'With ',
+                        })}
+                        <SpellLink spell={TALENTS_DRUID.BERSERK_HEART_OF_THE_LION_TALENT} />
+                        {t({
+                          id: 'druid.feral.berserk.convoke_during_tooltip.p2',
+                          message: ', Convoke and Berserk have the same CD and should always be used together.',
+                        })}
                       </>
                     }
                   >

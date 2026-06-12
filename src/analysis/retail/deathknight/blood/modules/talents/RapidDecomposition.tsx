@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
 import TALENTS from 'common/TALENTS/deathknight';
@@ -48,13 +49,19 @@ class RapidDecomposition extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.rapidDecomposition.statistic.tooltip">
+          <>
             <p>
-              <strong>Blood Plague:</strong> {this.owner.formatItemDamageDone(this.bpDamage)}
+              <strong>
+                {t({
+                  id: 'deathknight.blood.rapidDecomposition.statistic.tooltip.bloodPlague',
+                  message: 'Blood Plague:',
+                })}
+              </strong>{' '}
+              {this.owner.formatItemDamageDone(this.bpDamage)}
             </p>
             <strong>{this.DD_DAMAGE_TICK.name}:</strong>{' '}
             {this.owner.formatItemDamageDone(this.dndDamage)}
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.RAPID_DECOMPOSITION_TALENT}>

@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import SPELLS from 'common/SPELLS/demonhunter';
 import TALENTS from 'common/TALENTS/demonhunter';
@@ -55,19 +54,12 @@ export default class UnboundChaos extends Analyzer {
 
     const explanation = (
       <section>
-        <Trans id="demonhunter.havoc.unboundChaos.description">
-          <strong>
-            <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} />
-          </strong>{' '}
-          provides a{' '}
-          {formatPercentage(
-            UNBOUND_CHAOS_SCALING[this.selectedCombatant.getTalentRank(TALENTS.UNBOUND_CHAOS_TALENT)],
-            0,
-          )}
-          % damage increase to your next <SpellLink spell={SPELLS.FEL_RUSH_CAST} /> after casting{' '}
-          <SpellLink spell={SPELLS.IMMOLATION_AURA} />. You should ensure that every buff gets
-          consumed.
-        </Trans>
+        <strong><SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /></strong>
+        {t({ id: 'demonhunter.havoc.unboundChaos.description.p1', message: ` provides a ${formatPercentage(UNBOUND_CHAOS_SCALING[this.selectedCombatant.getTalentRank(TALENTS.UNBOUND_CHAOS_TALENT)], 0)}% damage increase to your next ` })}
+        <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
+        {t({ id: 'demonhunter.havoc.unboundChaos.description.p2', message: ' after casting ' })}
+        <SpellLink spell={SPELLS.IMMOLATION_AURA} />
+        {t({ id: 'demonhunter.havoc.unboundChaos.description.p3', message: '. You should ensure that every buff gets consumed.' })}
       </section>
     );
 
@@ -192,25 +184,27 @@ export default class UnboundChaos extends Analyzer {
     const performance = consumed ? QualitativePerformance.Good : QualitativePerformance.Fail;
     const summary = (
       <div>
-        <Trans id="demonhunter.havoc.unboundChaos.consumedWith">
-          Consumed with <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
-        </Trans>
+        {t({ id: 'demonhunter.havoc.unboundChaos.consumedWith.p1', message: 'Consumed with ' })}
+        <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
       </div>
     );
     const details = consumed ? (
       <div>
-        <Trans id="demonhunter.havoc.unboundChaos.consumedDetails">
-          You consumed your <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff by casting{' '}
-          <SpellLink spell={SPELLS.FEL_RUSH_CAST} />. Good job!
-        </Trans>
+        {t({ id: 'demonhunter.havoc.unboundChaos.consumedDetails.p1', message: 'You consumed your ' })}
+        <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} />
+        {t({ id: 'demonhunter.havoc.unboundChaos.consumedDetails.p2', message: ' buff by casting ' })}
+        <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
+        {t({ id: 'demonhunter.havoc.unboundChaos.consumedDetails.p3', message: '. Good job!' })}
       </div>
     ) : (
       <div>
-        <Trans id="demonhunter.havoc.unboundChaos.notConsumedDetails">
-          You did not consume your <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff. Ensure
-          that every time you get <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} /> buff, you
-          consume it by casting <SpellLink spell={SPELLS.FEL_RUSH_CAST} />.
-        </Trans>
+        {t({ id: 'demonhunter.havoc.unboundChaos.notConsumedDetails.p1', message: 'You did not consume your ' })}
+        <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} />
+        {t({ id: 'demonhunter.havoc.unboundChaos.notConsumedDetails.p2', message: ' buff. Ensure that every time you get ' })}
+        <SpellLink spell={TALENTS.UNBOUND_CHAOS_TALENT} />
+        {t({ id: 'demonhunter.havoc.unboundChaos.notConsumedDetails.p3', message: ' buff, you consume it by casting ' })}
+        <SpellLink spell={SPELLS.FEL_RUSH_CAST} />
+        {t({ id: 'demonhunter.havoc.unboundChaos.notConsumedDetails.p4', message: '.' })}
       </div>
     );
 

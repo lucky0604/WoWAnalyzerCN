@@ -248,17 +248,32 @@ export function buildAplProcWindowData({
                 </div>
                 <div>
                   <LegendSwatch backgroundColor="#fab700" />{' '}
-                  <Trans id="monk.windwalker.apl.made_while_recommended">
-                    a cast was made while <SpellLink spell={actionSpell} /> was already the top APL
-                    recommendation.
-                  </Trans>
+                  <>
+                    {t({
+                      id: 'monk.windwalker.apl.made_while_recommended.p1',
+                      message: 'a cast was made while ',
+                    })}
+                    <SpellLink spell={actionSpell} />
+                    {t({
+                      id: 'monk.windwalker.apl.made_while_recommended.p2',
+                      message: ' was already the top APL recommendation.',
+                    })}
+                  </>
                 </div>
                 <div>
                   <LegendSwatch backgroundColor="rgba(220,220,220,0.75)" />{' '}
-                  <Trans id="monk.windwalker.apl.guidance_marker">
-                    an APL guidance marker showing either where <SpellLink spell={actionSpell} />{' '}
-                    was first expected or which ability still ranked above it at the actual spend.
-                  </Trans>
+                  <>
+                    {t({
+                      id: 'monk.windwalker.apl.guidance_marker.p1',
+                      message: 'an APL guidance marker showing either where ',
+                    })}
+                    <SpellLink spell={actionSpell} />
+                    {t({
+                      id: 'monk.windwalker.apl.guidance_marker.p2',
+                      message:
+                        ' was first expected or which ability still ranked above it at the actual spend.',
+                    })}
+                  </>
                 </div>
               </div>
             </div>

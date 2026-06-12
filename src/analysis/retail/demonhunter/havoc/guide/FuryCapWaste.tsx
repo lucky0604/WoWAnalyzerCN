@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
@@ -51,13 +52,10 @@ const FuryCapWaste = ({
           <Tooltip
             content={
               <div>
-                <Trans id="demonhunter.havoc.furyCapWaste.blindFury.tooltip">
-                  <ResourceLink id={RESOURCE_TYPES.FURY.id} /> from{' '}
-                  <SpellLink spell={TALENTS.BLIND_FURY_TALENT} /> isn't logged by the game and won't
-                  show up on WarcraftLogs; we determine the amount generated based on best guesses
-                  from existing log events. As a result, the amount shown here may vary from what WCL
-                  shows and the actual amount in-game.
-                </Trans>
+                <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+                {t({ id: 'demonhunter.havoc.furyCapWaste.blindFury.tooltip.p1', message: ' from ' })}
+                <SpellLink spell={TALENTS.BLIND_FURY_TALENT} />
+                {t({ id: 'demonhunter.havoc.furyCapWaste.blindFury.tooltip.p2', message: " isn't logged by the game and won't show up on WarcraftLogs; we determine the amount generated based on best guesses from existing log events. As a result, the amount shown here may vary from what WCL shows and the actual amount in-game." })}
               </div>
             }
           >

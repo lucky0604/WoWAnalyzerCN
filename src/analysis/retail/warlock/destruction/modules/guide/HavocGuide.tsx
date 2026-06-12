@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import type { JSX } from 'react';
 import { useMemo } from 'react';
 import SPELLS from 'common/SPELLS';
@@ -28,17 +27,31 @@ export function HavocGuide({ havocAnalyzer, formatTimestamp }: HavocGuideProps):
     <>
       <p>
         <b>{havoc}</b>{' '}
-        <Trans id="warlock.destruction.havocGuide.duplicatesSingleTarget">
-          duplicates your single target spells onto a second target. To maximize its effectiveness,
-          you should cast as many <SpellLink spell={SPELLS.CHAOS_BOLT} /> or{' '}
-          <SpellLink spell={TALENTS_WARLOCK.SHADOWBURN_TALENT} /> as possible during the Havoc window.
-        </Trans>
+        <>
+          {t({
+            id: 'warlock.destruction.havocGuide.duplicatesSingleTarget.p1',
+            message:
+              'duplicates your single target spells onto a second target. To maximize its effectiveness, you should cast as many ',
+          })}
+          <SpellLink spell={SPELLS.CHAOS_BOLT} />
+          {t({ id: 'warlock.destruction.havocGuide.duplicatesSingleTarget.p2', message: ' or ' })}
+          <SpellLink spell={TALENTS_WARLOCK.SHADOWBURN_TALENT} />
+          {t({
+            id: 'warlock.destruction.havocGuide.duplicatesSingleTarget.p3',
+            message: ' as possible during the Havoc window.',
+          })}
+        </>
       </p>
       <p>
-        <Trans id="warlock.destruction.havocGuide.poolSoulShards">
-          Ideally, you should enter Havoc with Soul Shards already pooled so you can immediately begin
-          casting <SpellLink spell={SPELLS.CHAOS_BOLT} />.
-        </Trans>
+        <>
+          {t({
+            id: 'warlock.destruction.havocGuide.poolSoulShards.p1',
+            message:
+              'Ideally, you should enter Havoc with Soul Shards already pooled so you can immediately begin casting ',
+          })}
+          <SpellLink spell={SPELLS.CHAOS_BOLT} />
+          {t({ id: 'warlock.destruction.havocGuide.poolSoulShards.p2', message: '.' })}
+        </>
       </p>
     </>
   );

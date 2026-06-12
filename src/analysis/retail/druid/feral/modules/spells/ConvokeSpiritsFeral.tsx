@@ -73,14 +73,21 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
     const explanation = (
       <>
         <p>
-          <Trans id="druid.feral.convoke.explanation">
-            <strong>
-              <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
-            </strong>{' '}
-            is a powerful but somewhat random burst of damage. Always pair it with{' '}
-            <SpellLink spell={SPELLS.TIGERS_FURY} /> and{' '}
-            <SpellLink spell={cdSpell(this.selectedCombatant)} /> to maximize damage.
-          </Trans>
+          <strong>
+            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />
+          </strong>{' '}
+          {t({
+            id: 'druid.feral.convoke.explanation',
+            message:
+              'is a powerful but somewhat random burst of damage. Always pair it with ',
+          })}
+          <SpellLink spell={SPELLS.TIGERS_FURY} />
+          {t({ id: 'druid.feral.convoke.explanation.p2', message: ' and ' })}
+          <SpellLink spell={cdSpell(this.selectedCombatant)} />
+          {t({
+            id: 'druid.feral.convoke.explanation.p3',
+            message: ' to maximize damage.',
+          })}
         </p>
       </>
     );
@@ -106,9 +113,10 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
           const checklistItems: CooldownExpandableItem[] = [];
           checklistItems.push({
             label: (
-              <Trans id="druid.feral.convoke.tf_active">
-                <SpellLink spell={SPELLS.TIGERS_FURY} /> active
-              </Trans>
+              <>
+                <SpellLink spell={SPELLS.TIGERS_FURY} />
+                {t({ id: 'druid.feral.convoke.tf_active', message: ' active' })}
+              </>
             ),
             result: <PassFailCheckmark pass={feralCast.tfOnCast} />,
           });
@@ -118,9 +126,10 @@ class ConvokeSpiritsFeral extends ConvokeSpirits {
 
           checklistItems.push({
             label: (
-              <Trans id="druid.feral.convoke.berserk_active">
-                <SpellLink spell={cdSpell(this.selectedCombatant)} /> active
-              </Trans>
+              <>
+                <SpellLink spell={cdSpell(this.selectedCombatant)} />
+                {t({ id: 'druid.feral.convoke.berserk_active', message: ' active' })}
+              </>
             ),
             result: <PassFailCheckmark pass={feralCast.berserkOnCast} />,
           });

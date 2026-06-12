@@ -125,10 +125,24 @@ class LockAndLoad extends Analyzer {
           <>
             <div style={{ padding: '8px' }}>
               {plotOneVariableBinomChart(this.totalProcs, this.autoShots, LNL_PROC_CHANCE)}
-              <Trans id="hunter.marksmanship.lockAndLoad.procLikelihood">
-                Likelihood of getting <em>exactly</em> as many procs as estimated on a fight given
-                your number of <SpellLink spell={SPELLS.AUTO_SHOT} /> hits.
-              </Trans>
+              <>
+                  {t({
+                    id: 'hunter.marksmanship.lockAndLoad.procLikelihood.p1',
+                    message: 'Likelihood of getting ',
+                  })}
+                  <em>
+                    {t({
+                      id: 'hunter.marksmanship.lockAndLoad.procLikelihood.em',
+                      message: 'exactly',
+                    })}
+                  </em>
+                  {t({
+                    id: 'hunter.marksmanship.lockAndLoad.procLikelihood.p2',
+                    message: ' as many procs as estimated on a fight given your number of ',
+                  })}
+                  <SpellLink spell={SPELLS.AUTO_SHOT} />
+                  {t({ id: 'hunter.marksmanship.lockAndLoad.procLikelihood.p3', message: ' hits.' })}
+                </>
             </div>
           </>
         }

@@ -102,16 +102,19 @@ class CelestialBrew extends MajorDefensiveBuff {
     return (
       <div>
         <p>
-          <Trans id="monk.brewmaster.celestial_brew.desc">
-            <SpellLink spell={this.displaySpell} /> provides a low-cooldown shield for a large
-            percent of your health bar.{' '}
+          <>
+            <SpellLink spell={this.displaySpell} />
+            {t({ id: 'monk.brewmaster.celestial_brew.desc.p1', message: ' provides a low-cooldown shield for a large percent of your health bar. ' })}
             <CountsAsBrew
               baseCooldown={SPELLS.CELESTIAL_BREW_TALENT.cooldown.duration / 1000}
               lightBrewing={this.selectedCombatant.hasTalent(talents.LIGHT_BREWING_TALENT)}
-            />{' '}
-            To use it effectively, you need to balance two goals: using it to{' '}
-            <em>cover major damage events</em>, and using it <em>often</em>.
-          </Trans>
+            />
+            {t({ id: 'monk.brewmaster.celestial_brew.desc.p2', message: ' To use it effectively, you need to balance two goals: using it to ' })}
+            <em>{t({ id: 'monk.brewmaster.celestial_brew.desc.p3', message: 'cover major damage events' })}</em>
+            {t({ id: 'monk.brewmaster.celestial_brew.desc.p4', message: ', and using it ' })}
+            <em>{t({ id: 'monk.brewmaster.celestial_brew.desc.p5', message: 'often' })}</em>
+            {t({ id: 'monk.brewmaster.celestial_brew.desc.p6', message: '.' })}
+          </>
         </p>
       </div>
     );
@@ -131,10 +134,13 @@ class CelestialBrew extends MajorDefensiveBuff {
           const wasted = formatNumber(wastedAbsorb);
           const avgWasted = formatNumber(wastedAbsorb / this._absorbs.length);
           return (
-            <Trans id="monk.brewmaster.celestial_brew.statistic_tooltip">
-              Does not include <strong>{wasted} wasted absorb</strong> (avg:{' '}
-              <strong>{avgWasted}</strong>).
-            </Trans>
+            <>
+              {t({ id: 'monk.brewmaster.celestial_brew.statistic_tooltip.p1', message: 'Does not include ' })}
+              <strong>{wasted}{t({ id: 'monk.brewmaster.celestial_brew.statistic_tooltip.bold1', message: ' wasted absorb' })}</strong>
+              {t({ id: 'monk.brewmaster.celestial_brew.statistic_tooltip.p2', message: ' (avg: ' })}
+              <strong>{avgWasted}</strong>
+              {t({ id: 'monk.brewmaster.celestial_brew.statistic_tooltip.p3', message: ').' })}
+            </>
           );
         })()}
       >

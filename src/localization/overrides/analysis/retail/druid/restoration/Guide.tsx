@@ -1,5 +1,4 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import { GuideProps, Section, SubSection } from 'interface/guide';
@@ -37,15 +36,15 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         title={t({ id: 'restoration.healingCooldowns.title', message: 'Healing Cooldowns' })}
       >
         <p>
-          <Trans id="restoration.healingCooldowns.description">
-            Resto Druids have access to a variety of powerful healing cooldowns. These cooldowns are
-            mana efficient and powerful, you should aim to use them frequently. The power of your
-            cooldowns will be greatly increased by <strong>ramping</strong> or pre-casting many{' '}
-            <SpellLink spell={SPELLS.REJUVENATION} /> and a <SpellLink spell={SPELLS.WILD_GROWTH} />{' '}
-            in order to maximize the number of HoTs present when you activate your cooldown. Plan
-            ahead by starting your ramp in the seconds before major raid damage hits. You should
-            always have a Wild Growth out before activating one of your cooldowns.
-          </Trans>
+          {t({ id: 'restoration.healingCooldowns.description.p1', message: 'Resto Druids have access to a variety of powerful healing cooldowns. These cooldowns are mana efficient and powerful, you should aim to use them frequently.' })}
+          {' '}
+          {t({ id: 'restoration.healingCooldowns.description.p2', message: 'The power of your cooldowns will be greatly increased by' })}
+          <strong>{t({ id: 'restoration.healingCooldowns.description.ramping', message: 'ramping' })}</strong>
+          {t({ id: 'restoration.healingCooldowns.description.p3', message: 'or pre-casting many' })}
+          <SpellLink spell={SPELLS.REJUVENATION} />
+          {t({ id: 'restoration.healingCooldowns.description.p4', message: 'and a' })}
+          <SpellLink spell={SPELLS.WILD_GROWTH} />
+          {t({ id: 'restoration.healingCooldowns.description.p5', message: 'in order to maximize the number of HoTs present when you activate your cooldown. Plan ahead by starting your ramp in the seconds before major raid damage hits. You should always have a Wild Growth out before activating one of your cooldowns.' })}
         </p>
         <HotGraphSubsection modules={modules} events={events} info={info} />
         <CooldownGraphSubsection modules={modules} events={events} info={info} />
@@ -60,12 +59,7 @@ function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatL
   return (
     <SubSection>
       <strong>{t({ id: 'restoration.hotGraph.title', message: 'HoT Graph' })}</strong>{' '}
-      <Trans id="restoration.hotGraph.description">
-        - this graph shows how many Rejuvenation and Wild Growths you had active over the course of
-        the encounter, with rule lines showing when you activated your healing cooldowns. Did you
-        have a Wild Growth out before every cooldown? Did you ramp Rejuvenations well before big
-        damage?
-      </Trans>
+      {t({ id: 'restoration.hotGraph.description', message: '- this graph shows how many Rejuvenation and Wild Growths you had active over the course of the encounter, with rule lines showing when you activated your healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp Rejuvenations well before big damage?' })}
       {modules.hotCountGraph.plot}
     </SubSection>
   );
@@ -75,12 +69,7 @@ function CooldownGraphSubsection({ modules, events, info }: GuideProps<typeof Co
   return (
     <SubSection>
       <strong>{t({ id: 'restoration.cooldownGraph.title', message: 'Cooldown Graph' })}</strong>{' '}
-      <Trans id="restoration.cooldownGraph.description">
-        - this graph shows when you used your cooldowns and how long you waited to use them again.
-        Grey segments show when the spell was available, yellow segments show when the spell was
-        cooling down. Red segments highlight times when you could have fit a whole extra use of the
-        cooldown.
-      </Trans>
+      {t({ id: 'restoration.cooldownGraph.description', message: '- this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.' })}
       {info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
         <CastEfficiencyBar
           spell={SPELLS.CONVOKE_SPIRITS}

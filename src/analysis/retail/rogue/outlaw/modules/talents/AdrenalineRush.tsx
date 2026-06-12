@@ -46,18 +46,38 @@ export default class AdrenalineRush extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="rogue.outlaw.adrenalineRush.explanation1">
+          <>
             <strong>
               <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} />
             </strong>{' '}
-            is an important buff to maintain high uptime on, and should be used on cooldown.
-          </Trans>
+            {t({
+              id: 'rogue.outlaw.adrenalineRush.explanation1.text',
+              message: 'is an important buff to maintain high uptime on, and should be used on cooldown.',
+            })}
+          </>
         </p>
         <p>
-          <Trans id="rogue.outlaw.adrenalineRush.explanation2">
-            When playing with <SpellLink spell={TALENTS.IMPROVED_ADRENALINE_RUSH_TALENT} /> you should
-            use it at <strong>{MAX_GOOD_CP} or less</strong> Combo Points to avoid overcapping.
-          </Trans>
+          <>
+            {t({
+              id: 'rogue.outlaw.adrenalineRush.explanation2.p1',
+              message: 'When playing with ',
+            })}
+            <SpellLink spell={TALENTS.IMPROVED_ADRENALINE_RUSH_TALENT} />
+            {t({
+              id: 'rogue.outlaw.adrenalineRush.explanation2.p2',
+              message: ' you should use it at ',
+            })}
+            <strong>
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.explanation2.bold',
+                message: `${MAX_GOOD_CP} or less`,
+              })}
+            </strong>
+            {t({
+              id: 'rogue.outlaw.adrenalineRush.explanation2.p3',
+              message: ' Combo Points to avoid overcapping.',
+            })}
+          </>
         </p>
       </>
     );
@@ -130,25 +150,59 @@ export default class AdrenalineRush extends Analyzer {
         performance: isGoodCP ? QualitativePerformance.Good : QualitativePerformance.Fail,
         summary: (
           <div>
-            <Trans id="rogue.outlaw.adrenalineRush.comboPointManagement">
-              Combo Point Management
-            </Trans>
+            {t({
+              id: 'rogue.outlaw.adrenalineRush.comboPointManagement',
+              message: 'Combo Point Management',
+            })}
           </div>
         ),
         details: isGoodCP ? (
           <div>
-            <Trans id="rogue.outlaw.adrenalineRush.optimalUsage">
-              You used <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} /> optimally with{' '}
-              <strong>{comboPointsAtCast}</strong> combo points.
-            </Trans>
+            <>
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.optimalUsage.p1',
+                message: 'You used ',
+              })}
+              <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} />
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.optimalUsage.p2',
+                message: ' optimally with ',
+              })}
+              <strong>{comboPointsAtCast}</strong>
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.optimalUsage.p3',
+                message: ' combo points.',
+              })}
+            </>
           </div>
         ) : (
           <div>
-            <Trans id="rogue.outlaw.adrenalineRush.badUsage">
-              You used <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} /> at{' '}
-              <strong>{comboPointsAtCast}</strong> combo points. Try to use it at{' '}
-              <strong>{MAX_GOOD_CP} or less</strong> CP to avoid overcapping.
-            </Trans>
+            <>
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.badUsage.p1',
+                message: 'You used ',
+              })}
+              <SpellLink spell={TALENTS.ADRENALINE_RUSH_TALENT} />
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.badUsage.p2',
+                message: ' at ',
+              })}
+              <strong>{comboPointsAtCast}</strong>
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.badUsage.p3',
+                message: ' combo points. Try to use it at ',
+              })}
+              <strong>
+                {t({
+                  id: 'rogue.outlaw.adrenalineRush.badUsage.bold',
+                  message: `${MAX_GOOD_CP} or less`,
+                })}
+              </strong>
+              {t({
+                id: 'rogue.outlaw.adrenalineRush.badUsage.p4',
+                message: ' CP to avoid overcapping.',
+              })}
+            </>
           </div>
         ),
       },

@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/hunter';
 import Analyzer, { Options } from 'parser/core/Analyzer';
 import { SpellLink } from 'interface';
@@ -24,19 +24,34 @@ class RaptorStrike extends Analyzer {
   get guideSubsection(): JSX.Element {
     const explanation = (
       <p>
-        <Trans id="hunter.survival.raptorStrike.guideExplanation">
-          At its core, Survival is a spec whose rotation revolves around generating Focus with Kill
-          Command and spending it with <SpellLink spell={TALENTS.RAPTOR_STRIKE_TALENT} />. If you
-          cannot generate focus without wasting, then it should be spent. The cut off for not wasting
-          focus is 77 because <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
-          generates 15 focus on use, and then you passively generate 7.5 focus during the global
-          cooldown for a total of 23 focus (rounded up). You will find you are balancing generating
-          and spending focus with generating and spending{' '}
-          <SpellLink spell={TALENTS.TIP_OF_THE_SPEAR_TALENT} />. There are several abilities that are
-          stronger than <SpellLink spell={TALENTS.RAPTOR_STRIKE_TALENT} /> and it is ideal to keep
-          them on cooldown and engage with spec mechanics that reduce their cooldown like{' '}
-          <SpellLink spell={TALENTS.LETHAL_CALIBRATION_TALENT} />.
-        </Trans>
+        <>
+          {t({
+            id: 'hunter.survival.raptorStrike.guideExplanation.p1',
+            message: 'At its core, Survival is a spec whose rotation revolves around generating Focus with Kill Command and spending it with ',
+          })}
+          <SpellLink spell={TALENTS.RAPTOR_STRIKE_TALENT} />
+          {t({
+            id: 'hunter.survival.raptorStrike.guideExplanation.p2',
+            message: '. If you cannot generate focus without wasting, then it should be spent. The cut off for not wasting focus is 77 because ',
+          })}
+          <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
+          {t({
+            id: 'hunter.survival.raptorStrike.guideExplanation.p3',
+            message: ' generates 15 focus on use, and then you passively generate 7.5 focus during the global cooldown for a total of 23 focus (rounded up). You will find you are balancing generating and spending focus with generating and spending ',
+          })}
+          <SpellLink spell={TALENTS.TIP_OF_THE_SPEAR_TALENT} />
+          {t({
+            id: 'hunter.survival.raptorStrike.guideExplanation.p4',
+            message: '. There are several abilities that are stronger than ',
+          })}
+          <SpellLink spell={TALENTS.RAPTOR_STRIKE_TALENT} />
+          {t({
+            id: 'hunter.survival.raptorStrike.guideExplanation.p5',
+            message: " and it is ideal to keep them on cooldown and engage with spec mechanics that reduce their cooldown like ",
+          })}
+          <SpellLink spell={TALENTS.LETHAL_CALIBRATION_TALENT} />
+          {t({ id: 'hunter.survival.raptorStrike.guideExplanation.p6', message: '.' })}
+        </>
       </p>
     );
     return explanation;
