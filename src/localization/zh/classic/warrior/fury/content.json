@@ -1,0 +1,10 @@
+{
+  "classic.warrior.fury.guide.coreSkills": "核心技能",
+  "classic.warrior.fury.guide.alwaysBeCasting": "保持持续输出",
+  "classic.warrior.fury.guide.alwaysBeCasting.description": "作为狂怒战士，你的伤害来自于保持稳定的攻击流。尽量减少无所事事的时间——只要你有<0>怒气</0>且技能不在冷却中，你就应该按下技能键。由于没有可用技能而导致的公共冷却时间也算作活跃时间。",
+  "classic.warrior.fury.colossusSmashWindow.optimization": "破甲窗口优化",
+  "classic.warrior.fury.colossusSmashWindow.cooldownProc": "冷却/触发类（占机会百分比）：",
+  "classic.warrior.fury.colossusSmashWindow.rageBased": "怒气消耗类（占施放次数百分比）：",
+  "classic.warrior.fury.colossusSmashWindow.opportunities": "{casts}/{opportunities} 次机会",
+  "classic.warrior.fury.colossusSmashWindow.casts": "{casts}/{total} 次施放"
+}
