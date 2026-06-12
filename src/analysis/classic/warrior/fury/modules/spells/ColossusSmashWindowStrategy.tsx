@@ -7,6 +7,7 @@ import Events, { ApplyBuffEvent, CastEvent, RemoveBuffEvent } from 'parser/core/
 import Enemies from 'parser/shared/modules/Enemies';
 import StatisticBar from 'parser/ui/StatisticBar';
 import { STATISTIC_ORDER } from 'parser/ui/StatisticsListBox';
+import { t } from '@lingui/core/macro';
 
 const CS_WINDOW_DURATION = 6500; // milliseconds
 const STORM_BOLT_CD = 30000; // milliseconds
@@ -227,7 +228,10 @@ class ColossusSmashWindowStrategy extends Analyzer {
         <SpellIcon spell={spellId} />
         <span style={{ fontWeight: 'bold', minWidth: 50 }}>{formatPercentage(efficiency, 0)}%</span>
         <span style={{ fontSize: '0.85em', color: '#888' }}>
-          ({stats.castsInWindow}/{stats.theoreticalOpportunities} opportunities)
+          {t({
+            id: 'classic.warrior.fury.colossusSmashWindow.opportunities',
+            message: `${stats.castsInWindow}/${stats.theoreticalOpportunities} opportunities`,
+          })}
         </span>
       </div>
     );
@@ -251,7 +255,10 @@ class ColossusSmashWindowStrategy extends Analyzer {
         <SpellIcon spell={spellId} />
         <span style={{ fontWeight: 'bold', minWidth: 50 }}>{formatPercentage(efficiency, 0)}%</span>
         <span style={{ fontSize: '0.85em', color: '#888' }}>
-          ({stats.inWindow}/{stats.total} casts)
+          {t({
+            id: 'classic.warrior.fury.colossusSmashWindow.casts',
+            message: `${stats.inWindow}/${stats.total} casts`,
+          })}
         </span>
       </div>
     );
@@ -285,14 +292,20 @@ class ColossusSmashWindowStrategy extends Analyzer {
             }}
           >
             <SpellIcon spell={SPELLS.COLOSSUS_SMASH.id} />
-            Colossus Smash Window Optimization
+            {t({
+              id: 'classic.warrior.fury.colossusSmashWindow.optimization',
+              message: 'Colossus Smash Window Optimization',
+            })}
           </div>
 
           <div style={{ marginBottom: '12px' }}>
             <div
               style={{ fontSize: '0.85em', fontWeight: 'bold', marginBottom: '8px', color: '#666' }}
             >
-              Cooldown / proc-based (% of opportunities):
+              {t({
+                id: 'classic.warrior.fury.colossusSmashWindow.cooldownProc',
+                message: 'Cooldown / proc-based (% of opportunities):',
+              })}
             </div>
             {this.renderCooldownSpellStat(SPELLS.STORM_BOLT_TALENT.id, stormBoltStats)}
             {this.renderCooldownSpellStat(SPELLS.RAGING_BLOW.id, ragingBlowStats)}
@@ -302,7 +315,10 @@ class ColossusSmashWindowStrategy extends Analyzer {
             <div
               style={{ fontSize: '0.85em', fontWeight: 'bold', marginBottom: '8px', color: '#666' }}
             >
-              Rage-based (% of casts in window):
+              {t({
+                id: 'classic.warrior.fury.colossusSmashWindow.rageBased',
+                message: 'Rage-based (% of casts in window):',
+              })}
             </div>
             {this.renderRegularSpellStat(SPELLS.EXECUTE.id, this.executeStats)}
             {this.renderRegularSpellStat(SPELLS.HEROIC_STRIKE.id, this.heroicStrikeStats)}
