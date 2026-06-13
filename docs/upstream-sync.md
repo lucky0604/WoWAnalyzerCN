@@ -221,6 +221,8 @@ bash scripts/post-merge-i18n-checks.sh backup/<branch>/<timestamp> midnight
 同步后新引入的代码可能包含在 `<Trans>` 中嵌套 `<SpellLink>`、`<br>`、`<strong>` 的写法，
 这会导致运行时错误（`<a> cannot be a descendant of <a>`、void element 错误等）。
 
+> 如需了解本次迁移的根因、规模和后续策略，参见 [`docs/lingui-v6-migration.md`](lingui-v6-migration.md)。
+
 扫描新引入的含 JSX 元素的 `<Trans>` 块：
 
 ```bash
@@ -228,6 +230,7 @@ node scripts/i18n-fix.mjs --check-trans
 ```
 
 输出示例：
+
 ```
 [WARN] src/analysis/retail/shaman/restoration/modules/spells/ChainHeal.tsx
   Line 43: <Trans> contains <SpellLink> — must be converted to t() + explicit JSX

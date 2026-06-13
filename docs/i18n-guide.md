@@ -12,6 +12,7 @@
 - [文件覆盖系统](#文件覆盖系统)
 - [关键规则](#关键规则)
 - [上游同步完整流程](#上游同步完整流程)
+- [Lingui v6 迁移记录](#lingui-v6-迁移记录)
 - [常见问题排查](#常见问题排查)
 - [脚本清单](#脚本清单)
 
@@ -137,11 +138,14 @@ label: t({ id: 'spec.module.label', message: 'Original English' }),
 - 尽量避免，除非段落内嵌了 React 组件
 
 > **⚠️ Lingui v6 限制**：`<Trans>` 内不能使用以下元素，否则会触发 DOM/React 运行时错误：
+> **迁移历史**：本次迁移共修复 82 个文件 495 个风险块，详见 [`docs/lingui-v6-migration.md`](lingui-v6-migration.md)。后续同步不会重演，详见该文档「为什么后续同步不会重演」章节。
+>
 > - `<SpellLink>` — 它渲染为 `<a>` 标签，嵌套在 `<Trans>` 内会产生 `<a> cannot be a descendant of <a>`
 > - `<br/>` — 在 Lingui v6 的 `<Trans>` 内会导致 void element 错误
 > - `<strong>` / `<b>` — 在 v6 中会触发 indexed-element mismatch 运行时警告
 >
 > **必须改为 `t()` + 显式 JSX 片段：**
+>
 > ```tsx
 > // 不要这样做
 > <Trans id="spec.module.desc">Use <SpellLink spell={SPELL} /> when available</Trans>
@@ -155,6 +159,7 @@ label: t({ id: 'spec.module.label', message: 'Original English' }),
 > ```
 >
 > **包含 `<br/>` 的方案：**
+>
 > ```tsx
 > <>
 >   {t({ id: 'spec.module.line1', message: 'First line' })}
@@ -164,6 +169,7 @@ label: t({ id: 'spec.module.label', message: 'Original English' }),
 > ```
 >
 > **包含 `<strong>` 的方案：**
+>
 > ```tsx
 > <>
 >   <strong>{t({ id: 'spec.module.strong', message: 'Important' })}</strong>
@@ -493,6 +499,8 @@ bash scripts/post-merge-i18n-checks.sh backup/{branch}/{timestamp} midnight
 
 同步后新引入的上游代码可能包含在 `<Trans>` 中嵌套 `<SpellLink>`、`<br>`、`<strong>` 的写法（这在 Lingui v6 中会导致运行时错误）。
 
+> 本次迁移共修复 82 个文件 495 个风险块，后续同步不会重演。详见 [`docs/lingui-v6-migration.md`](lingui-v6-migration.md)。
+
 ```bash
 node scripts/i18n-fix.mjs --check-trans
 ```
@@ -526,6 +534,14 @@ git reset --hard backup/midnight/20260602-110000
 ### rerere 如何帮助
 
 `git rerere` (reuse recorded resolution) 自动记住每次冲突的解决方式。第一次同步冲突最多，之后相同模式的冲突会自动解决。
+
+---
+
+## Lingui v6 迁移记录
+
+2026 年 6 月，CN fork 完成了一次大规模 `<Trans>` 迁移，将 82 个文件中 495 个包含 `<SpellLink>`/`<br>`/`<strong>`/`<b>` 的风险 `<Trans>` 块全部转换为 `t()` + 显式 JSX。
+
+**核心结论：后续同步不会重演。** 详见 [`docs/lingui-v6-migration.md`](lingui-v6-migration.md)。
 
 ---
 
@@ -577,14 +593,14 @@ import { defineMessage } from '@lingui/core/macro';
 
 ## 脚本清单
 
-| 脚本                                     | 用途                                    | 何时使用           |
-| ---------------------------------------- | --------------------------------------- | ------------------ |
-| `scripts/sync-upstream.sh`               | 合并上游最新代码                        | 定期同步时         |
-| `scripts/i18n-fix.mjs`                   | 一键修复所有 i18n 问题                  | 同步后运行         |
+| 脚本                                     | 用途                                     | 何时使用           |
+| ---------------------------------------- | ---------------------------------------- | ------------------ |
+| `scripts/sync-upstream.sh`               | 合并上游最新代码                         | 定期同步时         |
+| `scripts/i18n-fix.mjs`                   | 一键修复所有 i18n 问题                   | 同步后运行         |
 | `scripts/i18n-fix.mjs --check-trans`     | 扫描含 `<SpellLink>`/`<br>` 的 `<Trans>` | 同步后运行         |
-| `scripts/post-merge-i18n-checks.sh`      | 合并后检查（导入、覆盖变更、typecheck） | 同步后运行         |
-| `scripts/migrate-guides-to-overrides.sh` | 批量迁移 Guide 到覆盖目录               | 新增覆盖文件时     |
-| `scripts/generate-override-registry.mjs` | 更新覆盖文件注册表                      | 手动新增覆盖文件后 |
+| `scripts/post-merge-i18n-checks.sh`      | 合并后检查（导入、覆盖变更、typecheck）  | 同步后运行         |
+| `scripts/migrate-guides-to-overrides.sh` | 批量迁移 Guide 到覆盖目录                | 新增覆盖文件时     |
+| `scripts/generate-override-registry.mjs` | 更新覆盖文件注册表                       | 手动新增覆盖文件后 |
 
 `scripts/upstream-i18n-core-files.txt` 是配置文件，列出不应修改 i18n 宏的上游核心文件。
 
@@ -601,8 +617,8 @@ import { defineMessage } from '@lingui/core/macro';
 5. **新增 `content.json` 后**不需要修改 `I18nProvider.tsx`，`import.meta.glob` 会自动发现
 6. **Message ID 格式**：`{class}.{spec}.{module}.{key}`
 7. **同步上游后**运行以下完整流程：
-    ```bash
-    node scripts/i18n-fix.mjs                           # 自动修复 i18n 问题
-    bash scripts/post-merge-i18n-checks.sh <backup> midnight  # 标准检查
-    node scripts/i18n-fix.mjs --check-trans             # 扫描含 JSX 的 <Trans> 块
-    ```
+   ```bash
+   node scripts/i18n-fix.mjs                           # 自动修复 i18n 问题
+   bash scripts/post-merge-i18n-checks.sh <backup> midnight  # 标准检查
+   node scripts/i18n-fix.mjs --check-trans             # 扫描含 JSX 的 <Trans> 块
+   ```
