@@ -1,8 +1,8 @@
 {
   "guide.evoker.devastation.sections.preface.title": "前言",
   "guide.evoker.devastation.sections.preface.1": "你好，欢迎使用毁灭唤魔师专精的分析工具！所有的理论都来自对这些指南的总结：<0>Wowhead</0>，<1>Icy Veins</1>，和<2>唤魔师 Discord</2>。",
-  "guide.evoker.devastation.sections.preface.2": "这里指出的准确性和问题是<b>指南</b>，不考虑团队条件或边缘情况。要找到一个好的成功衡量标准，你应该用Warcraft Logs将你的结果与同一场战斗中的其他顶级唤魔师进行比较（例如<0>英雄阿克赞大帝前100名</0>）。",
-  "guide.evoker.devastation.sections.preface.3": "如果你有任何问题、纠正、投诉或想要提供帮助，我很乐意在唤魔师 Discord 的<code>#devastation</code>中进行交谈。",
+  "guide.evoker.devastation.sections.preface.2": "这里指出的准确性和问题是<0>指南</0>，不考虑团队条件或边缘情况。要找到一个好的成功衡量标准，你应该用Warcraft Logs将你的结果与同一场战斗中的其他顶级唤魔师进行比较（例如<1>英雄阿克赞大帝前100名</1>）。",
+  "guide.evoker.devastation.sections.preface.3": "如果你有任何问题、纠正、投诉或想提供帮助，欢迎在<1>唤魔师 Discord</1> 的 <0>#devastation</0> 频道联系我。",
   "guide.evoker.devastation.sections.core.title": "核心",
   "guide.evoker.devastation.sections.core.essenceGraph.title": "精华图表",
   "guide.evoker.devastation.sections.core.essenceGraph.summary": "你的主要资源是<0/>。你应该避免溢出<0/>-失去的<0/>产生就是失去的DPS。有时避免溢出<0/>是不可能的-由于处理机制、高触发的<1/>触发或在中场阶段。",
