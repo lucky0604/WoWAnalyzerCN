@@ -83,6 +83,18 @@ run_post_merge_checks() {
       warn "zh/messages.json 仍有 ${EMPTY_ZH} 个空翻译条目，合并后请补充"
     fi
   fi
+
+  # --- 占位符一致性检查 ---
+  if command -v python3 >/dev/null 2>&1; then
+    if python3 scripts/check-placeholders.py --ci 2>&1; then
+      :
+    else
+      echo ""
+      warn "翻译占位符不匹配！请运行: python3 scripts/check-placeholders.py 查看详情"
+      warn "自动修复: python3 scripts/check-placeholders.py --fix"
+      echo ""
+    fi
+  fi
 }
 
 # --- 前置检查 ---

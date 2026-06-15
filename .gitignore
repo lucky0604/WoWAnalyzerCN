@@ -96,3 +96,4 @@ opencode.jsonc
 
 # Redis dump
 dump.rdb
+scripts/__pycache__/

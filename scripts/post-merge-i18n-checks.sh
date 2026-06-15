@@ -11,6 +11,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 warn() { echo -e "${YELLOW}[WARN]${NC} $*"; }
 info() { echo -e "${GREEN}[INFO]${NC} $*"; }
+fail() { echo -e "${RED}[FAIL]${NC} $*"; }
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "${ROOT}"
@@ -40,6 +41,16 @@ if [ -f "${REGISTRY}" ] && [ -n "${MERGE_BASE}" ]; then
       warn "上游已更新，请复查覆盖: ${src_path}"
     fi
   done < <(grep -oE '"src/[^"]+"' "${REGISTRY}" | tr -d '"')
+fi
+
+# Placeholder consistency check
+info "检查翻译占位符一致性..."
+if python3 scripts/check-placeholders.py --ci 2>&1; then
+  info "占位符检查通过 ✓"
+else
+  fail "占位符不匹配！请运行: python3 scripts/check-placeholders.py 查看详情"
+  fail "自动修复: python3 scripts/check-placeholders.py --fix"
+  exit 1
 fi
 
 info "运行 pnpm run typecheck ..."

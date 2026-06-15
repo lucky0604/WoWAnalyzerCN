@@ -493,7 +493,10 @@ bash scripts/post-merge-i18n-checks.sh backup/{branch}/{timestamp} midnight
 - 上游核心 i18n 文件是否被意外修改
 - 覆盖文件对应的上游源文件是否有更新（需要同步）
 - `zh/messages.json` 中的空翻译条目
+- 翻译占位符一致性（避免 Lingui "Can't use element at index" 报错）
 - `pnpm run typecheck`
+
+> **注意**：`sync-upstream.sh` 已内联了上述检查（含占位符检查），运行同步脚本后会自动执行，无需额外操作。
 
 #### 第五步：额外检查 — Lingui v6 兼容性
 
@@ -534,6 +537,42 @@ git reset --hard backup/midnight/20260602-110000
 ### rerere 如何帮助
 
 `git rerere` (reuse recorded resolution) 自动记住每次冲突的解决方式。第一次同步冲突最多，之后相同模式的冲突会自动解决。
+
+### 同步命令速查
+
+完整同步操作命令一览：
+
+```bash
+# 无冲突场景（最简流程）
+bash scripts/sync-upstream.sh
+# ↑ 自动完成：fetch → merge → post-merge 检查（含占位符）
+# 之后仅需：
+node scripts/i18n-fix.mjs
+node scripts/i18n-fix.mjs --check-trans
+pnpm run typecheck
+
+# 有冲突场景
+bash scripts/sync-upstream.sh                    # 出现冲突，手动解决
+# (手动解决所有冲突)
+git add .
+git commit -m "merge: sync upstream/midnight"
+bash scripts/post-merge-i18n-checks.sh            # 冲突后额外检查
+node scripts/i18n-fix.mjs                         # 修复 i18n 问题
+node scripts/i18n-fix.mjs --check-trans           # 扫描 <Trans> 风险
+
+# 占位符修复（如有报错）
+python3 scripts/check-placeholders.py             # 查看详情
+python3 scripts/check-placeholders.py --fix       # 自动修复索引
+
+# 回滚
+git reset --hard backup/$(git rev-parse --abbrev-ref HEAD)/$(date +%Y%m%d)-*
+```
+
+同步后如发现浏览器 console 报错 `Can't use element at index`，运行：
+
+```bash
+python3 scripts/check-placeholders.py --fix
+```
 
 ---
 
@@ -593,14 +632,17 @@ import { defineMessage } from '@lingui/core/macro';
 
 ## 脚本清单
 
-| 脚本                                     | 用途                                     | 何时使用           |
-| ---------------------------------------- | ---------------------------------------- | ------------------ |
-| `scripts/sync-upstream.sh`               | 合并上游最新代码                         | 定期同步时         |
-| `scripts/i18n-fix.mjs`                   | 一键修复所有 i18n 问题                   | 同步后运行         |
-| `scripts/i18n-fix.mjs --check-trans`     | 扫描含 `<SpellLink>`/`<br>` 的 `<Trans>` | 同步后运行         |
-| `scripts/post-merge-i18n-checks.sh`      | 合并后检查（导入、覆盖变更、typecheck）  | 同步后运行         |
-| `scripts/migrate-guides-to-overrides.sh` | 批量迁移 Guide 到覆盖目录                | 新增覆盖文件时     |
-| `scripts/generate-override-registry.mjs` | 更新覆盖文件注册表                       | 手动新增覆盖文件后 |
+| 脚本                                     | 用途                                     | 何时使用                                         |
+| ---------------------------------------- | ---------------------------------------- | ------------------------------------------------ |
+| `scripts/sync-upstream.sh`               | 合并上游最新代码                         | 定期同步时                                       |
+| `scripts/check-placeholders.py`          | 检查/修复翻译占位符索引一致性            | 同步后、发现 `Can't use element at index` 报错时 |
+| `scripts/check-placeholders.py --ci`     | CI 模式（exit 1 有错）                   | CI pipeline                                      |
+| `scripts/check-placeholders.py --fix`    | 自动修复不匹配的占位符索引               | 报告有错时                                       |
+| `scripts/i18n-fix.mjs`                   | 一键修复所有 i18n 问题                   | 同步后运行                                       |
+| `scripts/i18n-fix.mjs --check-trans`     | 扫描含 `<SpellLink>`/`<br>` 的 `<Trans>` | 同步后运行                                       |
+| `scripts/post-merge-i18n-checks.sh`      | 合并后检查（导入、覆盖变更、typecheck）  | 同步后运行                                       |
+| `scripts/migrate-guides-to-overrides.sh` | 批量迁移 Guide 到覆盖目录                | 新增覆盖文件时                                   |
+| `scripts/generate-override-registry.mjs` | 更新覆盖文件注册表                       | 手动新增覆盖文件后                               |
 
 `scripts/upstream-i18n-core-files.txt` 是配置文件，列出不应修改 i18n 宏的上游核心文件。
 
@@ -618,7 +660,10 @@ import { defineMessage } from '@lingui/core/macro';
 6. **Message ID 格式**：`{class}.{spec}.{module}.{key}`
 7. **同步上游后**运行以下完整流程：
    ```bash
+   bash scripts/sync-upstream.sh                      # 合并（含自动检查）
    node scripts/i18n-fix.mjs                           # 自动修复 i18n 问题
-   bash scripts/post-merge-i18n-checks.sh <backup> midnight  # 标准检查
    node scripts/i18n-fix.mjs --check-trans             # 扫描含 JSX 的 <Trans> 块
+   python3 scripts/check-placeholders.py                # 检查翻译占位符一致性
    ```
+   如有占位符不匹配：`python3 scripts/check-placeholders.py --fix`
+8. **Lingui 占位符索引规则**：`<Trans id="...">` 中 JSX 元素的索引由英文 source 决定。翻译中如使用 `<0/>`、`<1/>` 等标签，必须与英文 source 中的索引一致，否则会报 `Can't use element at index`。
