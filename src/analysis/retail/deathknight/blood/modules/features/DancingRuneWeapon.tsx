@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
 import TALENTS from 'common/TALENTS/deathknight';
@@ -73,8 +74,7 @@ class DancingRuneWeapon extends Analyzer {
     if (spellId === TALENTS.CONSUMPTION_TALENT.id) {
       return (
         <>
-          <Trans id="deathknight.blood.drw.spellLinks.consumption"
-          >and (if in AoE) </Trans>
+          {t({ id: 'deathknight.blood.drw.spellLinks.consumption', message: 'and (if in AoE)' })}
           <SpellLink spell={spellId} />
         </>
       );
