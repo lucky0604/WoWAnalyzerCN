@@ -248,7 +248,14 @@ export async function fetchEvents(
       actorId,
       filter,
     );
-    events = [...events, ...json.events!];
+    if (!json.events) {
+      console.warn('WCL response missing events array, skipping page', {
+        page,
+        pageStartTimestamp,
+      });
+      break;
+    }
+    events = [...events, ...json.events];
     if (json.nextPageTimestamp) {
       if (json.nextPageTimestamp > fightEnd) {
         console.error('nextPageTimestamp is after fightEnd, do we need to manually filter too?');

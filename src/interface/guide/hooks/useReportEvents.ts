@@ -24,10 +24,14 @@ export default function useReportEvents(
     let cancelled = false;
 
     const run = async () => {
-      const events = await fetchEvents(reportCode, startTime, endTime, undefined, filter);
+      try {
+        const events = await fetchEvents(reportCode, startTime, endTime, undefined, filter);
 
-      if (!cancelled) {
-        setData(events);
+        if (!cancelled) {
+          setData(events);
+        }
+      } catch (err) {
+        console.error('Failed to fetch report events:', err);
       }
     };
 

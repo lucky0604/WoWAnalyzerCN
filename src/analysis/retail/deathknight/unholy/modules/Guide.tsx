@@ -81,9 +81,7 @@ export default function Guide({ modules, info }: GuideProps<typeof CombatLogPars
             </p>
           </div>
 
-          <div>
-            <p>{modules.runeGraph.plot}</p>
-          </div>
+          <div>{modules.runeGraph.plot}</div>
         </SubSection>
 
         <SubSection
@@ -135,9 +133,7 @@ export default function Guide({ modules, info }: GuideProps<typeof CombatLogPars
             </p>
           </div>
 
-          <div>
-            <p>{modules.runicPowerGraph.plot}</p>
-          </div>
+          <div>{modules.runicPowerGraph.plot}</div>
         </SubSection>
       </Section>
       <PreparationSection />
