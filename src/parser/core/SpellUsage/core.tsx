@@ -6,7 +6,8 @@ import { createContext, ReactNode, use, useMemo } from 'react';
 import { MessageDescriptor, i18n } from '@lingui/core';
 import { isMessageDescriptor } from 'localization/isMessageDescriptor';
 import { AnyEvent } from 'parser/core/Events';
-import styled from '@emotion/styled';
+import cssComponent from 'interface/utils/css-component';
+import styles from './core.module.scss';
 import { formatDuration } from 'common/format';
 import { PerformanceMark } from 'interface/guide';
 import { BoxRowEntry } from 'interface/guide/components/PerformanceBoxRow';
@@ -42,28 +43,12 @@ export interface SpellUse {
 }
 
 const SpellTooltipBody = 'div';
-const SpellRowContainer = styled.div`
-  display: grid;
-  grid-template-columns: 2em auto;
-  gap: 1em;
-  align-items: center;
-
-  line-height: 1em;
-  text-align: left;
-
-  padding-bottom: 0.5em;
-`;
+const SpellRowContainer = cssComponent('div', styles.SpellRowContainer, [] as const);
 
 /**
  * Wrapper for what gets displayed under the performance row.
  */
-export const PerformanceUsageRow = styled.div`
-  padding-bottom: 0.5em;
-
-  & > :first-child {
-    margin-right: 0.5em;
-  }
-`;
+export const PerformanceUsageRow = cssComponent('div', styles.PerformanceUsageRow, [] as const);
 
 const SpellRow = ({ usageInfo }: { usageInfo: ChecklistUsageInfo }) => (
   <SpellRowContainer>

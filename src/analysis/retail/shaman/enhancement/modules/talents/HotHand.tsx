@@ -30,6 +30,7 @@ import {
   QualitativePerformance,
   evaluateQualitativePerformanceByThreshold,
   getAveragePerf,
+  getLowestPerf,
 } from 'parser/ui/QualitativePerformance';
 import { getApplicableRules, HighPriorityAbilities } from '../../common';
 import {
@@ -98,13 +99,9 @@ interface HotHandWindow {
 }
 
 interface TotemicMomentumBreakdown {
-  /** MW stacks spent on eligible spenders during the window */
   spentStacks: number;
-  /** MW stacks wasted to avoidable overcap during the window */
   avoidableWasteStacks: number;
-  /** MW stacks remaining at window end that could have been spent (0 if < 5) */
   remainingSpendableStacks: number;
-  /** spent / (spent + avoidableWaste + remainingSpendable), 1 when denominator = 0 */
   efficiency: number;
   performance: QualitativePerformance;
 }
@@ -272,8 +269,15 @@ class HotHand extends Analyzer.withDependencies({
   }
 
   private onGlobalCooldown(event: GlobalCooldownEvent) {
+    if (this.activeWindow) {
+      const gapStart = Math.max(this.globalCooldownEnds, this.activeWindow.start);
+      const idleGap = event.timestamp - gapStart;
+      if (idleGap > 0) {
+        this.activeWindow.idleGapDurations.push(idleGap);
+      }
+      this.activeWindow.globalCooldowns.push(event.duration);
+    }
     this.globalCooldownEnds = event.duration + event.timestamp;
-    this.activeWindow?.globalCooldowns.push(event.duration);
   }
 
   private onHotHandApply(event: ApplyBuffEvent) {
@@ -314,18 +318,16 @@ class HotHand extends Analyzer.withDependencies({
   }
 
   private onCast(event: CastEvent) {
-    if (!this.activeWindow || event.ability.guid === SPELLS.MELEE.id || !event.globalCooldown) {
+    if (!this.activeWindow || event.ability.guid === SPELLS.MELEE.id) {
       return;
     }
 
-    const gapStart = Math.max(this.globalCooldownEnds, this.activeWindow.start);
-    const idleGap = event.timestamp - gapStart;
-    if (idleGap > 0) {
-      this.activeWindow.idleGapDurations.push(idleGap);
+    const globalCooldown = event.globalCooldown ?? event.channel?.beginChannel.globalCooldown;
+    if (!globalCooldown) {
+      return;
     }
 
     if (event.ability.guid !== TALENTS.LAVA_LASH_TALENT.id) {
-      // still call for side effects (cast annotations on high-priority abilities)
       this.isValidCastDuringHotHand(event);
     }
 
@@ -531,7 +533,8 @@ class HotHand extends Analyzer.withDependencies({
 
   private getUnusedGlobalCooldowns(cast: HotHandWindow) {
     const avgGcd = this.getAverageGcdOfWindow(cast);
-    return cast.idleGapDurations.reduce((total, gap) => total + Math.floor(gap / avgGcd), 0);
+    const totalIdleDuration = cast.idleGapDurations.reduce((total, gap) => total + gap, 0);
+    return Math.floor(totalIdleDuration / avgGcd);
   }
 
   private getThorimsOverlapRatio(cast: HotHandWindow) {
@@ -611,8 +614,6 @@ class HotHand extends Analyzer.withDependencies({
       totalOpportunities += 1 + Math.max(additionalOpportunities, 0);
     }
 
-    // If spending remaining MW stacks (≥5) would have extended the window
-    // enough for one more LL, count that as a missed opportunity.
     if (this.canSpendRemainingMaelstromForExtraLavaLash(cast)) {
       totalOpportunities += 1;
     }
@@ -645,6 +646,7 @@ class HotHand extends Analyzer.withDependencies({
     if (
       this.hasThorims &&
       thorimsOverlapRatio > 0.5 &&
+      lavaLashCasts > 0 &&
       performance === QualitativePerformance.Fail
     ) {
       performance = QualitativePerformance.Ok;
@@ -683,7 +685,6 @@ class HotHand extends Analyzer.withDependencies({
     const avgGcd = this.getAverageGcdOfWindow(cast);
     const cutoff = cast.end - avgGcd;
 
-    // Walk updates to find the last state at or before the cutoff
     let stacksAtCutoff = 0;
     for (const update of segment.updates) {
       if (update.timestamp > cutoff) {
@@ -693,8 +694,6 @@ class HotHand extends Analyzer.withDependencies({
     }
 
     const stacks = Math.floor(stacksAtCutoff);
-    // Must have ≥5 to instant-cast a spender, and the resulting extension
-    // must be at least one GCD to be usable
     if (stacks < 5 || stacks * TOTEMIC_MOMENTUM_EXTENSION_MS_PER_STACK < avgGcd) {
       return 0;
     }
@@ -935,6 +934,8 @@ class HotHand extends Analyzer.withDependencies({
       performances.push(splitstreamPerformance);
     }
 
+    const performance = getLowestPerf([usagePerformance, getAveragePerf(performances)]);
+
     return {
       lavaLashCasts,
       missedLavaLashes,
@@ -946,7 +947,7 @@ class HotHand extends Analyzer.withDependencies({
       unusedGlobalCooldowns,
       averageGcd,
       sequence,
-      performance: getAveragePerf(performances),
+      performance,
     };
   }
 
