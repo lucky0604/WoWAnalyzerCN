@@ -28,7 +28,6 @@
   "guide.augmentation.sandsOfTime.title": "时间之沙",
   "guide.evoker.augmentation.sections.cooldowns.summary": "<0>冷却图表</0> - 此图表显示你何时使用了冷却技能以及等待多长时间再次使用。灰色区段表示技能可用，黄色区段表示技能正在冷却，红色区段突出显示你本可完整多用一次冷却技能的时间段。",
   "guide.evoker.augmentation.sections.cooldowns.title": "冷却技能",
-  "guide.evoker.augmentation.sections.coreRotation.alwaysBeCasting.summary": "<0><1>在整场战斗中持续连续施法，是法师职业实现高DPS的最重要因素。</1></0>",
   "guide.evoker.augmentation.sections.coreRotation.alwaysBeCasting.summary2": "你的技能施法之间应该没有任何延迟，开始施放错误的技能比思考几秒钟然后施放正确的技能要好。你应该能够用最小的施法中断来处理战斗的机制。有些战斗由于阶段转换等原因有不可避免的空转，所以在这些情况下0%的空转是不可能的-尽你所能做到最好。",
   "guide.evoker.augmentation.sections.coreRotation.alwaysBeCasting.title": "持续施法",
   "guide.evoker.augmentation.sections.coreRotation.blisteringScales.summary": "<0/>为你的目标提供你20%的护甲。这应该在当前正在坦克的玩家身上保持。",

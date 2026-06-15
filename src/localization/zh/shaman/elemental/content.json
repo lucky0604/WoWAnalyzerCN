@@ -41,7 +41,6 @@
   "shaman.elemental.spenders.lvb_tooltip": "在施放该消耗技能之前，<0/> 至少拥有一个充能且处于就绪状态的时间。",
   "shaman.elemental.spenders.context_capped": "你当时已达到 <0/> 的上限。请提前消耗以避免溢出并浪费 <1/>。",
   "shaman.elemental.spenders.spell_cast": "施放法术:",
-  "shaman.elemental.ascendance.uptime": "<0>活跃时间</0>：你希望最大化每次 <1/> 期间的施法次数。配合使用 <2/> 可以在移动时保持输出活跃度。",
   "shaman.elemental.ascendance.avoid": "在 <0/> 期间，尽量避免将公共冷却（GCD）花在贡献较小的技能上，例如施放 <1/> 或刷新 <2/>。",
   "shaman.elemental.ascendance.stormkeeper": "如果可能的话，在开启 <0/> 之前先施放 <1/>，这样就不会在爆发期内浪费 GCD 进行前置铺垫。",
   "shaman.elemental.ascendance.title": "升腾阶段",
