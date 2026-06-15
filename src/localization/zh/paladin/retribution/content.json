@@ -3,7 +3,7 @@
   "paladin.retribution.core.explanation": "说明",
   "paladin.retribution.core.downtime": "虽然惩戒专精有一些自然的空窗，但由于 <0/> 和 <1/> 等天赋，你需要尽可能保持自动攻击。未能保持良好的近战站位可能会导致较低的技能覆盖率，因为 <2/> 产生减少。",
   "paladin.retribution.subsection.holyPower": "神圣能量",
-  "paladin.retribution.holyPower.description": "你大部分的循环技能要么是 <strong>积累</strong> 要么是 <strong>消耗</strong> <0/>。绝不要在 <0/> 已满时使用积累技能，或这样做会导致 <0/> 溢出。",
+  "paladin.retribution.holyPower.description": "你的大多数循环技能要么<0>积攒</0>要么<1>消耗</1> <2/>。永远不要在满 <3/> 时使用构建器，或在这样做会导致超量积攒 <4/> 时使用。",
   "paladin.retribution.holyPower.wasteTitle": "<0/> 浪费",
   "paladin.retribution.holyPower.wasted": "你浪费了 <0/> 的 <1/>。",
   "paladin.retribution.holyPower.crusadingStrikes": "由于你选择了 <0/>，你需要特别小心地安排积累 <1/> 的技能，以免溢出。",

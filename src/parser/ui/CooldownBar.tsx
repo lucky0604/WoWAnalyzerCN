@@ -195,7 +195,11 @@ export function CooldownBar({ activeWindows, ...others }: Props): JSX.Element {
   return (
     <div className="cooldown-bar">
       {windows.map((win) => (
-        <CooldownBarWindow key={`${win.startTime}-${win.endTime}`} {...others} {...win} />
+        <CooldownBarWindow
+          key={`${others.spellId}-${win.startTime}-${win.endTime}`}
+          {...others}
+          {...win}
+        />
       ))}
     </div>
   );

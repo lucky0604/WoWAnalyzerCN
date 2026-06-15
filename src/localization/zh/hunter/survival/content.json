@@ -1,8 +1,8 @@
 {
   "guide.hunter.survival.sections.intro.title": "前言",
-  "guide.hunter.survival.sections.intro.welcome": "你好，欢迎来到生存猎人专精分析器！所有理论都来自于{' '}<a href=\"https://www.wowhead.com/guide/classes/hunter/survival/overview-pve-dps\">Wowhead</a>、<a href=\"https://www.icy-veins.com/wow/survival-hunter-pve-dps-guide\">Icy Veins</a>和<a href=\"https://discord.com/invite/trueshot\">猎人Discord</a>的指南总结。",
-  "guide.hunter.survival.sections.intro.accuracy": "这里指出的准确性和问题是<b>指导原则</b>，没有考虑团队条件或特殊情况。要评估成功，你应该将你的结果与同一场战斗的其他顶尖猎人进行比较（例如{' '}<a href=\"https://www.warcraftlogs.com/zone/rankings/46?boss=3176&class=Hunter&spec=Survival\">英雄阿维齐安皇帝前100</a>）。",
-  "guide.hunter.survival.sections.intro.questions": "如果你有任何问题、纠正、投诉，或想提供帮助，我很乐意在<a href=\"https://discord.com/invite/trueshot\">猎人Discord</a>的<code>#survival</code>频道和你交谈。",
+  "guide.hunter.survival.sections.intro.welcome": "你好，欢迎使用生存猎手专精分析器！所有理论研究来自汇总 <0>Wowhead</0>、<1>Icy Veins</1> 和 <2>猎手 Discord</2> 上的指南。",
+  "guide.hunter.survival.sections.intro.accuracy": "这里指出的准确性和问题是<0>指南</0>，不考虑团队条件或边缘情况。要找到成功的好衡量标准，你应该使用 Warcraft Logs 将你的结果与相同战斗中的顶尖猎手进行比较（例如 <1>英雄难度帝皇阿维尔兹安前100名</1>）。",
+  "guide.hunter.survival.sections.intro.questions": "如果你有任何问题、纠正、投诉或想提供帮助，欢迎在<1>猎手 Discord</1> 的 <0>#survival</0> 频道联系我。",
   "guide.hunter.survival.sections.activeTime.title": "活跃时间",
   "guide.hunter.survival.sections.activeTime.melee": "不活跃的时间就是损失的伤害。尽管是近战，但生存有很多方法在近战范围外继续造成伤害，例如技能如<SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />、<SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />。",
   "guide.hunter.survival.sections.activeTime.movement": "猎人有很多移动技能，例如<SpellLink spell={SPELLS.ASPECT_OF_THE_CHEETAH} />、<SpellLink spell={SPELLS.DISENGAGE} />和<SpellLink spell={SPELLS.HARPOON} />，可以用来快速回到目标身边。",

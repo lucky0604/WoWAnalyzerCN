@@ -68,12 +68,12 @@ const UptimeStackBar = ({
   return (
     <div className="uptime-bar" {...others}>
       {backgroundHistory &&
-        backgroundHistory.map((buff) => {
+        backgroundHistory.map((buff, index) => {
           const start = buff.start;
           const end = buff.end !== null ? buff.end : fightEnd;
           return timeTooltip ? (
             <Tooltip
-              key={`${start}-${end}`}
+              key={`${start}-${end}-${index}`}
               content={formatDuration(start - fightStart) + `-` + formatDuration(end - fightStart)}
             >
               <div
@@ -90,7 +90,7 @@ const UptimeStackBar = ({
             </Tooltip>
           ) : (
             <div
-              key={`${start}-${end}`}
+              key={`${start}-${end}-${index}`}
               style={getSegmentStyle(
                 start,
                 end,
@@ -103,12 +103,12 @@ const UptimeStackBar = ({
             />
           );
         })}
-      {stackUptimeHistory.map((buff) => {
+      {stackUptimeHistory.map((buff, index) => {
         const start = buff.start;
         const end = buff.end !== null ? buff.end : fightEnd;
         return (
           <div
-            key={`${start}-${end}`}
+            key={`${start}-${end}-${index}`}
             style={getSegmentStyle(
               start,
               end,
