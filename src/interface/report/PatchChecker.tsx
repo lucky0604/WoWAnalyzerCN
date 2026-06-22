@@ -73,37 +73,31 @@ const PatchCheckerContents = ({
         <div className="flex wrapable">
           <div className="flex-main pad">
             {isThisExpansion ? (
-              <Trans id="interface.report.patchChecker.viewAnalysisOnOlderVersion">
-                WoWAnalyzer is constantly being updated to support the latest changes. This can
-                cause some functionality to be modified for the latest talents/traits/trinkets or be
-                removed.
+              <>{t({ id: 'interface.report.patchChecker.viewAnalysisOnOlderVersion.p1', message: 'WoWAnalyzer is constantly being updated to support the latest changes. This can cause some functionality to be modified for the latest talents/traits/trinkets or be removed. ' })}
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
-                This could mean that some parts of your report will no longer be analysed
-                accurately.
+                {t({ id: 'interface.report.patchChecker.viewAnalysisOnOlderVersion.p2', message: 'This could mean that some parts of your report will no longer be analysed accurately. ' })}
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
-                If you would still like to view the analysis using the latest updates, you can click
-                'Continue anyway' below.
-              </Trans>
+                {t({ id: 'interface.report.patchChecker.viewAnalysisOnOlderVersion.p3', message: 'If you would still like to view the analysis using the latest updates, you can click \'Continue anyway\' below.' })}
+              </>
             ) : (
-              <Trans id="interface.report.patchChecker.viewAnalysisOldExpansion">
-                Due to the number of class changes since the last expansion (class abilities,
-                talents, etc.), the analysis provided by WoWAnalyzer will most likely be inaccurate.
+              <>{t({ id: 'interface.report.patchChecker.viewAnalysisOldExpansion.p1', message: 'Due to the number of class changes since the last expansion (class abilities, talents, etc.), the analysis provided by WoWAnalyzer will most likely be inaccurate. ' })}
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
-                You can still access the Analysis by clicking 'Continue anyway' below if required.
+                {t({ id: 'interface.report.patchChecker.viewAnalysisOldExpansion.p2', message: 'You can still access the Analysis by clicking \'Continue anyway\' below if required. ' })}
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
-                If you would like to view the analysis on an older version of WoWAnalyzer,{' '}
+                {t({ id: 'interface.report.patchChecker.viewAnalysisOldExpansion.p3', message: 'If you would like to view the analysis on an older version of WoWAnalyzer,' })}
+                {' '}
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <a
                   href={reportPatch && makePreviousPatchUrl(reportPatch)}
@@ -112,13 +106,13 @@ const PatchCheckerContents = ({
                 >
                   {t({ id: 'interface.report.patchChecker.clickHere', message: 'click here' })}
                 </a>
-                .{/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+                {t({ id: 'interface.report.patchChecker.viewAnalysisOldExpansion.p4', message: '.' })}
+                {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
-                If you would still like to view the analysis using the latest updates, you can click
-                'Continue anyway' below.
-              </Trans>
+                {t({ id: 'interface.report.patchChecker.viewAnalysisOldExpansion.p5', message: 'If you would still like to view the analysis using the latest updates, you can click \'Continue anyway\' below.' })}
+              </>
             )}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />

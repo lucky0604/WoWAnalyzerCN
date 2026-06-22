@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -80,8 +80,7 @@ class Ossuary extends Analyzer {
         position={STATISTIC_ORDER.CORE(3)}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.ossuary.statistic.tooltip">
-            <p>
+          <><p>
               {this.dsWithoutOS * OSSUARY_RUNICPOWER_REDUCTION} RP wasted by casting them without
               Ossuary up.
             </p>
@@ -90,14 +89,16 @@ class Ossuary extends Analyzer {
               up.
               {formatPercentage(this.uptime)}% uptime.
             </p>
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.OSSUARY_TALENT}>
-          <Trans id="deathknight.blood.ossuary.statistic">
-            {this.dsWithoutOS} / {this.dsWithOS + this.dsWithoutOS}{' '}
-            <small>Death Strikes without Ossuary</small>
-          </Trans>
+          <>{this.dsWithoutOS}
+            {t({ id: 'deathknight.blood.ossuary.statistic.p1', message: '/' })}
+            {this.dsWithOS + this.dsWithoutOS}
+            {' '}
+            <small>{t({ id: 'deathknight.blood.ossuary.statistic.small', message: 'Death Strikes without Ossuary' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

@@ -28,21 +28,27 @@ export default function ResourceUseSection(modules: ModulesOf<typeof CombatLogPa
         })}
       >
         <p>
-          <Trans id="guide.hunter.beastmastery.sections.resources.focus.summary">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />. Typically,
-            ability use will be limited by <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />, not time.
-            Avoid capping <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> regeneration is lost DPS. It will
-            occasionally be impossible to avoid capping{' '}
-            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> - like while handling mechanics or during
-            intermission phases.
-          </Trans>
+          <>{t({ id: 'guide.hunter.beastmastery.sections.resources.focus.summary.p1', message: 'Your primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.beastmastery.sections.resources.focus.summary.p2', message: '. Typically, ability use will be limited by ' })}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.beastmastery.sections.resources.focus.summary.p3', message: ', not time. Avoid capping ' })}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.beastmastery.sections.resources.focus.summary.p4', message: '- lost' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.beastmastery.sections.resources.focus.summary.p5', message: 'regeneration is lost DPS. It will occasionally be impossible to avoid capping' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.beastmastery.sections.resources.focus.summary.p6', message: '- like while handling mechanics or during intermission phases.' })}
+          </>
         </p>
         <p>
-          <Trans id="guide.hunter.beastmastery.sections.resources.focus.wasted">
-            The chart below shows your <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> over the course
-            of the encounter. You wasted{' '}
-          </Trans>
+          <>{t({ id: 'guide.hunter.beastmastery.sections.resources.focus.wasted.p1', message: 'The chart below shows your ' })}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.beastmastery.sections.resources.focus.wasted.p2', message: 'over the course of the encounter. You wasted' })}
+            {' '}
+          </>
           <PerformanceStrongWithTooltip
             performance={modules.focusTracker.percentAtCapPerformance}
             tooltip={

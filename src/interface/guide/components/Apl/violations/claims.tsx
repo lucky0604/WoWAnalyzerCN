@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Spell from 'common/SPELLS/Spell';
 import { SpellLink } from 'interface';
 import { useAnalyzer, useInfo } from 'interface/guide';
@@ -155,10 +156,10 @@ const overcastFillers: ViolationExplainer<InternalRule> = {
       .map(([rule, claims]) => ({ claims, data: rule }));
   },
   render: (claim) => (
-    <Trans id="guide.apl.overcastFillers">
-      You frequently cast <SpellLink spell={spells(claim.data)[0].id} /> when more important spells
-      were available.
-    </Trans>
+    <>{t({ id: 'guide.apl.overcastFillers.p1', message: 'You frequently cast ' })}
+      <SpellLink spell={spells(claim.data)[0].id} />
+      {t({ id: 'guide.apl.overcastFillers.p2', message: 'when more important spells were available.' })}
+    </>
   ),
   describe: ({ violation }) => (
     <>
@@ -228,16 +229,16 @@ const droppedRule: ViolationExplainer<{ rule: InternalRule; spell: Spell }> = {
     );
   },
   render: (claim) => (
-    <Trans id="guide.apl.droppedRule">
-      You frequently skipped casting <SpellLink spell={claim.data.spell.id} />
+    <>{t({ id: 'guide.apl.droppedRule.p1', message: 'You frequently skipped casting ' })}
+      <SpellLink spell={claim.data.spell.id} />
       {claim.data.rule.condition && (
         <>
           {' '}
           <ConditionDescription prefix="when" rule={claim.data.rule} tense={Tense.Past} />
         </>
       )}
-      .
-    </Trans>
+      {t({ id: 'guide.apl.droppedRule.p2', message: '.' })}
+    </>
   ),
   describe: ({ violation }) => (
     <>

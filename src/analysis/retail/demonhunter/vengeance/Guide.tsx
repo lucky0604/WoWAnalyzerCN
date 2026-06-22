@@ -56,11 +56,15 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
         })}
       >
         <p>
-          <Trans id="guide.demonhunter.vengeance.sections.core.fury.summary">
-            Vengeance's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should
-            avoid capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
-          </Trans>
+          <>{t({ id: 'guide.demonhunter.vengeance.sections.core.fury.summary.p1', message: 'Vengeance\'s primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'guide.demonhunter.vengeance.sections.core.fury.summary.p2', message: '. You should avoid capping ' })}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'guide.demonhunter.vengeance.sections.core.fury.summary.p3', message: '- lost' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'guide.demonhunter.vengeance.sections.core.fury.summary.p4', message: 'generation is lost DPS.' })}
+          </>
         </p>
         <FuryCapWaste
           percentAtCap={percentAtFuryCap}

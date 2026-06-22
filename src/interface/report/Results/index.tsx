@@ -209,13 +209,12 @@ const Results = (props: PassedProps) => {
             {props.build && props.build !== 'default' && (
               <div>
                 <AlertWarning style={{ marginBottom: 30 }}>
-                  <Trans id="interface.report.results.warning.build">
-                    These results are analyzed under build different from the standard build. While
-                    this will make some modules more accurate, some may also not provide the
+                  <>{t({ id: 'interface.report.results.warning.build.p1', message: 'These results are analyzed under build different from the standard build. While this will make some modules more accurate, some may also not provide the ' })}
                     {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-                    information you expect them to. <br /> Please report any issues you may find on
-                    our GitHub or Discord.
-                  </Trans>
+                    {t({ id: 'interface.report.results.warning.build.p2', message: 'information you expect them to. ' })}
+                    <br />
+                    {t({ id: 'interface.report.results.warning.build.p3', message: 'Please report any issues you may find on our GitHub or Discord.' })}
+                  </>
                 </AlertWarning>
               </div>
             )}
@@ -322,11 +321,14 @@ const SupportProvidedBy = ({
   let description = null;
   if (supportLevel === SupportLevel.Foundation) {
     description = (
-      <Trans id="interface.report.results.providedByFoundation">
-        {specTitle} analysis has <FoundationSupportBadge withTooltip /> courtesy of{' '}
-        {contributorinfo} but does not have a dedicated maintainer. If you're interested in helping
-        improve it, let us know!
-      </Trans>
+      <>{specTitle}
+        {t({ id: 'interface.report.results.providedByFoundation.p1', message: 'analysis has ' })}
+        <FoundationSupportBadge withTooltip />
+        {t({ id: 'interface.report.results.providedByFoundation.p2', message: 'courtesy of' })}
+        {' '}
+        {contributorinfo}
+        {t({ id: 'interface.report.results.providedByFoundation.p3', message: 'but does not have a dedicated maintainer. If you\'re interested in helping improve it, let us know!' })}
+      </>
     );
   } else if (supportLevel === SupportLevel.Unmaintained) {
     description = (
@@ -337,11 +339,13 @@ const SupportProvidedBy = ({
     );
   } else {
     description = (
-      <Trans id="interface.report.results.providedByDetails">
-        {specTitle} analysis has been provided by {contributorinfo}. They love hearing what you
-        think, so please let them know!{' '}
+      <>{specTitle}
+        {t({ id: 'interface.report.results.providedByDetails.p1', message: 'analysis has been provided by ' })}
+        {contributorinfo}
+        {t({ id: 'interface.report.results.providedByDetails.p2', message: '. They love hearing what you think, so please let them know!' })}
+        {' '}
         <Link to={aboutUrl}>More information about this spec's analyzer.</Link>
-      </Trans>
+      </>
     );
   }
 

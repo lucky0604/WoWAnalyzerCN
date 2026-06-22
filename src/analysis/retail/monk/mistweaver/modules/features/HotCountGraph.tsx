@@ -44,14 +44,14 @@ class HotCountGraph extends BuffCountGraph {
         title={t({ id: 'monk.mistweaver.hotGraph.title', message: 'Healing Amps Graph' })}
         position={100}
         explanation={
-          <Trans id="monk.mistweaver.hotGraph.panelExplanation">
-            This graph shows the number of non-renewing mist healing buffs you had active over the
-            course of the encounter. It can help you evaluate how effective you were at prepping and
-            executing your cooldowns. For example, the number of{' '}
-            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />s that go out during{' '}
-            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> directly
-            correlates to your hps during.
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.hotGraph.panelExplanation.p1', message: 'This graph shows the number of non-renewing mist healing buffs you had active over the course of the encounter. It can help you evaluate how effective you were at prepping and executing your cooldowns. For example, the number of' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+            {t({ id: 'monk.mistweaver.hotGraph.panelExplanation.p2', message: 's that go out during' })}
+            {' '}
+            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} />
+            {t({ id: 'monk.mistweaver.hotGraph.panelExplanation.p3', message: 'directly correlates to your hps during.' })}
+          </>
         }
       >
         {this.plot}

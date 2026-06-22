@@ -124,10 +124,12 @@ const CharacterStats = ({ statTracker }: Props) => {
         <div className="col-md-12">
           <Tooltip
             content={
-              <Trans id="shared.characterPanel.stats.pull.tooltip">
-                These stats include any <strong>rating</strong> buffs, such as flasks, potions and
-                other buffs. Percentage buffs such as Bloodlust are <strong>not</strong> included.
-              </Trans>
+              <>{t({ id: 'shared.characterPanel.stats.pull.tooltip.p1', message: 'These stats include any ' })}
+                <strong>{t({ id: 'shared.characterPanel.stats.pull.tooltip.strong', message: 'rating' })}</strong>
+                {t({ id: 'shared.characterPanel.stats.pull.tooltip.p2', message: 'buffs, such as flasks, potions and other buffs. Percentage buffs such as Bloodlust are ' })}
+                <strong>{t({ id: 'shared.characterPanel.stats.pull.tooltip.strong2', message: 'not' })}</strong>
+                {t({ id: 'shared.characterPanel.stats.pull.tooltip.p3', message: 'included.' })}
+              </>
             }
           >
             <h2 style={{ marginTop: 0 }}>

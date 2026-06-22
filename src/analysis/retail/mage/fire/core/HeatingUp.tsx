@@ -168,18 +168,12 @@ export default class HeatingUp extends Analyzer {
         position={STATISTIC_ORDER.CORE(14)}
         size="flexible"
         tooltip={
-          <Trans id="mage.fire.heatingUp.statTooltip">
-            Outside of Combustion & Firestarter, spells that are guaranteed to crit (like Fire
-            Blast) should only be used to convert Heating Up into Hot Streak. While there are minor
-            exceptions to this (like if you are about to cap on charges), the goal should be to
-            waste as few of these as possible. Additionally, you should never cast Fire Blast or
-            Phoenix Flames while Hot Streak is active, as those could have contributed towards your
-            next Heating Up/Hot Streak
+          <>{t({ id: 'mage.fire.heatingUp.statTooltip.p1', message: 'Outside of Combustion & Firestarter, spells that are guaranteed to crit (like Fire Blast) should only be used to convert Heating Up into Hot Streak. While there are minor exceptions to this (like if you are about to cap on charges), the goal should be to waste as few of these as possible. Additionally, you should never cast Fire Blast or Phoenix Flames while Hot Streak is active, as those could have contributed towards your next Heating Up/Hot Streak' })}
             <ul>
               <li>Fireblast used without Heating Up: {this.fireBlastWithoutHeatingUp}</li>
               <li>Fireblast used during Hot Streak: {this.fireBlastsDuringHotStreak}</li>
             </ul>
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={SPELLS.HEATING_UP}>

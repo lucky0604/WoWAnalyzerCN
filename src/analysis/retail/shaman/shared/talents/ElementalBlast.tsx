@@ -115,9 +115,9 @@ class ElementalBlast extends Analyzer {
       <Statistic position={STATISTIC_ORDER.OPTIONAL()} category={STATISTIC_CATEGORY.TALENTS}>
         <div className="pad">
           <label>
-            <Trans id="shaman.elemental.eb.distribution">
-              <SpellLink spell={TALENTS.ELEMENTAL_BLAST_TALENT} /> stat distribution
-            </Trans>
+            <><SpellLink spell={TALENTS.ELEMENTAL_BLAST_TALENT} />
+              {t({ id: 'shaman.elemental.eb.distribution.p1', message: 'stat distribution' })}
+            </>
           </label>
           {this.elementalBlastDonut()}
         </div>

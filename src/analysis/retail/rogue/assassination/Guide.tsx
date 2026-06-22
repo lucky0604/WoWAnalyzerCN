@@ -48,14 +48,20 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.rogue.assassination.sections.resources.energy.summary">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Typically,
-            ability use will be limited by <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />, not time.
-            Avoid capping <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> regeneration is lost DPS. It will
-            occasionally be impossible to avoid capping <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />{' '}
-            - like while handling mechanics or during intermission phases.
-          </Trans>
+          <>{t({ id: 'guide.rogue.assassination.sections.resources.energy.summary.p1', message: 'Your primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.assassination.sections.resources.energy.summary.p2', message: '. Typically, ability use will be limited by ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.assassination.sections.resources.energy.summary.p3', message: ', not time. Avoid capping ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.assassination.sections.resources.energy.summary.p4', message: '- lost' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.assassination.sections.resources.energy.summary.p5', message: 'regeneration is lost DPS. It will occasionally be impossible to avoid capping ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {' '}
+            {t({ id: 'guide.rogue.assassination.sections.resources.energy.summary.p6', message: '- like while handling mechanics or during intermission phases.' })}
+          </>
         </p>
         <EnergyCapWaste
           percentAtCap={percentAtCap}

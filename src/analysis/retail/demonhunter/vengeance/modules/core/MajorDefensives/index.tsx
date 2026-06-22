@@ -34,8 +34,8 @@ const MajorDefensives = () => {
           </p>
           <ol>
             <li>
-              <Trans id="demonhunter.vengeance.majorDefensives.cooldownTip1">
-                You should cover as many{' '}
+              <>{t({ id: 'demonhunter.vengeance.majorDefensives.cooldownTip1.p1', message: 'You should cover as many' })}
+                {' '}
                 <TooltipElement
                   content={
                     <>
@@ -46,27 +46,28 @@ const MajorDefensives = () => {
                   }
                 >
                   damage spikes
-                </TooltipElement>{' '}
-                as possible, and use any left over to cover periods of heavy, consistent damage.
-              </Trans>
+                </TooltipElement>
+                {' '}
+                {t({ id: 'demonhunter.vengeance.majorDefensives.cooldownTip1.p2', message: 'as possible, and use any left over to cover periods of heavy, consistent damage.' })}
+              </>
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />
               <small>
-                <Trans id="demonhunter.vengeance.majorDefensives.cooldownTip1Detail">
-                  In the damage chart below, a spike highlighted in{' '}
+                <>{t({ id: 'demonhunter.vengeance.majorDefensives.cooldownTip1Detail.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                  {' '}
                   <Highlight color={GoodColor} textColor="black">
                     green
-                  </Highlight>{' '}
-                  was covered by a defensive.
-                </Trans>
+                  </Highlight>
+                  {' '}
+                  {t({ id: 'demonhunter.vengeance.majorDefensives.cooldownTip1Detail.p2', message: 'was covered by a defensive.' })}
+                </>
               </small>
             </li>
             <li>
-              <Trans id="demonhunter.vengeance.majorDefensives.cooldownTip2">
-                You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using major
-                defensives is a common problem! For Vengeance Demon Hunters, it is also likely to be
-                fatal.
-              </Trans>
+              <>{t({ id: 'demonhunter.vengeance.majorDefensives.cooldownTip2.p1', message: 'You should ' })}
+                <em>{t({ id: 'demonhunter.vengeance.majorDefensives.cooldownTip2.em', message: 'use' })}</em>
+                {t({ id: 'demonhunter.vengeance.majorDefensives.cooldownTip2.p2', message: 'your cooldowns. This may seem silly&mdash;but not using major defensives is a common problem! For Vengeance Demon Hunters, it is also likely to be fatal.' })}
+              </>
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />
               <small>

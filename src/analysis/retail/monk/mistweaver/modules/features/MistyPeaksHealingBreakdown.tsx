@@ -11,7 +11,8 @@ import DancingMists from '../spells/DancingMists';
 import MistsOfLife from '../spells/MistsOfLife';
 import MistyPeaks from '../spells/MistyPeaks';
 import RapidDiffusion from '../spells/RapidDiffusion';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 class MistyPeaksHealingBreakdown extends Analyzer {
   get remainingMistyPeaksHealing() {
@@ -90,9 +91,9 @@ class MistyPeaksHealingBreakdown extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(1)} size="flexible">
         <div className="pad">
           <label>
-            <Trans id="monk.mistweaver.mistyPeaksBreakdown.breakdown">
-              <SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT}>Misty Peaks</SpellLink> breakdown
-            </Trans>
+            <><SpellLink spell={TALENTS_MONK.MISTY_PEAKS_TALENT}>Misty Peaks</SpellLink>
+              {t({ id: 'monk.mistweaver.mistyPeaksBreakdown.breakdown.p1', message: 'breakdown' })}
+            </>
           </label>
           {this.renderMistyPeaksChart()}
         </div>

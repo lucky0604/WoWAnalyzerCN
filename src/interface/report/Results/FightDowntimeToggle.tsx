@@ -18,8 +18,8 @@ const FightDowntimeToggle = ({ initialValue, onChange, ...others }: Props) => (
       id="adjust-for-downtime-toggle"
     />
     <label htmlFor="adjust-for-downtime-toggle">
-      <Trans id="interface.report.results.statistics.adjustStatistics">
-        Adjust statistics for{' '}
+      <>{t({ id: 'interface.report.results.statistics.adjustStatistics.p1', message: 'Adjust statistics for' })}
+        {' '}
         <TooltipElement
           content={t({
             id: 'interface.report.results.statistics.fightDowntime',
@@ -27,8 +27,9 @@ const FightDowntimeToggle = ({ initialValue, onChange, ...others }: Props) => (
           })}
         >
           fight downtime
-        </TooltipElement>{' '}
-        (
+        </TooltipElement>
+        {' '}
+        {t({ id: 'interface.report.results.statistics.adjustStatistics.p2', message: '( ' })}
         <TooltipElement
           content={t({
             id: 'interface.report.results.statistics.fightDowntimeDetails',
@@ -37,8 +38,8 @@ const FightDowntimeToggle = ({ initialValue, onChange, ...others }: Props) => (
         >
           experimental
         </TooltipElement>
-        )
-      </Trans>
+        {t({ id: 'interface.report.results.statistics.adjustStatistics.p3', message: ')' })}
+      </>
     </label>
   </div>
 );

@@ -7,14 +7,23 @@
  *   - fix-trans-to-t-jsx.mjs
  *
  * Usage:
- *   node scripts/i18n-fix.mjs              # Fix all i18n issues
- *   node scripts/i18n-fix.mjs --dry-run    # Preview fixes only
- *   node scripts/i18n-fix.mjs --check-trans # Scan for problematic <Trans> with <SpellLink>/<br>/<strong>/<b>
+ *   node scripts/i18n-fix.mjs                 # Fix all i18n issues (imports, simple Trans→t, JSX cleanup)
+ *   node scripts/i18n-fix.mjs --dry-run       # Preview fixes only
+ *   node scripts/i18n-fix.mjs --check-trans   # Scan for problematic <Trans> with embedded components
+ *   node scripts/i18n-fix.mjs --convert-trans # Auto-convert <Trans> with components to t() + JSX (AST-based)
+ *
+ * Recommended workflow after upstream merge:
+ *   1. node scripts/i18n-fix.mjs --convert-trans   # Auto-convert ~95% of cases
+ *   2. node scripts/i18n-fix.mjs --check-trans      # Flag remaining manual cases
+ *   3. node scripts/i18n-fix.mjs                    # Fix imports & simple Trans→t
+ *   4. pnpm typecheck                               # Verify compilation
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import ts from 'typescript';
 
 const CHECK_TRANS = process.argv.includes('--check-trans');
+const CONVERT_TRANS = process.argv.includes('--convert-trans');
 const DRY_RUN = process.argv.includes('--dry-run');
 const ROOT = process.cwd();
 const OVERRIDES_PREFIX = `${path.sep}localization${path.sep}overrides${path.sep}`;
@@ -84,6 +93,244 @@ function ensureDefineMessageImport(content) {
 }
 
 const stats = { transToT: 0, defineMessageToT: 0, importFixed: 0, jsxFixed: 0, files: 0 };
+
+// --- AST helper functions for --convert-trans mode ---
+// Tags whose text children should be wrapped in t() calls
+const WRAPPABLE_TAGS = new Set([
+  'strong', 'b', 'a', 'em', 'i', 'u', 'code', 'kbd', 'span', 'small', 'mark', 'sub', 'sup',
+]);
+
+/** Collapse whitespace to single spaces, trim leading, optionally trim trailing */
+function normalizeText(text, isLast) {
+  let result = text.replace(/\s+/g, ' ');
+  result = result.replace(/^\s+/, '');
+  if (isLast) result = result.replace(/\s+$/, '');
+  return result;
+}
+
+/** Escape text for single-quoted string inside t() macro */
+function escapeForTMacro(text) {
+  return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+}
+
+/** Get a JSX attribute by name from an opening element's attributes */
+function getJsxAttribute(openingElement, name) {
+  const attrs = openingElement.attributes.properties;
+  for (const attr of attrs) {
+    if (attr.name && attr.name.text === name) return attr;
+  }
+  return null;
+}
+
+/** Get the string value of a JSX attribute (handles id="x" and id={"x"}) */
+function getStringValue(attr) {
+  if (!attr || !attr.initializer) return null;
+  if (attr.initializer.text !== undefined) return attr.initializer.text;
+  if (attr.initializer.expression && attr.initializer.expression.text !== undefined) {
+    return attr.initializer.expression.text;
+  }
+  return null;
+}
+
+// --- Convert mode: AST-based <Trans> with components → t() + explicit JSX ---
+if (CONVERT_TRANS) {
+  const convertStats = { files: 0, blocks: 0, skipped: 0 };
+
+  for (const file of walk('src')) {
+    if (!file.endsWith('.tsx')) continue;
+
+    const originalContent = fs.readFileSync(file, 'utf8');
+
+    // Quick pre-check: skip files without any <Trans> that has mixed children
+    if (!/<Trans[\s>]/.test(originalContent)) continue;
+
+    let sourceFile;
+    try {
+      sourceFile = ts.createSourceFile(
+        file,
+        originalContent,
+        ts.ScriptTarget.Latest,
+        true, // setParentNodes
+        ts.ScriptKind.TSX,
+      );
+    } catch (e) {
+      console.warn(`  [skip] ${path.relative(ROOT, file)}: parse error - ${e.message}`);
+      continue;
+    }
+
+    /** @type {{pos: number, end: number, replacement: string}[]} */
+    const replacements = [];
+
+    function visit(node) {
+      if (ts.isJsxElement(node)) {
+        const tagName = node.openingElement.tagName;
+        if (ts.isIdentifier(tagName) && tagName.text === 'Trans') {
+          const children = node.children;
+
+          // Only convert Trans blocks that have component children (mixed content)
+          const hasComponents = children.some(
+            (c) => ts.isJsxElement(c) || ts.isJsxSelfClosingElement(c),
+          );
+          if (!hasComponents) return; // Pure text — handled by existing passes
+
+          // Extract id attribute
+          const idAttr = getJsxAttribute(node.openingElement, 'id');
+          if (!idAttr) {
+            convertStats.skipped++;
+            return;
+          }
+          const baseId = getStringValue(idAttr);
+          if (!baseId) {
+            convertStats.skipped++;
+            return;
+          }
+
+          // Find the actual position of '<Trans' tag (node.pos may point to leading \n)
+          const transTagStart = originalContent.indexOf('<Trans', node.pos);
+          const lineStart = originalContent.lastIndexOf('\n', transTagStart) + 1;
+          const indent = originalContent.substring(lineStart, transTagStart); // whitespace only
+
+          // Process children: split text around components
+          const parts = [];
+          let textIdx = 1;
+          const elemCounters = {};
+
+          for (let i = 0; i < children.length; i++) {
+            const child = children[i];
+
+            if (ts.isJsxText(child)) {
+              // Determine if this is the last text node in the block
+              let hasTextAfter = false;
+              for (let j = i + 1; j < children.length; j++) {
+                if (ts.isJsxText(children[j]) && children[j].text.trim()) {
+                  hasTextAfter = true;
+                  break;
+                }
+              }
+
+              const text = normalizeText(child.text, !hasTextAfter);
+              if (text) {
+                const id = `${baseId}.p${textIdx++}`;
+                const escaped = escapeForTMacro(text);
+                parts.push({ source: `{t({ id: '${id}', message: '${escaped}' })}` });
+              }
+            } else if (ts.isJsxSelfClosingElement(child)) {
+              // Self-closing: <SpellLink ... />, <br /> — preserve as-is
+              const source = originalContent.substring(child.pos, child.end);
+              parts.push({ source });
+            } else if (ts.isJsxElement(child)) {
+              // Element with children: <strong>, <b>, <a>, etc.
+              const childTag = child.openingElement.tagName.text;
+              const hasTextChildren = child.children.some(
+                (c) => ts.isJsxText(c) && c.text.trim(),
+              );
+
+              if (hasTextChildren && WRAPPABLE_TAGS.has(childTag)) {
+                // Wrap inner text in t() call
+                elemCounters[childTag] = (elemCounters[childTag] || 0) + 1;
+                const count = elemCounters[childTag];
+                const suffix = count > 1 ? String(count) : '';
+                const innerId = `${baseId}.${childTag}${suffix}`;
+
+                const innerText = child.children
+                  .filter((c) => ts.isJsxText(c))
+                  .map((c) => c.text)
+                  .join('');
+                const normalized = normalizeText(innerText, true);
+                const escaped = escapeForTMacro(normalized);
+                const tCall = `{t({ id: '${innerId}', message: '${escaped}' })}`;
+
+                // Extract tag parts from original source
+                const openTag = originalContent.substring(
+                  child.pos,
+                  child.openingElement.end,
+                );
+                const closeTag = originalContent.substring(
+                  child.closingElement.pos,
+                  child.end,
+                );
+
+                if (openTag.includes('\n')) {
+                  // Multiline element (e.g. <a with many attributes>) — preserve structure
+                  parts.push({
+                    source: `${openTag}\n${indent}  ${tCall}\n${indent}${closeTag}`,
+                  });
+                } else {
+                  // Inline element (<strong>, <b>) — single line
+                  parts.push({ source: `${openTag}${tCall}${closeTag}` });
+                }
+              } else {
+                // Element without text children or unwrappable type — preserve as-is
+                const source = originalContent.substring(child.pos, child.end);
+                parts.push({ source });
+              }
+            } else if (ts.isJsxExpression(child)) {
+              // {' '} or other expressions — preserve as-is
+              const source = originalContent.substring(child.pos, child.end);
+              parts.push({ source });
+            }
+          }
+
+          if (parts.length === 0) return;
+
+          // Build replacement string
+          const lines = [];
+          if (parts.length === 1) {
+            lines.push(`${indent}${parts[0].source}`);
+          } else {
+            lines.push(`${indent}<>${parts[0].source}`);
+            for (let pi = 1; pi < parts.length; pi++) {
+              lines.push(`${indent}  ${parts[pi].source}`);
+            }
+            lines.push(`${indent}</>`);
+          }
+
+          replacements.push({
+            pos: lineStart, // Replace from start of the indented line (after \n)
+            end: node.end,
+            replacement: lines.join('\n'),
+          });
+          convertStats.blocks++;
+        }
+      }
+      ts.forEachChild(node, visit);
+    }
+
+    visit(sourceFile);
+
+    if (replacements.length > 0) {
+      // Apply replacements in reverse to preserve source positions
+      let result = originalContent;
+      for (let ri = replacements.length - 1; ri >= 0; ri--) {
+        const { pos, end, replacement } = replacements[ri];
+        result = result.substring(0, pos) + replacement + result.substring(end);
+      }
+
+      // Ensure t import exists since we added t() calls
+      if (/\bt\(\{/.test(result)) {
+        result = ensureTImport(result);
+      }
+
+      convertStats.files++;
+      if (!DRY_RUN) {
+        fs.writeFileSync(file, result);
+      } else {
+        const rel = path.relative(ROOT, file);
+        console.log(`[dry-run] ${rel}: ${replacements.length} block(s)`);
+      }
+    }
+  }
+
+  console.log(
+    `${DRY_RUN ? '[DRY RUN] ' : ''}Converted ${convertStats.blocks} Trans block(s) in ${convertStats.files} file(s)`,
+  );
+  if (convertStats.skipped > 0) {
+    console.log(
+      `Skipped ${convertStats.skipped} Trans block(s) (missing id or complex pattern — re-run --check-trans to review)`,
+    );
+  }
+  process.exit(0);
+}
 
 // --- Check mode: scan for problematic <Trans> blocks, no modifications ---
 if (CHECK_TRANS) {

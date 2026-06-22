@@ -45,10 +45,11 @@ export default function ResourceUseSection(modules: ModulesOf<typeof CombatLogPa
           </>
         </p>
         <p>
-          <Trans id="guide.hunter.survival.sections.resources.focus.wasted">
-            The chart below shows your <ResourceLink id={RESOURCE_TYPES.FOCUS.id} /> over the course
-            of the encounter. You wasted{' '}
-          </Trans>
+          <>{t({ id: 'guide.hunter.survival.sections.resources.focus.wasted.p1', message: 'The chart below shows your ' })}
+            <ResourceLink id={RESOURCE_TYPES.FOCUS.id} />
+            {t({ id: 'guide.hunter.survival.sections.resources.focus.wasted.p2', message: 'over the course of the encounter. You wasted' })}
+            {' '}
+          </>
           <PerformanceStrongWithTooltip
             performance={modules.focusTracker.percentAtCapPerformance}
             tooltip={

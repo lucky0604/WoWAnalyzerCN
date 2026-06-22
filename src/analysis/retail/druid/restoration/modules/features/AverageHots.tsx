@@ -58,9 +58,9 @@ class AverageHots extends Analyzer {
       >
         <BoringValue
           label={
-            <Trans id="restoration.average_hots.label">
-              <SpellIcon spell={SPELLS.MASTERY_HARMONY} /> Average Mastery benefit
-            </Trans>
+            <><SpellIcon spell={SPELLS.MASTERY_HARMONY} />
+              {t({ id: 'restoration.average_hots.label.p1', message: 'Average Mastery benefit' })}
+            </>
           }
         >
           <>{avgTotalBenefitMult}</>

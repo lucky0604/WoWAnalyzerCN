@@ -50,11 +50,15 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         title={t({ id: 'demonhunter.havoc.sections.core.fury.title', message: 'Fury' })}
       >
         <p>
-          <Trans id="demonhunter.havoc.sections.core.fury.summary">
-            Havoc's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should avoid
-            capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
-          </Trans>
+          <>{t({ id: 'demonhunter.havoc.sections.core.fury.summary.p1', message: 'Havoc\'s primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'demonhunter.havoc.sections.core.fury.summary.p2', message: '. You should avoid capping ' })}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'demonhunter.havoc.sections.core.fury.summary.p3', message: '- lost' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'demonhunter.havoc.sections.core.fury.summary.p4', message: 'generation is lost DPS.' })}
+          </>
         </p>
         <FuryCapWaste
           percentAtCap={percentAtFuryCap}
@@ -186,13 +190,14 @@ function DefensivesSection({ modules }: GuideProps<typeof CombatLogParser>) {
           })}
           <p>
             <small>
-              <Trans id="demonhunter.havoc.sections.defensives.blur.question1.explanation">
-                In the damage chart below, a spike highlighted in{' '}
+              <>{t({ id: 'demonhunter.havoc.sections.defensives.blur.question1.explanation.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                {' '}
                 <Highlight color={GoodColor} textColor="black">
                   green
-                </Highlight>{' '}
-                was covered by Blur.
-              </Trans>
+                </Highlight>
+                {' '}
+                {t({ id: 'demonhunter.havoc.sections.defensives.blur.question1.explanation.p2', message: 'was covered by Blur.' })}
+              </>
             </small>
           </p>
         </li>

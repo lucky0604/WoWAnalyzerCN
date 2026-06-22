@@ -106,13 +106,11 @@ export default function Guide({ info }: GuideProps<typeof CombatLogParser>) {
               </>
             </p>
             <p>
-              <Trans id="monk.brewmaster.cooldowns.description2">
-                It is generally correct to hold your cooldowns by a small amount in order to line up
-                with fight mechanics, so they aren't a part of the overall rotation listed in the
-                previous section. However, holding them too long can hurt your damage
-                significantly&mdash;especially if you outright skip a cast (shown in{' '}
-                <Highlight color="#834c4a">red</Highlight>).
-              </Trans>
+              <>{t({ id: 'monk.brewmaster.cooldowns.description2.p1', message: 'It is generally correct to hold your cooldowns by a small amount in order to line up with fight mechanics, so they aren\'t a part of the overall rotation listed in the previous section. However, holding them too long can hurt your damage significantly&mdash;especially if you outright skip a cast (shown in' })}
+                {' '}
+                <Highlight color="#834c4a">red</Highlight>
+                {t({ id: 'monk.brewmaster.cooldowns.description2.p2', message: ').' })}
+              </>
             </p>
           </Explanation>
           {info.combatant.hasTalent(talents.INVOKE_NIUZAO_THE_BLACK_OX_TALENT) && (

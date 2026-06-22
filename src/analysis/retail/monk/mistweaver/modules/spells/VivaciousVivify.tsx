@@ -116,12 +116,14 @@ class VivaciousVivification extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} />
         </b>{' '}
-        <Trans id="monk.mistweaver.vivaciousVivify.explanation">
-          is a buff granted when you cast{' '}
-          <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> making your next{' '}
-          <SpellLink spell={SPELLS.VIVIFY} /> instant cast. Try to consume this buff without letting
-          it refresh as healing and mana warrant.
-        </Trans>
+        <>{t({ id: 'monk.mistweaver.vivaciousVivify.explanation.p1', message: 'is a buff granted when you cast' })}
+          {' '}
+          <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} />
+          {t({ id: 'monk.mistweaver.vivaciousVivify.explanation.p2', message: 'making your next' })}
+          {' '}
+          <SpellLink spell={SPELLS.VIVIFY} />
+          {t({ id: 'monk.mistweaver.vivaciousVivify.explanation.p3', message: 'instant cast. Try to consume this buff without letting it refresh as healing and mana warrant.' })}
+        </>
       </p>
     );
     this.unusableUptimes.at(-1)!.end = this.owner.fight.end_time;
@@ -139,11 +141,11 @@ class VivaciousVivification extends Analyzer {
             {t({ id: 'monk.mistweaver.vivaciousVivify.utilization', message: 'utilization' })}
           </strong>
           <small>
-            <Trans id="monk.mistweaver.vivaciousVivify.utilizationDesc">
-              Grey periods indicate times that you could have used your{' '}
-              <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} /> buff effectively, but
-              did not.
-            </Trans>
+            <>{t({ id: 'monk.mistweaver.vivaciousVivify.utilizationDesc.p1', message: 'Grey periods indicate times that you could have used your' })}
+              {' '}
+              <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} />
+              {t({ id: 'monk.mistweaver.vivaciousVivify.utilizationDesc.p2', message: 'buff effectively, but did not.' })}
+            </>
           </small>
 
           {uptimeBarSubStatistic(

@@ -33,10 +33,10 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
     <Section title={t({ id: 'rogue.subtlety.guide.sections.resources.title', message: 'Resource Use' })}>
       <SubSection title={t({ id: 'rogue.subtlety.guide.sections.resources.energy.title', message: 'Energy' })}>
         <p>
-          <Trans id="rogue.subtlety.guide.sections.resources.energy.summary">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Avoid energy
-            capping, as it results in lost DPS.
-          </Trans>
+          <>{t({ id: 'rogue.subtlety.guide.sections.resources.energy.summary.p1', message: 'Your primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'rogue.subtlety.guide.sections.resources.energy.summary.p2', message: '. Avoid energy capping, as it results in lost DPS.' })}
+          </>
         </p>
         <EnergyCapWaste
           percentAtCap={percentAtCap}
@@ -49,10 +49,11 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
       </SubSection>
       <SubSection title={t({ id: 'rogue.subtlety.guide.sections.resources.comboPoints.title', message: 'Combo Points' })}>
         <p>
-          <Trans id="rogue.subtlety.guide.sections.resources.comboPoints.summary">
-            Subtlety Rogue builds and spends <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
-            strategically. Ensure you never waste combo points.
-          </Trans>
+          <>{t({ id: 'rogue.subtlety.guide.sections.resources.comboPoints.summary.p1', message: 'Subtlety Rogue builds and spends ' })}
+            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />
+            {' '}
+            {t({ id: 'rogue.subtlety.guide.sections.resources.comboPoints.summary.p2', message: 'strategically. Ensure you never waste combo points.' })}
+          </>
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>

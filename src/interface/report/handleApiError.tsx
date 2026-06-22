@@ -31,10 +31,10 @@ export default function handleApiError(error: Error, onBack: () => void) {
         background="https://media.giphy.com/media/DAgxA6qRfa5La/giphy.gif"
       >
         <div className="text-muted">
-          <Trans id="interface.report.handleApiError.wrongOrPrivateReportDetails">
-            In order to view private reports, you will need to grant access via WarcraftLogs. If you
-            would like to authorize access to your private logs, click <em>Continue</em> below.
-          </Trans>
+          <>{t({ id: 'interface.report.handleApiError.wrongOrPrivateReportDetails.p1', message: 'In order to view private reports, you will need to grant access via WarcraftLogs. If you would like to authorize access to your private logs, click ' })}
+            <em>{t({ id: 'interface.report.handleApiError.wrongOrPrivateReportDetails.em', message: 'Continue' })}</em>
+            {t({ id: 'interface.report.handleApiError.wrongOrPrivateReportDetails.p2', message: 'below.' })}
+          </>
         </div>
         <div>
           <button type="button" className="btn btn-primary" onClick={onBack}>
@@ -64,12 +64,11 @@ export default function handleApiError(error: Error, onBack: () => void) {
         background={ApiDownBackground}
       >
         <div className="text-muted">
-          <Trans id="interface.report.handleApiError.retry">
-            Aside from the great news that you'll be the first to experience something new that is
-            probably going to pretty amazing, you'll probably also enjoy knowing that our updates
-            usually only take less than 10 seconds. So just{' '}
-            <a href={window.location.href}>give it another try</a>.
-          </Trans>
+          <>{t({ id: 'interface.report.handleApiError.retry.p1', message: 'Aside from the great news that you\'ll be the first to experience something new that is probably going to pretty amazing, you\'ll probably also enjoy knowing that our updates usually only take less than 10 seconds. So just' })}
+            {' '}
+            <a href={window.location.href}>{t({ id: 'interface.report.handleApiError.retry.a', message: 'give it another try' })}</a>
+            {t({ id: 'interface.report.handleApiError.retry.p2', message: '.' })}
+          </>
         </div>
         {/* I couldn't resist */}
         <audio autoPlay>

@@ -190,8 +190,7 @@ class TalentHealingStatistic extends Analyzer {
       <StatisticsListBox
         title={t({ id: 'monk.mistweaver.talentBox.title', message: 'Talent Summary' })}
         tooltip={
-          <Trans id="monk.mistweaver.talentBox.tooltip">
-            <p>
+          <><p>
               The purpose of this is to show the overall HPS impact of each talent. So not only what
               the talent itself did, but also feeding and synergy or interactions with other spells
               or talents. The percentage shown is what you'd lose without the talent, ignoring what
@@ -202,7 +201,7 @@ class TalentHealingStatistic extends Analyzer {
               the HPS contribution shown. Detailed breakdowns of each talent's impact can be found
               in the Talents Section.
             </p>
-          </Trans>
+          </>
         }
         position={STATISTIC_ORDER.CORE(9)}
         category={STATISTIC_CATEGORY.GENERAL}

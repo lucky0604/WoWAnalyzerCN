@@ -120,21 +120,22 @@ class DistanceMoved extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.UNIMPORTANT()}
         tooltip={
-          <Trans id="shared.distanceMoved.statistic.tooltip">
-            Consider this when analyzing the fight, as some fights require more movement than
-            others. Unnecessary movement can result in a DPS/HPS loss.
+          <>{t({ id: 'shared.distanceMoved.statistic.tooltip.p1', message: 'Consider this when analyzing the fight, as some fights require more movement than others. Unnecessary movement can result in a DPS/HPS loss. ' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            In ≈{formatThousands(this.timeSpentMoving / 1000)} seconds of movement you moved ≈
-            {formatThousands(this.totalDistanceMoved)} yards (≈
+            {t({ id: 'shared.distanceMoved.statistic.tooltip.p2', message: 'In ≈' })}
+            {formatThousands(this.timeSpentMoving / 1000)}
+            {t({ id: 'shared.distanceMoved.statistic.tooltip.p3', message: 'seconds of movement you moved ≈ ' })}
+            {formatThousands(this.totalDistanceMoved)}
+            {t({ id: 'shared.distanceMoved.statistic.tooltip.p4', message: 'yards (≈ ' })}
             {formatThousands(
               (this.totalDistanceMoved / (this.owner.fightDuration / 1000)) * 60,
-            )}{' '}
-            yards per minute). This statistic may not be entirely accurate for fights with lots of
-            problems.
-          </Trans>
+            )}
+            {' '}
+            {t({ id: 'shared.distanceMoved.statistic.tooltip.p5', message: 'yards per minute). This statistic may not be entirely accurate for fights with lots of problems.' })}
+          </>
         }
       >
         <div className="pad">

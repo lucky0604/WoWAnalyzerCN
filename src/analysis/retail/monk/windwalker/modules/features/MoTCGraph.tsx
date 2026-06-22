@@ -342,13 +342,20 @@ class MoTCGraph extends Analyzer {
         title={t({ id: 'monk.windwalker.motc_graph.title', message: 'Mark of The Crane' })}
         position={100}
         explanation={
-          <Trans id="monk.windwalker.motc_graph.explanation">
-            <SpellLink spell={SPELLS.MARK_OF_THE_CRANE} /> greatly increased the damage{' '}
-            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} /> does. This means you want to cast it at
-            high stacks. Magenta dots are regular <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />{' '}
-            casts while Orange triangles are <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />{' '}
-            empowered by <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />.
-          </Trans>
+          <><SpellLink spell={SPELLS.MARK_OF_THE_CRANE} />
+            {t({ id: 'monk.windwalker.motc_graph.explanation.p1', message: 'greatly increased the damage' })}
+            {' '}
+            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />
+            {t({ id: 'monk.windwalker.motc_graph.explanation.p2', message: 'does. This means you want to cast it at high stacks. Magenta dots are regular ' })}
+            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />
+            {' '}
+            {t({ id: 'monk.windwalker.motc_graph.explanation.p3', message: 'casts while Orange triangles are ' })}
+            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />
+            {' '}
+            {t({ id: 'monk.windwalker.motc_graph.explanation.p4', message: 'empowered by ' })}
+            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+            {t({ id: 'monk.windwalker.motc_graph.explanation.p5', message: '.' })}
+          </>
         }
       >
         {this.plot}

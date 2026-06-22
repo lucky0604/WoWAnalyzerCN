@@ -1,4 +1,5 @@
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { formatDuration, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import UptimeIcon from 'interface/icons/Uptime';
@@ -50,11 +51,10 @@ class BoneShield extends Analyzer {
             <table className="table table-condensed">
               <thead>
                 <tr>
-                  <Trans id="deathknight.blood.boneShield.statistic.header">
-                    <th>Stacks</th>
+                  <><th>Stacks</th>
                     <th>Time (s)</th>
                     <th>Time (%)</th>
-                  </Trans>
+                  </>
                 </tr>
               </thead>
               <tbody>
@@ -76,9 +76,11 @@ class BoneShield extends Analyzer {
         }
       >
         <BoringSpellValueText spell={SPELLS.BONE_SHIELD}>
-          <Trans id="deathknight.blood.boneShield.statistic">
-            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>uptime</small>
-          </Trans>
+          <><UptimeIcon />
+            {formatPercentage(this.uptime)}
+            {t({ id: 'deathknight.blood.boneShield.statistic.p1', message: '%' })}
+            <small>{t({ id: 'deathknight.blood.boneShield.statistic.small', message: 'uptime' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

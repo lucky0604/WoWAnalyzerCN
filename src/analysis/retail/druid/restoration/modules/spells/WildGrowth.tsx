@@ -218,9 +218,9 @@ class WildGrowth extends Analyzer {
       >
         <BoringValue
           label={
-            <Trans id="restoration.wildgrowth.statistic_label">
-              <SpellIcon spell={SPELLS.WILD_GROWTH} /> Average Effective Wild Growth Hits
-            </Trans>
+            <><SpellIcon spell={SPELLS.WILD_GROWTH} />
+              {t({ id: 'restoration.wildgrowth.statistic_label.p1', message: 'Average Effective Wild Growth Hits' })}
+            </>
           }
         >
           <>{this.averageEffectiveHits.toFixed(1)}</>

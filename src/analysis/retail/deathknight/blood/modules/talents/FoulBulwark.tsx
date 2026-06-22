@@ -1,4 +1,5 @@
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { formatDuration, formatPercentage } from 'common/format';
 import TALENTS from 'common/TALENTS/deathknight';
 import Analyzer, { Options } from 'parser/core/Analyzer';
@@ -43,11 +44,10 @@ class FoulBulwark extends Analyzer {
           <table className="table table-condensed">
             <thead>
               <tr>
-                <Trans id="deathknight.blood.foulBulwark.statistic.headers">
-                  <th>HP-bonus</th>
+                <><th>HP-bonus</th>
                   <th>Time (s)</th>
                   <th>Time (%)</th>
-                </Trans>
+                </>
               </tr>
             </thead>
             <tbody>
@@ -66,9 +66,10 @@ class FoulBulwark extends Analyzer {
         }
       >
         <BoringSpellValueText spell={TALENTS.FOUL_BULWARK_TALENT}>
-          <Trans id="deathknight.blood.foulBulwark.statistic">
-            {this.averageFoulBullwark}% <small>average buff</small>
-          </Trans>
+          <>{this.averageFoulBullwark}
+            {t({ id: 'deathknight.blood.foulBulwark.statistic.p1', message: '%' })}
+            <small>{t({ id: 'deathknight.blood.foulBulwark.statistic.small', message: 'average buff' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

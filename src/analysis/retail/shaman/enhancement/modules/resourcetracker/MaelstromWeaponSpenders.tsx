@@ -196,11 +196,13 @@ class MaelstromWeaponSpenders extends Analyzer.withDependencies({
         <div className="panel-footer">
           <p>
             <small>
-              <Trans id="shaman.enhancement.spenders.note">
-                Note: Damage/Healing values include increases from Augmentation Evokers. Click the{' '}
-                <i>Augmented Damage</i>/<i>Augmented Healing</i> tabs in WCL if the values don't
-                align
-              </Trans>
+              <>{t({ id: 'shaman.enhancement.spenders.note.p1', message: 'Note: Damage/Healing values include increases from Augmentation Evokers. Click the' })}
+                {' '}
+                <i>{t({ id: 'shaman.enhancement.spenders.note.i', message: 'Augmented Damage' })}</i>
+                {t({ id: 'shaman.enhancement.spenders.note.p2', message: '/' })}
+                <i>{t({ id: 'shaman.enhancement.spenders.note.i2', message: 'Augmented Healing' })}</i>
+                {t({ id: 'shaman.enhancement.spenders.note.p3', message: 'tabs in WCL if the values don\'t align' })}
+              </>
             </small>
           </p>
         </div>

@@ -480,13 +480,9 @@ class CooldownComponent extends Component<Props, State> {
                         }
                         return (
                           <div className="col-md-4 text-center" key="mana-used">
-                            <Trans
-                              id="shared.cooldownThroughputTracker.cooldown.manaUsed"
-                              key="mana"
-                            >
-                              <div style={{ fontSize: '2em' }}>{formatNumber(manaUsed)}</div>
-                              mana used
-                            </Trans>
+                            <><div style={{ fontSize: '2em' }}>{formatNumber(manaUsed)}</div>
+                              {t({ id: 'shared.cooldownThroughputTracker.cooldown.manaUsed.p1', message: 'mana used' })}
+                            </>
                           </div>
                         );
                       }
@@ -716,13 +712,9 @@ class CooldownComponent extends Component<Props, State> {
                           }
                           return (
                             <div className="col-md-4 text-center" key="mana-used">
-                              <Trans
-                                id="shared.cooldownThroughputTracker.cooldown.manaUsed"
-                                key="mana"
-                              >
-                                <div style={{ fontSize: '2em' }}>{formatNumber(manaUsed)}</div>
-                                mana used
-                              </Trans>
+                              <><div style={{ fontSize: '2em' }}>{formatNumber(manaUsed)}</div>
+                                {t({ id: 'shared.cooldownThroughputTracker.cooldown.manaUsed.p1', message: 'mana used' })}
+                              </>
                             </div>
                           );
                         }

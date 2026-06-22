@@ -1,7 +1,8 @@
 import { formatNumber, formatPercentage } from 'common/format';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
 import Events, { HealEvent } from 'parser/core/Events';
@@ -144,10 +145,12 @@ class MistWrap extends Analyzer {
                   </Trans>
                 </div>
                 <div>
-                  <Trans id="monk.mistweaver.mist_wrap.bonus_healing">
-                    Bonus Healing from extra <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
-                    duration: {bonus}
-                  </Trans>
+                  <>{t({ id: 'monk.mistweaver.mist_wrap.bonus_healing.p1', message: 'Bonus Healing from extra ' })}
+                    <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+                    {' '}
+                    {t({ id: 'monk.mistweaver.mist_wrap.bonus_healing.p2', message: 'duration:' })}
+                    {bonus}
+                  </>
                 </div>
               </>
             );

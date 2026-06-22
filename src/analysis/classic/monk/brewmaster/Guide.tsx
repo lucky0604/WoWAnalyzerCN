@@ -49,20 +49,26 @@ export default function Guide({ events, info }: GuideProps<typeof CombatLogParse
           <>
             {parseRotationActive && (
               <AlertInfo>
-                <Trans id="classic.monk.brewmaster.rotation.parsingRotationActive">
-                  This player appears to be using the <strong>Parsing Rotation</strong>.
-                </Trans>
+                <>{t({ id: 'classic.monk.brewmaster.rotation.parsingRotationActive.p1', message: 'This player appears to be using the ' })}
+                  <strong>{t({ id: 'classic.monk.brewmaster.rotation.parsingRotationActive.strong', message: 'Parsing Rotation' })}</strong>
+                  {t({ id: 'classic.monk.brewmaster.rotation.parsingRotationActive.p2', message: '.' })}
+                </>
               </AlertInfo>
             )}
             <Para>
-              <Trans id="classic.monk.brewmaster.rotation.standardDescription">
-                The standard rotation focuses on generating{' '}
-                <ResourceLink id={RESOURCE_TYPES.CHI.id} /> to power your defensive abilities like{' '}
-                <SpellLink spell={spells.PURIFYING_BREW} />. As a side-effect, it also generates
-                lots of <SpellLink spell={spells.ELUSIVE_BREW} /> stacks and passively maintains{' '}
-                <SpellLink spell={SPELLS.SHUFFLE} />. This is not necessarily the highest damage,
-                but it is sturdy and reliable.
-              </Trans>
+              <>{t({ id: 'classic.monk.brewmaster.rotation.standardDescription.p1', message: 'The standard rotation focuses on generating' })}
+                {' '}
+                <ResourceLink id={RESOURCE_TYPES.CHI.id} />
+                {t({ id: 'classic.monk.brewmaster.rotation.standardDescription.p2', message: 'to power your defensive abilities like' })}
+                {' '}
+                <SpellLink spell={spells.PURIFYING_BREW} />
+                {t({ id: 'classic.monk.brewmaster.rotation.standardDescription.p3', message: '. As a side-effect, it also generates lots of ' })}
+                <SpellLink spell={spells.ELUSIVE_BREW} />
+                {t({ id: 'classic.monk.brewmaster.rotation.standardDescription.p4', message: 'stacks and passively maintains' })}
+                {' '}
+                <SpellLink spell={SPELLS.SHUFFLE} />
+                {t({ id: 'classic.monk.brewmaster.rotation.standardDescription.p5', message: '. This is not necessarily the highest damage, but it is sturdy and reliable.' })}
+              </>
             </Para>
             <AplSectionData checker={check} apl={apl} />
           </>
@@ -81,13 +87,18 @@ export default function Guide({ events, info }: GuideProps<typeof CombatLogParse
         component: (
           <>
             <Para>
-              <Trans id="classic.monk.brewmaster.rotation.parsingDescription">
-                The "parsing" rotation focuses on damage at the expense of defensive power.{' '}
-                <ResourceLink id={RESOURCE_TYPES.CHI.id} /> generation is greatly reduced by
-                prioritizing <SpellLink spell={spells.TIGER_PALM} /> and{' '}
-                <SpellLink spell={spells.RUSHING_JADE_WIND_TALENT} />, which may leave your
-                defensive abilities unavailable. It <em>does</em> do more damage, though.
-              </Trans>
+              <>{t({ id: 'classic.monk.brewmaster.rotation.parsingDescription.p1', message: 'The "parsing" rotation focuses on damage at the expense of defensive power.' })}
+                {' '}
+                <ResourceLink id={RESOURCE_TYPES.CHI.id} />
+                {t({ id: 'classic.monk.brewmaster.rotation.parsingDescription.p2', message: 'generation is greatly reduced by prioritizing ' })}
+                <SpellLink spell={spells.TIGER_PALM} />
+                {t({ id: 'classic.monk.brewmaster.rotation.parsingDescription.p3', message: 'and' })}
+                {' '}
+                <SpellLink spell={spells.RUSHING_JADE_WIND_TALENT} />
+                {t({ id: 'classic.monk.brewmaster.rotation.parsingDescription.p4', message: ', which may leave your defensive abilities unavailable. It ' })}
+                <em>{t({ id: 'classic.monk.brewmaster.rotation.parsingDescription.em', message: 'does' })}</em>
+                {t({ id: 'classic.monk.brewmaster.rotation.parsingDescription.p5', message: 'do more damage, though.' })}
+              </>
             </Para>
             <AplSectionData checker={parselordCheck} apl={parselordApl} />
           </>
@@ -114,24 +125,36 @@ export default function Guide({ events, info }: GuideProps<typeof CombatLogParse
         })}
       >
         <Para>
-          <Trans id="classic.monk.brewmaster.rotation.description">
-            The Brewmaster rotation in Mists of Pandaria revolves around generating{' '}
-            <ResourceLink id={RESOURCE_TYPES.CHI.id} /> efficiently with{' '}
-            <SpellLink spell={spells.KEG_SMASH} /> and{' '}
-            <SpellLink spell={spells.EXPEL_HARM} />, then spending it on{' '}
-            <SpellLink spell={spells.BLACKOUT_KICK} />. Defensive abilities like{' '}
-            <SpellLink spell={spells.ELUSIVE_BREW} /> are not included in this analysis, but you
-            should still use them!
-          </Trans>
+          <>{t({ id: 'classic.monk.brewmaster.rotation.description.p1', message: 'The Brewmaster rotation in Mists of Pandaria revolves around generating' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.CHI.id} />
+            {t({ id: 'classic.monk.brewmaster.rotation.description.p2', message: 'efficiently with' })}
+            {' '}
+            <SpellLink spell={spells.KEG_SMASH} />
+            {t({ id: 'classic.monk.brewmaster.rotation.description.p3', message: 'and' })}
+            {' '}
+            <SpellLink spell={spells.EXPEL_HARM} />
+            {t({ id: 'classic.monk.brewmaster.rotation.description.p4', message: ', then spending it on' })}
+            {' '}
+            <SpellLink spell={spells.BLACKOUT_KICK} />
+            {t({ id: 'classic.monk.brewmaster.rotation.description.p5', message: '. Defensive abilities like' })}
+            {' '}
+            <SpellLink spell={spells.ELUSIVE_BREW} />
+            {t({ id: 'classic.monk.brewmaster.rotation.description.p6', message: 'are not included in this analysis, but you should still use them!' })}
+          </>
         </Para>
         <AlertInfo>
-          <Trans id="classic.monk.brewmaster.rotation.vengeanceInfo">
-            In Mists of Pandaria, tank damage is heavily dependent on{' '}
-            <SpellLink spell={spells.VENGEANCE_PASSIVE} />! It is so powerful that it is possible
-            to execute your rotation perfectly and still do worse damage than someone with better{' '}
-            <SpellLink spell={spells.VENGEANCE_PASSIVE} />. The best players will have good{' '}
-            <SpellLink spell={spells.VENGEANCE_PASSIVE} /> and a good rotation.
-          </Trans>
+          <>{t({ id: 'classic.monk.brewmaster.rotation.vengeanceInfo.p1', message: 'In Mists of Pandaria, tank damage is heavily dependent on' })}
+            {' '}
+            <SpellLink spell={spells.VENGEANCE_PASSIVE} />
+            {t({ id: 'classic.monk.brewmaster.rotation.vengeanceInfo.p2', message: '! It is so powerful that it is possible to execute your rotation perfectly and still do worse damage than someone with better' })}
+            {' '}
+            <SpellLink spell={spells.VENGEANCE_PASSIVE} />
+            {t({ id: 'classic.monk.brewmaster.rotation.vengeanceInfo.p3', message: '. The best players will have good' })}
+            {' '}
+            <SpellLink spell={spells.VENGEANCE_PASSIVE} />
+            {t({ id: 'classic.monk.brewmaster.rotation.vengeanceInfo.p4', message: 'and a good rotation.' })}
+          </>
         </AlertInfo>
         <TabWrapper tabs={aplTabs} />
         {veng?.guideSubsection}

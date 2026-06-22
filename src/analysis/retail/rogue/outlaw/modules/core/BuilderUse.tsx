@@ -64,9 +64,9 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)}>
         <div className="pad">
           <label>
-            <Trans id="rogue.outlaw.builderUse.builderUsage">
-              <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> builder usage
-            </Trans>
+            <><ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />
+              {t({ id: 'rogue.outlaw.builderUse.builderUsage.p1', message: 'builder usage' })}
+            </>
           </label>
           {this.chart}
         </div>

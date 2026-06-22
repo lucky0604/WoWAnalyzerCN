@@ -21,22 +21,30 @@ class FlameShock extends BaseFlameShock {
     const explanation = (
       <>
         <p>
-          <Trans id="shaman.elemental.flameshock.explanation">
-            <b>
+          <><b>
               <SpellLink spell={SPELLS.FLAME_SHOCK} />
-            </b>{' '}
-            is one of the best sources of damage for it's cast time. Additionally, it makes every{' '}
-            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> into a critical hit. This should always
-            be up on your target at low target counts so every{' '}
-            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> critically hits.
-          </Trans>
+            </b>
+            {' '}
+            {t({ id: 'shaman.elemental.flameshock.explanation.p1', message: 'is one of the best sources of damage for it\'s cast time. Additionally, it makes every' })}
+            {' '}
+            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+            {t({ id: 'shaman.elemental.flameshock.explanation.p2', message: 'into a critical hit. This should always be up on your target at low target counts so every' })}
+            {' '}
+            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+            {t({ id: 'shaman.elemental.flameshock.explanation.p3', message: 'critically hits.' })}
+          </>
         </p>
         <p>
-          <Trans id="shaman.elemental.flameshock.lavasurge">
-            Every <SpellLink spell={SPELLS.FLAME_SHOCK} /> damage tick has a chance to proc{' '}
-            <SpellLink spell={SPELLS.LAVA_SURGE} />, which reset the cooldown on{' '}
-            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> and make your next cast instant.
-          </Trans>
+          <>{t({ id: 'shaman.elemental.flameshock.lavasurge.p1', message: 'Every ' })}
+            <SpellLink spell={SPELLS.FLAME_SHOCK} />
+            {t({ id: 'shaman.elemental.flameshock.lavasurge.p2', message: 'damage tick has a chance to proc' })}
+            {' '}
+            <SpellLink spell={SPELLS.LAVA_SURGE} />
+            {t({ id: 'shaman.elemental.flameshock.lavasurge.p3', message: ', which reset the cooldown on' })}
+            {' '}
+            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+            {t({ id: 'shaman.elemental.flameshock.lavasurge.p4', message: 'and make your next cast instant.' })}
+          </>
         </p>
       </>
     );
@@ -45,9 +53,9 @@ class FlameShock extends BaseFlameShock {
       <div>
         <RoundedPanel>
           <strong>
-            <Trans id="shaman.elemental.flameshock.uptime">
-              <SpellLink spell={SPELLS.FLAME_SHOCK} /> uptime
-            </Trans>
+            <><SpellLink spell={SPELLS.FLAME_SHOCK} />
+              {t({ id: 'shaman.elemental.flameshock.uptime.p1', message: 'uptime' })}
+            </>
           </strong>
           <div className="flex-main">
             {formatPercentage(this.uptime)}%{' '}
@@ -73,10 +81,12 @@ class FlameShock extends BaseFlameShock {
           </div>
           {this.badLavaBursts > 0 && (
             <div className="flex-main">
-              <Trans id="shaman.elemental.flameshock.without">
-                {this.badLavaBursts} <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> without{' '}
+              <>{this.badLavaBursts}
+                <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+                {t({ id: 'shaman.elemental.flameshock.without.p1', message: 'without' })}
+                {' '}
                 <SpellLink spell={SPELLS.FLAME_SHOCK} />
-              </Trans>
+              </>
             </div>
           )}
         </RoundedPanel>

@@ -25,48 +25,36 @@ export function Component() {
           className="pull-right"
           style={{ margin: 15 }}
         />
-        <Trans id="interface.aboutPage.about">
-          WoWAnalyzer is a tool to help you analyze and improve your World of Warcraft raiding
-          performance through various relevant metrics and gameplay suggestions.
+        <>{t({ id: 'interface.aboutPage.about.p1', message: 'WoWAnalyzer is a tool to help you analyze and improve your World of Warcraft raiding performance through various relevant metrics and gameplay suggestions. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          We give detailed insight into various things such as cast behavior, buff uptimes,
-          downtime, cooldown usage, wasted resources and more. We also give insight into useful and
-          interesting statistics such as the (throughput) gain of your talents, trinkets, traits,
-          set bonuses, and other special items and effects.
+          {t({ id: 'interface.aboutPage.about.p2', message: 'We give detailed insight into various things such as cast behavior, buff uptimes, downtime, cooldown usage, wasted resources and more. We also give insight into useful and interesting statistics such as the (throughput) gain of your talents, trinkets, traits, set bonuses, and other special items and effects. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          Using all this data we provide automatic gameplay suggestions that analyzes your actual
-          behavior in a fight and gives pointers to help you improve your performance.
+          {t({ id: 'interface.aboutPage.about.p3', message: 'Using all this data we provide automatic gameplay suggestions that analyzes your actual behavior in a fight and gives pointers to help you improve your performance. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          The analysis is custom for each specialization to focus on the things that are important
-          for your spec. It's created by and together with class experts to give you the best
-          possible insights.
+          {t({ id: 'interface.aboutPage.about.p4', message: 'The analysis is custom for each specialization to focus on the things that are important for your spec. It\'s created by and together with class experts to give you the best possible insights. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          Using WoWAnalyzer you will find a wealth of information about the mechanics of your spec,
-          your actual behavior in fights and the optimal playstyle. Analyze your raids after every
-          raid night to continuously improve your performance and become a better player. Whether
-          you're a new player learning a spec for the first time or an experienced player looking
-          for information to help you min-max, WoWAnalyzer is a great tool to have in your arsenal!
-        </Trans>
+          {t({ id: 'interface.aboutPage.about.p5', message: 'Using WoWAnalyzer you will find a wealth of information about the mechanics of your spec, your actual behavior in fights and the optimal playstyle. Analyze your raids after every raid night to continuously improve your performance and become a better player. Whether you\'re a new player learning a spec for the first time or an experienced player looking for information to help you min-max, WoWAnalyzer is a great tool to have in your arsenal!' })}
+        </>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
-        <Trans id="interface.aboutPage.howToUse">
-          Wondering how to use WoWAnalyzer? See the Wowhead guide. If you want to see an example
-          report, click on your spec in the <Link to="/specs">Specializations</Link> list.
-        </Trans>
+        <>{t({ id: 'interface.aboutPage.howToUse.p1', message: 'Wondering how to use WoWAnalyzer? See the Wowhead guide. If you want to see an example report, click on your spec in the ' })}
+          <Link to="/specs">Specializations</Link>
+          {t({ id: 'interface.aboutPage.howToUse.p2', message: 'list.' })}
+        </>
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
@@ -94,15 +82,17 @@ export function Component() {
                 className="flex-main"
                 style={{ fontSize: 24, padding: '5px 15px', lineHeight: 1.4 }}
               >
-                <Trans id="interface.aboutPage.introducingWOWABot">
-                  Introducing the <b>WoWAnalyzer</b>{' '}
+                <>{t({ id: 'interface.aboutPage.introducingWOWABot.p1', message: 'Introducing the ' })}
+                  <b>{t({ id: 'interface.aboutPage.introducingWOWABot.b', message: 'WoWAnalyzer' })}</b>
+                  {' '}
                   <img
                     src={DiscordLogo}
                     alt="Discord logo"
                     style={{ height: '2em', marginTop: 3 }}
-                  />{' '}
-                  bot
-                </Trans>
+                  />
+                  {' '}
+                  {t({ id: 'interface.aboutPage.introducingWOWABot.p2', message: 'bot' })}
+                </>
               </div>
             </div>
             <div className="text-center">

@@ -12,7 +12,8 @@ import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import SpellLink from 'interface/SpellLink';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Combatants from 'parser/shared/modules/Combatants';
 import HotTracker from 'parser/shared/modules/HotTracker';
 import StatisticListBoxItem from 'parser/ui/StatisticListBoxItem';
@@ -234,33 +235,43 @@ class MistsOfLife extends Analyzer {
             return (
               <ul>
                 <li>
-                  <Trans id="monk.mistweaver.mists_of_life.extra_envm">
-                    Extra <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> direct healing:{' '}
+                  <>{t({ id: 'monk.mistweaver.mists_of_life.extra_envm.p1', message: 'Extra ' })}
+                    <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+                    {t({ id: 'monk.mistweaver.mists_of_life.extra_envm.p2', message: 'direct healing:' })}
+                    {' '}
                     {extraEnvm}
-                  </Trans>
+                  </>
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.mists_of_life.bonus_envm">
-                    Bonus healing from <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> buff:{' '}
+                  <>{t({ id: 'monk.mistweaver.mists_of_life.bonus_envm.p1', message: 'Bonus healing from ' })}
+                    <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+                    {t({ id: 'monk.mistweaver.mists_of_life.bonus_envm.p2', message: 'buff:' })}
+                    {' '}
                     {envmBonus}
-                  </Trans>
+                  </>
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.mists_of_life.extra_rem">
-                    Extra <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> direct healing:{' '}
+                  <>{t({ id: 'monk.mistweaver.mists_of_life.extra_rem.p1', message: 'Extra ' })}
+                    <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+                    {t({ id: 'monk.mistweaver.mists_of_life.extra_rem.p2', message: 'direct healing:' })}
+                    {' '}
                     {extraRem}
-                  </Trans>
+                  </>
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.mists_of_life.extra_viv_cleaves">
-                    Extra <SpellLink spell={SPELLS.VIVIFY} /> cleaves: {vivCleaves}
-                  </Trans>
+                  <>{t({ id: 'monk.mistweaver.mists_of_life.extra_viv_cleaves.p1', message: 'Extra ' })}
+                    <SpellLink spell={SPELLS.VIVIFY} />
+                    {t({ id: 'monk.mistweaver.mists_of_life.extra_viv_cleaves.p2', message: 'cleaves:' })}
+                    {vivCleaves}
+                  </>
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.mists_of_life.extra_viv_healing">
-                    Extra <SpellLink spell={SPELLS.VIVIFY} /> direct healing:{' '}
+                  <>{t({ id: 'monk.mistweaver.mists_of_life.extra_viv_healing.p1', message: 'Extra ' })}
+                    <SpellLink spell={SPELLS.VIVIFY} />
+                    {t({ id: 'monk.mistweaver.mists_of_life.extra_viv_healing.p2', message: 'direct healing:' })}
+                    {' '}
                     {extraViv}
-                  </Trans>
+                  </>
                 </li>
               </ul>
             );

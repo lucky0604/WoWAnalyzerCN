@@ -77,13 +77,12 @@ function DisintegrateSubsection({ modules, info }: GuideProps<typeof CombatLogPa
         </p>
       )}
       <p>
-        <Trans id="guide.evoker.devastation.sections.damageEfficiency.disintegrate.wowhead">
-          See the{' '}
-          <a href="https://www.wowhead.com/guide/classes/evoker/devastation/rotation-cooldowns-pve-dps#advanced-disintegrate-chaining-and-clipping">
-            Disintegrate Chaining and Clipping
-          </a>{' '}
-          section on wowhead for a more in-depth explanation.
-        </Trans>
+        <>{t({ id: 'guide.evoker.devastation.sections.damageEfficiency.disintegrate.wowhead.p1', message: 'See the' })}
+          {' '}
+          <a href="https://www.wowhead.com/guide/classes/evoker/devastation/rotation-cooldowns-pve-dps#advanced-disintegrate-chaining-and-clipping">{t({ id: 'guide.evoker.devastation.sections.damageEfficiency.disintegrate.wowhead.a', message: 'Disintegrate Chaining and Clipping' })}</a>
+          {' '}
+          {t({ id: 'guide.evoker.devastation.sections.damageEfficiency.disintegrate.wowhead.p2', message: 'section on wowhead for a more in-depth explanation.' })}
+        </>
       </p>
       <ExplanationAndDataSubSection
         explanationPercent={EXPLANATION_PERCENTAGE}

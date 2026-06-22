@@ -186,19 +186,12 @@ class ShadowDanceGuide extends Analyzer.withDependencies({
           </Trans>
         </p>
         <p>
-          <Trans id="rogue.subtlety.shadowDanceGuide.wowheadIcyVeinsLink">
-            Check
-            <a href="https://www.wowhead.com/guide/classes/rogue/subtlety/addons-macro-ui-imports#macros-macros-combining-abilities">
-              {' '}
-              wowhead{' '}
-            </a>
-            or
-            <a href="https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-macros-addons">
-              {' '}
-              icy-veins{' '}
-            </a>
-            macros section for more information.
-          </Trans>
+          <>{t({ id: 'rogue.subtlety.shadowDanceGuide.wowheadIcyVeinsLink.p1', message: 'Check ' })}
+            <a href="https://www.wowhead.com/guide/classes/rogue/subtlety/addons-macro-ui-imports#macros-macros-combining-abilities">{t({ id: 'rogue.subtlety.shadowDanceGuide.wowheadIcyVeinsLink.a', message: 'wowhead' })}</a>
+            {t({ id: 'rogue.subtlety.shadowDanceGuide.wowheadIcyVeinsLink.p2', message: 'or ' })}
+            <a href="https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-macros-addons">{t({ id: 'rogue.subtlety.shadowDanceGuide.wowheadIcyVeinsLink.a2', message: 'icy-veins' })}</a>
+            {t({ id: 'rogue.subtlety.shadowDanceGuide.wowheadIcyVeinsLink.p3', message: 'macros section for more information.' })}
+          </>
         </p>
       </div>
     );

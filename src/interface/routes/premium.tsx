@@ -36,10 +36,11 @@ export function Component() {
               style={{ fontSize: '6em', float: 'right', color: '#fab700', marginTop: 0 }}
             />
             <div style={{ fontSize: '1.4em', fontWeight: 400 }}>
-              <Trans id="interface.premiumPage.premium.helpout">
-                Help out development and unlock{' '}
-                <span style={{ color: '#fab700', fontWeight: 700 }}>WoWAnalyzer Premium</span>!
-              </Trans>
+              <>{t({ id: 'interface.premiumPage.premium.helpout.p1', message: 'Help out development and unlock' })}
+                {' '}
+                <span style={{ color: '#fab700', fontWeight: 700 }}>{t({ id: 'interface.premiumPage.premium.helpout.span', message: 'WoWAnalyzer Premium' })}</span>
+                {t({ id: 'interface.premiumPage.premium.helpout.p2', message: '!' })}
+              </>
             </div>
 
             <div className="row" style={{ marginBottom: 5, marginTop: 60 }}>
@@ -51,10 +52,9 @@ export function Component() {
             </div>
             <div className="row flex">
               <div className="col-md-6" style={{ borderRight: '1px solid #aaa' }}>
-                <Trans id="interface.premiumPage.helpPatreon">
-                  <h2>Patreon</h2>
-                  Help fund further development by becoming a patron on Patreon.
-                </Trans>
+                <><h2>Patreon</h2>
+                  {t({ id: 'interface.premiumPage.helpPatreon.p1', message: 'Help fund further development by becoming a patron on Patreon.' })}
+                </>
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
@@ -63,10 +63,8 @@ export function Component() {
                 <PatreonButton />
               </div>
               <div className="col-md-6">
-                <Trans id="interface.premiumPage.helpGitHub">
-                  <h2>GitHub</h2>
-                  Improve the analysis of a spec or build a new feature to get 1 month of Premium
-                  free
+                <><h2>GitHub</h2>
+                  {t({ id: 'interface.premiumPage.helpGitHub.p1', message: 'Improve the analysis of a spec or build a new feature to get 1 month of Premium free ' })}
                   <TooltipElement
                     content={i18n.t({
                       id: 'interface.premiumPage.githubTooltip',
@@ -75,8 +73,8 @@ export function Component() {
                   >
                     *
                   </TooltipElement>
-                  .
-                </Trans>
+                  {t({ id: 'interface.premiumPage.helpGitHub.p2', message: '.' })}
+                </>
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                 <br />
                 {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
@@ -107,12 +105,10 @@ export function Component() {
                   <ViralContentIcon />
                 </div>
                 <div className="flex-main">
-                  <Trans id="interface.premiumPage.unlocks.new">
-                    <h2>New things</h2>
-                    <strong>Nothing develops itself.</strong> Your contributions will help fund new
-                    things and improvements for the site, making it even better. You will also
-                    unlock additional features to help with your analysis.
-                  </Trans>
+                  <><h2>New things</h2>
+                    <strong>{t({ id: 'interface.premiumPage.unlocks.new.strong', message: 'Nothing develops itself.' })}</strong>
+                    {t({ id: 'interface.premiumPage.unlocks.new.p1', message: 'Your contributions will help fund new things and improvements for the site, making it even better. You will also unlock additional features to help with your analysis.' })}
+                  </>
                 </div>
               </div>
               <div className="premium-feature flex">
@@ -120,13 +116,10 @@ export function Component() {
                   <ViralContentIcon />
                 </div>
                 <div className="flex-main">
-                  <Trans id="interface.premiumPage.unlocks.updates">
-                    <h2>Updates for patches</h2>
-                    <strong>Updating for patches is a lot of work.</strong> We need to apply all
-                    spell changes, add new traits, add support for the new fights, make screenshots,
-                    add fight phases, buffs and debuffs, etc. Your contributions make it possible
-                    for us to keep specs updated as they're changed in patches.
-                  </Trans>
+                  <><h2>Updates for patches</h2>
+                    <strong>{t({ id: 'interface.premiumPage.unlocks.updates.strong', message: 'Updating for patches is a lot of work.' })}</strong>
+                    {t({ id: 'interface.premiumPage.unlocks.updates.p1', message: 'We need to apply all spell changes, add new traits, add support for the new fights, make screenshots, add fight phases, buffs and debuffs, etc. Your contributions make it possible for us to keep specs updated as they\'re changed in patches.' })}
+                  </>
                 </div>
               </div>
               <div className="premium-feature flex">
@@ -134,12 +127,10 @@ export function Component() {
                   <WebBannerIcon />
                 </div>
                 <div className="flex-main">
-                  <Trans id="interface.premiumPage.unlocks.noAds">
-                    <h2>No ads</h2>
-                    <strong>Nobody likes them, but we need them.</strong> Any contribution is worth
-                    more than the ads, so we'll remove ads from the platform for you so you can
-                    consume our content with less distractions and less clutter.
-                  </Trans>
+                  <><h2>No ads</h2>
+                    <strong>{t({ id: 'interface.premiumPage.unlocks.noAds.strong', message: 'Nobody likes them, but we need them.' })}</strong>
+                    {t({ id: 'interface.premiumPage.unlocks.noAds.p1', message: 'Any contribution is worth more than the ads, so we\'ll remove ads from the platform for you so you can consume our content with less distractions and less clutter.' })}
+                  </>
                 </div>
               </div>
               <div className="premium-feature flex">
@@ -147,15 +138,10 @@ export function Component() {
                   <DiscordIcon style={{ color: '#ff8000' }} />
                 </div>
                 <div className="flex-main">
-                  <Trans id="interface.premiumPage.unlocks.discord">
-                    <h2>Discord name color</h2>
-                    <strong>
-                      We'll help anyone, but sometimes we can't avoid favoritism.
-                    </strong> Get
-                    a distinct Discord name color befitting your contribution. See Patreon for
-                    Patron specific name colors. Serious GitHub contributors get the yellow
-                    contributor name color.
-                  </Trans>
+                  <><h2>Discord name color</h2>
+                    <strong>{t({ id: 'interface.premiumPage.unlocks.discord.strong', message: 'We\'ll help anyone, but sometimes we can\'t avoid favoritism.' })}</strong>
+                    {t({ id: 'interface.premiumPage.unlocks.discord.p1', message: 'Get a distinct Discord name color befitting your contribution. See Patreon for Patron specific name colors. Serious GitHub contributors get the yellow contributor name color.' })}
+                  </>
                 </div>
               </div>
               <div className="premium-feature flex">
@@ -163,11 +149,10 @@ export function Component() {
                   <DiscordIcon />
                 </div>
                 <div className="flex-main">
-                  <Trans id="interface.premiumPage.unlocks.discordChannels">
-                    <h2>Access to secret channels on Discord</h2>
-                    <strong>You don't know what you're missing out on.</strong> Get access to
-                    special Discord channels to discuss things privately in the sub-community.
-                  </Trans>
+                  <><h2>Access to secret channels on Discord</h2>
+                    <strong>{t({ id: 'interface.premiumPage.unlocks.discordChannels.strong', message: 'You don\'t know what you\'re missing out on.' })}</strong>
+                    {t({ id: 'interface.premiumPage.unlocks.discordChannels.p1', message: 'Get access to special Discord channels to discuss things privately in the sub-community.' })}
+                  </>
                 </div>
               </div>
             </div>

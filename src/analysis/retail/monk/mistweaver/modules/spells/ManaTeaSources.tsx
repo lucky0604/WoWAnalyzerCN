@@ -2,7 +2,8 @@ import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { ApplyBuffEvent, ApplyBuffStackEvent, RefreshBuffEvent } from 'parser/core/Events';
 import DonutChart from 'parser/ui/DonutChart';
@@ -115,16 +116,20 @@ class ManaTeaSources extends Analyzer {
             return (
               <>
                 <div>
-                  <Trans id="monk.mistweaver.mana_tea_sources.lifecycles_efficiency">
-                    <SpellLink spell={TALENTS_MONK.LIFECYCLES_TALENT} /> stack efficiency:{' '}
-                    {lcPct}%
-                  </Trans>
+                  <><SpellLink spell={TALENTS_MONK.LIFECYCLES_TALENT} />
+                    {t({ id: 'monk.mistweaver.mana_tea_sources.lifecycles_efficiency.p1', message: 'stack efficiency:' })}
+                    {' '}
+                    {lcPct}
+                    {t({ id: 'monk.mistweaver.mana_tea_sources.lifecycles_efficiency.p2', message: '%' })}
+                  </>
                 </div>
                 <div>
-                  <Trans id="monk.mistweaver.mana_tea_sources.mt_efficiency">
-                    <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} /> natural stack efficiency:{' '}
-                    {mtPct}%
-                  </Trans>
+                  <><SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} />
+                    {t({ id: 'monk.mistweaver.mana_tea_sources.mt_efficiency.p1', message: 'natural stack efficiency:' })}
+                    {' '}
+                    {mtPct}
+                    {t({ id: 'monk.mistweaver.mana_tea_sources.mt_efficiency.p2', message: '%' })}
+                  </>
                 </div>
               </>
             );
@@ -133,17 +138,17 @@ class ManaTeaSources extends Analyzer {
       >
         <div className="pad">
           <label>
-            <Trans id="monk.mistweaver.mana_tea_sources.unwasted_breakdown">
-              <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink> unwasted stacks breakdown
-            </Trans>
+            <><SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink>
+              {t({ id: 'monk.mistweaver.mana_tea_sources.unwasted_breakdown.p1', message: 'unwasted stacks breakdown' })}
+            </>
           </label>
           {this.renderChart(false /* wasted */)}
         </div>
         <div className="pad">
           <label>
-            <Trans id="monk.mistweaver.mana_tea_sources.wasted_breakdown">
-              <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink> wasted stacks breakdown
-            </Trans>
+            <><SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT}></SpellLink>
+              {t({ id: 'monk.mistweaver.mana_tea_sources.wasted_breakdown.p1', message: 'wasted stacks breakdown' })}
+            </>
           </label>
           {this.renderChart(true /* wasted */)}
         </div>

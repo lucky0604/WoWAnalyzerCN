@@ -77,15 +77,17 @@ class StrengthOfTheBlackOx extends Analyzer {
       stats: [],
       details: isConsumed ? (
         hasBuff ? (
-          <Trans id="monk.mistweaver.sotbo.consumedWithCelestial">
-            Consumed with{' '}
-            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.sotbo.consumedWithCelestial.p1', message: 'Consumed with' })}
+            {' '}
+            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} />
+            {t({ id: 'monk.mistweaver.sotbo.consumedWithCelestial.p2', message: 'active' })}
+          </>
         ) : (
-          <Trans id="monk.mistweaver.sotbo.consumedWithoutCelestial">
-            Consumed without{' '}
-            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.sotbo.consumedWithoutCelestial.p1', message: 'Consumed without' })}
+            {' '}
+            <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} />
+            {t({ id: 'monk.mistweaver.sotbo.consumedWithoutCelestial.p2', message: 'active' })}
+          </>
         )
       ) : (
         t({
@@ -102,13 +104,15 @@ class StrengthOfTheBlackOx extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} />
         </b>{' '}
-        <Trans id="monk.mistweaver.sotbo.explanation">
-          is a buff that makes your next <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
-          have a reduced cast time and apply a shield to 5 nearby allies. It is very important to
-          never let this buff refresh or expire as it is a considerable amount of shielding. Try to
-          have <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} /> active when
-          casting <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> as it is very expensive.
-        </Trans>
+        <>{t({ id: 'monk.mistweaver.sotbo.explanation.p1', message: 'is a buff that makes your next ' })}
+          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+          {' '}
+          {t({ id: 'monk.mistweaver.sotbo.explanation.p2', message: 'have a reduced cast time and apply a shield to 5 nearby allies. It is very important to never let this buff refresh or expire as it is a considerable amount of shielding. Try to have ' })}
+          <SpellLink spell={getCurrentCelestialTalent(this.selectedCombatant)} />
+          {t({ id: 'monk.mistweaver.sotbo.explanation.p3', message: 'active when casting ' })}
+          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+          {t({ id: 'monk.mistweaver.sotbo.explanation.p4', message: 'as it is very expensive.' })}
+        </>
       </p>
     );
     const stats = [
@@ -116,10 +120,9 @@ class StrengthOfTheBlackOx extends Analyzer {
         value: `${this.expiredBuffs + this.refreshedBuffs}`,
         label: t({ id: 'monk.mistweaver.sotbo.wastedBuffs', message: 'Wasted Buffs' }),
         tooltip: (
-          <Trans id="monk.mistweaver.sotbo.wastedBuffsTooltip">
-            <div>{this.expiredBuffs} expired</div>
+          <><div>{this.expiredBuffs} expired</div>
             <div>{this.refreshedBuffs} refreshed</div>
-          </Trans>
+          </>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.expiredBuffs + this.refreshedBuffs,

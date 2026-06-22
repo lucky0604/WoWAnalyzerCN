@@ -48,22 +48,24 @@ const MajorDefensives = () => {
             </>
             <p>
               <small>
-                <Trans id="evoker.defensives.coverSpikesNote">
-                  In the damage chart below, a spike highlighted in{' '}
+                <>{t({ id: 'evoker.defensives.coverSpikesNote.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                  {' '}
                   <Highlight color={GoodColor} textColor="black">
                     green
-                  </Highlight>{' '}
-                  was covered by a defensive.
-                </Trans>
+                  </Highlight>
+                  {' '}
+                  {t({ id: 'evoker.defensives.coverSpikesNote.p2', message: 'was covered by a defensive.' })}
+                </>
               </small>
             </p>
           </li>
           <li>
-            <Trans id="evoker.defensives.useThem">
-              You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using
-              defensives is a common problem! For <span className="Evoker">Evokers</span>, it is
-              also likely to be fatal, since most of your mitigation lies in your active cooldowns.
-            </Trans>
+            <>{t({ id: 'evoker.defensives.useThem.p1', message: 'You should ' })}
+              <em>{t({ id: 'evoker.defensives.useThem.em', message: 'use' })}</em>
+              {t({ id: 'evoker.defensives.useThem.p2', message: 'your cooldowns. This may seem silly&mdash;but not using defensives is a common problem! For ' })}
+              <span className="Evoker">{t({ id: 'evoker.defensives.useThem.span', message: 'Evokers' })}</span>
+              {t({ id: 'evoker.defensives.useThem.p3', message: ', it is also likely to be fatal, since most of your mitigation lies in your active cooldowns.' })}
+            </>
             <p>
               <small>
                 <Trans id="evoker.defensives.useThemNote">

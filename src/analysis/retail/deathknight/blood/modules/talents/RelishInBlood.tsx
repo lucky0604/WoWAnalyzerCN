@@ -108,9 +108,9 @@ class RelishInBlood extends Analyzer {
         }
       >
         <BoringSpellValueText spell={TALENTS.RELISH_IN_BLOOD_TALENT}>
-          <Trans id="deathknight.blood.relishInBlood.statistic">
-            {this.runicPowerGained} <small>RP gained</small>
-          </Trans>
+          <>{this.runicPowerGained}
+            <small>{t({ id: 'deathknight.blood.relishInBlood.statistic.small', message: 'RP gained' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

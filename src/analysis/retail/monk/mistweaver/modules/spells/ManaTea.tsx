@@ -2,7 +2,8 @@ import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, TooltipElement } from 'interface';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
   ApplyBuffEvent,
@@ -167,10 +168,12 @@ class ManaTea extends Analyzer {
                   </Trans>
                 </div>
                 <div>
-                  <Trans id="monk.mistweaver.mana_tea.avg_stacks">
-                    Average <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} /> stacks:{' '}
+                  <>{t({ id: 'monk.mistweaver.mana_tea.avg_stacks.p1', message: 'Average ' })}
+                    <SpellLink spell={TALENTS_MONK.MANA_TEA_TALENT} />
+                    {t({ id: 'monk.mistweaver.mana_tea.avg_stacks.p2', message: 'stacks:' })}
+                    {' '}
                     {avg}
-                  </Trans>
+                  </>
                 </div>
                 <div>
                   <Trans id="monk.mistweaver.mana_tea.avg_duration">
@@ -195,18 +198,18 @@ class ManaTea extends Analyzer {
           <div>
             <TooltipElement
               content={
-                <Trans id="monk.mistweaver.mana_tea.per_cast_tooltip">
-                  This is the mana restored from channeling{' '}
+                <>{t({ id: 'monk.mistweaver.mana_tea.per_cast_tooltip.p1', message: 'This is the mana restored from channeling' })}
+                  {' '}
                   <SpellLink spell={SPELLS.MANA_TEA_CAST} />
-                </Trans>
+                </>
               }
             >
               {(() => {
                 const mana = formatNumber(this.avgManaRestored);
                 return (
-                  <Trans id="monk.mistweaver.mana_tea.per_cast_label">
-                    {mana} <small> mana restored per cast</small>
-                  </Trans>
+                  <>{mana}
+                    <small>{t({ id: 'monk.mistweaver.mana_tea.per_cast_label.small', message: 'mana restored per cast' })}</small>
+                  </>
                 );
               })()}
             </TooltipElement>

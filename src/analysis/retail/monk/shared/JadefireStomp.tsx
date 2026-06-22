@@ -148,9 +148,9 @@ class JadefireStomp extends Analyzer {
                   {(() => {
                     const resets = this.resets;
                     return (
-                      <Trans id="monk.shared.jfs.resets">
-                        {resets} <small>resets</small>
-                      </Trans>
+                      <>{resets}
+                        <small>{t({ id: 'monk.shared.jfs.resets.small', message: 'resets' })}</small>
+                      </>
                     );
                   })()}
                 </li>
@@ -158,9 +158,9 @@ class JadefireStomp extends Analyzer {
                   {(() => {
                     const ratio = (this.targetsDamaged / this.jfsCasts).toFixed(2);
                     return (
-                      <Trans id="monk.shared.jfs.foes_hit">
-                        {ratio} <small>Foes Hit per cast</small>
-                      </Trans>
+                      <>{ratio}
+                        <small>{t({ id: 'monk.shared.jfs.foes_hit.small', message: 'Foes Hit per cast' })}</small>
+                      </>
                     );
                   })()}
                 </li>
@@ -168,9 +168,9 @@ class JadefireStomp extends Analyzer {
                   {(() => {
                     const ratio = (this.targetsHealed / this.jfsCasts).toFixed(2);
                     return (
-                      <Trans id="monk.shared.jfs.allies_hit">
-                        {ratio} <small>Allies Hit per cast</small>
-                      </Trans>
+                      <>{ratio}
+                        <small>{t({ id: 'monk.shared.jfs.allies_hit.small', message: 'Allies Hit per cast' })}</small>
+                      </>
                     );
                   })()}
                 </li>
@@ -189,18 +189,18 @@ class JadefireStomp extends Analyzer {
                 content={(() => {
                   const amount = formatNumber(this.rawHealingPerCast);
                   return (
-                    <Trans id="monk.shared.jfs.raw_healing_per_cast">
-                      {amount} <small>raw healing per cast</small>
-                    </Trans>
+                    <>{amount}
+                      <small>{t({ id: 'monk.shared.jfs.raw_healing_per_cast.small', message: 'raw healing per cast' })}</small>
+                    </>
                   );
                 })()}
               >
                 {(() => {
                   const amount = formatNumber(this.averageHealingPerCast);
                   return (
-                    <Trans id="monk.shared.jfs.healing_per_cast">
-                      {amount} <small>healing per cast</small>
-                    </Trans>
+                    <>{amount}
+                      <small>{t({ id: 'monk.shared.jfs.healing_per_cast.small', message: 'healing per cast' })}</small>
+                    </>
                   );
                 })()}
               </TooltipElement>
@@ -211,9 +211,9 @@ class JadefireStomp extends Analyzer {
                 {(() => {
                   const resets = this.resets;
                   return (
-                    <Trans id="monk.shared.jfs.resets">
-                      {resets} <small>resets</small>
-                    </Trans>
+                    <>{resets}
+                      <small>{t({ id: 'monk.shared.jfs.resets.small', message: 'resets' })}</small>
+                    </>
                   );
                 })()}
               </div>
@@ -221,9 +221,9 @@ class JadefireStomp extends Analyzer {
                 {(() => {
                   const ratio = (this.targetsDamaged / this.jfsCasts).toFixed(2);
                   return (
-                    <Trans id="monk.shared.jfs.foes_hit">
-                      {ratio} <small>Foes Hit per cast</small>
-                    </Trans>
+                    <>{ratio}
+                      <small>{t({ id: 'monk.shared.jfs.foes_hit.small', message: 'Foes Hit per cast' })}</small>
+                    </>
                   );
                 })()}
               </div>
@@ -231,9 +231,9 @@ class JadefireStomp extends Analyzer {
                 {(() => {
                   const ratio = (this.targetsHealed / this.jfsCasts).toFixed(2);
                   return (
-                    <Trans id="monk.shared.jfs.allies_hit">
-                      {ratio} <small>Allies Hit per cast</small>
-                    </Trans>
+                    <>{ratio}
+                      <small>{t({ id: 'monk.shared.jfs.allies_hit.small', message: 'Allies Hit per cast' })}</small>
+                    </>
                   );
                 })()}
               </div>

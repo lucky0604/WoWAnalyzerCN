@@ -46,11 +46,11 @@ function ArmsDowntimeSection() {
     >
       <Para>
         <small>
-          <Trans id="classic.warrior.arms.alwaysBeCasting.description">
-            In Cataclysm, Arms Warrior does not have enough abilities or{' '}
-            <ResourceLink id={RESOURCE_TYPES.RAGE.id} /> to fill every GCD. GCDs that are empty
-            because no abilities are usable are also counted as Active Time.
-          </Trans>
+          <>{t({ id: 'classic.warrior.arms.alwaysBeCasting.description.p1', message: 'In Cataclysm, Arms Warrior does not have enough abilities or' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.RAGE.id} />
+            {t({ id: 'classic.warrior.arms.alwaysBeCasting.description.p2', message: 'to fill every GCD. GCDs that are empty because no abilities are usable are also counted as Active Time.' })}
+          </>
         </small>
       </Para>
       <FoundationDowntimeSectionV2 />

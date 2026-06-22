@@ -33,12 +33,15 @@ const DisclaimerSection = () => {
         message: 'Disclaimer',
       })}
     >
-      <Trans id="guide.demonhunter.devourer.sections.disclaimer.summary">
-        Due to current bugs with <SpellLink spell={SPELLS.REAP} />,{' '}
-        <SpellLink spell={SPELLS.CULL} /> and <SpellLink spell={SPELLS.ERADICATE} /> logging,
-        related analysis is NOT working and should be ignored. Because those were core to the
-        gameplay of the spec, this represents a significant part of this page.
-      </Trans>
+      <>{t({ id: 'guide.demonhunter.devourer.sections.disclaimer.summary.p1', message: 'Due to current bugs with ' })}
+        <SpellLink spell={SPELLS.REAP} />
+        {t({ id: 'guide.demonhunter.devourer.sections.disclaimer.summary.p2', message: ',' })}
+        {' '}
+        <SpellLink spell={SPELLS.CULL} />
+        {t({ id: 'guide.demonhunter.devourer.sections.disclaimer.summary.p3', message: 'and ' })}
+        <SpellLink spell={SPELLS.ERADICATE} />
+        {t({ id: 'guide.demonhunter.devourer.sections.disclaimer.summary.p4', message: 'logging, related analysis is NOT working and should be ignored. Because those were core to the gameplay of the spec, this represents a significant part of this page.' })}
+      </>
     </Section>
   );
 };

@@ -182,38 +182,54 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="monk.mistweaver.invokeChiJi.explanation1">
-            <strong>
+          <><strong>
               <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
-            </strong>{' '}
-            requires some preparation to be used optimally. Get all of your{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> charges and{' '}
-            <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> on cooldown.
-          </Trans>
+            </strong>
+            {' '}
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation1.p1', message: 'requires some preparation to be used optimally. Get all of your' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation1.p2', message: 'charges and' })}
+            {' '}
+            <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation1.p3', message: 'on cooldown.' })}
+          </>
           <hr />
-          <Trans id="monk.mistweaver.invokeChiJi.explanation2">
-            Your first ability after casting{' '}
-            <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} /> should be{' '}
-            <SpellLink spell={SPELLS.BLACKOUT_KICK} /> to immediately utilize the{' '}
-            <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} /> stacks granted by{' '}
-            <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />.
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p1', message: 'Your first ability after casting' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p2', message: 'should be' })}
+            {' '}
+            <SpellLink spell={SPELLS.BLACKOUT_KICK} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p3', message: 'to immediately utilize the' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p4', message: 'stacks granted by' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p5', message: '.' })}
+          </>
         </p>
         <hr />
         <p>
-          <Trans id="monk.mistweaver.invokeChiJi.explanation3">
-            During <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />, aim to
-            cast <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> only when other buffs
-            like <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} /> or{' '}
-            <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} /> are active to
-            maximize your healing.
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p1', message: 'During ' })}
+            <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p2', message: ', aim to cast ' })}
+            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p3', message: 'only when other buffs like ' })}
+            <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p4', message: 'or' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p5', message: 'are active to maximize your healing.' })}
+          </>
         </p>
         <p>
-          <Trans id="monk.mistweaver.invokeChiJi.explanation4">
-            It is important to avoid overcapping on{' '}
-            <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />.
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.invokeChiJi.explanation4.p1', message: 'It is important to avoid overcapping on' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation4.p2', message: '.' })}
+          </>
         </p>
       </>
     );

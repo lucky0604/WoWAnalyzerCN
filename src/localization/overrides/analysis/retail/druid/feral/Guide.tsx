@@ -37,21 +37,25 @@ function ResourceUseSection({ modules, events, info }: GuideProps<typeof CombatL
             these periods, it's important to send abilities as fast as possible to maximize DPS.
           </Trans>
         </p>
-        <Trans id="feral.energy.wasted">
-          The chart below shows your energy over the course of the encounter. You spent{' '}
-          <strong>{formatPercentage(modules.energyTracker.percentAtCap, 1)}%</strong> of the
-          encounter capped on Energy.
-        </Trans>
+        <>{t({ id: 'feral.energy.wasted.p1', message: 'The chart below shows your energy over the course of the encounter. You spent' })}
+          {' '}
+          <strong>{t({ id: 'feral.energy.wasted.strong', message: '%' })}</strong>
+          {t({ id: 'feral.energy.wasted.p2', message: 'of the encounter capped on Energy.' })}
+        </>
         {modules.energyGraph.plot}
       </SubSection>
       <SubSection title={t({ id: 'feral.comboPoints.title', message: 'Combo Points' })}>
         <p>
-          <Trans id="feral.comboPoints.description">
-            Most of your abilities either <strong>build</strong> or <strong>spend</strong> Combo
-            Points. Never use a builder at max CPs, and always wait until {ACCEPTABLE_CPS} to use a
-            spender (with the exception of your opening <SpellLink spell={SPELLS.RIP} />
-            ).
-          </Trans>
+          <>{t({ id: 'feral.comboPoints.description.p1', message: 'Most of your abilities either ' })}
+            <strong>{t({ id: 'feral.comboPoints.description.strong', message: 'build' })}</strong>
+            {t({ id: 'feral.comboPoints.description.p2', message: 'or ' })}
+            <strong>{t({ id: 'feral.comboPoints.description.strong2', message: 'spend' })}</strong>
+            {t({ id: 'feral.comboPoints.description.p3', message: 'Combo Points. Never use a builder at max CPs, and always wait until ' })}
+            {ACCEPTABLE_CPS}
+            {t({ id: 'feral.comboPoints.description.p4', message: 'to use a spender (with the exception of your opening ' })}
+            <SpellLink spell={SPELLS.RIP} />
+            {t({ id: 'feral.comboPoints.description.p5', message: ').' })}
+          </>
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>
@@ -66,28 +70,33 @@ function CoreRotationSection({ modules, events, info }: GuideProps<typeof Combat
   return (
     <Section title={t({ id: 'feral.rotation.title', message: 'Core Rotation' })}>
       <p>
-        <Trans id="feral.rotation.description">
-          Feral's core rotation involves performing <strong>builder</strong> abilites to gain combo
-          points, then using powerful <strong>spender</strong> abilities to consume the combo
-          points. Maintain your damage over time effects on targets, then fill with your direct
-          damage abilities. Refer to the spec guide for{' '}
+        <>{t({ id: 'feral.rotation.description.p1', message: 'Feral\'s core rotation involves performing ' })}
+          <strong>{t({ id: 'feral.rotation.description.strong', message: 'builder' })}</strong>
+          {t({ id: 'feral.rotation.description.p2', message: 'abilites to gain combo points, then using powerful ' })}
+          <strong>{t({ id: 'feral.rotation.description.strong2', message: 'spender' })}</strong>
+          {t({ id: 'feral.rotation.description.p3', message: 'abilities to consume the combo points. Maintain your damage over time effects on targets, then fill with your direct damage abilities. Refer to the spec guide for' })}
+          {' '}
           <a
             href="https://www.wowhead.com/feral-druid-rotation-guide"
             target="_blank"
             rel="noopener noreferrer"
           >
-            rotation details
-          </a>
-          .
-        </Trans>
+          {t({ id: 'feral.rotation.description.a', message: 'rotation details' })}
+        </a>
+          {t({ id: 'feral.rotation.description.p4', message: '.' })}
+        </>
       </p>
       <p>
-        <Trans id="feral.rotation.primarySpells">
-          Correct usage of <SpellLink spell={SPELLS.FEROCIOUS_BITE} /> ,{' '}
-          <SpellLink spell={SPELLS.RIP} /> , and <SpellLink spell={SPELLS.RAKE} /> are the most
-          important factors for high single target damage.
-          <b> Master these before optimizing the items in the next section.</b>
-        </Trans>
+        <>{t({ id: 'feral.rotation.primarySpells.p1', message: 'Correct usage of ' })}
+          <SpellLink spell={SPELLS.FEROCIOUS_BITE} />
+          {t({ id: 'feral.rotation.primarySpells.p2', message: ',' })}
+          {' '}
+          <SpellLink spell={SPELLS.RIP} />
+          {t({ id: 'feral.rotation.primarySpells.p3', message: ', and ' })}
+          <SpellLink spell={SPELLS.RAKE} />
+          {t({ id: 'feral.rotation.primarySpells.p4', message: 'are the most important factors for high single target damage.' })}
+          <b>{t({ id: 'feral.rotation.primarySpells.b', message: 'Master these before optimizing the items in the next section.' })}</b>
+        </>
       </p>
       {modules.ferociousBite.guideSubsection}
       {modules.ripUptime.guideSubsection}
@@ -119,12 +128,10 @@ function CooldownSection({ modules, events, info }: GuideProps<typeof CombatLogP
   return (
     <Section title={t({ id: 'feral.cooldowns.title', message: 'Cooldowns' })}>
       <p>
-        <Trans id="feral.cooldowns.description">
-          Feral's cooldowns are powerful and should not be held on to for long. In order to maximize
-          usages over the course of an encounter, you should aim to send the cooldown as soon as it
-          becomes available (as long as it can do damage on target). It is particularly important to
-          use <SpellLink spell={SPELLS.TIGERS_FURY} /> as often as possible.
-        </Trans>
+        <>{t({ id: 'feral.cooldowns.description.p1', message: 'Feral\'s cooldowns are powerful and should not be held on to for long. In order to maximize usages over the course of an encounter, you should aim to send the cooldown as soon as it becomes available (as long as it can do damage on target). It is particularly important to use ' })}
+          <SpellLink spell={SPELLS.TIGERS_FURY} />
+          {t({ id: 'feral.cooldowns.description.p2', message: 'as often as possible.' })}
+        </>
       </p>
       <CooldownGraphSubsection modules={modules} events={events} info={info} />
       <CooldownBreakdownSubsection modules={modules} events={events} info={info} />

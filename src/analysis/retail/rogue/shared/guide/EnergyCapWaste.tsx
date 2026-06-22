@@ -1,4 +1,5 @@
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import { ResourceLink } from 'interface';
@@ -47,9 +48,10 @@ const EnergyCapWaste = ({
 
   return (
     <p>
-      <Trans id="guide.rogue.sections.resources.energy.chart">
-        The chart below shows your <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> over the course of
-        the encounter. You wasted{' '}
+      <>{t({ id: 'guide.rogue.sections.resources.energy.chart.p1', message: 'The chart below shows your ' })}
+        <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+        {t({ id: 'guide.rogue.sections.resources.energy.chart.p2', message: 'over the course of the encounter. You wasted' })}
+        {' '}
         <PerformancePercentage
           performance={performance}
           perfectPercentage={perfectTimeAtCap}
@@ -57,9 +59,12 @@ const EnergyCapWaste = ({
           okPercentage={okTimeAtCap}
           percentage={percentAtCap}
           flatAmount={wasted}
-        />{' '}
-        of your <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />.
-      </Trans>
+        />
+        {' '}
+        {t({ id: 'guide.rogue.sections.resources.energy.chart.p3', message: 'of your ' })}
+        <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+        {t({ id: 'guide.rogue.sections.resources.energy.chart.p4', message: '.' })}
+      </>
     </p>
   );
 };

@@ -51,21 +51,21 @@ const MajorDefensives = () => {
               </>
               <br />
               <small>
-                <Trans id="paladin.protection.defensives.spikeHighlight">
-                  In the damage chart below, a spike highlighted in{' '}
+                <>{t({ id: 'paladin.protection.defensives.spikeHighlight.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                  {' '}
                   <Highlight color={GoodColor} textColor="black">
                     green
-                  </Highlight>{' '}
-                  was covered by a defensive.
-                </Trans>
+                  </Highlight>
+                  {' '}
+                  {t({ id: 'paladin.protection.defensives.spikeHighlight.p2', message: 'was covered by a defensive.' })}
+                </>
               </small>
             </li>
             <li>
-              <Trans id="paladin.protection.defensives.useCooldowns">
-                You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using
-                major defensives is a common problem! For Protection Paladins, it is also likely to
-                be fatal.
-              </Trans>
+              <>{t({ id: 'paladin.protection.defensives.useCooldowns.p1', message: 'You should ' })}
+                <em>{t({ id: 'paladin.protection.defensives.useCooldowns.em', message: 'use' })}</em>
+                {t({ id: 'paladin.protection.defensives.useCooldowns.p2', message: 'your cooldowns. This may seem silly&mdash;but not using major defensives is a common problem! For Protection Paladins, it is also likely to be fatal.' })}
+              </>
               <br />
               <small>
                 <Trans id="paladin.protection.defensives.cooldownsShown">

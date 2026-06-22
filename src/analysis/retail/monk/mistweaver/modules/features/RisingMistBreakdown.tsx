@@ -99,9 +99,9 @@ class RisingMistBreakdown extends Analyzer {
     ];
     return (
       <>
-        <Trans id="monk.mistweaver.rising_mist.env_extension_by_source">
-          <SpellLink spell={talents.ENVELOPING_MIST_TALENT} /> extension healing by source:
-        </Trans>
+        <><SpellLink spell={talents.ENVELOPING_MIST_TALENT} />
+          {t({ id: 'monk.mistweaver.rising_mist.env_extension_by_source.p1', message: 'extension healing by source:' })}
+        </>
         <hr />
         <DonutChart items={items} />
       </>
@@ -127,10 +127,10 @@ class RisingMistBreakdown extends Analyzer {
     ];
     return (
       <>
-        <Trans id="monk.mistweaver.rising_mist.env_bonus_healing_by_source">
-          Additional bonus healing from the extra
-          <SpellLink spell={talents.ENVELOPING_MIST_TALENT} /> buff uptime by source:
-        </Trans>
+        <>{t({ id: 'monk.mistweaver.rising_mist.env_bonus_healing_by_source.p1', message: 'Additional bonus healing from the extra ' })}
+          <SpellLink spell={talents.ENVELOPING_MIST_TALENT} />
+          {t({ id: 'monk.mistweaver.rising_mist.env_bonus_healing_by_source.p2', message: 'buff uptime by source:' })}
+        </>
         <hr />
         <DonutChart items={items} />
       </>
@@ -163,9 +163,9 @@ class RisingMistBreakdown extends Analyzer {
     ];
     return (
       <>
-        <Trans id="monk.mistweaver.rising_mist.extension_by_source">
-          <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> extension healing by source:
-        </Trans>
+        <><SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+          {t({ id: 'monk.mistweaver.rising_mist.extension_by_source.p1', message: 'extension healing by source:' })}
+        </>
         <hr />
         <DonutChart items={items} />
       </>
@@ -175,18 +175,21 @@ class RisingMistBreakdown extends Analyzer {
   risingMistDirectTooltip() {
     return (
       <>
-        <Trans id="monk.mistweaver.rising_mist.direct_healing">
-          <SpellLink spell={talents.RISING_MIST_TALENT} /> direct healing from{' '}
-          <SpellLink spell={this.currentRskTalent} /> casts
-        </Trans>
+        <><SpellLink spell={talents.RISING_MIST_TALENT} />
+          {t({ id: 'monk.mistweaver.rising_mist.direct_healing.p1', message: 'direct healing from' })}
+          {' '}
+          <SpellLink spell={this.currentRskTalent} />
+          {t({ id: 'monk.mistweaver.rising_mist.direct_healing.p2', message: 'casts' })}
+        </>
         <ul>
           <li>
             {(() => {
               const healing = formatNumber(this.risingMist.averageHealing);
               return (
-                <Trans id="monk.mistweaver.rising_mist.avg_healing_per">
-                  {healing} average healing per <SpellLink spell={this.currentRskTalent} />
-                </Trans>
+                <>{healing}
+                  {t({ id: 'monk.mistweaver.rising_mist.avg_healing_per.p1', message: 'average healing per' })}
+                  <SpellLink spell={this.currentRskTalent} />
+                </>
               );
             })()}
           </li>
@@ -194,9 +197,10 @@ class RisingMistBreakdown extends Analyzer {
             {(() => {
               const hits = this.risingMist.averageTargetsPerRSKCast();
               return (
-                <Trans id="monk.mistweaver.rising_mist.avg_hits_per">
-                  {hits} average hits per <SpellLink spell={this.currentRskTalent} />
-                </Trans>
+                <>{hits}
+                  {t({ id: 'monk.mistweaver.rising_mist.avg_hits_per.p1', message: 'average hits per' })}
+                  <SpellLink spell={this.currentRskTalent} />
+                </>
               );
             })()}
           </li>
@@ -234,11 +238,14 @@ class RisingMistBreakdown extends Analyzer {
         {(() => {
           const vivCleaves = this.risingMist.vivCleaves;
           return (
-            <Trans id="monk.mistweaver.rising_mist.total_extra_vivify_hits">
-              <strong>{vivCleaves}</strong> total extra{' '}
-              <SpellLink spell={talents.INVIGORATING_MISTS_TALENT} /> hits from extended
-              <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> by source:
-            </Trans>
+            <><strong>{vivCleaves}</strong>
+              {t({ id: 'monk.mistweaver.rising_mist.total_extra_vivify_hits.p1', message: 'total extra' })}
+              {' '}
+              <SpellLink spell={talents.INVIGORATING_MISTS_TALENT} />
+              {t({ id: 'monk.mistweaver.rising_mist.total_extra_vivify_hits.p2', message: 'hits from extended ' })}
+              <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+              {t({ id: 'monk.mistweaver.rising_mist.total_extra_vivify_hits.p3', message: 'by source:' })}
+            </>
           );
         })()}
         <hr />
@@ -276,11 +283,14 @@ class RisingMistBreakdown extends Analyzer {
         {(() => {
           const zpHits = this.risingMist.zpHits;
           return (
-            <Trans id="monk.mistweaver.rising_mist.total_extra_zp_hits">
-              <strong>{zpHits}</strong> total extra <SpellLink spell={talents.ZEN_PULSE_TALENT} />{' '}
-              hits from extended
-              <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> by source:
-            </Trans>
+            <><strong>{zpHits}</strong>
+              {t({ id: 'monk.mistweaver.rising_mist.total_extra_zp_hits.p1', message: 'total extra ' })}
+              <SpellLink spell={talents.ZEN_PULSE_TALENT} />
+              {' '}
+              {t({ id: 'monk.mistweaver.rising_mist.total_extra_zp_hits.p2', message: 'hits from extended ' })}
+              <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+              {t({ id: 'monk.mistweaver.rising_mist.total_extra_zp_hits.p3', message: 'by source:' })}
+            </>
           );
         })()}
         <hr />

@@ -66,12 +66,11 @@ class AspectOfHarmony extends AspectOfHarmonyBaseAnalyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.ASPECT_OF_HARMONY_TALENT} />
         </b>{' '}
-        <Trans id="monk.mistweaver.aspectOfHarmony.explanation">
-          consumes stored vitality by healing allies after you use{' '}
-          <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} /> equal to 40% of the heal that
-          consumed it. It is extremely important to try to apply the HoT to as many allies as
-          possible
-        </Trans>
+        <>{t({ id: 'monk.mistweaver.aspectOfHarmony.explanation.p1', message: 'consumes stored vitality by healing allies after you use' })}
+          {' '}
+          <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />
+          {t({ id: 'monk.mistweaver.aspectOfHarmony.explanation.p2', message: 'equal to 40% of the heal that consumed it. It is extremely important to try to apply the HoT to as many allies as possible' })}
+        </>
       </p>
     );
     const styleObj = {

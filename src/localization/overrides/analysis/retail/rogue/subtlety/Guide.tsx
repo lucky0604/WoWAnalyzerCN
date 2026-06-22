@@ -43,10 +43,10 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.rogue.subtlety.sections.resources.energy.summary">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Avoid energy
-            capping, as it results in lost DPS.
-          </Trans>
+          <>{t({ id: 'guide.rogue.subtlety.sections.resources.energy.summary.p1', message: 'Your primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.subtlety.sections.resources.energy.summary.p2', message: '. Avoid energy capping, as it results in lost DPS.' })}
+          </>
         </p>
         <EnergyCapWaste
           percentAtCap={percentAtCap}
@@ -64,10 +64,11 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.rogue.subtlety.sections.resources.comboPoints.summary">
-            Subtlety Rogue builds and spends <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />{' '}
-            strategically. Ensure you never waste combo points.
-          </Trans>
+          <>{t({ id: 'guide.rogue.subtlety.sections.resources.comboPoints.summary.p1', message: 'Subtlety Rogue builds and spends ' })}
+            <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />
+            {' '}
+            {t({ id: 'guide.rogue.subtlety.sections.resources.comboPoints.summary.p2', message: 'strategically. Ensure you never waste combo points.' })}
+          </>
         </p>
         <SideBySidePanels>
           <RoundedPanel>{modules.builderUse.chart}</RoundedPanel>
@@ -87,11 +88,13 @@ function CoreRotationSection({ modules, info }: GuideProps<typeof CombatLogParse
       })}
     >
       <p>
-        <Trans id="guide.rogue.subtlety.sections.coreRotation.summary">
-          Subtlety’s core rotation involves generating combo points with builders and spending them
-          on finishers. Cooldowns like <SpellLink spell={TALENTS.SHADOW_BLADES_TALENT} /> and{' '}
-          <SpellLink spell={SPELLS.SHADOW_DANCE} /> should be optimized.
-        </Trans>
+        <>{t({ id: 'guide.rogue.subtlety.sections.coreRotation.summary.p1', message: 'Subtlety’s core rotation involves generating combo points with builders and spending them on finishers. Cooldowns like ' })}
+          <SpellLink spell={TALENTS.SHADOW_BLADES_TALENT} />
+          {t({ id: 'guide.rogue.subtlety.sections.coreRotation.summary.p2', message: 'and' })}
+          {' '}
+          <SpellLink spell={SPELLS.SHADOW_DANCE} />
+          {t({ id: 'guide.rogue.subtlety.sections.coreRotation.summary.p3', message: 'should be optimized.' })}
+        </>
       </p>
       <HideExplanationsToggle id="hide-explanations-rotation" />
       {modules.shadowDanceGuide.guideSubsection}

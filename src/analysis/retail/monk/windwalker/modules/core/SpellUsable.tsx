@@ -3,7 +3,8 @@ import TALENTS from 'common/TALENTS/monk';
 import HIT_TYPES from 'game/HIT_TYPES';
 import { SpellLink } from 'interface';
 import { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Events, {
   AbilityEvent,
   CastEvent,
@@ -142,10 +143,11 @@ class SpellUsable extends CoreSpellUsable {
         addEnhancedCastReason(
           this.lastPotentialTriggerForRskReset,
           <>
-            <Trans id="monk.windwalker.spellusable.rsk_reset_reason">
-              This cast reset the cooldown of <SpellLink spell={TALENTS.RISING_SUN_KICK_TALENT} /> due
-              to <SpellLink spell={TALENTS.TEACHINGS_OF_THE_MONASTERY_TALENT} />
-            </Trans>
+            <>{t({ id: 'monk.windwalker.spellusable.rsk_reset_reason.p1', message: 'This cast reset the cooldown of ' })}
+              <SpellLink spell={TALENTS.RISING_SUN_KICK_TALENT} />
+              {t({ id: 'monk.windwalker.spellusable.rsk_reset_reason.p2', message: 'due to' })}
+              <SpellLink spell={TALENTS.TEACHINGS_OF_THE_MONASTERY_TALENT} />
+            </>
           </>,
         );
       }

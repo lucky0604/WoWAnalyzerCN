@@ -277,9 +277,11 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
         </div>
       ) : (
         <div key={tick.tickNumber} style={{ color: BadColor }}>
-          <Trans id="hunter.survival.boomstick.tickMissed">
-            Tick {tick.tickNumber}: <em>Missed</em>
-          </Trans>
+          <>{t({ id: 'hunter.survival.boomstick.tickMissed.p1', message: 'Tick ' })}
+            {tick.tickNumber}
+            {t({ id: 'hunter.survival.boomstick.tickMissed.p2', message: ':' })}
+            <em>{t({ id: 'hunter.survival.boomstick.tickMissed.em', message: 'Missed' })}</em>
+          </>
         </div>
       ),
     );

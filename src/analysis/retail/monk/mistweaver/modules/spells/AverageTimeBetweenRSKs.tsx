@@ -103,10 +103,12 @@ class TimeBetweenRSKs extends Analyzer {
                 content={(() => {
                   const targets = this.rushingWindKick.avgTargetsHit.toFixed(2);
                   return (
-                    <Trans id="monk.mistweaver.time_between_rsks.avg_targets">
-                      {targets} average targets hit per{' '}
-                      <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_MISTWEAVER_TALENT} /> cast
-                    </Trans>
+                    <>{targets}
+                      {t({ id: 'monk.mistweaver.time_between_rsks.avg_targets.p1', message: 'average targets hit per' })}
+                      {' '}
+                      <SpellLink spell={TALENTS_MONK.RUSHING_WIND_KICK_MISTWEAVER_TALENT} />
+                      {t({ id: 'monk.mistweaver.time_between_rsks.avg_targets.p2', message: 'cast' })}
+                    </>
                   );
                 })()}
               >

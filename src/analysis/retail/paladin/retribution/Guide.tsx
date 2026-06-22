@@ -82,13 +82,13 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
         <SideBySidePanels>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.retribution.holyPower.wasteTitle">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Waste
-              </Trans>
+              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.retribution.holyPower.wasteTitle.p1', message: 'Waste' })}
+              </>
             </strong>
             <p>
-              <Trans id="paladin.retribution.holyPower.wasted">
-                You wasted{' '}
+              <>{t({ id: 'paladin.retribution.holyPower.wasted.p1', message: 'You wasted' })}
+                {' '}
                 <PerformancePercentage
                   performance={wastedHolyPowerPercentagePerformance}
                   perfectPercentage={PERFECT_HOLY_POWER_CAP}
@@ -96,9 +96,12 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
                   okPercentage={OK_HOLY_POWER_CAP}
                   percentage={wastedHolyPowerPercentage}
                   flatAmount={holyPowerWasted}
-                />{' '}
-                of your <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
-              </Trans>
+                />
+                {' '}
+                {t({ id: 'paladin.retribution.holyPower.wasted.p2', message: 'of your ' })}
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.retribution.holyPower.wasted.p3', message: '.' })}
+              </>
             </p>
             {info.combatant.hasTalent(TALENTS.CRUSADING_STRIKES_TALENT) ? (
               <p>
@@ -134,9 +137,9 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
           </RoundedPanel>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.retribution.holyPower.builderEffectiveness">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Builder Effectiveness
-              </Trans>
+              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.retribution.holyPower.builderEffectiveness.p1', message: 'Builder Effectiveness' })}
+              </>
             </strong>
             {modules.builderUse.chart}
           </RoundedPanel>

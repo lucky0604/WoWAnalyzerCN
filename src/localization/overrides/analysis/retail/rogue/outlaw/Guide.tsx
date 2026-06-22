@@ -57,15 +57,20 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.rogue.outlaw.sections.resources.energy.summary">
-            Your primary resource is <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />. Typically,
-            ability use will be limited by <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />, not time.
-            Avoid capping <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> regeneration is lost DPS. It will
-            occasionally be impossible to avoid capping{' '}
-            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} /> - like while handling mechanics or during
-            intermission phases.
-          </Trans>
+          <>{t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p1', message: 'Your primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p2', message: '. Typically, ability use will be limited by ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p3', message: ', not time. Avoid capping ' })}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p4', message: '- lost' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p5', message: 'regeneration is lost DPS. It will occasionally be impossible to avoid capping' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
+            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p6', message: '- like while handling mechanics or during intermission phases.' })}
+          </>
         </p>
         <EnergyCapWaste
           percentAtCap={percentAtCap}
@@ -130,31 +135,26 @@ function ActionPriorityList({ modules, info }: GuideProps<typeof CombatLogParser
       })}
     >
       <p>
-        <Trans id="guide.rogue.outlaw.sections.apl.summary">
-          Outlaw has a fast paced rotation that is constantly reacting to buffs and procs. The spec
-          doesn't burst but makes up for it in consistent output. Should be thought as a chaining
-          priority list:
+        <>{t({ id: 'guide.rogue.outlaw.sections.apl.summary.p1', message: 'Outlaw has a fast paced rotation that is constantly reacting to buffs and procs. The spec doesn\'t burst but makes up for it in consistent output. Should be thought as a chaining priority list:' })}
           <ol>
             <li>Cooldowns, according to the priorities below.</li>
             <li>Finishers, according to the priorities below.</li>
             <li>Builders, according to the priorities below.</li>
           </ol>
-        </Trans>
+        </>
       </p>
       <p>
-        <Trans id="guide.rogue.outlaw.sections.apl.simcReference">
-          This Action Priority List (APL) is a simplified version off the simc APL that can be found{' '}
-          <a href="https://github.com/simulationcraft/simc/blob/thewarwithin/engine/class_modules/apl/rogue/outlaw.simc">
-            here
-          </a>
-          .
-        </Trans>
+        <>{t({ id: 'guide.rogue.outlaw.sections.apl.simcReference.p1', message: 'This Action Priority List (APL) is a simplified version off the simc APL that can be found' })}
+          {' '}
+          <a href="https://github.com/simulationcraft/simc/blob/thewarwithin/engine/class_modules/apl/rogue/outlaw.simc">{t({ id: 'guide.rogue.outlaw.sections.apl.simcReference.a', message: 'here' })}</a>
+          {t({ id: 'guide.rogue.outlaw.sections.apl.simcReference.p2', message: '.' })}
+        </>
       </p>
       <AplSectionData checker={AplCheck.check} apl={AplCheck.apl(info)} />
       <hr />
       <p>
-        <Trans id="guide.rogue.outlaw.sections.apl.disclaimer">
-          <strong>Disclaimer:</strong> (Currently unsupported spells/talents)
+        <><strong>{t({ id: 'guide.rogue.outlaw.sections.apl.disclaimer.strong', message: 'Disclaimer:' })}</strong>
+          {t({ id: 'guide.rogue.outlaw.sections.apl.disclaimer.p1', message: '(Currently unsupported spells/talents)' })}
           <ul>
             <li>
               {' '}
@@ -165,7 +165,7 @@ function ActionPriorityList({ modules, info }: GuideProps<typeof CombatLogParser
               <SpellLink spell={SPELLS.BLADE_FLURRY} />
             </li>
           </ul>
-        </Trans>
+        </>
       </p>
       <p>
         <Trans id="guide.rogue.outlaw.sections.apl.accuracyNote">
@@ -211,9 +211,8 @@ function CooldownSection({ info }: GuideProps<typeof CombatLogParser>) {
       })}
     >
       <p>
-        <Trans id="guide.rogue.outlaw.sections.cooldowns.summary">
-          <strong>Cooldown Graph</strong> - This graph visualizes the usage of your cooldowns and
-          highlights areas where optimizations can be made.
+        <><strong>{t({ id: 'guide.rogue.outlaw.sections.cooldowns.summary.strong', message: 'Cooldown Graph' })}</strong>
+          {t({ id: 'guide.rogue.outlaw.sections.cooldowns.summary.p1', message: '- This graph visualizes the usage of your cooldowns and highlights areas where optimizations can be made.' })}
           <ul>
             <li>
               <strong>Grey segments</strong> indicate availability.
@@ -225,7 +224,7 @@ function CooldownSection({ info }: GuideProps<typeof CombatLogParser>) {
               <strong>Red segments</strong> highlight areas where an extra cooldown could have fit.
             </li>
           </ul>
-        </Trans>
+        </>
       </p>
       {cooldowns.map((cooldownCheck) => (
         <CastEfficiencyBar

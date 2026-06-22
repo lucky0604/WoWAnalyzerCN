@@ -101,14 +101,18 @@ class CastingWhileMoving extends Analyzer {
           return (
             <>
               <div>
-                <Trans id="monk.mistweaver.casting_while_moving.soom">
-                  <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />: {soom} yards
-                </Trans>
+                <><SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />
+                  {t({ id: 'monk.mistweaver.casting_while_moving.soom.p1', message: ': ' })}
+                  {soom}
+                  {t({ id: 'monk.mistweaver.casting_while_moving.soom.p2', message: 'yards' })}
+                </>
               </div>
               <div>
-                <Trans id="monk.mistweaver.casting_while_moving.cjl">
-                  <SpellLink spell={SPELLS.CRACKLING_JADE_LIGHTNING} />: {cjl} yards
-                </Trans>
+                <><SpellLink spell={SPELLS.CRACKLING_JADE_LIGHTNING} />
+                  {t({ id: 'monk.mistweaver.casting_while_moving.cjl.p1', message: ': ' })}
+                  {cjl}
+                  {t({ id: 'monk.mistweaver.casting_while_moving.cjl.p2', message: 'yards' })}
+                </>
               </div>
             </>
           );
@@ -126,9 +130,11 @@ class CastingWhileMoving extends Analyzer {
               const yards = formatNumber(totalMovement);
               const pct = formatPercentage(percentOfTotal);
               return (
-                <Trans id="monk.mistweaver.casting_while_moving.value">
-                  ≈ {yards} yards <small>{pct}% of total</small>
-                </Trans>
+                <>{t({ id: 'monk.mistweaver.casting_while_moving.value.p1', message: '≈ ' })}
+                  {yards}
+                  {t({ id: 'monk.mistweaver.casting_while_moving.value.p2', message: 'yards' })}
+                  <small>{t({ id: 'monk.mistweaver.casting_while_moving.value.small', message: '% of total' })}</small>
+                </>
               );
             })()}
           </div>

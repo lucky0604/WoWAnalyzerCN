@@ -77,10 +77,10 @@ class Downpour extends Analyzer {
             <ItemHealingDone amount={this.downpourHealing} />
           </div>
           <div>
-            <Trans id="shaman.restoration.downpour.wasted">
-              {formatNumber(this.wastedDownpourCasts)}{' '}
-              <small>wasted procs ({formatPercentage(this.wastedDownpourCastsPercent)}%)</small>
-            </Trans>
+            <>{formatNumber(this.wastedDownpourCasts)}
+              {' '}
+              <small>{t({ id: 'shaman.restoration.downpour.wasted.small', message: 'wasted procs (%)' })}</small>
+            </>
           </div>
           <div>
             {formatNumber(this.averageTargetsHit)} <small>{t({ id: 'shaman.restoration.downpour.avg_targets', message: 'average targets' })}</small>

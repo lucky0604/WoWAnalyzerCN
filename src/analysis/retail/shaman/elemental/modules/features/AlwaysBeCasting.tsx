@@ -27,12 +27,10 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
     return (
       <SubSection title={t({ id: 'shaman.elemental.abc.title', message: 'Always be casting' })}>
         <p>
-          <Trans id="shaman.elemental.abc.explanation">
-            As long as you have a target, there is <strong>always</strong> something you can cast as
-            an Elemental shaman. This means that you should try to be on global cooldown for as much
-            as you possibly can throughout the entire encounter. Any time you are not casting is
-            time that you are not doing damage.
-          </Trans>
+          <>{t({ id: 'shaman.elemental.abc.explanation.p1', message: 'As long as you have a target, there is ' })}
+            <strong>{t({ id: 'shaman.elemental.abc.explanation.strong', message: 'always' })}</strong>
+            {t({ id: 'shaman.elemental.abc.explanation.p2', message: 'something you can cast as an Elemental shaman. This means that you should try to be on global cooldown for as much as you possibly can throughout the entire encounter. Any time you are not casting is time that you are not doing damage.' })}
+          </>
         </p>
 
         <p>
@@ -45,8 +43,8 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
         </p>
 
         <p>
-          <Trans id="shaman.elemental.abc.percent">
-            You spent{' '}
+          <>{t({ id: 'shaman.elemental.abc.percent.p1', message: 'You spent' })}
+            {' '}
             <ThresholdPerformancePercentage
               threshold={{
                 type: 'gte',
@@ -55,9 +53,10 @@ class AlwaysBeCasting extends CoreAlwaysBeCasting {
                 ok: abcSuggestionThreshold.isLessThan.major,
               }}
               percentage={this.activeTimePercentage}
-            />{' '}
-            of the encounter in global cooldown.
-          </Trans>
+            />
+            {' '}
+            {t({ id: 'shaman.elemental.abc.percent.p2', message: 'of the encounter in global cooldown.' })}
+          </>
         </p>
 
         <small>

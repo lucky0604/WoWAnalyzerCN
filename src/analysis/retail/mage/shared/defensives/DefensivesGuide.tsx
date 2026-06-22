@@ -92,22 +92,24 @@ const MajorDefensives = () => {
             </>
             <p>
               <small>
-                <Trans id="mage.shared.defensives.point1Note">
-                  In the damage chart below, a spike highlighted in{' '}
+                <>{t({ id: 'mage.shared.defensives.point1Note.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                  {' '}
                   <Highlight color={GoodColor} textColor="black">
                     green
-                  </Highlight>{' '}
-                  was covered by a defensive.
-                </Trans>
+                  </Highlight>
+                  {' '}
+                  {t({ id: 'mage.shared.defensives.point1Note.p2', message: 'was covered by a defensive.' })}
+                </>
               </small>
             </p>
           </li>
           <li>
-            <Trans id="mage.shared.defensives.point2">
-              You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using
-              defensives is a common problem! For <span className="Mage">Mages</span>, it is also
-              likely to be fatal, since most of your mitigation lies in your active cooldowns.
-            </Trans>
+            <>{t({ id: 'mage.shared.defensives.point2.p1', message: 'You should ' })}
+              <em>{t({ id: 'mage.shared.defensives.point2.em', message: 'use' })}</em>
+              {t({ id: 'mage.shared.defensives.point2.p2', message: 'your cooldowns. This may seem silly&mdash;but not using defensives is a common problem! For ' })}
+              <span className="Mage">{t({ id: 'mage.shared.defensives.point2.span', message: 'Mages' })}</span>
+              {t({ id: 'mage.shared.defensives.point2.p3', message: ', it is also likely to be fatal, since most of your mitigation lies in your active cooldowns.' })}
+            </>
             <p>
               <small>
                 <Trans id="mage.shared.defensives.point2Note">

@@ -45,9 +45,10 @@ export function CoreSection({ modules, events, info }: GuideProps<typeof CombatL
           <>{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p1',message:'Your primary resource is '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p2',message:'. You should avoid overcapping '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p3',message:' - lost '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p4',message:' generation is lost DPS. Sometimes it will be impossible to avoid overcapping '})}<ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p5',message:' - due to handling mechanics, high rolling '})}<SpellLink spell={SPELLS.ESSENCE_BURST_DEV_BUFF} />{t({id:'guide.evoker.devastation.sections.core.essenceGraph.summary.p6',message:' procs or during intermission phases.'})}</>
         </p>
         <p>
-          <Trans id="guide.evoker.devastation.sections.core.essenceGraph.wasted">
-            The chart below shows your <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} /> over the
-            course of the encounter. You wasted{' '}
+          <>{t({ id: 'guide.evoker.devastation.sections.core.essenceGraph.wasted.p1', message: 'The chart below shows your ' })}
+            <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />
+            {t({ id: 'guide.evoker.devastation.sections.core.essenceGraph.wasted.p2', message: 'over the course of the encounter. You wasted' })}
+            {' '}
             <PerformancePercentage
               performance={percentAtCapPerformance}
               perfectPercentage={perfectTimeAtEssenceCap}
@@ -55,9 +56,12 @@ export function CoreSection({ modules, events, info }: GuideProps<typeof CombatL
               okPercentage={okTimeAtEssenceCap}
               percentage={percentAtCap}
               flatAmount={essenceWasted}
-            />{' '}
-            of your <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />.
-          </Trans>
+            />
+            {' '}
+            {t({ id: 'guide.evoker.devastation.sections.core.essenceGraph.wasted.p3', message: 'of your ' })}
+            <ResourceLink id={RESOURCE_TYPES.ESSENCE.id} />
+            {t({ id: 'guide.evoker.devastation.sections.core.essenceGraph.wasted.p4', message: '.' })}
+          </>
         </p>
         {modules.essenceGraph.plot}
       </SubSection>

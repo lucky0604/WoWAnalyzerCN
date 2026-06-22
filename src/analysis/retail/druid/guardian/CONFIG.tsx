@@ -1,5 +1,6 @@
 import { Sref, Rex } from 'CONTRIBUTORS';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -28,16 +29,16 @@ const config: Config = {
         </Trans>
       </p>
       <p>
-        <Trans id="druid.guardian.config.feedback">
-          If you questions, comments, or suggestions about this analyzer, you can reach the
-          WoWAnalyzer team on{' '}
-          <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>, on{' '}
-          <a href="https://discord.gg/AxphPxU">Discord</a>, or message me (
-          <a href="/contributor/Sref">Sref</a>) directly on Discord. We're always interested in
-          improving the analyzer, whether it's in-depth theorycraft or rewording some text to be
-          easier to understand. The whole project is open source and welcomes contributions so you
-          can directly improve it too!
-        </Trans>
+        <>{t({ id: 'druid.guardian.config.feedback.p1', message: 'If you questions, comments, or suggestions about this analyzer, you can reach the WoWAnalyzer team on' })}
+          {' '}
+          <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">{t({ id: 'druid.guardian.config.feedback.a', message: 'GitHub' })}</a>
+          {t({ id: 'druid.guardian.config.feedback.p2', message: ', on' })}
+          {' '}
+          <a href="https://discord.gg/AxphPxU">{t({ id: 'druid.guardian.config.feedback.a2', message: 'Discord' })}</a>
+          {t({ id: 'druid.guardian.config.feedback.p3', message: ', or message me ( ' })}
+          <a href="/contributor/Sref">{t({ id: 'druid.guardian.config.feedback.a3', message: 'Sref' })}</a>
+          {t({ id: 'druid.guardian.config.feedback.p4', message: ') directly on Discord. We\'re always interested in improving the analyzer, whether it\'s in-depth theorycraft or rewording some text to be easier to understand. The whole project is open source and welcomes contributions so you can directly improve it too!' })}
+        </>
       </p>
       <p>
         <Trans id="druid.guardian.config.gameplay_questions">

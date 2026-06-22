@@ -61,29 +61,26 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
     <>
       <Section title={t({ id: 'mage.fire.section.preface', message: 'Preface & Disclaimers' })}>
         <p>
-          <Trans id="mage.fire.preface.description1">
-            The analysis in this guide is provided in collaboration with Degenhours and the rest of
-            the staff of the <a href="https://discord.gg/makGfZA">Altered Time</a> Mage Discord. When
-            reviewing this information, keep in mind that WoWAnalyzer is limited to the information
-            that is present in your combat log. As a result, we have no way of knowing if you were
-            intentionally doing something suboptimal because the fight or strat required it (such as
-            Forced Downtime or holding cooldowns for a burn phase). Because of this, we recommend
-            comparing your analysis against a top 100 log for the same boss.
-          </Trans>
+          <>{t({ id: 'mage.fire.preface.description1.p1', message: 'The analysis in this guide is provided in collaboration with Degenhours and the rest of the staff of the ' })}
+            <a href="https://discord.gg/makGfZA">{t({ id: 'mage.fire.preface.description1.a', message: 'Altered Time' })}</a>
+            {t({ id: 'mage.fire.preface.description1.p2', message: 'Mage Discord. When reviewing this information, keep in mind that WoWAnalyzer is limited to the information that is present in your combat log. As a result, we have no way of knowing if you were intentionally doing something suboptimal because the fight or strat required it (such as Forced Downtime or holding cooldowns for a burn phase). Because of this, we recommend comparing your analysis against a top 100 log for the same boss.' })}
+          </>
         </p>
         <p>
-          <Trans id="mage.fire.preface.description2">
-            For additional assistance in improving your gameplay, or to have someone look more in
-            depth at your combat logs, please visit the{' '}
-            <a href="https://discord.gg/makGfZA">Altered Time</a> discord.
-          </Trans>
+          <>{t({ id: 'mage.fire.preface.description2.p1', message: 'For additional assistance in improving your gameplay, or to have someone look more in depth at your combat logs, please visit the' })}
+            {' '}
+            <a href="https://discord.gg/makGfZA">{t({ id: 'mage.fire.preface.description2.a', message: 'Altered Time' })}</a>
+            {t({ id: 'mage.fire.preface.description2.p2', message: 'discord.' })}
+          </>
         </p>
         <p>
-          <Trans id="mage.fire.preface.description3">
-            If you notice any issues or errors in this analysis ... or if there is additional analysis
-            you would like added, please ping <code>@Sharrq</code> in the{' '}
-            <a href="https://discord.gg/makGfZA">Altered Time</a> discord.
-          </Trans>
+          <>{t({ id: 'mage.fire.preface.description3.p1', message: 'If you notice any issues or errors in this analysis ... or if there is additional analysis you would like added, please ping ' })}
+            <code>{t({ id: 'mage.fire.preface.description3.code', message: '@Sharrq' })}</code>
+            {t({ id: 'mage.fire.preface.description3.p2', message: 'in the' })}
+            {' '}
+            <a href="https://discord.gg/makGfZA">{t({ id: 'mage.fire.preface.description3.a', message: 'Altered Time' })}</a>
+            {t({ id: 'mage.fire.preface.description3.p3', message: 'discord.' })}
+          </>
         </p>
       </Section>
       <Section title={t({ id: 'mage.fire.section.core', message: 'Core' })}>{alwaysBeCastingSubsection}</Section>

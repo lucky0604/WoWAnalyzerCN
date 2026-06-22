@@ -185,14 +185,13 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
     } else if (lis.length > 1) {
       addInefficientCastReason(
         event,
-        <Trans id="shaman.enhancement.primordialstorm.conditions_not_met">
-          Cast without the following conditions met:
+        <>{t({ id: 'shaman.enhancement.primordialstorm.conditions_not_met.p1', message: 'Cast without the following conditions met:' })}
           <ul>
             {lis.map((x, i) => {
               return <li key={i}>{x}</li>;
             })}
           </ul>
-        </Trans>,
+        </>,
       );
     }
 

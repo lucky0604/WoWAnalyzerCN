@@ -541,39 +541,22 @@ class TreeOfLife extends Analyzer {
             </Trans>
             <ul>
               <li>
-                <Trans id="restoration.tol.tooltip_all_boost">
-                  Overall Increased Healing:{' '}
-                  <strong>
-                    {formatPercentage(
-                      this.owner.getPercentageOfTotalHealingDone(this.hardcast.allBoostHealing),
-                    )}
-                    %
-                  </strong>
-                </Trans>
+                <>{t({ id: 'restoration.tol.tooltip_all_boost.p1', message: 'Overall Increased Healing:' })}
+                  {' '}
+                  <strong>{t({ id: 'restoration.tol.tooltip_all_boost.strong', message: '%' })}</strong>
+                </>
               </li>
               <li>
-                <Trans id="restoration.tol.tooltip_rejuv_boost">
-                  Rejuv Increased Healing:{' '}
-                  <strong>
-                    {formatPercentage(
-                      this.owner.getPercentageOfTotalHealingDone(this.hardcast.rejuvBoostHealing),
-                    )}
-                    %
-                  </strong>
-                </Trans>
+                <>{t({ id: 'restoration.tol.tooltip_rejuv_boost.p1', message: 'Rejuv Increased Healing:' })}
+                  {' '}
+                  <strong>{t({ id: 'restoration.tol.tooltip_rejuv_boost.strong', message: '%' })}</strong>
+                </>
               </li>
               <li>
-                <Trans id="restoration.tol.tooltip_wg_boost">
-                  Increased Wild Growths:{' '}
-                  <strong>
-                    {formatPercentage(
-                      this.owner.getPercentageOfTotalHealingDone(
-                        this.hardcast.extraWgsAttribution.healing,
-                      ),
-                    )}
-                    %
-                  </strong>
-                </Trans>
+                <>{t({ id: 'restoration.tol.tooltip_wg_boost.p1', message: 'Increased Wild Growths:' })}
+                  {' '}
+                  <strong>{t({ id: 'restoration.tol.tooltip_wg_boost.strong', message: '%' })}</strong>
+                </>
               </li>
             </ul>
           </>

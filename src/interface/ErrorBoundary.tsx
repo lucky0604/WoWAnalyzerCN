@@ -26,14 +26,15 @@ const Fallback = ({
       </Trans>
     </h1>
     <p className="text-muted">
-      <Trans id="interface.common.errorBoundary.bug">
-        This is usually caused by a bug in our code. If you're handy with computers please consider
-        sending us a Pull Request with a fix on{' '}
-        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer">GitHub</a>. Otherwise please let us
-        know in an issue on <a href="https://github.com/WoWAnalyzer/WoWAnalyzer">GitHub</a> or leave
-        us a message on <a href="https://wowanalyzer.com/discord">Discord</a> so we can fix it for
-        you.
-      </Trans>
+      <>{t({ id: 'interface.common.errorBoundary.bug.p1', message: 'This is usually caused by a bug in our code. If you\'re handy with computers please consider sending us a Pull Request with a fix on' })}
+        {' '}
+        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer">{t({ id: 'interface.common.errorBoundary.bug.a', message: 'GitHub' })}</a>
+        {t({ id: 'interface.common.errorBoundary.bug.p2', message: '. Otherwise please let us know in an issue on ' })}
+        <a href="https://github.com/WoWAnalyzer/WoWAnalyzer">{t({ id: 'interface.common.errorBoundary.bug.a2', message: 'GitHub' })}</a>
+        {t({ id: 'interface.common.errorBoundary.bug.p3', message: 'or leave us a message on ' })}
+        <a href="https://wowanalyzer.com/discord">{t({ id: 'interface.common.errorBoundary.bug.a3', message: 'Discord' })}</a>
+        {t({ id: 'interface.common.errorBoundary.bug.p4', message: 'so we can fix it for you.' })}
+      </>
     </p>
 
     <h1>{t({ id: 'interface.common.errorBoundary.theError', message: 'The error' })}</h1>

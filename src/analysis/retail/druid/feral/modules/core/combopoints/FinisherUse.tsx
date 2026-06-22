@@ -127,9 +127,9 @@ class FinisherUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(6)}>
         <div className="pad">
           <label>
-            <Trans id="druid.feral.finisher_use.label">
-              <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> spender usage
-            </Trans>
+            <><ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />
+              {t({ id: 'druid.feral.finisher_use.label.p1', message: 'spender usage' })}
+            </>
           </label>
           {this.chart}
         </div>

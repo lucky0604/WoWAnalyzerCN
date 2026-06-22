@@ -517,75 +517,76 @@ class CharacterParses extends Component<CharacterParsesProps, CharacterParsesSta
     let errorMessage;
     if (this.state.error === ERRORS.CHARACTER_NOT_FOUND) {
       errorMessage = (
-        <Trans id="interface.characterParses.characterParses.errors.characterNotFoundDetails">
-          Please check your input and make sure that you've selected the correct region and realm.
+        <>{t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.p1', message: 'Please check your input and make sure that you\'ve selected the correct region and realm. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          If your input was correct, then make sure that someone in your raid logged the fight for
-          you or check{' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.p2', message: 'If your input was correct, then make sure that someone in your raid logged the fight for you or check' })}
+          {' '}
           <a
             href="https://www.warcraftlogs.com/help/start/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Warcraft Logs guide
-          </a>{' '}
-          to get started with logging on your own.
+          {t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.a', message: 'Warcraft Logs guide' })}
+        </a>
+          {' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.p3', message: 'to get started with logging on your own. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          When you know for sure that you have logs on Warcraft Logs and you still get this error,
-          please message us on{' '}
-          <a href="https://discord.gg/AxphPxU" target="_blank" rel="noopener noreferrer">
-            Discord
-          </a>{' '}
-          or create an issue on{' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.p4', message: 'When you know for sure that you have logs on Warcraft Logs and you still get this error, please message us on' })}
+          {' '}
+          <a href="https://discord.gg/AxphPxU" target="_blank" rel="noopener noreferrer">{t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.a2', message: 'Discord' })}</a>
+          {' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.p5', message: 'or create an issue on' })}
+          {' '}
           <a
             href="https://github.com/WoWAnalyzer/WoWAnalyzer"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Github
-          </a>
-          .
-        </Trans>
+          {t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.a3', message: 'Github' })}
+        </a>
+          {t({ id: 'interface.characterParses.characterParses.errors.characterNotFoundDetails.p6', message: '.' })}
+        </>
       );
     } else if (this.state.error === ERRORS.NOT_RESPONDING) {
       errorMessage = (
-        <Trans id="interface.characterParses.characterParses.errors.notRespondingDetails">
-          It looks like we couldn't get a response in time from the API, this usually happens when
-          the servers are under heavy load.
+        <>{t({ id: 'interface.characterParses.characterParses.errors.notRespondingDetails.p1', message: 'It looks like we couldn\'t get a response in time from the API, this usually happens when the servers are under heavy load. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-          You could try and enter your report-code manually <Link to="/">here</Link>.<br />
-          That would bypass the load-intensive character lookup and we should be able to analyze
-          your report.
+          {t({ id: 'interface.characterParses.characterParses.errors.notRespondingDetails.p2', message: 'You could try and enter your report-code manually ' })}
+          <Link to="/">here</Link>
+          {t({ id: 'interface.characterParses.characterParses.errors.notRespondingDetails.p3', message: '.' })}
+          <br />
+          {t({ id: 'interface.characterParses.characterParses.errors.notRespondingDetails.p4', message: 'That would bypass the load-intensive character lookup and we should be able to analyze your report.' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-        </Trans>
+        </>
       );
     } else if (this.state.error === ERRORS.CHARACTER_HIDDEN) {
       errorMessage = (
-        <Trans id="interface.characterParses.characterParses.errors.characterHiddenDetails">
-          This character is hidden on warcraftlogs and we can't access the parses.
+        <>{t({ id: 'interface.characterParses.characterParses.errors.characterHiddenDetails.p1', message: 'This character is hidden on warcraftlogs and we can\'t access the parses. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          You don't know how to make your character visible again? Check{' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.characterHiddenDetails.p2', message: 'You don\'t know how to make your character visible again? Check' })}
+          {' '}
           <a
             href="https://www.warcraftlogs.com/help/hidingcharacters/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Warcraft Logs{' '}
-          </a>{' '}
-          and hit the 'Refresh' button above once you're done.
-        </Trans>
+          {t({ id: 'interface.characterParses.characterParses.errors.characterHiddenDetails.a', message: 'Warcraft Logs' })}
+        </a>
+          {' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.characterHiddenDetails.p3', message: 'and hit the \'Refresh\' button above once you\'re done.' })}
+        </>
       );
     } else if (
       this.state.error === ERRORS.WCL_API_ERROR ||
@@ -593,36 +594,37 @@ class CharacterParses extends Component<CharacterParsesProps, CharacterParsesSta
       this.state.error === ERRORS.UNEXPECTED
     ) {
       errorMessage = (
-        <Trans id="interface.characterParses.characterParses.errors.details">
-          {this.state.errorMessage} Please message us on{' '}
-          <a href="https://discord.gg/AxphPxU" target="_blank" rel="noopener noreferrer">
-            Discord
-          </a>{' '}
-          or create an issue on{' '}
+        <>{this.state.errorMessage}
+          {t({ id: 'interface.characterParses.characterParses.errors.details.p1', message: 'Please message us on' })}
+          {' '}
+          <a href="https://discord.gg/AxphPxU" target="_blank" rel="noopener noreferrer">{t({ id: 'interface.characterParses.characterParses.errors.details.a', message: 'Discord' })}</a>
+          {' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.details.p2', message: 'or create an issue on' })}
+          {' '}
           <a
             href="https://github.com/WoWAnalyzer/WoWAnalyzer"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Github
-          </a>{' '}
-          if this issue persists and we will fix it, eventually.
-        </Trans>
+          {t({ id: 'interface.characterParses.characterParses.errors.details.a2', message: 'Github' })}
+        </a>
+          {' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.details.p3', message: 'if this issue persists and we will fix it, eventually.' })}
+        </>
       );
     } else if (this.state.error === ERRORS.NO_PARSES_FOR_TIER || this.filterParses.length === 0) {
       errorMessage = (
-        <Trans id="interface.characterParses.characterParses.errors.noParsesForTierDetails">
-          Please check your filters and make sure that you logged those fights on Warcraft Logs.
+        <>{t({ id: 'interface.characterParses.characterParses.errors.noParsesForTierDetails.p1', message: 'Please check your filters and make sure that you logged those fights on Warcraft Logs. ' })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          Don't know how to log your fights? Check{' '}
-          <a href={`${this.wclDomain}/help/start/`} target="_blank" rel="noopener noreferrer">
-            Warcraft Logs guide
-          </a>{' '}
-          to get started.
-        </Trans>
+          {t({ id: 'interface.characterParses.characterParses.errors.noParsesForTierDetails.p2', message: 'Don\'t know how to log your fights? Check' })}
+          {' '}
+          <a href={`${this.wclDomain}/help/start/`} target="_blank" rel="noopener noreferrer">{t({ id: 'interface.characterParses.characterParses.errors.noParsesForTierDetails.a', message: 'Warcraft Logs guide' })}</a>
+          {' '}
+          {t({ id: 'interface.characterParses.characterParses.errors.noParsesForTierDetails.p3', message: 'to get started.' })}
+        </>
       );
     }
 

@@ -20,7 +20,8 @@ import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import SpellLink from 'interface/SpellLink';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import StatisticListBoxItem from 'parser/ui/StatisticListBoxItem';
 
 class LotusInfusion extends Analyzer {
@@ -155,10 +156,12 @@ class LotusInfusion extends Analyzer {
                   </Trans>
                 </li>
                 <li>
-                  <Trans id="monk.mistweaver.lotus_infusion.additional_rem">
-                    Additional <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> healing:{' '}
+                  <>{t({ id: 'monk.mistweaver.lotus_infusion.additional_rem.p1', message: 'Additional ' })}
+                    <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+                    {t({ id: 'monk.mistweaver.lotus_infusion.additional_rem.p2', message: 'healing:' })}
+                    {' '}
                     {addHealing}
-                  </Trans>
+                  </>
                 </li>
                 <li>
                   <Trans id="monk.mistweaver.lotus_infusion.hot_overhealing">

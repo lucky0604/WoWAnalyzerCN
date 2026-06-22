@@ -53,16 +53,18 @@ class AstralShift extends Analyzer {
         value={`≈${formatNumber(this.totalDrps)} DRPS`}
         label={t({ id: 'shaman.shared.damageReduced.label', message: 'Estimated damage reduced' })}
         tooltip={
-          <Trans id="shaman.shared.damageReduced.tooltip">
-            {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-            The total estimated damage reduced was {formatThousands(this.damageReduced)}.<br />
+          <>{/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
+            {t({ id: 'shaman.shared.damageReduced.tooltip.p1', message: 'The total estimated damage reduced was ' })}
+            {formatThousands(this.damageReduced)}
+            {t({ id: 'shaman.shared.damageReduced.tooltip.p2', message: '.' })}
+            <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            This is the lowest possible value. This value is pretty accurate for this log if you are
-            looking at the actual gain over not having{' '}
-            <SpellLink spell={TALENTS_SHAMAN.ASTRAL_SHIFT_TALENT} /> bonus at all, but the gain may
-            end up higher when taking interactions with other damage reductions into account.
-          </Trans>
+            {t({ id: 'shaman.shared.damageReduced.tooltip.p3', message: 'This is the lowest possible value. This value is pretty accurate for this log if you are looking at the actual gain over not having' })}
+            {' '}
+            <SpellLink spell={TALENTS_SHAMAN.ASTRAL_SHIFT_TALENT} />
+            {t({ id: 'shaman.shared.damageReduced.tooltip.p4', message: 'bonus at all, but the gain may end up higher when taking interactions with other damage reductions into account.' })}
+          </>
         }
       />
     );

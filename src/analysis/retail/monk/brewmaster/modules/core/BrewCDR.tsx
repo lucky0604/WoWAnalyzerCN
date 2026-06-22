@@ -235,9 +235,9 @@ class BrewCDR extends Analyzer.withDependencies(deps) {
       >
         <BoringValue
           label={
-            <Trans id="monk.brewmaster.cdr.effective_brew_cdr">
-              <SpellIcon spell={SPELLS.TIGER_PALM} /> Effective Brew CDR
-            </Trans>
+            <><SpellIcon spell={SPELLS.TIGER_PALM} />
+              {t({ id: 'monk.brewmaster.cdr.effective_brew_cdr.p1', message: 'Effective Brew CDR' })}
+            </>
           }
         >
           <>{formatPercentage(this.cooldownReductionRatio)} %</>

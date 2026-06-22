@@ -80,23 +80,27 @@ class MaelstromDetails extends Analyzer {
     return (
       <SubSection title={t({ id: 'shaman.elemental.maelstrom.title', message: 'Maelstrom' })}>
         <p>
-          <Trans id="shaman.elemental.maelstrom_details.explanation">
-            The gameplay loop of Elemental Shaman is centered around casting spells to generate{' '}
-            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />, then spending it. Wasting any{' '}
-            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> by overcapping will result in lost
-            dps.
-          </Trans>
+          <>{t({ id: 'shaman.elemental.maelstrom_details.explanation.p1', message: 'The gameplay loop of Elemental Shaman is centered around casting spells to generate' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.maelstrom_details.explanation.p2', message: ', then spending it. Wasting any' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.maelstrom_details.explanation.p3', message: 'by overcapping will result in lost dps.' })}
+          </>
         </p>
         <p>
-          <Trans id="shaman.elemental.maelstrom_details.wasted">
-            You overcapped{' '}
+          <>{t({ id: 'shaman.elemental.maelstrom_details.wasted.p1', message: 'You overcapped' })}
+            {' '}
             <ThresholdPerformancePercentage
               threshold={performanceThreshold}
               percentage={this.wastedPercent}
               flatAmount={this.wasted}
-            />{' '}
-            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> during this fight.
-          </Trans>
+            />
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.maelstrom_details.wasted.p2', message: 'during this fight.' })}
+          </>
         </p>
         <div style={{ marginTop: '20px' }}>
           <Expandable

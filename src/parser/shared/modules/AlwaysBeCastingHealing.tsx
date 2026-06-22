@@ -91,28 +91,29 @@ class AlwaysBeCastingHealing extends CoreAlwaysBeCasting {
       <Statistic
         position={STATISTIC_ORDER.CORE(10)}
         tooltip={
-          <Trans id="shared.alwaysBeCastingHealing.statistic.tooltip">
-            Active Time is the amount of time you were actively casting something or waiting for a
-            Global Cooldown. The remaining time was downtime; you cast nothing and weren't waiting
-            for a global cooldown (i.e. "AFK time").
+          <>{t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.p1', message: 'Active Time is the amount of time you were actively casting something or waiting for a Global Cooldown. The remaining time was downtime; you cast nothing and weren\'t waiting for a global cooldown (i.e. "AFK time"). ' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            You were active for <strong>{formatPercentage(this.activeTimePercentage)}%</strong> of
-            the fight. You spent <strong>{formatPercentage(this.healingTimePercentage)}%</strong> of
-            your time casting supportive spells,{' '}
-            <strong>
-              {formatPercentage(this.activeTimePercentage - this.healingTimePercentage)}%
-            </strong>{' '}
-            of the time casting offensive spells and{' '}
-            <strong>{formatPercentage(this.downtimePercentage)}%</strong> of the time doing nothing.
+            {t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.p2', message: 'You were active for ' })}
+            <strong>{t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.strong', message: '%' })}</strong>
+            {t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.p3', message: 'of the fight. You spent ' })}
+            <strong>{t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.strong2', message: '%' })}</strong>
+            {t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.p4', message: 'of your time casting supportive spells,' })}
+            {' '}
+            <strong>{t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.strong3', message: '%' })}</strong>
+            {' '}
+            {t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.p5', message: 'of the time casting offensive spells and' })}
+            {' '}
+            <strong>{t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.strong4', message: '%' })}</strong>
+            {t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.p6', message: 'of the time doing nothing. ' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            See the timeline for details.
-          </Trans>
+            {t({ id: 'shared.alwaysBeCastingHealing.statistic.tooltip.p7', message: 'See the timeline for details.' })}
+          </>
         }
         drilldown="../timeline"
       >

@@ -25,7 +25,8 @@ import { usePlayer } from 'interface/report/context/PlayerContext';
 import { useFight } from 'interface/report/context/FightContext';
 import { LoadingStatus } from 'interface/report/Results/ResultsContext';
 import Panel from 'interface/Panel';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Report from 'parser/core/Report';
 import { Link, useNavigate } from 'react-router-dom';
 import { WCLFight } from 'parser/core/Fight';
@@ -72,12 +73,10 @@ const MissingCombatantInfoBouncer = ({ report, fight }: { report: Report; fight:
       <div className="flex wrappable">
         <div className="flex-main pad">
           <p>
-            <Trans id="interface.report.missingCombatantInfo.body">
-              This fight is missing a <code>combatantinfo</code> event for the selected player. This
-              is the event that contains gear, talents, and spec. Without it, WoWAnalyzer cannot
-              function. When this event is missing for one player, it is usually missing for all
-              players in the fight.
-            </Trans>
+            <>{t({ id: 'interface.report.missingCombatantInfo.body.p1', message: 'This fight is missing a ' })}
+              <code>{t({ id: 'interface.report.missingCombatantInfo.body.code', message: 'combatantinfo' })}</code>
+              {t({ id: 'interface.report.missingCombatantInfo.body.p2', message: 'event for the selected player. This is the event that contains gear, talents, and spec. Without it, WoWAnalyzer cannot function. When this event is missing for one player, it is usually missing for all players in the fight.' })}
+            </>
           </p>
           <p>
             <Trans id="interface.report.missingCombatantInfo.error-reporting">

@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import CLASSIC_SPELLS from 'common/SPELLS/classic';
@@ -340,12 +340,10 @@ class CooldownThroughputTracker extends Analyzer {
             <Trans id="shared.cooldownThroughputTracker.tab.title">Throughput cooldowns</Trans>
           }
           explanation={
-            <Trans id="shared.cooldownThroughputTracker.tab.explanation">
-              This shows the effectiveness of your throughput cooldowns and your cast behavior
-              during them. Click on <i>More</i> to see details such as the delay between casting
-              spells and the healing or damage done with them. Take a look at the timeline for a
-              different kind of view of your casts during buffs.
-            </Trans>
+            <>{t({ id: 'shared.cooldownThroughputTracker.tab.explanation.p1', message: 'This shows the effectiveness of your throughput cooldowns and your cast behavior during them. Click on ' })}
+              <i>{t({ id: 'shared.cooldownThroughputTracker.tab.explanation.i', message: 'More' })}</i>
+              {t({ id: 'shared.cooldownThroughputTracker.tab.explanation.p2', message: 'to see details such as the delay between casting spells and the healing or damage done with them. Take a look at the timeline for a different kind of view of your casts during buffs.' })}
+            </>
           }
           pad={false}
         >

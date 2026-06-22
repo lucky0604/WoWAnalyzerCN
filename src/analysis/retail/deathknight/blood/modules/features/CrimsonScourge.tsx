@@ -104,9 +104,10 @@ class CrimsonScourge extends Analyzer {
         })}
       >
         <BoringSpellValueText spell={SPELLS.CRIMSON_SCOURGE_TALENT_BUFF}>
-          <Trans id="deathknight.blood.crimsonScourge.statistic">
-            {formatPercentage(this.wastedCrimsonScourgeProcsPercent)} % <small>procs wasted</small>
-          </Trans>
+          <>{formatPercentage(this.wastedCrimsonScourgeProcsPercent)}
+            {t({ id: 'deathknight.blood.crimsonScourge.statistic.p1', message: '%' })}
+            <small>{t({ id: 'deathknight.blood.crimsonScourge.statistic.small', message: 'procs wasted' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

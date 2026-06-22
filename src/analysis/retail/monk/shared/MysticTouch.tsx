@@ -68,8 +68,7 @@ class MysticTouch extends Analyzer {
           (() => {
             const total = formatNumber(this.totalDamageAdded);
             return (
-              <Trans id="monk.shared.mystic_touch.tooltip">
-                <p>
+              <><p>
                   If this number is zero then another monk most likely applyed mystic touch before you.
                 </p>
                 <p>
@@ -77,7 +76,7 @@ class MysticTouch extends Analyzer {
                   find out.
                 </p>
                 <p>Total Physical Damage Queried: {total}</p>
-              </Trans>
+              </>
             );
           })()
         }

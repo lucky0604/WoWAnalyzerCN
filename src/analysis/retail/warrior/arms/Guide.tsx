@@ -30,18 +30,20 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
             </Trans>
           </p>
           <p>
-            <Trans id="warrior.arms.preface.description2">
-              For additional assistance in improving your gameplay, or to have someone look more in
-              depth at your combat logs, please visit the{' '}
-              <a href="https://discord.gg/skyhold">Skyhold</a> discord.
-            </Trans>
+            <>{t({ id: 'warrior.arms.preface.description2.p1', message: 'For additional assistance in improving your gameplay, or to have someone look more in depth at your combat logs, please visit the' })}
+              {' '}
+              <a href="https://discord.gg/skyhold">{t({ id: 'warrior.arms.preface.description2.a', message: 'Skyhold' })}</a>
+              {t({ id: 'warrior.arms.preface.description2.p2', message: 'discord.' })}
+            </>
           </p>
           <p>
-            <Trans id="warrior.arms.preface.description3">
-              If you notice any issues or errors in this analysis or if there is additional analysis
-              you would like added, please ping <code>@Bigbowwl</code> in the{' '}
-              <a href="https://discord.gg/skyhold">Skyhold</a> discord (please don&apos;t DM me).
-            </Trans>
+            <>{t({ id: 'warrior.arms.preface.description3.p1', message: 'If you notice any issues or errors in this analysis or if there is additional analysis you would like added, please ping ' })}
+              <code>{t({ id: 'warrior.arms.preface.description3.code', message: '@Bigbowwl' })}</code>
+              {t({ id: 'warrior.arms.preface.description3.p2', message: 'in the' })}
+              {' '}
+              <a href="https://discord.gg/skyhold">{t({ id: 'warrior.arms.preface.description3.a', message: 'Skyhold' })}</a>
+              {t({ id: 'warrior.arms.preface.description3.p3', message: 'discord (please don&apos;t DM me).' })}
+            </>
           </p>
         </>
       </Section>
@@ -82,26 +84,26 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       })}
     >
       <p>
-        <Trans id="warrior.arms.rotation.description1">
-          This single target rotation analyzer is based on a number of sources, including the guides
-          at{' '}
+        <>{t({ id: 'warrior.arms.rotation.description1.p1', message: 'This single target rotation analyzer is based on a number of sources, including the guides at' })}
+          {' '}
           <a
             href="https://www.wowhead.com/guide/classes/warrior/arms/rotation-cooldowns-pve-dps"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Wowhead
-          </a>
+          {t({ id: 'warrior.arms.rotation.description1.a', message: 'Wowhead' })}
+        </a>
           {' and '}
           <a
             href="https://maxroll.gg/wow/class-guides/arms-warrior-raid-guide"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Maxroll
-          </a>{' '}
-          (credit to Archimtiros and Revvez for writing these guides).
-        </Trans>
+          {t({ id: 'warrior.arms.rotation.description1.a2', message: 'Maxroll' })}
+        </a>
+          {' '}
+          {t({ id: 'warrior.arms.rotation.description1.p2', message: '(credit to Archimtiros and Revvez for writing these guides).' })}
+        </>
       </p>
       <p>
         <Trans id="warrior.arms.rotation.description2">

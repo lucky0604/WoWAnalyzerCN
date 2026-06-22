@@ -152,18 +152,20 @@ class Starlord extends Analyzer {
           <div className="flex-sub bar-label">
             <div style={{ color: STARLORD_BG_COLOR }}>
               <SpellIcon spell={TALENTS_DRUID.STARLORD_TALENT} />{' '}
-              <Trans id="druid.balance.starlord.active_label">
-                {formatPercentage(overallUptimePercent, 0)}% <small>active</small>
-              </Trans>
+              <>{formatPercentage(overallUptimePercent, 0)}
+                {t({ id: 'druid.balance.starlord.active_label.p1', message: '%' })}
+                <small>{t({ id: 'druid.balance.starlord.active_label.small', message: 'active' })}</small>
+              </>
             </div>
             <div style={{ color: STARLORD_BG_COLOR }}>
-              <Trans id="druid.balance.starlord.max_stacks_label">
-                {formatPercentage(this.threeStackUptimePercent, 0)}% <small>Max Stacks Uptime</small>
-              </Trans>
+              <>{formatPercentage(this.threeStackUptimePercent, 0)}
+                {t({ id: 'druid.balance.starlord.max_stacks_label.p1', message: '%' })}
+                <small>{t({ id: 'druid.balance.starlord.max_stacks_label.small', message: 'Max Stacks Uptime' })}</small>
+              </>
             </div>
-            <Trans id="druid.balance.starlord.avg_stacks_label">
-              {this.averageStacks.toFixed(1)} <small>avg stacks</small>
-            </Trans>
+            <>{this.averageStacks.toFixed(1)}
+              <small>{t({ id: 'druid.balance.starlord.avg_stacks_label.small', message: 'avg stacks' })}</small>
+            </>
           </div>
           <div className="flex-main chart">
             <UptimeStackBar

@@ -26,19 +26,20 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       <Section title={t({ id: 'monk.windwalker.section.preface', message: 'Preface & Disclaimers' })}>
         <>
           <p>
-            <Trans id="monk.windwalker.preface.description1">
-              The analysis in this guide is provided in collaboration with the{' '}
-              <a href="https://discord.com/invite/peakofserenity">Peak of Serenity</a> Discord. Keep
-              in mind that WoWAnalyzer is limited to what is present in your combat log, and we cannot
-              always detect intentional deviations such as holding cooldowns for a specific strategy.
-            </Trans>
+            <>{t({ id: 'monk.windwalker.preface.description1.p1', message: 'The analysis in this guide is provided in collaboration with the' })}
+              {' '}
+              <a href="https://discord.com/invite/peakofserenity">{t({ id: 'monk.windwalker.preface.description1.a', message: 'Peak of Serenity' })}</a>
+              {t({ id: 'monk.windwalker.preface.description1.p2', message: 'Discord. Keep in mind that WoWAnalyzer is limited to what is present in your combat log, and we cannot always detect intentional deviations such as holding cooldowns for a specific strategy.' })}
+            </>
           </p>
           <p>
-            <Trans id="monk.windwalker.preface.description2">
-              If you notice any issues or errors in this analysis or have feature requests, please
-              reach out to <code>@durpn</code> in the{' '}
-              <a href="https://discord.com/invite/peakofserenity">Peak of Serenity</a> Discord.
-            </Trans>
+            <>{t({ id: 'monk.windwalker.preface.description2.p1', message: 'If you notice any issues or errors in this analysis or have feature requests, please reach out to ' })}
+              <code>{t({ id: 'monk.windwalker.preface.description2.code', message: '@durpn' })}</code>
+              {t({ id: 'monk.windwalker.preface.description2.p2', message: 'in the' })}
+              {' '}
+              <a href="https://discord.com/invite/peakofserenity">{t({ id: 'monk.windwalker.preface.description2.a', message: 'Peak of Serenity' })}</a>
+              {t({ id: 'monk.windwalker.preface.description2.p3', message: 'Discord.' })}
+            </>
           </p>
         </>
       </Section>
@@ -425,13 +426,11 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           </>
         </p>
           <p>
-            <Trans id="monk.windwalker.overview.description4">
-              More complete and up-to-date rotation guidance is available in the{' '}
-              <a href="https://www.peakofserenity.com/tww/windwalker/pve-guide/#Priority_Lists">
-                Peak of Serenity Windwalker guide
-              </a>
-              .
-            </Trans>
+            <>{t({ id: 'monk.windwalker.overview.description4.p1', message: 'More complete and up-to-date rotation guidance is available in the' })}
+              {' '}
+              <a href="https://www.peakofserenity.com/tww/windwalker/pve-guide/#Priority_Lists">{t({ id: 'monk.windwalker.overview.description4.a', message: 'Peak of Serenity Windwalker guide' })}</a>
+              {t({ id: 'monk.windwalker.overview.description4.p2', message: '.' })}
+            </>
           </p>
         </SubSection>
         <SubSection title={t({ id: 'monk.windwalker.subsection.aplAnalysis', message: 'APL Analysis' })}>

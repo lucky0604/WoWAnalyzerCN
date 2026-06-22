@@ -94,9 +94,9 @@ const reasonLabel = (reason: DeathStrikeReason) => {
       );
     case DeathStrikeReason.DumpRP:
       return (
-        <Trans id="deathknight.blood.usageSection.dumpRp">
-          Dump <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
-        </Trans>
+        <>{t({ id: 'deathknight.blood.usageSection.dumpRp.p1', message: 'Dump' })}
+          <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
+        </>
       );
     case DeathStrikeReason.Other:
       return i18n._(

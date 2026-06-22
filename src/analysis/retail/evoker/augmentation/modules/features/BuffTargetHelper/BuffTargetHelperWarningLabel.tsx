@@ -1,5 +1,6 @@
 import AlertWarning from 'interface/AlertWarning';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 
 const BuffTargetHelperWarningLabel = () => {
   return (
@@ -18,11 +19,12 @@ const BuffTargetHelperWarningLabel = () => {
           </Trans>
         </p>
         <b>
-          <Trans id="evoker.augmentation.buffTargetHelper.moreInfo">
-            You can head over{' '}
-            <a href="https://gist.github.com/ljosberinn/a2f08a53cfe8632a18350eea44e9da3e">here</a>{' '}
-            for more information about above mentioned issues.
-          </Trans>
+          <>{t({ id: 'evoker.augmentation.buffTargetHelper.moreInfo.p1', message: 'You can head over' })}
+            {' '}
+            <a href="https://gist.github.com/ljosberinn/a2f08a53cfe8632a18350eea44e9da3e">{t({ id: 'evoker.augmentation.buffTargetHelper.moreInfo.a', message: 'here' })}</a>
+            {' '}
+            {t({ id: 'evoker.augmentation.buffTargetHelper.moreInfo.p2', message: 'for more information about above mentioned issues.' })}
+          </>
         </b>
       </AlertWarning>
     </div>

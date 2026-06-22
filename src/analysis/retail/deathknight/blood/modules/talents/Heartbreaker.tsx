@@ -59,12 +59,10 @@ class Heartbreaker extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.heartbreaker.statistic.tooltip">
-            <p>
+          <p>
               Resulting in about {Math.floor(this.totalRPGained / DEATHSTRIKE_COST)} extra Death
               Strikes. Your Heart Strike hit on average {this.averageHeartStrikeHits} targets.
             </p>
-          </Trans>
         }
       >
         <BoringSpellValueText spell={TALENTS.HEARTBREAKER_TALENT}>

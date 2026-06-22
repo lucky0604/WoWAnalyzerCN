@@ -252,10 +252,10 @@ export default class AspectOfHarmony extends Analyzer.withDependencies({ stats: 
                     <SpellLink spell={SPELLS.ASPECT_OF_HARMONY_DOT} />
                     {t({ id: 'monk.brewmaster.aoh.missing.details.p3', message: ' DoT does not redistribute damage when enemies die. ' })}
                     {chained && (
-                      <Trans id="monk.brewmaster.aoh.missing.chained">
-                        This use was <em>chained</em> from a previous usage so the amount lost may
-                        be incorrect.
-                      </Trans>
+                      <>{t({ id: 'monk.brewmaster.aoh.missing.chained.p1', message: 'This use was ' })}
+                        <em>{t({ id: 'monk.brewmaster.aoh.missing.chained.em', message: 'chained' })}</em>
+                        {t({ id: 'monk.brewmaster.aoh.missing.chained.p2', message: 'from a previous usage so the amount lost may be incorrect.' })}
+                      </>
                     )}
                   </>
                 ),

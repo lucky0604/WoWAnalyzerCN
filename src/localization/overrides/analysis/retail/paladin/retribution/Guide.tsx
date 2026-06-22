@@ -52,37 +52,46 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
         <strong>{t({ id: 'paladin.retribution.core.explanation', message: 'Explanation' })}</strong>
       </h4>
       <p>
-        <Trans id="paladin.retribution.core.downtime">
-          Although Retribution is a spec with some natural downtime, it needs to be auto-attacking
-          as much as possible because of talents like{' '}
-          <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} /> and{' '}
-          <SpellLink spell={TALENTS.ART_OF_WAR_TALENT} />. Failing to maintain good melee uptime
-          will likely result in a lower ability uptime because of lower{' '}
-          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> generation.
-        </Trans>
+        <>{t({ id: 'paladin.retribution.core.downtime.p1', message: 'Although Retribution is a spec with some natural downtime, it needs to be auto-attacking as much as possible because of talents like' })}
+          {' '}
+          <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} />
+          {t({ id: 'paladin.retribution.core.downtime.p2', message: 'and' })}
+          {' '}
+          <SpellLink spell={TALENTS.ART_OF_WAR_TALENT} />
+          {t({ id: 'paladin.retribution.core.downtime.p3', message: '. Failing to maintain good melee uptime will likely result in a lower ability uptime because of lower' })}
+          {' '}
+          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+          {t({ id: 'paladin.retribution.core.downtime.p4', message: 'generation.' })}
+        </>
       </p>
 
       <SubSection
         title={t({ id: 'paladin.retribution.subsection.holyPower', message: 'Holy Power' })}
       >
         <p>
-          <Trans id="paladin.retribution.holyPower.description">
-            Most of your rotational abilities either <strong>build</strong> or{' '}
-            <strong>spend</strong> <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />. Never use a
-            builder at max <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> or when doing so will
-            cause you to overcap on <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
-          </Trans>
+          <>{t({ id: 'paladin.retribution.holyPower.description.p1', message: 'Most of your rotational abilities either ' })}
+            <strong>{t({ id: 'paladin.retribution.holyPower.description.strong', message: 'build' })}</strong>
+            {t({ id: 'paladin.retribution.holyPower.description.p2', message: 'or' })}
+            {' '}
+            <strong>{t({ id: 'paladin.retribution.holyPower.description.strong2', message: 'spend' })}</strong>
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({ id: 'paladin.retribution.holyPower.description.p3', message: '. Never use a builder at max ' })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({ id: 'paladin.retribution.holyPower.description.p4', message: 'or when doing so will cause you to overcap on ' })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({ id: 'paladin.retribution.holyPower.description.p5', message: '.' })}
+          </>
         </p>
         <SideBySidePanels>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.retribution.holyPower.wasteTitle">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Waste
-              </Trans>
+              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.retribution.holyPower.wasteTitle.p1', message: 'Waste' })}
+              </>
             </strong>
             <p>
-              <Trans id="paladin.retribution.holyPower.wasted">
-                You wasted{' '}
+              <>{t({ id: 'paladin.retribution.holyPower.wasted.p1', message: 'You wasted' })}
+                {' '}
                 <PerformancePercentage
                   performance={wastedHolyPowerPercentagePerformance}
                   perfectPercentage={PERFECT_HOLY_POWER_CAP}
@@ -90,43 +99,50 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
                   okPercentage={OK_HOLY_POWER_CAP}
                   percentage={wastedHolyPowerPercentage}
                   flatAmount={holyPowerWasted}
-                />{' '}
-                of your <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
-              </Trans>
+                />
+                {' '}
+                {t({ id: 'paladin.retribution.holyPower.wasted.p2', message: 'of your ' })}
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.retribution.holyPower.wasted.p3', message: '.' })}
+              </>
             </p>
             {info.combatant.hasTalent(TALENTS.CRUSADING_STRIKES_TALENT) ? (
               <p>
-                <Trans id="paladin.retribution.holyPower.crusadingStrikes">
-                  Because you're taking <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} />, you
-                  need to be extra careful about how you time your abilities that build{' '}
-                  <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> so that you don't overcap.
-                </Trans>
+                <>{t({ id: 'paladin.retribution.holyPower.crusadingStrikes.p1', message: 'Because you\'re taking ' })}
+                  <SpellLink spell={TALENTS.CRUSADING_STRIKES_TALENT} />
+                  {t({ id: 'paladin.retribution.holyPower.crusadingStrikes.p2', message: ', you need to be extra careful about how you time your abilities that build' })}
+                  {' '}
+                  <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                  {t({ id: 'paladin.retribution.holyPower.crusadingStrikes.p3', message: 'so that you don\'t overcap.' })}
+                </>
               </p>
             ) : null}
             {info.combatant.hasTalent(TALENTS.DIVINE_TOLL_TALENT) &&
             wastedHolyPowerPercentage > PERFECT_HOLY_POWER_CAP ? (
               <p>
-                <Trans id="paladin.retribution.holyPower.divineToll">
-                  Some of this might be attributable to the Judgments from{' '}
-                  <SpellLink spell={TALENTS.DIVINE_TOLL_TALENT} />.
-                </Trans>
+                <>{t({ id: 'paladin.retribution.holyPower.divineToll.p1', message: 'Some of this might be attributable to the Judgments from' })}
+                  {' '}
+                  <SpellLink spell={TALENTS.DIVINE_TOLL_TALENT} />
+                  {t({ id: 'paladin.retribution.holyPower.divineToll.p2', message: '.' })}
+                </>
               </p>
             ) : null}
             {info.combatant.hasTalent(TALENTS.DIVINE_RESONANCE_RETRIBUTION_TALENT) &&
             wastedHolyPowerPercentage > PERFECT_HOLY_POWER_CAP ? (
               <p>
-                <Trans id="paladin.retribution.holyPower.divineResonance">
-                  Some of this might be attributable to the free Judgments from{' '}
-                  <SpellLink spell={TALENTS.DIVINE_RESONANCE_RETRIBUTION_TALENT} />.
-                </Trans>
+                <>{t({ id: 'paladin.retribution.holyPower.divineResonance.p1', message: 'Some of this might be attributable to the free Judgments from' })}
+                  {' '}
+                  <SpellLink spell={TALENTS.DIVINE_RESONANCE_RETRIBUTION_TALENT} />
+                  {t({ id: 'paladin.retribution.holyPower.divineResonance.p2', message: '.' })}
+                </>
               </p>
             ) : null}
           </RoundedPanel>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.retribution.holyPower.builderEffectiveness">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Builder Effectiveness
-              </Trans>
+              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.retribution.holyPower.builderEffectiveness.p1', message: 'Builder Effectiveness' })}
+              </>
             </strong>
             {modules.builderUse.chart}
           </RoundedPanel>

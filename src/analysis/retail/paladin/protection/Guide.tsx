@@ -87,13 +87,13 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
         <SideBySidePanels>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.protection.holyPower.wasteTitle">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Waste
-              </Trans>
+              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.protection.holyPower.wasteTitle.p1', message: 'Waste' })}
+              </>
             </strong>
             <p>
-              <Trans id="paladin.protection.holyPower.wasted">
-                You wasted{' '}
+              <>{t({ id: 'paladin.protection.holyPower.wasted.p1', message: 'You wasted' })}
+                {' '}
                 <PerformancePercentage
                   performance={percentAtHolyPowerCapPerformance}
                   perfectPercentage={PERFECT_HOLY_POWER_CAP}
@@ -101,17 +101,20 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
                   okPercentage={OK_HOLY_POWER_CAP}
                   percentage={percentAtHolyPowerCap}
                   flatAmount={holyPowerWasted}
-                />{' '}
-                of your{' '}
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
-              </Trans>
+                />
+                {' '}
+                {t({ id: 'paladin.protection.holyPower.wasted.p2', message: 'of your' })}
+                {' '}
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.protection.holyPower.wasted.p3', message: '.' })}
+              </>
             </p>
           </RoundedPanel>
           <RoundedPanel>
             <strong>
-              <Trans id="paladin.protection.holyPower.builderEffectiveness">
-                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> Builder Effectiveness
-              </Trans>
+              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({ id: 'paladin.protection.holyPower.builderEffectiveness.p1', message: 'Builder Effectiveness' })}
+              </>
             </strong>
             {modules.builderUse.chart}
           </RoundedPanel>

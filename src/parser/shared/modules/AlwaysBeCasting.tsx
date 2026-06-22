@@ -376,10 +376,7 @@ class AlwaysBeCasting extends Analyzer {
         value={`${formatPercentage(this.downtimePercentage)} %`}
         label={t({ id: 'shared.alwaysBeCasting.statistic.label', message: 'Downtime' })}
         tooltip={
-          <Trans id="shared.alwaysBeCasting.statistic.tooltip">
-            Downtime is available time not used to cast anything (including not having your GCD
-            rolling). This can be caused by delays between casting spells, latency, cast
-            interrupting or just simply not casting anything (e.g. due to movement/stunned).
+          <>{t({ id: 'shared.alwaysBeCasting.statistic.tooltip.p1', message: 'Downtime is available time not used to cast anything (including not having your GCD rolling). This can be caused by delays between casting spells, latency, cast interrupting or just simply not casting anything (e.g. due to movement/stunned).' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             <ul>
@@ -392,16 +389,16 @@ class AlwaysBeCasting extends Analyzer {
                 casting nothing at all.
               </li>
             </ul>
-          </Trans>
+          </>
         }
         footer={
           <div className="statistic-box-bar">
             <Tooltip
               content={
-                <Trans id="shared.alwaysBeCasting.statistic.footer.activetime.tooltip">
-                  You spent <strong>{formatPercentage(this.activeTimePercentage)}%</strong> of your
-                  time casting something.
-                </Trans>
+                <>{t({ id: 'shared.alwaysBeCasting.statistic.footer.activetime.tooltip.p1', message: 'You spent ' })}
+                  <strong>{t({ id: 'shared.alwaysBeCasting.statistic.footer.activetime.tooltip.strong', message: '%' })}</strong>
+                  {t({ id: 'shared.alwaysBeCasting.statistic.footer.activetime.tooltip.p2', message: 'of your time casting something.' })}
+                </>
               }
             >
               <div
@@ -415,10 +412,10 @@ class AlwaysBeCasting extends Analyzer {
             </Tooltip>
             <Tooltip
               content={
-                <Trans id="shared.alwaysBeCasting.statistic.footer.downtime.tooltip">
-                  You spent <strong>{formatPercentage(this.downtimePercentage)}%</strong> of your
-                  time casting nothing at all.
-                </Trans>
+                <>{t({ id: 'shared.alwaysBeCasting.statistic.footer.downtime.tooltip.p1', message: 'You spent ' })}
+                  <strong>{t({ id: 'shared.alwaysBeCasting.statistic.footer.downtime.tooltip.strong', message: '%' })}</strong>
+                  {t({ id: 'shared.alwaysBeCasting.statistic.footer.downtime.tooltip.p2', message: 'of your time casting nothing at all.' })}
+                </>
               }
             >
               <div className="remainder DeathKnight-bg">

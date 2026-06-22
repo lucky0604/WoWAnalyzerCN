@@ -78,8 +78,8 @@ function RageSection({ modules }: GuideProps<typeof CombatLogParser>): JSX.Eleme
           })}
         </p>
       <p>
-        <Trans id="guardian.rage.wasted">
-          The chart below shows your Rage over the course of the encounter. You wasted{' '}
+        <>{t({ id: 'guardian.rage.wasted.p1', message: 'The chart below shows your Rage over the course of the encounter. You wasted' })}
+          {' '}
           <PerformancePercentage
             performance={modules.rageTracker.wastedPerformance}
             perfectPercentage={PERFECT_RAGE_WASTED}
@@ -87,9 +87,12 @@ function RageSection({ modules }: GuideProps<typeof CombatLogParser>): JSX.Eleme
             okPercentage={OK_RAGE_WASTED}
             percentage={modules.rageTracker.percentAtCap}
             flatAmount={modules.rageTracker.wasted * RAGE_SCALE_FACTOR}
-          />{' '}
-          of your <ResourceLink id={RESOURCE_TYPES.RAGE.id} />.
-        </Trans>
+          />
+          {' '}
+          {t({ id: 'guardian.rage.wasted.p2', message: 'of your ' })}
+          <ResourceLink id={RESOURCE_TYPES.RAGE.id} />
+          {t({ id: 'guardian.rage.wasted.p3', message: '.' })}
+        </>
       </p>
       {modules.rageGraph.plot}
     </Section>
@@ -255,20 +258,21 @@ function MajorDefensivesSection(): JSX.Element | null {
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             <small>
-              <Trans id="guardian.majorDefensives.greenHighlight">
-                In the damage chart below, a spike highlighted in{' '}
+              <>{t({ id: 'guardian.majorDefensives.greenHighlight.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                {' '}
                 <Highlight color={GoodColor} textColor="black">
                   green
-                </Highlight>{' '}
-                was covered by a defensive.
-              </Trans>
+                </Highlight>
+                {' '}
+                {t({ id: 'guardian.majorDefensives.greenHighlight.p2', message: 'was covered by a defensive.' })}
+              </>
             </small>
           </li>
           <li>
-            <Trans id="guardian.majorDefensives.useThem">
-              You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using major
-              defensives is a common problem! For Guardian, it is also likely to be fatal.
-            </Trans>
+            <>{t({ id: 'guardian.majorDefensives.useThem.p1', message: 'You should ' })}
+              <em>{t({ id: 'guardian.majorDefensives.useThem.em', message: 'use' })}</em>
+              {t({ id: 'guardian.majorDefensives.useThem.p2', message: 'your cooldowns. This may seem silly&mdash;but not using major defensives is a common problem! For Guardian, it is also likely to be fatal.' })}
+            </>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             <small>

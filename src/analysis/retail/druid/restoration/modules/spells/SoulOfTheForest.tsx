@@ -382,20 +382,28 @@ class SoulOfTheForest extends Analyzer {
 
   _spellReportLine(totalUses: number, hardcastUses: number, healing: number): React.ReactNode {
     return this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) ? (
-      <Trans id="restoration.sotf.report_line_convoke">
+      <>{' '}
+        {t({ id: 'restoration.sotf.report_line_convoke.p1', message: 'consumed ' })}
+        <strong>{hardcastUses}</strong>
+        {t({ id: 'restoration.sotf.report_line_convoke.p2', message: 'hardcast /' })}
         {' '}
-        consumed <strong>{hardcastUses}</strong> hardcast /{' '}
-        <strong>{totalUses - hardcastUses}</strong> convoke :{' '}
-        <strong>{formatPercentage(this.owner.getPercentageOfTotalHealingDone(healing), 1)}%</strong>{' '}
-        healing
-      </Trans>
+        <strong>{totalUses - hardcastUses}</strong>
+        {t({ id: 'restoration.sotf.report_line_convoke.p3', message: 'convoke :' })}
+        {' '}
+        <strong>{t({ id: 'restoration.sotf.report_line_convoke.strong', message: '%' })}</strong>
+        {' '}
+        {t({ id: 'restoration.sotf.report_line_convoke.p4', message: 'healing' })}
+      </>
     ) : (
-      <Trans id="restoration.sotf.report_line_base">
+      <>{' '}
+        {t({ id: 'restoration.sotf.report_line_base.p1', message: 'consumed ' })}
+        <strong>{totalUses}</strong>
+        {t({ id: 'restoration.sotf.report_line_base.p2', message: 'procs :' })}
         {' '}
-        consumed <strong>{totalUses}</strong> procs :{' '}
-        <strong>{formatPercentage(this.owner.getPercentageOfTotalHealingDone(healing), 1)}%</strong>{' '}
-        healing
-      </Trans>
+        <strong>{t({ id: 'restoration.sotf.report_line_base.strong', message: '%' })}</strong>
+        {' '}
+        {t({ id: 'restoration.sotf.report_line_base.p3', message: 'healing' })}
+      </>
     );
   }
 
@@ -407,13 +415,14 @@ class SoulOfTheForest extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <Trans id="restoration.sotf.statistic_tooltip_p1">
-              You used <strong>{this.totalUses}</strong> Soul of the Forest procs.
-            </Trans>
+            <>{t({ id: 'restoration.sotf.statistic_tooltip_p1.p1', message: 'You used ' })}
+              <strong>{this.totalUses}</strong>
+              {t({ id: 'restoration.sotf.statistic_tooltip_p1.p2', message: 'Soul of the Forest procs.' })}
+            </>
             <br />
-            <Trans id="restoration.sotf.statistic_tooltip_wasted">
-              Wasted (expired): <strong>{this.wastedBuffs}</strong>
-            </Trans>
+            <>{t({ id: 'restoration.sotf.statistic_tooltip_wasted.p1', message: 'Wasted (expired):' })}
+              <strong>{this.wastedBuffs}</strong>
+            </>
             <ul>
               <li>
                 <SpellLink spell={SPELLS.REJUVENATION} />

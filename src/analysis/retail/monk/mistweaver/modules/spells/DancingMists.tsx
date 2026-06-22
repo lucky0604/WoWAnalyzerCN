@@ -464,27 +464,32 @@ class DancingMists extends Analyzer {
               <>
                 <ul>
                   <li>
-                    <Trans id="monk.mistweaver.dancing_mists.bounces">
-                      Bounces from overheal: <b>{bounce}</b>
-                    </Trans>
+                    <>{t({ id: 'monk.mistweaver.dancing_mists.bounces.p1', message: 'Bounces from overheal:' })}
+                      <b>{bounce}</b>
+                    </>
                   </li>
                   <li>
-                    <Trans id="monk.mistweaver.dancing_mists.not_bounced">
-                      Overheal ticks that did not bounce: <b>{ticks}</b>
-                    </Trans>
+                    <>{t({ id: 'monk.mistweaver.dancing_mists.not_bounced.p1', message: 'Overheal ticks that did not bounce:' })}
+                      <b>{ticks}</b>
+                    </>
                   </li>
                   <li>
-                    <Trans id="monk.mistweaver.dancing_mists.eligible">
-                      Percentage of <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} /> overheal ticks that
-                      could actually proc <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />:{' '}
-                      <b>{pct}%</b>
-                    </Trans>
+                    <>{t({ id: 'monk.mistweaver.dancing_mists.eligible.p1', message: 'Percentage of ' })}
+                      <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} />
+                      {t({ id: 'monk.mistweaver.dancing_mists.eligible.p2', message: 'overheal ticks that could actually proc ' })}
+                      <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />
+                      {t({ id: 'monk.mistweaver.dancing_mists.eligible.p3', message: ':' })}
+                      {' '}
+                      <b>{t({ id: 'monk.mistweaver.dancing_mists.eligible.b', message: '%' })}</b>
+                    </>
                   </li>
                   <li>
-                    <Trans id="monk.mistweaver.dancing_mists.proc_rate">
-                      Actual <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} /> proc rate:{' '}
-                      <b>{rate}%</b>
-                    </Trans>
+                    <>{t({ id: 'monk.mistweaver.dancing_mists.proc_rate.p1', message: 'Actual ' })}
+                      <SpellLink spell={TALENTS_MONK.DANCING_MISTS_TALENT} />
+                      {t({ id: 'monk.mistweaver.dancing_mists.proc_rate.p2', message: 'proc rate:' })}
+                      {' '}
+                      <b>{t({ id: 'monk.mistweaver.dancing_mists.proc_rate.b', message: '%' })}</b>
+                    </>
                   </li>
                 </ul>
               </>
@@ -498,10 +503,10 @@ class DancingMists extends Analyzer {
           <TooltipElement
             content={
               <>
-                <Trans id="monk.mistweaver.dancing_mists.additional">
-                  The number of additional <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-                  procced on casts and bounces:
-                </Trans>
+                <>{t({ id: 'monk.mistweaver.dancing_mists.additional.p1', message: 'The number of additional ' })}
+                  <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+                  {t({ id: 'monk.mistweaver.dancing_mists.additional.p2', message: 'procced on casts and bounces:' })}
+                </>
                 <hr />
                 <DonutChart items={this.sourceDataItems} />
               </>
@@ -509,9 +514,9 @@ class DancingMists extends Analyzer {
           >
             {this.dancingMistCount}{' '}
             <small>
-              <Trans id="monk.mistweaver.dancing_mists.duplicated">
-                duplicated <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-              </Trans>
+              <>{t({ id: 'monk.mistweaver.dancing_mists.duplicated.p1', message: 'duplicated' })}
+                <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+              </>
             </small>
           </TooltipElement>
         }

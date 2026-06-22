@@ -206,23 +206,29 @@ class Vivify extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="monk.mistweaver.vivify.explanation1">
-            <SpellLink spell={SPELLS.VIVIFY} /> can be one of your best healing spells when you have
-            high enough counts of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> out on the raid
-            via <SpellLink spell={TALENTS_MONK.INVIGORATING_MISTS_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />, and will be a major portion of your
-            healing when used correctly.
-          </Trans>
+          <><SpellLink spell={SPELLS.VIVIFY} />
+            {t({ id: 'monk.mistweaver.vivify.explanation1.p1', message: 'can be one of your best healing spells when you have high enough counts of ' })}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.vivify.explanation1.p2', message: 'out on the raid via ' })}
+            <SpellLink spell={TALENTS_MONK.INVIGORATING_MISTS_TALENT} />
+            {t({ id: 'monk.mistweaver.vivify.explanation1.p3', message: 'and' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />
+            {t({ id: 'monk.mistweaver.vivify.explanation1.p4', message: ', and will be a major portion of your healing when used correctly.' })}
+          </>
         </p>
         <p>
-          <Trans id="monk.mistweaver.vivify.explanation2">
-            The spell's effectiveness goes hand in hand with your{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> count - the more you have out at a given
-            time, the more healing and better mana efficiency this spell has. This further
-            emphasizes the importance of casting your rotational abilities in{' '}
-            <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} /> and{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> as often as possible.
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.vivify.explanation2.p1', message: 'The spell\'s effectiveness goes hand in hand with your' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.vivify.explanation2.p2', message: 'count - the more you have out at a given time, the more healing and better mana efficiency this spell has. This further emphasizes the importance of casting your rotational abilities in' })}
+            {' '}
+            <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} />
+            {t({ id: 'monk.mistweaver.vivify.explanation2.p3', message: 'and' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.vivify.explanation2.p4', message: 'as often as possible.' })}
+          </>
         </p>
         {VIVIFY_LEGEND}
       </>
@@ -236,11 +242,15 @@ class Vivify extends Analyzer {
           message: 'Avg ReMs Per Cast',
         }),
         tooltip: (
-          <Trans id="monk.mistweaver.vivify.avgReMsPerCastTooltip">
-            Average number of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> targets cleaved per{' '}
-            <SpellLink spell={SPELLS.VIVIFY} /> cast via{' '}
+          <>{t({ id: 'monk.mistweaver.vivify.avgReMsPerCastTooltip.p1', message: 'Average number of ' })}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.vivify.avgReMsPerCastTooltip.p2', message: 'targets cleaved per' })}
+            {' '}
+            <SpellLink spell={SPELLS.VIVIFY} />
+            {t({ id: 'monk.mistweaver.vivify.avgReMsPerCastTooltip.p3', message: 'cast via' })}
+            {' '}
             <SpellLink spell={TALENTS_MONK.INVIGORATING_MISTS_TALENT} />
-          </Trans>
+          </>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.averageRemPerVivify,
@@ -271,9 +281,9 @@ class Vivify extends Analyzer {
           message: 'Avg Healing Per Cast',
         }),
         tooltip: (
-          <Trans id="monk.mistweaver.vivify.avgHealingPerCastTooltip">
-            {formatNumber(this.avgRawPerCast)} <small>raw healing per cast</small>
-          </Trans>
+          <>{formatNumber(this.avgRawPerCast)}
+            <small>{t({ id: 'monk.mistweaver.vivify.avgHealingPerCastTooltip.small', message: 'raw healing per cast' })}</small>
+          </>
         ),
       },
     ];

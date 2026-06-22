@@ -283,16 +283,25 @@ class REMGraph extends Analyzer {
         title={t({ id: 'monk.mistweaver.rem_graph.title', message: 'Renewing Mist Graph' })}
         position={99}
         explanation={
-          <Trans id="monk.mistweaver.rem_graph.explanation">
-            <SpellLink spell={SPELLS.VIVIFY} /> also heals any targets that have{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />. This means casting{' '}
-            <SpellLink spell={SPELLS.VIVIFY} /> while having high amounts of{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> will greatly increase its healing.
-            Normal <SpellLink spell={SPELLS.VIVIFY} /> casts are shown as blue dots, while a cast
-            consuming a <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} /> buff is
-            orange. Red triangles indicate <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} />{' '}
-            casts.
-          </Trans>
+          <><SpellLink spell={SPELLS.VIVIFY} />
+            {t({ id: 'monk.mistweaver.rem_graph.explanation.p1', message: 'also heals any targets that have' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.rem_graph.explanation.p2', message: '. This means casting' })}
+            {' '}
+            <SpellLink spell={SPELLS.VIVIFY} />
+            {t({ id: 'monk.mistweaver.rem_graph.explanation.p3', message: 'while having high amounts of' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.rem_graph.explanation.p4', message: 'will greatly increase its healing. Normal ' })}
+            <SpellLink spell={SPELLS.VIVIFY} />
+            {t({ id: 'monk.mistweaver.rem_graph.explanation.p5', message: 'casts are shown as blue dots, while a cast consuming a ' })}
+            <SpellLink spell={TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT} />
+            {t({ id: 'monk.mistweaver.rem_graph.explanation.p6', message: 'buff is orange. Red triangles indicate ' })}
+            <SpellLink spell={TALENTS_MONK.RISING_SUN_KICK_TALENT} />
+            {' '}
+            {t({ id: 'monk.mistweaver.rem_graph.explanation.p7', message: 'casts.' })}
+          </>
         }
       >
         {this.plot}

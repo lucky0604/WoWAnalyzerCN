@@ -11,15 +11,15 @@ export function IntroSection() {
       })}
     >
       <p>
-        <Trans id="guide.hunter.survival.sections.intro.welcome">
-          Hello and welcome to the analyzer for the Survival Hunter spec! All the theorycrafting
-          comes from summarizing the guides over at{' '}
-          <a href="https://www.wowhead.com/guide/classes/hunter/survival/overview-pve-dps">
-            Wowhead
-          </a>
-          , <a href="https://www.icy-veins.com/wow/survival-hunter-pve-dps-guide">Icy Veins</a>, and
-          the <a href="https://discord.com/invite/trueshot">Hunter Discord</a>.
-        </Trans>
+        <>{t({ id: 'guide.hunter.survival.sections.intro.welcome.p1', message: 'Hello and welcome to the analyzer for the Survival Hunter spec! All the theorycrafting comes from summarizing the guides over at' })}
+          {' '}
+          <a href="https://www.wowhead.com/guide/classes/hunter/survival/overview-pve-dps">{t({ id: 'guide.hunter.survival.sections.intro.welcome.a', message: 'Wowhead' })}</a>
+          {t({ id: 'guide.hunter.survival.sections.intro.welcome.p2', message: ', ' })}
+          <a href="https://www.icy-veins.com/wow/survival-hunter-pve-dps-guide">{t({ id: 'guide.hunter.survival.sections.intro.welcome.a2', message: 'Icy Veins' })}</a>
+          {t({ id: 'guide.hunter.survival.sections.intro.welcome.p3', message: ', and the ' })}
+          <a href="https://discord.com/invite/trueshot">{t({ id: 'guide.hunter.survival.sections.intro.welcome.a3', message: 'Hunter Discord' })}</a>
+          {t({ id: 'guide.hunter.survival.sections.intro.welcome.p4', message: '.' })}
+        </>
       </p>
       <p>
         <>
@@ -43,11 +43,13 @@ export function IntroSection() {
         </>
       </p>
       <p>
-        <Trans id="guide.hunter.survival.sections.intro.questions">
-          If you have any questions, corrections, complaints, or want to help, I'm happy to talk
-          over at <code>#survival</code> in the{' '}
-          <a href="https://discord.com/invite/trueshot">Hunter Discord</a>.
-        </Trans>
+        <>{t({ id: 'guide.hunter.survival.sections.intro.questions.p1', message: 'If you have any questions, corrections, complaints, or want to help, I\'m happy to talk over at ' })}
+          <code>{t({ id: 'guide.hunter.survival.sections.intro.questions.code', message: '#survival' })}</code>
+          {t({ id: 'guide.hunter.survival.sections.intro.questions.p2', message: 'in the' })}
+          {' '}
+          <a href="https://discord.com/invite/trueshot">{t({ id: 'guide.hunter.survival.sections.intro.questions.a', message: 'Hunter Discord' })}</a>
+          {t({ id: 'guide.hunter.survival.sections.intro.questions.p3', message: '.' })}
+        </>
       </p>
     </Section>
   );

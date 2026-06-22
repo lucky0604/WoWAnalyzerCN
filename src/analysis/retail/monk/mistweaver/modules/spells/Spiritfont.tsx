@@ -262,16 +262,22 @@ class Spiritfont extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />
         </b>{' '}
-        <Trans id="monk.mistweaver.spiritfont.explanation">
-          is our Apex talent. It stacks up to {SPIRITFONT_MAX_STACKS} charges, and consuming a
-          charge causes several <SpellLink spell={SPELLS.SPIRITFONT_HOT} /> to heal players.
-          Additionally, it increases the damage and healing of your{' '}
-          <SpellLink spell={this.activeRSKTalent} /> and{' '}
-          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />, with even greater increases
-          during <SpellLink spell={TALENTS_MONK.SPIRITFONT_2_MISTWEAVER_TALENT} /> activity. It is
-          very important to never let this buff refresh at {SPIRITFONT_MAX_STACKS} stacks or expire,
-          as all portions of the Apex add up to a significant amount of your healing.
-        </Trans>
+        <>{t({ id: 'monk.mistweaver.spiritfont.explanation.p1', message: 'is our Apex talent. It stacks up to ' })}
+          {SPIRITFONT_MAX_STACKS}
+          {t({ id: 'monk.mistweaver.spiritfont.explanation.p2', message: 'charges, and consuming a charge causes several ' })}
+          <SpellLink spell={SPELLS.SPIRITFONT_HOT} />
+          {t({ id: 'monk.mistweaver.spiritfont.explanation.p3', message: 'to heal players. Additionally, it increases the damage and healing of your' })}
+          {' '}
+          <SpellLink spell={this.activeRSKTalent} />
+          {t({ id: 'monk.mistweaver.spiritfont.explanation.p4', message: 'and' })}
+          {' '}
+          <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
+          {t({ id: 'monk.mistweaver.spiritfont.explanation.p5', message: ', with even greater increases during ' })}
+          <SpellLink spell={TALENTS_MONK.SPIRITFONT_2_MISTWEAVER_TALENT} />
+          {t({ id: 'monk.mistweaver.spiritfont.explanation.p6', message: 'activity. It is very important to never let this buff refresh at ' })}
+          {SPIRITFONT_MAX_STACKS}
+          {t({ id: 'monk.mistweaver.spiritfont.explanation.p7', message: 'stacks or expire, as all portions of the Apex add up to a significant amount of your healing.' })}
+        </>
       </p>
     );
     const stats = [
@@ -282,10 +288,9 @@ class Spiritfont extends Analyzer {
           message: 'Wasted Buffs',
         }),
         tooltip: (
-          <Trans id="monk.mistweaver.spiritfont.wastedBuffsTooltip">
-            <div>{this.expiredBuffs} expired</div>
+          <><div>{this.expiredBuffs} expired</div>
             <div>{this.refreshedBuffs} refreshed</div>
-          </Trans>
+          </>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.expiredBuffs + this.refreshedBuffs,

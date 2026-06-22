@@ -278,9 +278,9 @@ class Rejuvenation extends Analyzer {
       >
         <BoringValue
           label={
-            <Trans id="restoration.rejuv.statistic_label">
-              <SpellIcon spell={SPELLS.REJUVENATION} /> Early Rejuvenation refreshes
-            </Trans>
+            <><SpellIcon spell={SPELLS.REJUVENATION} />
+              {t({ id: 'restoration.rejuv.statistic_label.p1', message: 'Early Rejuvenation refreshes' })}
+            </>
           }
         >
           <>

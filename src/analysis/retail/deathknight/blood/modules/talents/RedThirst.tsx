@@ -1,4 +1,5 @@
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatNumber } from 'common/format';
 import TALENTS from 'common/TALENTS/deathknight';
 import UptimeIcon from 'interface/icons/Uptime';
@@ -69,10 +70,12 @@ class RedThirst extends Analyzer {
         }
       >
         <BoringSpellValueText spell={TALENTS.RED_THIRST_TALENT}>
-          <Trans id="deathknight.blood.redThirst.statistic">
-            <UptimeIcon /> {formatNumber(this.averageReduction)} sec{' '}
-            <small>average reduction</small>
-          </Trans>
+          <><UptimeIcon />
+            {formatNumber(this.averageReduction)}
+            {t({ id: 'deathknight.blood.redThirst.statistic.p1', message: 'sec' })}
+            {' '}
+            <small>{t({ id: 'deathknight.blood.redThirst.statistic.small', message: 'average reduction' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

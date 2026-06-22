@@ -550,18 +550,13 @@ abstract class BaseHealerStatValues extends Analyzer {
                     <th style={{ minWidth: 30, fontWeight: 400 }}>
                       <TooltipElement
                         content={
-                          <Trans id="shared.healerStatValues.statistic.title.tooltip">
-                            These stat values are calculated using the actual circumstances of this
-                            encounter. These values reveal the value of the last 1 rating of each
-                            stat, they may not necessarily be the best way to gear. The stat values
-                            are likely to differ based on fight, raid size, items used, talents
-                            chosen, etc.
+                          <>{t({ id: 'shared.healerStatValues.statistic.title.tooltip.p1', message: 'These stat values are calculated using the actual circumstances of this encounter. These values reveal the value of the last 1 rating of each stat, they may not necessarily be the best way to gear. The stat values are likely to differ based on fight, raid size, items used, talents chosen, etc. ' })}
                             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                             <br />
                             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                             <br />
-                            DPS gains are not included in any of the stat values.
-                          </Trans>
+                            {t({ id: 'shared.healerStatValues.statistic.title.tooltip.p2', message: 'DPS gains are not included in any of the stat values.' })}
+                          </>
                         }
                       >
                         {t({
@@ -576,14 +571,14 @@ abstract class BaseHealerStatValues extends Analyzer {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <Trans id="shared.healerStatValues.statistic.qeLink">
-                              <img
+                            <><img
                                 src={QELiveLogo}
                                 alt="Questionably Epic Live"
                                 style={{ height: '1.2em', marginLeft: 15 }}
-                              />{' '}
-                              Open Questionably Epic Live
-                            </Trans>
+                              />
+                              {' '}
+                              {t({ id: 'shared.healerStatValues.statistic.qeLink.p1', message: 'Open Questionably Epic Live' })}
+                            </>
                           </a>
                         </Tooltip>
                       )}

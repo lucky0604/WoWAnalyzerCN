@@ -46,20 +46,26 @@ function RageSection({ modules }: GuideProps<typeof CombatLogParser>): JSX.Eleme
   return (
     <Section title={t({ id: 'guardian.section.rage', message: 'Rage' })}>
       <p>
-        <Trans id="guardian.rage.description">
-          Guardian's primary resource is <ResourceLink id={RESOURCE_TYPES.RAGE.id} />. It's
-          generated as part of your normal rotation, and can be consumed either defensively (with{' '}
-          <SpellLink spell={SPELLS.IRONFUR} /> / <SpellLink spell={SPELLS.FRENZIED_REGENERATION} />)
-          or offensively (with <SpellLink spell={SPELLS.MAUL} /> /{' '}
+        <>{t({ id: 'guardian.rage.description.p1', message: 'Guardian\'s primary resource is ' })}
+          <ResourceLink id={RESOURCE_TYPES.RAGE.id} />
+          {t({ id: 'guardian.rage.description.p2', message: '. It\'s generated as part of your normal rotation, and can be consumed either defensively (with' })}
+          {' '}
+          <SpellLink spell={SPELLS.IRONFUR} />
+          {t({ id: 'guardian.rage.description.p3', message: '/ ' })}
+          <SpellLink spell={SPELLS.FRENZIED_REGENERATION} />
+          {t({ id: 'guardian.rage.description.p4', message: ') or offensively (with ' })}
+          <SpellLink spell={SPELLS.MAUL} />
+          {t({ id: 'guardian.rage.description.p5', message: '/' })}
+          {' '}
           <SpellLink spell={TALENTS_DRUID.RAZE_TALENT} />
-          ). You should always spend your Rage before capping, as lost generation is lost
-          effectiveness. <SpellLink spell={SPELLS.IRONFUR} /> is not on the GCD - excess rage can
-          always be instantly turned into extra stacks.
-        </Trans>
+          {t({ id: 'guardian.rage.description.p6', message: '). You should always spend your Rage before capping, as lost generation is lost effectiveness. ' })}
+          <SpellLink spell={SPELLS.IRONFUR} />
+          {t({ id: 'guardian.rage.description.p7', message: 'is not on the GCD - excess rage can always be instantly turned into extra stacks.' })}
+        </>
       </p>
       <p>
-        <Trans id="guardian.rage.wasted">
-          The chart below shows your Rage over the course of the encounter. You wasted{' '}
+        <>{t({ id: 'guardian.rage.wasted.p1', message: 'The chart below shows your Rage over the course of the encounter. You wasted' })}
+          {' '}
           <PerformancePercentage
             performance={modules.rageTracker.wastedPerformance}
             perfectPercentage={PERFECT_RAGE_WASTED}
@@ -67,9 +73,12 @@ function RageSection({ modules }: GuideProps<typeof CombatLogParser>): JSX.Eleme
             okPercentage={OK_RAGE_WASTED}
             percentage={modules.rageTracker.percentAtCap}
             flatAmount={modules.rageTracker.wasted * RAGE_SCALE_FACTOR}
-          />{' '}
-          of your <ResourceLink id={RESOURCE_TYPES.RAGE.id} />.
-        </Trans>
+          />
+          {' '}
+          {t({ id: 'guardian.rage.wasted.p2', message: 'of your ' })}
+          <ResourceLink id={RESOURCE_TYPES.RAGE.id} />
+          {t({ id: 'guardian.rage.wasted.p3', message: '.' })}
+        </>
       </p>
       {modules.rageGraph.plot}
     </Section>
@@ -80,21 +89,26 @@ function RotationSection({ modules, events, info }: GuideProps<typeof CombatLogP
   return (
     <Section title={t({ id: 'guardian.section.rotation', message: 'Rotation' })}>
       <p>
-        <Trans id="guardian.rotation.basics">
-          The basics of Guardian's damage / rage-building rotation is to use{' '}
-          <SpellLink spell={SPELLS.MANGLE_BEAR} /> and <SpellLink spell={SPELLS.THRASH_BEAR} /> on
-          cooldown while maintaining <SpellLink spell={SPELLS.MOONFIRE_DEBUFF} /> on enemies. Fill
-          any empty GCDs with <SpellLink spell={SPELLS.SWIPE_BEAR} />. For more detail on the
-          specifics and priorities at play, refer to the{' '}
+        <>{t({ id: 'guardian.rotation.basics.p1', message: 'The basics of Guardian\'s damage / rage-building rotation is to use' })}
+          {' '}
+          <SpellLink spell={SPELLS.MANGLE_BEAR} />
+          {t({ id: 'guardian.rotation.basics.p2', message: 'and ' })}
+          <SpellLink spell={SPELLS.THRASH_BEAR} />
+          {t({ id: 'guardian.rotation.basics.p3', message: 'on cooldown while maintaining ' })}
+          <SpellLink spell={SPELLS.MOONFIRE_DEBUFF} />
+          {t({ id: 'guardian.rotation.basics.p4', message: 'on enemies. Fill any empty GCDs with ' })}
+          <SpellLink spell={SPELLS.SWIPE_BEAR} />
+          {t({ id: 'guardian.rotation.basics.p5', message: '. For more detail on the specifics and priorities at play, refer to the' })}
+          {' '}
           <a
             href="https://www.wowhead.com/guide/classes/druid/guardian/rotation-cooldowns-pve-tank"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Wowhead rotation guide
-          </a>
-          .
-        </Trans>
+          {t({ id: 'guardian.rotation.basics.a', message: 'Wowhead rotation guide' })}
+        </a>
+          {t({ id: 'guardian.rotation.basics.p6', message: '.' })}
+        </>
       </p>
       <p>
         <Trans id="guardian.rotation.gcdCapped">

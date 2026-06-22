@@ -1,4 +1,4 @@
-import { defineMessage } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { i18n } from '@lingui/core';
 import SPELLS from 'common/SPELLS';
@@ -178,8 +178,7 @@ class MarrowrendUsage extends Analyzer {
         position={STATISTIC_ORDER.CORE(3)}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.marrowrendUsage.statistic.tooltip">
-            <p>
+          <><p>
               {this.refreshMRCasts} casts to refresh Bone Shield, those do not count towards bad
               casts.
             </p>
@@ -191,13 +190,15 @@ class MarrowrendUsage extends Analyzer {
               Avoid casting Marrowrend unless you have {this.refreshAtStacks} or less stacks or if
               Bone Shield has less than 6sec of its duration left.
             </p>
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.MARROWREND_TALENT}>
-          <Trans id="deathknight.blood.marrowrendUsage.statistic">
-            {this.badMRCasts} / {this.totalMRCasts} <small>bad casts</small>
-          </Trans>
+          <>{this.badMRCasts}
+            {t({ id: 'deathknight.blood.marrowrendUsage.statistic.p1', message: '/' })}
+            {this.totalMRCasts}
+            <small>{t({ id: 'deathknight.blood.marrowrendUsage.statistic.small', message: 'bad casts' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

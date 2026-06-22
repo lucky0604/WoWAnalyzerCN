@@ -100,14 +100,12 @@ class ReportSelectionHeader extends PureComponent<Props, State> {
                 <h1>WoWAnalyzer</h1>
               </a>
               <div id="reportSelectionHeader.improveYourPerformance">
-                <Trans id="interface.home.reportSelectionHeader.improveYourPerformance">
-                  Improve your performance with personal feedback and stats. Just enter the link of
-                  a{' '}
-                  <a href="https://www.warcraftlogs.com/" target="_blank" rel="noopener noreferrer">
-                    Warcraft Logs
-                  </a>{' '}
-                  report below.
-                </Trans>
+                <>{t({ id: 'interface.home.reportSelectionHeader.improveYourPerformance.p1', message: 'Improve your performance with personal feedback and stats. Just enter the link of a' })}
+                  {' '}
+                  <a href="https://www.warcraftlogs.com/" target="_blank" rel="noopener noreferrer">{t({ id: 'interface.home.reportSelectionHeader.improveYourPerformance.a', message: 'Warcraft Logs' })}</a>
+                  {' '}
+                  {t({ id: 'interface.home.reportSelectionHeader.improveYourPerformance.p2', message: 'report below.' })}
+                </>
               </div>
               <div style={{ margin: '30px auto', maxWidth: 700, textAlign: 'left' }}>
                 <nav>

@@ -115,9 +115,9 @@ class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)}>
         <div className="pad">
           <label>
-            <Trans id="druid.feral.builder_use.label">
-              <ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} /> builder usage
-            </Trans>
+            <><ResourceLink id={RESOURCE_TYPES.COMBO_POINTS.id} />
+              {t({ id: 'druid.feral.builder_use.label.p1', message: 'builder usage' })}
+            </>
           </label>
           {this.chart}
         </div>

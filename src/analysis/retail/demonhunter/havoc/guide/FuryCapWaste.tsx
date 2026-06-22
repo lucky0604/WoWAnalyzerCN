@@ -33,9 +33,10 @@ const FuryCapWaste = ({
 
   return (
     <span>
-      <Trans id="demonhunter.havoc.furyCapWaste.chart">
-        The chart below shows your <ResourceLink id={RESOURCE_TYPES.FURY.id} /> over the course of the
-        encounter. You wasted{' '}
+      <>{t({ id: 'demonhunter.havoc.furyCapWaste.chart.p1', message: 'The chart below shows your ' })}
+        <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+        {t({ id: 'demonhunter.havoc.furyCapWaste.chart.p2', message: 'over the course of the encounter. You wasted' })}
+        {' '}
         <PerformancePercentage
           performance={percentAtCapPerformance}
           perfectPercentage={perfectTimeAtFuryCap}
@@ -43,9 +44,12 @@ const FuryCapWaste = ({
           okPercentage={okTimeAtFuryCap}
           percentage={percentAtCap}
           flatAmount={wasted}
-        />{' '}
-        of your <ResourceLink id={RESOURCE_TYPES.FURY.id} />.
-      </Trans>
+        />
+        {' '}
+        {t({ id: 'demonhunter.havoc.furyCapWaste.chart.p3', message: 'of your ' })}
+        <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+        {t({ id: 'demonhunter.havoc.furyCapWaste.chart.p4', message: '.' })}
+      </>
       {info.combatant.hasTalent(TALENTS.BLIND_FURY_TALENT) && (
         <>
           {' '}

@@ -141,9 +141,9 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)} size="flexible">
         <div className="pad">
           <label>
-            <Trans id="paladin.protection.builderUse.builderUsage">
-              <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> builder usage
-            </Trans>
+            <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+              {t({ id: 'paladin.protection.builderUse.builderUsage.p1', message: 'builder usage' })}
+            </>
           </label>
           {this.chart}
         </div>

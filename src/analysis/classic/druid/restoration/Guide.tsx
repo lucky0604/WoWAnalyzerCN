@@ -44,12 +44,9 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <Trans id="classic.druid.restoration.hotGraph.description">
-        <strong>HoT Graph</strong> - this graph shows how many Rejuvenation and Wild Growths you had
-        active over the course of the encounter, with rule lines showing when you activated your
-        healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp
-        Rejuvenations well before big damage?
-      </Trans>
+      <><strong>{t({ id: 'classic.druid.restoration.hotGraph.description.strong', message: 'HoT Graph' })}</strong>
+        {t({ id: 'classic.druid.restoration.hotGraph.description.p1', message: '- this graph shows how many Rejuvenation and Wild Growths you had active over the course of the encounter, with rule lines showing when you activated your healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp Rejuvenations well before big damage?' })}
+      </>
       {modules.hotCountGraph.plot}
     </SubSection>
   );

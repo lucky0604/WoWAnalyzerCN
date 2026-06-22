@@ -26,21 +26,20 @@ export function Component() {
         }}
       >
         <div style={{ padding: '15px 20px', marginBottom: 5 }}>
-          <Trans id="interface.helpWantedPage.helpWanted">
-            WoWAnalyzer is completely open source and relies on mostly volunteer contributors to
-            implement spec-specific analysis. You don't need to to do anything special to
-            contribute. See the{' '}
-            <a href="https://github.com/WoWAnalyzer/WoWAnalyzer#contributing">
-              contributing guidelines
-            </a>{' '}
-            if you want to give it a try.
+          <>{t({ id: 'interface.helpWantedPage.helpWanted.p1', message: 'WoWAnalyzer is completely open source and relies on mostly volunteer contributors to implement spec-specific analysis. You don\'t need to to do anything special to contribute. See the' })}
+            {' '}
+            <a href="https://github.com/WoWAnalyzer/WoWAnalyzer#contributing">{t({ id: 'interface.helpWantedPage.helpWanted.a', message: 'contributing guidelines' })}</a>
+            {' '}
+            {t({ id: 'interface.helpWantedPage.helpWanted.p2', message: 'if you want to give it a try. ' })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            If you're unable to help out with improving our analysis, please consider signing up for{' '}
-            <Link to="/premium">Premium</Link> instead.
-          </Trans>
+            {t({ id: 'interface.helpWantedPage.helpWanted.p3', message: 'If you\'re unable to help out with improving our analysis, please consider signing up for' })}
+            {' '}
+            <Link to="/premium">Premium</Link>
+            {t({ id: 'interface.helpWantedPage.helpWanted.p4', message: 'instead.' })}
+          </>
         </div>
 
         <img

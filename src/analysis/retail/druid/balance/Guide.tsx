@@ -124,8 +124,8 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
             message: '. Avoid capping Astral Power!',
           })}
         </p>
-        <Trans id="druid.balance.astralPower.wasted">
-          The chart below shows your Astral Power over the course of the encounter. You wasted{' '}
+        <>{t({ id: 'druid.balance.astralPower.wasted.p1', message: 'The chart below shows your Astral Power over the course of the encounter. You wasted' })}
+          {' '}
           <PerformancePercentage
             performance={modules.astralPowerTracker.wastedPerformance}
             perfectPercentage={PERFECT_ASP_WASTED}
@@ -133,10 +133,12 @@ function CoreSection({ modules, info }: GuideProps<typeof CombatLogParser>) {
             okPercentage={OK_ASP_WASTED}
             percentage={modules.astralPowerTracker.percentWasted}
             flatAmount={modules.astralPowerTracker.wasted * ASTRAL_POWER_SCALE_FACTOR}
-          />{' '}
-          of your <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} /> (More details in 'Astral
-          Power usage' tab).
-        </Trans>
+          />
+          {' '}
+          {t({ id: 'druid.balance.astralPower.wasted.p2', message: 'of your ' })}
+          <ResourceLink id={RESOURCE_TYPES.ASTRAL_POWER.id} />
+          {t({ id: 'druid.balance.astralPower.wasted.p3', message: '(More details in \'Astral Power usage\' tab).' })}
+        </>
       </SubSection>
       {modules.astralPowerGraph.plot}
     </Section>

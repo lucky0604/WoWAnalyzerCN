@@ -89,10 +89,10 @@ const LoggedIn = ({
               </div>
             ) : (
               <div className="description">
-                <Trans id="interface.premiumLoginPanel.logged-in.hasNoValidAuth">
-                  Your authentication has expired, If you would like to re-authorize access to your
-                  private logs, click <em>Continue</em> below.
-                </Trans>
+                <>{t({ id: 'interface.premiumLoginPanel.logged-in.hasNoValidAuth.p1', message: 'Your authentication has expired, If you would like to re-authorize access to your private logs, click ' })}
+                  <em>{t({ id: 'interface.premiumLoginPanel.logged-in.hasNoValidAuth.em', message: 'Continue' })}</em>
+                  {t({ id: 'interface.premiumLoginPanel.logged-in.hasNoValidAuth.p2', message: 'below.' })}
+                </>
                 <div>
                   <a
                     className="btn btn-primary"

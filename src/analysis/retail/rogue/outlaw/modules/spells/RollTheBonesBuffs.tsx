@@ -46,8 +46,7 @@ class RollTheBonesBuffs extends Analyzer {
           <b>
             <SpellLink spell={SPELLS.ROLL_THE_BONES} />{' '}
           </b>
-          <Trans id="rogue.outlaw.rollTheBonesBuffs.explanation1">
-            <p>
+          <><p>
               This is one of the most important spells for efficient gameplay. When pressed it has a
               chance of giving a buff that goes from stage 1 to stage 4. Most of the power is baked
               into the first 2 stages whom are the most accessible to maintain.
@@ -72,7 +71,7 @@ class RollTheBonesBuffs extends Analyzer {
               </a>
               )
             </p>
-          </Trans>
+          </>
         </p>
         <ul>
           <li>

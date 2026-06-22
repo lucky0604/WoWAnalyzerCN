@@ -1,4 +1,5 @@
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import UptimeIcon from 'interface/icons/Uptime';
@@ -36,9 +37,11 @@ class BloodPlagueUptime extends Analyzer {
     return (
       <Statistic size="small" position={STATISTIC_ORDER.CORE(2)}>
         <BoringSpellValueText spell={SPELLS.BLOOD_PLAGUE}>
-          <Trans id="deathknight.blood.bloodPlague.statistic">
-            <UptimeIcon /> {formatPercentage(this.uptime)}% <small>uptime</small>
-          </Trans>
+          <><UptimeIcon />
+            {formatPercentage(this.uptime)}
+            {t({ id: 'deathknight.blood.bloodPlague.statistic.p1', message: '%' })}
+            <small>{t({ id: 'deathknight.blood.bloodPlague.statistic.small', message: 'uptime' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

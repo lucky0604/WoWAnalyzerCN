@@ -170,8 +170,7 @@ const ReportSelecter = () => {
       <div className="report-selector">
         <Tooltip
           content={
-            <Trans id="interface.reportSelecter.reportSelecter.tooltip.supportedLinks">
-              Supported links:
+            <>{t({ id: 'interface.reportSelecter.reportSelecter.tooltip.supportedLinks.p1', message: 'Supported links:' })}
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />
               <ul>
@@ -186,7 +185,7 @@ const ReportSelecter = () => {
                   https://www.wowchina.com/&lt;language-code&gt;/character/&lt;realm&gt;/&lt;name&gt;
                 </li>
               </ul>
-            </Trans>
+            </>
           }
         >
           {/*the div needs to be there (previously the tooltip was on input directly) because input sets its own ref and Tooltip would overwrite it*/}

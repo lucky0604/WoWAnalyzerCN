@@ -254,13 +254,14 @@ export function RuneWaste(): JSX.Element | null {
         </>
       }
       description={
-        <Trans id="deathknight.blood.runeWaste.heartStrikeBonusRp">
-          Heart Strike generates a lot more{' '}
+        <>{t({ id: 'deathknight.blood.runeWaste.heartStrikeBonusRp.p1', message: 'Heart Strike generates a lot more' })}
+          {' '}
           <Highlight textColor="#111" color={RunicPowerColor}>
             Bonus
-          </Highlight>{' '}
-          RP than other abilities.
-        </Trans>
+          </Highlight>
+          {' '}
+          {t({ id: 'deathknight.blood.runeWaste.heartStrikeBonusRp.p2', message: 'RP than other abilities.' })}
+        </>
       }
     >
       <div>

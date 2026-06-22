@@ -170,9 +170,10 @@ class MaelstromSpenders extends Analyzer.withDependencies({
       label: t({ id: 'shaman.elemental.maelstrom.title', message: 'Maelstrom' }),
       performance: this.getWastePerformance(cast),
       tooltip: (
-        <Trans id="shaman.elemental.spenders.maelstrom_tooltip">
-          Your <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> immediately before this spender.
-        </Trans>
+        <>{t({ id: 'shaman.elemental.spenders.maelstrom_tooltip.p1', message: 'Your ' })}
+          <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+          {t({ id: 'shaman.elemental.spenders.maelstrom_tooltip.p2', message: 'immediately before this spender.' })}
+        </>
       ),
     };
   }
@@ -185,10 +186,10 @@ class MaelstromSpenders extends Analyzer.withDependencies({
       label: t({ id: 'shaman.elemental.spenders.waste', message: 'Waste Since Last' }),
       performance: this.getWastePerformance(cast),
       tooltip: (
-        <Trans id="shaman.elemental.spenders.waste_tooltip">
-          Actual <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> lost to overcap since your
-          previous spender cast.
-        </Trans>
+        <>{t({ id: 'shaman.elemental.spenders.waste_tooltip.p1', message: 'Actual ' })}
+          <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+          {t({ id: 'shaman.elemental.spenders.waste_tooltip.p2', message: 'lost to overcap since your previous spender cast.' })}
+        </>
       ),
     };
   }
@@ -201,10 +202,10 @@ class MaelstromSpenders extends Analyzer.withDependencies({
         ? QualitativePerformance.Perfect
         : this.getLavaBurstOpportunityPerformance(cast),
       tooltip: (
-        <Trans id="shaman.elemental.spenders.mote_tooltip">
-          Whether <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} /> was active when this
-          spender was cast.
-        </Trans>
+        <>{t({ id: 'shaman.elemental.spenders.mote_tooltip.p1', message: 'Whether ' })}
+          <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} />
+          {t({ id: 'shaman.elemental.spenders.mote_tooltip.p2', message: 'was active when this spender was cast.' })}
+        </>
       ),
     };
   }
@@ -221,10 +222,10 @@ class MaelstromSpenders extends Analyzer.withDependencies({
       label: t({ id: 'shaman.elemental.spenders.lvb_ready', message: 'LvB Ready' }),
       performance: this.enabledTalents.masterOfTheElements ? performance : undefined,
       tooltip: (
-        <Trans id="shaman.elemental.spenders.lvb_tooltip">
-          Time that <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> had at least one charge ready
-          before this spender cast.
-        </Trans>
+        <>{t({ id: 'shaman.elemental.spenders.lvb_tooltip.p1', message: 'Time that ' })}
+          <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+          {t({ id: 'shaman.elemental.spenders.lvb_tooltip.p2', message: 'had at least one charge ready before this spender cast.' })}
+        </>
       ),
     };
   }
@@ -237,20 +238,25 @@ class MaelstromSpenders extends Analyzer.withDependencies({
     if (this.isSignificantOvercap(cast)) {
       context = (
         <div>
-          <Trans id="shaman.elemental.spenders.context_wasted">
-            You wasted <strong>{formatNumber(wasteSinceLastSpender)}</strong>{' '}
-            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> by not spending earlier. Wasting this
-            much <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> is a significant mistake.
-          </Trans>
+          <>{t({ id: 'shaman.elemental.spenders.context_wasted.p1', message: 'You wasted ' })}
+            <strong>{formatNumber(wasteSinceLastSpender)}</strong>
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.spenders.context_wasted.p2', message: 'by not spending earlier. Wasting this much ' })}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.spenders.context_wasted.p3', message: 'is a significant mistake.' })}
+          </>
         </div>
       );
     } else if (wasteSinceLastSpender > 0) {
       context = (
         <div>
-          <Trans id="shaman.elemental.spenders.context_capped">
-            You were at the <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> cap. Spend earlier to
-            avoid overcapping and wasting <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />.
-          </Trans>
+          <>{t({ id: 'shaman.elemental.spenders.context_capped.p1', message: 'You were at the ' })}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.spenders.context_capped.p2', message: 'cap. Spend earlier to avoid overcapping and wasting ' })}
+            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.spenders.context_capped.p3', message: '.' })}
+          </>
         </div>
       );
     }
@@ -263,21 +269,26 @@ class MaelstromSpenders extends Analyzer.withDependencies({
       if (cast.lavaBurstAvailableDuration < LAVA_BURST_PERFECT_MS) {
         recommendation = (
           <div>
-            <Trans id="shaman.elemental.spenders.rec_available_less">
-              <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> was available for less than{' '}
-              <strong>{formatSeconds(cast.lavaBurstAvailableDuration, 1)}s</strong>.
-            </Trans>
+            <><SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+              {t({ id: 'shaman.elemental.spenders.rec_available_less.p1', message: 'was available for less than' })}
+              {' '}
+              <strong>{t({ id: 'shaman.elemental.spenders.rec_available_less.strong', message: 's' })}</strong>
+              {t({ id: 'shaman.elemental.spenders.rec_available_less.p2', message: '.' })}
+            </>
           </div>
         );
       } else {
         recommendation = (
           <div>
-            <Trans id="shaman.elemental.spenders.rec_available_more">
-              One or more charges of <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> had been
-              available for <strong>{formatSeconds(cast.lavaBurstAvailableDuration, 1)}s</strong> -
-              you should have cast it earlier to have{' '}
-              <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} /> active.
-            </Trans>
+            <>{t({ id: 'shaman.elemental.spenders.rec_available_more.p1', message: 'One or more charges of ' })}
+              <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+              {t({ id: 'shaman.elemental.spenders.rec_available_more.p2', message: 'had been available for ' })}
+              <strong>{t({ id: 'shaman.elemental.spenders.rec_available_more.strong', message: 's' })}</strong>
+              {t({ id: 'shaman.elemental.spenders.rec_available_more.p3', message: '- you should have cast it earlier to have' })}
+              {' '}
+              <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} />
+              {t({ id: 'shaman.elemental.spenders.rec_available_more.p4', message: 'active.' })}
+            </>
           </div>
         );
       }
@@ -287,9 +298,9 @@ class MaelstromSpenders extends Analyzer.withDependencies({
       <>
         <ul>
           <li>
-            <Trans id="shaman.elemental.spenders.spell_cast">
-              Spell Cast: <SpellLink spell={cast.event.ability.guid} />
-            </Trans>
+            <>{t({ id: 'shaman.elemental.spenders.spell_cast.p1', message: 'Spell Cast:' })}
+              <SpellLink spell={cast.event.ability.guid} />
+            </>
           </li>
           {context && <li>{context}</li>}
           {recommendation && <li>{recommendation}</li>}
@@ -424,10 +435,13 @@ class MaelstromSpenders extends Analyzer.withDependencies({
                 message: 'Missed MOTE Opportunities',
               }),
               tooltip: (
-                <Trans id="shaman.elemental.spenders.missed_mote_tooltip">
-                  Spenders cast without <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} />{' '}
-                  while <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> was already ready.
-                </Trans>
+                <>{t({ id: 'shaman.elemental.spenders.missed_mote_tooltip.p1', message: 'Spenders cast without ' })}
+                  <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} />
+                  {' '}
+                  {t({ id: 'shaman.elemental.spenders.missed_mote_tooltip.p2', message: 'while ' })}
+                  <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+                  {t({ id: 'shaman.elemental.spenders.missed_mote_tooltip.p3', message: 'was already ready.' })}
+                </>
               ),
               performance:
                 lavaBurstReadyMisses === 0
@@ -447,20 +461,23 @@ class MaelstromSpenders extends Analyzer.withDependencies({
     const explanation = (
       <>
         <p>
-          <Trans id="shaman.elemental.spenders.explanation1">
-            <ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} /> spenders are now often used earlier,
-            so this section does not expect every cast to happen near cap.
-          </Trans>
+          <><ResourceLink id={RESOURCE_TYPES.MAELSTROM.id} />
+            {t({ id: 'shaman.elemental.spenders.explanation1.p1', message: 'spenders are now often used earlier, so this section does not expect every cast to happen near cap.' })}
+          </>
         </p>
         {this.enabledTalents.masterOfTheElements ? (
           <p>
-            <Trans id="shaman.elemental.spenders.explanation2">
-              The only casts flagged here are spenders used without{' '}
-              <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} /> after{' '}
-              <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> was already ready. If{' '}
-              <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> was unavailable, spending early is
-              treated as fine.
-            </Trans>
+            <>{t({ id: 'shaman.elemental.spenders.explanation2.p1', message: 'The only casts flagged here are spenders used without' })}
+              {' '}
+              <SpellLink spell={TALENTS.MASTER_OF_THE_ELEMENTS_TALENT} />
+              {t({ id: 'shaman.elemental.spenders.explanation2.p2', message: 'after' })}
+              {' '}
+              <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+              {t({ id: 'shaman.elemental.spenders.explanation2.p3', message: 'was already ready. If' })}
+              {' '}
+              <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+              {t({ id: 'shaman.elemental.spenders.explanation2.p4', message: 'was unavailable, spending early is treated as fine.' })}
+            </>
           </p>
         ) : (
           <p>

@@ -77,14 +77,15 @@ const StandardDescription = () => {
             </>
           </li>
           <li>
-            <Trans id="monk.brewmaster.apl.sequence_rule3">
-              Fill all other <SpellIcon spell={blank} />s with your normal rotation
-            </Trans>
+            <>{t({ id: 'monk.brewmaster.apl.sequence_rule3.p1', message: 'Fill all other ' })}
+              <SpellIcon spell={blank} />
+              {t({ id: 'monk.brewmaster.apl.sequence_rule3.p2', message: 's with your normal rotation' })}
+            </>
           </li>
         </ol>
         <DivP>
-          <Trans id="monk.brewmaster.apl.sequence_rule_summary">
-            so{' '}
+          <>{t({ id: 'monk.brewmaster.apl.sequence_rule_summary.p1', message: 'so' })}
+            {' '}
             <SpellSeq
               spells={[
                 SPELLS.BLACKOUT_KICK_BRM,
@@ -92,8 +93,10 @@ const StandardDescription = () => {
                 talents.KEG_SMASH_TALENT,
                 talents.EXPLODING_KEG_TALENT,
               ]}
-            />{' '}
-            and{' '}
+            />
+            {' '}
+            {t({ id: 'monk.brewmaster.apl.sequence_rule_summary.p2', message: 'and' })}
+            {' '}
             <SpellSeq
               spells={[
                 SPELLS.BLACKOUT_KICK_BRM,
@@ -101,8 +104,10 @@ const StandardDescription = () => {
                 SPELLS.TIGER_PALM,
                 talents.KEG_SMASH_TALENT,
               ]}
-            />{' '}
-            would both be fine, but{' '}
+            />
+            {' '}
+            {t({ id: 'monk.brewmaster.apl.sequence_rule_summary.p3', message: 'would both be fine, but' })}
+            {' '}
             <SpellSeq
               spells={[
                 SPELLS.BLACKOUT_KICK_BRM,
@@ -110,9 +115,10 @@ const StandardDescription = () => {
                 talents.EXPLODING_KEG_TALENT,
                 SPELLS.TIGER_PALM,
               ]}
-            />{' '}
-            would not.
-          </Trans>
+            />
+            {' '}
+            {t({ id: 'monk.brewmaster.apl.sequence_rule_summary.p4', message: 'would not.' })}
+          </>
         </DivP>
       </>
     );

@@ -265,16 +265,26 @@ class LowHealthHealing extends PureComponent<LowHealthHealingProps, LowHealthHea
             })}
             <tr>
               <td colSpan={7}>
-                <Trans id="shared.lowHealthHealing.table.total">
-                  Total healing done on targets below {this.state.maxPlayerHealthPercentage * 100}%
-                  health: {formatNumber(total)} (spread over {count} seperate heals).
+                <>{t({ id: 'shared.lowHealthHealing.table.total.p1', message: 'Total healing done on targets below ' })}
+                  {this.state.maxPlayerHealthPercentage * 100}
+                  {t({ id: 'shared.lowHealthHealing.table.total.p2', message: '% health: ' })}
+                  {formatNumber(total)}
+                  {t({ id: 'shared.lowHealthHealing.table.total.p3', message: '(spread over ' })}
+                  {count}
+                  {t({ id: 'shared.lowHealthHealing.table.total.p4', message: 'seperate heals). ' })}
                   {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                   <br />
-                  Total healing done on targets below {this.state.maxPlayerHealthPercentage * 100}%
-                  health for more than {Math.round(this.state.minHealOfMaxHealthPercentage * 100)}%
-                  of target's max health: {formatNumber(totalBigHealing)} (spread over{' '}
-                  {bigHealCount} seperate heals).
-                </Trans>
+                  {t({ id: 'shared.lowHealthHealing.table.total.p5', message: 'Total healing done on targets below ' })}
+                  {this.state.maxPlayerHealthPercentage * 100}
+                  {t({ id: 'shared.lowHealthHealing.table.total.p6', message: '% health for more than ' })}
+                  {Math.round(this.state.minHealOfMaxHealthPercentage * 100)}
+                  {t({ id: 'shared.lowHealthHealing.table.total.p7', message: '% of target\'s max health: ' })}
+                  {formatNumber(totalBigHealing)}
+                  {t({ id: 'shared.lowHealthHealing.table.total.p8', message: '(spread over' })}
+                  {' '}
+                  {bigHealCount}
+                  {t({ id: 'shared.lowHealthHealing.table.total.p9', message: 'seperate heals).' })}
+                </>
               </td>
             </tr>
           </tbody>

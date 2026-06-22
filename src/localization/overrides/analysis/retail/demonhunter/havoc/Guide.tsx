@@ -56,11 +56,15 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.demonhunter.havoc.sections.core.fury.summary">
-            Havoc's primary resource is <ResourceLink id={RESOURCE_TYPES.FURY.id} />. You should
-            avoid capping <ResourceLink id={RESOURCE_TYPES.FURY.id} /> - lost{' '}
-            <ResourceLink id={RESOURCE_TYPES.FURY.id} /> generation is lost DPS.
-          </Trans>
+          <>{t({ id: 'guide.demonhunter.havoc.sections.core.fury.summary.p1', message: 'Havoc\'s primary resource is ' })}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'guide.demonhunter.havoc.sections.core.fury.summary.p2', message: '. You should avoid capping ' })}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'guide.demonhunter.havoc.sections.core.fury.summary.p3', message: '- lost' })}
+            {' '}
+            <ResourceLink id={RESOURCE_TYPES.FURY.id} />
+            {t({ id: 'guide.demonhunter.havoc.sections.core.fury.summary.p4', message: 'generation is lost DPS.' })}
+          </>
         </p>
         <FuryCapWaste
           percentAtCap={percentAtFuryCap}
@@ -79,16 +83,11 @@ function ResourceUsageSection({ info, modules }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <Trans id="guide.demonhunter.havoc.sections.core.activeTime.summary">
-            <b>
-              Continuously casting throughout an encounter is the single most important thing for
-              achieving good DPS.
-            </b>
+          <><b>{t({ id: 'guide.demonhunter.havoc.sections.core.activeTime.summary.b', message: 'Continuously casting throughout an encounter is the single most important thing for achieving good DPS.' })}</b>
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            Some fights have unavoidable downtime due to phase transitions and the like, so in these
-            cases 0% downtime will not be possible - do the best you can.
-          </Trans>
+            {t({ id: 'guide.demonhunter.havoc.sections.core.activeTime.summary.p1', message: 'Some fights have unavoidable downtime due to phase transitions and the like, so in these cases 0% downtime will not be possible - do the best you can.' })}
+          </>
         </p>
         <p>
           <Trans id="guide.demonhunter.havoc.sections.core.activeTime.value">Active Time: </Trans>
@@ -121,19 +120,20 @@ function CooldownSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       {info.combatant.hasTalent(TALENTS.ESSENCE_BREAK_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="guide.demonhunter.havoc.sections.cooldowns.essenceBreak.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
-            </Trans>
+            <>{t({ id: 'guide.demonhunter.havoc.sections.cooldowns.essenceBreak.soon.p1', message: 'Per-cast breakdown for ' })}
+              <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} />
+              {t({ id: 'guide.demonhunter.havoc.sections.cooldowns.essenceBreak.soon.p2', message: 'coming soon!' })}
+            </>
           </div>,
           <></>,
         )}
       {info.combatant.hasTalent(TALENTS.ART_OF_THE_GLAIVE_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="guide.demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ART_OF_THE_GLAIVE_TALENT} /> coming
-              soon!
-            </Trans>
+            <>{t({ id: 'guide.demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon.p1', message: 'Per-cast breakdown for ' })}
+              <SpellLink spell={TALENTS.ART_OF_THE_GLAIVE_TALENT} />
+              {t({ id: 'guide.demonhunter.havoc.sections.cooldowns.artOfTheGlaive.soon.p2', message: 'coming soon!' })}
+            </>
           </div>,
           <></>,
         )}
@@ -163,9 +163,10 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
       {info.combatant.hasTalent(TALENTS.ESSENCE_BREAK_TALENT) &&
         explanationAndDataSubsection(
           <div>
-            <Trans id="guide.demonhunter.havoc.sections.rotation.essenceBreak.soon">
-              Per-cast breakdown for <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} /> coming soon!
-            </Trans>
+            <>{t({ id: 'guide.demonhunter.havoc.sections.rotation.essenceBreak.soon.p1', message: 'Per-cast breakdown for ' })}
+              <SpellLink spell={TALENTS.ESSENCE_BREAK_TALENT} />
+              {t({ id: 'guide.demonhunter.havoc.sections.rotation.essenceBreak.soon.p2', message: 'coming soon!' })}
+            </>
           </div>,
           <></>,
         )}
@@ -184,11 +185,9 @@ function DefensivesSection({ modules }: GuideProps<typeof CombatLogParser>) {
       })}
     >
       <p>
-        <Trans id="guide.demonhunter.havoc.sections.defensives.blur.summary">
-          <SpellLink spell={SPELLS.BLUR} /> is Havoc's primary personal defensive. Using it well
-          helps you survive dangerous moments more reliably and reduces avoidable pressure on your
-          healers.
-        </Trans>
+        <><SpellLink spell={SPELLS.BLUR} />
+          {t({ id: 'guide.demonhunter.havoc.sections.defensives.blur.summary.p1', message: 'is Havoc\'s primary personal defensive. Using it well helps you survive dangerous moments more reliably and reduces avoidable pressure on your healers.' })}
+        </>
       </p>
       <p>
         <Trans id="guide.demonhunter.havoc.sections.defensives.blur.timing">
@@ -208,13 +207,14 @@ function DefensivesSection({ modules }: GuideProps<typeof CombatLogParser>) {
           </Trans>
           <p>
             <small>
-              <Trans id="guide.demonhunter.havoc.sections.defensives.blur.question1.explanation">
-                In the damage chart below, a spike highlighted in{' '}
+              <>{t({ id: 'guide.demonhunter.havoc.sections.defensives.blur.question1.explanation.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                {' '}
                 <Highlight color={GoodColor} textColor="black">
                   green
-                </Highlight>{' '}
-                was covered by Blur.
-              </Trans>
+                </Highlight>
+                {' '}
+                {t({ id: 'guide.demonhunter.havoc.sections.defensives.blur.question1.explanation.p2', message: 'was covered by Blur.' })}
+              </>
             </small>
           </p>
         </li>

@@ -171,14 +171,15 @@ class BrainFreeze extends Analyzer {
         position={STATISTIC_ORDER.CORE(30)}
         size="flexible"
         tooltip={
-          <Trans id="mage.frost.brainFreeze.statTooltip">
-            You got {this.totalProcs} total procs.
+          <>{t({ id: 'mage.frost.brainFreeze.statTooltip.p1', message: 'You got ' })}
+            {this.totalProcs}
+            {t({ id: 'mage.frost.brainFreeze.statTooltip.p2', message: 'total procs.' })}
             <ul>
               <li>{this.totalProcs - this.expiredProcs - this.brainFreezeRefreshes} used</li>
               <li>{this.brainFreezeRefreshes} overwritten</li>
               <li>{this.expiredProcs} expired</li>
             </ul>
-          </Trans>
+          </>
         }
       >
         <BoringSpellValueText spell={TALENTS.BRAIN_FREEZE_TALENT}>

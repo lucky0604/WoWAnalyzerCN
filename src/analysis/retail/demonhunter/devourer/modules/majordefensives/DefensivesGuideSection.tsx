@@ -38,8 +38,8 @@ function DefensivesSection() {
         </p>
         <ol>
           <li>
-            <Trans id="dh.defensives.coverSpikes">
-              You should cover as many{' '}
+            <>{t({ id: 'dh.defensives.coverSpikes.p1', message: 'You should cover as many' })}
+              {' '}
               <TooltipElement
                 content={
                   <>
@@ -49,26 +49,28 @@ function DefensivesSection() {
                 }
               >
                 damage spikes
-              </TooltipElement>{' '}
-              as possible, and use any left over to cover periods of heavy, consistent damage.
-            </Trans>
+              </TooltipElement>
+              {' '}
+              {t({ id: 'dh.defensives.coverSpikes.p2', message: 'as possible, and use any left over to cover periods of heavy, consistent damage.' })}
+            </>
             <div>
               <small>
-                <Trans id="dh.defensives.coverSpikesNote">
-                  In the damage chart below, a spike highlighted in{' '}
+                <>{t({ id: 'dh.defensives.coverSpikesNote.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                  {' '}
                   <Highlight color={GoodColor} textColor="black">
                     green
-                  </Highlight>{' '}
-                  was covered by a defensive.
-                </Trans>
+                  </Highlight>
+                  {' '}
+                  {t({ id: 'dh.defensives.coverSpikesNote.p2', message: 'was covered by a defensive.' })}
+                </>
               </small>
             </div>
           </li>
           <li>
-            <Trans id="dh.defensives.useThem">
-              You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using
-              defensives is a common problem!
-            </Trans>
+            <>{t({ id: 'dh.defensives.useThem.p1', message: 'You should ' })}
+              <em>{t({ id: 'dh.defensives.useThem.em', message: 'use' })}</em>
+              {t({ id: 'dh.defensives.useThem.p2', message: 'your cooldowns. This may seem silly&mdash;but not using defensives is a common problem!' })}
+            </>
             <div>
               <small>
                 <Trans id="dh.defensives.useThemNote">

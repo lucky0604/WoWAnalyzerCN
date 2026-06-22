@@ -2,7 +2,8 @@ import { formatPercentage, formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing, calculateOverhealing } from 'parser/core/EventCalculateLib';
 import Events, { CastEvent } from 'parser/core/Events';
@@ -62,10 +63,12 @@ class InvigoratingMists extends Analyzer {
             return (
               <>
                 <div>
-                  <Trans id="monk.mistweaver.invigorating_mists.effective_healing">
-                    Effective <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} /> healing:{' '}
+                  <>{t({ id: 'monk.mistweaver.invigorating_mists.effective_healing.p1', message: 'Effective ' })}
+                    <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} />
+                    {t({ id: 'monk.mistweaver.invigorating_mists.effective_healing.p2', message: 'healing:' })}
+                    {' '}
                     {healing}
-                  </Trans>
+                  </>
                 </div>
                 <div>
                   <Trans id="monk.mistweaver.invigorating_mists.overhealing">

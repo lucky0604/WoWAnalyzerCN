@@ -137,8 +137,7 @@ class WaterElemental extends Analyzer {
         position={STATISTIC_ORDER.CORE(60)}
         size="flexible"
         tooltip={
-          <Trans id="mage.frost.waterElemental.statTooltip">
-            <p>
+          <><p>
               Water Elemental was casting for {formatPercentage(this.petActiveTimePercentage)}% of
               the fight (Downtime: {formatPercentage(this.petDowntimePercentage)}%).
             </p>
@@ -154,7 +153,7 @@ class WaterElemental extends Analyzer {
                 target in time.
               </li>
             </ul>
-          </Trans>
+          </>
         }
       >
         <BoringValueText label={t({ id: 'mage.frost.waterElemental.label', message: 'Water Elemental' })}>

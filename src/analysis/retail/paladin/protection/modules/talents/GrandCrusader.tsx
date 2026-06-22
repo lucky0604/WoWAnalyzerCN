@@ -130,9 +130,10 @@ class GrandCrusader extends Analyzer.withDependencies({
               binomChartXAxis,
             )}
             <p>
-              <Trans id="paladin.protection.grandCrusader.likelihood">
-                Likelihood of having <em>exactly</em> as many resets as you did with your talents.
-              </Trans>
+              <>{t({ id: 'paladin.protection.grandCrusader.likelihood.p1', message: 'Likelihood of having ' })}
+                <em>{t({ id: 'paladin.protection.grandCrusader.likelihood.em', message: 'exactly' })}</em>
+                {t({ id: 'paladin.protection.grandCrusader.likelihood.p2', message: 'as many resets as you did with your talents.' })}
+              </>
             </p>
           </div>
         }

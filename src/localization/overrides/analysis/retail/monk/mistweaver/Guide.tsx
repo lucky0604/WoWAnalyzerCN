@@ -67,12 +67,11 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         <AplChoiceDescription aplChoice={AplCheck.chooseApl(info)} />
         <p>
           <strong>
-            <Trans id="monk.mistweaver.coreRotation.description2">
-              It is important to note that using abilites like{' '}
-              <SpellLink spell={getCurrentCelestialTalent(info.combatant)} /> have their own
-              priority that supercedes the priority list below. This section omits all casts in
-              those windows.
-            </Trans>
+            <>{t({ id: 'monk.mistweaver.coreRotation.description2.p1', message: 'It is important to note that using abilites like' })}
+              {' '}
+              <SpellLink spell={getCurrentCelestialTalent(info.combatant)} />
+              {t({ id: 'monk.mistweaver.coreRotation.description2.p2', message: 'have their own priority that supercedes the priority list below. This section omits all casts in those windows.' })}
+            </>
           </strong>
         </p>
         <SubSection>
@@ -125,12 +124,16 @@ function RemGraphSubsection({ modules, events, info }: GuideProps<typeof CombatL
       <strong>
         <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
       </strong>{' '}
-      <Trans id="monk.mistweaver.remGraph.description">
-        - this graph shows how many <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> you have over
-        the course of the fight in relation to your{' '}
-        <SpellLink spell={getCurrentRSKTalent(info.combatant)} /> and{' '}
-        <SpellLink spell={SPELLS.VIVIFY} /> casts.
-      </Trans>
+      <>{t({ id: 'monk.mistweaver.remGraph.description.p1', message: '- this graph shows how many ' })}
+        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+        {t({ id: 'monk.mistweaver.remGraph.description.p2', message: 'you have over the course of the fight in relation to your' })}
+        {' '}
+        <SpellLink spell={getCurrentRSKTalent(info.combatant)} />
+        {t({ id: 'monk.mistweaver.remGraph.description.p3', message: 'and' })}
+        {' '}
+        <SpellLink spell={SPELLS.VIVIFY} />
+        {t({ id: 'monk.mistweaver.remGraph.description.p4', message: 'casts.' })}
+      </>
       {modules.remGraph.plot}
     </SubSection>
   );
@@ -149,12 +152,14 @@ function SheilunsGraph({ modules, events, info }: GuideProps<typeof CombatLogPar
         <b>
           <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} />
         </b>{' '}
-        <Trans id="monk.mistweaver.sheilunsGift.description">
-          is a potent AoE group heal. If talented into{' '}
-          <SpellLink spell={TALENTS_MONK.VEIL_OF_PRIDE_TALENT} />, then try to cast{' '}
-          <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} /> as a powerful spot heal when you
-          have at least 4 stacks, while trying to avoid excessive overhealing.
-        </Trans>
+        <>{t({ id: 'monk.mistweaver.sheilunsGift.description.p1', message: 'is a potent AoE group heal. If talented into' })}
+          {' '}
+          <SpellLink spell={TALENTS_MONK.VEIL_OF_PRIDE_TALENT} />
+          {t({ id: 'monk.mistweaver.sheilunsGift.description.p2', message: ', then try to cast' })}
+          {' '}
+          <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} />
+          {t({ id: 'monk.mistweaver.sheilunsGift.description.p3', message: 'as a powerful spot heal when you have at least 4 stacks, while trying to avoid excessive overhealing.' })}
+        </>
       </p>
     </>
   );

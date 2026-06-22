@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import ITEMS from 'common/ITEMS'; //This is the main item index for the Gem Lookup and ItemLinks
 import Item, { CraftedItem } from 'common/ITEMS/Item'; //This is the Crafted Item that has the quality one items doesn't have
 import { Item as EventItem, Gem as EventGem } from 'parser/core/Events'; //This is the event item which is different then the inventory items one.
@@ -125,10 +126,9 @@ class GemChecker extends Analyzer {
             gem,
           })) ?? [],
         tooltip: explanation ?? (
-          <Trans id="shared.GemChecker.SpecialCase">
-            <ItemLink id={item.id} /> is a special case. Please see your class guides for best
-            usage.
-          </Trans>
+          <><ItemLink id={item.id} />
+            {t({ id: 'shared.GemChecker.SpecialCase.p1', message: 'is a special case. Please see your class guides for best usage.' })}
+          </>
         ),
       };
     }
@@ -187,8 +187,7 @@ class GemChecker extends Analyzer {
 
       equipmentPerformance = QualitativePerformance.Fail;
       tooltipContent.push(
-        <Trans id="shared.GemChecker.MissingSlotsCraftable">
-          <div>
+        <><div>
             You are missing {missingGems} possible gems on your {slotName}.
           </div>
           {socketAdditionItemId && (
@@ -197,7 +196,7 @@ class GemChecker extends Analyzer {
               of {this.maxSocketCount(slot, true)}.
             </div>
           )}
-        </Trans>,
+        </>,
       );
     } else if (this.hasTimeGatedSockets(slot) && eventItemGemSocketCount(item) === 0) {
       gemRank.push(...this.buildGemPlaceholders(item, slot));
@@ -206,10 +205,9 @@ class GemChecker extends Analyzer {
 
       equipmentPerformance = TIME_GATED_UPGRADE;
       tooltipContent.push(
-        <Trans id="shared.GemChecker.MissingSlotsTimeGated">
-          <div>You are missing possible gems on your {slotName}.</div>
+        <><div>You are missing possible gems on your {slotName}.</div>
           {socketAdditionItemId && this.explainTimeGate(socketAdditionItemId)}
-        </Trans>,
+        </>,
       );
     }
 

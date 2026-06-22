@@ -245,9 +245,7 @@ class BeaconUptime extends BeaconAnalyzer {
     //const boringSpellValueContainer = { display: 'flex', flexDirection: 'row' };
     const missingPrepullContainer = (
       <>
-        <Trans id="paladin.holy.modules.beacons.beaconUptime.notCastedPrepull">
-          <small style={{ color: 'red' }}>Not casted prepull</small>
-        </Trans>
+        <small style={{ color: 'red' }}>{t({ id: 'paladin.holy.modules.beacons.beaconUptime.notCastedPrepull.small', message: 'Not casted prepull' })}</small>
       </>
     );
 

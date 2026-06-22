@@ -70,9 +70,10 @@ export default class Eclipse extends Analyzer {
             <span>
               <SpellIcon spell={TALENTS_DRUID.ECLIPSE_TALENT} />{' '}
             </span>
-            <Trans id="druid.balance.eclipse.uptime_pct">
-              {formatPercentage(percentUptime, 0)}% <small>uptime</small>
-            </Trans>
+            <>{formatPercentage(percentUptime, 0)}
+              {t({ id: 'druid.balance.eclipse.uptime_pct.p1', message: '%' })}
+              <small>{t({ id: 'druid.balance.eclipse.uptime_pct.small', message: 'uptime' })}</small>
+            </>
           </div>
           <div className="flex-main chart">
             <UptimeBar

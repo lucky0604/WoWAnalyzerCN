@@ -21,18 +21,19 @@ const PrefaceSection = () => {
         </Trans>
       </p>
       <p>
-        <Trans id="shaman.elemental.preface.guidelines">
-          The performance indicated here are <strong className="ok-mark">guidelines</strong>, and
-          will vary from fight to fight and pull to pull. You should use the information here as a
-          foundation for your own analysis.
-        </Trans>
+        <>{t({ id: 'shaman.elemental.preface.guidelines.p1', message: 'The performance indicated here are ' })}
+          <strong className="ok-mark">{t({ id: 'shaman.elemental.preface.guidelines.strong', message: 'guidelines' })}</strong>
+          {t({ id: 'shaman.elemental.preface.guidelines.p2', message: ', and will vary from fight to fight and pull to pull. You should use the information here as a foundation for your own analysis.' })}
+        </>
       </p>
       <p>
-        <Trans id="shaman.elemental.preface.questions">
-          If you have any questions on the spec, rotation or this guide in general, you can find us
-          in the <code>#elemental</code> channel in the{' '}
-          <a href="https://discord.gg/earthshrine">Earthshrine Discord server</a>.
-        </Trans>
+        <>{t({ id: 'shaman.elemental.preface.questions.p1', message: 'If you have any questions on the spec, rotation or this guide in general, you can find us in the ' })}
+          <code>{t({ id: 'shaman.elemental.preface.questions.code', message: '#elemental' })}</code>
+          {t({ id: 'shaman.elemental.preface.questions.p2', message: 'channel in the' })}
+          {' '}
+          <a href="https://discord.gg/earthshrine">{t({ id: 'shaman.elemental.preface.questions.a', message: 'Earthshrine Discord server' })}</a>
+          {t({ id: 'shaman.elemental.preface.questions.p3', message: '.' })}
+        </>
       </p>
     </Section>
   );

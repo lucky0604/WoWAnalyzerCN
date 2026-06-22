@@ -239,25 +239,32 @@ class ZenPulse extends Analyzer {
     const explanation = (
       <>
         <p>
-          <Trans id="monk.mistweaver.zenPulse.explanation1">
-            <b>
+          <><b>
               <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />
-            </b>{' '}
-            is a buff that procs off of <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> that makes
-            your next <SpellLink spell={getSelectedPrimaryHeal(this.selectedCombatant)} /> cast do
-            additional healing on your target and all targets with{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />. The healing done by{' '}
-            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> is increased by 6% per target with{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> up to 30%, so it is important to have at
-            least 5 ReMs active before consuming the buff.
-          </Trans>
+            </b>
+            {' '}
+            {t({ id: 'monk.mistweaver.zenPulse.explanation1.p1', message: 'is a buff that procs off of ' })}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.zenPulse.explanation1.p2', message: 'that makes your next ' })}
+            <SpellLink spell={getSelectedPrimaryHeal(this.selectedCombatant)} />
+            {t({ id: 'monk.mistweaver.zenPulse.explanation1.p3', message: 'cast do additional healing on your target and all targets with' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.zenPulse.explanation1.p4', message: '. The healing done by' })}
+            {' '}
+            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />
+            {t({ id: 'monk.mistweaver.zenPulse.explanation1.p5', message: 'is increased by 6% per target with' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.zenPulse.explanation1.p6', message: 'up to 30%, so it is important to have at least 5 ReMs active before consuming the buff.' })}
+          </>
         </p>
         <p style={{ paddingTop: '1em' }}>
-          <Trans id="monk.mistweaver.zenPulse.explanation2">
-            It is very important to make sure that you never let this buff expire. Ideally try to
-            consume this buff to minimize overheal while ensuring that you have a high number of{' '}
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> buffs active.
-          </Trans>
+          <>{t({ id: 'monk.mistweaver.zenPulse.explanation2.p1', message: 'It is very important to make sure that you never let this buff expire. Ideally try to consume this buff to minimize overheal while ensuring that you have a high number of' })}
+            {' '}
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+            {t({ id: 'monk.mistweaver.zenPulse.explanation2.p2', message: 'buffs active.' })}
+          </>
         </p>
       </>
     );
@@ -289,10 +296,9 @@ class ZenPulse extends Analyzer {
           message: 'Wasted Buffs',
         }),
         tooltip: (
-          <Trans id="monk.mistweaver.zenPulse.wastedBuffsTooltip">
-            <div>{this.expiredBuffs} expired</div>
+          <><div>{this.expiredBuffs} expired</div>
             <div>{this.refreshedBuffs} refreshed</div>
-          </Trans>
+          </>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
           actual: this.expiredBuffs + this.refreshedBuffs,
@@ -370,11 +376,13 @@ class ZenPulse extends Analyzer {
                 })}
               </li>
               <li>
-                <Trans id="monk.mistweaver.zenPulse.buffsBelowThreshold">
-                  Buffs used below {ZEN_PULSE_MAX_HITS_FOR_BOOST}{' '}
+                <>{t({ id: 'monk.mistweaver.zenPulse.buffsBelowThreshold.p1', message: 'Buffs used below ' })}
+                  {ZEN_PULSE_MAX_HITS_FOR_BOOST}
+                  {' '}
                   <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-                  s: {this.badCasts}
-                </Trans>
+                  {t({ id: 'monk.mistweaver.zenPulse.buffsBelowThreshold.p2', message: 's:' })}
+                  {this.badCasts}
+                </>
               </li>
               <li>
                 {t({
@@ -399,10 +407,10 @@ class ZenPulse extends Analyzer {
           <hr />
           {this.avgHitsPerConsume.toFixed(2)}{' '}
           <small>
-            <Trans id="monk.mistweaver.zenPulse.averageHitsPer">
-              Average hits per{' '}
+            <>{t({ id: 'monk.mistweaver.zenPulse.averageHitsPer.p1', message: 'Average hits per' })}
+              {' '}
               <SpellLink spell={getSelectedPrimaryHeal(this.selectedCombatant)} />
-            </Trans>
+            </>
           </small>
           <div></div>
           <TooltipElement

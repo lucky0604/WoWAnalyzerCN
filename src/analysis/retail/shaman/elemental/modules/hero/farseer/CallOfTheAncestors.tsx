@@ -233,30 +233,43 @@ class CallOfTheAncestors extends MajorCooldown<CallAncestor> {
     return (
       <>
         <p>
-          <Trans id="shaman.elemental.ancestors.explanation1">
-            While active, <SpellLink spell={TALENTS.CALL_OF_THE_ANCESTORS_TALENT} /> will cast a{' '}
-            <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_LAVA_BURST} /> for every single target
-            spell, or <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> AoE spell you cast (e.g.{' '}
-            <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> or{' '}
-            <SpellLink spell={TALENTS.EARTHQUAKE_1_ELEMENTAL_TALENT} />)
-          </Trans>
+          <>{t({ id: 'shaman.elemental.ancestors.explanation1.p1', message: 'While active, ' })}
+            <SpellLink spell={TALENTS.CALL_OF_THE_ANCESTORS_TALENT} />
+            {t({ id: 'shaman.elemental.ancestors.explanation1.p2', message: 'will cast a' })}
+            {' '}
+            <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_LAVA_BURST} />
+            {t({ id: 'shaman.elemental.ancestors.explanation1.p3', message: 'for every single target spell, or ' })}
+            <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} />
+            {t({ id: 'shaman.elemental.ancestors.explanation1.p4', message: 'AoE spell you cast (e.g.' })}
+            {' '}
+            <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} />
+            {t({ id: 'shaman.elemental.ancestors.explanation1.p5', message: 'or' })}
+            {' '}
+            <SpellLink spell={TALENTS.EARTHQUAKE_1_ELEMENTAL_TALENT} />
+            {t({ id: 'shaman.elemental.ancestors.explanation1.p6', message: ')' })}
+          </>
         </p>
         <p>
-          <Trans id="shaman.elemental.ancestors.explanation2">
-            When an ancestor expires, they cast a{' '}
-            <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_ELEMENTAL_BLAST} />.
-          </Trans>
+          <>{t({ id: 'shaman.elemental.ancestors.explanation2.p1', message: 'When an ancestor expires, they cast a' })}
+            {' '}
+            <SpellLink spell={SPELLS.CALL_OF_THE_ANCESTORS_ELEMENTAL_BLAST} />
+            {t({ id: 'shaman.elemental.ancestors.explanation2.p2', message: '.' })}
+          </>
         </p>
         <p>
-          <Trans id="shaman.elemental.ancestors.explanation3">
-            To get the most out of each ancestor, you want to maximise the number of high-value
-            spells. Focus on your regular rotation, while minimising the number of non-damaging
-            spells, and using instant cast spells during forced movement, such as{' '}
-            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} /> with{' '}
-            <SpellLink spell={SPELLS.LAVA_SURGE} />,{' '}
-            <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} />, or even refreshing{' '}
+          <>{t({ id: 'shaman.elemental.ancestors.explanation3.p1', message: 'To get the most out of each ancestor, you want to maximise the number of high-value spells. Focus on your regular rotation, while minimising the number of non-damaging spells, and using instant cast spells during forced movement, such as' })}
+            {' '}
+            <SpellLink spell={TALENTS.LAVA_BURST_TALENT} />
+            {t({ id: 'shaman.elemental.ancestors.explanation3.p2', message: 'with' })}
+            {' '}
+            <SpellLink spell={SPELLS.LAVA_SURGE} />
+            {t({ id: 'shaman.elemental.ancestors.explanation3.p3', message: ',' })}
+            {' '}
+            <SpellLink spell={TALENTS.FROST_SHOCK_TALENT} />
+            {t({ id: 'shaman.elemental.ancestors.explanation3.p4', message: ', or even refreshing' })}
+            {' '}
             <SpellLink spell={SPELLS.FLAME_SHOCK} />
-          </Trans>
+          </>
         </p>
       </>
     );

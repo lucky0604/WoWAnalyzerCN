@@ -1,4 +1,5 @@
-import { Trans } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/deathknight';
@@ -82,19 +83,18 @@ class Hemostasis extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
         tooltip={
-          <Trans id="deathknight.blood.hemostasis.statistic.tooltip">
-            <p>
+          <p>
               Resulting in {formatNumber(this.damage)} additional damage and{' '}
               {formatNumber(this.heal)} additional healing. You gained {this.gainedBuffs} and wasted{' '}
               {this.wastedBuffs} stacks.
             </p>
-          </Trans>
         }
       >
         <BoringSpellValueText spell={TALENTS.HEMOSTASIS_TALENT}>
-          <Trans id="deathknight.blood.hemostasis.statistic">
-            {formatPercentage(this.averageIncrease)} % <small>average DS increase</small>
-          </Trans>
+          <>{formatPercentage(this.averageIncrease)}
+            {t({ id: 'deathknight.blood.hemostasis.statistic.p1', message: '%' })}
+            <small>{t({ id: 'deathknight.blood.hemostasis.statistic.small', message: 'average DS increase' })}</small>
+          </>
         </BoringSpellValueText>
       </Statistic>
     );

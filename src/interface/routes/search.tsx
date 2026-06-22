@@ -40,8 +40,7 @@ export function Component() {
       <br />
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
-      <Trans id="interface.search.supportedTerms">
-        Supported search terms:
+      <>{t({ id: 'interface.search.supportedTerms.p1', message: 'Supported search terms:' })}
         {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
         <br />
         <ul>
@@ -52,7 +51,7 @@ export function Component() {
             https://worldofwarcraft.com/&lt;language-code&gt;/character/&lt;realm&gt;/&lt;name&gt;
           </li>
         </ul>
-      </Trans>
+      </>
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
       <Link to="/">{t({ id: 'interface.search.goBackHome', message: 'Go back home' })}</Link>

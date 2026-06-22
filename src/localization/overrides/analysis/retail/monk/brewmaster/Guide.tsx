@@ -49,14 +49,18 @@ export default function Guide({ info }: GuideProps<typeof CombatLogParser>) {
         })}
       >
         <p>
-          <Trans id="monk.brewmaster.staggerManagement.description">
-            Brewmaster's core defensive loop uses <SpellLink spell={SPELLS.STAGGER} /> plus{' '}
-            <SpellLink spell={SPELLS.SHUFFLE} /> to convert 60-70% of burst damage into a much less
-            dangerous damage-over-time effect (the <em>Stagger pool</em>). We have a variety of ways
-            to reduce the damage of this DoT&mdash;the most important of which is{' '}
-            <SpellLink spell={talents.PURIFYING_BREW_TALENT} />, which reduces the remaining DoT
-            damage by 50% or more.
-          </Trans>
+          <>{t({ id: 'monk.brewmaster.staggerManagement.description.p1', message: 'Brewmaster\'s core defensive loop uses ' })}
+            <SpellLink spell={SPELLS.STAGGER} />
+            {t({ id: 'monk.brewmaster.staggerManagement.description.p2', message: 'plus' })}
+            {' '}
+            <SpellLink spell={SPELLS.SHUFFLE} />
+            {t({ id: 'monk.brewmaster.staggerManagement.description.p3', message: 'to convert 60-70% of burst damage into a much less dangerous damage-over-time effect (the ' })}
+            <em>{t({ id: 'monk.brewmaster.staggerManagement.description.em', message: 'Stagger pool' })}</em>
+            {t({ id: 'monk.brewmaster.staggerManagement.description.p4', message: '). We have a variety of ways to reduce the damage of this DoT&mdash;the most important of which is' })}
+            {' '}
+            <SpellLink spell={talents.PURIFYING_BREW_TALENT} />
+            {t({ id: 'monk.brewmaster.staggerManagement.description.p5', message: ', which reduces the remaining DoT damage by 50% or more.' })}
+          </>
         </p>
         <StaggerPoolSection />
         <RotationTipBoxRow>
@@ -92,21 +96,20 @@ export default function Guide({ info }: GuideProps<typeof CombatLogParser>) {
         <SubSection title={t({ id: 'monk.brewmaster.subsection.cooldowns', message: 'Cooldowns' })}>
           <Explanation>
             <p>
-              <Trans id="monk.brewmaster.cooldowns.description1">
-                Cooldowns like <SpellLink spell={spells.INVOKE_NIUZAO_THE_BLACK_OX_TALENT} /> and{' '}
-                <SpellLink spell={talents.EXPLODING_KEG_TALENT} /> are a major contributor to your
-                overall damage. As a tank, they are also key to establishing threat on pull and when
-                new enemies spawn or are pulled.
-              </Trans>
+              <>{t({ id: 'monk.brewmaster.cooldowns.description1.p1', message: 'Cooldowns like ' })}
+                <SpellLink spell={spells.INVOKE_NIUZAO_THE_BLACK_OX_TALENT} />
+                {t({ id: 'monk.brewmaster.cooldowns.description1.p2', message: 'and' })}
+                {' '}
+                <SpellLink spell={talents.EXPLODING_KEG_TALENT} />
+                {t({ id: 'monk.brewmaster.cooldowns.description1.p3', message: 'are a major contributor to your overall damage. As a tank, they are also key to establishing threat on pull and when new enemies spawn or are pulled.' })}
+              </>
             </p>
             <p>
-              <Trans id="monk.brewmaster.cooldowns.description2">
-                It is generally correct to hold your cooldowns by a small amount in order to line up
-                with fight mechanics, so they aren't a part of the overall rotation listed in the
-                previous section. However, holding them too long can hurt your damage
-                significantly&mdash;especially if you outright skip a cast (shown in{' '}
-                <Highlight color="#834c4a">red</Highlight>).
-              </Trans>
+              <>{t({ id: 'monk.brewmaster.cooldowns.description2.p1', message: 'It is generally correct to hold your cooldowns by a small amount in order to line up with fight mechanics, so they aren\'t a part of the overall rotation listed in the previous section. However, holding them too long can hurt your damage significantly&mdash;especially if you outright skip a cast (shown in' })}
+                {' '}
+                <Highlight color="#834c4a">red</Highlight>
+                {t({ id: 'monk.brewmaster.cooldowns.description2.p2', message: ').' })}
+              </>
             </p>
           </Explanation>
           {info.combatant.hasTalent(talents.INVOKE_NIUZAO_THE_BLACK_OX_TALENT) && (
@@ -157,18 +160,26 @@ function MasterOfHarmonySection(): JSX.Element | null {
         explanation={
           <>
             <p>
-              <Trans id="monk.brewmaster.masterOfHarmony.description1">
-                <SpellLink spell={talents.ASPECT_OF_HARMONY_TALENT} /> causes you to accumulate{' '}
-                <strong>Vitality</strong> by doing damage. <strong>Vitality</strong> is spent by
-                using <SpellLink spell={aoh.activeSpender} /> <em>and then</em> doing damage (or
-                healing).
-              </Trans>
+              <><SpellLink spell={talents.ASPECT_OF_HARMONY_TALENT} />
+                {t({ id: 'monk.brewmaster.masterOfHarmony.description1.p1', message: 'causes you to accumulate' })}
+                {' '}
+                <strong>{t({ id: 'monk.brewmaster.masterOfHarmony.description1.strong', message: 'Vitality' })}</strong>
+                {t({ id: 'monk.brewmaster.masterOfHarmony.description1.p2', message: 'by doing damage. ' })}
+                <strong>{t({ id: 'monk.brewmaster.masterOfHarmony.description1.strong2', message: 'Vitality' })}</strong>
+                {t({ id: 'monk.brewmaster.masterOfHarmony.description1.p3', message: 'is spent by using ' })}
+                <SpellLink spell={aoh.activeSpender} />
+                <em>{t({ id: 'monk.brewmaster.masterOfHarmony.description1.em', message: 'and then' })}</em>
+                {t({ id: 'monk.brewmaster.masterOfHarmony.description1.p4', message: 'doing damage (or healing).' })}
+              </>
             </p>
             <p>
-              <Trans id="monk.brewmaster.masterOfHarmony.description2">
-                This means it is important to use <SpellLink spell={aoh.activeSpender} />{' '}
-                periodically <em>even if you aren't taking much damage</em> in order to spend the
-                Vitality before you reach the{' '}
+              <>{t({ id: 'monk.brewmaster.masterOfHarmony.description2.p1', message: 'This means it is important to use ' })}
+                <SpellLink spell={aoh.activeSpender} />
+                {' '}
+                {t({ id: 'monk.brewmaster.masterOfHarmony.description2.p2', message: 'periodically ' })}
+                <em>{t({ id: 'monk.brewmaster.masterOfHarmony.description2.em', message: 'even if you aren\'t taking much damage' })}</em>
+                {t({ id: 'monk.brewmaster.masterOfHarmony.description2.p3', message: 'in order to spend the Vitality before you reach the' })}
+                {' '}
                 <TooltipElement
                   content={t({
                     id: 'monk.brewmaster.masterOfHarmony.vitalityCap',
@@ -177,7 +188,7 @@ function MasterOfHarmonySection(): JSX.Element | null {
                 >
                   cap.
                 </TooltipElement>
-              </Trans>
+              </>
             </p>
           </>
         }
@@ -185,10 +196,10 @@ function MasterOfHarmonySection(): JSX.Element | null {
         noCastsTexts={{
           noCastsOverride: (
             <>
-              <Trans id="monk.brewmaster.masterOfHarmony.noCasts">
-                You did not cast <SpellLink spell={aoh.activeSpender} />. This means you gained
-                almost nothing from your Hero Tree!
-              </Trans>
+              <>{t({ id: 'monk.brewmaster.masterOfHarmony.noCasts.p1', message: 'You did not cast ' })}
+                <SpellLink spell={aoh.activeSpender} />
+                {t({ id: 'monk.brewmaster.masterOfHarmony.noCasts.p2', message: '. This means you gained almost nothing from your Hero Tree!' })}
+              </>
             </>
           ),
         }}
@@ -238,13 +249,19 @@ function BlackoutComboTipBox() {
         <SpellLink spell={talents.BLACKOUT_COMBO_TALENT} />
       </header>
       <p>
-        <Trans id="monk.brewmaster.blackoutCombo.description">
-          <SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink> should be spent on{' '}
-          <SpellLink spell={SPELLS.TIGER_PALM} /> in virtually all situations. The main exception is
-          during <SpellLink spell={talents.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink> as{' '}
-          <SpellLink spell={talents.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>, where you may
-          ignore <SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink> entirely.
-        </Trans>
+        <><SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink>
+          {t({ id: 'monk.brewmaster.blackoutCombo.description.p1', message: 'should be spent on' })}
+          {' '}
+          <SpellLink spell={SPELLS.TIGER_PALM} />
+          {t({ id: 'monk.brewmaster.blackoutCombo.description.p2', message: 'in virtually all situations. The main exception is during ' })}
+          <SpellLink spell={talents.INVOKE_NIUZAO_THE_BLACK_OX_TALENT}>Niuzao</SpellLink>
+          {t({ id: 'monk.brewmaster.blackoutCombo.description.p3', message: 'as' })}
+          {' '}
+          <SpellLink spell={talents.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>
+          {t({ id: 'monk.brewmaster.blackoutCombo.description.p4', message: ', where you may ignore ' })}
+          <SpellLink spell={talents.BLACKOUT_COMBO_TALENT}>BoC</SpellLink>
+          {t({ id: 'monk.brewmaster.blackoutCombo.description.p5', message: 'entirely.' })}
+        </>
       </p>
       <div>
         <Table
@@ -433,11 +450,13 @@ function ElevatedPurifyTipBox() {
         {t({ id: 'monk.brewmaster.elevatedPurify.title', message: 'Elevated Purifying Brew' })}
       </header>
       <p>
-        <Trans id="monk.brewmaster.elevatedPurify.description">
-          This compares <SpellLink spell={spells.PURIFYING_BREW_TALENT} /> casts during{' '}
-          <SpellLink spell={SPELLS.ELEVATED_STAGGER_BUFF} /> against your total casts, so you can
-          see how many casts gained the extra High Tolerance value.
-        </Trans>
+        <>{t({ id: 'monk.brewmaster.elevatedPurify.description.p1', message: 'This compares ' })}
+          <SpellLink spell={spells.PURIFYING_BREW_TALENT} />
+          {t({ id: 'monk.brewmaster.elevatedPurify.description.p2', message: 'casts during' })}
+          {' '}
+          <SpellLink spell={SPELLS.ELEVATED_STAGGER_BUFF} />
+          {t({ id: 'monk.brewmaster.elevatedPurify.description.p3', message: 'against your total casts, so you can see how many casts gained the extra High Tolerance value.' })}
+        </>
       </p>
       <div>
         <Table

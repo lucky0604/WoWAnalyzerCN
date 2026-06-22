@@ -118,9 +118,9 @@ class TranquilTea extends Analyzer.withDependencies({
               content={(() => {
                 const avg = (this.totalExtraClouds / this.totalSGCasts || 0).toFixed(1);
                 return (
-                  <Trans id="monk.mistweaver.tranquil_tea.avg_extra">
-                    {avg} <small>average extra clouds per cast</small>
-                  </Trans>
+                  <>{avg}
+                    <small>{t({ id: 'monk.mistweaver.tranquil_tea.avg_extra.small', message: 'average extra clouds per cast' })}</small>
+                  </>
                 );
               })()}
             >

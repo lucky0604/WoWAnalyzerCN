@@ -11,12 +11,13 @@ export function IntroSection() {
       })}
     >
       <p>
-        <Trans id="guide.deathknight.unholy.sections.intro.1">
-          Hello and welcome to the analyzer for the Unholy Death Knight specialization! All
-          information is sourced from the latest class guides on{' '}
-          <a href="https://www.wowhead.com/unholy-death-knight-guide">Wowhead</a> and{' '}
-          <a href="https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-guide">Icy Veins</a>
-        </Trans>
+        <>{t({ id: 'guide.deathknight.unholy.sections.intro.1.p1', message: 'Hello and welcome to the analyzer for the Unholy Death Knight specialization! All information is sourced from the latest class guides on' })}
+          {' '}
+          <a href="https://www.wowhead.com/unholy-death-knight-guide">{t({ id: 'guide.deathknight.unholy.sections.intro.1.a', message: 'Wowhead' })}</a>
+          {t({ id: 'guide.deathknight.unholy.sections.intro.1.p2', message: 'and' })}
+          {' '}
+          <a href="https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-guide">{t({ id: 'guide.deathknight.unholy.sections.intro.1.a2', message: 'Icy Veins' })}</a>
+        </>
       </p>
       <p>
         <Trans id="guide.deathknight.unholy.sections.intro.2">
@@ -26,18 +27,18 @@ export function IntroSection() {
         </Trans>
       </p>
       <p>
-        <Trans id="guide.deathknight.unholy.sections.intro.3">
-          The analysis here is based on general guidelines and doesn’t always account for specific
-          fight mechanics or edge cases. For the most accurate benchmarking, compare your
-          performance to other top Unholy Death Knights in the same encounter using{' '}
-          <a href="https://www.warcraftlogs.com">Warcraft Logs</a>.
-        </Trans>
+        <>{t({ id: 'guide.deathknight.unholy.sections.intro.3.p1', message: 'The analysis here is based on general guidelines and doesn’t always account for specific fight mechanics or edge cases. For the most accurate benchmarking, compare your performance to other top Unholy Death Knights in the same encounter using' })}
+          {' '}
+          <a href="https://www.warcraftlogs.com">{t({ id: 'guide.deathknight.unholy.sections.intro.3.a', message: 'Warcraft Logs' })}</a>
+          {t({ id: 'guide.deathknight.unholy.sections.intro.3.p2', message: '.' })}
+        </>
       </p>
       <p>
-        <Trans id="guide.deathknight.unholy.sections.intro.4">
-          If you have any questions, feedback, or suggestions, feel free to reach out in the{' '}
-          <a href="https://discord.gg/acherus">Acherus Discord</a>.
-        </Trans>
+        <>{t({ id: 'guide.deathknight.unholy.sections.intro.4.p1', message: 'If you have any questions, feedback, or suggestions, feel free to reach out in the' })}
+          {' '}
+          <a href="https://discord.gg/acherus">{t({ id: 'guide.deathknight.unholy.sections.intro.4.a', message: 'Acherus Discord' })}</a>
+          {t({ id: 'guide.deathknight.unholy.sections.intro.4.p2', message: '.' })}
+        </>
       </p>
     </Section>
   );

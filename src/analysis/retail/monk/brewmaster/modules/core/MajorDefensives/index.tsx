@@ -67,21 +67,22 @@ export default function MajorDefensivesSection(): JSX.Element | null {
             </>
             <p>
               <small>
-                <Trans id="monk.brewmaster.major_defensives.spike_chart_legend">
-                  In the damage chart below, a spike highlighted in{' '}
+                <>{t({ id: 'monk.brewmaster.major_defensives.spike_chart_legend.p1', message: 'In the damage chart below, a spike highlighted in' })}
+                  {' '}
                   <Highlight color={GoodColor} textColor="black">
                     green
-                  </Highlight>{' '}
-                  was covered by a defensive.
-                </Trans>
+                  </Highlight>
+                  {' '}
+                  {t({ id: 'monk.brewmaster.major_defensives.spike_chart_legend.p2', message: 'was covered by a defensive.' })}
+                </>
               </small>
             </p>
           </li>
           <li>
-            <Trans id="monk.brewmaster.major_defensives.use_cooldowns">
-              You should <em>use</em> your cooldowns. This may seem silly&mdash;but not using major
-              defensives is a common problem! For Brewmasters, it is also likely to be fatal.
-            </Trans>
+            <>{t({ id: 'monk.brewmaster.major_defensives.use_cooldowns.p1', message: 'You should ' })}
+              <em>{t({ id: 'monk.brewmaster.major_defensives.use_cooldowns.em', message: 'use' })}</em>
+              {t({ id: 'monk.brewmaster.major_defensives.use_cooldowns.p2', message: 'your cooldowns. This may seem silly&mdash;but not using major defensives is a common problem! For Brewmasters, it is also likely to be fatal.' })}
+            </>
             <p>
               <small>
                 <Trans id="monk.brewmaster.major_defensives.cooldowns_gap">

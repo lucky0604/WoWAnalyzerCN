@@ -80,10 +80,13 @@ class MistyCoalescence extends Analyzer {
           const avg = this.avgRems.toFixed(2);
           const players = this.combatants.playerCount;
           return (
-            <Trans id="monk.mistweaver.misty_coalescence.tooltip">
-              {avg} average <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} />
-              (s) on a {players} player group.
-            </Trans>
+            <>{avg}
+              {t({ id: 'monk.mistweaver.misty_coalescence.tooltip.p1', message: 'average ' })}
+              <SpellLink spell={SPELLS.RENEWING_MIST_HEAL} />
+              {t({ id: 'monk.mistweaver.misty_coalescence.tooltip.p2', message: '(s) on a ' })}
+              {players}
+              {t({ id: 'monk.mistweaver.misty_coalescence.tooltip.p3', message: 'player group.' })}
+            </>
           );
         })()}
       >
