@@ -160,12 +160,14 @@ const BreathOfEonsSection: FC<Props> = ({
             </tbody>
             <tbody>
               <tr>
-                <strong>
-                  {t({
-                    id: 'guide.augmentation.breathofeons.castPerf',
-                    message: 'Cast performance',
-                  })}
-                </strong>
+                <td colSpan={3}>
+                  <strong>
+                    {t({
+                      id: 'guide.augmentation.breathofeons.castPerf',
+                      message: 'Cast performance',
+                    })}
+                  </strong>
+                </td>
               </tr>
               <tr>
                 <td>
