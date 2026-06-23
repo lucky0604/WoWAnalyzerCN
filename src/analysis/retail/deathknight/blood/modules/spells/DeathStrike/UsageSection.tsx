@@ -94,7 +94,8 @@ const reasonLabel = (reason: DeathStrikeReason) => {
       );
     case DeathStrikeReason.DumpRP:
       return (
-        <>{t({ id: 'deathknight.blood.usageSection.dumpRp.p1', message: 'Dump' })}
+        <>
+          {t({ id: 'deathknight.blood.usageSection.dumpRp.p1', message: 'Dump' })}
           <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
         </>
       );
@@ -407,16 +408,16 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
               ' is both your main defensive tool and one of your strongest damaging abilities. Balancing these two uses is important to playing the spec well.',
           })}
         </p>
-        <p>
-            {t({
-              id: 'deathknight.blood.deathStrikeSection.explanationParagraph2Intro',
-              message: 'There are three main ways that you can use ',
-            })}
-            <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
-            {t({
-              id: 'deathknight.blood.deathStrikeSection.explanationParagraph2Intro.p2',
-              message: ' defensively:',
-            })}
+        <div>
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph2Intro',
+            message: 'There are three main ways that you can use ',
+          })}
+          <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.blood.deathStrikeSection.explanationParagraph2Intro.p2',
+            message: ' defensively:',
+          })}
           <ul>
             <li>
               {t({
@@ -495,7 +496,7 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
               })}
             </li>
           </ul>
-        </p>
+        </div>
         <p>
           {t({
             id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro',
@@ -506,13 +507,11 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
               id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.tooMuch',
               message: 'too much',
             })}
-          </em>
-          {' '}
+          </em>{' '}
           <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />
           {t({
             id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.p2',
-            message:
-              ' for you to spend only on defensive casts. If you try to only use ',
+            message: ' for you to spend only on defensive casts. If you try to only use ',
           })}
           <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
           {t({
@@ -533,16 +532,14 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
           <SpellLink spell={talents.HEART_STRIKE_TALENT} />
           {t({
             id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.p6',
-            message:
-              ' to keep the extra from going to waste. This is called ',
+            message: ' to keep the extra from going to waste. This is called ',
           })}
           <strong>
             {t({
               id: 'deathknight.blood.deathStrikeSection.explanationParagraph3Intro.dumping',
               message: 'dumping',
             })}
-          </strong>
-          {' '}
+          </strong>{' '}
           <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
         </p>
       </Explanation>
@@ -659,8 +656,7 @@ export default function DeathStrikeUsageSubSection(): JSX.Element | null {
                         id: 'deathknight.blood.deathStrikeSection.runesSpentTooltip.p3',
                         message: ' itself, every Rune spent generates 10 or more ',
                       })}
-                      <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.
-                      {'\n'}
+                      <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />.{'\n'}
                       {t({
                         id: 'deathknight.blood.deathStrikeSection.runesSpentTooltip.p4',
                         message: 'You can roughly convert every 4 unspent ',

@@ -129,9 +129,29 @@ abstract class Entities<T extends Entity> extends Analyzer {
 
       this._triggerChangeBuffStack(existingBuff, event.timestamp, oldStacks, existingBuff.stacks);
     } else {
-      console.error(
-        "Buff stack updated while active buff wasn't known. Was this buff applied pre-combat? Maybe we should register the buff with start time as fight start when this happens, but it might also be a basic case of erroneous combatlog ordering.",
+      const isDebuff =
+        event.type === EventType.ApplyDebuffStack || event.type === EventType.RemoveDebuffStack;
+      const buff = {
+        ...event,
+        start: this.owner.fight.start_time,
+        end: null,
+        isDebuff,
+        stacks: 1,
+      };
+      entity.applyBuff(buff);
+
+      const inserted = entity.buffs.find(
+        (item) =>
+          item.ability.guid === event.ability.guid &&
+          item.end === null &&
+          event.sourceID === item.sourceID,
       );
+      if (inserted) {
+        const oldStacks = inserted.stacks || 1;
+        inserted.stacks = event.stack;
+        inserted.stackHistory.push({ stacks: event.stack, timestamp: event.timestamp });
+        this._triggerChangeBuffStack(inserted, event.timestamp, oldStacks, inserted.stacks);
+      }
     }
   }
 
@@ -161,9 +181,25 @@ abstract class Entities<T extends Entity> extends Analyzer {
     if (existingBuff) {
       existingBuff.refreshHistory.push(event.timestamp);
     } else {
-      console.error(
-        `${event.ability.name} buff was refreshed while active buff wasn't known. Was this buff applied pre-combat? Maybe we should register the buff with start time as fight start when this happens, but it might also be a basic case of erroneous combatlog ordering.`,
+      const isDebuff = event.type === EventType.RefreshDebuff;
+      const buff = {
+        ...event,
+        start: this.owner.fight.start_time,
+        end: null,
+        isDebuff,
+        stacks: 1,
+      };
+      entity.applyBuff(buff);
+
+      const inserted = entity.buffs.find(
+        (item) =>
+          item.ability.guid === event.ability.guid &&
+          item.end === null &&
+          event.sourceID === item.sourceID,
       );
+      if (inserted) {
+        inserted.refreshHistory.push(event.timestamp);
+      }
     }
   }
 
