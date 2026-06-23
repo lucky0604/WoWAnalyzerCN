@@ -1,4 +1,6 @@
 import { Putro } from 'CONTRIBUTORS';
+import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -17,41 +19,71 @@ const config: Config = {
   description: (
     <>
       <p>
-        Hello and welcome to the Beast Mastery Hunter analyzer! I hope that the suggestions given
-        will be helpful in aiding you improve your overall performance. Try and focus on improving
-        only a few things at a time, until those become ingrained in your muscle memory so as to not
-        be concentrating on many different things.
+        <Trans id="hunter.beastmastery.config.description.p1">
+          Hello and welcome to the Beast Mastery Hunter analyzer! I hope that the suggestions given
+          will be helpful in aiding you improve your overall performance. Try and focus on improving
+          only a few things at a time, until those become ingrained in your muscle memory so as to
+          not be concentrating on many different things.
+        </Trans>
       </p>
       <p />
       <p>
-        If you want to learn more about Beast Mastery Hunters, join the Hunter community on the
-        Trueshot Lodge Discord:{' '}
-        <a href="https://www.discord.gg/trueshot" target="_blank" rel="noopener noreferrer">
-          discord.gg/trueshot
-        </a>
-        . The <kbd>#beast-mastery</kbd> channel has a lot of helpful people, and if you post your
-        logs in <kbd>#log-reviews</kbd>, you can expect to get some good pointers for improvement
-        from the community.
+        <>
+          {t({
+            id: 'hunter.beastmastery.config.description.p2.p1',
+            message:
+              'If you want to learn more about Beast Mastery Hunters, join the Hunter community on the Trueshot Lodge Discord: ',
+          })}
+          <a href="https://www.discord.gg/trueshot" target="_blank" rel="noopener noreferrer">
+            discord.gg/trueshot
+          </a>
+          {t({
+            id: 'hunter.beastmastery.config.description.p2.p2',
+            message: '. The ',
+          })}
+          <kbd>#beast-mastery</kbd>
+          {t({
+            id: 'hunter.beastmastery.config.description.p2.p3',
+            message: ' channel has a lot of helpful people, and if you post your logs in ',
+          })}
+          <kbd>#log-reviews</kbd>
+          {t({
+            id: 'hunter.beastmastery.config.description.p2.p4',
+            message:
+              ', you can expect to get some good pointers for improvement from the community.',
+          })}
+        </>
       </p>
       <p />
       <p>
-        For general gameplay guides and tips, please refer to the{' '}
-        <a
-          href="https://www.wowhead.com/guide/classes/hunter/beast-mastery/overview-pve-dps"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Wowhead
-        </a>{' '}
-        or{' '}
-        <a
-          href="https://www.icy-veins.com/wow/beast-mastery-hunter-pve-dps-guide"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Icy-veins
-        </a>{' '}
-        guide.
+        <>
+          {t({
+            id: 'hunter.beastmastery.config.description.p3.p1',
+            message: 'For general gameplay guides and tips, please refer to the ',
+          })}
+          <a
+            href="https://www.wowhead.com/guide/classes/hunter/beast-mastery/overview-pve-dps"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Wowhead
+          </a>
+          {t({
+            id: 'hunter.beastmastery.config.description.p3.p2',
+            message: ' or ',
+          })}
+          <a
+            href="https://www.icy-veins.com/wow/beast-mastery-hunter-pve-dps-guide"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Icy-veins
+          </a>
+          {t({
+            id: 'hunter.beastmastery.config.description.p3.p3',
+            message: ' guide.',
+          })}
+        </>
       </p>
     </>
   ),
