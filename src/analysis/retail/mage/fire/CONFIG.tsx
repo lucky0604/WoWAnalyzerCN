@@ -17,7 +17,8 @@ const config: Config = {
   // If this spec's analysis does not show a complete picture please mention this in the `<Warning>` component.
   description: (
     <>
-      If you are looking for help improving your gameplay, refer to the resources below:
+      <p>如果您正在寻求提升游戏水平的帮助，请参考以下资源：</p>
+      <p>If you are looking for help improving your gameplay, refer to the resources below:</p>
       <ul>
         <li>
           <a href="https://discord.gg/0gLMHikX2aZ23VdA" target="_blank" rel="noopener noreferrer">
@@ -40,8 +41,14 @@ const config: Config = {
     overview: {
       notes: (
         <AlertWarning>
-          This spec has been fully updated for Midnight (As of April 21). If anything is missing or
-          incorrect, please ping <code>@Sharrq</code> in the Altered Time Discord.
+          <p>
+            该专精已针对 Midnight 版本完成全面更新（截至 4 月 21 日）。如有缺失或错误，请在 Altered
+            Time Discord 中联系 <code>@Sharrq</code>。
+          </p>
+          <p>
+            This spec has been fully updated for Midnight (As of April 21). If anything is missing
+            or incorrect, please ping <code>@Sharrq</code> in the Altered Time Discord.
+          </p>
         </AlertWarning>
       ),
     },
