@@ -7,44 +7,50 @@ import { SpellLink } from 'interface';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
       <Section
         title={t({
-          id: 'guide.deathknight.frost.sections.resources.title',
+          id: 'deathknight.frost.guide.sections.resources.title',
           message: 'Resource Use',
         })}
       >
         <SubSection
           title={t({
-            id: 'guide.deathknight.frost.sections.resources.runes.title',
+            id: 'deathknight.frost.guide.sections.resources.runes.title',
             message: 'Runes',
           })}
         >
           <span>
-            <Trans id="guide.deathknight.frost.sections.resources.runes.summary">
-              Runes are Death Knight's primary resource. Instead of cooldowns on rotational
-              abilities, you are prevented from spamming our strongest spells by the flow of Runes.
-              You can have up to three runes recharging at once. You want to spend runes whenever
-              you have 4 or more runes to make sure none are wasted. This chart shows your available
-              Runes over the course of the fight.
-            </Trans>
+            {t({
+              id: 'deathknight.frost.guide.sections.resources.runes.summary',
+              message:
+                "Runes are Death Knight's primary resource. Instead of cooldowns on rotational abilities, you are prevented from spamming our strongest spells by the flow of Runes. You can have up to three runes recharging at once. You want to spend runes whenever you have 4 or more runes to make sure none are wasted. This chart shows your available Runes over the course of the fight.",
+            })}
             {modules.runeGraph.plot}
           </span>
         </SubSection>
         <SubSection
           title={t({
-            id: 'guide.deathknight.frost.sections.resources.runicPower.title',
+            id: 'deathknight.frost.guide.sections.resources.runicPower.title',
             message: 'Runic Power',
           })}
         >
           <span>
-            <>{t({ id: 'guide.deathknight.frost.sections.resources.runicPower.summary.p1', message: 'Runic Power is builder/spender resource for Death Knights. For Frost Death Knights, it is linked to Runes through ' })}
+            <>
+              {t({
+                id: 'deathknight.frost.guide.sections.resources.runicPower.summary',
+                message:
+                  'Runic Power is builder/spender resource for Death Knights. For Frost Death Knights, it is linked to Runes through ',
+              })}
               <SpellLink spell={spells.RUNIC_EMPOWERMENT} />
-              {t({ id: 'guide.deathknight.frost.sections.resources.runicPower.summary.p2', message: '. Spending Runes grants Runic Power, and spending Runic Power can recover Runes. This makes it important to not waste Runic Power, both so you can maximize spender casts and to get more casts of your Rune based abilities. However, because Rune spenders are a higher priority than Runic Power spenders, it is okay to waste Runic Power if you are using the GCD on a Rune spender instead.' })}
+              {t({
+                id: 'deathknight.frost.guide.sections.resources.runicPower.summary.p2',
+                message:
+                  '. Spending Runes grants Runic Power, and spending Runic Power can recover Runes. This makes it important to not waste Runic Power, both so you can maximize spender casts and to get more casts of your Rune based abilities. However, because Rune spenders are a higher priority than Runic Power spenders, it is okay to waste Runic Power if you are using the GCD on a Rune spender instead.',
+              })}
             </>
             {modules.runicPowerGraph.plot}
           </span>
@@ -52,17 +58,27 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         {info.combatant.hasTalent(talents.BREATH_OF_SINDRAGOSA_TALENT) && (
           <SubSection
             title={t({
-              id: 'guide.deathknight.frost.sections.resources.cooldowns.title',
+              id: 'deathknight.frost.guide.sections.resources.cooldowns.title',
               message: 'Resource Cooldowns',
             })}
           >
             <span>
-              <>{t({ id: 'guide.deathknight.frost.sections.resources.cooldowns.summary.p1', message: 'Getting the most out of resource cooldowns while playing' })}
-                {' '}
+              <>
+                {t({
+                  id: 'deathknight.frost.guide.sections.resources.cooldowns.summary',
+                  message: 'Getting the most out of resource cooldowns while playing ',
+                })}
                 <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
-                {t({ id: 'guide.deathknight.frost.sections.resources.cooldowns.summary.p2', message: 'is crucial to achieving good performance with this build. You want to use your resource cooldowns as often as possible to maximize how many resources you can put into a single ' })}
+                {t({
+                  id: 'deathknight.frost.guide.sections.resources.cooldowns.summary.p2',
+                  message:
+                    ' is crucial to achieving good performance with this build. You want to use your resource cooldowns as often as possible to maximize how many resources you can put into a single ',
+                })}
                 <SpellLink spell={talents.BREATH_OF_SINDRAGOSA_TALENT} />
-                {t({ id: 'guide.deathknight.frost.sections.resources.cooldowns.summary.p3', message: 'cast without wasting any of the resources granted.' })}
+                {t({
+                  id: 'deathknight.frost.guide.sections.resources.cooldowns.summary.p3',
+                  message: ' cast without wasting any of the resources granted.',
+                })}
               </>
               {info.combatant.hasTalent(talents.EMPOWER_RUNE_WEAPON_TALENT) &&
                 modules.empowerRuneWeapon.guideCastBreakdown}
@@ -72,13 +88,13 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       </Section>
       <Section
         title={t({
-          id: 'guide.deathknight.frost.sections.procs.title',
+          id: 'deathknight.frost.guide.sections.procs.title',
           message: 'Proc Usage',
         })}
       >
         <SubSection
           title={t({
-            id: 'guide.deathknight.frost.sections.procs.killingMachine.title',
+            id: 'deathknight.frost.guide.sections.procs.killingMachine.title',
             message: 'Killing Machine',
           })}
         >
@@ -86,7 +102,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         </SubSection>
         <SubSection
           title={t({
-            id: 'guide.deathknight.frost.sections.procs.rime.title',
+            id: 'deathknight.frost.guide.sections.procs.rime.title',
             message: 'Rime',
           })}
         >
@@ -95,7 +111,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       </Section>
       <Section
         title={t({
-          id: 'guide.deathknight.frost.sections.cooldowns.title',
+          id: 'deathknight.frost.guide.sections.cooldowns.title',
           message: 'Cooldowns',
         })}
       >
@@ -110,8 +126,18 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 function CooldownsSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <><strong>{t({ id: 'guide.deathknight.frost.sections.cooldowns.graphSummary.strong', message: 'Cooldown Graph' })}</strong>
-        {t({ id: 'guide.deathknight.frost.sections.cooldowns.graphSummary.p1', message: '- this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.' })}
+      <>
+        <strong>
+          {t({
+            id: 'deathknight.frost.guide.sections.cooldowns.graphTitle',
+            message: 'Cooldown Graph',
+          })}
+        </strong>
+        {t({
+          id: 'deathknight.frost.guide.sections.cooldowns.graphSummary',
+          message:
+            ' - this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.',
+        })}
       </>
       {info.combatant.hasTalent(talents.PILLAR_OF_FROST_TALENT) && (
         <div className="flex-main chart" style={{ padding: 5 }}>
