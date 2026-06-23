@@ -241,17 +241,21 @@ class WildfireBomb extends Analyzer.withDependencies({
             <p>
               {this.tippedCasts}{' '}
               <small>
-                <Trans id="hunter.survival.wildfireBomb.tippedCasts">
-                  tipped casts ({tippedPercentage.toFixed(1)}%)
-                </Trans>
+                {t({
+                  id: 'hunter.survival.wildfireBomb.tippedCasts',
+                  message: 'tipped casts ({pct}%)',
+                  values: { pct: tippedPercentage.toFixed(1) },
+                })}
               </small>
             </p>
             <p>
               {this.sentinelProcs}{' '}
               <small>
-                <Trans id="hunter.survival.wildfireBomb.sentinelProcs">
-                  Sentinel's Mark procs ({sentinelPercentage.toFixed(1)}%)
-                </Trans>
+                {t({
+                  id: 'hunter.survival.wildfireBomb.sentinelProcs',
+                  message: "Sentinel's Mark procs ({pct}%)",
+                  values: { pct: sentinelPercentage.toFixed(1) },
+                })}
               </small>
             </p>
             <p>

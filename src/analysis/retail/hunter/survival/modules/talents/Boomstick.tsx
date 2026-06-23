@@ -239,9 +239,11 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
       value = QualitativePerformance.Fail;
       header = (
         <h5 style={{ color: BadColor }}>
-          <Trans id="hunter.survival.boomstick.badMissedTicks">
-            Bad cast: missed ticks {missedTicks.join(', ')}.
-          </Trans>
+          {t({
+            id: 'hunter.survival.boomstick.badMissedTicks',
+            message: 'Bad cast: missed ticks {tickList}.',
+            values: { tickList: missedTicks.join(', ') },
+          })}
         </h5>
       );
     }
@@ -292,9 +294,11 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
         <strong>{this.owner.formatTimestamp(cast.timestamp)}</strong>
         {ticksHit !== Boomstick.EXPECTED_TICKS && (
           <div>
-            <Trans id="hunter.survival.boomstick.ticksCount">
-              Ticks: {ticksHit}/{Boomstick.EXPECTED_TICKS}{' '}
-            </Trans>
+            {t({
+              id: 'hunter.survival.boomstick.ticksCount',
+              message: 'Ticks: {hit}/{expected} ',
+              values: { hit: ticksHit, expected: Boomstick.EXPECTED_TICKS },
+            })}
             <small>
               {wasClipped
                 ? t({
@@ -303,7 +307,8 @@ class Boomstick extends Analyzer.withDependencies({ haste: Haste }) {
                   })
                 : t({
                     id: 'hunter.survival.boomstick.missedTick',
-                    message: `(missed tick${missedTicks.length !== 1 ? 's' : ''} ${missedTicks.join(', ')})`,
+                    message: '(missed tick{suffix} {ticks})',
+                    values: { suffix: missedTicks.length !== 1 ? 's' : '', ticks: missedTicks.join(', ') },
                   })}
             </small>
           </div>

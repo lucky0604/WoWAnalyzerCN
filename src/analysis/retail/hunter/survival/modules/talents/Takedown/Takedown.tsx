@@ -144,7 +144,8 @@ export default class Takedown extends Analyzer {
             <TooltipElement
               content={t({
                 id: 'hunter.survival.takedown.twinFangsStacksDetail',
-                message: `${cast.tipStacks} stack${cast.tipStacks !== 1 ? 's' : ''} at cast — dump before Takedown`,
+                message: '{stacks} stack{suffix} at cast — dump before Takedown',
+                values: { stacks: cast.tipStacks, suffix: cast.tipStacks !== 1 ? 's' : '' },
               })}
             >
               (?)
@@ -202,7 +203,8 @@ export default class Takedown extends Analyzer {
           <TooltipElement
             content={t({
               id: 'hunter.survival.takedown.noTwinFangsStacksDetail',
-              message: `${cast.tipStacks} stack${cast.tipStacks !== 1 ? 's' : ''} at cast`,
+              message: '{stacks} stack{suffix} at cast',
+              values: { stacks: cast.tipStacks, suffix: cast.tipStacks !== 1 ? 's' : '' },
             })}
           >
             (?)
@@ -253,7 +255,8 @@ export default class Takedown extends Analyzer {
           <TooltipElement
             content={t({
               id: 'hunter.survival.takedown.wastedStacksDetail',
-              message: `${cast.wastedTipStacks} stack${cast.wastedTipStacks !== 1 ? 's' : ''} wasted`,
+              message: '{stacks} stack{suffix} wasted',
+              values: { stacks: cast.wastedTipStacks, suffix: cast.wastedTipStacks !== 1 ? 's' : '' },
             })}
           >
             (?)

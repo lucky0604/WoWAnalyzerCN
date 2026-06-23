@@ -1,7 +1,6 @@
 import { MS_BUFFER_100 } from 'analysis/retail/hunter/shared/constants';
 import { BLOODSEEKER_ATTACK_SPEED_GAIN } from 'analysis/retail/hunter/survival/constants';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/hunter';
@@ -72,12 +71,11 @@ class Bloodseeker extends Analyzer {
       <Statistic
         position={STATISTIC_ORDER.OPTIONAL(2)}
         size="flexible"
-        tooltip={
-          <Trans id="hunter.survival.bloodseeker.statisticTooltip">
-            You had {formatPercentage(this.uptime)}% uptime on the buff, with an average of{' '}
-            {this.averageStacks.toFixed(2)} stacks.
-          </Trans>
-        }
+        tooltip={t({
+          id: 'hunter.survival.bloodseeker.statisticTooltip',
+          message: 'You had {pct}% uptime on the buff, with an average of {stacks} stacks.',
+          values: { pct: formatPercentage(this.uptime), stacks: this.averageStacks.toFixed(2) },
+        })}
         category={STATISTIC_CATEGORY.TALENTS}
       >
         <BoringSpellValueText spell={TALENTS.BLOODSEEKER_TALENT}>

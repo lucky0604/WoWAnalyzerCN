@@ -1,4 +1,3 @@
-import type { JSX } from 'react';
 import { type ReactNode } from 'react';
 
 import { Trans } from '@lingui/react/macro'
@@ -182,9 +181,11 @@ class RaptorSwipe extends Analyzer {
             <p>
               {this.tippedCasts}{' '}
               <small>
-                <Trans id="hunter.survival.raptorSwipe.tippedCasts">
-                  tipped casts ({tippedPercentage.toFixed(1)}%)
-                </Trans>
+                {t({
+                  id: 'hunter.survival.raptorSwipe.tippedCasts',
+                  message: 'tipped casts ({pct}%)',
+                  values: { pct: tippedPercentage.toFixed(1) },
+                })}
               </small>
             </p>
             {this.missedCasts > 0 && (

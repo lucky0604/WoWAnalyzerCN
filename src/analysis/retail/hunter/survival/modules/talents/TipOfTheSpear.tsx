@@ -127,9 +127,11 @@ class TipOfTheSpear extends BuffStackTracker {
     const tooltip = (
       <div>
         <h5 style={{ color: BadColor }}>
-          <Trans id="hunter.survival.tipOfTheSpear.castWithoutTip">
-            {event.ability.name} cast without Tip of the Spear.
-          </Trans>
+          {t({
+            id: 'hunter.survival.tipOfTheSpear.castWithoutTip',
+            message: '{abilityName} cast without Tip of the Spear.',
+            values: { abilityName: event.ability.name },
+          })}
         </h5>
         <>
           <strong>{this.owner.formatTimestamp(event.timestamp)}</strong>
@@ -176,7 +178,8 @@ class TipOfTheSpear extends BuffStackTracker {
       value = QualitativePerformance.Good;
       header = t({
         id: 'hunter.survival.tipOfTheSpear.goodLowFocus',
-        message: `Good: low focus (${preCastFocus})`,
+        message: 'Good: low focus ({focus})',
+        values: { focus: preCastFocus },
       });
       color = GoodColor;
     } else if (this.isPackLeader) {
@@ -187,7 +190,8 @@ class TipOfTheSpear extends BuffStackTracker {
         value = QualitativePerformance.Good;
         header = t({
           id: 'hunter.survival.tipOfTheSpear.goodHowlActive',
-          message: `Good: Howl of the Pack Leader active, ${currentStacks === 0 ? '0' : '1'} stack${currentStacks !== 1 ? 's' : ''}.`,
+          message: 'Good: Howl of the Pack Leader active, {stacksLabel} stack{suffix}.',
+          values: { stacksLabel: currentStacks === 0 ? '0' : '1', suffix: currentStacks !== 1 ? 's' : '' },
         });
         color = GoodColor;
       } else if (!hasHowlBuff && currentStacks === 0) {
@@ -201,7 +205,8 @@ class TipOfTheSpear extends BuffStackTracker {
         value = QualitativePerformance.Ok;
         header = t({
           id: 'hunter.survival.tipOfTheSpear.okGenerated',
-          message: `Ok: generated at ${currentStacks} stack${currentStacks !== 1 ? 's' : ''}.`,
+          message: 'Ok: generated at {stacks} stack{suffix}.',
+          values: { stacks: currentStacks, suffix: currentStacks !== 1 ? 's' : '' },
         });
         color = OkColor;
       } else {
@@ -209,7 +214,8 @@ class TipOfTheSpear extends BuffStackTracker {
         const wastedAmount = potentialStacks - MAX_STACKS;
         header = t({
           id: 'hunter.survival.tipOfTheSpear.badGeneratedWasted',
-          message: `Bad: generated at ${currentStacks} stacks, wasted ${wastedAmount} stack${wastedAmount !== 1 ? 's' : ''}.`,
+          message: 'Bad: generated at {stacks} stacks, wasted {wasted} stack{suffix}.',
+          values: { stacks: currentStacks, wasted: wastedAmount, suffix: wastedAmount !== 1 ? 's' : '' },
         });
         color = BadColor;
       }
@@ -234,7 +240,8 @@ class TipOfTheSpear extends BuffStackTracker {
         const wastedAmount = potentialStacks - MAX_STACKS;
         header = t({
           id: 'hunter.survival.tipOfTheSpear.badGeneratedWasted',
-          message: `Bad: generated at ${currentStacks} stacks, wasted ${wastedAmount} stack${wastedAmount !== 1 ? 's' : ''}.`,
+          message: 'Bad: generated at {stacks} stacks, wasted {wasted} stack{suffix}.',
+          values: { stacks: currentStacks, wasted: wastedAmount, suffix: wastedAmount !== 1 ? 's' : '' },
         });
         color = BadColor;
       }
@@ -351,8 +358,8 @@ class TipOfTheSpear extends BuffStackTracker {
     );
 
     const explanation = (
-      <p>
-        <>
+      <div>
+        <p>
           <strong>
             <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
           </strong>
@@ -365,8 +372,8 @@ class TipOfTheSpear extends BuffStackTracker {
             id: 'hunter.survival.tipOfTheSpear.guideKcExplanation.p2',
             message: ' stacks.',
           })}
-        </>
-        {this.isPackLeader ? packLeaderExplanation : sentinelExplanation}
+          {this.isPackLeader ? packLeaderExplanation : sentinelExplanation}
+        </p>
         <p>
           <Trans id="hunter.survival.tipOfTheSpear.guideKcLowFocus">
             {' '}
@@ -374,7 +381,7 @@ class TipOfTheSpear extends BuffStackTracker {
             {LOW_FOCUS_THRESHOLD}) is always an acceptable reason to Kill Command.
           </Trans>
         </p>
-      </p>
+      </div>
     );
 
     const data = (
