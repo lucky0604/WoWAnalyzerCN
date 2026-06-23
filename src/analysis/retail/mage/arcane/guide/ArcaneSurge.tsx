@@ -180,7 +180,7 @@ class ArcaneSurgeGuide extends Analyzer {
             </Trans>
           </p>
         )}
-        <p>
+        <div>
           <Trans id="mage.arcane.arcaneSurge.guide.sampleBurnPhase">
             Below is a sample of what your Major Burn Phase will likely look like:
           </Trans>
@@ -204,7 +204,7 @@ class ArcaneSurgeGuide extends Analyzer {
               ]}
             />
           )}
-        </p>
+        </div>
         <TipBox type="info">
           <Trans id="mage.arcane.arcaneSurge.guide.manaTip">
             While it may seem beneficial to have a high amount of mana before casting {arcaneSurge},

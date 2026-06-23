@@ -559,7 +559,7 @@ class ArcaneBarrageGuide extends Analyzer {
           </ul>
         )}
         {this.isSunfury && (
-          <p>
+          <div>
             <TipBox
               type="note"
               title={t({
@@ -589,7 +589,7 @@ class ArcaneBarrageGuide extends Analyzer {
                 })}
               </>
             </TipBox>
-          </p>
+          </div>
         )}
       </>
     );

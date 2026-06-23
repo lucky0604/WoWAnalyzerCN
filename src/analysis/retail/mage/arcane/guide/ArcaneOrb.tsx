@@ -209,7 +209,7 @@ class ArcaneOrbGuide extends Analyzer {
           </>
         </p>
         {this.isSunfury && (
-          <p>
+          <div>
             <ul>
               <li>
                 <Trans id="mage.arcane.arcaneOrb.guide.conditionSunfury1">
@@ -217,10 +217,10 @@ class ArcaneOrbGuide extends Analyzer {
                 </Trans>
               </li>
             </ul>
-          </p>
+          </div>
         )}
         {this.isSpellslingerMissile && (
-          <p>
+          <div>
             <Trans id="mage.arcane.arcaneOrb.guide.conditionMissileIntro">
               {touchOfTheMagi} will not be available in the next 10 seconds, you have &lt; 3{' '}
               {arcaneCharge}s (&lt; 4 if it will hit 2 or more enemies), and one of the below are
@@ -243,10 +243,10 @@ class ArcaneOrbGuide extends Analyzer {
                 </Trans>
               </li>
             </ul>
-          </p>
+          </div>
         )}
         {this.isSpellslingerOrb && (
-          <p>
+          <div>
             <Trans id="mage.arcane.arcaneOrb.guide.conditionOrbIntro">
               Your last cast was {arcaneBarrage} or {arcaneOrb} will hit 4 or more enemies, and also
               one of the below are true:
@@ -264,7 +264,7 @@ class ArcaneOrbGuide extends Analyzer {
                 </Trans>
               </li>
             </ul>
-          </p>
+          </div>
         )}
       </>
     );

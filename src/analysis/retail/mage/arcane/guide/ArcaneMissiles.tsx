@@ -210,7 +210,7 @@ class ArcaneMissilesGuide extends Analyzer {
           </>
         </p>
         {this.isSpellslingerMissile && (
-          <p>
+          <div>
             <>
               {t({
                 id: 'mage.arcane.arcaneMissiles.guide.spellslingerMissileExplanation.p1',
@@ -278,7 +278,7 @@ class ArcaneMissilesGuide extends Analyzer {
                 </>
               </li>
             </ul>
-          </p>
+          </div>
         )}
         {(this.isSpellslingerOrb && this.hasOverpoweredMissiles && (
           <>
@@ -362,7 +362,7 @@ class ArcaneMissilesGuide extends Analyzer {
             </>
           )) ||
           (this.isSpellslingerOrb && (
-            <p>
+            <div>
               <Trans id="mage.arcane.arcaneMissiles.guide.spellslingerOrbExplanation">
                 true Only cast {arcaneMissiles} if all of the below are true. Realistically you should
                 never cast {arcaneMissiles} if you are using the Spellslinger Orb build, so we arent
@@ -396,10 +396,10 @@ class ArcaneMissilesGuide extends Analyzer {
                   </Trans>
                 </li>
               </ul>
-            </p>
+            </div>
           ))}
         {this.isSunfury && (
-          <p>
+          <div>
             <Trans id="mage.arcane.arcaneMissiles.guide.sunfuryExplanation">
               You should generally cast {arcaneMissiles} whenever you have {clearcasting}, but should
               prioritize {arcaneMissiles} if the below is true:
@@ -423,7 +423,7 @@ class ArcaneMissilesGuide extends Analyzer {
                 </Trans>
               </li>
             </ul>
-          </p>
+          </div>
         )}
       </>
     );
