@@ -7,7 +7,7 @@ import ResourceBreakdown from 'parser/shared/modules/resources/resourcetracker/R
 import BoringResourceValue from 'parser/ui/BoringResourceValue';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
 
 import RunicPowerTracker from './RunicPowerTracker';
 
@@ -56,9 +56,11 @@ class RunicPowerDetails extends Analyzer {
         size="small"
         tooltip={t({
           id: 'deathknight.unholy.runicPowerDetails.tooltipWasted',
-          message: `${this.runicPowerTracker.wasted} out of ${
-            this.runicPowerTracker.wasted + this.runicPowerTracker.generated
-          } runic power wasted.`,
+          message: '{wasted} out of {total} runic power wasted.',
+          values: {
+            wasted: this.runicPowerTracker.wasted,
+            total: this.runicPowerTracker.wasted + this.runicPowerTracker.generated,
+          },
         })}
       >
         <BoringResourceValue
@@ -75,7 +77,7 @@ class RunicPowerDetails extends Analyzer {
 
   tab() {
     return {
-      title: t({
+      title: defineMessage({
         id: 'deathknight.unholy.runicPowerDetails.tabTitle',
         message: 'Runic Power usage',
       }),

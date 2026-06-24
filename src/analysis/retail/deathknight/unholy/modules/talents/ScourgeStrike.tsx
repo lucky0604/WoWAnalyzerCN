@@ -1,3 +1,5 @@
+// oxlint-disable wowanalyzer/lingui-t-macro-outside-jsx
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS/deathknight';
 import TALENTS from 'common/TALENTS/deathknight';
@@ -173,14 +175,28 @@ class ScourgeStrike extends Analyzer {
             y: {
               field: 'stacks',
               type: 'quantitative',
-              title: 'Lesser Ghoul stacks',
+              title: t({
+                id: 'deathknight.unholy.scourgeStrike.axisStacks',
+                message: 'Lesser Ghoul stacks',
+              }),
               axis: {
                 grid: true,
               },
             },
             tooltip: [
-              { field: 'timestamp_humanized', type: 'nominal', title: 'Time' },
-              { field: 'stacks', type: 'quantitative', title: 'Stacks' },
+              {
+                field: 'timestamp_humanized',
+                type: 'nominal',
+                title: t({ id: 'deathknight.unholy.scourgeStrike.tooltipTime', message: 'Time' }),
+              },
+              {
+                field: 'stacks',
+                type: 'quantitative',
+                title: t({
+                  id: 'deathknight.unholy.scourgeStrike.tooltipStacks',
+                  message: 'Stacks',
+                }),
+              },
             ],
           },
         },
@@ -199,9 +215,27 @@ class ScourgeStrike extends Analyzer {
               type: 'quantitative',
             },
             tooltip: [
-              { field: 'timestamp_humanized', type: 'nominal', title: 'Time' },
-              { field: 'outcome', type: 'nominal', title: 'Scourge Strike' },
-              { field: 'stacks', type: 'quantitative', title: 'Stacks at cast' },
+              {
+                field: 'timestamp_humanized',
+                type: 'nominal',
+                title: t({ id: 'deathknight.unholy.scourgeStrike.tooltipTime', message: 'Time' }),
+              },
+              {
+                field: 'outcome',
+                type: 'nominal',
+                title: t({
+                  id: 'deathknight.unholy.scourgeStrike.tooltipScourgeStrike',
+                  message: 'Scourge Strike',
+                }),
+              },
+              {
+                field: 'stacks',
+                type: 'quantitative',
+                title: t({
+                  id: 'deathknight.unholy.scourgeStrike.tooltipStacksAtCast',
+                  message: 'Stacks at cast',
+                }),
+              },
             ],
           },
         },
@@ -221,9 +255,27 @@ class ScourgeStrike extends Analyzer {
               type: 'quantitative',
             },
             tooltip: [
-              { field: 'timestamp_humanized', type: 'nominal', title: 'Time' },
-              { field: 'outcome', type: 'nominal', title: 'Scourge Strike' },
-              { field: 'stacks', type: 'quantitative', title: 'Stacks at cast' },
+              {
+                field: 'timestamp_humanized',
+                type: 'nominal',
+                title: t({ id: 'deathknight.unholy.scourgeStrike.tooltipTime', message: 'Time' }),
+              },
+              {
+                field: 'outcome',
+                type: 'nominal',
+                title: t({
+                  id: 'deathknight.unholy.scourgeStrike.tooltipScourgeStrike',
+                  message: 'Scourge Strike',
+                }),
+              },
+              {
+                field: 'stacks',
+                type: 'quantitative',
+                title: t({
+                  id: 'deathknight.unholy.scourgeStrike.tooltipStacksAtCast',
+                  message: 'Stacks at cast',
+                }),
+              },
             ],
           },
         },
@@ -238,25 +290,65 @@ class ScourgeStrike extends Analyzer {
     return [
       {
         color: GOOD_CAST_COLOR,
-        label: <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF}>With Lesser Ghoul stacks</SpellLink>,
+        label: (
+          <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF}>
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.labelWithStacks',
+              message: 'With Lesser Ghoul stacks',
+            })}
+          </SpellLink>
+        ),
         value: this.castsWithLesserGhoulStacks,
         valuePercent: false,
         valueTooltip: (
           <>
-            {this.castsWithLesserGhoulStacks} <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} />{' '}
-            casts with <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} /> stacks
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.tooltipCastsWith',
+              message: '{casts} ',
+              values: { casts: this.castsWithLesserGhoulStacks },
+            })}
+            <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} />
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.tooltipCastsWith.p2',
+              message: ' casts with ',
+            })}
+            <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} />
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.tooltipCastsWith.p3',
+              message: ' stacks',
+            })}
           </>
         ),
       },
       {
         color: BAD_CAST_COLOR,
-        label: <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF}>Without Lesser Ghoul stacks</SpellLink>,
+        label: (
+          <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF}>
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.labelWithoutStacks',
+              message: 'Without Lesser Ghoul stacks',
+            })}
+          </SpellLink>
+        ),
         value: this.castsWithoutLesserGhoulStacks,
         valuePercent: false,
         valueTooltip: (
           <>
-            {this.castsWithoutLesserGhoulStacks} <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} />{' '}
-            casts without <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} /> stacks
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.tooltipCastsWithout',
+              message: '{casts} ',
+              values: { casts: this.castsWithoutLesserGhoulStacks },
+            })}
+            <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} />
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.tooltipCastsWithout.p2',
+              message: ' casts without ',
+            })}
+            <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} />
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.tooltipCastsWithout.p3',
+              message: ' stacks',
+            })}
           </>
         ),
       },
@@ -275,14 +367,22 @@ class ScourgeStrike extends Analyzer {
     return (
       <>
         <div style={rowStyle}>
-          <strong>{formatPercentage(this.efficiency, 0)}%</strong> <small>efficiency</small>
+          <strong>{formatPercentage(this.efficiency, 0)}%</strong>{' '}
+          <small>
+            {t({ id: 'deathknight.unholy.scourgeStrike.labelEfficiency', message: 'efficiency' })}
+          </small>
         </div>
         {showBreakdown && (
           <div style={rowStyle}>
             <strong>
               {good} / {total}
             </strong>{' '}
-            <small>good / total</small>
+            <small>
+              {t({
+                id: 'deathknight.unholy.scourgeStrike.labelGoodTotal',
+                message: 'good / total',
+              })}
+            </small>
           </div>
         )}
       </>
@@ -294,10 +394,17 @@ class ScourgeStrike extends Analyzer {
       <p>
         <strong>
           <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} />
-        </strong>{' '}
-        should be used while you have <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} /> stacks
-        available. Casting without stacks misses out on stack consumption value, so your goal is
-        100% of casts with at least one stack active.
+        </strong>
+        {t({
+          id: 'deathknight.unholy.scourgeStrike.guideExplanation',
+          message: ' should be used while you have ',
+        })}
+        <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} />
+        {t({
+          id: 'deathknight.unholy.scourgeStrike.guideExplanation.p2',
+          message:
+            ' stacks available. Casting without stacks misses out on stack consumption value, so your goal is 100% of casts with at least one stack active.',
+        })}
       </p>
     );
 
@@ -305,13 +412,26 @@ class ScourgeStrike extends Analyzer {
       <div>
         <div style={{ marginBottom: '6px' }}>
           <strong>
-            <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} /> usage
+            <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} />
+            {t({ id: 'deathknight.unholy.scourgeStrike.guideUsage', message: ' usage' })}
           </strong>
         </div>
         {this.renderEfficiencySummary({ rowStyle: { marginBottom: '8px' } })}
         <p style={{ margin: '0 0 8px 0' }}>
-          Use <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} /> while{' '}
-          <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} /> is stacked.
+          {t({
+            id: 'deathknight.unholy.scourgeStrike.guideHint',
+            message: 'Use ',
+          })}
+          <SpellLink spell={TALENTS.SCOURGE_STRIKE_TALENT} />
+          {t({
+            id: 'deathknight.unholy.scourgeStrike.guideHint.p2',
+            message: ' while ',
+          })}
+          <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} />
+          {t({
+            id: 'deathknight.unholy.scourgeStrike.guideHint.p3',
+            message: ' is stacked.',
+          })}
         </p>
         <small style={{ display: 'grid', gap: '2px', marginBottom: '6px' }}>
           <span>
@@ -321,7 +441,15 @@ class ScourgeStrike extends Analyzer {
                 backgroundColor: GOOD_CAST_COLOR,
               }}
             />
-            With <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} /> stacks
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.legendWithStacks',
+              message: 'With ',
+            })}
+            <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} />
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.legendWithStacks.p2',
+              message: ' stacks',
+            })}
           </span>
           <span>
             <span
@@ -330,7 +458,15 @@ class ScourgeStrike extends Analyzer {
                 backgroundColor: BAD_CAST_COLOR,
               }}
             />
-            Without <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} /> stacks
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.legendWithoutStacks',
+              message: 'Without ',
+            })}
+            <SpellLink spell={SPELLS.LESSER_GHOUL_BUFF} />
+            {t({
+              id: 'deathknight.unholy.scourgeStrike.legendWithoutStacks.p2',
+              message: ' stacks',
+            })}
           </span>
         </small>
         <div style={{ minHeight: '180px', marginBottom: '8px' }}>

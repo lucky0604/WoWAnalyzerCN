@@ -31,6 +31,8 @@ import Abilities from '../Abilities';
 import { SuddenDoomConsumption } from '../../normalizers/SuddenDoomLink';
 import RunicPowerTracker from '../core/RunicPowerTracker';
 import type { JSX } from 'react';
+// oxlint-disable wowanalyzer/lingui-t-macro-outside-jsx
+import { t } from '@lingui/core/macro';
 
 const SUDDEN_DOOM_PROC_SPENDER_SPELLS = [
   SPELLS.DEATH_COIL,
@@ -616,8 +618,20 @@ class SuddenDoom extends Analyzer.withDependencies({
 
     return (
       <>
-        {window.resolution === 'consumed' ? 'Consumed' : 'Missed'} after {window.casts.length} casts
-        ({spendableCastCount} with 15+ RP)
+        {window.resolution === 'consumed'
+          ? t({
+              id: 'deathknight.unholy.suddenDoom.windowConsumed',
+              message: 'Consumed',
+            })
+          : t({
+              id: 'deathknight.unholy.suddenDoom.windowMissed',
+              message: 'Missed',
+            })}{' '}
+        {t({
+          id: 'deathknight.unholy.suddenDoom.windowSummary',
+          message: 'after {casts} casts ({spendable} with 15+ RP)',
+          values: { casts: window.casts.length, spendable: spendableCastCount },
+        })}
       </>
     );
   }
@@ -638,12 +652,36 @@ class SuddenDoom extends Analyzer.withDependencies({
           <div>
             <strong>{cast.spellName}</strong>
           </div>
-          <div>Used at {this.owner.formatTimestamp(cast.timestamp)}</div>
           <div>
-            {cast.runicPower.toFixed(0)} RP{' '}
-            {cast.hadEnoughRunicPower ? '(15+ RP)' : '(under 15 RP)'}
+            {t({
+              id: 'deathknight.unholy.suddenDoom.tooltipUsedAt',
+              message: 'Used at {timestamp}',
+              values: { timestamp: this.owner.formatTimestamp(cast.timestamp) },
+            })}
           </div>
-          <div>{cast.suddenDoomStacks} Sudden Doom stacks</div>
+          <div>
+            {t({
+              id: 'deathknight.unholy.suddenDoom.tooltipRP',
+              message: '{rp} RP',
+              values: { rp: cast.runicPower.toFixed(0) },
+            })}{' '}
+            {cast.hadEnoughRunicPower
+              ? t({
+                  id: 'deathknight.unholy.suddenDoom.tooltipEnoughRP',
+                  message: '(15+ RP)',
+                })
+              : t({
+                  id: 'deathknight.unholy.suddenDoom.tooltipUnderRP',
+                  message: '(under 15 RP)',
+                })}
+          </div>
+          <div>
+            {t({
+              id: 'deathknight.unholy.suddenDoom.tooltipSDStacks',
+              message: '{stacks} Sudden Doom stacks',
+              values: { stacks: cast.suddenDoomStacks },
+            })}
+          </div>
         </>
       ),
     }));
@@ -666,15 +704,24 @@ class SuddenDoom extends Analyzer.withDependencies({
         stats: [
           {
             value: window.casts.length,
-            label: 'Casts before resolve',
+            label: t({
+              id: 'deathknight.unholy.suddenDoom.statsCastsBeforeResolve',
+              message: 'Casts before resolve',
+            }),
           },
           {
             value: spendableCastCount,
-            label: 'Casts with 15+ RP',
+            label: t({
+              id: 'deathknight.unholy.suddenDoom.statsCastsWith15RP',
+              message: 'Casts with 15+ RP',
+            }),
           },
           {
             value: relevantCast?.suddenDoomStacks ?? 0,
-            label: 'Current SD stacks',
+            label: t({
+              id: 'deathknight.unholy.suddenDoom.statsCurrentSDStacks',
+              message: 'Current SD stacks',
+            }),
           },
         ],
         additionalContent:
@@ -687,18 +734,39 @@ class SuddenDoom extends Analyzer.withDependencies({
           <>
             {window.resolution === 'consumed' ? (
               <>
-                <SpellLink spell={SPELLS.SUDDEN_DOOM_BUFF} /> consumed by{' '}
+                <SpellLink spell={SPELLS.SUDDEN_DOOM_BUFF} />
+                {t({
+                  id: 'deathknight.unholy.suddenDoom.detailConsumedBy',
+                  message: ' consumed by ',
+                })}
                 {window.consumedBySpellId ? (
                   <SpellLink spell={window.consumedBySpellId} />
                 ) : (
-                  'a spender'
-                )}{' '}
-                at {this.owner.formatTimestamp(window.resolvedAt)}.
+                  t({
+                    id: 'deathknight.unholy.suddenDoom.detailASpender',
+                    message: 'a spender',
+                  })
+                )}
+                {t({
+                  id: 'deathknight.unholy.suddenDoom.detailAt',
+                  message: ' at {timestamp}.',
+                  values: { timestamp: this.owner.formatTimestamp(window.resolvedAt) },
+                })}
               </>
             ) : (
               <>
-                <SpellLink spell={SPELLS.SUDDEN_DOOM_BUFF} /> {window.resolution} at{' '}
-                {this.owner.formatTimestamp(window.resolvedAt)}.
+                <SpellLink spell={SPELLS.SUDDEN_DOOM_BUFF} />{' '}
+                {window.resolution === 'expired'
+                  ? t({
+                      id: 'deathknight.unholy.suddenDoom.detailExpiredAt',
+                      message: 'expired at {timestamp}.',
+                      values: { timestamp: this.owner.formatTimestamp(window.resolvedAt) },
+                    })
+                  : t({
+                      id: 'deathknight.unholy.suddenDoom.detailOverwrittenAt',
+                      message: 'overwritten at {timestamp}.',
+                      values: { timestamp: this.owner.formatTimestamp(window.resolvedAt) },
+                    })}
               </>
             )}
           </>
@@ -711,20 +779,61 @@ class SuddenDoom extends Analyzer.withDependencies({
     const legend = (
       <TipBox hideIcon>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Perfect} /> <strong>Perfect</strong> - Proc
-          consumed within 2 GCDs of gaining it.
+          <PerformanceMark perf={QualitativePerformance.Perfect} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.suddenDoom.legendPerfect',
+              message: 'Perfect',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.suddenDoom.legendPerfectText',
+            message: 'Proc consumed within 2 GCDs of gaining it.',
+          })}
         </div>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Good} /> <strong>Good</strong> - Proc
-          consumed within 3–4 GCDs of gaining it.
+          <PerformanceMark perf={QualitativePerformance.Good} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.suddenDoom.legendGood',
+              message: 'Good',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.suddenDoom.legendGoodText',
+            message: 'Proc consumed within 3–4 GCDs of gaining it.',
+          })}
         </div>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Ok} /> <strong>Ok</strong> - Proc consumed,
-          but took 5 or more GCDs.
+          <PerformanceMark perf={QualitativePerformance.Ok} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.suddenDoom.legendOk',
+              message: 'Ok',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.suddenDoom.legendOkText',
+            message: 'Proc consumed, but took 5 or more GCDs.',
+          })}
         </div>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Fail} /> <strong>Fail</strong> - Proc
-          expired (fell off) or was overwritten at 2 stacks without being consumed.
+          <PerformanceMark perf={QualitativePerformance.Fail} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.suddenDoom.legendFail',
+              message: 'Fail',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.suddenDoom.legendFailText',
+            message:
+              'Proc expired (fell off) or was overwritten at 2 stacks without being consumed.',
+          })}
         </div>
       </TipBox>
     );
@@ -735,10 +844,17 @@ class SuddenDoom extends Analyzer.withDependencies({
           <strong>
             <SpellLink spell={SPELLS.SUDDEN_DOOM_BUFF} />
           </strong>{' '}
-          should be consumed as soon as possible. Letting a proc expire or get overwritten at 2
-          stacks is a direct damage loss — you lose a free, empowered{' '}
-          <SpellLink spell={SPELLS.DEATH_COIL} /> cast. This section tracks every proc window from
-          gain until consumption or loss, and records each cast made while the proc was active.
+          {t({
+            id: 'deathknight.unholy.suddenDoom.explanation',
+            message:
+              'should be consumed as soon as possible. Letting a proc expire or get overwritten at 2 stacks is a direct damage loss — you lose a free, empowered',
+          })}{' '}
+          <SpellLink spell={SPELLS.DEATH_COIL} />
+          {t({
+            id: 'deathknight.unholy.suddenDoom.explanation2',
+            message:
+              ' cast. This section tracks every proc window from gain until consumption or loss, and records each cast made while the proc was active.',
+          })}
         </p>
         {legend}
       </>
@@ -747,13 +863,29 @@ class SuddenDoom extends Analyzer.withDependencies({
     const data = (
       <RoundedPanel>
         <strong>
-          <SpellLink spell={SPELLS.SUDDEN_DOOM_BUFF} /> proc efficiency
+          <SpellLink spell={SPELLS.SUDDEN_DOOM_BUFF} />{' '}
+          {t({
+            id: 'deathknight.unholy.suddenDoom.procEfficiency',
+            message: 'proc efficiency',
+          })}
         </strong>
         <div style={{ marginTop: '6px', marginBottom: '10px' }}>
-          {formatPercentage(this.perfectAndGoodEfficiency, 0)}% <small>perfect+good windows</small>
+          {formatPercentage(this.perfectAndGoodEfficiency, 0)}%{' '}
+          <small>
+            {t({
+              id: 'deathknight.unholy.suddenDoom.perfectGoodWindows',
+              message: 'perfect+good windows',
+            })}
+          </small>
         </div>
         <div style={{ minWidth: 0, overflow: 'hidden' }}>
-          <CastDetail title="Proc Windows" casts={this.buildCastDetails()} />
+          <CastDetail
+            title={t({
+              id: 'deathknight.unholy.suddenDoom.procWindows',
+              message: 'Proc Windows',
+            })}
+            casts={this.buildCastDetails()}
+          />
         </div>
       </RoundedPanel>
     );
@@ -782,13 +914,31 @@ class SuddenDoom extends Analyzer.withDependencies({
       >
         <BoringSpellValueText spell={SPELLS.SUDDEN_DOOM_BUFF}>
           <div>
-            {formatPercentage(this.efficiency, 0)}% <small>efficiency</small>
+            {formatPercentage(this.efficiency, 0)}%{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.suddenDoom.statEfficiency',
+                message: 'efficiency',
+              })}
+            </small>
           </div>
           <div>
-            {this.procsPerMinute.toFixed(1)} <small>procs/min</small>
+            {this.procsPerMinute.toFixed(1)}{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.suddenDoom.statProcsPerMin',
+                message: 'procs/min',
+              })}
+            </small>
           </div>
           <div>
-            {this.averageCastsBeforeConsumption.toFixed(1)} <small>casts to consume</small>
+            {this.averageCastsBeforeConsumption.toFixed(1)}{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.suddenDoom.statCastsToConsume',
+                message: 'casts to consume',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
         <div style={{ padding: '8px' }}>
@@ -796,24 +946,45 @@ class SuddenDoom extends Analyzer.withDependencies({
             items={[
               {
                 color: '#22c55e',
-                label: 'Consumed',
+                label: t({
+                  id: 'deathknight.unholy.suddenDoom.donutLabelConsumed',
+                  message: 'Consumed',
+                }),
                 value: this.consumedProcs,
                 valuePercent: false,
-                valueTooltip: `${this.consumedProcs} procs used`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.suddenDoom.donutTooltipConsumed',
+                  message: '{count} procs used',
+                  values: { count: this.consumedProcs },
+                }),
               },
               {
                 color: '#ef4444',
-                label: 'Expired',
+                label: t({
+                  id: 'deathknight.unholy.suddenDoom.donutLabelExpired',
+                  message: 'Expired',
+                }),
                 value: this.wastedExpires,
                 valuePercent: false,
-                valueTooltip: `${this.wastedExpires} procs expired without being used`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.suddenDoom.donutTooltipExpired',
+                  message: '{count} procs expired without being used',
+                  values: { count: this.wastedExpires },
+                }),
               },
               {
                 color: '#f59e0b',
-                label: 'Overwritten',
+                label: t({
+                  id: 'deathknight.unholy.suddenDoom.donutLabelOverwritten',
+                  message: 'Overwritten',
+                }),
                 value: this.wastedRefreshes,
                 valuePercent: false,
-                valueTooltip: `${this.wastedRefreshes} procs overwritten by new procs`,
+                valueTooltip: t({
+                  id: 'deathknight.unholy.suddenDoom.donutTooltipOverwritten',
+                  message: '{count} procs overwritten by new procs',
+                  values: { count: this.wastedRefreshes },
+                }),
               },
             ]}
           />

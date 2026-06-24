@@ -116,7 +116,11 @@ export default class ForbiddenKnowledge extends ExecuteHelper.withDependencies({
                 value: this.necroticCoilDamage,
                 valueTooltip: t({
                   id: 'deathknight.unholy.forbiddenKnowledge.tooltipNecroticCoil',
-                  message: `${formatNumber(necroticCoilDps)} DPS — ${formatNumber(this.necroticCoilDamage)} total`,
+                  message: '{dps} DPS — {total} total',
+                  values: {
+                    dps: formatNumber(necroticCoilDps),
+                    total: formatNumber(this.necroticCoilDamage),
+                  },
                 }),
               },
               {
@@ -129,7 +133,11 @@ export default class ForbiddenKnowledge extends ExecuteHelper.withDependencies({
                 value: this.graveyardDamage,
                 valueTooltip: t({
                   id: 'deathknight.unholy.forbiddenKnowledge.tooltipGraveyard',
-                  message: `${formatNumber(graveyardDps)} DPS — ${formatNumber(this.graveyardDamage)} total`,
+                  message: '{dps} DPS — {total} total',
+                  values: {
+                    dps: formatNumber(graveyardDps),
+                    total: formatNumber(this.graveyardDamage),
+                  },
                 }),
               },
             ]}

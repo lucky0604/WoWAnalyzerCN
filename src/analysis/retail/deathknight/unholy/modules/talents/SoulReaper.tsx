@@ -21,6 +21,8 @@ import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
+// oxlint-disable wowanalyzer/lingui-t-macro-outside-jsx
+import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SpellUsable from '../core/SpellUsable';
 
@@ -277,12 +279,28 @@ class SoulReaper extends ExecuteHelper.withDependencies({
       performance: QualitativePerformance.Good,
       assessment: firstCastInWindow ? (
         <>
-          You used your free <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> during{' '}
+          {t({
+            id: 'deathknight.unholy.soulReaper.assessment.firstFreeCast.p1',
+            message: 'You used your free ',
+          })}
+          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.assessment.firstFreeCast.p2',
+            message: ' during ',
+          })}
           <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
         </>
       ) : (
         <>
-          You used <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> on cooldown during{' '}
+          {t({
+            id: 'deathknight.unholy.soulReaper.assessment.cooldownCast.p1',
+            message: 'You used ',
+          })}
+          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.assessment.cooldownCast.p2',
+            message: ' on cooldown during ',
+          })}
           <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
         </>
       ),
@@ -303,7 +321,15 @@ class SoulReaper extends ExecuteHelper.withDependencies({
         performance: QualitativePerformance.Good,
         assessment: (
           <>
-            You used <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> without Putrefy stacks outside{' '}
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.noStacksNoDt.p1',
+              message: 'You used ',
+            })}
+            <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.noStacksNoDt.p2',
+              message: ' without Putrefy stacks outside ',
+            })}
             <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
           </>
         ),
@@ -315,9 +341,25 @@ class SoulReaper extends ExecuteHelper.withDependencies({
         performance: QualitativePerformance.Fail,
         assessment: (
           <>
-            You used <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> outside{' '}
-            <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} /> with available{' '}
-            <SpellLink spell={TALENTS.PUTREFY_TALENT} /> stacks and less than 15s until your next{' '}
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.stacksAndDtSoon.p1',
+              message: 'You used ',
+            })}
+            <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.stacksAndDtSoon.p2',
+              message: ' outside ',
+            })}
+            <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.stacksAndDtSoon.p3',
+              message: ' with available ',
+            })}
+            <SpellLink spell={TALENTS.PUTREFY_TALENT} />
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.stacksAndDtSoon.p4',
+              message: ' stacks and less than 15s until your next ',
+            })}
             <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
           </>
         ),
@@ -329,8 +371,20 @@ class SoulReaper extends ExecuteHelper.withDependencies({
         performance: QualitativePerformance.Fail,
         assessment: (
           <>
-            You used <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> with stacks from{' '}
-            <SpellLink spell={TALENTS.PUTREFY_TALENT} /> outside{' '}
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.stacksOutsideDt.p1',
+              message: 'You used ',
+            })}
+            <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.stacksOutsideDt.p2',
+              message: ' with stacks from ',
+            })}
+            <SpellLink spell={TALENTS.PUTREFY_TALENT} />
+            {t({
+              id: 'deathknight.unholy.soulReaper.assessment.stacksOutsideDt.p3',
+              message: ' outside ',
+            })}
             <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
           </>
         ),
@@ -341,7 +395,15 @@ class SoulReaper extends ExecuteHelper.withDependencies({
       performance: QualitativePerformance.Fail,
       assessment: (
         <>
-          You used <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> within 15s of your next{' '}
+          {t({
+            id: 'deathknight.unholy.soulReaper.assessment.dtSoon.p1',
+            message: 'You used ',
+          })}
+          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.assessment.dtSoon.p2',
+            message: ' within 15s of your next ',
+          })}
           <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
         </>
       ),
@@ -369,24 +431,45 @@ class SoulReaper extends ExecuteHelper.withDependencies({
     darkTransformationCooldownRemaining: string,
     putrefyTooltip: JSX.Element = (
       <>
-        Estimated <SpellLink spell={TALENTS.PUTREFY_TALENT} /> charges available when{' '}
-        <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> was cast.
+        {t({
+          id: 'deathknight.unholy.soulReaper.stats.putrefyTooltip.p1',
+          message: 'Estimated ',
+        })}
+        <SpellLink spell={TALENTS.PUTREFY_TALENT} />
+        {t({
+          id: 'deathknight.unholy.soulReaper.stats.putrefyTooltip.p2',
+          message: ' charges available when ',
+        })}
+        <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+        {t({
+          id: 'deathknight.unholy.soulReaper.stats.putrefyTooltip.p3',
+          message: ' was cast.',
+        })}
       </>
     ),
   ) {
     return [
       {
         value: windowLabel,
-        label: 'Window',
+        label: t({
+          id: 'deathknight.unholy.soulReaper.stats.window',
+          message: 'Window',
+        }),
       },
       {
         value: putrefyStacks,
-        label: 'Putrefy stacks',
+        label: t({
+          id: 'deathknight.unholy.soulReaper.stats.putrefyStacks',
+          message: 'Putrefy stacks',
+        }),
         tooltip: putrefyTooltip,
       },
       {
         value: darkTransformationCooldownRemaining,
-        label: 'DT CD remaining',
+        label: t({
+          id: 'deathknight.unholy.soulReaper.stats.dtCdRemaining',
+          message: 'DT CD remaining',
+        }),
       },
     ];
   }
@@ -410,7 +493,10 @@ class SoulReaper extends ExecuteHelper.withDependencies({
       );
       const inDarkTransformation = cast.darkTransformationWindowId !== null;
       const darkTransformationCooldownRemaining = inDarkTransformation
-        ? 'Active'
+        ? t({
+            id: 'deathknight.unholy.soulReaper.casts.active',
+            message: 'Active',
+          })
         : this.getDarkTransformationCooldownRemaining(
             cast.timestamp,
             darkTransformationContext.nextDarkTransformationTimestamp,
@@ -422,7 +508,15 @@ class SoulReaper extends ExecuteHelper.withDependencies({
           performance: castAssessment.performance,
           timestamp: this.owner.formatTimestamp(cast.timestamp),
           stats: this.buildCastStats(
-            inDarkTransformation ? 'During DT' : 'Outside DT',
+            inDarkTransformation
+              ? t({
+                  id: 'deathknight.unholy.soulReaper.casts.duringDt',
+                  message: 'During DT',
+                })
+              : t({
+                  id: 'deathknight.unholy.soulReaper.casts.outsideDt',
+                  message: 'Outside DT',
+                }),
             cast.putrefyChargesAtCast,
             darkTransformationCooldownRemaining,
           ),
@@ -438,18 +532,48 @@ class SoulReaper extends ExecuteHelper.withDependencies({
           performance: QualitativePerformance.Fail,
           timestamp: this.owner.formatTimestamp(missedFreeSoulReaperWindow.timestamp),
           stats: this.buildCastStats(
-            'During DT',
+            t({
+              id: 'deathknight.unholy.soulReaper.casts.duringDt',
+              message: 'During DT',
+            }),
             '-',
-            'Active',
+            t({
+              id: 'deathknight.unholy.soulReaper.casts.active',
+              message: 'Active',
+            }),
             <>
-              No <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> cast happened in this{' '}
-              <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} /> window.
+              {t({
+                id: 'deathknight.unholy.soulReaper.casts.missedTooltip.p1',
+                message: 'No ',
+              })}
+              <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+              {t({
+                id: 'deathknight.unholy.soulReaper.casts.missedTooltip.p2',
+                message: ' cast happened in this ',
+              })}
+              <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />
+              {t({
+                id: 'deathknight.unholy.soulReaper.casts.missedTooltip.p3',
+                message: ' window.',
+              })}
             </>,
           ),
           details: (
             <>
-              You did not cast your free <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> during
-              this <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} /> window.
+              {t({
+                id: 'deathknight.unholy.soulReaper.casts.missedDetails.p1',
+                message: 'You did not cast your free ',
+              })}
+              <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+              {t({
+                id: 'deathknight.unholy.soulReaper.casts.missedDetails.p2',
+                message: ' during this ',
+              })}
+              <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />
+              {t({
+                id: 'deathknight.unholy.soulReaper.casts.missedDetails.p3',
+                message: ' window.',
+              })}
             </>
           ),
         },
@@ -468,25 +592,71 @@ class SoulReaper extends ExecuteHelper.withDependencies({
           <strong>
             <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
           </strong>{' '}
-          should be prioritized during <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} /> and
-          managed carefully outside of it.
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p1',
+            message: 'should be prioritized during ',
+          })}
+          <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p1.p2',
+            message: ' and managed carefully outside of it.',
+          })}
         </p>
         <p>
-          During each <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} /> window, always spend the
-          free <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> cast, then continue using{' '}
-          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> on cooldown while the window remains
-          active.
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p2.p1',
+            message: 'During each ',
+          })}
+          <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p2.p2',
+            message: ' window, always spend the free ',
+          })}
+          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p2.p3',
+            message: ' cast, then continue using ',
+          })}
+          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p2.p4',
+            message: ' on cooldown while the window remains active.',
+          })}
         </p>
         <p>
-          Outside <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />, use{' '}
-          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} /> only when you do not have stacks from{' '}
-          <SpellLink spell={TALENTS.PUTREFY_TALENT} /> available and you are not within 15 seconds
-          of your next <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p3.p1',
+            message: 'Outside ',
+          })}
+          <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p3.p2',
+            message: ', use ',
+          })}
+          <SpellLink spell={TALENTS.SOUL_REAPER_TALENT} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p3.p3',
+            message: ' only when you do not have stacks from ',
+          })}
+          <SpellLink spell={TALENTS.PUTREFY_TALENT} />
+          {t({
+            id: 'deathknight.unholy.soulReaper.guide.explanation.p3.p4',
+            message: ' available and you are not within 15 seconds of your next ',
+          })}
+          <SpellLink spell={SPELLS.DARK_TRANSFORMATION_BUFF} />.
         </p>
       </>
     );
 
-    const data = <CastDetail title="Soul Reaper Casts" casts={this.buildCastDetails()} />;
+    const data = (
+      <CastDetail
+        title={t({
+          id: 'deathknight.unholy.soulReaper.guide.castDetailTitle',
+          message: 'Soul Reaper Casts',
+        })}
+        casts={this.buildCastDetails()}
+      />
+    );
 
     return explanationAndDataSubsection(explanation, data, 40);
   }
@@ -507,19 +677,35 @@ class SoulReaper extends ExecuteHelper.withDependencies({
             <ItemDamageDone amount={totalGain} />
           </div>
           <div style={{ lineHeight: 1.2 }}>
-            <small style={{ display: 'block' }}>Breakdown</small>
             <small style={{ display: 'block' }}>
-              <ItemDamageDone amount={directDamage} displayPercentage={false} /> ability damage
+              {t({
+                id: 'deathknight.unholy.soulReaper.statistic.breakdown',
+                message: 'Breakdown',
+              })}
             </small>
             <small style={{ display: 'block' }}>
-              <ItemDamageDone amount={debuffBonus} displayPercentage={false} /> debuff bonus (est.)
+              <ItemDamageDone amount={directDamage} displayPercentage={false} />{' '}
+              {t({
+                id: 'deathknight.unholy.soulReaper.statistic.abilityDamage',
+                message: 'ability damage',
+              })}
+            </small>
+            <small style={{ display: 'block' }}>
+              <ItemDamageDone amount={debuffBonus} displayPercentage={false} />{' '}
+              {t({
+                id: 'deathknight.unholy.soulReaper.statistic.debuffBonus',
+                message: 'debuff bonus (est.)',
+              })}
             </small>
           </div>
           {this.missedFreeSoulReaperWindows.length > 0 && (
             <div>
               <span style={{ color: 'red' }}>{this.missedFreeSoulReaperWindows.length}</span>{' '}
               <small>
-                wasted Dark Transformation window
+                {t({
+                  id: 'deathknight.unholy.soulReaper.statistic.wastedDtWindow',
+                  message: 'wasted Dark Transformation window',
+                })}
                 {this.missedFreeSoulReaperWindows.length > 1 ? 's' : ''}
               </small>
             </div>

@@ -102,13 +102,15 @@ class LesserGhoul extends Analyzer {
             <div>
               {t({
                 id: 'deathknight.unholy.lesserGhoul.tooltipConsumed',
-                message: `You consumed ${this.stacksConsumed} out of ${this.stacksGained} Lesser Ghoul stacks.`,
+                message: 'You consumed {consumed} out of {gained} Lesser Ghoul stacks.',
+                values: { consumed: this.stacksConsumed, gained: this.stacksGained },
               })}
             </div>
             <div>
               {t({
                 id: 'deathknight.unholy.lesserGhoul.tooltipExpired',
-                message: `${this.stacksExpired} stacks expired without being used.`,
+                message: '{expired} stacks expired without being used.',
+                values: { expired: this.stacksExpired },
               })}
             </div>
           </>

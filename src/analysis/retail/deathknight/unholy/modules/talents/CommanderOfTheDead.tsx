@@ -74,7 +74,8 @@ class CommanderOfTheDead extends Analyzer {
       <Statistic
         tooltip={t({
           id: 'deathknight.unholy.commanderOfTheDead.tooltipPetsBuffed',
-          message: `You buffed ${this.commanderBuffs} out of ${this.petSummons} pets buffed with Commander of the Dead`,
+          message: 'You buffed {buffed} out of {total} pets buffed with Commander of the Dead',
+          values: { buffed: this.commanderBuffs, total: this.petSummons },
         })}
         position={STATISTIC_ORDER.CORE(3)}
         category={STATISTIC_CATEGORY.TALENTS}

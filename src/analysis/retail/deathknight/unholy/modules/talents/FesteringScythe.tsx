@@ -1,3 +1,5 @@
+// oxlint-disable wowanalyzer/lingui-t-macro-outside-jsx
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import DK_SPELLS from 'common/SPELLS/deathknight';
 import TALENTS from 'common/TALENTS/deathknight';
@@ -171,17 +173,27 @@ class FesteringScythe extends Analyzer {
             stats: [
               {
                 value: `${this.formatSeconds(record.missingMs ?? 0)}s`,
-                label: 'Missing time',
+                label: t({
+                  id: 'deathknight.unholy.festeringScythe.stat.missingTime',
+                  message: 'Missing time',
+                }),
               },
               {
                 value: record.lesserGhoulStacks,
-                label: 'Lesser Ghoul stacks',
+                label: t({
+                  id: 'deathknight.unholy.festeringScythe.stat.lesserGhoulStacks',
+                  message: 'Lesser Ghoul stacks',
+                }),
               },
             ],
             details: (
               <>
-                <SpellLink spell={DK_SPELLS.FESTERING_SCYTHE_BUFF} /> fell off before you reapplied
-                it. Avoid drops to keep disease haste active.
+                <SpellLink spell={DK_SPELLS.FESTERING_SCYTHE_BUFF} />{' '}
+                {t({
+                  id: 'deathknight.unholy.festeringScythe.details.buffFellOff',
+                  message:
+                    'fell off before you reapplied it. Avoid drops to keep disease haste active.',
+                })}
               </>
             ),
           };
@@ -192,24 +204,55 @@ class FesteringScythe extends Analyzer {
         if (record.performance === QualitativePerformance.Perfect) {
           details = (
             <>
-              You refreshed with {remainingSeconds}s left
+              {t({
+                id: 'deathknight.unholy.festeringScythe.details.refreshedWith',
+                message: 'You refreshed with ',
+              })}
+              {remainingSeconds}s
+              {t({
+                id: 'deathknight.unholy.festeringScythe.details.left',
+                message: ' left',
+              })}
               {record.lesserGhoulStacks <= 1 ? (
                 <>
                   {' '}
-                  while at ≤1 <SpellLink spell={DK_SPELLS.LESSER_GHOUL_BUFF} /> stack.
+                  {t({
+                    id: 'deathknight.unholy.festeringScythe.details.whileAtLe1',
+                    message: 'while at ≤1 ',
+                  })}
+                  <SpellLink spell={DK_SPELLS.LESSER_GHOUL_BUFF} />
+                  {t({
+                    id: 'deathknight.unholy.festeringScythe.details.stack',
+                    message: ' stack.',
+                  })}
                 </>
               ) : (
-                ' (under 3s).'
+                t({
+                  id: 'deathknight.unholy.festeringScythe.details.under3s',
+                  message: ' (under 3s).',
+                })
               )}
             </>
           );
         } else if (record.performance === QualitativePerformance.Good) {
-          details = <>Refreshed in the 3s to 5s window ({remainingSeconds}s remaining).</>;
+          details = (
+            <>
+              {t({
+                id: 'deathknight.unholy.festeringScythe.details.refreshed3to5s',
+                message: 'Refreshed in the 3s to 5s window ({remaining}s remaining).',
+                values: { remaining: remainingSeconds },
+              })}
+            </>
+          );
         } else {
           details = (
             <>
-              Refreshed too soon ({remainingSeconds}s remaining). Try to refresh later unless stack
-              conditions force it.
+              {t({
+                id: 'deathknight.unholy.festeringScythe.details.refreshedTooSoon',
+                message:
+                  'Refreshed too soon ({remaining}s remaining). Try to refresh later unless stack conditions force it.',
+                values: { remaining: remainingSeconds },
+              })}
             </>
           );
         }
@@ -220,11 +263,17 @@ class FesteringScythe extends Analyzer {
           stats: [
             {
               value: `${this.formatSeconds(record.remainingMs ?? 0)}s`,
-              label: 'Remaining duration',
+              label: t({
+                id: 'deathknight.unholy.festeringScythe.stat.remainingDuration',
+                message: 'Remaining duration',
+              }),
             },
             {
               value: record.lesserGhoulStacks,
-              label: 'Lesser Ghoul stacks',
+              label: t({
+                id: 'deathknight.unholy.festeringScythe.stat.lesserGhoulStacks',
+                message: 'Lesser Ghoul stacks',
+              }),
             },
           ],
           details,
@@ -238,21 +287,65 @@ class FesteringScythe extends Analyzer {
     const legend = (
       <TipBox hideIcon>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Perfect} /> <strong>Perfect</strong> -
-          Refreshed with under 3 seconds remaining, or with 1 or fewer{' '}
-          <SpellLink spell={DK_SPELLS.LESSER_GHOUL_BUFF} /> stacks
+          <PerformanceMark perf={QualitativePerformance.Perfect} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.festeringScythe.legend.perfect',
+              message: 'Perfect',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.festeringScythe.legend.perfectDescription',
+            message: 'Refreshed with under 3 seconds remaining, or with 1 or fewer ',
+          })}
+          <SpellLink spell={DK_SPELLS.LESSER_GHOUL_BUFF} />
+          {t({
+            id: 'deathknight.unholy.festeringScythe.legend.stacks',
+            message: ' stacks',
+          })}
         </div>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Good} /> <strong>Good</strong> - Refreshed
-          in the 3 to 5 second window
+          <PerformanceMark perf={QualitativePerformance.Good} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.festeringScythe.legend.good',
+              message: 'Good',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.festeringScythe.legend.goodDescription',
+            message: 'Refreshed in the 3 to 5 second window',
+          })}
         </div>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Ok} /> <strong>Ok</strong> - Refreshed
-          safely, but earlier than the recommended window
+          <PerformanceMark perf={QualitativePerformance.Ok} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.festeringScythe.legend.ok',
+              message: 'Ok',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.festeringScythe.legend.okDescription',
+            message: 'Refreshed safely, but earlier than the recommended window',
+          })}
         </div>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Fail} /> <strong>Fail</strong> - The buff
-          fell off before you reapplied it
+          <PerformanceMark perf={QualitativePerformance.Fail} />{' '}
+          <strong>
+            {t({
+              id: 'deathknight.unholy.festeringScythe.legend.fail',
+              message: 'Fail',
+            })}
+          </strong>{' '}
+          -{' '}
+          {t({
+            id: 'deathknight.unholy.festeringScythe.legend.failDescription',
+            message: 'The buff fell off before you reapplied it',
+          })}
         </div>
       </TipBox>
     );
@@ -262,15 +355,29 @@ class FesteringScythe extends Analyzer {
         <p>
           <strong>
             <SpellLink spell={DK_SPELLS.FESTERING_SCYTHE_BUFF} />
-          </strong>{' '}
-          is a high-value buff you want active for as much of the fight as possible. It hastens your
-          diseases, which increases <SpellLink spell={TALENTS.SUDDEN_DOOM_TALENT} /> proc
-          generation.
+          </strong>
+          {t({
+            id: 'deathknight.unholy.festeringScythe.guide.explanation.p1',
+            message:
+              ' is a high-value buff you want active for as much of the fight as possible. It hastens your diseases, which increases ',
+          })}
+          <SpellLink spell={TALENTS.SUDDEN_DOOM_TALENT} />
+          {t({
+            id: 'deathknight.unholy.festeringScythe.guide.explanation.procGeneration',
+            message: ' proc generation.',
+          })}
         </p>
         <p>
-          Aim to maximize uptime while still refreshing efficiently: late refreshes are better than
-          early ones, and the best refreshes are in the final seconds of the buff (or when your
-          <SpellLink spell={DK_SPELLS.LESSER_GHOUL_BUFF} /> stack condition is met).
+          {t({
+            id: 'deathknight.unholy.festeringScythe.guide.explanation.p2',
+            message:
+              'Aim to maximize uptime while still refreshing efficiently: late refreshes are better than early ones, and the best refreshes are in the final seconds of the buff (or when your ',
+          })}
+          <SpellLink spell={DK_SPELLS.LESSER_GHOUL_BUFF} />
+          {t({
+            id: 'deathknight.unholy.festeringScythe.guide.explanation.stackCondition',
+            message: ' stack condition is met).',
+          })}
         </p>
         {legend}
       </>
@@ -280,22 +387,49 @@ class FesteringScythe extends Analyzer {
       <div>
         <div style={{ marginBottom: '6px' }}>
           <strong>
-            <SpellLink spell={DK_SPELLS.FESTERING_SCYTHE} /> casts
+            <SpellLink spell={DK_SPELLS.FESTERING_SCYTHE} />
+            {t({
+              id: 'deathknight.unholy.festeringScythe.guide.casts',
+              message: ' casts',
+            })}
           </strong>
         </div>
         <div style={{ marginBottom: '8px' }}>
           <div>
-            <strong>{formatPercentage(this.uptime, 1)}%</strong> <small>uptime</small>
+            <strong>{formatPercentage(this.uptime, 1)}%</strong>{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.festeringScythe.label.uptime',
+                message: 'uptime',
+              })}
+            </small>
           </div>
           <div>
             <strong>{formatPercentage(this.goodOrPerfectRefreshRate, 0)}%</strong>{' '}
-            <small>good+perfect refreshes</small>
+            <small>
+              {t({
+                id: 'deathknight.unholy.festeringScythe.label.goodRefreshes',
+                message: 'good+perfect refreshes',
+              })}
+            </small>
           </div>
           <div>
-            <strong>{this.droppedApplications}</strong> <small>buff drops</small>
+            <strong>{this.droppedApplications}</strong>{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.festeringScythe.label.buffDrops',
+                message: 'buff drops',
+              })}
+            </small>
           </div>
         </div>
-        <CastDetail title="Festering Scythe Timeline" casts={this.buildCastDetails()} />
+        <CastDetail
+          title={t({
+            id: 'deathknight.unholy.festeringScythe.castTimeline.title',
+            message: 'Festering Scythe Timeline',
+          })}
+          casts={this.buildCastDetails()}
+        />
       </div>
     );
 
@@ -311,14 +445,31 @@ class FesteringScythe extends Analyzer {
       >
         <BoringSpellValueText spell={DK_SPELLS.FESTERING_SCYTHE_BUFF}>
           <div>
-            {formatPercentage(this.uptime, 1)}% <small>uptime</small>
+            {formatPercentage(this.uptime, 1)}%{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.festeringScythe.label.uptime',
+                message: 'uptime',
+              })}
+            </small>
           </div>
           <div>
             {formatPercentage(this.goodOrPerfectRefreshRate, 0)}%{' '}
-            <small>good+perfect refreshes</small>
+            <small>
+              {t({
+                id: 'deathknight.unholy.festeringScythe.label.goodRefreshes',
+                message: 'good+perfect refreshes',
+              })}
+            </small>
           </div>
           <div>
-            {this.droppedApplications} <small>buff drops</small>
+            {this.droppedApplications}{' '}
+            <small>
+              {t({
+                id: 'deathknight.unholy.festeringScythe.label.buffDrops',
+                message: 'buff drops',
+              })}
+            </small>
           </div>
         </BoringSpellValueText>
       </Statistic>
