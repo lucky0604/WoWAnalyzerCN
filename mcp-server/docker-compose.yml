@@ -1,0 +1,43 @@
+# MCP server only — bring your own wcl-proxy-server.
+# Run from repository root:   docker compose -f mcp-server/docker-compose.yml up --build
+#
+# If your wcl-proxy-server runs on the host (Mac/Win Docker Desktop), use the
+# default WCL_API_BASE=http://host.docker.internal:9528/v1 below.
+# If you containerize wcl-proxy as a sibling service, swap the URL to use the
+# container name (e.g. http://wcl-proxy:9528/v1) and add it to this compose file.
+
+services:
+  mcp-server:
+    build:
+      context: ..
+      dockerfile: mcp-server/Dockerfile
+    image: wowanalyzer-mcp-server:latest
+    container_name: wowanalyzer-mcp-server
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      WCL_API_BASE: ${WCL_API_BASE:-http://host.docker.internal:9528/v1}
+    ports:
+      - '3001:3001'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3001/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
