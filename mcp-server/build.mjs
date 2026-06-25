@@ -1,5 +1,5 @@
 import * as esbuild from 'esbuild';
-import { copyFileSync, mkdirSync, existsSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -49,6 +49,20 @@ for (const file of filesToCopy) {
   mkdirSync(dirname(dest), { recursive: true });
   copyFileSync(src, dest);
   console.log(`  [copy] ${file}`);
+}
+
+// Patch copied SPA file: Vite-specific `import.meta.env.MODE` must be
+// resolved for Node.js runtime (both tsx dev and esbuild prod).  Replace
+// the test-mode guard with a compile-time false so there is zero runtime
+// dependency on Vite-injected globals.
+{
+  const fclPath = resolve(COPIED_DIR, 'common/fetchWclApi.ts');
+  const raw = readFileSync(fclPath, 'utf8');
+  const patched = raw.replace(/import\.meta\.env\.MODE\s*===\s*'test'/g, 'false');
+  if (patched !== raw) {
+    writeFileSync(fclPath, patched);
+    console.log('  [patch] replaced import.meta.env.MODE guard in fetchWclApi.ts');
+  }
 }
 
 // Write redirect files into .copied/parser/core/ for relative imports inside copied files

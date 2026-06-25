@@ -87,8 +87,10 @@ function createMcpServer(): McpServer {
   return mcpServer;
 }
 
-// Stateless mode: a fresh transport + server connection per request.
-app.post('/mcp', async (req: Request, res: Response) => {
+// Handle all HTTP methods: POST for JSON-RPC, GET for SSE streaming (Cursor
+// opens SSE after initialize), DELETE for session termination.  The transport
+// routes internally; stateless mode means GET/DELETE get clean rejection.
+app.all('/mcp', async (req: Request, res: Response) => {
   try {
     const mcpServer = createMcpServer();
     const transport = new StreamableHTTPServerTransport({
