@@ -35,6 +35,74 @@ The server starts on **http://localhost:3001**:
 - MCP endpoint: `POST http://localhost:3001/mcp`
 - Health check: `GET http://localhost:3001/health`
 
+## Environments
+
+WoWAnalyzerCN MCP 服务器支持两套运行环境：本地测试与线上生产。
+
+| 环境             | MCP 端点                    | 健康检查                       | 说明                                                                                                                                      |
+| ---------------- | --------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **测试（本地）** | `http://localhost:3001/mcp` | `http://localhost:3001/health` | 自己在 `mcp-server/` 目录 `pnpm dev` 或 `pnpm start` 起的服务。需要本地同时跑 `wcl-proxy-server`（默认 9528）。**无认证，仅限本机使用。** |
+| **生产（线上）** | `https://fastdata.top/mcp`  | `https://fastdata.top/health`  | 部署在 `fastdata.top` 域名下的官方服务。开箱即用，无需本地启动任何东西。M3 之后会启用 Bearer Token 认证。                                 |
+
+### 测试环境配置（localhost）
+
+适用场景：本地开发、调试新工具、改完代码立即验证。
+
+```bash
+# 1. 启动 wcl-proxy-server（另一个仓库）
+# 2. 在 mcp-server/ 目录启动 MCP 服务
+cd mcp-server
+pnpm install
+pnpm build
+pnpm dev          # 监听模式，改代码自动重启
+# 或 pnpm start   # 生产模式跑构建产物
+
+# 3. 验证服务在线
+curl http://localhost:3001/health
+# 期望返回: {"status":"ok","wcl":"reachable"}
+```
+
+OpenCode / OpenClaw / Cursor 等客户端的 MCP 配置指向 `http://localhost:3001/mcp` 即可。详细的各客户端配置示例见 [docs/MCP_SETUP.md](../docs/MCP_SETUP.md)。
+
+### 生产环境配置（fastdata.top）
+
+适用场景：日常使用 AI 助手分析战报，不想自己起服务的普通用户。
+
+```bash
+# 验证生产服务在线
+curl https://fastdata.top/health
+# 期望返回: {"status":"ok","wcl":"reachable"}
+```
+
+OpenCode 示例（`opencode.jsonc`）：
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "wowanalyzer-cn": {
+      "type": "remote",
+      "url": "https://fastdata.top/mcp",
+      "enabled": true,
+    },
+  },
+}
+```
+
+Cursor 示例（`.cursor/mcp.json`）：
+
+```json
+{
+  "mcpServers": {
+    "wowanalyzer-cn": {
+      "url": "https://fastdata.top/mcp"
+    }
+  }
+}
+```
+
+> 切换环境只需改 URL 的 host 部分，其他字段保持一致。建议在不同项目使用不同名称区分（如 `wowanalyzer-cn-local` vs `wowanalyzer-cn`）以避免混淆。
+
 ## Verifying the Server
 
 ```bash
