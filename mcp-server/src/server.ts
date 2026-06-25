@@ -3,6 +3,7 @@ import express, { type Request, type Response } from 'express';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { analyzeReport, analyzeReportInputSchema } from './tools/analyze-report.js';
+import { analyzeFight, analyzeFightInputSchema } from './tools/analyze-fight.js';
 
 const PORT = 3001;
 
@@ -50,6 +51,33 @@ function createMcpServer(): McpServer {
           {
             type: 'text' as const,
             text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    },
+  );
+
+  mcpServer.registerTool(
+    'analyze_fight',
+    {
+      title: '分析战斗 (织雾武僧)',
+      description:
+        '对特定战斗中的特定玩家(织雾武僧)运行完整战斗日志分析，返回中文报告。需先用 analyze_report 获取 fightId 和 playerId。',
+      inputSchema: analyzeFightInputSchema,
+    },
+    async (params) => {
+      const result = await analyzeFight({
+        reportUrlOrCode: params.reportUrlOrCode,
+        fightId: params.fightId,
+        playerId: params.playerId,
+        format: params.format,
+      });
+      const body = result.text ?? JSON.stringify(result.json, null, 2);
+      return {
+        content: [
+          {
+            type: 'text' as const,
+            text: body,
           },
         ],
       };
