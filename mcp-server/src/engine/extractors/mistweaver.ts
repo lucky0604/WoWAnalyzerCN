@@ -222,6 +222,8 @@ export interface MistweaverReport {
 }
 
 const MANA_RESOURCE_TYPE = 0;
+// HIT_TYPES.CRIT from src/parser/core/HIT_TYPES.ts = 2
+const HIT_TYPE_CRIT = 2;
 
 function readManaCost(c: CastEvent): number {
   const classRes = c.classResources;
@@ -449,8 +451,7 @@ export function extractMistweaverReport(input: ExtractInput): MistweaverReport {
         } else {
           entry.hits += 1;
         }
-        // hitType 2 = crit (HIT_TYPES.CRIT in src/parser/core/HIT_TYPES.ts)
-        if (h.hitType === 2) {
+        if (h.hitType === HIT_TYPE_CRIT) {
           entry.crits += 1;
         }
         entry._targets.add(h.targetID);
