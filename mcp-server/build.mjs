@@ -47,8 +47,18 @@ for (const file of filesToCopy) {
   const src = resolve(SPA_SRC, file);
   const dest = resolve(COPIED_DIR, file);
   mkdirSync(dirname(dest), { recursive: true });
-  copyFileSync(src, dest);
-  console.log(`  [copy] ${file}`);
+  let content = readFileSync(src, 'utf8');
+  content = content
+    .replace(/import\.meta\.env\.VITE_WCL_API_BASE/g, 'process.env.WCL_API_BASE')
+    .replace(/import\.meta\.env\.VITE_WCL_DIRECT/g, '"false"')
+    .replace(/import\.meta\.env\.PROD/g, "(process.env.NODE_ENV === 'production')")
+    .replace(/import\.meta\.env\.DEV/g, "(process.env.NODE_ENV !== 'production')")
+    .replace(/import\.meta\.env\.MODE/g, "(process.env.NODE_ENV || 'development')")
+    .replace(/import\.meta\.env\.VITE_SERVER_BASE/g, '"/"')
+    .replace(/import\.meta\.env\.VITE_API_BASE/g, '"i/"')
+    .replace(/import\.meta\.env\.LOCALE/g, '"zh-CN"');
+  writeFileSync(dest, content);
+  console.log(`  [copy & patch] ${file}`);
 }
 
 // Patch copied SPA file: Vite-specific `import.meta.env.MODE` must be
