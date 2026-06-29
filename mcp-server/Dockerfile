@@ -15,13 +15,10 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 COPY mcp-server/package.json mcp-server/pnpm-lock.yaml /app/mcp-server/
 WORKDIR /app/mcp-server
 
-# pnpm v10+ blocks all postinstall scripts by default; esbuild needs its
-# postinstall to download the platform binary. Writing to /root/.npmrc
-# (global config) is the only approach that works reliably — project-level
-# .npmrc is not read under --frozen-lockfile, package.json's "pnpm" field
-# is ignored by v10, and pnpm config set doesn't support array syntax.
-RUN echo 'onlyBuiltDependencies[]=esbuild' >> /root/.npmrc
-RUN pnpm install --frozen-lockfile
+# pnpm v10+ 默认禁用所有依赖的 lifecycle 脚本（如 postinstall）；esbuild 需要运行 postinstall 来下载平台特定的二进制文件。
+# 由于 pnpm v11+ 不再从 .npmrc 中读取非 auth/registry 配置，且移除了 onlyBuiltDependencies 配置项，
+# 在安装时直接使用 --dangerously-allow-all-builds 参数是最健壮、自包含且同时兼容 pnpm v10 和 v11 的方案。
+RUN pnpm install --frozen-lockfile --dangerously-allow-all-builds
 
 # Bring in the rest. tsconfig path mappings reach into ../src/, so we need the
 # repo's src/ tree available during build (esbuild reads .ts files at build time).
