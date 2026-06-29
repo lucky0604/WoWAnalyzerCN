@@ -60,9 +60,9 @@ function createMcpServer(): McpServer {
   mcpServer.registerTool(
     'analyze_fight',
     {
-      title: '分析战斗 (织雾武僧)',
+      title: '分析战斗 (治疗专精)',
       description:
-        '对特定战斗中的特定玩家(织雾武僧)运行完整战斗日志分析，返回中文报告。需先用 analyze_report 获取 fightId 和 playerId。',
+        '对特定战斗中的特定玩家运行完整战斗日志分析，返回中文报告。目前支持治疗专精：织雾武僧、戒律牧师、神圣牧师、神圣骑士、恢复德鲁伊、恢复萨满、保存唤魔师。需先用 analyze_report 获取 fightId 和 playerId。',
       inputSchema: analyzeFightInputSchema,
     },
     async (params) => {
