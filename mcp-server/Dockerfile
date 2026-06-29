@@ -9,6 +9,11 @@ WORKDIR /app
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
+# Allow esbuild postinstall scripts (pnpm v10+ blocks them by default).
+# package.json's pnpm.onlyBuiltDependencies may not be read under --frozen-lockfile,
+# so we set the env var to guarantee esbuild binaries are installed.
+ENV PNPM_ONLY_BUILT_DEPENDENCIES=esbuild
+
 # Copy lockfile + manifest first for layer caching.
 # The MCP server lives in mcp-server/ inside the monorepo; build context is repo root
 # so we can reach src/ files referenced by build.mjs (copies SPA source).
