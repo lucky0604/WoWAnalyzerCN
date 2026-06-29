@@ -54,8 +54,10 @@ for (const file of filesToCopy) {
     .replace(/import\.meta\.env\.PROD/g, "(process.env.NODE_ENV === 'production')")
     .replace(/import\.meta\.env\.DEV/g, "(process.env.NODE_ENV !== 'production')")
     .replace(/import\.meta\.env\.MODE/g, "(process.env.NODE_ENV || 'development')")
-    .replace(/import\.meta\.env\.VITE_SERVER_BASE/g, '("/" as string)')
-    .replace(/import\.meta\.env\.VITE_API_BASE/g, '("i/" as string)')
+    .replace(/import\.meta\.env\.VITE_SERVER_BASE\s*\|\|\s*'\/'/g, '"/"')
+    .replace(/import\.meta\.env\.VITE_API_BASE\s*\|\|\s*'i\/'/g, '"i/"')
+    .replace(/import\.meta\.env\.VITE_SERVER_BASE/g, '"/"')
+    .replace(/import\.meta\.env\.VITE_API_BASE/g, '"i/"')
     .replace(/import\.meta\.env\.LOCALE/g, '"zh-CN"');
   writeFileSync(dest, content);
   console.log(`  [copy & patch] ${file}`);
