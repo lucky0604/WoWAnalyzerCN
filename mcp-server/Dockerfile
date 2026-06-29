@@ -15,11 +15,12 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 COPY mcp-server/package.json mcp-server/pnpm-lock.yaml /app/mcp-server/
 WORKDIR /app/mcp-server
 
-# pnpm v10+ blocks all postinstall scripts by default. esbuild needs its
-# postinstall to download the platform binary. We pass the allowlist inline
-# (--config) instead of relying on .npmrc / package.json / env vars because
-# those can be silently ignored under --frozen-lockfile or in certain pnpm versions.
-RUN pnpm install --frozen-lockfile --config.onlyBuiltDependencies[]=esbuild
+# pnpm v10+ blocks all postinstall scripts by default; esbuild needs its
+# postinstall to download the platform binary. Creating .npmrc inline is the
+# only way that works reliably — package.json's "pnpm" field is ignored by v10,
+# --config flag doesn't accept array values, and COPY'd .npmrc isn't always read.
+RUN echo 'onlyBuiltDependencies[]=esbuild' > .npmrc
+RUN pnpm install --frozen-lockfile
 
 # Bring in the rest. tsconfig path mappings reach into ../src/, so we need the
 # repo's src/ tree available during build (esbuild reads .ts files at build time).
