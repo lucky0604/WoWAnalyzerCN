@@ -12,9 +12,14 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Copy lockfile + manifest first for layer caching.
 # The MCP server lives in mcp-server/ inside the monorepo; build context is repo root
 # so we can reach src/ files referenced by build.mjs (copies SPA source).
-COPY mcp-server/package.json mcp-server/pnpm-lock.yaml mcp-server/.npmrc /app/mcp-server/
+COPY mcp-server/package.json mcp-server/pnpm-lock.yaml /app/mcp-server/
 WORKDIR /app/mcp-server
-RUN pnpm install --frozen-lockfile
+
+# pnpm v10+ blocks all postinstall scripts by default. esbuild needs its
+# postinstall to download the platform binary. We pass the allowlist inline
+# (--config) instead of relying on .npmrc / package.json / env vars because
+# those can be silently ignored under --frozen-lockfile or in certain pnpm versions.
+RUN pnpm install --frozen-lockfile --config.onlyBuiltDependencies[]=esbuild
 
 # Bring in the rest. tsconfig path mappings reach into ../src/, so we need the
 # repo's src/ tree available during build (esbuild reads .ts files at build time).
