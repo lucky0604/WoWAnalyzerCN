@@ -16,11 +16,11 @@ COPY mcp-server/package.json mcp-server/pnpm-lock.yaml /app/mcp-server/
 WORKDIR /app/mcp-server
 
 # pnpm v10+ blocks all postinstall scripts by default; esbuild needs its
-# postinstall to download the platform binary. Using pnpm config set (global)
-# instead of .npmrc/package.json/--config because those are unreliable under
-# --frozen-lockfile. pnpm config set always writes to the global config that
-# pnpm reads in all modes.
-RUN pnpm config set onlyBuiltDependencies[] esbuild
+# postinstall to download the platform binary. Writing to /root/.npmrc
+# (global config) is the only approach that works reliably — project-level
+# .npmrc is not read under --frozen-lockfile, package.json's "pnpm" field
+# is ignored by v10, and pnpm config set doesn't support array syntax.
+RUN echo 'onlyBuiltDependencies[]=esbuild' >> /root/.npmrc
 RUN pnpm install --frozen-lockfile
 
 # Bring in the rest. tsconfig path mappings reach into ../src/, so we need the
