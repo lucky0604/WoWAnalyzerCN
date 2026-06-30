@@ -348,7 +348,11 @@ class HotHand extends Analyzer.withDependencies({
       addInefficientCastReason(
         event,
         <>
-          <SpellLink spell={SPELLS.SURGING_TOTEM} /> was not active!
+          <SpellLink spell={SPELLS.SURGING_TOTEM} />{' '}
+          {t({
+            id: 'shaman.enhancement.hotHand.surgingTotemNotActive',
+            message: 'was not active!',
+          })}
         </>,
       );
     }
@@ -379,7 +383,11 @@ class HotHand extends Analyzer.withDependencies({
       addAdditionalCastInformation(
         lavaLashCastEvent,
         <>
-          <SpellLink spell={TALENTS.HOT_HAND_TALENT} /> was applied by{' '}
+          <SpellLink spell={TALENTS.HOT_HAND_TALENT} />{' '}
+          {t({
+            id: 'shaman.enhancement.hotHand.wasAppliedBy',
+            message: 'was applied by',
+          })}{' '}
           <SpellLink spell={SPELLS.WHIRLING_FIRE} />
         </>,
       );
@@ -801,28 +809,98 @@ class HotHand extends Analyzer.withDependencies({
     return (
       <>
         <p>
-          When <strong>{hotHandLink}</strong> triggers, you can usually cast {lavaLashLink} in a 1
-          &rarr; 2 &rarr; 2 &rarr; 1 like sequence. Casting {lavaLashLink} &rarr; consuming 10
-          stacks of <SpellLink spell={SPELLS.MAELSTROM_WEAPON} /> can allow you to cast{' '}
-          {lavaLashLink} without an additional filler spell.
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p1a',
+            message: 'When ',
+          })}
+          <strong>{hotHandLink}</strong>
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p1b',
+            message: ' triggers, you can usually cast ',
+          })}
+          {lavaLashLink}
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p1c',
+            message: ' in a 1 → 2 → 2 → 1 like sequence. Casting ',
+          })}
+          {lavaLashLink}
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p1d',
+            message: ' → consuming 10 stacks of ',
+          })}
+          <SpellLink spell={SPELLS.MAELSTROM_WEAPON} />
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p1e',
+            message: ' can allow you to cast ',
+          })}
+          {lavaLashLink}
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p1f',
+            message: ' without an additional filler spell.',
+          })}
         </p>
         <p>
-          The section to the right shows breakdown of each time {hotHandLink} procced, and how well
-          you utilised the window.
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p2a',
+            message: 'The section to the right shows breakdown of each time ',
+          })}
+          {hotHandLink}
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p2b',
+            message: ' procced, and how well you utilised the window.',
+          })}
         </p>
         <p>
-          Each {lavaLashLink} cast while {hotHandLink} is active will cast a{' '}
-          <SpellLink spell={TALENTS.SUNDERING_TALENT} /> in the direction you are facing.{' '}
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p3a',
+            message: 'Each ',
+          })}
+          {lavaLashLink}
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p3b',
+            message: ' cast while ',
+          })}
+          {hotHandLink}
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p3c',
+            message: ' is active will cast a ',
+          })}
+          <SpellLink spell={TALENTS.SUNDERING_TALENT} />
+          {t({
+            id: 'shaman.enhancement.hotHand.description.p3d',
+            message: ' in the direction you are facing. ',
+          })}
           {this.selectedCombatant.hasTalent(TALENTS.EARTHSURGE_TALENT) ? (
             <>
-              <SpellLink spell={TALENTS.SUNDERING_TALENT} /> cast by {lavaLashLink} will also
-              trigger an <SpellLink spell={TALENTS.EARTHSURGE_TALENT} /> half way along{' '}
               <SpellLink spell={TALENTS.SUNDERING_TALENT} />
-              's path.
+              {t({
+                id: 'shaman.enhancement.hotHand.description.earthsurge.a',
+                message: ' cast by ',
+              })}
+              {lavaLashLink}
+              {t({
+                id: 'shaman.enhancement.hotHand.description.earthsurge.b',
+                message: ' will also trigger an ',
+              })}
+              <SpellLink spell={TALENTS.EARTHSURGE_TALENT} />
+              {t({
+                id: 'shaman.enhancement.hotHand.description.earthsurge.c',
+                message: ' half way along ',
+              })}
+              <SpellLink spell={TALENTS.SUNDERING_TALENT} />
+              {t({
+                id: 'shaman.enhancement.hotHand.description.earthsurge.d',
+                message: "'s path.",
+              })}
             </>
           ) : null}
         </p>
-        <p>An example sequence may look something like this:</p>
+        <p>
+          {t({
+            id: 'shaman.enhancement.hotHand.description.example',
+            message: 'An example sequence may look something like this:',
+          })}
+        </p>
         <p>
           {lavaLashLink} &rarr;
           <SpellIcon spell={SPELLS.LIGHTNING_BOLT} /> &rarr;
@@ -835,9 +913,25 @@ class HotHand extends Analyzer.withDependencies({
         {(this.selectedCombatant.hasTalent(TALENTS.ASCENDANCE_ENHANCEMENT_TALENT) ||
           this.selectedCombatant.hasTalent(TALENTS.DEEPLY_ROOTED_ELEMENTS_TALENT)) && (
           <p>
-            During <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />, due to the short
-            cooldown of <SpellLink spell={SPELLS.WINDSTRIKE_CAST} /> and the flood of maelstrom, you
-            may find you are unable to cast {lavaLashLink} much or even at all.
+            {t({
+              id: 'shaman.enhancement.hotHand.description.ascendance.a',
+              message: 'During ',
+            })}
+            <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />
+            {t({
+              id: 'shaman.enhancement.hotHand.description.ascendance.b',
+              message: ', due to the short cooldown of ',
+            })}
+            <SpellLink spell={SPELLS.WINDSTRIKE_CAST} />
+            {t({
+              id: 'shaman.enhancement.hotHand.description.ascendance.c',
+              message: ' and the flood of maelstrom, you may find you are unable to cast ',
+            })}
+            {lavaLashLink}
+            {t({
+              id: 'shaman.enhancement.hotHand.description.ascendance.d',
+              message: ' much or even at all.',
+            })}
           </p>
         )}
       </>
@@ -903,9 +997,21 @@ class HotHand extends Analyzer.withDependencies({
         tooltip: (
           <>
             <strong>{event.ability.name}</strong>
-            <div>@ {this.owner.formatTimestamp(event.timestamp)}</div>
+            <div>
+              {t({
+                id: 'shaman.enhancement.hotHand.castAt',
+                message: '@',
+              })}{' '}
+              {this.owner.formatTimestamp(event.timestamp)}
+            </div>
             {maelstromSpent !== undefined ? (
-              <div>Maelstrom Weapon spent: {maelstromSpent}</div>
+              <div>
+                {t({
+                  id: 'shaman.enhancement.hotHand.maelstromWeaponSpent',
+                  message: 'Maelstrom Weapon spent:',
+                })}{' '}
+                {maelstromSpent}
+              </div>
             ) : null}
           </>
         ),

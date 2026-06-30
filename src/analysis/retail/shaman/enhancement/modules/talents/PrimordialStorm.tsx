@@ -174,8 +174,13 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
     if (details.sunderingBeforeDoomwinds === false) {
       lis.push(
         <>
-          <SpellLink spell={TALENTS.SUNDERING_TALENT} /> should be cast before pressing{' '}
-          <SpellLink spell={this.syncSpell} /> so this cast doesn't waste GCDs setting up.
+          <SpellLink spell={TALENTS.SUNDERING_TALENT} />
+          {' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.sundering_setup.p1', message: 'should be cast before pressing' })}
+          {' '}
+          <SpellLink spell={this.syncSpell} />
+          {' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.sundering_setup.p2', message: "so this cast doesn't waste GCDs setting up." })}
         </>,
       );
     }
@@ -236,10 +241,10 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
   /** Label for "Every Nth" DW sync frequency */
   private get syncLabel(): string {
     if (this.dwSyncRatio === 2) {
-      return 'Every 2nd';
+      return t({ id: 'shaman.enhancement.primordialstorm.every_2nd', message: 'Every 2nd' });
     }
     if (this.dwSyncRatio === 4) {
-      return 'Every 4th';
+      return t({ id: 'shaman.enhancement.primordialstorm.every_4th', message: 'Every 4th' });
     }
     return '';
   }
@@ -247,8 +252,12 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
   private get syncDescription(): ReactNode {
     return (
       <>
-        {this.syncLabel} <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} /> cast should be paired
-        with <SpellLink spell={this.syncSpell} />.
+        {this.syncLabel}{' '}
+        <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} />
+        {' '}
+        {t({ id: 'shaman.enhancement.primordialstorm.sync_desc.p1', message: 'cast should be paired with' })}
+        {' '}
+        <SpellLink spell={this.syncSpell} />.
       </>
     );
   }
@@ -308,7 +317,7 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
     if (this.dwSyncRatio > 0) {
       stats.push({
         value: syncOpportunities > 0 ? `${syncedCasts}/${syncOpportunities}` : '0/0',
-        label: `${this.syncSpell.name} Sync`,
+        label: t({ id: 'shaman.enhancement.primordialstorm.sync_label', message: '{syncSpellName} Sync', values: { syncSpellName: this.syncSpell.name } }),
         tooltip: this.syncDescription,
       });
     }
@@ -354,13 +363,23 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
 
       if (details.sunderingBeforeDoomwinds !== null) {
         stats.push({
-          value: details.sunderingBeforeDoomwinds ? 'Pre' : 'Inside',
-          label: 'Setup',
+          value: details.sunderingBeforeDoomwinds
+            ? t({ id: 'shaman.enhancement.primordialstorm.pre', message: 'Pre' })
+            : t({ id: 'shaman.enhancement.primordialstorm.inside', message: 'Inside' }),
+          label: t({ id: 'shaman.enhancement.primordialstorm.setup', message: 'Setup' }),
           tooltip: (
             <>
-              <SpellLink spell={TALENTS.SUNDERING_TALENT} /> should be cast before pressing{' '}
-              <SpellLink spell={this.syncSpell} /> so{' '}
-              <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} /> is ready.
+              <SpellLink spell={TALENTS.SUNDERING_TALENT} />
+              {' '}
+              {t({ id: 'shaman.enhancement.primordialstorm.sundering_setup_tooltip.p1', message: 'should be cast before pressing' })}
+              {' '}
+              <SpellLink spell={this.syncSpell} />
+              {' '}
+              {t({ id: 'shaman.enhancement.primordialstorm.sundering_setup_tooltip.p2', message: 'so' })}
+              {' '}
+              <SpellLink spell={TALENTS.PRIMORDIAL_STORM_TALENT} />
+              {' '}
+              {t({ id: 'shaman.enhancement.primordialstorm.sundering_setup_tooltip.p3', message: 'is ready.' })}
             </>
           ),
           performance: spellUse.checklistItems.find((item) => item.check === 'sundering-setup')
@@ -427,23 +446,41 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
     return (
       <>
         <p>
-          Each hit from {pstorm} is considered a Main-Hand attack, and can trigger{' '}
-          <SpellLink spell={TALENTS.WINDFURY_WEAPON_TALENT} /> separately and are AoE. Each hit
-          deals combination physical and spell damage.
+          {t({ id: 'shaman.enhancement.primordialstorm.description.p1.1', message: 'Each hit from' })}
+          {' '}{pstorm}{' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.description.p1.2', message: 'is considered a Main-Hand attack, and can trigger' })}
+          {' '}
+          <SpellLink spell={TALENTS.WINDFURY_WEAPON_TALENT} />
+          {' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.description.p1.3', message: 'separately and are AoE. Each hit deals combination physical and spell damage.' })}
         </p>
         <p>
-          {pstorm} is currently the <strong>strongest</strong> {msw} spender, and you should always
-          aim to cast it with 10 unless waiting would mean losing the cast. The {msw} spent
-          double-dips and also increases the damage of the follow-up{' '}
+          {pstorm}{' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.description.p2.1', message: 'is currently the' })}
+          {' '}<strong>{t({ id: 'shaman.enhancement.primordialstorm.description.p2.2', message: 'strongest' })}</strong>{' '}
+          {msw}{' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.description.p2.3', message: 'spender, and you should always aim to cast it with 10 unless waiting would mean losing the cast. The' })}
+          {' '}{msw}{' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.description.p2.4', message: 'spent double-dips and also increases the damage of the follow-up' })}
+          {' '}
           <SpellLink spell={SPELLS.LIGHTNING_BOLT} />/
-          <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} /> that is automatically cast.
+          <SpellLink spell={TALENTS.CHAIN_LIGHTNING_TALENT} />
+          {' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.description.p2.5', message: 'that is automatically cast.' })}
         </p>
         {this.dwSyncRatio > 0 && (
           <p>
-            Cast <SpellLink spell={TALENTS.SUNDERING_TALENT} /> just before pressing{' '}
-            <SpellLink spell={this.syncSpell} /> so {pstorm} is ready immediately. Casting{' '}
-            <SpellLink spell={TALENTS.SUNDERING_TALENT} /> during{' '}
-            <SpellLink spell={this.syncSpell} /> wastes setup GCDs.
+            {t({ id: 'shaman.enhancement.primordialstorm.description.p3.1', message: 'Cast' })}
+            {' '}<SpellLink spell={TALENTS.SUNDERING_TALENT} />{' '}
+            {t({ id: 'shaman.enhancement.primordialstorm.description.p3.2', message: 'just before pressing' })}
+            {' '}<SpellLink spell={this.syncSpell} />{' '}
+            {t({ id: 'shaman.enhancement.primordialstorm.description.p3.3', message: 'so' })}
+            {' '}{pstorm}{' '}
+            {t({ id: 'shaman.enhancement.primordialstorm.description.p3.4', message: 'is ready immediately. Casting' })}
+            {' '}<SpellLink spell={TALENTS.SUNDERING_TALENT} />{' '}
+            {t({ id: 'shaman.enhancement.primordialstorm.description.p3.5', message: 'during' })}
+            {' '}<SpellLink spell={this.syncSpell} />{' '}
+            {t({ id: 'shaman.enhancement.primordialstorm.description.p3.6', message: 'wastes setup GCDs.' })}
           </p>
         )}
       </>
@@ -470,13 +507,17 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
       }),
       summary: (
         <>
-          <SpellLink spell={TALENTS.MAELSTROM_WEAPON_TALENT} /> usage
+          <SpellLink spell={TALENTS.MAELSTROM_WEAPON_TALENT} />
+          {' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.maelstrom_check.summary', message: 'usage' })}
         </>
       ),
       details: (
         <div>
           <strong>{details.maelstromUsed}</strong>{' '}
-          <SpellLink spell={TALENTS.MAELSTROM_WEAPON_TALENT} /> used.
+          <SpellLink spell={TALENTS.MAELSTROM_WEAPON_TALENT} />
+          {' '}
+          {t({ id: 'shaman.enhancement.primordialstorm.maelstrom_check.details', message: 'used.' })}
         </div>
       ),
     });
@@ -493,12 +534,20 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
           : QualitativePerformance.Fail,
         summary: (
           <>
-            <SpellLink spell={this.syncSpell} /> {details.hadDoomwinds ? '' : 'not '}active
+            <SpellLink spell={this.syncSpell} />
+            {' '}
+            {details.hadDoomwinds
+              ? t({ id: 'shaman.enhancement.primordialstorm.dw_sync.active', message: 'active' })
+              : t({ id: 'shaman.enhancement.primordialstorm.dw_sync.not_active', message: 'not active' })}
           </>
         ),
         details: (
           <div>
-            <SpellLink spell={this.syncSpell} /> {details.hadDoomwinds ? '' : 'not '}active.
+            <SpellLink spell={this.syncSpell} />
+            {' '}
+            {details.hadDoomwinds
+              ? t({ id: 'shaman.enhancement.primordialstorm.dw_sync.active_dot', message: 'active.' })
+              : t({ id: 'shaman.enhancement.primordialstorm.dw_sync.not_active_dot', message: 'not active.' })}
           </div>
         ),
       });
@@ -516,18 +565,26 @@ class PrimordialStorm extends MajorCooldown<PrimordialStormCast> {
           : QualitativePerformance.Fail,
         summary: (
           <>
-            <SpellLink spell={TALENTS.SUNDERING_TALENT} /> cast{' '}
-            {details.sunderingBeforeDoomwinds ? 'before' : 'after'}{' '}
+            <SpellLink spell={TALENTS.SUNDERING_TALENT} />
+            {' '}
+            {t({ id: 'shaman.enhancement.primordialstorm.sundering_check.cast', message: 'cast' })}
+            {' '}
+            {details.sunderingBeforeDoomwinds
+              ? t({ id: 'shaman.enhancement.primordialstorm.sundering_check.before', message: 'before' })
+              : t({ id: 'shaman.enhancement.primordialstorm.sundering_check.after', message: 'after' })}
+            {' '}
             <SpellLink spell={this.syncSpell} />
           </>
         ),
         details: (
           <div>
-            <SpellLink spell={TALENTS.SUNDERING_TALENT} /> was cast{' '}
+            <SpellLink spell={TALENTS.SUNDERING_TALENT} />
+            {' '}
+            {t({ id: 'shaman.enhancement.primordialstorm.sundering_check.was_cast', message: 'was cast' })}
+            {' '}
             {details.sunderingBeforeDoomwinds
-              ? 'before the window opened'
-              : 'inside the window, wasting setup GCDs'}
-            .
+              ? t({ id: 'shaman.enhancement.primordialstorm.sundering_check.before_window', message: 'before the window opened.' })
+              : t({ id: 'shaman.enhancement.primordialstorm.sundering_check.inside_window', message: 'inside the window, wasting setup GCDs.' })}
           </div>
         ),
       });

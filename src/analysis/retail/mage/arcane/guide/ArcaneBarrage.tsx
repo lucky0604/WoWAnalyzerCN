@@ -53,7 +53,11 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Very Low Mana (${formatPercentage(cast.mana)}%)`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.veryLowMana',
+          message: 'Very Low Mana ({manaPct}%)',
+          values: { manaPct: formatPercentage(cast.mana) },
+        }),
       };
     }
 
@@ -62,7 +66,11 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: `Touch of the Magi available soon (${formatDurationMillisMinSec(cast.touchCD)})`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.touchSoon',
+          message: 'Touch of the Magi available soon ({touchCd})',
+          values: { touchCd: formatDurationMillisMinSec(cast.touchCD) },
+        }),
       };
     }
 
@@ -71,7 +79,15 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Perfect,
-        reason: `Had 20 Arcane Salvo Stacks and ${hasMaxCharges ? '4 Arcane Charges.' : 'Orb Barrage Talented.'}`,
+        reason: hasMaxCharges
+          ? t({
+              id: 'mage.arcane.arcaneBarrage.reason.perfectMaxCharges',
+              message: 'Had 20 Arcane Salvo Stacks and 4 Arcane Charges.',
+            })
+          : t({
+              id: 'mage.arcane.arcaneBarrage.reason.perfectOrbBarrage',
+              message: 'Had 20 Arcane Salvo Stacks and Orb Barrage Talented.',
+            }),
       };
     }
 
@@ -80,7 +96,10 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Barrage was cast immediately before Touch of the Magi.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.barrageBeforeTouch',
+          message: 'Barrage was cast immediately before Touch of the Magi.',
+        }),
       };
     }
 
@@ -88,7 +107,10 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Barrage was cast immediately after Touch of the Magi.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.barrageAfterTouch',
+          message: 'Barrage was cast immediately after Touch of the Magi.',
+        }),
       };
     }
 
@@ -102,7 +124,12 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Had 4 Arcane Charges, Overpowered Missiles, Clearcasting, and ${cast.salvoStacks} Arcane Salvo Stacks.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.spellslingerMissileGood',
+          message:
+            'Had 4 Arcane Charges, Overpowered Missiles, Clearcasting, and {salvoStacks} Arcane Salvo Stacks.',
+          values: { salvoStacks: cast.salvoStacks },
+        }),
       };
     }
 
@@ -115,7 +142,15 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Touch of the Magi about to end (${formatDurationMillisMinSec(cast.touchRemaining)}) with ${cast.salvoStacks} Arcane Salvo stacks.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.touchEnding',
+          message:
+            'Touch of the Magi about to end ({touchRemaining}) with {salvoStacks} Arcane Salvo stacks.',
+          values: {
+            touchRemaining: formatDurationMillisMinSec(cast.touchRemaining),
+            salvoStacks: cast.salvoStacks,
+          },
+        }),
       };
     }
 
@@ -128,7 +163,15 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Arcane Surge about to end (${formatDurationMillisMinSec(cast.surgeRemaining)}) with ${cast.salvoStacks} Arcane Salvo stacks.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.surgeEnding',
+          message:
+            'Arcane Surge about to end ({surgeRemaining}) with {salvoStacks} Arcane Salvo stacks.',
+          values: {
+            surgeRemaining: formatDurationMillisMinSec(cast.surgeRemaining),
+            salvoStacks: cast.salvoStacks,
+          },
+        }),
       };
     }
 
@@ -136,7 +179,11 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Had ${cast.salvoStacks} Arcane Salvo stacks and 4 Arcane Charges.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.sunfuryMaxStacks',
+          message: 'Had {salvoStacks} Arcane Salvo stacks and 4 Arcane Charges.',
+          values: { salvoStacks: cast.salvoStacks },
+        }),
       };
     }
 
@@ -144,7 +191,10 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Touch of the Magi cast immediately before Arcane Barrage.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.sunfuryBeforeBarrage',
+          message: 'Touch of the Magi cast immediately before Arcane Barrage.',
+        }),
       };
     }
 
@@ -152,7 +202,11 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Touch of the Magi ends in ${formatDurationMillisMinSec(cast.touchRemaining)}.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.sunfuryTouchEnding',
+          message: 'Touch of the Magi ends in {touchRemaining}.',
+          values: { touchRemaining: formatDurationMillisMinSec(cast.touchRemaining) },
+        }),
       };
     }
 
@@ -160,7 +214,10 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Had Arcane Soul.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.sunfuryArcaneSoul',
+          message: 'Had Arcane Soul.',
+        }),
       };
     }
 
@@ -173,7 +230,12 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Had ${cast.salvoStacks} Arcane Salvo stacks without Touch of the Magi or Arcane Surge.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.sunfuryNoBurnLowStacks',
+          message:
+            'Had {salvoStacks} Arcane Salvo stacks without Touch of the Magi or Arcane Surge.',
+          values: { salvoStacks: cast.salvoStacks },
+        }),
       };
     }
 
@@ -187,7 +249,12 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Had ${cast.salvoStacks} Arcane Salvo stacks and an Arcane Orb charge without Touch of the Magi or Arcane Surge.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.sunfuryNoBurnWithOrb',
+          message:
+            'Had {salvoStacks} Arcane Salvo stacks and an Arcane Orb charge without Touch of the Magi or Arcane Surge.',
+          values: { salvoStacks: cast.salvoStacks },
+        }),
       };
     }
 
@@ -196,7 +263,11 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Ok,
-        reason: `Had ${cast.salvoStacks} Arcane Salvo stacks.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.okSpellslingerStacks',
+          message: 'Had {salvoStacks} Arcane Salvo stacks.',
+          values: { salvoStacks: cast.salvoStacks },
+        }),
       };
     }
 
@@ -204,7 +275,11 @@ class ArcaneBarrageGuide extends Analyzer {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Ok,
-        reason: `Had ${cast.salvoStacks} Arcane Salvo stacks.`,
+        reason: t({
+          id: 'mage.arcane.arcaneBarrage.reason.okSunfuryStacks',
+          message: 'Had {salvoStacks} Arcane Salvo stacks.',
+          values: { salvoStacks: cast.salvoStacks },
+        }),
       };
     }
 
@@ -212,7 +287,10 @@ class ArcaneBarrageGuide extends Analyzer {
     return {
       timestamp: cast.cast.timestamp,
       performance: QualitativePerformance.Fail,
-      reason: `Performance Condition Unknown. Please report this!`,
+      reason: t({
+        id: 'mage.arcane.arcaneBarrage.reason.unknown',
+        message: 'Performance Condition Unknown. Please report this!',
+      }),
     };
   }
 
@@ -655,7 +733,11 @@ class ArcaneBarrageGuide extends Analyzer {
                 message: 'Precast Spell',
               }),
               value: <SpellIcon spell={cast.precast.ability.guid} />,
-              tooltip: `Precast: ${cast.precast.ability.name}`,
+              tooltip: t({
+            id: 'mage.arcane.arcaneBarrage.stat.precastSpellTooltip',
+            message: 'Precast: {spellName}',
+            values: { spellName: cast.precast.ability.name },
+          }),
             }
           : undefined,
         cast.activeBuffs.length > 0

@@ -351,10 +351,10 @@ class BuffTargetHelper extends Analyzer {
     const headerRow = (
       <tr>
         <th>{t({ id: 'evoker.augmentation.buffTargetHelper.time', message: 'Time' })}</th>
-        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
-        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
-        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
-        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.playerDamage', message: 'Player - Damage' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.player1Damage', message: 'Player 1 - Damage' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.player2Damage', message: 'Player 2 - Damage' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.player3Damage', message: 'Player 3 - Damage' })}</th>
+        <th>{t({ id: 'evoker.augmentation.buffTargetHelper.player4Damage', message: 'Player 4 - Damage' })}</th>
       </tr>
     );
 

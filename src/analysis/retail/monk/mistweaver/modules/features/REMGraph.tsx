@@ -8,7 +8,8 @@ import Panel from 'parser/ui/Panel';
 import { VisualizationSpec } from 'react-vega';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { getCurrentRSKTalent, SPELL_COLORS } from '../../constants';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 import { Trans } from '@lingui/react/macro';
 
 interface SpellTracker {
@@ -177,7 +178,7 @@ class REMGraph extends Analyzer {
               type: 'quantitative' as const,
               title: t`Count`,
             },
-            color: { datum: 'Vivify cast' },
+            color: { datum: i18n._(defineMessage({ id: 'monk.mistweaver.remGraph.vivifyCast', message: 'Vivify cast' })) },
           },
         },
 
@@ -206,7 +207,7 @@ class REMGraph extends Analyzer {
               title: t`Count`,
             },
             color: {
-              datum: 'Instant Vivify',
+              datum: i18n._(defineMessage({ id: 'monk.mistweaver.remGraph.instantVivify', message: 'Instant Vivify' })),
             },
           },
         },
@@ -234,7 +235,7 @@ class REMGraph extends Analyzer {
               type: 'quantitative' as const,
               title: t`Count`,
             },
-            color: { datum: 'Rising Sun Kick', value: SPELL_COLORS.RISING_SUN_KICK },
+            color: { datum: i18n._(defineMessage({ id: 'monk.mistweaver.remGraph.risingSunKick', message: 'Rising Sun Kick' })), value: SPELL_COLORS.RISING_SUN_KICK },
           },
         },
       ],
