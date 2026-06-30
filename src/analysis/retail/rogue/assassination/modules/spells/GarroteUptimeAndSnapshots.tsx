@@ -93,7 +93,9 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
             message: 'Snapshots:',
           })}{' '}
           <strong>
-            {snapshots.length === 0 ? 'NONE' : snapshots.map((it) => it.name).join(', ')}
+            {snapshots.length === 0
+              ? t({ id: 'rogue.assassination.garrote.snapshots.none', message: 'NONE' })
+              : snapshots.map((it) => it.name).join(', ')}
           </strong>
         </p>
         {prevSnapshots != null && (
@@ -104,7 +106,7 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
             })}{' '}
             <strong>
               {prevSnapshots.length === 0
-                ? 'NONE'
+                ? t({ id: 'rogue.assassination.garrote.snapshots.none', message: 'NONE' })
                 : prevSnapshots.map((it) => it.name).join(', ')}
             </strong>
           </p>
@@ -125,8 +127,8 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
         <div>
           <p>
             <Trans id="rogue.assassination.garrote.unacceptableDowngradeDetail">
-              Unacceptable downgrade of snapshot. Try not to overwrite your snapshotted Garrote unless
-              it's within the last {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)}.
+              Unacceptable downgrade of snapshot. Try not to overwrite your snapshotted Garrote
+              unless it's within the last {formatDurationMillisMinSec(SNAPSHOT_DOWNGRADE_BUFFER)}.
             </Trans>
           </p>
           <p>
@@ -135,7 +137,9 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
               message: 'Snapshots:',
             })}{' '}
             <strong>
-              {snapshots.length === 0 ? 'NONE' : snapshots.map((it) => it.name).join(', ')}
+              {snapshots.length === 0
+                ? t({ id: 'rogue.assassination.garrote.snapshots.none', message: 'NONE' })
+                : snapshots.map((it) => it.name).join(', ')}
             </strong>
           </p>
           {prevSnapshots != null && (
@@ -146,7 +150,7 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
               })}{' '}
               <strong>
                 {prevSnapshots.length === 0
-                  ? 'NONE'
+                  ? t({ id: 'rogue.assassination.garrote.snapshots.none', message: 'NONE' })
                   : prevSnapshots.map((it) => it.name).join(', ')}
               </strong>
             </p>
@@ -197,7 +201,9 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
               message: 'Snapshots:',
             })}{' '}
             <strong>
-              {snapshots.length === 0 ? 'NONE' : snapshots.map((it) => it.name).join(', ')}
+              {snapshots.length === 0
+                ? t({ id: 'rogue.assassination.garrote.snapshots.none', message: 'NONE' })
+                : snapshots.map((it) => it.name).join(', ')}
             </strong>
           </p>
           {prevSnapshots != null && (
@@ -208,7 +214,7 @@ export default class GarroteUptimeAndSnapshots extends DotSnapshots {
               })}{' '}
               <strong>
                 {prevSnapshots.length === 0
-                  ? 'NONE'
+                  ? t({ id: 'rogue.assassination.garrote.snapshots.none', message: 'NONE' })
                   : prevSnapshots.map((it) => it.name).join(', ')}
               </strong>
             </p>

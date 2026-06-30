@@ -1,5 +1,6 @@
 // oxlint-disable wowanalyzer/lingui-t-macro-outside-jsx
-import { t } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
+import { t, defineMessage } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS/deathknight';
 import TALENTS from 'common/TALENTS/deathknight';
@@ -105,7 +106,19 @@ class ScourgeStrike extends Analyzer {
       const castPoint = {
         timestamp: cast.timestamp,
         stacks: cast.stacks,
-        outcome: cast.bad ? 'Bad cast' : 'Good cast',
+        outcome: cast.bad
+          ? i18n._(
+              defineMessage({
+                id: 'deathknight.unholy.scourgeStrike.outcomeBad',
+                message: 'Bad cast',
+              }),
+            )
+          : i18n._(
+              defineMessage({
+                id: 'deathknight.unholy.scourgeStrike.outcomeGood',
+                message: 'Good cast',
+              }),
+            ),
       };
 
       if (cast.bad) {

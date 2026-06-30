@@ -1,5 +1,5 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import { i18n } from '@lingui/core';
+import { t, defineMessage } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -82,7 +82,12 @@ class RimeEfficiency extends Analyzer {
         major: 0.85,
       },
       style: ThresholdStyle.PERCENTAGE,
-      suffix: 'Average',
+      suffix: i18n._(
+        defineMessage({
+          id: 'deathknight.frost.rimeEfficiency.suffix',
+          message: 'Average',
+        }),
+      ),
     };
   }
 
@@ -106,7 +111,10 @@ class RimeEfficiency extends Analyzer {
       >
         <BoringSpellValueText spell={SPELLS.RIME}>
           <>
-            {formatPercentage(this.efficiency)} % <small>{t({ id: 'deathknight.frost.rimeEfficiency.efficiency', message: 'efficiency' })}</small>
+            {formatPercentage(this.efficiency)} %{' '}
+            <small>
+              {t({ id: 'deathknight.frost.rimeEfficiency.efficiency', message: 'efficiency' })}
+            </small>
           </>
         </BoringSpellValueText>
       </Statistic>
@@ -116,17 +124,32 @@ class RimeEfficiency extends Analyzer {
   get guideSubsection(): JSX.Element {
     const goodRimes = {
       count: this.rimeProcs - this.expiredRimeProcs - this.refreshedRimeProcs,
-      label: t({ id: 'deathknight.frost.rimeEfficiency.guide.goodRimes', message: 'Consumed Rimes' }),
+      label: i18n._(
+        defineMessage({
+          id: 'deathknight.frost.rimeEfficiency.guide.goodRimes',
+          message: 'Consumed Rimes',
+        }),
+      ),
     };
 
     const refreshedRimes = {
       count: this.refreshedRimeProcs,
-      label: t({ id: 'deathknight.frost.rimeEfficiency.guide.refreshedRimes', message: 'Refreshed Rimes' }),
+      label: i18n._(
+        defineMessage({
+          id: 'deathknight.frost.rimeEfficiency.guide.refreshedRimes',
+          message: 'Refreshed Rimes',
+        }),
+      ),
     };
 
     const expiredRimes = {
       count: this.expiredRimeProcs,
-      label: t({ id: 'deathknight.frost.rimeEfficiency.guide.expiredRimes', message: 'Expired Rimes' }),
+      label: i18n._(
+        defineMessage({
+          id: 'deathknight.frost.rimeEfficiency.guide.expiredRimes',
+          message: 'Expired Rimes',
+        }),
+      ),
     };
 
     const explanation = (
@@ -152,8 +175,7 @@ class RimeEfficiency extends Analyzer {
         <SpellLink spell={talents.ICEBREAKER_TALENT} />
         {t({
           id: 'deathknight.frost.rimeEfficiency.guide.explanation.p4',
-          message:
-            ' are talented. Rime has a chance to proc whenever you cast ',
+          message: ' are talented. Rime has a chance to proc whenever you cast ',
         })}
         <SpellLink spell={talents.OBLITERATE_TALENT} />
         {t({
@@ -186,7 +208,9 @@ class RimeEfficiency extends Analyzer {
 
     const data = (
       <div>
-        <strong>{t({ id: 'deathknight.frost.rimeEfficiency.guide.breakdown', message: 'Rime breakdown' })}</strong>
+        <strong>
+          {t({ id: 'deathknight.frost.rimeEfficiency.guide.breakdown', message: 'Rime breakdown' })}
+        </strong>
         <GradiatedPerformanceBar good={goodRimes} ok={refreshedRimes} bad={expiredRimes} />
       </div>
     );

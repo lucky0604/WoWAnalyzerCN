@@ -1,6 +1,7 @@
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
+import { i18n } from '@lingui/core';
 import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellIcon, SpellLink, TooltipElement } from 'interface';
@@ -171,13 +172,23 @@ class BrainFreeze extends Analyzer {
         position={STATISTIC_ORDER.CORE(30)}
         size="flexible"
         tooltip={
-          <>{t({ id: 'mage.frost.brainFreeze.statTooltip.p1', message: 'You got ' })}
+          <>
+            {t({ id: 'mage.frost.brainFreeze.statTooltip.p1', message: 'You got ' })}
             {this.totalProcs}
             {t({ id: 'mage.frost.brainFreeze.statTooltip.p2', message: 'total procs.' })}
             <ul>
-              <li>{this.totalProcs - this.expiredProcs - this.brainFreezeRefreshes} used</li>
-              <li>{this.brainFreezeRefreshes} overwritten</li>
-              <li>{this.expiredProcs} expired</li>
+              <li>
+                {this.totalProcs - this.expiredProcs - this.brainFreezeRefreshes}{' '}
+                {t({ id: 'mage.frost.brainFreeze.used', message: 'used' })}
+              </li>
+              <li>
+                {this.brainFreezeRefreshes}{' '}
+                {t({ id: 'mage.frost.brainFreeze.overwritten', message: 'overwritten' })}
+              </li>
+              <li>
+                {this.expiredProcs}{' '}
+                {t({ id: 'mage.frost.brainFreeze.expired', message: 'expired' })}
+              </li>
             </ul>
           </>
         }
@@ -272,7 +283,7 @@ class BrainFreeze extends Analyzer {
       explanation,
       data,
       GUIDE_CORE_EXPLANATION_PERCENT,
-      t({ id: 'mage.frost.brainFreeze.title', message: 'Brain Freeze' }),
+      i18n._(defineMessage({ id: 'mage.frost.brainFreeze.title', message: 'Brain Freeze' })),
     );
   }
 }
