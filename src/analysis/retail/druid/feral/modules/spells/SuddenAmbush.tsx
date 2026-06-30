@@ -317,21 +317,21 @@ class SuddenAmbush extends Analyzer {
             <ul>
               <li>
                 <SpellLink spell={SPELLS.SHRED} />:
-                {t({ id: 'druid.feral.sa.shred_boosted', message: ' Boosted ' })}
+                t({ id: 'druid.feral.sa.shred_boosted', message: ' Boosted ' })}
                 <strong>{this.boostedShreds}</strong>
                 {t({ id: 'druid.feral.sa.shred_boosted.p2', message: ' hits for ' })}
                 <strong>&gt;{this.owner.formatItemDamageDone(this.boostedShredDamage)}</strong>
               </li>
               <li>
                 <SpellLink spell={SPELLS.SWIPE_CAT} />:
-                {t({ id: 'druid.feral.sa.swipe_boosted', message: ' Boosted ' })}
+                t({ id: 'druid.feral.sa.swipe_boosted', message: ' Boosted ' })}
                 <strong>{this.boostedSwipes}</strong>
                 {t({ id: 'druid.feral.sa.swipe_boosted.p2', message: ' hits for ' })}
                 <strong>&gt;{this.owner.formatItemDamageDone(this.boostedSwipeDamage)}</strong>
               </li>
               <li>
                 <SpellLink spell={SPELLS.RAKE} />:
-                {t({ id: 'druid.feral.sa.rake_boosted', message: ' Boosted ' })}
+                t({ id: 'druid.feral.sa.rake_boosted', message: ' Boosted ' })}
                 <strong>{this.boostedRakes}</strong>
                 {t({ id: 'druid.feral.sa.rake_boosted.p2', message: ' hits for ' })}
                 <strong>&gt;{this.owner.formatItemDamageDone(this.boostedRakeDamage)}</strong>
