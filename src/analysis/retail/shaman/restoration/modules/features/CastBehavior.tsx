@@ -27,16 +27,14 @@ class CastBehavior extends Analyzer {
   get twUsageRatioChart() {
     const riptide = this.abilityTracker.getAbility(TALENTS.RIPTIDE_TALENT.id);
     const healingWave = this.abilityTracker.getAbility(SPELLS.HEALING_WAVE.id);
-    const healingSurge = this.abilityTracker.getAbility(SPELLS.HEALING_SURGE.id);
     const chainHeal = this.abilityTracker.getAbility(TALENTS.CHAIN_HEAL_TALENT.id);
 
     const riptideCasts = riptide.casts || 0;
     const totalTwGenerated = riptideCasts * 2;
     const twHealingWaves = healingWave.healingTwHits || 0;
-    const twHealingSurges = healingSurge.healingTwHits || 0;
     const twChainHeals = chainHeal.healingTwHits || 0;
 
-    const totalTwUsed = twHealingWaves + twHealingSurges + twChainHeals;
+    const totalTwUsed = twHealingWaves + twChainHeals;
     const unusedTw = totalTwGenerated - totalTwUsed;
 
     const items = [
@@ -80,14 +78,10 @@ class CastBehavior extends Analyzer {
 
   get fillerCastRatioChart() {
     const healingWave = this.abilityTracker.getAbility(SPELLS.HEALING_WAVE.id);
-    const healingSurge = this.abilityTracker.getAbility(SPELLS.HEALING_SURGE.id);
     const twHealingWaves = healingWave.healingTwHits || 0;
-    const twHealingSurges = healingSurge.healingTwHits || 0;
 
     const healingWaveHeals = healingWave.casts || 0;
-    const healingSurgeHeals = healingSurge.casts || 0;
     const fillerHealingWaves = healingWaveHeals - twHealingWaves;
-    const fillerHealingSurges = healingSurgeHeals - twHealingSurges;
 
     const items = [
       {
