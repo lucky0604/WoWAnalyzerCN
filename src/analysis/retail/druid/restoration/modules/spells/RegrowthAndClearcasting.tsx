@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
-import { t } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
@@ -146,17 +147,23 @@ class RegrowthAndClearcasting extends Analyzer {
     if (this.selectedCombatant.hasBuff(SPELLS.INNERVATE.id)) {
       this.innervateRegrowths += 1;
       isFreeOrCheap = true;
-      freeNote = t({ id: 'restoration.regrowth.free_innervate', message: 'Free (Innervate)' });
+      freeNote = i18n._(
+        defineMessage({ id: 'restoration.regrowth.free_innervate', message: 'Free (Innervate)' }),
+      );
     } else if (
       this.selectedCombatant.hasBuff(SPELLS.NATURES_SWIFTNESS.id, event.timestamp, MS_BUFFER)
     ) {
       this.nsRegrowths += 1;
       isFreeOrCheap = true;
-      freeNote = t({ id: 'restoration.regrowth.free_ns', message: "Free (Nature's Swiftness)" });
+      freeNote = i18n._(
+        defineMessage({ id: 'restoration.regrowth.free_ns', message: "Free (Nature's Swiftness)" }),
+      );
     } else if (buffedByClearcast(event)) {
       this.ccRegrowths += 1;
       isFreeOrCheap = true;
-      freeNote = t({ id: 'restoration.regrowth.free_cc', message: 'Free (Clearcasting)' });
+      freeNote = i18n._(
+        defineMessage({ id: 'restoration.regrowth.free_cc', message: 'Free (Clearcasting)' }),
+      );
     } else if (
       this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id) >= ABUNDANCE_EXCEPTION_STACKS
     ) {
@@ -165,12 +172,32 @@ class RegrowthAndClearcasting extends Analyzer {
       const abundanceStacks = this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id);
       freeNote =
         ABUNDANCE_MANA_REDUCTION * abundanceStacks >= 1
-          ? t({ id: 'restoration.regrowth.free_abundance_prefix', message: 'Free (' }) +
+          ? i18n._(
+              defineMessage({
+                id: 'restoration.regrowth.free_abundance_prefix',
+                message: 'Free (',
+              }),
+            ) +
             abundanceStacks +
-            t({ id: 'restoration.regrowth.free_abundance_suffix', message: ' Abundance stacks)' })
-          : t({ id: 'restoration.regrowth.cheap_abundance_prefix', message: 'Cheap (' }) +
+            i18n._(
+              defineMessage({
+                id: 'restoration.regrowth.free_abundance_suffix',
+                message: ' Abundance stacks)',
+              }),
+            )
+          : i18n._(
+              defineMessage({
+                id: 'restoration.regrowth.cheap_abundance_prefix',
+                message: 'Cheap (',
+              }),
+            ) +
             abundanceStacks +
-            t({ id: 'restoration.regrowth.cheap_abundance_suffix', message: ' Abundance stacks)' });
+            i18n._(
+              defineMessage({
+                id: 'restoration.regrowth.cheap_abundance_suffix',
+                message: ' Abundance stacks)',
+              }),
+            );
     }
 
     // Check if target already has Regrowth HoT and whether refresh is within pandemic window
@@ -202,14 +229,18 @@ class RegrowthAndClearcasting extends Analyzer {
       performance = QualitativePerformance.Good;
       castNote = isFreeOrCheap
         ? freeNote +
-          t({
-            id: 'restoration.regrowth.on_critically_low',
-            message: ' on a critically low target',
-          })
-        : t({
-            id: 'restoration.regrowth.triage_critically_low',
-            message: 'Triage cast on a critically low target',
-          });
+          i18n._(
+            defineMessage({
+              id: 'restoration.regrowth.on_critically_low',
+              message: ' on a critically low target',
+            }),
+          )
+        : i18n._(
+            defineMessage({
+              id: 'restoration.regrowth.triage_critically_low',
+              message: 'Triage cast on a critically low target',
+            }),
+          );
     } else if (isFreeOrCheap) {
       if (this.hasNaturesBounty) {
         if (!targetHadRegrowth || isPandemicRefresh) {
@@ -217,22 +248,31 @@ class RegrowthAndClearcasting extends Analyzer {
           performance = QualitativePerformance.Good;
           castNote = isPandemicRefresh
             ? freeNote +
-              t({
-                id: 'restoration.regrowth.pandemic_refresh',
-                message: ' — pandemic refresh of existing Regrowth',
-              })
+              i18n._(
+                defineMessage({
+                  id: 'restoration.regrowth.pandemic_refresh',
+                  message: ' — pandemic refresh of existing Regrowth',
+                }),
+              )
             : freeNote +
-              t({ id: 'restoration.regrowth.new_target', message: ' — new Regrowth target' });
+              i18n._(
+                defineMessage({
+                  id: 'restoration.regrowth.new_target',
+                  message: ' — new Regrowth target',
+                }),
+              );
         } else {
           // Ok: free/cheap but early overwrite of existing Regrowth HoT
           this.okRegrowths += 1;
           performance = QualitativePerformance.Ok;
           castNote =
             freeNote +
-            t({
-              id: 'restoration.regrowth.overwrote_existing',
-              message: ' — overwrote existing Regrowth HoT (not in pandemic window)',
-            });
+            i18n._(
+              defineMessage({
+                id: 'restoration.regrowth.overwrote_existing',
+                message: ' — overwrote existing Regrowth HoT (not in pandemic window)',
+              }),
+            );
         }
       } else {
         if (isLowOverheal) {
@@ -244,7 +284,13 @@ class RegrowthAndClearcasting extends Analyzer {
           this.okRegrowths += 1;
           performance = QualitativePerformance.Ok;
           castNote =
-            freeNote + t({ id: 'restoration.regrowth.high_overheal', message: ' — high overheal' });
+            freeNote +
+            i18n._(
+              defineMessage({
+                id: 'restoration.regrowth.high_overheal',
+                message: ' — high overheal',
+              }),
+            );
         }
       }
     } else {
@@ -254,32 +300,53 @@ class RegrowthAndClearcasting extends Analyzer {
       const currentAbundanceStacks = this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id);
       if (currentAbundanceStacks > 0) {
         castNote =
-          t({
-            id: 'restoration.regrowth.no_cc_low_abundance_prefix',
-            message: 'No Clearcasting and only ',
-          }) +
+          i18n._(
+            defineMessage({
+              id: 'restoration.regrowth.no_cc_low_abundance_prefix',
+              message: 'No Clearcasting and only ',
+            }),
+          ) +
           currentAbundanceStacks +
           (currentAbundanceStacks > 1
-            ? t({ id: 'restoration.regrowth.abundance_stacks', message: ' Abundance stacks' })
-            : t({ id: 'restoration.regrowth.abundance_stack', message: ' Abundance stack' })) +
-          t({ id: 'restoration.regrowth.abundance_stacks_needed', message: ' (need 6+)' });
+            ? i18n._(
+                defineMessage({
+                  id: 'restoration.regrowth.abundance_stacks',
+                  message: ' Abundance stacks',
+                }),
+              )
+            : i18n._(
+                defineMessage({
+                  id: 'restoration.regrowth.abundance_stack',
+                  message: ' Abundance stack',
+                }),
+              )) +
+          i18n._(
+            defineMessage({
+              id: 'restoration.regrowth.abundance_stacks_needed',
+              message: ' (need 6+)',
+            }),
+          );
       } else {
-        castNote = t({
-          id: 'restoration.regrowth.no_cc_or_abundance',
-          message: 'No Clearcasting or Abundance stacks',
-        });
+        castNote = i18n._(
+          defineMessage({
+            id: 'restoration.regrowth.no_cc_or_abundance',
+            message: 'No Clearcasting or Abundance stacks',
+          }),
+        );
       }
     }
 
     const targetHealthString =
       targetHealthPercent !== undefined
         ? `${formatPercentage(targetHealthPercent, 0)}`
-        : t({ id: 'restoration.regrowth.unknown_health', message: 'unknown' });
+        : i18n._(defineMessage({ id: 'restoration.regrowth.unknown_health', message: 'unknown' }));
     const overhealString =
       overhealPercent !== undefined
         ? ' (' +
           formatPercentage(overhealPercent, 0) +
-          t({ id: 'restoration.regrowth.overheal_suffix', message: '% overheal)' })
+          i18n._(
+            defineMessage({ id: 'restoration.regrowth.overheal_suffix', message: '% overheal)' }),
+          )
         : '';
 
     this.castEntries.push({
@@ -345,8 +412,7 @@ class RegrowthAndClearcasting extends Analyzer {
         </b>{' '}
         {t({
           id: 'restoration.regrowth.explanation_nb',
-          message:
-            'is for spot healing. The HoT is normally very weak, but with',
+          message: 'is for spot healing. The HoT is normally very weak, but with',
         })}{' '}
         <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />{' '}
         {t({
@@ -354,12 +420,10 @@ class RegrowthAndClearcasting extends Analyzer {
           message:
             'it becomes important to play around. Try to avoid overwriting existing Regrowth HoTs when choosing targets in order to maximize cleave healing from',
         })}{' '}
-        <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />.
-        {' '}
+        <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />.{' '}
         {t({
           id: 'restoration.regrowth.explanation_nb_p3',
-          message:
-            'Also be careful not to cast Regrowth without a',
+          message: 'Also be careful not to cast Regrowth without a',
         })}{' '}
         <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />{' '}
         {t({ id: 'restoration.regrowth.explanation_nb_p4', message: 'proc' })}
@@ -459,14 +523,12 @@ class RegrowthAndClearcasting extends Analyzer {
             <SpellLink spell={SPELLS.REGROWTH} />{' '}
             {t({
               id: 'restoration.regrowth.statistic_tooltip_p1',
-              message:
-                'is mana inefficient relative to',
+              message: 'is mana inefficient relative to',
             })}{' '}
             <SpellLink spell={SPELLS.REJUVENATION} />{' '}
             {t({
               id: 'restoration.regrowth.statistic_tooltip_p2',
-              message:
-                'and should only be cast when free due to',
+              message: 'and should only be cast when free due to',
             })}{' '}
             <SpellLink spell={SPELLS.INNERVATE} />, <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />{' '}
             {t({
@@ -480,8 +542,7 @@ class RegrowthAndClearcasting extends Analyzer {
                   id: 'restoration.regrowth.statistic_tooltip_p4',
                   message: 'cheap due to',
                 })}{' '}
-                {ABUNDANCE_EXCEPTION_STACKS}+{' '}
-                <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />{' '}
+                {ABUNDANCE_EXCEPTION_STACKS}+ <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />{' '}
                 {t({
                   id: 'restoration.regrowth.statistic_tooltip_p5',
                   message: 'stacks,',
@@ -528,7 +589,8 @@ class RegrowthAndClearcasting extends Analyzer {
                   id: 'restoration.regrowth.statistic_tooltip_triage',
                   message: 'Full Price Triage',
                 })}{' '}
-                ({'<'}{formatPercentage(TRIAGE_THRESHOLD, 0)}% HP){' '}
+                ({'<'}
+                {formatPercentage(TRIAGE_THRESHOLD, 0)}% HP){' '}
                 {t({
                   id: 'restoration.regrowth.statistic_tooltip_casts',
                   message: 'Casts:',

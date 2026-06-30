@@ -1,4 +1,7 @@
 import type { JSX } from 'react';
+import { i18n } from '@lingui/core';
+import { t, defineMessage } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/evoker';
 import { SubSection } from 'interface/guide';
@@ -233,7 +236,9 @@ class Disintegrate extends Analyzer {
             start: dungeonPull.start_time,
             end: 0,
             windowEndedOrPushed: true, // Mark Trash pulls as EndedorPushed to exclude them
-            name: 'Trash',
+            name: i18n._(
+              defineMessage({ id: 'evoker.devastation.disintegrate.trash', message: 'Trash' }),
+            ),
           };
         }
         if (dungeonPull.boss) {
@@ -272,7 +277,9 @@ class Disintegrate extends Analyzer {
         start: event.timestamp,
         end: 0,
         windowEndedOrPushed: false,
-        name: 'Window',
+        name: i18n._(
+          defineMessage({ id: 'evoker.devastation.disintegrate.window', message: 'Window' }),
+        ),
       };
     }
     this.dragonrageBuffCounter.push({
@@ -370,7 +377,9 @@ class Disintegrate extends Analyzer {
       this.disintegrateCasts.push({
         timestamp: event.timestamp,
         count: this.currentRemainingTicks,
-        tooltip: 'Cast',
+        tooltip: i18n._(
+          defineMessage({ id: 'evoker.devastation.disintegrate.cast', message: 'Cast' }),
+        ),
       });
     }
   }
@@ -390,13 +399,31 @@ class Disintegrate extends Analyzer {
           this.problemPoints.push({
             timestamp: event.timestamp,
             count: this.currentRemainingTicks,
-            tooltip: 'Bad Chain, you clipped: ' + (this.currentRemainingTicks - 1) + ' tick(s)',
+            tooltip:
+              i18n._(
+                defineMessage({
+                  id: 'evoker.devastation.disintegrate.bad_chain_clipped_prefix',
+                  message: 'Bad Chain, you clipped: ',
+                }),
+              ) +
+              (this.currentRemainingTicks - 1) +
+              i18n._(
+                defineMessage({
+                  id: 'evoker.devastation.disintegrate.tick_s',
+                  message: ' tick(s)',
+                }),
+              ),
           });
         } else {
           this.disintegrateChainCasts.push({
             timestamp: event.timestamp,
             count: this.currentRemainingTicks,
-            tooltip: 'Good Chain',
+            tooltip: i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.good_chain',
+                message: 'Good Chain',
+              }),
+            ),
           });
         }
       }
@@ -412,10 +439,30 @@ class Disintegrate extends Analyzer {
           timestamp: event.timestamp,
           count: this.currentRemainingTicks,
           tooltip:
-            'Bad Chain, you clipped: ' +
+            i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.bad_chain_clipped_prefix',
+                message: 'Bad Chain, you clipped: ',
+              }),
+            ) +
             (this.currentRemainingTicks - 1) +
-            ' tick(s) ' +
-            `${this.inDragonRageWindow ? 'during Dragonrage' : 'outside Dragonrage'}`,
+            i18n._(
+              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+            ) +
+            ' ' +
+            (this.inDragonRageWindow
+              ? i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.during_dragonrage',
+                    message: 'during Dragonrage',
+                  }),
+                )
+              : i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.outside_dragonrage',
+                    message: 'outside Dragonrage',
+                  }),
+                )),
         });
       }
       // Chained Mass Dis into Dis
@@ -423,7 +470,12 @@ class Disintegrate extends Analyzer {
         this.problemPoints.push({
           timestamp: event.timestamp,
           count: this.currentRemainingTicks,
-          tooltip: 'Bad Chain, chained Mass Disintegrate into Disintegrate',
+          tooltip: i18n._(
+            defineMessage({
+              id: 'evoker.devastation.disintegrate.bad_chain_mass_into_dis',
+              message: 'Bad Chain, chained Mass Disintegrate into Disintegrate',
+            }),
+          ),
         });
         this.currentCastCounter.MassDisintIntoDisChainTicks += 1;
       }
@@ -434,8 +486,25 @@ class Disintegrate extends Analyzer {
           count: this.currentRemainingTicks,
           tooltip:
             this.currentRemainingTicks >= 2
-              ? 'Good Chain, you clipped: ' + (this.currentRemainingTicks - 1) + ` tick(s)`
-              : 'Good Chain',
+              ? i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.good_chain_clipped_prefix',
+                    message: 'Good Chain, you clipped: ',
+                  }),
+                ) +
+                (this.currentRemainingTicks - 1) +
+                i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.tick_s',
+                    message: ' tick(s)',
+                  }),
+                )
+              : i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.good_chain',
+                    message: 'Good Chain',
+                  }),
+                ),
         });
 
       this.isCurrentCastChained = true;
@@ -456,7 +525,9 @@ class Disintegrate extends Analyzer {
       this.disintegrateCasts.push({
         timestamp: event.timestamp,
         count: this.currentRemainingTicks,
-        tooltip: 'Cast',
+        tooltip: i18n._(
+          defineMessage({ id: 'evoker.devastation.disintegrate.cast', message: 'Cast' }),
+        ),
       });
     }
   }
@@ -485,11 +556,36 @@ class Disintegrate extends Analyzer {
           timestamp: event.timestamp,
           count: this.currentRemainingTicks,
           tooltip:
-            'Bad Clip, you clipped: ' +
+            i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.bad_clip_clipped_prefix',
+                message: 'Bad Clip, you clipped: ',
+              }),
+            ) +
             this.currentRemainingTicks +
-            ' tick(s) ' +
-            `${this.inDragonRageWindow ? 'during Dragonrage' : 'outside Dragonrage'}` +
-            ' with: ' +
+            i18n._(
+              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+            ) +
+            ' ' +
+            (this.inDragonRageWindow
+              ? i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.during_dragonrage',
+                    message: 'during Dragonrage',
+                  }),
+                )
+              : i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.outside_dragonrage',
+                    message: 'outside Dragonrage',
+                  }),
+                )) +
+            i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.with_prefix',
+                message: ' with: ',
+              }),
+            ) +
             this.disintegrateClipSpell.ability.name,
         });
       }
@@ -506,11 +602,36 @@ class Disintegrate extends Analyzer {
           timestamp: event.timestamp,
           count: this.currentRemainingTicks,
           tooltip:
-            'Good clip, you clipped: ' +
+            i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.good_clip_clipped_prefix',
+                message: 'Good clip, you clipped: ',
+              }),
+            ) +
             this.currentRemainingTicks +
-            ' tick(s) ' +
-            `${this.inDragonRageWindow ? 'during Dragonrage' : 'outside Dragonrage'}` +
-            ' with: ' +
+            i18n._(
+              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+            ) +
+            ' ' +
+            (this.inDragonRageWindow
+              ? i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.during_dragonrage',
+                    message: 'during Dragonrage',
+                  }),
+                )
+              : i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.outside_dragonrage',
+                    message: 'outside Dragonrage',
+                  }),
+                )) +
+            i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.with_prefix',
+                message: ' with: ',
+              }),
+            ) +
             this.disintegrateClipSpell.ability.name,
         });
       }
@@ -520,11 +641,36 @@ class Disintegrate extends Analyzer {
           timestamp: event.timestamp,
           count: this.currentRemainingTicks,
           tooltip:
-            'Bad Clip, you clipped: ' +
+            i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.bad_clip_clipped_prefix',
+                message: 'Bad Clip, you clipped: ',
+              }),
+            ) +
             this.currentRemainingTicks +
-            ' tick(s) ' +
-            `${this.inDragonRageWindow ? 'during Dragonrage' : 'outside Dragonrage'}` +
-            ' with: ' +
+            i18n._(
+              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+            ) +
+            ' ' +
+            (this.inDragonRageWindow
+              ? i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.during_dragonrage',
+                    message: 'during Dragonrage',
+                  }),
+                )
+              : i18n._(
+                  defineMessage({
+                    id: 'evoker.devastation.disintegrate.outside_dragonrage',
+                    message: 'outside Dragonrage',
+                  }),
+                )) +
+            i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.with_prefix',
+                message: ' with: ',
+              }),
+            ) +
             this.disintegrateClipSpell.ability.name,
         });
       }
@@ -534,7 +680,17 @@ class Disintegrate extends Analyzer {
       this.problemPoints.push({
         timestamp: event.timestamp,
         count: this.currentRemainingTicks,
-        tooltip: 'Cancelled channel, losing: ' + this.currentRemainingTicks + ' tick(s)',
+        tooltip:
+          i18n._(
+            defineMessage({
+              id: 'evoker.devastation.disintegrate.cancelled_channel_losing',
+              message: 'Cancelled channel, losing: ',
+            }),
+          ) +
+          this.currentRemainingTicks +
+          i18n._(
+            defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+          ),
       });
     }
 
@@ -567,7 +723,20 @@ class Disintegrate extends Analyzer {
     ) {
       this.addDebugAnnotation(event, {
         color: BadColor,
-        summary: `More Mass Disintegrate Ticks than possible. (${this.totalCastCounter.MassDisintTicks}/${this.totalCastCounter.MassDisintTargets * this.ticksPerDisintegrate}). See other annotations for a likely cause`,
+        summary:
+          i18n._(
+            defineMessage({
+              id: 'evoker.devastation.disintegrate.more_mass_dis_ticks',
+              message: 'More Mass Disintegrate Ticks than possible',
+            }),
+          ) +
+          ` (${this.totalCastCounter.MassDisintTicks}/${this.totalCastCounter.MassDisintTargets * this.ticksPerDisintegrate}). ` +
+          i18n._(
+            defineMessage({
+              id: 'evoker.devastation.disintegrate.see_other_annotations',
+              message: 'See other annotations for a likely cause',
+            }),
+          ),
       });
     }
   }
@@ -581,7 +750,9 @@ class Disintegrate extends Analyzer {
         start: event.timestamp,
         end: 0,
         windowEndedOrPushed: false,
-        name: 'Window',
+        name: i18n._(
+          defineMessage({ id: 'evoker.devastation.disintegrate.window', message: 'Window' }),
+        ),
       };
     } else if (
       this.isMythicPlus &&
@@ -611,18 +782,41 @@ class Disintegrate extends Analyzer {
       this.massDisintegrateCasts.push({
         timestamp: event.timestamp,
         count: this.currentRemainingTicks,
-        tooltip: `Mass Disintegrate Cast: ${targets} target(s)`,
+        tooltip:
+          i18n._(
+            defineMessage({
+              id: 'evoker.devastation.disintegrate.mass_dis_cast_prefix',
+              message: 'Mass Disintegrate Cast: ',
+            }),
+          ) +
+          targets +
+          i18n._(
+            defineMessage({
+              id: 'evoker.devastation.disintegrate.target_s',
+              message: ' target(s)',
+            }),
+          ),
       });
     } else {
       this.massDisintegrateCasts.push({
         timestamp: event.timestamp,
         count: this.currentRemainingTicks,
-        tooltip: `Mass Disintegrate Cast`,
+        tooltip: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.mass_dis_cast',
+            message: 'Mass Disintegrate Cast',
+          }),
+        ),
       });
       this.addDebugAnnotation(event, {
         color: BadColor,
-        summary:
-          'Found no targets for Mass Disintegrate. Known to be caused by instance recycling (Two Mobs in the log have the same ID)',
+        summary: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.no_targets_found',
+            message:
+              'Found no targets for Mass Disintegrate. Known to be caused by instance recycling (Two Mobs in the log have the same ID)',
+          }),
+        ),
       });
     }
   }
@@ -637,43 +831,75 @@ class Disintegrate extends Analyzer {
         spellTracker: this.dragonrageBuffCounter,
         type: 'area',
         color: '#CCCCCC',
-        label: 'Dragonrage',
+        label: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.label.dragonrage',
+            message: 'Dragonrage',
+          }),
+        ),
       },
       {
         spellTracker: this.disintegrateTicksCounter,
         type: 'line',
         color: '#4C78A8',
-        label: 'Disintegrate Ticks',
+        label: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.label.disintegrate_ticks',
+            message: 'Disintegrate Ticks',
+          }),
+        ),
       },
       {
         spellTracker: this.disintegrateCasts,
         type: 'point',
         color: '#2ecc71',
-        label: 'Disintegrate Casts',
+        label: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.label.disintegrate_casts',
+            message: 'Disintegrate Casts',
+          }),
+        ),
       },
       {
         spellTracker: this.massDisintegrateCasts,
         type: 'point',
         color: '#aa774f',
-        label: 'Mass Disintegrate Casts',
+        label: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.label.mass_dis_casts',
+            message: 'Mass Disintegrate Casts',
+          }),
+        ),
       },
       {
         spellTracker: this.disintegrateChainCasts,
         type: 'point',
         color: 'orange',
-        label: 'Chain Casts',
+        label: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.label.chain_casts',
+            message: 'Chain Casts',
+          }),
+        ),
       },
       {
         spellTracker: this.disintegrateClips,
         type: 'point',
         color: '#9b59b6',
-        label: 'Clips',
+        label: i18n._(
+          defineMessage({ id: 'evoker.devastation.disintegrate.label.clips', message: 'Clips' }),
+        ),
       },
       {
         spellTracker: this.problemPoints,
         type: 'point',
         color: 'red',
-        label: 'Problem Points',
+        label: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.label.problem_points',
+            message: 'Problem Points',
+          }),
+        ),
       },
     ];
 
@@ -696,46 +922,82 @@ class Disintegrate extends Analyzer {
             <tbody>
               <tr>
                 <td>
-                  <strong>Summary</strong>
+                  <strong>
+                    {t({ id: 'evoker.devastation.disintegrate.summary', message: 'Summary' })}
+                  </strong>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <SpellLink spell={SPELLS.DISINTEGRATE} /> Casts
+                  <SpellLink spell={SPELLS.DISINTEGRATE} />{' '}
+                  {t({ id: 'evoker.devastation.disintegrate.casts', message: 'Casts' })}
                 </td>
-                <td>{this.currentCastCounter.DisintCasts} cast(s)</td>
+                <td>
+                  {this.currentCastCounter.DisintCasts}{' '}
+                  {t({ id: 'evoker.devastation.disintegrate.cast_s', message: 'cast(s)' })}
+                </td>
               </tr>
               {this.currentCastCounter.MassDisintCasts > 0 && (
                 <tr>
                   <td>
-                    <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} /> Casts
+                    <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />{' '}
+                    {t({ id: 'evoker.devastation.disintegrate.casts', message: 'Casts' })}
                   </td>
-                  <td>{this.currentCastCounter.MassDisintCasts} cast(s)</td>
+                  <td>
+                    {this.currentCastCounter.MassDisintCasts}{' '}
+                    {t({ id: 'evoker.devastation.disintegrate.cast_s', message: 'cast(s)' })}
+                  </td>
                 </tr>
               )}
               {this.disintegrateChainCasts.length > 0 && (
                 <tr>
-                  <td>Chained Casts</td>
-                  <td>{this.disintegrateChainCasts.length} chain(s)</td>
+                  <td>
+                    {t({
+                      id: 'evoker.devastation.disintegrate.chained_casts',
+                      message: 'Chained Casts',
+                    })}
+                  </td>
+                  <td>
+                    {this.disintegrateChainCasts.length}{' '}
+                    {t({ id: 'evoker.devastation.disintegrate.chain_s', message: 'chain(s)' })}
+                  </td>
                 </tr>
               )}
               {this.disintegrateClips.length > 0 && (
                 <tr>
-                  <td>Clipped Casts</td>
-                  <td>{this.disintegrateClips.length} clip(s)</td>
+                  <td>
+                    {t({
+                      id: 'evoker.devastation.disintegrate.clipped_casts',
+                      message: 'Clipped Casts',
+                    })}
+                  </td>
+                  <td>
+                    {this.disintegrateClips.length}{' '}
+                    {t({ id: 'evoker.devastation.disintegrate.clip_s', message: 'clip(s)' })}
+                  </td>
                 </tr>
               )}
               {this.problemPoints.length > 0 && (
                 <tr>
-                  <td>Problem Points</td>
-                  <td>{this.problemPoints.length} problem(s)</td>
+                  <td>
+                    {t({
+                      id: 'evoker.devastation.disintegrate.label.problem_points',
+                      message: 'Problem Points',
+                    })}
+                  </td>
+                  <td>
+                    {this.problemPoints.length}{' '}
+                    {t({ id: 'evoker.devastation.disintegrate.problem_s', message: 'problem(s)' })}
+                  </td>
                 </tr>
               )}
             </tbody>
             <tbody>
               <tr>
                 <td>
-                  <strong>Tick Usage</strong>
+                  <strong>
+                    {t({ id: 'evoker.devastation.disintegrate.tick_usage', message: 'Tick Usage' })}
+                  </strong>
                 </td>
               </tr>
               <tr>
@@ -763,11 +1025,11 @@ class Disintegrate extends Analyzer {
                     <td>
                       <TooltipElement
                         content={
-                          <>
+                          <Trans id="evoker.devastation.disintegrate.mass_dis_tooltip">
                             Losing ticks on <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />,
                             despite having no problem points, might be caused by mobs dying, which
                             is unavoidable.
-                          </>
+                          </Trans>
                         }
                       >
                         {clampedMassDisintTicks}/
@@ -801,7 +1063,9 @@ class Disintegrate extends Analyzer {
       windowData.name,
       this.disintegrateTicksCounter.length === 0 ? (
         <div>
-          You didn't use <SpellLink spell={DISINTEGRATE} />
+          <Trans id="evoker.devastation.disintegrate.no_use">
+            You didn't use <SpellLink spell={DISINTEGRATE} />
+          </Trans>
         </div>
       ) : undefined,
     );
@@ -868,17 +1132,29 @@ class Disintegrate extends Analyzer {
     }
 
     return (
-      <SubSection title="Cast Analysis">
+      <SubSection
+        title={t({ id: 'evoker.devastation.disintegrate.cast_analysis', message: 'Cast Analysis' })}
+      >
         <div>
           <p>
-            For further analysis, use the graph below to deep dive into your{' '}
-            <SpellLink spell={DISINTEGRATE} /> casts.{' '}
+            <Trans id="evoker.devastation.disintegrate.graph_intro">
+              For further analysis, use the graph below to deep dive into your{' '}
+              <SpellLink spell={DISINTEGRATE} /> casts.{' '}
+            </Trans>
             {this.isMythicPlus ? (
-              <>The windows of casts are seperated into boss pulls.</>
+              <>
+                {t({
+                  id: 'evoker.devastation.disintegrate.windows_boss_pulls',
+                  message: 'The windows of casts are separated into boss pulls.',
+                })}
+              </>
             ) : (
               <>
-                The windows of casts are seperated into Dragonrage windows and the time between
-                them.
+                {t({
+                  id: 'evoker.devastation.disintegrate.windows_dragonrage',
+                  message:
+                    'The windows of casts are separated into Dragonrage windows and the time between them.',
+                })}
               </>
             )}
           </p>
@@ -886,71 +1162,112 @@ class Disintegrate extends Analyzer {
             <tbody>
               <tr>
                 <td width={150}>
-                  <strong>Legend </strong>
+                  <strong>
+                    {t({ id: 'evoker.devastation.disintegrate.legend', message: 'Legend' })}
+                  </strong>
                 </td>
               </tr>
               <tr>
                 <td>
                   <span style={{ backgroundColor: '#2ecc71', color: 'Black', padding: '0 3px' }}>
-                    Green
+                    {t({ id: 'evoker.devastation.disintegrate.color.green', message: 'Green' })}
                   </span>
                 </td>
-                <td>Disintegrate Cast</td>
+                <td>
+                  {t({
+                    id: 'evoker.devastation.disintegrate.disintegrate_cast',
+                    message: 'Disintegrate Cast',
+                  })}
+                </td>
               </tr>
               {this.selectedCombatant.hasTalent(TALENTS.MASS_DISINTEGRATE_TALENT) && (
                 <tr>
                   <td>
                     <span style={{ backgroundColor: '#aa774f', color: 'White', padding: '0 3px' }}>
-                      Brown
+                      {t({ id: 'evoker.devastation.disintegrate.color.brown', message: 'Brown' })}
                     </span>
                   </td>
-                  <td>Mass Disintegrate Cast</td>
+                  <td>
+                    {t({
+                      id: 'evoker.devastation.disintegrate.mass_disintegrate_cast',
+                      message: 'Mass Disintegrate Cast',
+                    })}
+                  </td>
                 </tr>
               )}
               <tr>
                 <td>
                   <span style={{ backgroundColor: 'orange', color: 'Black', padding: '0 3px' }}>
-                    Orange
+                    {t({ id: 'evoker.devastation.disintegrate.color.orange', message: 'Orange' })}
                   </span>
                 </td>
-                <td>Chained Casts</td>
+                <td>
+                  {t({
+                    id: 'evoker.devastation.disintegrate.chained_casts',
+                    message: 'Chained Casts',
+                  })}
+                </td>
               </tr>
               <tr>
                 <td>
                   <span style={{ backgroundColor: '#9b59b6', color: 'White', padding: '0 3px' }}>
-                    Purple
+                    {t({ id: 'evoker.devastation.disintegrate.color.purple', message: 'Purple' })}
                   </span>
                 </td>
-                <td>Clipped Casts</td>
+                <td>
+                  {t({
+                    id: 'evoker.devastation.disintegrate.clipped_casts',
+                    message: 'Clipped Casts',
+                  })}
+                </td>
               </tr>
               <tr>
                 <td>
                   <span style={{ backgroundColor: 'red', color: 'White', padding: '0 3px' }}>
-                    Red
+                    {t({ id: 'evoker.devastation.disintegrate.color.red', message: 'Red' })}
                   </span>
                 </td>
-                <td>Problem Points</td>
+                <td>
+                  {t({
+                    id: 'evoker.devastation.disintegrate.label.problem_points',
+                    message: 'Problem Points',
+                  })}
+                </td>
               </tr>
               <tr>
                 <td>
                   <span style={{ backgroundColor: 'white', color: 'Black', padding: '0 3px' }}>
-                    White Background
+                    {t({
+                      id: 'evoker.devastation.disintegrate.color.white_background',
+                      message: 'White Background',
+                    })}
                   </span>
                 </td>
-                <td>Dragonrage Windows</td>
+                <td>
+                  {t({
+                    id: 'evoker.devastation.disintegrate.dragonrage_windows',
+                    message: 'Dragonrage Windows',
+                  })}
+                </td>
               </tr>
             </tbody>
           </table>
           <b>
-            <InformationIcon /> Mouseover each point on the graph for more detailed
-            explanations.{' '}
+            <InformationIcon />{' '}
+            {t({
+              id: 'evoker.devastation.disintegrate.mouseover_hint',
+              message: 'Mouseover each point on the graph for more detailed explanations.',
+            })}{' '}
           </b>
         </div>
         <ExplanationGraph
           fightStartTime={this.owner.fight.start_time}
           fightEndTime={this.owner.fight.end_time}
           graphData={this.graphData}
-          yAxisName="Remaining Ticks"
+          yAxisName={t({
+            id: 'evoker.devastation.disintegrate.y_axis_remaining_ticks',
+            message: 'Remaining Ticks',
+          })}
           explanations={this.explanations}
           noLegend={true}
           scrollThresholdOverride={30000}

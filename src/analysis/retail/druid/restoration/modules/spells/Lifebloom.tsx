@@ -287,7 +287,13 @@ class Lifebloom extends Analyzer {
                 ', target swapping your lifebloom becomes punishing. Any time you swap targets, Lifebloom resets to 1 stack and loses throughput.',
             })}
             <br />
-            <strong>{this.nonThreeStackCasts} casts not refreshing a 3-stack Lifebloom</strong>
+            <strong>
+              {this.nonThreeStackCasts}{' '}
+              {t({
+                id: 'restoration.lifebloom.casts_not_refreshing_3stack',
+                message: 'casts not refreshing a 3-stack Lifebloom',
+              })}
+            </strong>
           </p>
         )}
         {this.hasVerdancy && (
@@ -306,7 +312,11 @@ class Lifebloom extends Analyzer {
             })}
             <br />
             <strong>
-              Lifebloom refreshes that bloomed: {formatPercentage(this.verdancyBloomRate, 1)}%
+              {t({
+                id: 'restoration.lifebloom.bloom_refresh_rate',
+                message: 'Lifebloom refreshes that bloomed:',
+              })}{' '}
+              {formatPercentage(this.verdancyBloomRate, 1)}%
             </strong>
           </p>
         )}
@@ -347,7 +357,7 @@ class Lifebloom extends Analyzer {
                     id: 'restoration.lifebloom.perf_everbloom_bad',
                     message: 'cast when not refreshing a 3-stack Lifebloom (except first cast)',
                   })
-                : 'n/a'
+                : t({ id: 'restoration.lifebloom.na', message: 'n/a' })
             }
           />
         )}
