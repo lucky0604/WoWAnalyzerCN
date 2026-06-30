@@ -1,5 +1,6 @@
 import SPELLS from 'common/SPELLS';
-import { t } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
+import { t, defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -101,7 +102,7 @@ class Swiftmend extends Analyzer {
     const wasTriage = targetHealthPercent && targetHealthPercent <= TRIAGE_THRESHOLD;
     const targetHealthPercentText = targetHealthPercent
       ? formatPercentage(targetHealthPercent, 0)
-      : 'unknown';
+      : i18n._(defineMessage({ id: 'restoration.swiftmend.unknown', message: 'unknown' }));
 
     /*
      * Build value and tooltip text depending on if player had VI
@@ -127,7 +128,10 @@ class Swiftmend extends Analyzer {
       }
 
       if (extendedHotIds.length === 0) {
-        hotChangeText = t({ id: 'restoration.swiftmend.extended_nothing', message: 'extended Nothing!' });
+        hotChangeText = t({
+          id: 'restoration.swiftmend.extended_nothing',
+          message: 'extended Nothing!',
+        });
       } else {
         hotChangeText = (
           <>
@@ -231,11 +235,17 @@ class Swiftmend extends Analyzer {
 
     const baseText = this.hasVi ? (
       <>
-        {t({ id: 'restoration.swiftmend.base_text_vi.part1', message: 'is our spot heal that extends all HoTs on its target due to' })}{' '}
+        {t({
+          id: 'restoration.swiftmend.base_text_vi.part1',
+          message: 'is our spot heal that extends all HoTs on its target due to',
+        })}{' '}
         <SpellLink spell={TALENTS_DRUID.VERDANT_INFUSION_TALENT} />.{' '}
         {t({ id: 'restoration.swiftmend.base_text_vi.part2', message: 'Try to cast on your' })}{' '}
         <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />{' '}
-        {t({ id: 'restoration.swiftmend.base_text_vi.part3', message: 'target to reduce manual Lifebloom re-applications.' })}
+        {t({
+          id: 'restoration.swiftmend.base_text_vi.part3',
+          message: 'target to reduce manual Lifebloom re-applications.',
+        })}
       </>
     ) : (
       <Trans id="restoration.swiftmend.base_text_no_vi">
@@ -248,11 +258,13 @@ class Swiftmend extends Analyzer {
     const cooldownText = this.hasVi
       ? t({
           id: 'restoration.swiftmend.cooldown_text_vi',
-          message: ' Aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: ',
+          message:
+            ' Aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: ',
         })
       : t({
           id: 'restoration.swiftmend.cooldown_text_no_vi',
-          message: ' You should still aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: ',
+          message:
+            ' You should still aim to cast Swiftmend on cooldown, even on targets who do not urgently need healing due to the multiple powerful effects tied to casting it: ',
         });
 
     const explanation = (
@@ -273,7 +285,11 @@ class Swiftmend extends Analyzer {
               ))}
             </>
           )}
-          {this.numProcs === 0 && t({ id: 'restoration.swiftmend.use_only_urgent', message: 'Use only on targets who need urgent healing.' })}
+          {this.numProcs === 0 &&
+            t({
+              id: 'restoration.swiftmend.use_only_urgent',
+              message: 'Use only on targets who need urgent healing.',
+            })}
         </p>
       </>
     );
@@ -285,12 +301,24 @@ class Swiftmend extends Analyzer {
     let badExtraExplanation = undefined;
     if (this.hasVi) {
       // has VI
-      perfectExtraExplanation = t({ id: 'restoration.swiftmend.perf_vi_perfect', message: 'extended high value HoTs' });
+      perfectExtraExplanation = t({
+        id: 'restoration.swiftmend.perf_vi_perfect',
+        message: 'extended high value HoTs',
+      });
     }
     if (!this.hasVi) {
-      goodExtraExplanation = t({ id: 'restoration.swiftmend.perf_no_vi_good', message: 'consumed a Wild Growth/low duration Rejuvenation, or was a triage cast' });
-      okExtraExplanation = t({ id: 'restoration.swiftmend.perf_no_vi_ok', message: 'consumed a Regrowth' });
-      badExtraExplanation = t({ id: 'restoration.swiftmend.perf_no_vi_bad', message: 'consumed a high duration Rejuvenation' });
+      goodExtraExplanation = t({
+        id: 'restoration.swiftmend.perf_no_vi_good',
+        message: 'consumed a Wild Growth/low duration Rejuvenation, or was a triage cast',
+      });
+      okExtraExplanation = t({
+        id: 'restoration.swiftmend.perf_no_vi_ok',
+        message: 'consumed a Regrowth',
+      });
+      badExtraExplanation = t({
+        id: 'restoration.swiftmend.perf_no_vi_bad',
+        message: 'consumed a high duration Rejuvenation',
+      });
     }
 
     const data = (
