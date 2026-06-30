@@ -1,3 +1,5 @@
+import { defineMessage } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 import { Options } from 'parser/core/Analyzer';
 import StaggerStatistic from '../tools/StaggerAnalyzer';
 import SPELLS from '../../spell-list_Monk_Brewmaster.retail';
@@ -21,7 +23,12 @@ export default class PurifyingBrew extends StaggerStatistic {
     const clear = purifyingBrewClear.first(event);
     if (!clear) {
       this.addDebugAnnotation(event, {
-        summary: 'Purifying Brew without clear event',
+        summary: i18n._(
+          defineMessage({
+            id: 'monk.brewmaster.pb.no_clear_event',
+            message: 'Purifying Brew without clear event',
+          }),
+        ),
         color: BadColor,
       });
       return;

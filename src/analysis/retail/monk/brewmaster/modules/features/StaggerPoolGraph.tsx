@@ -18,7 +18,8 @@ import StaggerPool from '../core/StaggerPool';
 import PurifyingBrew from '../talents/PurifyingBrew';
 import HighTolerance from '../spells/HighTolerance';
 import { OkColor } from 'interface/guide';
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 
 interface StaggerEvent {
   timestamp: number;
@@ -89,7 +90,12 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
           {
             field: 'newPooledDamage',
             type: 'quantitative' as const,
-            title: t({ id: 'monk.brewmaster.stagger.staggered_damage', message: 'Staggered Damage' }),
+            title: i18n._(
+              defineMessage({
+                id: 'monk.brewmaster.stagger.staggered_damage',
+                message: 'Staggered Damage',
+              }),
+            ),
             format: '.3~s',
           },
         ],
@@ -121,7 +127,12 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
               {
                 field: 'hitPoints',
                 type: 'quantitative' as const,
-                title: t({ id: 'monk.brewmaster.stagger.hit_points', message: 'Hit Points' }),
+                title: i18n._(
+                  defineMessage({
+                    id: 'monk.brewmaster.stagger.hit_points',
+                    message: 'Hit Points',
+                  }),
+                ),
                 format: '.3~s',
               },
             ],
@@ -187,13 +198,23 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
             tooltip: [
               {
                 field: 'amount',
-                title: t({ id: 'monk.brewmaster.stagger.amount_purified', message: 'Amount Purified' }),
+                title: i18n._(
+                  defineMessage({
+                    id: 'monk.brewmaster.stagger.amount_purified',
+                    message: 'Amount Purified',
+                  }),
+                ),
                 format: '.3~s',
               },
               {
                 field: 'oldPooledAmount',
                 type: 'quantitative' as const,
-                title: t({ id: 'monk.brewmaster.stagger.staggered_damage', message: 'Staggered Damage' }),
+                title: i18n._(
+                  defineMessage({
+                    id: 'monk.brewmaster.stagger.staggered_damage',
+                    message: 'Staggered Damage',
+                  }),
+                ),
                 format: '.3~s',
               },
             ],
@@ -299,22 +320,32 @@ class StaggerPoolGraph extends Analyzer.withDependencies({
 
   tab() {
     return {
-      title: t({ id: 'monk.brewmaster.stagger.title', message: 'Stagger' }),
+      title: i18n._(defineMessage({ id: 'monk.brewmaster.stagger.title', message: 'Stagger' })),
       url: 'stagger',
       render: () => (
         <Panel
           title={t({ id: 'monk.brewmaster.stagger.title', message: 'Stagger' })}
           explanation={
             <>
-              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p1', message: 'Damage you take is placed into a ' })}
+              {t({
+                id: 'monk.brewmaster.stagger.graph_explanation.p1',
+                message: 'Damage you take is placed into a ',
+              })}
               <em>{t({ id: 'monk.brewmaster.stagger.graph_explanation.p2', message: 'pool' })}</em>
               {t({ id: 'monk.brewmaster.stagger.graph_explanation.p3', message: ' by ' })}
               <SpellLink spell={SPELLS.STAGGER} />
-              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p4', message: '. This damage is then removed by the damage-over-time component of ' })}
+              {t({
+                id: 'monk.brewmaster.stagger.graph_explanation.p4',
+                message: '. This damage is then removed by the damage-over-time component of ',
+              })}
               <SpellLink spell={SPELLS.STAGGER} />
               {t({ id: 'monk.brewmaster.stagger.graph_explanation.p5', message: ' or by ' })}
               <SpellLink spell={talents.PURIFYING_BREW_TALENT} />
-              {t({ id: 'monk.brewmaster.stagger.graph_explanation.p6', message: ' (or other sources of purification). This plot shows the amount of damage pooled over the course of the fight.' })}
+              {t({
+                id: 'monk.brewmaster.stagger.graph_explanation.p6',
+                message:
+                  ' (or other sources of purification). This plot shows the amount of damage pooled over the course of the fight.',
+              })}
             </>
           }
         >

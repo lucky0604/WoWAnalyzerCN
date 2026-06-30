@@ -1,5 +1,6 @@
 import SPELLS from 'common/SPELLS';
-import { t } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
+import { t, defineMessage } from '@lingui/core/macro';
 import { TALENTS_DRUID } from 'common/TALENTS';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -158,7 +159,7 @@ class AbundanceGraph extends Analyzer {
       scale: {
         nice: false,
       },
-      title: 'Time',
+      title: i18n._(defineMessage({ id: 'restoration.abundance.chart.time', message: 'Time' })),
     };
 
     const spec: VisualizationSpec = {
@@ -192,7 +193,9 @@ class AbundanceGraph extends Analyzer {
             y: {
               field: 'stacks',
               type: 'quantitative' as const,
-              title: 'Count',
+              title: i18n._(
+                defineMessage({ id: 'restoration.abundance.chart.count', message: 'Count' }),
+              ),
               axis: {
                 grid: false,
                 format: '~s',
@@ -236,13 +239,20 @@ class AbundanceGraph extends Analyzer {
                   y: {
                     field: 'count',
                     type: 'quantitative' as const,
-                    title: 'Count',
+                    title: i18n._(
+                      defineMessage({ id: 'restoration.abundance.chart.count', message: 'Count' }),
+                    ),
                   },
                   tooltip: [
                     {
-                      field: 'count',
+                      field: 'stacks',
                       type: 'quantitative' as const,
-                      title: 'Regrowth HoTs',
+                      title: i18n._(
+                        defineMessage({
+                          id: 'restoration.abundance.chart.abundanceStacks',
+                          message: 'Abundance Stacks',
+                        }),
+                      ),
                     },
                   ],
                 },
@@ -286,7 +296,12 @@ class AbundanceGraph extends Analyzer {
                 domain: ['8+ stacks', '6-7 stacks', '< 6 stacks'],
                 range: ['#4488ff', '#cccc00', '#ff4444'],
               },
-              title: 'Regrowth cast',
+              title: i18n._(
+                defineMessage({
+                  id: 'restoration.abundance.chart.regrowthCast',
+                  message: 'Regrowth cast',
+                }),
+              ),
             },
             tooltip: [
               {

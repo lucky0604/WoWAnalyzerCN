@@ -1,4 +1,3 @@
-import type { JSX } from 'react';
 import { t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import cssComponent from 'interface/utils/css-component';
@@ -101,7 +100,7 @@ export default function DeathStrikeSection() {
         {t({
           id: 'deathknight.blood.deathStrikeSection.resourceOverloaded.p2',
           message:
-            " That means that your active play revolves around trying to spend as many of your resources as you can without wasting them\u2014and without leaving yourself vulnerable to damage by over-spending.",
+            ' That means that your active play revolves around trying to spend as many of your resources as you can without wasting them\u2014and without leaving yourself vulnerable to damage by over-spending.',
         })}
       </p>
       <SubSection
@@ -132,7 +131,9 @@ export default function DeathStrikeSection() {
                 id: 'deathknight.blood.deathStrikeSection.mostImportant.p2',
                 message: ' is being able to cast it\u2014which means generating ',
               })}
-              <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink>
+              <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>
+                {t({ id: 'deathknight.blood.deathStrikeSection.rp', message: 'RP' })}
+              </ResourceLink>
               {t({
                 id: 'deathknight.blood.deathStrikeSection.mostImportant.p3',
                 message: ' to spend on it.',
@@ -144,7 +145,9 @@ export default function DeathStrikeSection() {
                 id: 'deathknight.blood.deathStrikeSection.runeGeneration',
                 message: 'Every rune you spend generates 10 ',
               })}
-              <Highlight color={RuneColor}>Base</Highlight>
+              <Highlight color={RuneColor}>
+                {t({ id: 'deathknight.blood.deathStrikeSection.base', message: 'Base' })}
+              </Highlight>
               {t({
                 id: 'deathknight.blood.deathStrikeSection.runeGeneration.p2',
                 message: ' RP . ',
@@ -155,29 +158,40 @@ export default function DeathStrikeSection() {
                 message: ' generates 5+ ',
               })}
               <Highlight textColor="#111" color={RunicPowerColor}>
-                Bonus
+                {t({ id: 'deathknight.blood.deathStrikeSection.bonus', message: 'Bonus' })}
               </Highlight>
               {t({
                 id: 'deathknight.blood.deathStrikeSection.runeGeneration.p4',
                 message: ' RP beyond that, which should make it your main ',
               })}
-              <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink>
+              <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>
+                {t({ id: 'deathknight.blood.deathStrikeSection.rp', message: 'RP' })}
+              </ResourceLink>
               {t({
                 id: 'deathknight.blood.deathStrikeSection.runeGeneration.p5',
                 message:
                   ' generator. You can only store 125 RP at once; generating more than that is called ',
               })}
-              <em>{t({ id: 'deathknight.blood.deathStrikeSection.runeGeneration.overcapping', message: 'overcapping' })}</em>
+              <em>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.runeGeneration.overcapping',
+                  message: 'overcapping',
+                })}
+              </em>
               {t({
                 id: 'deathknight.blood.deathStrikeSection.runeGeneration.p6',
                 message: ' and results in ',
               })}
-              <Highlight color={WastedRPColor}>Wasted</Highlight>
+              <Highlight color={WastedRPColor}>
+                {t({ id: 'deathknight.blood.deathStrikeSection.wasted', message: 'Wasted' })}
+              </Highlight>
               {t({
                 id: 'deathknight.blood.deathStrikeSection.runeGeneration.p7',
                 message: ' RP. You should have very little ',
               })}
-              <Highlight color={WastedRPColor}>Wasted</Highlight>
+              <Highlight color={WastedRPColor}>
+                {t({ id: 'deathknight.blood.deathStrikeSection.wasted', message: 'Wasted' })}
+              </Highlight>
               {t({
                 id: 'deathknight.blood.deathStrikeSection.runeGeneration.p8',
                 message: ' RP.',
@@ -188,9 +202,18 @@ export default function DeathStrikeSection() {
             <SuggestionBox
               performance={rp.wastePerformance}
               title={
-                <>{t({ id: 'deathknight.blood.deathStrikeSection.veryLittleWaste.p1', message: 'You should have very little ' })}
-                  <Highlight color={WastedRPColor}>Wasted</Highlight>
-                  {t({ id: 'deathknight.blood.deathStrikeSection.veryLittleWaste.p2', message: 'RP' })}
+                <>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.veryLittleWaste.p1',
+                    message: 'You should have very little ',
+                  })}
+                  <Highlight color={WastedRPColor}>
+                    {t({ id: 'deathknight.blood.deathStrikeSection.wasted', message: 'Wasted' })}
+                  </Highlight>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.veryLittleWaste.p2',
+                    message: 'RP',
+                  })}
                 </>
               }
               description={t({
@@ -208,23 +231,46 @@ export default function DeathStrikeSection() {
             <SuggestionBox
               performance={runes.wastedRunePerformance}
               title={
-                <>{t({ id: 'deathknight.blood.deathStrikeSection.generateAsMuchRp.p1', message: 'You should generate as much' })}
-                  {' '}
-                  <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink>
-                  {t({ id: 'deathknight.blood.deathStrikeSection.generateAsMuchRp.p2', message: 'as possible.' })}
+                <>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.generateAsMuchRp.p1',
+                    message: 'You should generate as much',
+                  })}{' '}
+                  <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>
+                    {t({ id: 'deathknight.blood.deathStrikeSection.rp', message: 'RP' })}
+                  </ResourceLink>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.generateAsMuchRp.p2',
+                    message: 'as possible.',
+                  })}
                 </>
               }
               description={
-                <>{t({ id: 'deathknight.blood.deathStrikeSection.rpGeneratedByRunes.p1', message: 'RP is generated by spending ' })}
+                <>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.rpGeneratedByRunes.p1',
+                    message: 'RP is generated by spending ',
+                  })}
                   <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
-                  {t({ id: 'deathknight.blood.deathStrikeSection.rpGeneratedByRunes.p2', message: '.' })}
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.rpGeneratedByRunes.p2',
+                    message: '.',
+                  })}
                 </>
               }
             >
               <Explanation as="p">
-                <>{t({ id: 'deathknight.blood.deathStrikeSection.threeRecharging.p1', message: 'Although you have 6 ' })}
+                <>
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.threeRecharging.p1',
+                    message: 'Although you have 6 ',
+                  })}
                   <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
-                  {t({ id: 'deathknight.blood.deathStrikeSection.threeRecharging.p2', message: ', only 3 can be recharging at a time. You should aim to spend as much time as possible with 3 or more recharging.' })}
+                  {t({
+                    id: 'deathknight.blood.deathStrikeSection.threeRecharging.p2',
+                    message:
+                      ', only 3 can be recharging at a time. You should aim to spend as much time as possible with 3 or more recharging.',
+                  })}
                 </>
               </Explanation>
               <RuneCooldownBar timeline={runes.runesReady} />
@@ -233,12 +279,12 @@ export default function DeathStrikeSection() {
                   id: 'deathknight.blood.deathStrikeSection.youWasted',
                   message: 'You wasted ',
                 })}
-                <strong>{Math.round(runes.runesWasted)}</strong>
-                {' '}
+                <strong>{Math.round(runes.runesWasted)}</strong>{' '}
                 <ResourceLink id={RESOURCE_TYPES.RUNES.id} />
                 {t({
                   id: 'deathknight.blood.deathStrikeSection.youWasted.p2',
-                  message: ' ( ~{runePct}% of {maxCasts} total) by having fewer than 3 Runes recharging.',
+                  message:
+                    ' ( ~{runePct}% of {maxCasts} total) by having fewer than 3 Runes recharging.',
                   values: {
                     runePct: formatPercentage(1 - runes.runeEfficiency),
                     maxCasts: Math.round(runes.runesMaxCasts),
@@ -255,9 +301,12 @@ export default function DeathStrikeSection() {
                   id: 'deathknight.blood.deathStrikeSection.remember.p2',
                   message: ' cannot be spent directly on defensives! As long as you are not ',
                 })}
-                <Highlight color={WastedRPColor}>wasting</Highlight>
-                {' '}
-                <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>RP</ResourceLink>
+                <Highlight color={WastedRPColor}>
+                  {t({ id: 'deathknight.blood.deathStrikeSection.wasting', message: 'wasting' })}
+                </Highlight>{' '}
+                <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id}>
+                  {t({ id: 'deathknight.blood.deathStrikeSection.rp', message: 'RP' })}
+                </ResourceLink>
                 {t({
                   id: 'deathknight.blood.deathStrikeSection.remember.p3',
                   message: ' or allowing ',
@@ -389,20 +438,43 @@ function RunicPowerTableRow({
   return (
     <>
       <div>{label}</div>
-      <div>{formatNumber(rpAmount + rpWasted)} RP</div>
+      <div>
+        {formatNumber(rpAmount + rpWasted)}{' '}
+        {t({ id: 'deathknight.blood.deathStrikeSection.rp', message: 'RP' })}
+      </div>
       <Tooltip
         content={
-          <>{runesSpent > 0 ? <>Converted {formatNumber(runesSpent)} runes into</> : <>Generated</>}
-            {' '}
-            <Highlight color={RuneColor}>{formatNumber(baseRp)} Base</Highlight>
-            {t({ id: 'deathknight.blood.deathStrikeSection.rpTooltip.p1', message: 'RP, plus' })}
-            {' '}
-            <Highlight color={RunicPowerColor} textColor="black">
-              {formatNumber(Math.max(rpBonus, 0))} Bonus
+          <>
+            {runesSpent > 0 ? (
+              <>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.rpTooltip.converted',
+                  message: 'Converted {runeCount} runes into',
+                  values: { runeCount: formatNumber(runesSpent) },
+                })}
+              </>
+            ) : (
+              <>
+                {t({
+                  id: 'deathknight.blood.deathStrikeSection.rpTooltip.generated',
+                  message: 'Generated',
+                })}
+              </>
+            )}{' '}
+            <Highlight color={RuneColor}>
+              {formatNumber(baseRp)}{' '}
+              {t({ id: 'deathknight.blood.deathStrikeSection.base', message: 'Base' })}
             </Highlight>
-            {' '}
+            {t({ id: 'deathknight.blood.deathStrikeSection.rpTooltip.p1', message: 'RP, plus' })}{' '}
+            <Highlight color={RunicPowerColor} textColor="black">
+              {formatNumber(Math.max(rpBonus, 0))}{' '}
+              {t({ id: 'deathknight.blood.deathStrikeSection.bonus', message: 'Bonus' })}
+            </Highlight>{' '}
             {t({ id: 'deathknight.blood.deathStrikeSection.rpTooltip.p2', message: 'RP and ' })}
-            <Highlight color={WastedRPColor}>{formatNumber(rpWasted)} Wasted</Highlight>
+            <Highlight color={WastedRPColor}>
+              {formatNumber(rpWasted)}{' '}
+              {t({ id: 'deathknight.blood.deathStrikeSection.wasted', message: 'Wasted' })}
+            </Highlight>
             {t({ id: 'deathknight.blood.deathStrikeSection.rpTooltip.p3', message: 'RP ( ' })}
             {formatPercentage(rpWasted / (rpAmount + rpWasted))}
             {t({ id: 'deathknight.blood.deathStrikeSection.rpTooltip.p4', message: '% waste)' })}

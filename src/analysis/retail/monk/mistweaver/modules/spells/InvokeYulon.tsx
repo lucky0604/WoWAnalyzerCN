@@ -144,36 +144,49 @@ class InvokeYulon extends BaseCelestialAnalyzer {
           </strong>
         </p>
         <p>
-          <>{t({ id: 'monk.mistweaver.invokeYulon.explanation1.p1', message: 'Before casting ' })}
+          <>
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation1.p1', message: 'Before casting ' })}
             <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} />
             {t({ id: 'monk.mistweaver.invokeYulon.explanation1.p2', message: ', make sure that ' })}
             <SpellLink spell={this.currentRskTalent} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation1.p3', message: 'is on cooldown, and make to sure cast' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation1.p3',
+              message: 'is on cooldown, and make to sure cast',
+            })}{' '}
             {this.selectedCombatant.hasTalent(TALENTS_MONK.GIFT_OF_THE_CELESTIALS_TALENT) ? (
-              <>at least one </>
+              <>{t({ id: 'monk.mistweaver.invokeYulon.atLeastOne', message: 'at least one' })} </>
             ) : (
-              <>all </>
-            )}
-            {' '}
+              <>{t({ id: 'monk.mistweaver.invokeYulon.all', message: 'all' })} </>
+            )}{' '}
             <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation1.p4', message: '(s) to prevent overcapping charges during Yulon\'s duration, and be sure to have at least 1 proc of ' })}
-            <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />
-            {' '}
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation1.p5', message: 'available.' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation1.p4',
+              message:
+                "(s) to prevent overcapping charges during Yulon's duration, and be sure to have at least 1 proc of ",
+            })}
+            <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />{' '}
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation1.p5', message: 'available.' })}{' '}
           </>
         </p>
         <hr />
         <p>
-          <>{t({ id: 'monk.mistweaver.invokeYulon.explanation2.p1', message: 'It is crucial to pair ' })}
+          <>
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation2.p1',
+              message: 'It is crucial to pair ',
+            })}
             <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation2.p2', message: 'with' })}
-            {' '}
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation2.p2', message: 'with' })}{' '}
             <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation2.p3', message: 'for the several buffs that ' })}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation2.p3',
+              message: 'for the several buffs that ',
+            })}
             <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation2.p4', message: 'provides, including:' })}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation2.p4',
+              message: 'provides, including:',
+            })}
           </>
         </p>
         <ol>
@@ -181,11 +194,13 @@ class InvokeYulon extends BaseCelestialAnalyzer {
             <SpellLink spell={TALENTS_MONK.SPIRITFONT_2_MISTWEAVER_TALENT} />
           </li>
           <li>
-            <SpellLink spell={TALENTS_MONK.FLOWING_WISDOM_TALENT} /> via{' '}
+            <SpellLink spell={TALENTS_MONK.FLOWING_WISDOM_TALENT} />{' '}
+            {t({ id: 'monk.mistweaver.invokeYulon.via', message: 'via' })}
             <SpellLink spell={TALENTS_MONK.HEART_OF_THE_JADE_SERPENT_TALENT} />
           </li>
           <li>
-            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> via{' '}
+            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />{' '}
+            {t({ id: 'monk.mistweaver.invokeYulon.via', message: 'via' })}
             <SpellLink spell={TALENTS_MONK.DEEP_CLARITY_TALENT} />
           </li>
           <li>
@@ -193,48 +208,65 @@ class InvokeYulon extends BaseCelestialAnalyzer {
           </li>
         </ol>
         <p>
-          <>{t({ id: 'monk.mistweaver.invokeYulon.explanation3.p1', message: 'If ' })}
+          <>
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation3.p1', message: 'If ' })}
             <SpellLink spell={TALENTS_MONK.SECRET_INFUSION_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation3.p2', message: 'talented, use' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation3.p2',
+              message: 'talented, use',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.THUNDER_FOCUS_TEA_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation3.p3', message: 'with' })}
-            {' '}
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation3.p3', message: 'with' })}{' '}
             <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation3.p4', message: 'for a multiplicative haste bonus' })}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation3.p4',
+              message: 'for a multiplicative haste bonus',
+            })}
           </>
         </p>
         <hr />
         <p>
-          <>{t({ id: 'monk.mistweaver.invokeYulon.explanation4.p1', message: 'Be sure to cast ' })}
+          <>
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation4.p1', message: 'Be sure to cast ' })}
             <SpellLink spell={this.currentRskTalent} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation4.p2', message: 'before your first' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation4.p2',
+              message: 'before your first',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation4.p3', message: 'and' })}
-            {' '}
-            <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />
-            {' '}
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation4.p3', message: 'and' })}{' '}
+            <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />{' '}
             <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation4.p4', message: 'falls off to extend their duration.' })}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation4.p4',
+              message: 'falls off to extend their duration.',
+            })}
           </>
         </p>
         <hr />
         <p>
-          <>{t({ id: 'monk.mistweaver.invokeYulon.explanation5.p1', message: 'Be sure to follow up your' })}
-            {' '}
+          <>
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation5.p1',
+              message: 'Be sure to follow up your',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation5.p2', message: 'with casts of' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation5.p2',
+              message: 'with casts of',
+            })}{' '}
             <SpellLink spell={SPELLS.VIVIFY} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation5.p3', message: 'to consume your' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation5.p3',
+              message: 'to consume your',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation5.p4', message: 'with the highest amount of' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeYulon.explanation5.p4',
+              message: 'with the highest amount of',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeYulon.explanation5.p5', message: 's and' })}
-            {' '}
+            {t({ id: 'monk.mistweaver.invokeYulon.explanation5.p5', message: 's and' })}{' '}
             <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
             {t({ id: 'monk.mistweaver.invokeYulon.explanation5.p6', message: 's possible.' })}
           </>
@@ -273,7 +305,11 @@ class InvokeYulon extends BaseCelestialAnalyzer {
             label: (
               <span style={{ paddingLeft: '1.5em' }}>
                 <Arrow />{' '}
-                <>{t({ id: 'monk.mistweaver.invokeYulon.castDuringSoom.p1', message: 'Cast during' })}
+                <>
+                  {t({
+                    id: 'monk.mistweaver.invokeYulon.castDuringSoom.p1',
+                    message: 'Cast during',
+                  })}
                   <SpellLink spell={TALENTS_MONK.SOOTHING_MIST_TALENT} />
                 </>
               </span>
@@ -312,7 +348,7 @@ class InvokeYulon extends BaseCelestialAnalyzer {
         position={STATISTIC_ORDER.CORE(7)}
         size="flexible"
         tooltip={
-          <>
+          <Trans id="monk.mistweaver.invokeYulon.statistic.tooltip">
             Healing Breakdown:
             <ul>
               <li>
@@ -325,13 +361,14 @@ class InvokeYulon extends BaseCelestialAnalyzer {
                 <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />.
               </li>
             </ul>
-          </>
+          </Trans>
         }
       >
         <BoringValueText
           label={
             <>
-              <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} /> and{' '}
+              <SpellLink spell={TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT} />{' '}
+              {t({ id: 'monk.mistweaver.invokeYulon.and', message: 'and' })}
               <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />
             </>
           }

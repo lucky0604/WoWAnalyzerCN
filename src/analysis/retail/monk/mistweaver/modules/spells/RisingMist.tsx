@@ -1,5 +1,6 @@
 import { formatDuration, formatNumber, formatPercentage } from 'common/format';
 import { t, defineMessage } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 import SPELLS from 'common/SPELLS';
 import { Options } from 'parser/core/Analyzer';
 import { Panel, SpellIcon, SpellLink } from 'interface';
@@ -337,7 +338,7 @@ class RisingMist extends Analyzer {
 
   toolTip() {
     return (
-      <>
+      <Trans id="monk.mistweaver.rising_mist.tooltip">
         Your {this.risingMistCount} Rising Sun Kick casts contributed the following:
         <ul>
           <li>HoT Extension Healing: {formatNumber(this.hotHealing)}</li>
@@ -349,7 +350,7 @@ class RisingMist extends Analyzer {
             <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> HoTs Extended: {this.evmCount}
           </li>
         </ul>
-      </>
+      </Trans>
     );
   }
 
@@ -357,7 +358,7 @@ class RisingMist extends Analyzer {
     const duration = hotHistory.reduce((sum, hot) => sum + this.getDuration(hot), 0);
     return (
       ' - ' +
-      t({ id: 'monk.mistweaver.rising_mist.average', message: 'Average' }) +
+      i18n._(defineMessage({ id: 'monk.mistweaver.rising_mist.average', message: 'Average' })) +
       ': ' +
       formatDuration(duration / hotHistory.length)
     );
@@ -365,27 +366,37 @@ class RisingMist extends Analyzer {
 
   getSource(hot: Tracker) {
     if (this.hotTracker.fromDancingMists(hot)) {
-      return t({
-        id: 'monk.mistweaver.rising_mist.dancing_mist',
-        message: 'Dancing Mist',
-      });
+      return i18n._(
+        defineMessage({
+          id: 'monk.mistweaver.rising_mist.dancing_mist',
+          message: 'Dancing Mist',
+        }),
+      );
     } else if (this.hotTracker.fromHardcast(hot)) {
-      return t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' });
+      return i18n._(
+        defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+      );
     } else if (this.hotTracker.fromRapidDiffusion(hot)) {
-      return t({
-        id: 'monk.mistweaver.rising_mist.rapid_diffusion',
-        message: 'Rapid Diffusion',
-      });
+      return i18n._(
+        defineMessage({
+          id: 'monk.mistweaver.rising_mist.rapid_diffusion',
+          message: 'Rapid Diffusion',
+        }),
+      );
     } else if (this.hotTracker.fromMistyPeaks(hot)) {
-      return t({
-        id: 'monk.mistweaver.rising_mist.misty_peaks',
-        message: 'Misty Peaks',
-      });
+      return i18n._(
+        defineMessage({
+          id: 'monk.mistweaver.rising_mist.misty_peaks',
+          message: 'Misty Peaks',
+        }),
+      );
     } else if (this.hotTracker.fromMistsOfLife(hot)) {
-      return t({
-        id: 'monk.mistweaver.rising_mist.mists_of_life',
-        message: 'Mists of Life',
-      });
+      return i18n._(
+        defineMessage({
+          id: 'monk.mistweaver.rising_mist.mists_of_life',
+          message: 'Mists of Life',
+        }),
+      );
     }
   }
 
@@ -550,7 +561,7 @@ class RisingMist extends Analyzer {
     const rementries = this.hotTable(
       SPELLS.RENEWING_MIST_HEAL.id,
       remHardcastHistory,
-      t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+      i18n._(defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' })),
     );
     const rdRemHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       SPELLS.RENEWING_MIST_HEAL.id,
@@ -560,10 +571,12 @@ class RisingMist extends Analyzer {
     const rdRemEntries = this.hotTable(
       SPELLS.RENEWING_MIST_HEAL.id,
       rdRemHistory,
-      t({
-        id: 'monk.mistweaver.rising_mist.rapid_diffusion',
-        message: 'Rapid Diffusion',
-      }),
+      i18n._(
+        defineMessage({
+          id: 'monk.mistweaver.rising_mist.rapid_diffusion',
+          message: 'Rapid Diffusion',
+        }),
+      ),
     );
     const dmRemHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       SPELLS.RENEWING_MIST_HEAL.id,
@@ -573,7 +586,9 @@ class RisingMist extends Analyzer {
     const dmRemEntries = this.hotTable(
       SPELLS.RENEWING_MIST_HEAL.id,
       dmRemHistory,
-      t({ id: 'monk.mistweaver.rising_mist.dancing_mist', message: 'Dancing Mist' }),
+      i18n._(
+        defineMessage({ id: 'monk.mistweaver.rising_mist.dancing_mist', message: 'Dancing Mist' }),
+      ),
     );
     const mistyPeaksHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
@@ -583,7 +598,9 @@ class RisingMist extends Analyzer {
     const mistyPeaksentries = this.hotTable(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
       mistyPeaksHistory,
-      t({ id: 'monk.mistweaver.rising_mist.misty_peaks', message: 'Misty Peaks' }),
+      i18n._(
+        defineMessage({ id: 'monk.mistweaver.rising_mist.misty_peaks', message: 'Misty Peaks' }),
+      ),
     );
     const envHardcastHistory = this.hotTracker.getHistoryForSpellAndAttribution(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
@@ -593,7 +610,7 @@ class RisingMist extends Analyzer {
     const envEntries = this.hotTable(
       TALENTS_MONK.ENVELOPING_MIST_TALENT.id,
       envHardcastHistory,
-      t({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' }),
+      i18n._(defineMessage({ id: 'monk.mistweaver.rising_mist.hardcast', message: 'Hardcast' })),
     );
 
     return [rementries, rdRemEntries, dmRemEntries, envEntries, mistyPeaksentries];
@@ -601,7 +618,9 @@ class RisingMist extends Analyzer {
 
   tab() {
     return {
-      title: t`Rising Mist`,
+      title: i18n._(
+        defineMessage({ id: 'monk.mistweaver.rising_mist.title', message: 'Rising Mist' }),
+      ),
       url: 'rising-mist',
       render: () => (
         <Panel
