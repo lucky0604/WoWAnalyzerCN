@@ -115,7 +115,7 @@ function RemGraphSubsection({ modules, events, info }: GuideProps<typeof CombatL
     <SubSection>
       <strong>
         <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />{' '}
-        {t({ id: 'monk.mistweaver.rem_graph.title', message: 'Graph' })}
+        {t({ id: 'monk.mistweaver.rem_graph.title', message: 'Renewing Mist Graph' })}
       </strong>{' '}
       -{' '}
       {t({

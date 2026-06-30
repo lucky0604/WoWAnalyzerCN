@@ -204,7 +204,7 @@ class RakeUptimeAndSnapshots extends Snapshots {
             </strong>
             <small>
               {t({
-                id: 'druid.feral.moonfire.uptime_snapshots_sub',
+                id: 'druid.feral.rake.uptime_snapshots_sub',
                 message: '- Try to get as close to 100% as the encounter allows!',
               })}
             </small>

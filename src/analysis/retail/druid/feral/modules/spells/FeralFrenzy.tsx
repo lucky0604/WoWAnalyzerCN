@@ -128,8 +128,7 @@ export default class FeralFrenzy extends Analyzer {
           {t({
             id: 'druid.feral.ff.explanation',
             message:
-              'is a brief but extremely powerful bleed. Use it on cooldown. As it gives 5 combo points, ' +
-              "it's best used at 2 or fewer combo points in order not to waste them.",
+              "is a brief but extremely powerful bleed. Use it on cooldown. As it gives 5 combo points, it's best used at 2 or fewer combo points in order not to waste them.",
           })}
           {this.isFrantic &&
             t({

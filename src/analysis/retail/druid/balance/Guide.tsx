@@ -187,7 +187,7 @@ function RotationSection({ modules, info }: GuideProps<typeof CombatLogParser>) 
         })}
       </p>
 
-      <Section title={t({ id: 'druid.balance.dotUptimes.title', message: 'DoTs' })}>
+      <Section title={t({ id: 'druid.balance.dotUptimes.title', message: 'DoT Uptimes' })}>
         {modules.dotUptimes.guideSubsection}
       </Section>
       <Section

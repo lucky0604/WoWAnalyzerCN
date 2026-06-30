@@ -416,9 +416,7 @@ class ComboBreaker extends Analyzer {
             {t({
               id: 'monk.windwalker.cb.explanation4.p3',
               message:
-                ' consume would cap you. Holding briefly is fine, but sitting at ' +
-                COMBO_BREAKER_MAX_STACKS +
-                ' stacks for long usually means you are drifting outside the intended sequence.',
+                ` consume would cap you. Holding briefly is fine, but sitting at ${COMBO_BREAKER_MAX_STACKS} stacks for long usually means you are drifting outside the intended sequence.`,
             })}
           </>
         </p>
@@ -466,10 +464,7 @@ class ComboBreaker extends Analyzer {
                     <SpellLink spell={SPELLS.TIGER_PALM} />
                     {t({
                       id: 'monk.windwalker.cb.risky_tp_desc.p2',
-                      message:
-                        ' were made at ' +
-                        COMBO_BREAKER_MAX_STACKS +
-                        ' stacks without actually overcapping. These casts are still risky because the next proc source could easily have turned them into wasted value.',
+                      message: ` were made at ${COMBO_BREAKER_MAX_STACKS} stacks without actually overcapping. These casts are still risky because the next proc source could easily have turned them into wasted value.`,
                     })}
                   </>
                 );

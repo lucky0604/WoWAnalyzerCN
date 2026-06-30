@@ -241,7 +241,7 @@ class RipUptimeAndSnapshots extends Snapshots {
               })}
             </strong>
             <small>
-              <Trans id="druid.feral.moonfire.uptime_snapshots_sub">
+              <Trans id="druid.feral.rip.uptime_snapshots_sub">
                 {' '}
                 - Try to get as close to 100% as the encounter allows!
               </Trans>
