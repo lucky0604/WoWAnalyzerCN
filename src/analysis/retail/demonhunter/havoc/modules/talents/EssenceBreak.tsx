@@ -1,4 +1,5 @@
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 import { formatThousands } from 'common/format';
 import SPELLS from 'common/SPELLS/demonhunter';
 import { TALENTS_DEMON_HUNTER } from 'common/TALENTS/demonhunter';
@@ -106,11 +107,18 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            {formatThousands(this.talentDamage)} talent damage
+            {formatThousands(this.talentDamage)}{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.tooltip.talentDamage',
+              message: 'talent damage',
+            })}
             {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
             <br />
-            {formatThousands(this.extraDamage)} damage added to Chaos Strike/Annihilation/Blade
-            Dance/Death Sweep
+            {formatThousands(this.extraDamage)}{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.tooltip.extraDamage',
+              message: 'damage added to Chaos Strike/Annihilation/Blade Dance/Death Sweep',
+            })}
           </>
         }
       >
@@ -130,8 +138,13 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
       <>
         <ExplanationSection>
           <p>
-            <strong><SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} /></strong>
-            {t({ id: 'demonhunter.havoc.essenceBreak.description.p1', message: ' is a powerful burst of damage that also amplifies the damage done by ' })}
+            <strong>
+              <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} />
+            </strong>
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.description.p1',
+              message: ' is a powerful burst of damage that also amplifies the damage done by ',
+            })}
             <SpellLink spell={SPELLS.CHAOS_STRIKE} />
             {t({ id: 'demonhunter.havoc.essenceBreak.description.p2', message: ', ' })}
             <SpellLink spell={SPELLS.ANNIHILATION} />
@@ -139,7 +152,11 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
             <SpellLink spell={SPELLS.BLADE_DANCE} />
             {t({ id: 'demonhunter.havoc.essenceBreak.description.p4', message: ', and ' })}
             <SpellLink spell={SPELLS.DEATH_SWEEP} />
-            {t({ id: 'demonhunter.havoc.essenceBreak.description.p5', message: '. You want to fit as many empowered casts into each Essence Break window as you can.' })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.description.p5',
+              message:
+                '. You want to fit as many empowered casts into each Essence Break window as you can.',
+            })}
           </p>
         </ExplanationSection>
         <ExplanationSection>
@@ -151,20 +168,35 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
           header={
             <SectionHeader>
               <strong>
-                {t({ id: 'demonhunter.havoc.essenceBreak.metaAvailable.title.p1', message: 'When ' })}
+                {t({
+                  id: 'demonhunter.havoc.essenceBreak.metaAvailable.title.p1',
+                  message: 'When ',
+                })}
                 <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} />
-                {t({ id: 'demonhunter.havoc.essenceBreak.metaAvailable.title.p2', message: ' is available' })}
+                {t({
+                  id: 'demonhunter.havoc.essenceBreak.metaAvailable.title.p2',
+                  message: ' is available',
+                })}
               </strong>
             </SectionHeader>
           }
           element="section"
         >
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.metaAvailable.description.p1', message: 'An ' })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.metaAvailable.description.p1',
+              message: 'An ',
+            })}
             <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} />
-            {t({ id: 'demonhunter.havoc.essenceBreak.metaAvailable.description.p2', message: ' window with ' })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.metaAvailable.description.p2',
+              message: ' window with ',
+            })}
             <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} />
-            {t({ id: 'demonhunter.havoc.essenceBreak.metaAvailable.description.p3', message: ' available will look like:' })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.metaAvailable.description.p3',
+              message: ' available will look like:',
+            })}
             <ul>
               {hasDemonic && (
                 <li>
@@ -210,7 +242,18 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
           element="section"
         >
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.standard.description.p1', message: 'An ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.standard.description.p2', message: ' window without' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.standard.description.p3', message: ' ' })} <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} /> {t({ id: 'demonhunter.havoc.essenceBreak.standard.description.p4', message: ' available will look like:' })}
+            {t({ id: 'demonhunter.havoc.essenceBreak.standard.description.p1', message: 'An ' })}{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.standard.description.p2',
+              message: ' window without',
+            })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.standard.description.p3', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.standard.description.p4',
+              message: ' available will look like:',
+            })}
             <ul>
               {hasDemonic && (
                 <li>
@@ -251,7 +294,9 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
       return {
         event: cast.event,
         performance: QualitativePerformance.Fail,
-        performanceExplanation: 'Bad Usage',
+        performanceExplanation: i18n._(
+          defineMessage({ id: 'demonhunter.havoc.essenceBreak.badUsage', message: 'Bad Usage' }),
+        ),
         checklistItems: [
           {
             check: 'demonic',
@@ -259,12 +304,31 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
             timestamp: cast.event.timestamp,
             summary: (
               <div>
-                {t({ id: 'demonhunter.havoc.essenceBreak.noDemonic.title.p1', message: 'Did not have ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.noDemonic.title.p2', message: ' talented' })}
+                {t({
+                  id: 'demonhunter.havoc.essenceBreak.noDemonic.title.p1',
+                  message: 'Did not have ',
+                })}{' '}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} />{' '}
+                {t({
+                  id: 'demonhunter.havoc.essenceBreak.noDemonic.title.p2',
+                  message: ' talented',
+                })}
               </div>
             ),
             details: (
               <div>
-                {t({ id: 'demonhunter.havoc.essenceBreak.noDemonic.details.p1', message: 'Did not have ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.noDemonic.details.p2', message: ' talented. In order to get the maximum amount of damage possible out of Essence Break, you should use ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.noDemonic.details.p3', message: '.' })}
+                {t({
+                  id: 'demonhunter.havoc.essenceBreak.noDemonic.details.p1',
+                  message: 'Did not have ',
+                })}{' '}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} />{' '}
+                {t({
+                  id: 'demonhunter.havoc.essenceBreak.noDemonic.details.p2',
+                  message:
+                    ' talented. In order to get the maximum amount of damage possible out of Essence Break, you should use ',
+                })}{' '}
+                <SpellLink spell={TALENTS_DEMON_HUNTER.DEMONIC_TALENT} />{' '}
+                {t({ id: 'demonhunter.havoc.essenceBreak.noDemonic.details.p3', message: '.' })}
               </div>
             ),
           },
@@ -301,15 +365,22 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
       performance: actualPerformance,
       performanceExplanation:
         actualPerformance !== QualitativePerformance.Fail
-          ? `${actualPerformance} Usage`
-          : 'Bad Usage',
+          ? `${actualPerformance} ${i18n._(defineMessage({ id: 'demonhunter.havoc.essenceBreak.usage', message: 'Usage' }))}`
+          : i18n._(
+              defineMessage({
+                id: 'demonhunter.havoc.essenceBreak.badUsage',
+                message: 'Bad Usage',
+              }),
+            ),
     };
   }
 
   private inMetamorphosisOnCastPerformance(cast: EssenceBreakCooldownCast): UsageInfo {
     const summary = (
       <div>
-        {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaOnCast.p1', message: 'Have ' })} <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC_BUFF} /> {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaOnCast.p2', message: ' on cast' })}
+        {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaOnCast.p1', message: 'Have ' })}{' '}
+        <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC_BUFF} />{' '}
+        {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaOnCast.p2', message: ' on cast' })}
       </div>
     );
 
@@ -319,7 +390,25 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         summary: summary,
         details: (
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p1', message: 'Have ' })} <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC_BUFF} /> {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p2', message: " on cast. Not having the buff means that you can't cast " })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p3', message: ' or' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p4', message: ' ' })} <SpellLink spell={SPELLS.ANNIHILATION} /> {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p5', message: ', instead having to cast' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p6', message: ' ' })} <SpellLink spell={SPELLS.BLADE_DANCE} /> {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p7', message: ' and ' })} <SpellLink spell={SPELLS.CHAOS_STRIKE} /> {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p8', message: '.' })}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p1', message: 'Have ' })}{' '}
+            <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC_BUFF} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.noMetaBad.p2',
+              message: " on cast. Not having the buff means that you can't cast ",
+            })}{' '}
+            <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p3', message: ' or' })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p4', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.ANNIHILATION} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.noMetaBad.p5',
+              message: ', instead having to cast',
+            })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p6', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.BLADE_DANCE} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p7', message: ' and ' })}{' '}
+            <SpellLink spell={SPELLS.CHAOS_STRIKE} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noMetaBad.p8', message: '.' })}
           </div>
         ),
       };
@@ -329,7 +418,12 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
       summary: summary,
       details: (
         <div>
-          {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p1', message: 'You were in ' })} <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC_BUFF} /> {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p2', message: ' when you cast' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p3', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p4', message: '. Good job!' })}
+          {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p1', message: 'You were in ' })}{' '}
+          <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC_BUFF} />{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p2', message: ' when you cast' })}{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p3', message: ' ' })}{' '}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} />{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.haveMetaGood.p4', message: '. Good job!' })}
         </div>
       ),
     };
@@ -342,7 +436,9 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
 
     const summary = (
       <div>
-        {t({ id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuff.p1', message: 'Had ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuff.p2', message: ' buff' })}
+        {t({ id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuff.p1', message: 'Had ' })}{' '}
+        <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />{' '}
+        {t({ id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuff.p2', message: ' buff' })}
       </div>
     );
 
@@ -353,7 +449,15 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         summary: summary,
         details: (
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuffDetails.p1', message: 'Had ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuffDetails.p2', message: ' buff.' })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuffDetails.p1',
+              message: 'Had ',
+            })}{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.hadInitiativeBuffDetails.p2',
+              message: ' buff.',
+            })}
           </div>
         ),
       };
@@ -364,7 +468,21 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         summary: summary,
         details: (
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.castAfterVR.p1', message: 'Cast shortly after casting' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.castAfterVR.p2', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.castAfterVR.p3', message: '. You might have been damaged and lost your ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.castAfterVR.p4', message: " buff, but that's okay, you still did your rotation correctly." })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.castAfterVR.p1',
+              message: 'Cast shortly after casting',
+            })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.castAfterVR.p2', message: ' ' })}{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.castAfterVR.p3',
+              message: '. You might have been damaged and lost your ',
+            })}{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.castAfterVR.p4',
+              message: " buff, but that's okay, you still did your rotation correctly.",
+            })}
           </div>
         ),
       };
@@ -374,7 +492,23 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
       summary: summary,
       details: (
         <div>
-          {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p1', message: 'Cast without previously casting' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p2', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p3', message: '. Try casting' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p4', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p5', message: ' before casting for the critical strike chance buff that it applies (courtesy of' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p6', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p7', message: ' ).' })}
+          {t({
+            id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p1',
+            message: 'Cast without previously casting',
+          })}{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p2', message: ' ' })}{' '}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p3', message: '. Try casting' })}{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p4', message: ' ' })}{' '}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.VENGEFUL_RETREAT_TALENT} />{' '}
+          {t({
+            id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p5',
+            message:
+              ' before casting for the critical strike chance buff that it applies (courtesy of',
+          })}{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p6', message: ' ' })}{' '}
+          <SpellLink spell={TALENTS_DEMON_HUNTER.INITIATIVE_TALENT} />{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.castWithoutVR.p7', message: ' ).' })}
         </div>
       ),
     };
@@ -387,7 +521,14 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
 
     const maxDeathSweepsSummary = (
       <div>
-        {t({ id: 'demonhunter.havoc.essenceBreak.castDeathSweeps.p1', message: 'Cast ' })} {maximumNumberOfDeathSweepsPossible} {t({ id: 'demonhunter.havoc.essenceBreak.castDeathSweeps.p2', message: '+ ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.castDeathSweeps.p3', message: ' (s) during window' })}
+        {t({ id: 'demonhunter.havoc.essenceBreak.castDeathSweeps.p1', message: 'Cast ' })}{' '}
+        {maximumNumberOfDeathSweepsPossible}{' '}
+        {t({ id: 'demonhunter.havoc.essenceBreak.castDeathSweeps.p2', message: '+ ' })}{' '}
+        <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+        {t({
+          id: 'demonhunter.havoc.essenceBreak.castDeathSweeps.p3',
+          message: ' (s) during window',
+        })}
       </div>
     );
 
@@ -400,7 +541,11 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
           summary: maxDeathSweepsSummary,
           details: (
             <div>
-              {t({ id: 'demonhunter.havoc.essenceBreak.perfectDS.p1', message: 'You cast ' })} {cast.deathSweepCasts} {t({ id: 'demonhunter.havoc.essenceBreak.perfectDS.p2', message: ' ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.perfectDS.p3', message: ' (s).' })}
+              {t({ id: 'demonhunter.havoc.essenceBreak.perfectDS.p1', message: 'You cast ' })}{' '}
+              {cast.deathSweepCasts}{' '}
+              {t({ id: 'demonhunter.havoc.essenceBreak.perfectDS.p2', message: ' ' })}{' '}
+              <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+              {t({ id: 'demonhunter.havoc.essenceBreak.perfectDS.p3', message: ' (s).' })}
             </div>
           ),
         };
@@ -411,7 +556,19 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         summary: maxDeathSweepsSummary,
         details: (
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p1', message: 'You cast ' })} {cast.deathSweepCasts} {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p2', message: ' ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p3', message: ' (s) when you could have cast ' })} {maximumNumberOfDeathSweepsPossible} {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p4', message: ' by pressing' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p5', message: ' ' })} <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} /> {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p6', message: '.' })}
+            {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p1', message: 'You cast ' })}{' '}
+            {cast.deathSweepCasts}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p2', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.okDS.p3',
+              message: ' (s) when you could have cast ',
+            })}{' '}
+            {maximumNumberOfDeathSweepsPossible}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p4', message: ' by pressing' })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p5', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.METAMORPHOSIS_HAVOC} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.okDS.p6', message: '.' })}
           </div>
         ),
       };
@@ -425,7 +582,19 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         summary: maxDeathSweepsSummary,
         details: (
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p1', message: 'You cast ' })} {cast.deathSweepCasts} {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p2', message: ' ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p3', message: ' (s). Always try to cast ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p4', message: ' during your' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p5', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p6', message: ' window.' })}
+            {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p1', message: 'You cast ' })}{' '}
+            {cast.deathSweepCasts}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p2', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.failDS.p3',
+              message: ' (s). Always try to cast ',
+            })}{' '}
+            <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p4', message: ' during your' })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p5', message: ' ' })}{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.failDS.p6', message: ' window.' })}
           </div>
         ),
       };
@@ -437,7 +606,31 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         summary: maxDeathSweepsSummary,
         details: (
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p1', message: 'You cast ' })} {cast.deathSweepCasts} {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p2', message: ' ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p3', message: ' and no other buffed spells. Try adding another ' })} <SpellLink spell={SPELLS.ANNIHILATION} /> {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p4', message: ' or' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p5', message: ' ' })} <SpellLink spell={SPELLS.CHAOS_STRIKE} /> {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p6', message: ' inside your' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p7', message: ' ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p8', message: ' window.' })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p1',
+              message: 'You cast ',
+            })}{' '}
+            {cast.deathSweepCasts}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p2', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p3',
+              message: ' and no other buffed spells. Try adding another ',
+            })}{' '}
+            <SpellLink spell={SPELLS.ANNIHILATION} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p4', message: ' or' })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p5', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.CHAOS_STRIKE} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p6',
+              message: ' inside your',
+            })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p7', message: ' ' })}{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.noOtherBuffedSpells.p8',
+              message: ' window.',
+            })}
           </div>
         ),
       };
@@ -448,7 +641,45 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
         summary: maxDeathSweepsSummary,
         details: (
           <div>
-            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p1', message: 'You cast ' })} {cast.deathSweepCasts} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p2', message: ' ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p3', message: ',' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p4', message: ' ' })} {cast.bladeDanceCasts} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p5', message: ' ' })} <SpellLink spell={SPELLS.BLADE_DANCE} /> {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p6', message: ',' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p7', message: ' ' })} {cast.annihilationCasts} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p8', message: ' ' })} <SpellLink spell={SPELLS.ANNIHILATION} /> {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p9', message: ', and' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p10', message: ' ' })} {cast.chaosStrikeCasts} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p11', message: ' ' })} <SpellLink spell={SPELLS.CHAOS_STRIKE} /> {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p12', message: '. Try adding another' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p13', message: ' ' })} <SpellLink spell={SPELLS.ANNIHILATION} /> {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p14', message: ' or ' })} <SpellLink spell={SPELLS.CHAOS_STRIKE} /> {' '} {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p15', message: ' inside your ' })} <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} /> {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p16', message: ' window.' })}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p1',
+              message: 'You cast ',
+            })}{' '}
+            {cast.deathSweepCasts}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p2', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p3', message: ',' })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p4', message: ' ' })}{' '}
+            {cast.bladeDanceCasts}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p5', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.BLADE_DANCE} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p6', message: ',' })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p7', message: ' ' })}{' '}
+            {cast.annihilationCasts}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p8', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.ANNIHILATION} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p9', message: ', and' })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p10', message: ' ' })}{' '}
+            {cast.chaosStrikeCasts}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p11', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.CHAOS_STRIKE} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p12',
+              message: '. Try adding another',
+            })}{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p13', message: ' ' })}{' '}
+            <SpellLink spell={SPELLS.ANNIHILATION} />{' '}
+            {t({ id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p14', message: ' or ' })}{' '}
+            <SpellLink spell={SPELLS.CHAOS_STRIKE} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p15',
+              message: ' inside your ',
+            })}{' '}
+            <SpellLink spell={TALENTS_DEMON_HUNTER.ESSENCE_BREAK_TALENT} />{' '}
+            {t({
+              id: 'demonhunter.havoc.essenceBreak.oneOtherBuffedSpells.p16',
+              message: ' window.',
+            })}
           </div>
         ),
       };
@@ -459,7 +690,17 @@ class EssenceBreak extends MajorCooldown<EssenceBreakCooldownCast> {
       summary: maxDeathSweepsSummary,
       details: (
         <div>
-          {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p1', message: 'You cast ' })} {cast.deathSweepCasts} {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p2', message: ' ' })} <SpellLink spell={SPELLS.DEATH_SWEEP} /> {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p3', message: ' and' })} {' '} {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p4', message: ' ' })} {nonDeathSweepBuffedCasts} {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p5', message: ' other buffed spell(s).' })}
+          {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p1', message: 'You cast ' })}{' '}
+          {cast.deathSweepCasts}{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p2', message: ' ' })}{' '}
+          <SpellLink spell={SPELLS.DEATH_SWEEP} />{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p3', message: ' and' })}{' '}
+          {t({ id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p4', message: ' ' })}{' '}
+          {nonDeathSweepBuffedCasts}{' '}
+          {t({
+            id: 'demonhunter.havoc.essenceBreak.goodBuffedSpells.p5',
+            message: ' other buffed spell(s).',
+          })}
         </div>
       ),
     };
