@@ -45,12 +45,6 @@ class CastBehavior extends Analyzer {
         value: twHealingWaves,
       },
       {
-        color: RESTORATION_COLORS.HEALING_SURGE,
-        label: t({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
-        spellId: SPELLS.HEALING_SURGE.id,
-        value: twHealingSurges,
-      },
-      {
         color: RESTORATION_COLORS.CHAIN_HEAL,
         label: t({ id: 'shaman.restoration.spell.chainHeal', message: 'Chain Heal' }),
         spellId: TALENTS.CHAIN_HEAL_TALENT.id,
@@ -89,12 +83,6 @@ class CastBehavior extends Analyzer {
         label: t({ id: 'shaman.restoration.spell.healingWave', message: 'Healing Wave' }),
         spellId: SPELLS.HEALING_WAVE.id,
         value: fillerHealingWaves,
-      },
-      {
-        color: RESTORATION_COLORS.HEALING_SURGE,
-        label: t({ id: 'shaman.restoration.spell.healingSurge', message: 'Healing Surge' }),
-        spellId: SPELLS.HEALING_SURGE.id,
-        value: fillerHealingSurges,
       },
     ];
 
