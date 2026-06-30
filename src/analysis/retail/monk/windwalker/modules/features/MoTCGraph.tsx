@@ -1,7 +1,7 @@
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import { t, defineMessage } from '@lingui/core/macro';
+import { i18n } from '@lingui/core';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
   ApplyDebuffEvent,
@@ -173,19 +173,34 @@ class MoTCGraph extends Analyzer {
           {
             field: 'motcCount',
             type: 'quantitative' as const,
-            title: t({ id: 'monk.windwalker.motc_graph.motc_count', message: 'Mark of the Crane Count' }),
+            title: i18n._(
+              defineMessage({
+                id: 'monk.windwalker.motc_graph.motc_count',
+                message: 'Mark of the Crane Count',
+              }),
+            ),
             format: '.3~s',
           },
           {
             field: 'bdbCount',
             type: 'quantitative' as const,
-            title: t({ id: 'monk.windwalker.motc_graph.bdb_count', message: 'Bonedust Brew Debuffs' }),
+            title: i18n._(
+              defineMessage({
+                id: 'monk.windwalker.motc_graph.bdb_count',
+                message: 'Bonedust Brew Debuffs',
+              }),
+            ),
             format: '.3~s',
           },
           {
             field: 'motcAverage',
             type: 'quantitative' as const,
-            title: t({ id: 'monk.windwalker.motc_graph.motc_average', message: 'Mark of the Crane Average' }),
+            title: i18n._(
+              defineMessage({
+                id: 'monk.windwalker.motc_graph.motc_average',
+                message: 'Mark of the Crane Average',
+              }),
+            ),
             format: '.3~s',
           },
         ],
@@ -342,16 +357,24 @@ class MoTCGraph extends Analyzer {
         title={t({ id: 'monk.windwalker.motc_graph.title', message: 'Mark of The Crane' })}
         position={100}
         explanation={
-          <><SpellLink spell={SPELLS.MARK_OF_THE_CRANE} />
-            {t({ id: 'monk.windwalker.motc_graph.explanation.p1', message: 'greatly increased the damage' })}
-            {' '}
+          <>
+            <SpellLink spell={SPELLS.MARK_OF_THE_CRANE} />
+            {t({
+              id: 'monk.windwalker.motc_graph.explanation.p1',
+              message: 'greatly increased the damage',
+            })}{' '}
             <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />
-            {t({ id: 'monk.windwalker.motc_graph.explanation.p2', message: 'does. This means you want to cast it at high stacks. Magenta dots are regular ' })}
-            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />
-            {' '}
-            {t({ id: 'monk.windwalker.motc_graph.explanation.p3', message: 'casts while Orange triangles are ' })}
-            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />
-            {' '}
+            {t({
+              id: 'monk.windwalker.motc_graph.explanation.p2',
+              message:
+                'does. This means you want to cast it at high stacks. Magenta dots are regular ',
+            })}
+            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />{' '}
+            {t({
+              id: 'monk.windwalker.motc_graph.explanation.p3',
+              message: 'casts while Orange triangles are ',
+            })}
+            <SpellLink spell={SPELLS.SPINNING_CRANE_KICK} />{' '}
             {t({ id: 'monk.windwalker.motc_graph.explanation.p4', message: 'empowered by ' })}
             <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
             {t({ id: 'monk.windwalker.motc_graph.explanation.p5', message: '.' })}

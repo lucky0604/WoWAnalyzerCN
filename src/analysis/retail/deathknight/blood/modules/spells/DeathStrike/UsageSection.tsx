@@ -112,10 +112,19 @@ const ContentRow = cssComponent('div', styles.ContentRow, [] as const);
 
 const DeathStrikeProblemDescription = ({ data }: { data: DeathStrikeProblem['data'] }) => (
   <div>
-    <ActualCastDescription event={data.cast} omitTarget /> while at{' '}
+    <ActualCastDescription event={data.cast} omitTarget />{' '}
+    {t({
+      id: 'deathknight.blood.usageSection.problemDesc.whileAt',
+      message: 'while at',
+    })}{' '}
     <strong>{Math.floor(data.runicPower / 10)}</strong>{' '}
-    <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} /> and{' '}
-    <strong>{formatPercentage(data.hitPoints / data.maxHitPoints, 0)}%</strong> Health.{' '}
+    <ResourceLink id={RESOURCE_TYPES.RUNIC_POWER.id} />{' '}
+    {t({ id: 'deathknight.blood.usageSection.problemDesc.and', message: 'and' })}{' '}
+    <strong>{formatPercentage(data.hitPoints / data.maxHitPoints, 0)}%</strong>{' '}
+    {t({
+      id: 'deathknight.blood.usageSection.problemDesc.health',
+      message: 'Health.',
+    })}{' '}
     {data.followupDamageTaken ? (
       <>
         {t({
@@ -145,10 +154,49 @@ const DeathStrikeProblemDescription = ({ data }: { data: DeathStrikeProblem['dat
 
 // oxlint-disable-next-line typescript/no-explicit-any
 const deathStrikeTooltip: StringFieldDefWithCondition<any>[] = [
-  { field: 'hitPoints', type: 'quantitative', format: '.3~s', title: 'Hit Points' },
-  { field: 'amount', type: 'quantitative', format: '.3~s', title: 'Healing' },
-  { field: 'overheal', type: 'quantitative', format: '.3~s', title: 'Overhealing' },
-  { field: 'runicPower', type: 'quantitative', title: 'Runic Power' },
+  {
+    field: 'hitPoints',
+    type: 'quantitative',
+    format: '.3~s',
+    title: i18n._(
+      defineMessage({
+        id: 'deathknight.blood.deathStrikeChart.tooltip.hitPoints',
+        message: 'Hit Points',
+      }),
+    ),
+  },
+  {
+    field: 'amount',
+    type: 'quantitative',
+    format: '.3~s',
+    title: i18n._(
+      defineMessage({
+        id: 'deathknight.blood.deathStrikeChart.tooltip.healing',
+        message: 'Healing',
+      }),
+    ),
+  },
+  {
+    field: 'overheal',
+    type: 'quantitative',
+    format: '.3~s',
+    title: i18n._(
+      defineMessage({
+        id: 'deathknight.blood.deathStrikeChart.tooltip.overhealing',
+        message: 'Overhealing',
+      }),
+    ),
+  },
+  {
+    field: 'runicPower',
+    type: 'quantitative',
+    title: i18n._(
+      defineMessage({
+        id: 'deathknight.blood.deathStrikeChart.tooltip.runicPower',
+        message: 'Runic Power',
+      }),
+    ),
+  },
 ];
 
 const scaleHitPointTransform = {
@@ -164,7 +212,12 @@ const deathStrikeChartSpec = (info: Info, width: number): VisualizationSpec => (
         y: {
           field: 'hitPoints',
           type: 'quantitative',
-          title: 'Hit Points',
+          title: i18n._(
+            defineMessage({
+              id: 'deathknight.blood.deathStrikeChart.axis.hitPoints',
+              message: 'Hit Points',
+            }),
+          ),
           axis: {
             gridOpacity: 0.3,
             format: '~p',
@@ -206,7 +259,12 @@ const deathStrikeChartSpec = (info: Info, width: number): VisualizationSpec => (
         y: {
           field: 'amount',
           type: 'quantitative',
-          title: 'RP',
+          title: i18n._(
+            defineMessage({
+              id: 'deathknight.blood.deathStrikeChart.axis.rp',
+              message: 'RP',
+            }),
+          ),
           scale: {
             domain: [0, 125],
           },

@@ -112,13 +112,11 @@ class PowerSiphon extends Analyzer {
       <Statistic
         category={STATISTIC_CATEGORY.TALENTS}
         size="flexible"
-        tooltip={(() => {
-          const count = this.totalImpsSiphoned;
-          return t({
-            id: 'warlock.demonology.powerSiphon.tooltip',
-            message: `Sacrificed ${{ count }} imps`,
-          });
-        })()}
+        tooltip={t({
+          id: 'warlock.demonology.powerSiphon.tooltip',
+          message: 'Sacrificed {count} imps',
+          values: { count: this.totalImpsSiphoned },
+        })}
       >
         <BoringSpellValueText spell={TALENTS.POWER_SIPHON_TALENT}>
           {this.doubleImpSiphons}/{this.numCasts}{' '}

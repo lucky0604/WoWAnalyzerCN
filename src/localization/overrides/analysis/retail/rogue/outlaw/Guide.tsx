@@ -57,19 +57,37 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
         })}
       >
         <p>
-          <>{t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p1', message: 'Your primary resource is ' })}
+          <>
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.energy.summary.p1',
+              message: 'Your primary resource is ',
+            })}
             <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
-            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p2', message: '. Typically, ability use will be limited by ' })}
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.energy.summary.p2',
+              message: '. Typically, ability use will be limited by ',
+            })}
             <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
-            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p3', message: ', not time. Avoid capping ' })}
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.energy.summary.p3',
+              message: ', not time. Avoid capping ',
+            })}
             <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
-            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p4', message: '- lost' })}
-            {' '}
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.energy.summary.p4',
+              message: '- lost',
+            })}{' '}
             <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
-            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p5', message: 'regeneration is lost DPS. It will occasionally be impossible to avoid capping' })}
-            {' '}
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.energy.summary.p5',
+              message:
+                'regeneration is lost DPS. It will occasionally be impossible to avoid capping',
+            })}{' '}
             <ResourceLink id={RESOURCE_TYPES.ENERGY.id} />
-            {t({ id: 'guide.rogue.outlaw.sections.resources.energy.summary.p6', message: '- like while handling mechanics or during intermission phases.' })}
+            {t({
+              id: 'guide.rogue.outlaw.sections.resources.energy.summary.p6',
+              message: '- like while handling mechanics or during intermission phases.',
+            })}
           </>
         </p>
         <EnergyCapWaste
@@ -135,26 +153,58 @@ function ActionPriorityList({ modules, info }: GuideProps<typeof CombatLogParser
       })}
     >
       <p>
-        <>{t({ id: 'guide.rogue.outlaw.sections.apl.summary.p1', message: 'Outlaw has a fast paced rotation that is constantly reacting to buffs and procs. The spec doesn\'t burst but makes up for it in consistent output. Should be thought as a chaining priority list:' })}
+        <>
+          {t({
+            id: 'guide.rogue.outlaw.sections.apl.summary.p1',
+            message:
+              "Outlaw has a fast paced rotation that is constantly reacting to buffs and procs. The spec doesn't burst but makes up for it in consistent output. Should be thought as a chaining priority list:",
+          })}
           <ol>
-            <li>Cooldowns, according to the priorities below.</li>
-            <li>Finishers, according to the priorities below.</li>
-            <li>Builders, according to the priorities below.</li>
+            <li>
+              {t({
+                id: 'guide.rogue.outlaw.sections.apl.rule.cooldowns',
+                message: 'Cooldowns, according to the priorities below.',
+              })}
+            </li>
+            <li>
+              {t({
+                id: 'guide.rogue.outlaw.sections.apl.rule.finishers',
+                message: 'Finishers, according to the priorities below.',
+              })}
+            </li>
+            <li>
+              {t({
+                id: 'guide.rogue.outlaw.sections.apl.rule.builders',
+                message: 'Builders, according to the priorities below.',
+              })}
+            </li>
           </ol>
         </>
       </p>
       <p>
-        <>{t({ id: 'guide.rogue.outlaw.sections.apl.simcReference.p1', message: 'This Action Priority List (APL) is a simplified version off the simc APL that can be found' })}
-          {' '}
-          <a href="https://github.com/simulationcraft/simc/blob/thewarwithin/engine/class_modules/apl/rogue/outlaw.simc">{t({ id: 'guide.rogue.outlaw.sections.apl.simcReference.a', message: 'here' })}</a>
+        <>
+          {t({
+            id: 'guide.rogue.outlaw.sections.apl.simcReference.p1',
+            message:
+              'This Action Priority List (APL) is a simplified version off the simc APL that can be found',
+          })}{' '}
+          <a href="https://github.com/simulationcraft/simc/blob/thewarwithin/engine/class_modules/apl/rogue/outlaw.simc">
+            {t({ id: 'guide.rogue.outlaw.sections.apl.simcReference.a', message: 'here' })}
+          </a>
           {t({ id: 'guide.rogue.outlaw.sections.apl.simcReference.p2', message: '.' })}
         </>
       </p>
       <AplSectionData checker={AplCheck.check} apl={AplCheck.apl(info)} />
       <hr />
       <p>
-        <><strong>{t({ id: 'guide.rogue.outlaw.sections.apl.disclaimer.strong', message: 'Disclaimer:' })}</strong>
-          {t({ id: 'guide.rogue.outlaw.sections.apl.disclaimer.p1', message: '(Currently unsupported spells/talents)' })}
+        <>
+          <strong>
+            {t({ id: 'guide.rogue.outlaw.sections.apl.disclaimer.strong', message: 'Disclaimer:' })}
+          </strong>
+          {t({
+            id: 'guide.rogue.outlaw.sections.apl.disclaimer.p1',
+            message: '(Currently unsupported spells/talents)',
+          })}
           <ul>
             <li>
               {' '}
@@ -211,17 +261,54 @@ function CooldownSection({ info }: GuideProps<typeof CombatLogParser>) {
       })}
     >
       <p>
-        <><strong>{t({ id: 'guide.rogue.outlaw.sections.cooldowns.summary.strong', message: 'Cooldown Graph' })}</strong>
-          {t({ id: 'guide.rogue.outlaw.sections.cooldowns.summary.p1', message: '- This graph visualizes the usage of your cooldowns and highlights areas where optimizations can be made.' })}
+        <>
+          <strong>
+            {t({
+              id: 'guide.rogue.outlaw.sections.cooldowns.summary.strong',
+              message: 'Cooldown Graph',
+            })}
+          </strong>
+          {t({
+            id: 'guide.rogue.outlaw.sections.cooldowns.summary.p1',
+            message:
+              '- This graph visualizes the usage of your cooldowns and highlights areas where optimizations can be made.',
+          })}
           <ul>
             <li>
-              <strong>Grey segments</strong> indicate availability.
+              <strong>
+                {t({
+                  id: 'guide.rogue.outlaw.sections.cooldowns.legend.grey',
+                  message: 'Grey segments',
+                })}
+              </strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.cooldowns.legend.grey.desc',
+                message: ' indicate availability.',
+              })}
             </li>
             <li>
-              <strong>Yellow segments</strong> indicate cooldown time.
+              <strong>
+                {t({
+                  id: 'guide.rogue.outlaw.sections.cooldowns.legend.yellow',
+                  message: 'Yellow segments',
+                })}
+              </strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.cooldowns.legend.yellow.desc',
+                message: ' indicate cooldown time.',
+              })}
             </li>
             <li>
-              <strong>Red segments</strong> highlight areas where an extra cooldown could have fit.
+              <strong>
+                {t({
+                  id: 'guide.rogue.outlaw.sections.cooldowns.legend.red',
+                  message: 'Red segments',
+                })}
+              </strong>
+              {t({
+                id: 'guide.rogue.outlaw.sections.cooldowns.legend.red.desc',
+                message: ' highlight areas where an extra cooldown could have fit.',
+              })}
             </li>
           </ul>
         </>
