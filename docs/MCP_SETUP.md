@@ -1,5 +1,7 @@
 # WoWAnalyzerCN MCP 服务器接入指南
 
+> **注意**：MCP 服务器已从本仓库分离为独立项目，见 [wowanalyzer-mcp-server](https://github.com/your-org/wowanalyzer-mcp-server)（私有仓库）。以下文档保留作为接入参考，本地启动请使用独立仓库。
+
 ## 这是什么
 
 MCP（Model Context Protocol）是 Anthropic 提出的一种开放协议，让 AI 助手（如 Claude、Cursor 等）能够调用外部工具获取实时数据。简单说，你可以在聊天框里发一句「帮我查一下这个战报」，AI 就会自动调用后端的工具去拉取数据，而不是瞎编一个答案给你。
@@ -33,10 +35,10 @@ M1 的目标是「能查到」，让 AI 至少可以准确理解一场战斗的�
 
 1. **Node.js 22+** 已安装。
 2. **wcl-proxy-server** 已在本地 9528 端口启动（它负责中转 WCL API 请求）。
-3. 在 `mcp-server/` 目录下执行过以下命令：
+3. 在 `wowanalyzer-mcp-server` 独立仓库目录下执行过以下命令：
 
 ```bash
-cd mcp-server
+cd wowanalyzer-mcp-server
 pnpm install
 pnpm build
 pnpm dev

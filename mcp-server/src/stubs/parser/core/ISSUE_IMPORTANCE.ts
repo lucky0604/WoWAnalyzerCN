@@ -1,7 +1,0 @@
-enum ISSUE_IMPORTANCE {
-  MAJOR = 'MAJOR',
-  REGULAR = 'REGULAR',
-  MINOR = 'MINOR',
-}
-
-export default ISSUE_IMPORTANCE;
