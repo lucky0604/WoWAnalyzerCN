@@ -150,7 +150,7 @@ export function DisintegrateSection({ modules, info }: GuideProps<typeof CombatL
                       <>
                         {t({
                           id: 'evoker.devastation.disintegrateSection.should_early_chain',
-                          message: 'You should be early chaining',
+                          message: 'you should be early chaining',
                         })}{' '}
                         <SpellLink spell={SPELLS.DISINTEGRATE} />
                       </>
