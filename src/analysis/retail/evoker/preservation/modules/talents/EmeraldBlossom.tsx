@@ -83,11 +83,14 @@ class EmeraldBlossom extends Analyzer {
     const tooltip = (
       <>
         <p>
-          @ <strong>{this.owner.formatTimestamp(timestamp)}</strong>, Targets hit:{' '}
+          @ <strong>{this.owner.formatTimestamp(timestamp)}</strong>,{' '}
+          {t({ id: 'evoker.preservation.emeraldBlossom.targetsHit', message: 'Targets hit:' })}{' '}
           <strong>{events.length}</strong>
         </p>
         <p>
-          Healing: {formatNumber(effective)} ({formatPercentage(overhealPercent)}% overheal)
+          {t({ id: 'evoker.preservation.emeraldBlossom.healing', message: 'Healing:' })}{' '}
+          {formatNumber(effective)} ({formatPercentage(overhealPercent)}%
+          {t({ id: 'evoker.preservation.emeraldBlossom.overheal', message: ' overheal' })})
         </p>
       </>
     );
@@ -154,11 +157,27 @@ class EmeraldBlossom extends Analyzer {
         <RoundedPanel>
           <div>
             <strong>
-              <SpellLink spell={SPELLS.EMERALD_BLOSSOM_CAST} /> {t({ id: 'evoker.preservation.emeraldBlossom.casts', message: 'casts' })}
+              <SpellLink spell={SPELLS.EMERALD_BLOSSOM_CAST} />{' '}
+              {t({ id: 'evoker.preservation.emeraldBlossom.casts', message: 'casts' })}
             </strong>{' '}
             <small>
               {' '}
-              {'- '}{t({ id: 'evoker.preservation.emeraldBlossom.castLegendBlue', message: 'Blue is a perfect cast with' })} {this.perfectThreshold} {t({ id: 'evoker.preservation.emeraldBlossom.castLegendRest', message: 'targets hit, Green is a good cast with' })} {this.goodThreshold} {t({ id: 'evoker.preservation.emeraldBlossom.castLegendEnd', message: 'or more with moderate to low overhealing, Yellow is an ok cast with a moderate amount of overheal, and Red is a bad cast with high overheal or few targets hit.' })}
+              {'- '}
+              {t({
+                id: 'evoker.preservation.emeraldBlossom.castLegendBlue',
+                message: 'Blue is a perfect cast with',
+              })}{' '}
+              {this.perfectThreshold}{' '}
+              {t({
+                id: 'evoker.preservation.emeraldBlossom.castLegendRest',
+                message: 'targets hit, Green is a good cast with',
+              })}{' '}
+              {this.goodThreshold}{' '}
+              {t({
+                id: 'evoker.preservation.emeraldBlossom.castLegendEnd',
+                message:
+                  'or more with moderate to low overhealing, Yellow is an ok cast with a moderate amount of overheal, and Red is a bad cast with high overheal or few targets hit.',
+              })}
             </small>
             <PerformanceBoxRow values={this.castEntries} />
           </div>
@@ -168,7 +187,11 @@ class EmeraldBlossom extends Analyzer {
             </small>
             <strong>{this.avgHitsFromCast.toFixed(2)}</strong>{' '}
             <small>
-              {t({ id: 'evoker.preservation.emeraldBlossom.avgTargetsHitPer', message: 'average targets hit per' })} <SpellLink spell={SPELLS.EMERALD_BLOSSOM} />
+              {t({
+                id: 'evoker.preservation.emeraldBlossom.avgTargetsHitPer',
+                message: 'average targets hit per',
+              })}{' '}
+              <SpellLink spell={SPELLS.EMERALD_BLOSSOM} />
             </small>
           </div>
         </RoundedPanel>
@@ -187,17 +210,26 @@ class EmeraldBlossom extends Analyzer {
         tooltip={
           <ul>
             <li>
-              {t({ id: 'evoker.preservation.emeraldBlossom.totalHealingFrom', message: 'Total Healing from' })}{' '}
+              {t({
+                id: 'evoker.preservation.emeraldBlossom.totalHealingFrom',
+                message: 'Total Healing from',
+              })}{' '}
               <SpellLink spell={TALENTS_EVOKER.BOUNTIFUL_BLOOM_TALENT} />:{' '}
               {formatNumber(this.bountifulBloomHealing)}
             </li>
             <li>
-              {t({ id: 'evoker.preservation.emeraldBlossom.totalOverhealingFrom', message: 'Total Overhealing from' })}{' '}
+              {t({
+                id: 'evoker.preservation.emeraldBlossom.totalOverhealingFrom',
+                message: 'Total Overhealing from',
+              })}{' '}
               <SpellLink spell={TALENTS_EVOKER.BOUNTIFUL_BLOOM_TALENT} />:{' '}
               {formatNumber(this.bountifulBloomOverhealing)}
             </li>
             <li>
-              {t({ id: 'evoker.preservation.emeraldBlossom.averageExtraHitsFrom', message: 'Average extra hits from' })}{' '}
+              {t({
+                id: 'evoker.preservation.emeraldBlossom.averageExtraHitsFrom',
+                message: 'Average extra hits from',
+              })}{' '}
               <SpellLink spell={TALENTS_EVOKER.BOUNTIFUL_BLOOM_TALENT} />:{' '}
               {this.averageExtraTargets.toFixed(2)}
             </li>
