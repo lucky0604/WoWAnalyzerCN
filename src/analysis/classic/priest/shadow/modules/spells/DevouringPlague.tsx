@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import { SpellIcon } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
@@ -36,7 +37,7 @@ class DevouringPlague extends Analyzer {
           <SpellIcon spell={SPELLS.DEVOURING_PLAGUE} />
         </div>
         <div className="flex-sub value" style={{ width: 140 }}>
-          {formatPercentage(this.uptime, 0)}% <small>uptime</small>
+          {formatPercentage(this.uptime, 0)}% <small>{t({ id: 'classic.priest.shadow.devouringPlague.uptime', message: 'uptime' })}</small>
         </div>
         <div className="flex-main chart" style={{ padding: 15 }}>
           <UptimeBar

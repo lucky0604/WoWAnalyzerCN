@@ -737,11 +737,11 @@ class DoomWinds extends Analyzer.withDependencies({
       return (
         <>
           <p>
-            Use{' '}
+            {t({ id: 'shaman.enhancement.doomwinds.description.use', message: 'Use ' })}
             <strong>
               <SpellLink spell={TALENTS.DOOM_WINDS_TALENT} />
             </strong>{' '}
-            on cooldown unless you're holding it for a specific damage check.
+            {t({ id: 'shaman.enhancement.doomwinds.description.on_cooldown', message: "on cooldown unless you're holding it for a specific damage check." })}
           </p>
         </>
       );
@@ -750,41 +750,56 @@ class DoomWinds extends Analyzer.withDependencies({
     return (
       <>
         <p>
-          <SpellLink spell={SPELLS.DOOM_WINDS_BUFF} /> windows can come from{' '}
+          <SpellLink spell={SPELLS.DOOM_WINDS_BUFF} />
+          {t({ id: 'shaman.enhancement.doomwinds.description.windows_from', message: ' windows can come from ' })}
           <SpellLink spell={TALENTS.DOOM_WINDS_TALENT} />,
           {this.hasAscendance ? (
             <>
               {' '}
-              direct <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} /> casts,
+              {t({ id: 'shaman.enhancement.doomwinds.description.direct', message: 'direct ' })}
+              <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />
+              {t({ id: 'shaman.enhancement.doomwinds.description.casts', message: ' casts,' })}
             </>
           ) : null}
           {this.hasDRE ? (
             <>
               {' '}
-              random <SpellLink spell={TALENTS.DEEPLY_ROOTED_ELEMENTS_TALENT} /> procs that activate{' '}
+              {t({ id: 'shaman.enhancement.doomwinds.description.random', message: 'random ' })}
+              <SpellLink spell={TALENTS.DEEPLY_ROOTED_ELEMENTS_TALENT} />
+              {t({ id: 'shaman.enhancement.doomwinds.description.procs_activate', message: ' procs that activate ' })}
               <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />,
             </>
           ) : null}{' '}
           {this.hasAscendance ? (
-            <>and Ascendance's random Doom Winds procs while Ascendance is inactive,</>
+            <>{t({ id: 'shaman.enhancement.doomwinds.description.ascendance_procs', message: "and Ascendance's random Doom Winds procs while Ascendance is inactive," })}</>
           ) : null}{' '}
-          depending on your talents.
+          {t({ id: 'shaman.enhancement.doomwinds.description.depending_talents', message: 'depending on your talents.' })}
         </p>
         <p>
-          During windows without <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />
-          effects, prioritize <SpellLink spell={SPELLS.STORMSTRIKE} /> and{' '}
-          <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} /> to generate{' '}
-          <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} /> procs while spending{' '}
+          {t({ id: 'shaman.enhancement.doomwinds.description.without_ascendance', message: 'During windows without ' })}
+          <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />
+          {t({ id: 'shaman.enhancement.doomwinds.description.effects_prioritize', message: ' effects, prioritize ' })}
+          <SpellLink spell={SPELLS.STORMSTRIKE} />
+          {t({ id: 'shaman.enhancement.doomwinds.description.and_cl', message: ' and ' })}
+          <SpellLink spell={TALENTS.CRASH_LIGHTNING_TALENT} />
+          {t({ id: 'shaman.enhancement.doomwinds.description.to_generate', message: ' to generate ' })}
+          <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />
+          {t({ id: 'shaman.enhancement.doomwinds.description.procs_while_spending', message: ' procs while spending ' })}
           <SpellLink spell={SPELLS.MAELSTROM_WEAPON_BUFF} />.
         </p>
         {(this.hasAscendance || this.hasDRE) && (
           <p>
-            During windows with <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />
-            effects, <SpellLink spell={SPELLS.STORMSTRIKE} /> is replaced by{' '}
-            <SpellLink spell={SPELLS.WINDSTRIKE_CAST} />. When combined with{' '}
-            <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />, each{' '}
-            <SpellLink spell={SPELLS.WINDSTRIKE_CAST} /> cast will almost always reset its own
-            cooldown.
+            {t({ id: 'shaman.enhancement.doomwinds.description.with_ascendance', message: 'During windows with ' })}
+            <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />
+            {t({ id: 'shaman.enhancement.doomwinds.description.effects_ss_replaced', message: ' effects, ' })}
+            <SpellLink spell={SPELLS.STORMSTRIKE} />
+            {t({ id: 'shaman.enhancement.doomwinds.description.is_replaced_by', message: ' is replaced by ' })}
+            <SpellLink spell={SPELLS.WINDSTRIKE_CAST} />
+            {t({ id: 'shaman.enhancement.doomwinds.description.when_combined_with', message: '. When combined with ' })}
+            <SpellLink spell={TALENTS.ELEMENTAL_TEMPO_TALENT} />
+            {t({ id: 'shaman.enhancement.doomwinds.description.each_ws_resets', message: ', each ' })}
+            <SpellLink spell={SPELLS.WINDSTRIKE_CAST} />
+            {t({ id: 'shaman.enhancement.doomwinds.description.cast_resets_cd', message: ' cast will almost always reset its own cooldown.' })}
           </p>
         )}
       </>

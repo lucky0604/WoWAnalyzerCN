@@ -122,7 +122,7 @@ class BlackoutCombo extends Analyzer {
                     const plural = count === 1 ? '' : 's';
                     return (
                       <li key={type}>
-                        <em>{SPELLS[type].name || 'Unknown'}</em>{' '}
+                        <em>{SPELLS[type].name || t({ id: 'monk.brewmaster.blackoutCombo.unknownSpell', message: 'Unknown' })}</em>{' '}
                         <Trans id="monk.brewmaster.blackoutCombo.usedTime">
                           was used {count} time{plural}
                         </Trans>{' '}
