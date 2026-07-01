@@ -3,7 +3,6 @@ import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink, Tooltip } from 'interface';
 import { PerformanceMark } from 'interface/guide';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
@@ -182,51 +181,67 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
     const explanation = (
       <>
         <p>
-          <><strong>
+          <>
+            <strong>
               <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
-            </strong>
-            {' '}
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation1.p1', message: 'requires some preparation to be used optimally. Get all of your' })}
-            {' '}
+            </strong>{' '}
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.explanation1.p1',
+              message: 'requires some preparation to be used optimally. Get all of your',
+            })}{' '}
             <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation1.p2', message: 'charges and' })}
-            {' '}
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation1.p2', message: 'charges and' })}{' '}
             <SpellLink spell={getCurrentRSKTalent(this.selectedCombatant)} />
             {t({ id: 'monk.mistweaver.invokeChiJi.explanation1.p3', message: 'on cooldown.' })}
           </>
           <hr />
-          <>{t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p1', message: 'Your first ability after casting' })}
-            {' '}
+          <>
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.explanation2.p1',
+              message: 'Your first ability after casting',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p2', message: 'should be' })}
-            {' '}
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p2', message: 'should be' })}{' '}
             <SpellLink spell={SPELLS.BLACKOUT_KICK} />
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p3', message: 'to immediately utilize the' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.explanation2.p3',
+              message: 'to immediately utilize the',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p4', message: 'stacks granted by' })}
-            {' '}
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.explanation2.p4',
+              message: 'stacks granted by',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />
             {t({ id: 'monk.mistweaver.invokeChiJi.explanation2.p5', message: '.' })}
           </>
         </p>
         <hr />
         <p>
-          <>{t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p1', message: 'During ' })}
+          <>
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p1', message: 'During ' })}
             <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />
             {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p2', message: ', aim to cast ' })}
             <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p3', message: 'only when other buffs like ' })}
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.explanation3.p3',
+              message: 'only when other buffs like ',
+            })}
             <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p4', message: 'or' })}
-            {' '}
+            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p4', message: 'or' })}{' '}
             <SpellLink spell={TALENTS_MONK.STRENGTH_OF_THE_BLACK_OX_TALENT} />
-            {t({ id: 'monk.mistweaver.invokeChiJi.explanation3.p5', message: 'are active to maximize your healing.' })}
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.explanation3.p5',
+              message: 'are active to maximize your healing.',
+            })}
           </>
         </p>
         <p>
-          <>{t({ id: 'monk.mistweaver.invokeChiJi.explanation4.p1', message: 'It is important to avoid overcapping on' })}
-            {' '}
+          <>
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.explanation4.p1',
+              message: 'It is important to avoid overcapping on',
+            })}{' '}
             <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />
             {t({ id: 'monk.mistweaver.invokeChiJi.explanation4.p2', message: '.' })}
           </>
@@ -272,10 +287,25 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
                     hoverable
                     content={
                       <>
-                        Get 4 stacks of{' '}
-                        <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} /> so that
-                        you can instantly cast <SpellLink spell={SPELLS.BLACKOUT_KICK} /> for 30
-                        total <SpellLink spell={SPELLS.GUST_OF_MISTS_CHIJI} /> heals
+                        {t({
+                          id: 'monk.mistweaver.invokeChiJi.tooltip.getStacks',
+                          message: 'Get 4 stacks of',
+                        })}{' '}
+                        <SpellLink spell={TALENTS_MONK.TEACHINGS_OF_THE_MONASTERY_TALENT} />{' '}
+                        {t({
+                          id: 'monk.mistweaver.invokeChiJi.tooltip.instantlyCast',
+                          message: 'so that you can instantly cast',
+                        })}{' '}
+                        <SpellLink spell={SPELLS.BLACKOUT_KICK} />{' '}
+                        {t({
+                          id: 'monk.mistweaver.invokeChiJi.tooltip.forTotal',
+                          message: 'for 30 total',
+                        })}{' '}
+                        <SpellLink spell={SPELLS.GUST_OF_MISTS_CHIJI} />{' '}
+                        {t({
+                          id: 'monk.mistweaver.invokeChiJi.tooltip.heals',
+                          message: 'heals',
+                        })}
                       </>
                     }
                   >
@@ -324,22 +354,44 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
         size="flexible"
         tooltip={
           <>
-            Healing Breakdown:
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.tooltip.healingBreakdown',
+              message: 'Healing Breakdown:',
+            })}
             <ul>
               <li>
-                {formatNumber(this.gustHealing)} healing from{' '}
+                {t({
+                  id: 'monk.mistweaver.invokeChiJi.tooltip.healingFrom',
+                  message: '{amount} healing from',
+                  values: { amount: formatNumber(this.gustHealing) },
+                })}{' '}
                 <SpellLink spell={SPELLS.GUST_OF_MISTS_CHIJI} />.
               </li>
               <li>
-                {formatNumber(this.chiCocoonHealing)}{' '}
-                <SpellLink spell={SPELLS.CHI_COCOON_BUFF_CHIJI} /> healing from{' '}
+                {t({
+                  id: 'monk.mistweaver.invokeChiJi.tooltip.chiCocoonAmount',
+                  message: '{amount} ',
+                  values: { amount: formatNumber(this.chiCocoonHealing) },
+                })}
+                <SpellLink spell={SPELLS.CHI_COCOON_BUFF_CHIJI} />{' '}
+                {t({
+                  id: 'monk.mistweaver.invokeChiJi.tooltip.healingFrom2',
+                  message: 'healing from',
+                })}{' '}
                 <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />.
               </li>
             </ul>
-            Activity:
+            {t({
+              id: 'monk.mistweaver.invokeChiJi.tooltip.activity',
+              message: 'Activity:',
+            })}
             <ul>
               <li>
-                {(this.chijiGlobals / this.chijiUses).toFixed(2)} average gcds inside Chi-Ji window
+                {t({
+                  id: 'monk.mistweaver.invokeChiJi.tooltip.averageGcds',
+                  message: '{count} average gcds inside Chi-Ji window',
+                  values: { count: (this.chijiGlobals / this.chijiUses).toFixed(2) },
+                })}
               </li>
             </ul>
           </>
@@ -348,7 +400,11 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
         <BoringValueText
           label={
             <>
-              <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} /> and{' '}
+              <SpellLink spell={TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT} />{' '}
+              {t({
+                id: 'monk.mistweaver.invokeChiJi.label.and',
+                message: 'and',
+              })}{' '}
               <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />
             </>
           }
@@ -358,7 +414,10 @@ class InvokeChiJi extends BaseCelestialAnalyzer {
               <ItemHealingDone amount={this.totalHealing} />
             </div>
             <div>
-              {formatNumber(this.missedGlobals)} <small>missed GCDs</small>
+              {formatNumber(this.missedGlobals)}{' '}
+              <small>
+                {t({ id: 'monk.mistweaver.invokeChiJi.missedGcds', message: 'missed GCDs' })}
+              </small>
             </div>
           </>
         </BoringValueText>

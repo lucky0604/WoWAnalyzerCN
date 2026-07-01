@@ -22,6 +22,7 @@ import {
   SHEILUNS_GIFT_TARGETS,
 } from '../../constants';
 import { effectiveHealing } from 'parser/shared/modules/HealingValue';
+import { t } from '@lingui/core/macro';
 
 // normalize sheilun's gift heal events to remove invigorating mist increase
 export function getNormalizedSheilunsGiftHits(event: CastEvent): HealEvent[] {
@@ -160,7 +161,10 @@ class SheilunsGift extends Analyzer {
             <ItemHealingDone amount={this.totalHealing} />
           </div>
           <div>
-            {this.averageClouds.toFixed(1)} <small>average clouds</small>
+            {this.averageClouds.toFixed(1)}{' '}
+            <small>
+              {t({ id: 'monk.mistweaver.sheilunsGift.averageClouds', message: 'average clouds' })}
+            </small>
           </div>
         </TalentSpellText>
       </Statistic>

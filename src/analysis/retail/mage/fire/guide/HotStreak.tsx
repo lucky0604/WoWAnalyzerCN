@@ -32,7 +32,9 @@ class HotStreakGuide extends Analyzer {
 
     stats.push({
       value: `${this.hotStreak.expiredProcs}`,
-      label: defineMessage({ id: 'mage.fire.hotStreakGuide.expiredProcs', message: 'Expired Procs' }),
+      label: i18n._(
+        defineMessage({ id: 'mage.fire.hotStreakGuide.expiredProcs', message: 'Expired Procs' }),
+      ),
       tooltip: (
         <Trans id="mage.fire.hotStreakGuide.expiredProcsTooltip">
           Number of Hot Streak procs that expired before they could be spent.
@@ -42,7 +44,9 @@ class HotStreakGuide extends Analyzer {
     });
     stats.push({
       value: `${this.hotStreak.wastedCrits.length}`,
-      label: defineMessage({ id: 'mage.fire.hotStreakGuide.wastedCrits', message: 'Wasted Crits' }),
+      label: i18n._(
+        defineMessage({ id: 'mage.fire.hotStreakGuide.wastedCrits', message: 'Wasted Crits' }),
+      ),
       tooltip: (
         <Trans id="mage.fire.hotStreakGuide.wastedCritsTooltip">
           Number of times a direct damage fire spell crit against your target while you already had
@@ -53,10 +57,12 @@ class HotStreakGuide extends Analyzer {
     });
     stats.push({
       value: formatDurationMillisMinSec(averageUptime, 2),
-      label: defineMessage({
-        id: 'mage.fire.hotStreakGuide.averageProcUptime',
-        message: 'Average Proc Uptime',
-      }),
+      label: i18n._(
+        defineMessage({
+          id: 'mage.fire.hotStreakGuide.averageProcUptime',
+          message: 'Average Proc Uptime',
+        }),
+      ),
       tooltip: (
         <Trans id="mage.fire.hotStreakGuide.averageProcUptimeTooltip">
           Average amount of time Hot Streak was active before it was used (or expired).
@@ -79,7 +85,9 @@ class HotStreakGuide extends Analyzer {
 
     return [
       {
-        label: defineMessage({ id: 'mage.fire.hotStreakGuide.pyroblast', message: 'Pyroblast' }),
+        label: i18n._(
+          defineMessage({ id: 'mage.fire.hotStreakGuide.pyroblast', message: 'Pyroblast' }),
+        ),
         value: pyroblastCount,
         color: '#e38d4b',
         tooltip: (
@@ -89,7 +97,9 @@ class HotStreakGuide extends Analyzer {
         ),
       },
       {
-        label: defineMessage({ id: 'mage.fire.hotStreakGuide.flamestrike', message: 'Flamestrike' }),
+        label: i18n._(
+          defineMessage({ id: 'mage.fire.hotStreakGuide.flamestrike', message: 'Flamestrike' }),
+        ),
         value: flamestrikeCount,
         color: '#a84444',
         tooltip: (
@@ -107,10 +117,12 @@ class HotStreakGuide extends Analyzer {
       return {
         timestamp: hs.remove.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: defineMessage({
-          id: 'mage.fire.hotStreakGuide.procExpired',
-          message: 'Hot Streak Proc Expired',
-        }),
+        reason: i18n._(
+          defineMessage({
+            id: 'mage.fire.hotStreakGuide.procExpired',
+            message: 'Hot Streak Proc Expired',
+          }),
+        ),
       };
     }
 
@@ -149,10 +161,12 @@ class HotStreakGuide extends Analyzer {
       return {
         timestamp: hs.remove.timestamp,
         performance: QualitativePerformance.Ok,
-        reason: defineMessage({
-          id: 'mage.fire.hotStreakGuide.noPrecastOrCritBuff',
-          message: 'Hot Streak used without a precast or guaranteed crit buff',
-        }),
+        reason: i18n._(
+          defineMessage({
+            id: 'mage.fire.hotStreakGuide.noPrecastOrCritBuff',
+            message: 'Hot Streak used without a precast or guaranteed crit buff',
+          }),
+        ),
       };
     }
 
@@ -160,10 +174,12 @@ class HotStreakGuide extends Analyzer {
     return {
       timestamp: hs.remove.timestamp,
       performance: QualitativePerformance.Fail,
-      reason: defineMessage({
-        id: 'mage.fire.hotStreakGuide.unknownPerformance',
-        message: 'Unknown Performance Condition (Please report this).',
-      }),
+      reason: i18n._(
+        defineMessage({
+          id: 'mage.fire.hotStreakGuide.unknownPerformance',
+          message: 'Unknown Performance Condition (Please report this).',
+        }),
+      ),
     };
   }
 

@@ -104,8 +104,7 @@ class Tranquility extends Analyzer {
             <p>
               {t({
                 id: 'restoration.tranquility.explanation_p3',
-                message:
-                  'In the lead-up to Tranquility, prioritize setting up as many ',
+                message: 'In the lead-up to Tranquility, prioritize setting up as many ',
               })}
               <SpellLink spell={SPELLS.REJUVENATION} />
               {t({
@@ -172,7 +171,7 @@ class Tranquility extends Analyzer {
             <>
               @ {this.owner.formatTimestamp(cast.timestamp)} &mdash;{' '}
               <SpellLink spell={SPELLS.TRANQUILITY_CAST} /> ({formatNumber(cast.directHealing)}{' '}
-              healing)
+              {t({ id: 'restoration.tranquility.healing', message: 'healing' })})
             </>
           );
 

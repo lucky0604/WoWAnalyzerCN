@@ -1,4 +1,7 @@
-import { t } from '@lingui/core/macro';
+import { t, defineMessage } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
+import { i18n } from '@lingui/core';
+import { defineMessage } from '@lingui/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -101,17 +104,17 @@ class FrenziedRegeneration extends Analyzer {
       .isGreaterThan(0)
       .addSuggestion((suggest, actual, recommended) =>
         suggest(
-          <>
+          <Trans id="druid.guardian.suggestions.frenziedRegeneration.inefficient">
             You are casting <SpellLink spell={SPELLS.FRENZIED_REGENERATION} /> inefficiently (at
             high HP and after low damage intake). It is almost always better to wait until after you
             have taken a big hit to cast it, even if that means spending extended periods of time at
             maximum charges. If you don't already have one, consider getting an FR prediction
             weakaura to assist you in casting it more effectively.
-          </>,
+          </Trans>,
         )
           .icon(SPELLS.FRENZIED_REGENERATION.icon)
           .actual(
-            t({
+            defineMessage({
               id: 'druid.guardian.suggestions.frenziedRegeneration.efficiency',
               message: `${formatPercentage(
                 actual,
@@ -122,7 +125,15 @@ class FrenziedRegeneration extends Analyzer {
               )}% and were cast above ${formatPercentage(HP_THRESHOLD, 0)}% HP`,
             }),
           )
-          .recommended(`${recommended}% is recommended`)
+          .recommended(
+            i18n._(
+              defineMessage({
+                id: 'druid.guardian.suggestions.frenziedRegeneration.recommended',
+                message: '{recommended}% is recommended',
+              }),
+              { recommended },
+            ),
+          )
           .regular(recommended + 0.05)
           .major(recommended + 0.1),
       );
