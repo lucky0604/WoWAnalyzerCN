@@ -1,7 +1,6 @@
-import { t, defineMessage } from '@lingui/core/macro';
+import { defineMessage } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import { i18n } from '@lingui/core';
-import { defineMessage } from '@lingui/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';

@@ -399,20 +399,13 @@ class Disintegrate extends Analyzer {
           this.problemPoints.push({
             timestamp: event.timestamp,
             count: this.currentRemainingTicks,
-            tooltip:
-              i18n._(
-                defineMessage({
-                  id: 'evoker.devastation.disintegrate.bad_chain_clipped_prefix',
-                  message: 'Bad Chain, you clipped: ',
-                }),
-              ) +
-              (this.currentRemainingTicks - 1) +
-              i18n._(
-                defineMessage({
-                  id: 'evoker.devastation.disintegrate.tick_s',
-                  message: ' tick(s)',
-                }),
-              ),
+            tooltip: i18n._(
+              defineMessage({
+                id: 'evoker.devastation.disintegrate.bad_chain_clipped_prefix',
+                message: 'Bad Chain, you clipped: {count} tick(s)',
+              }).id,
+              { count: this.currentRemainingTicks - 1 },
+            ),
           });
         } else {
           this.disintegrateChainCasts.push({
@@ -442,12 +435,9 @@ class Disintegrate extends Analyzer {
             i18n._(
               defineMessage({
                 id: 'evoker.devastation.disintegrate.bad_chain_clipped_prefix',
-                message: 'Bad Chain, you clipped: ',
-              }),
-            ) +
-            (this.currentRemainingTicks - 1) +
-            i18n._(
-              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+                message: 'Bad Chain, you clipped: {count} tick(s)',
+              }).id,
+              { count: this.currentRemainingTicks - 1 },
             ) +
             ' ' +
             (this.inDragonRageWindow
@@ -489,15 +479,9 @@ class Disintegrate extends Analyzer {
               ? i18n._(
                   defineMessage({
                     id: 'evoker.devastation.disintegrate.good_chain_clipped_prefix',
-                    message: 'Good Chain, you clipped: ',
-                  }),
-                ) +
-                (this.currentRemainingTicks - 1) +
-                i18n._(
-                  defineMessage({
-                    id: 'evoker.devastation.disintegrate.tick_s',
-                    message: ' tick(s)',
-                  }),
+                    message: 'Good Chain, you clipped: {count} tick(s)',
+                  }).id,
+                  { count: this.currentRemainingTicks - 1 },
                 )
               : i18n._(
                   defineMessage({
@@ -559,12 +543,9 @@ class Disintegrate extends Analyzer {
             i18n._(
               defineMessage({
                 id: 'evoker.devastation.disintegrate.bad_clip_clipped_prefix',
-                message: 'Bad Clip, you clipped: ',
-              }),
-            ) +
-            this.currentRemainingTicks +
-            i18n._(
-              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+                message: 'Bad Clip, you clipped: {count} tick(s)',
+              }).id,
+              { count: this.currentRemainingTicks },
             ) +
             ' ' +
             (this.inDragonRageWindow
@@ -605,12 +586,9 @@ class Disintegrate extends Analyzer {
             i18n._(
               defineMessage({
                 id: 'evoker.devastation.disintegrate.good_clip_clipped_prefix',
-                message: 'Good clip, you clipped: ',
-              }),
-            ) +
-            this.currentRemainingTicks +
-            i18n._(
-              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+                message: 'Good clip, you clipped: {count} tick(s)',
+              }).id,
+              { count: this.currentRemainingTicks },
             ) +
             ' ' +
             (this.inDragonRageWindow
@@ -644,12 +622,9 @@ class Disintegrate extends Analyzer {
             i18n._(
               defineMessage({
                 id: 'evoker.devastation.disintegrate.bad_clip_clipped_prefix',
-                message: 'Bad Clip, you clipped: ',
-              }),
-            ) +
-            this.currentRemainingTicks +
-            i18n._(
-              defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
+                message: 'Bad Clip, you clipped: {count} tick(s)',
+              }).id,
+              { count: this.currentRemainingTicks },
             ) +
             ' ' +
             (this.inDragonRageWindow
@@ -680,17 +655,13 @@ class Disintegrate extends Analyzer {
       this.problemPoints.push({
         timestamp: event.timestamp,
         count: this.currentRemainingTicks,
-        tooltip:
-          i18n._(
-            defineMessage({
-              id: 'evoker.devastation.disintegrate.cancelled_channel_losing',
-              message: 'Cancelled channel, losing: ',
-            }),
-          ) +
-          this.currentRemainingTicks +
-          i18n._(
-            defineMessage({ id: 'evoker.devastation.disintegrate.tick_s', message: ' tick(s)' }),
-          ),
+        tooltip: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.cancelled_channel_losing',
+            message: 'Cancelled channel, losing: {count} tick(s)',
+          }).id,
+          { count: this.currentRemainingTicks },
+        ),
       });
     }
 
@@ -782,20 +753,13 @@ class Disintegrate extends Analyzer {
       this.massDisintegrateCasts.push({
         timestamp: event.timestamp,
         count: this.currentRemainingTicks,
-        tooltip:
-          i18n._(
-            defineMessage({
-              id: 'evoker.devastation.disintegrate.mass_dis_cast_prefix',
-              message: 'Mass Disintegrate Cast: ',
-            }),
-          ) +
-          targets +
-          i18n._(
-            defineMessage({
-              id: 'evoker.devastation.disintegrate.target_s',
-              message: ' target(s)',
-            }),
-          ),
+        tooltip: i18n._(
+          defineMessage({
+            id: 'evoker.devastation.disintegrate.mass_dis_cast_prefix',
+            message: 'Mass Disintegrate Cast: {count} target(s)',
+          }).id,
+          { count: targets },
+        ),
       });
     } else {
       this.massDisintegrateCasts.push({
