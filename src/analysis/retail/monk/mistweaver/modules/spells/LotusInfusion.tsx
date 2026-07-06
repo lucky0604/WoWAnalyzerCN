@@ -5,8 +5,8 @@ import HotTrackerMW from '../core/HotTrackerMW';
 import Combatants from 'parser/shared/modules/Combatants';
 import SPELLS from 'common/SPELLS';
 import { calculateEffectiveHealing, calculateOverhealing } from 'parser/core/EventCalculateLib';
+import { ABILITIES_AFFECTED_BY_HEALING_INCREASES } from 'analysis/retail/monk/shared/constants';
 import {
-  ABILITIES_AFFECTED_BY_HEALING_INCREASES,
   LOTUS_INFUSION_BOOST,
   REM_BASE_DURATION,
   RISING_MIST,
@@ -20,7 +20,7 @@ import { formatNumber, formatPercentage } from 'common/format';
 import TalentSpellText from 'parser/ui/TalentSpellText';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import SpellLink from 'interface/SpellLink';
-import { Trans } from '@lingui/react/macro'
+import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import StatisticListBoxItem from 'parser/ui/StatisticListBoxItem';
 
@@ -135,43 +135,46 @@ class LotusInfusion extends Analyzer {
         position={STATISTIC_ORDER.CORE(4)}
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
-        tooltip={
-          (() => {
-            const pct = formatPercentage(LOTUS_INFUSION_BOOST);
-            const healing = formatNumber(this.renewingMistHealingBoost);
-            const overhealing = formatNumber(this.renewingMistOverhealingBoost);
-            const addHealing = formatNumber(this.effectiveHealing);
-            const hotOverhealing = formatNumber(this.overhealing);
-            return (
-              <ul>
-                <li>
-                  <Trans id="monk.mistweaver.lotus_infusion.effective_healing">
-                    Effective healing from the {pct}% increase:{' '}
-                    {healing}
-                  </Trans>
-                </li>
-                <li>
-                  <Trans id="monk.mistweaver.lotus_infusion.overhealing">
-                    Overhealing: {overhealing}
-                  </Trans>
-                </li>
-                <li>
-                  <>{t({ id: 'monk.mistweaver.lotus_infusion.additional_rem.p1', message: 'Additional ' })}
-                    <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-                    {t({ id: 'monk.mistweaver.lotus_infusion.additional_rem.p2', message: 'healing:' })}
-                    {' '}
-                    {addHealing}
-                  </>
-                </li>
-                <li>
-                  <Trans id="monk.mistweaver.lotus_infusion.hot_overhealing">
-                    Hot Overhealing: {hotOverhealing}
-                  </Trans>
-                </li>
-              </ul>
-            );
-          })()
-        }
+        tooltip={(() => {
+          const pct = formatPercentage(LOTUS_INFUSION_BOOST);
+          const healing = formatNumber(this.renewingMistHealingBoost);
+          const overhealing = formatNumber(this.renewingMistOverhealingBoost);
+          const addHealing = formatNumber(this.effectiveHealing);
+          const hotOverhealing = formatNumber(this.overhealing);
+          return (
+            <ul>
+              <li>
+                <Trans id="monk.mistweaver.lotus_infusion.effective_healing">
+                  Effective healing from the {pct}% increase: {healing}
+                </Trans>
+              </li>
+              <li>
+                <Trans id="monk.mistweaver.lotus_infusion.overhealing">
+                  Overhealing: {overhealing}
+                </Trans>
+              </li>
+              <li>
+                <>
+                  {t({
+                    id: 'monk.mistweaver.lotus_infusion.additional_rem.p1',
+                    message: 'Additional ',
+                  })}
+                  <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+                  {t({
+                    id: 'monk.mistweaver.lotus_infusion.additional_rem.p2',
+                    message: 'healing:',
+                  })}{' '}
+                  {addHealing}
+                </>
+              </li>
+              <li>
+                <Trans id="monk.mistweaver.lotus_infusion.hot_overhealing">
+                  Hot Overhealing: {hotOverhealing}
+                </Trans>
+              </li>
+            </ul>
+          );
+        })()}
       >
         <TalentSpellText talent={TALENTS_MONK.LOTUS_INFUSION_TALENT}>
           <ItemHealingDone amount={this.totalHealing} />

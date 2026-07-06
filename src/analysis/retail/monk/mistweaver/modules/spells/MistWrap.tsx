@@ -1,7 +1,7 @@
 import { formatNumber, formatPercentage } from 'common/format';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro'
+import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
@@ -13,11 +13,8 @@ import StatisticListBoxItem from 'parser/ui/StatisticListBoxItem';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import TalentSpellText from 'parser/ui/TalentSpellText';
-import {
-  ABILITIES_AFFECTED_BY_HEALING_INCREASES,
-  ENVELOPING_MIST_INCREASE,
-  MISTWRAP_INCREASE,
-} from '../../constants';
+import { ABILITIES_AFFECTED_BY_HEALING_INCREASES } from 'analysis/retail/monk/shared/constants';
+import { ENVELOPING_MIST_INCREASE, MISTWRAP_INCREASE } from '../../constants';
 import HotTrackerMW from '../core/HotTrackerMW';
 
 const ENVELOPING_BASE_DURATION = 6000;
@@ -127,35 +124,36 @@ class MistWrap extends Analyzer {
         position={STATISTIC_ORDER.CORE(5)}
         size="flexible"
         category={STATISTIC_CATEGORY.TALENTS}
-        tooltip={
-          (() => {
-            const healing = formatNumber(this.effectiveHealing);
-            const overhealing = formatNumber(this.overHealing);
-            const bonus = formatNumber(this.envMistHealingBoost);
-            return (
-              <>
-                <div>
-                  <Trans id="monk.mistweaver.mist_wrap.effective_healing">
-                    Effective HoT Healing: {healing}
-                  </Trans>
-                </div>
-                <div>
-                  <Trans id="monk.mistweaver.mist_wrap.overhealing">
-                    HoT Overhealing: {overhealing}
-                  </Trans>
-                </div>
-                <div>
-                  <>{t({ id: 'monk.mistweaver.mist_wrap.bonus_healing.p1', message: 'Bonus Healing from extra ' })}
-                    <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />
-                    {' '}
-                    {t({ id: 'monk.mistweaver.mist_wrap.bonus_healing.p2', message: 'duration:' })}
-                    {bonus}
-                  </>
-                </div>
-              </>
-            );
-          })()
-        }
+        tooltip={(() => {
+          const healing = formatNumber(this.effectiveHealing);
+          const overhealing = formatNumber(this.overHealing);
+          const bonus = formatNumber(this.envMistHealingBoost);
+          return (
+            <>
+              <div>
+                <Trans id="monk.mistweaver.mist_wrap.effective_healing">
+                  Effective HoT Healing: {healing}
+                </Trans>
+              </div>
+              <div>
+                <Trans id="monk.mistweaver.mist_wrap.overhealing">
+                  HoT Overhealing: {overhealing}
+                </Trans>
+              </div>
+              <div>
+                <>
+                  {t({
+                    id: 'monk.mistweaver.mist_wrap.bonus_healing.p1',
+                    message: 'Bonus Healing from extra ',
+                  })}
+                  <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
+                  {t({ id: 'monk.mistweaver.mist_wrap.bonus_healing.p2', message: 'duration:' })}
+                  {bonus}
+                </>
+              </div>
+            </>
+          );
+        })()}
       >
         <TalentSpellText talent={TALENTS_MONK.MIST_WRAP_TALENT}>
           <ItemHealingDone amount={this.totalHealing} />
