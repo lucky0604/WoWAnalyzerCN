@@ -2,7 +2,6 @@ import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import CooldownExpandable, {
   CooldownExpandableItem,
@@ -348,20 +347,31 @@ class InvokeYulon extends BaseCelestialAnalyzer {
         position={STATISTIC_ORDER.CORE(7)}
         size="flexible"
         tooltip={
-          <Trans id="monk.mistweaver.invokeYulon.statistic.tooltip">
-            Healing Breakdown:
+          <>
+            {t({
+              id: 'monk.mistweaver.invokeYulon.statistic.tooltip.heading',
+              message: 'Healing Breakdown:',
+            })}
             <ul>
               <li>
-                {formatNumber(this.soothHealing)} healing from{' '}
+                {formatNumber(this.soothHealing)}{' '}
+                {t({
+                  id: 'monk.mistweaver.invokeYulon.statistic.tooltip.soothHealing',
+                  message: 'healing from ',
+                })}
                 <SpellLink spell={SPELLS.SOOTHING_BREATH} />.
               </li>
               <li>
                 {formatNumber(this.chiCocoonHealing)}{' '}
-                <SpellLink spell={SPELLS.CHI_COCOON_BUFF_YULON} /> healing from{' '}
+                <SpellLink spell={SPELLS.CHI_COCOON_BUFF_YULON} />{' '}
+                {t({
+                  id: 'monk.mistweaver.invokeYulon.statistic.tooltip.chiCocoonHealing',
+                  message: 'healing from ',
+                })}
                 <SpellLink spell={TALENTS_MONK.CELESTIAL_HARMONY_TALENT} />.
               </li>
             </ul>
-          </Trans>
+          </>
         }
       >
         <BoringValueText

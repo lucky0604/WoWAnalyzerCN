@@ -24,7 +24,6 @@ import { Section, SubSection } from 'interface/guide';
 import { CSSProperties } from 'react';
 import '../../ui/RisingMist.scss';
 import { Talent } from 'common/TALENTS/types';
-import { Trans } from '@lingui/react/macro';
 
 const debug = false;
 
@@ -338,19 +337,46 @@ class RisingMist extends Analyzer {
 
   toolTip() {
     return (
-      <Trans id="monk.mistweaver.rising_mist.tooltip">
-        Your {this.risingMistCount} Rising Sun Kick casts contributed the following:
+      <>
+        {t({ id: 'monk.mistweaver.rising_mist.tooltip.intro.p1', message: 'Your ' })}
+        {this.risingMistCount}
+        {t({
+          id: 'monk.mistweaver.rising_mist.tooltip.intro.p2',
+          message: ' Rising Sun Kick casts contributed the following:',
+        })}
         <ul>
-          <li>HoT Extension Healing: {formatNumber(this.hotHealing)}</li>
-          <li>Average HoT Extension Seconds per cast: {this.averageExtension.toFixed(2)}</li>
           <li>
-            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} /> HoTs Extended: {this.remCount}
+            {t({
+              id: 'monk.mistweaver.rising_mist.tooltip.hotExtension',
+              message: 'HoT Extension Healing: ',
+            })}
+            {formatNumber(this.hotHealing)}
           </li>
           <li>
-            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} /> HoTs Extended: {this.evmCount}
+            {t({
+              id: 'monk.mistweaver.rising_mist.tooltip.avgExtension',
+              message: 'Average HoT Extension Seconds per cast: ',
+            })}
+            {this.averageExtension.toFixed(2)}
+          </li>
+          <li>
+            <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />{' '}
+            {t({
+              id: 'monk.mistweaver.rising_mist.tooltip.remExtended',
+              message: 'HoTs Extended: ',
+            })}
+            {this.remCount}
+          </li>
+          <li>
+            <SpellLink spell={TALENTS_MONK.ENVELOPING_MIST_TALENT} />{' '}
+            {t({
+              id: 'monk.mistweaver.rising_mist.tooltip.envmExtended',
+              message: 'HoTs Extended: ',
+            })}
+            {this.evmCount}
           </li>
         </ul>
-      </Trans>
+      </>
     );
   }
 
@@ -504,9 +530,10 @@ class RisingMist extends Analyzer {
                 width: '45%',
               }}
             >
-              <Trans id="monk.mistweaver.rising_mist.duration_extended">
-                Duration and Percent Extended
-              </Trans>
+              {t({
+                id: 'monk.mistweaver.rising_mist.duration_extended',
+                message: 'Duration and Percent Extended',
+              })}
             </div>
           </SubSection>
           <ul className="list">

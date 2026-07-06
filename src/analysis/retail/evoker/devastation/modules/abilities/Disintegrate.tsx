@@ -1,7 +1,6 @@
 import type { JSX } from 'react';
 import { i18n } from '@lingui/core';
 import { t, defineMessage } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/evoker';
 import { SubSection } from 'interface/guide';
@@ -989,11 +988,18 @@ class Disintegrate extends Analyzer {
                     <td>
                       <TooltipElement
                         content={
-                          <Trans id="evoker.devastation.disintegrate.mass_dis_tooltip">
-                            Losing ticks on <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />,
-                            despite having no problem points, might be caused by mobs dying, which
-                            is unavoidable.
-                          </Trans>
+                          <>
+                            {t({
+                              id: 'evoker.devastation.disintegrate.mass_dis_tooltip.p1',
+                              message: 'Losing ticks on ',
+                            })}
+                            <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />
+                            {t({
+                              id: 'evoker.devastation.disintegrate.mass_dis_tooltip.p2',
+                              message:
+                                ', despite having no problem points, might be caused by mobs dying, which is unavoidable.',
+                            })}
+                          </>
                         }
                       >
                         {clampedMassDisintTicks}/
@@ -1027,9 +1033,13 @@ class Disintegrate extends Analyzer {
       windowData.name,
       this.disintegrateTicksCounter.length === 0 ? (
         <div>
-          <Trans id="evoker.devastation.disintegrate.no_use">
-            You didn't use <SpellLink spell={DISINTEGRATE} />
-          </Trans>
+          <>
+            {t({
+              id: 'evoker.devastation.disintegrate.no_use.p1',
+              message: "You didn't use ",
+            })}
+            <SpellLink spell={DISINTEGRATE} />
+          </>
         </div>
       ) : undefined,
     );
@@ -1101,10 +1111,17 @@ class Disintegrate extends Analyzer {
       >
         <div>
           <p>
-            <Trans id="evoker.devastation.disintegrate.graph_intro">
-              For further analysis, use the graph below to deep dive into your{' '}
-              <SpellLink spell={DISINTEGRATE} /> casts.{' '}
-            </Trans>
+            <>
+              {t({
+                id: 'evoker.devastation.disintegrate.graph_intro.p1',
+                message: 'For further analysis, use the graph below to deep dive into your ',
+              })}
+              <SpellLink spell={DISINTEGRATE} />
+              {t({
+                id: 'evoker.devastation.disintegrate.graph_intro.p2',
+                message: ' casts. ',
+              })}
+            </>
             {this.isMythicPlus ? (
               <>
                 {t({

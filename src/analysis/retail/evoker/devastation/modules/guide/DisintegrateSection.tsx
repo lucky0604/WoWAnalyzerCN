@@ -85,35 +85,91 @@ export function DisintegrateSection({ modules, info }: GuideProps<typeof CombatL
           </Trans>
           <ul>
             <li>
-              <Trans id="evoker.devastation.disintegrateSection.chaining_desc">
-                <strong>Chaining</strong> - Chaining refers to recasting{' '}
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> while already channeling a{' '}
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> after the penultimate (second to last)
-                tick in order to channel two <SpellLink spell={SPELLS.DISINTEGRATE} /> in a row
-                without downtime or losing a tick.
-              </Trans>
+              <>
+                <strong>
+                  {t({
+                    id: 'evoker.devastation.disintegrateSection.chaining_desc.strong',
+                    message: 'Chaining',
+                  })}
+                </strong>
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.chaining_desc.p1',
+                  message: ' - Chaining refers to recasting ',
+                })}
+                <SpellLink spell={SPELLS.DISINTEGRATE} />
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.chaining_desc.p2',
+                  message: ' while already channeling a ',
+                })}
+                <SpellLink spell={SPELLS.DISINTEGRATE} />
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.chaining_desc.p3',
+                  message: ' after the penultimate (second to last) tick in order to channel two ',
+                })}
+                <SpellLink spell={SPELLS.DISINTEGRATE} />
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.chaining_desc.p4',
+                  message: ' in a row without downtime or losing a tick.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="evoker.devastation.disintegrateSection.early_chaining_desc">
-                <strong>Early Chaining</strong> - Early chaining refers to chaining two{' '}
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> casts before the penultimate tick. This
-                wastes ticks but is occasionally useful.
-              </Trans>
+              <>
+                <strong>
+                  {t({
+                    id: 'evoker.devastation.disintegrateSection.early_chaining_desc.strong',
+                    message: 'Early Chaining',
+                  })}
+                </strong>
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.early_chaining_desc.p1',
+                  message: ' - Early chaining refers to chaining two ',
+                })}
+                <SpellLink spell={SPELLS.DISINTEGRATE} />
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.early_chaining_desc.p2',
+                  message:
+                    ' casts before the penultimate tick. This wastes ticks but is occasionally useful.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="evoker.devastation.disintegrateSection.clipping_desc">
-                <strong>Clipping</strong> - Clipping refers to interrupting a channel of{' '}
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> early by using another spell.
-              </Trans>
+              <>
+                <strong>
+                  {t({
+                    id: 'evoker.devastation.disintegrateSection.clipping_desc.strong',
+                    message: 'Clipping',
+                  })}
+                </strong>
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.clipping_desc.p1',
+                  message: ' - Clipping refers to interrupting a channel of ',
+                })}
+                <SpellLink spell={SPELLS.DISINTEGRATE} />
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.clipping_desc.p2',
+                  message: ' early by using another spell.',
+                })}
+              </>
             </li>
             <li>
-              <Trans id="evoker.devastation.disintegrateSection.further_info">
-                For further information, including which spells you should clip{' '}
-                <SpellLink spell={SPELLS.DISINTEGRATE} /> for, see{' '}
+              <>
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.further_info.p1',
+                  message: 'For further information, including which spells you should clip ',
+                })}
+                <SpellLink spell={SPELLS.DISINTEGRATE} />
+                {t({
+                  id: 'evoker.devastation.disintegrateSection.further_info.p2',
+                  message: ' for, see ',
+                })}
                 <a href="https://www.wowhead.com/guide/classes/evoker/devastation/rotation-cooldowns-pve-dps#advanced-disintegrate-chaining-and-clipping">
-                  Disintegrate Chaining and Clipping
+                  {t({
+                    id: 'evoker.devastation.disintegrateSection.further_info.link',
+                    message: 'Disintegrate Chaining and Clipping',
+                  })}
                 </a>
-              </Trans>{' '}
+              </>
             </li>
           </ul>
           <div>
@@ -140,9 +196,13 @@ export function DisintegrateSection({ modules, info }: GuideProps<typeof CombatL
             explanation={
               <div>
                 <b>
-                  <Trans id="evoker.devastation.disintegrateSection.efficiency_outside">
-                    Efficiency outside of <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
-                  </Trans>
+                  <>
+                    {t({
+                      id: 'evoker.devastation.disintegrateSection.efficiency_outside.p1',
+                      message: 'Efficiency outside of ',
+                    })}
+                    <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
+                  </>
                 </b>
                 {clipLogic.thresholdEarlyChainTicks > 1 || clipLogic.allowGoodClipping ? (
                   <p>
@@ -214,9 +274,13 @@ export function DisintegrateSection({ modules, info }: GuideProps<typeof CombatL
             explanation={
               <div>
                 <b>
-                  <Trans id="evoker.devastation.disintegrateSection.efficiency_during">
-                    Efficiency during <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
-                  </Trans>
+                  <>
+                    {t({
+                      id: 'evoker.devastation.disintegrateSection.efficiency_during.p1',
+                      message: 'Efficiency during ',
+                    })}
+                    <SpellLink spell={TALENTS_EVOKER.DRAGONRAGE_TALENT} />
+                  </>
                 </b>
                 {clipLogic.thresholdEarlyChainTicksDragonrage > 1 ||
                 clipLogic.allowGoodClippingDragonrage ? (
@@ -301,15 +365,22 @@ export function DisintegrateSection({ modules, info }: GuideProps<typeof CombatL
             explanation={
               <div>
                 <b>
-                  <Trans id="evoker.devastation.disintegrateSection.efficiency_of">
-                    Efficiency of <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />
-                  </Trans>
+                  <>
+                    {t({
+                      id: 'evoker.devastation.disintegrateSection.efficiency_of.p1',
+                      message: 'Efficiency of ',
+                    })}
+                    <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />
+                  </>
                 </b>
                 <p>
-                  <Trans id="evoker.devastation.disintegrateSection.never_drop_mass_dis">
-                    You should never drop ticks of{' '}
+                  <>
+                    {t({
+                      id: 'evoker.devastation.disintegrateSection.never_drop_mass_dis.p1',
+                      message: 'You should never drop ticks of ',
+                    })}
                     <SpellLink spell={SPELLS.MASS_DISINTEGRATE_BUFF} />
-                  </Trans>
+                  </>
                 </p>
               </div>
             }

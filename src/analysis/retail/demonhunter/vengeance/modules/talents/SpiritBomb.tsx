@@ -252,7 +252,7 @@ export default class SpiritBomb extends Analyzer {
         performance: QualitativePerformance.Good,
         summary: (
           <div>
-            <Trans id="demonhunter.vengeance.spiritBomb.aoeSummary">Cast in AoE</Trans>
+            {t({ id: 'demonhunter.vengeance.spiritBomb.aoeSummary', message: 'Cast in AoE' })}
           </div>
         ),
         details: (
@@ -278,10 +278,22 @@ export default class SpiritBomb extends Analyzer {
         ),
         details: (
           <div>
-            <Trans id="demonhunter.vengeance.spiritBomb.stNoFieryDemiseNoTalentDetails">
-              You cast <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> in single target without{' '}
-              <SpellLink spell={TALENTS.FIERY_DEMISE_TALENT} /> talented.
-            </Trans>
+            <>
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.stNoFieryDemiseNoTalentDetails.p1',
+                message: 'You cast ',
+              })}
+              <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.stNoFieryDemiseNoTalentDetails.p2',
+                message: ' in single target without ',
+              })}
+              <SpellLink spell={TALENTS.FIERY_DEMISE_TALENT} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.stNoFieryDemiseNoTalentDetails.p3',
+                message: ' talented.',
+              })}
+            </>
           </div>
         ),
       };
@@ -304,10 +316,22 @@ export default class SpiritBomb extends Analyzer {
         ),
         details: (
           <div>
-            <Trans id="demonhunter.vengeance.spiritBomb.stNoFieryBrandDetails">
-              You cast <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> in single target without{' '}
-              <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> applied to the target.
-            </Trans>
+            <>
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.stNoFieryBrandDetails.p1',
+                message: 'You cast ',
+              })}
+              <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.stNoFieryBrandDetails.p2',
+                message: ' in single target without ',
+              })}
+              <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.stNoFieryBrandDetails.p3',
+                message: ' applied to the target.',
+              })}
+            </>
           </div>
         ),
       };
@@ -324,10 +348,22 @@ export default class SpiritBomb extends Analyzer {
       ),
       details: (
         <div>
-          <Trans id="demonhunter.vengeance.spiritBomb.stFieryDemiseDetails">
-            You cast <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> in single target with{' '}
-            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} /> applied to the target. Good usage.
-          </Trans>
+          <>
+            {t({
+              id: 'demonhunter.vengeance.spiritBomb.stFieryDemiseDetails.p1',
+              message: 'You cast ',
+            })}
+            <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+            {t({
+              id: 'demonhunter.vengeance.spiritBomb.stFieryDemiseDetails.p2',
+              message: ' in single target with ',
+            })}
+            <SpellLink spell={TALENTS.FIERY_BRAND_TALENT} />
+            {t({
+              id: 'demonhunter.vengeance.spiritBomb.stFieryDemiseDetails.p3',
+              message: ' applied to the target. Good usage.',
+            })}
+          </>
         </div>
       ),
     };
@@ -352,11 +388,19 @@ export default class SpiritBomb extends Analyzer {
           ),
           details: (
             <div>
-              <Trans id="demonhunter.vengeance.spiritBomb.goodMetaDetails">
-                You cast <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> at{' '}
+              <>
+                {t({
+                  id: 'demonhunter.vengeance.spiritBomb.goodMetaDetails.p1',
+                  message: 'You cast ',
+                })}
+                <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+                {t({ id: 'demonhunter.vengeance.spiritBomb.goodMetaDetails.p2', message: ' at ' })}
                 {amountOfStacksConsumed} <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
-                s. Good job!
-              </Trans>
+                {t({
+                  id: 'demonhunter.vengeance.spiritBomb.goodMetaDetails.p3',
+                  message: 's. Good job!',
+                })}
+              </>
             </div>
           ),
         };
@@ -372,13 +416,28 @@ export default class SpiritBomb extends Analyzer {
         ),
         details: (
           <div>
-            <Trans id="demonhunter.vengeance.spiritBomb.failMetaDetails">
-              You cast <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> at {amountOfStacksConsumed}{' '}
-              <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
-              s. <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> should be cast at{' '}
-              {this.soulsInMeta} <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />s while in{' '}
-              <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />.
-            </Trans>
+            <>
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.failMetaDetails.p1',
+                message: 'You cast ',
+              })}
+              <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+              {t({ id: 'demonhunter.vengeance.spiritBomb.failMetaDetails.p2', message: ' at ' })}
+              {amountOfStacksConsumed} <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+              {t({ id: 'demonhunter.vengeance.spiritBomb.failMetaDetails.p3', message: 's. ' })}
+              <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.failMetaDetails.p4',
+                message: ' should be cast at ',
+              })}
+              {this.soulsInMeta} <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.failMetaDetails.p5',
+                message: 's while in ',
+              })}
+              <SpellLink spell={SPELLS.METAMORPHOSIS_TANK} />
+              {t({ id: 'demonhunter.vengeance.spiritBomb.failMetaDetails.p6', message: '.' })}
+            </>
           </div>
         ),
       };
@@ -395,11 +454,22 @@ export default class SpiritBomb extends Analyzer {
         ),
         details: (
           <div>
-            <Trans id="demonhunter.vengeance.spiritBomb.goodOutOfMetaDetails">
-              You cast <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> at {amountOfStacksConsumed}{' '}
-              <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
-              s. Good job!
-            </Trans>
+            <>
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.goodOutOfMetaDetails.p1',
+                message: 'You cast ',
+              })}
+              <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.goodOutOfMetaDetails.p2',
+                message: ' at ',
+              })}
+              {amountOfStacksConsumed} <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+              {t({
+                id: 'demonhunter.vengeance.spiritBomb.goodOutOfMetaDetails.p3',
+                message: 's. Good job!',
+              })}
+            </>
           </div>
         ),
       };
@@ -415,13 +485,23 @@ export default class SpiritBomb extends Analyzer {
       ),
       details: (
         <div>
-          <Trans id="demonhunter.vengeance.spiritBomb.failOutOfMetaDetails">
-            You cast <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> at {amountOfStacksConsumed}{' '}
-            <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
-            s. <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} /> should be cast at{' '}
+          <>
+            {t({
+              id: 'demonhunter.vengeance.spiritBomb.failOutOfMetaDetails.p1',
+              message: 'You cast ',
+            })}
+            <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+            {t({ id: 'demonhunter.vengeance.spiritBomb.failOutOfMetaDetails.p2', message: ' at ' })}
+            {amountOfStacksConsumed} <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
+            {t({ id: 'demonhunter.vengeance.spiritBomb.failOutOfMetaDetails.p3', message: 's. ' })}
+            <SpellLink spell={TALENTS.SPIRIT_BOMB_TALENT} />
+            {t({
+              id: 'demonhunter.vengeance.spiritBomb.failOutOfMetaDetails.p4',
+              message: ' should be cast at ',
+            })}
             {this.soulsOutOfMeta} <SpellLink spell={SPELLS.SOUL_FRAGMENT_STACK} />
-            s.
-          </Trans>
+            {t({ id: 'demonhunter.vengeance.spiritBomb.failOutOfMetaDetails.p5', message: 's.' })}
+          </>
         </div>
       ),
     };
