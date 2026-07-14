@@ -50,5 +50,8 @@
   "hunter.beastmastery.config.description.p2.p4": " 频道，可以得到社区提供的一些有用的改进建议。",
   "hunter.beastmastery.config.description.p3.p1": "如需通用的游戏玩法指南和技巧，请参考 ",
   "hunter.beastmastery.config.description.p3.p2": " 或 ",
-  "hunter.beastmastery.config.description.p3.p3": " 指南。"
+  "hunter.beastmastery.config.description.p3.p3": " 指南。",
+  "hunter.beastmastery.cobraShot.barbedShotAvailable": "在野蛮射击可用时施放的眼镜蛇射击",
+  "hunter.beastmastery.cobraShot.barbedShotPriorityTooltip": "应始终优先使用野蛮射击而非眼镜蛇射击 - 没有任何情况下在野蛮射击可用时选择施放眼镜蛇射击是正确的。",
+  "hunter.beastmastery.cobraShot.inefficientCastFocus": "在杀戮命令剩余冷却不足{cdr}秒且你只有{focus}集中值未接近上限时施放了眼镜蛇射击。"
 }

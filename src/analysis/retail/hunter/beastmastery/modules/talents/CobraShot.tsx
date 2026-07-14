@@ -109,8 +109,9 @@ class CobraShot extends Analyzer {
       return;
     }
     // Kill Command has a charge recharging (whether or not another charge is already
-    // banked) - reduceCooldown already accounts for multiple charges recharging and caps
-    // the effective reduction at however much cooldown is actually left to remove.
+    // banked). `SpellUsable.reduceCooldown` already accounts for multiple charges
+    // recharging and caps the effective reduction at however much cooldown is actually
+    // left to remove across all charges, so we pass the full cobraShotCDR here.
     const effectiveReductionMs = this.spellUsable.reduceCooldown(
       TALENTS.KILL_COMMAND_BEAST_MASTERY_TALENT.id,
       this.cobraShotCDR,

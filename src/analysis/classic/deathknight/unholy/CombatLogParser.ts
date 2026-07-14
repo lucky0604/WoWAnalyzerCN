@@ -8,8 +8,9 @@ import {
   GlobalCooldown,
   createBloodTapCharges,
 } from 'analysis/classic/deathknight/shared';
-// DK-specific Haste with Improved Unholy Presence baked in (20% instead of
-// the base 10%).
+// Unholy-specific Haste override: Improved Unholy Presence increases the
+// Unholy Presence haste bonus from 10% to 20%. Frost uses the shared
+// `analysis/classic/deathknight/shared/Haste` with the base 10% value.
 import Haste from './modules/features/Haste';
 // Links refundable rune-ability casts to their damage outcome so
 // MoPRuneTracker can skip the rune spend on a miss/dodge/parry.

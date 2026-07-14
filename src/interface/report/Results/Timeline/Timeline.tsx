@@ -188,6 +188,9 @@ class Timeline extends PureComponent<TimelineProps, TimelineState> {
 
     const allSeparatedIds = this.props.config?.separateCastBars?.flat() || [];
 
+    // Each entry in `castEvents` is one rendered cast bar. The first N entries come from
+    // `separateCastBars` config, and the last entry is the main cast bar. `--cast-bars` is
+    // intentionally based on this array length, not the raw event count.
     const castEvents = [
       ...(this.props.config?.separateCastBars?.map((spellIds) =>
         parser.eventHistory
