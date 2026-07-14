@@ -15,7 +15,8 @@ import { TALENTS_EVOKER } from 'common/TALENTS';
 import { isFromTipTheScales } from '../../normalizers/EventLinking/helpers';
 import { DREAM_BREATH_CAST } from '../../normalizers/EventLinking/constants';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
-import { GUIDE_CORE_EXPLANATION_PERCENT, GuideContainer } from '../../Guide';
+import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
+import { GuideContainer } from 'interface/guide';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
@@ -153,7 +154,10 @@ class DreamBreath extends Analyzer {
             <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> @{' '}
             {this.owner.formatTimestamp(cast.timestamp)}
           </div>
-          <div>{cast.targetsHit} {t({ id: 'evoker.preservation.dreamBreath.targetsHit', message: 'targets hit' })}</div>
+          <div>
+            {cast.targetsHit}{' '}
+            {t({ id: 'evoker.preservation.dreamBreath.targetsHit', message: 'targets hit' })}
+          </div>
         </>
       );
       entries.push({ value, tooltip });
@@ -163,7 +167,11 @@ class DreamBreath extends Analyzer {
       <div>
         <RoundedPanel>
           <strong>
-            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> {t({ id: 'evoker.preservation.dreamBreath.castEfficiency', message: 'cast efficiency' })}
+            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} />{' '}
+            {t({
+              id: 'evoker.preservation.dreamBreath.castEfficiency',
+              message: 'cast efficiency',
+            })}
           </strong>
           <div className="flex-main chart" style={{ padding: 15 }}>
             {this.subStatistic()}
@@ -171,7 +179,13 @@ class DreamBreath extends Analyzer {
           <GuideContainer>
             <div style={{ marginLeft: '1em' }}>
               {this.averageTargetsHit.toFixed(1)}
-              <small> {t({ id: 'evoker.preservation.dreamBreath.avgTargetsHit', message: 'avg targets hit' })}</small>
+              <small>
+                {' '}
+                {t({
+                  id: 'evoker.preservation.dreamBreath.avgTargetsHit',
+                  message: 'avg targets hit',
+                })}
+              </small>
             </div>
             <PerformanceBoxRow values={entries} />
           </GuideContainer>
