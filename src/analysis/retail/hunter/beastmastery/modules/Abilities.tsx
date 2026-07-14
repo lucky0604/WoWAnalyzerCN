@@ -1,7 +1,6 @@
 import { hastedCooldown } from 'analysis/retail/hunter/shared/constants';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/hunter';
-import { SpellLink } from 'interface';
 import CoreAbilities from 'parser/core/modules/Abilities';
 import { SpellbookAbility } from 'parser/core/modules/Ability';
 import SPELL_CATEGORY from 'parser/core/SPELL_CATEGORY';
@@ -43,11 +42,20 @@ class Abilities extends CoreAbilities {
         },
       },
       {
+        spell: TALENTS.WILD_THRASH_TALENT.id,
+        enabled: combatant.hasTalent(TALENTS.WILD_THRASH_TALENT),
+        category: SPELL_CATEGORY.ROTATIONAL,
+        cooldown: 8,
+        gcd: {
+          base: 1500,
+        },
+      },
+      {
         spell: TALENTS.BARBED_SHOT_TALENT.id,
         enabled: combatant.hasTalent(TALENTS.BARBED_SHOT_TALENT),
         category: SPELL_CATEGORY.ROTATIONAL,
         charges: 2,
-        cooldown: (haste) => hastedCooldown(12, haste),
+        cooldown: (haste) => hastedCooldown(18, haste),
         gcd: {
           base: 1500,
         },
@@ -56,7 +64,9 @@ class Abilities extends CoreAbilities {
         spell: TALENTS.BESTIAL_WRATH_TALENT.id,
         enabled: combatant.hasTalent(TALENTS.BESTIAL_WRATH_TALENT),
         category: SPELL_CATEGORY.COOLDOWNS,
-        cooldown: 90,
+        // Base cooldown is 90s, reduced by a flat 60s if The Beast Within is talented (not
+        // hasted either way) - don't assume it's always taken.
+        cooldown: 90 - (combatant.hasTalent(TALENTS.THE_BEAST_WITHIN_TALENT) ? 60 : 0),
         gcd: {
           base: 1500,
         },
@@ -69,10 +79,14 @@ class Abilities extends CoreAbilities {
               <SpellLink spell={TALENTS.BESTIAL_WRATH_TALENT} />
               {t({
                 id: 'hunter.beastmastery.abilities.bestialWrathExtraSuggestion.p1',
-                message: ' should be cast on cooldown as its cooldown is quickly reset again through ',
+                message:
+                  ' should be cast on cooldown as its cooldown is quickly reset again through ',
               })}
               <SpellLink spell={TALENTS.BARBED_SHOT_TALENT} />
-              {t({ id: 'hunter.beastmastery.abilities.bestialWrathExtraSuggestion.p2', message: '.' })}
+              {t({
+                id: 'hunter.beastmastery.abilities.bestialWrathExtraSuggestion.p2',
+                message: '.',
+              })}
             </>
           ),
         },
@@ -167,6 +181,9 @@ class Abilities extends CoreAbilities {
         spell: TALENTS.MISDIRECTION_TALENT.id,
         category: SPELL_CATEGORY.UTILITY,
         cooldown: 30,
+        // Cast/cooldown tracking is still useful even though nobody is trying to weave this
+        // optimally - just don't give it its own Timeline lane.
+        timelineHide: true,
         gcd: {
           static: 0,
         },

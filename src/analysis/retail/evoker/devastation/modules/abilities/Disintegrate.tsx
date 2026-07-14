@@ -228,9 +228,13 @@ class Disintegrate extends Analyzer {
       this.selectedCombatant,
     ).disintegrateChainedTicks;
 
-    if (this.isMythicPlus) {
-      this.owner.fight.dungeonPulls?.forEach((dungeonPull) => {
-        if (this.windowData.start === 0 && !dungeonPull.boss) {
+    if (this.isMythicPlus && this.owner.fight.dungeonPulls !== undefined) {
+      this.owner.fight.dungeonPulls.forEach((dungeonPull) => {
+        if (this.windowData.start !== 0) {
+          this.windowData.end = dungeonPull.start_time;
+          this.pullData.push(this.windowData);
+        }
+        if (!dungeonPull.boss) {
           this.windowData = {
             start: dungeonPull.start_time,
             end: 0,
@@ -239,20 +243,18 @@ class Disintegrate extends Analyzer {
               defineMessage({ id: 'evoker.devastation.disintegrate.trash', message: 'Trash' }),
             ),
           };
-        }
-        if (dungeonPull.boss) {
-          this.windowData.end = dungeonPull.start_time;
-          this.pullData.push(this.windowData);
+        } else {
           this.windowData = {
             start: dungeonPull.start_time,
             end: 0,
             windowEndedOrPushed: false,
             name: dungeonPull.name,
           };
-          this.pullData.push(this.windowData);
-          this.windowData = structuredClone(defaultWindowData);
         }
       });
+      if (this.windowData.start !== 0) {
+        this.pullData.push(this.windowData);
+      }
     }
   }
 
