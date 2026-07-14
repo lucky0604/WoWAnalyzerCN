@@ -1095,7 +1095,7 @@
   "demonhunter.vengeance.soulsOvercap.tooltip": "你在灵魂残片达到上限时产生了{0}个灵魂。这些会被自动吸收，无法用于提高灵魂炸弹的伤害。",
   "demonhunter.vengeance.soulsOvercap.totalGenerated": "总计产生的灵魂残片：{0}",
   "demonhunter.vengeance.soulsOvercap.totalSpent": "总计消耗的灵魂残片：{0}",
-  "demonhunter.vengeance.spiritBomb.aoeDetails": "此施法命中了 {damageEvents.length} 个目标。",
+  "demonhunter.vengeance.spiritBomb.aoeDetails": "此施法命中了 {0} 个目标。",
   "demonhunter.vengeance.spiritBomb.aoeSummary": "在AOE中使用",
   "demonhunter.vengeance.spiritBomb.castBreakdown": "绿色表示良好施放，红色表示不良施放。",
   "demonhunter.vengeance.spiritBomb.casts": "施放次数",
