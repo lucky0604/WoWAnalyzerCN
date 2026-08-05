@@ -1,19 +1,18 @@
-import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import Events, { CastEvent, HealEvent } from 'parser/core/Events';
+import Events, { HealEvent } from 'parser/core/Events';
 import BoringValueText from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
-import { SpellLink } from 'interface';
 import { getWordofGlorySpell } from 'analysis/retail/paladin/shared/constants';
 
+// TODO: Glistening Radiance proc healing is not attributed and so is not counted
+// here. It needs a cast link normalizer before it can be included.
 class HealingPerHolyPower extends Analyzer {
   totalEffectiveHealing = 0;
-  totalGlimmerHealing = 0; // Glistening Radiance talent
   totalSpenders = 0;
 
   constructor(options: Options) {
@@ -31,28 +30,19 @@ class HealingPerHolyPower extends Analyzer {
     );
   }
 
-  castSpender(event: CastEvent) {
+  castSpender() {
     this.totalSpenders += 1;
-    // TODO: get glistening radiance procs healing
-    // need to add a cast link normalizer for glistening radiance
   }
 
   healEvent(event: HealEvent) {
     this.totalEffectiveHealing += event.amount + (event.absorbed || 0); // effective healing by default does not include healing done to healing absorbs, even though that is effective healing
   }
 
-  glimmerStat() {
-    if (this.selectedCombatant.hasTalent(TALENTS.GLISTENING_RADIANCE_TALENT)) {
-      return (
-        <div>
-          {t({ id: 'paladin.holy.features.healingPerHolyPower.totalHealingFromSpell', message: 'Total healing from' })}{' '}
-          <SpellLink spell={TALENTS.GLISTENING_RADIANCE_TALENT} />{' '}
-          {t({ id: 'paladin.holy.features.healingPerHolyPower.procs', message: 'procs' })}:{' '}
-          {formatNumber(this.totalGlimmerHealing)}
-        </div>
-      );
+  get averageHealingPerHolyPower() {
+    if (this.totalSpenders === 0) {
+      return 0;
     }
-    return null;
+    return this.totalEffectiveHealing / this.totalSpenders / 3;
   }
 
   statistic() {
@@ -64,21 +54,16 @@ class HealingPerHolyPower extends Analyzer {
         tooltip={
           <>
             <div>
-              {t({ id: 'paladin.holy.features.healingPerHolyPower.tooltipMain', message: 'Total healing by spenders, divided by total number of holy power spent on those spenders' })}
-              {' '}
+              Total healing by spenders, divided by total number of holy power spent on those
+              spenders{' '}
             </div>
-            <div>{t({ id: 'paladin.holy.features.healingPerHolyPower.totalHealingFromSpenders', message: 'Total healing from spenders' })}: {formatNumber(this.totalEffectiveHealing)}</div>
-            {this.glimmerStat()}
-            <div>{t({ id: 'paladin.holy.features.healingPerHolyPower.totalSpenders', message: 'Total spenders' })}: {formatNumber(this.totalSpenders)}</div>
+            <div>Total healing from spenders: {formatNumber(this.totalEffectiveHealing)}</div>
+            <div>Total spenders: {formatNumber(this.totalSpenders)}</div>
           </>
         }
       >
-        <BoringValueText label={<>{t({ id: 'paladin.holy.features.healingPerHolyPower.averageHealingPerHP', message: 'Average Healing per Holy Power' })}</>}>
-          <>
-            {formatNumber(
-              (this.totalEffectiveHealing + this.totalGlimmerHealing) / this.totalSpenders / 3,
-            )}
-          </>
+        <BoringValueText label={<>Average Healing per Holy Power</>}>
+          <>{formatNumber(this.averageHealingPerHolyPower)}</>
         </BoringValueText>
       </Statistic>
     );

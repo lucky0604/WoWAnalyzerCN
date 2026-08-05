@@ -19,7 +19,6 @@ export default class BuilderUse extends Analyzer {
   divineTollBuilderCasts = 0;
   crusaderStrikeBuilderCasts = 0;
   holyShockBuilderCasts = 0;
-  secondSunriseBuilderCasts = 0;
 
   constructor(options: Options) {
     super(options);
@@ -46,10 +45,6 @@ export default class BuilderUse extends Analyzer {
     this.addEventListener(
       Events.resourcechange.by(SELECTED_PLAYER).spell(TALENTS.HOLY_SHOCK_TALENT),
       this.onHolyShockCast,
-    );
-    this.addEventListener(
-      Events.resourcechange.by(SELECTED_PLAYER).spell(SPELLS.SECOND_SUNRISE_HOLY_POWER),
-      this.onSecondSunrise,
     );
   }
 
@@ -88,12 +83,6 @@ export default class BuilderUse extends Analyzer {
         label: TALENTS.HOLY_SHOCK_TALENT.name,
         spellId: TALENTS.HOLY_SHOCK_TALENT.id,
         value: this.holyShockBuilderCasts,
-      },
-      {
-        color: SPELL_COLORS.SECOND_SUNRISE,
-        label: TALENTS.SECOND_SUNRISE_TALENT.name,
-        spellId: TALENTS.SECOND_SUNRISE_TALENT.id,
-        value: this.secondSunriseBuilderCasts,
       },
       {
         color: '#A93226',
@@ -151,8 +140,5 @@ export default class BuilderUse extends Analyzer {
   }
   private onHolyShockCast(event: ResourceChangeEvent) {
     this.holyShockBuilderCasts += 1;
-  }
-  private onSecondSunrise(event: ResourceChangeEvent) {
-    this.secondSunriseBuilderCasts += 1;
   }
 }

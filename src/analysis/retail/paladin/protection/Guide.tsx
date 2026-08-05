@@ -33,7 +33,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           <AlertWarning>
             <>
               {t({ id: 'paladin.protection.rotation.lightsmithNotImplemented.p1', message: 'Rotational analysis for ' })}
-              <SpellLink spell={talents.HOLY_ARMAMENTS_TALENT}>Lightsmith</SpellLink>
+              <SpellLink spell={talents.HOLY_ARMAMENTS_PROTECTION_TALENT}>Lightsmith</SpellLink>
               {t({ id: 'paladin.protection.rotation.lightsmithNotImplemented.p2', message: ' is not implemented at this time.' })}
             </>
           </AlertWarning>
