@@ -69,7 +69,10 @@ class SurgingShots extends Analyzer {
                   message: ' as many procs as estimated on a fight given your number of ',
                 })}
                 <SpellLink spell={TALENTS.AIMED_SHOT_TALENT} />
-                {t({ id: 'hunter.marksmanship.surgingShots.procLikelihood.p3', message: ' casts.' })}
+                {t({
+                  id: 'hunter.marksmanship.surgingShots.procLikelihood.p3',
+                  message: ' casts.',
+                })}
               </>
             </div>
           </>

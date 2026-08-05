@@ -89,23 +89,33 @@ class Reclamation extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <div>{t({ id: 'paladin.holy.talents.reclamation.healingDone', message: 'Healing Done' })}: {formatNumber(this.healing)}</div>
-            <div>{t({ id: 'paladin.holy.talents.reclamation.damageDone', message: 'Damage Done' })}: {formatNumber(this.damageDone)}</div>
             <div>
-              <>
-                {t({ id: 'paladin.holy.talents.reclamation.manaFromHolyShock', message: 'Mana from ' })}
-                <SpellLink spell={TALENTS_PALADIN.HOLY_SHOCK_TALENT} />
-              </>
-              :{' '}
-              {formatNumber(this.resourceGained.get(TALENTS.HOLY_SHOCK_TALENT.id) || 0)}
+              {t({ id: 'paladin.holy.talents.reclamation.healingDone', message: 'Healing Done' })}:{' '}
+              {formatNumber(this.healing)}
+            </div>
+            <div>
+              {t({ id: 'paladin.holy.talents.reclamation.damageDone', message: 'Damage Done' })}:{' '}
+              {formatNumber(this.damageDone)}
             </div>
             <div>
               <>
-                {t({ id: 'paladin.holy.talents.reclamation.manaFromCrusaderStrike', message: 'Mana from ' })}
+                {t({
+                  id: 'paladin.holy.talents.reclamation.manaFromHolyShock',
+                  message: 'Mana from ',
+                })}
+                <SpellLink spell={TALENTS_PALADIN.HOLY_SHOCK_TALENT} />
+              </>
+              : {formatNumber(this.resourceGained.get(TALENTS.HOLY_SHOCK_TALENT.id) || 0)}
+            </div>
+            <div>
+              <>
+                {t({
+                  id: 'paladin.holy.talents.reclamation.manaFromCrusaderStrike',
+                  message: 'Mana from ',
+                })}
                 <SpellLink spell={SPELLS.CRUSADER_STRIKE} />
               </>
-              :{' '}
-              {formatNumber(this.resourceGained.get(SPELLS.CRUSADER_STRIKE.id) || 0)}
+              : {formatNumber(this.resourceGained.get(SPELLS.CRUSADER_STRIKE.id) || 0)}
             </div>
           </>
         }
@@ -118,7 +128,11 @@ class Reclamation extends Analyzer {
             <ItemDamageDone amount={this.damageDone} />
           </div>
           <div>
-            <ItemManaGained amount={totalMana} useAbbrev customLabel={t({ id: 'paladin.holy.talents.reclamation.mana', message: 'mana' })} />
+            <ItemManaGained
+              amount={totalMana}
+              useAbbrev
+              customLabel={t({ id: 'paladin.holy.talents.reclamation.mana', message: 'mana' })}
+            />
           </div>
         </TalentSpellText>
       </Statistic>

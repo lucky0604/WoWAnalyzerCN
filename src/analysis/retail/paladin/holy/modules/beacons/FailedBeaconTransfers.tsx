@@ -52,9 +52,21 @@ class FailedBeaconTransfers extends Analyzer {
         tooltip={
           <>
             <>
-              {t({ id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.p1', message: 'The amount of ' })}
-              <strong>{t({ id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.raw', message: 'raw' })}</strong>
-              {t({ id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.p2', message: " healing that didn't transfer to one or more beacon targets due to an issue such as Line of Sight or phasing." })}
+              {t({
+                id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.p1',
+                message: 'The amount of ',
+              })}
+              <strong>
+                {t({
+                  id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.raw',
+                  message: 'raw',
+                })}
+              </strong>
+              {t({
+                id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostBeaconHealingTooltip.p2',
+                message:
+                  " healing that didn't transfer to one or more beacon targets due to an issue such as Line of Sight or phasing.",
+              })}
             </>
           </>
         }
@@ -62,8 +74,17 @@ class FailedBeaconTransfers extends Analyzer {
         <BoringValueText
           label={
             <>
-              <SpellIcon spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} /> Beacon healing lost{' '}
-              <small>(line of sight)</small>
+              <SpellIcon spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} />
+              {t({
+                id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostLabel.p1',
+                message: ' Beacon healing lost ',
+              })}
+              <small>
+                {t({
+                  id: 'paladin.holy.modules.beacons.failedBeaconTransfers.lostLabel.los',
+                  message: '(line of sight)',
+                })}
+              </small>
             </>
           }
         >

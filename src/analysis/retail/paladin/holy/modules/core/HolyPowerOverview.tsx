@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
@@ -111,16 +112,36 @@ class HolyPowerOverview extends Analyzer {
           tooltip: (
             <>
               <div>
-                {formatNumber(spender.spent)} <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />{' '}
-                spent across {spender.casts} <SpellLink spell={spell} /> casts
+                {formatNumber(spender.spent)} <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({
+                  id: 'paladin.holy.core.holyPowerOverview.spender.tooltip.p1',
+                  message: ' spent across {casts} ',
+                  values: { casts: spender.casts },
+                })}
+                <SpellLink spell={spell} />
+                {t({
+                  id: 'paladin.holy.core.holyPowerOverview.spender.tooltip.p2',
+                  message: ' casts',
+                })}
               </div>
               {healed ? (
                 <div>
-                  {formatNumber(healed.healing)} healing,{' '}
-                  {formatPercentage(healed.overhealing / raw)}% overheal
+                  {t({
+                    id: 'paladin.holy.core.holyPowerOverview.spender.healed.p1',
+                    message: '{healing} healing, {pct}% overheal',
+                    values: {
+                      healing: formatNumber(healed.healing),
+                      pct: formatPercentage(healed.overhealing / raw),
+                    },
+                  })}
                 </div>
               ) : (
-                <div>Deals damage rather than healing.</div>
+                <div>
+                  {t({
+                    id: 'paladin.holy.core.holyPowerOverview.spender.damage',
+                    message: 'Deals damage rather than healing.',
+                  })}
+                </div>
               )}
             </>
           ),
@@ -134,19 +155,58 @@ class HolyPowerOverview extends Analyzer {
     return (
       <>
         <p>
-          Since <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> spenders are so impactful,
-          minimizing waste should be a priority. <SpellLink spell={spender} /> is often the most
-          reliable choice when deciding which <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />{' '}
-          spender to use. As a general rule of thumb, if casting <SpellLink spell={spender} /> won't
-          result in significant overhealing, it's usually the best option. This is because{' '}
-          <SpellLink spell={TALENTS.LIGHT_OF_DAWN_TALENT} /> tends to overheal and targets allies
-          randomly, making it less effective.
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p1',
+            message: 'Since ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p2',
+            message: ' spenders are so impactful, minimizing waste should be a priority. ',
+          })}
+          <SpellLink spell={spender} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p3',
+            message: ' is often the most reliable choice when deciding which ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p4',
+            message: ' spender to use. As a general rule of thumb, if casting ',
+          })}
+          <SpellLink spell={spender} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p5',
+            message:
+              " won't result in significant overhealing, it's usually the best option. This is because ",
+          })}
+          <SpellLink spell={TALENTS.LIGHT_OF_DAWN_TALENT} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p6',
+            message: ' tends to overheal and targets allies randomly, making it less effective.',
+          })}
         </p>
         <p>
-          When using <SpellLink spell={spender} />, try to avoid targeting your Beaconed allies
-          unless they are in immediate danger of dying. If there is no healing needed, don't
-          hesitate to use <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} /> to avoid capping on{' '}
-          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />.
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p7',
+            message: 'When using ',
+          })}
+          <SpellLink spell={spender} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p8',
+            message:
+              ", try to avoid targeting your Beaconed allies unless they are in immediate danger of dying. If there is no healing needed, don't hesitate to use ",
+          })}
+          <SpellLink spell={SPELLS.SHIELD_OF_THE_RIGHTEOUS} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p9',
+            message: ' to avoid capping on ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+          {t({
+            id: 'paladin.holy.core.holyPowerOverview.explanation.p10',
+            message: '.',
+          })}
         </p>
       </>
     );
@@ -161,40 +221,84 @@ class HolyPowerOverview extends Analyzer {
     return [
       {
         value: formatNumber(this.holyPowerTracker.wasted),
-        label: 'Holy Power Wasted',
+        label: t({
+          id: 'paladin.holy.core.holyPowerOverview.hpWasted',
+          message: 'Holy Power Wasted',
+        }),
         tooltip: (
           <>
-            {formatPercentage(this.wastedPercentage)}% of the {formatNumber(this.totalHolyPower)}{' '}
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> you generated was overcapped and
-            lost.
+            {t({
+              id: 'paladin.holy.core.holyPowerOverview.hpWasted.tooltip.p1',
+              message: '{pct}% of the {total} ',
+              values: {
+                pct: formatPercentage(this.wastedPercentage),
+                total: formatNumber(this.totalHolyPower),
+              },
+            })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({
+              id: 'paladin.holy.core.holyPowerOverview.hpWasted.tooltip.p2',
+              message: ' you generated was overcapped and lost.',
+            })}
           </>
         ),
         performance,
       },
       {
         value: formatNumber(this.holyPowerTracker.spent),
-        label: 'Holy Power Spent',
+        label: t({
+          id: 'paladin.holy.core.holyPowerOverview.hpSpent',
+          message: 'Holy Power Spent',
+        }),
         tooltip: (
           <>
-            Total <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> spent across{' '}
-            {formatNumber(this.healingPerHolyPower.totalSpenders)} spenders.
+            {t({
+              id: 'paladin.holy.core.holyPowerOverview.hpSpent.tooltip.p1',
+              message: 'Total ',
+            })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({
+              id: 'paladin.holy.core.holyPowerOverview.hpSpent.tooltip.p2',
+              message: ' spent across {spenders} spenders.',
+              values: { spenders: formatNumber(this.healingPerHolyPower.totalSpenders) },
+            })}
           </>
         ),
       },
       {
         value: formatNumber(this.healingPerHolyPower.averageHealingPerHolyPower),
-        label: 'Healing per Holy Power',
+        label: t({
+          id: 'paladin.holy.core.holyPowerOverview.healingPerHp',
+          message: 'Healing per Holy Power',
+        }),
         tooltip: (
           <>
-            Healing done by your spenders, divided by the{' '}
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> they cost.
+            {t({
+              id: 'paladin.holy.core.holyPowerOverview.healingPerHp.tooltip.p1',
+              message: 'Healing done by your spenders, divided by the ',
+            })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({
+              id: 'paladin.holy.core.holyPowerOverview.healingPerHp.tooltip.p2',
+              message: ' they cost.',
+            })}
           </>
         ),
       },
       {
         value: `${formatPercentage(this.spenderOverhealingPercentage, 0)}%`,
-        label: 'Spender Overhealing',
-        tooltip: <>Overhealing across all of your healing spenders combined.</>,
+        label: t({
+          id: 'paladin.holy.core.holyPowerOverview.spenderOverhealing',
+          message: 'Spender Overhealing',
+        }),
+        tooltip: (
+          <>
+            {t({
+              id: 'paladin.holy.core.holyPowerOverview.spenderOverhealing.tooltip',
+              message: 'Overhealing across all of your healing spenders combined.',
+            })}
+          </>
+        ),
       },
     ];
   }
@@ -208,10 +312,16 @@ class HolyPowerOverview extends Analyzer {
         <CastOverview
           // Only used as a fallback title, which the explicit title below replaces.
           spell={getWordofGlorySpell(this.selectedCombatant)}
-          title="Holy Power Overview"
+          title={t({
+            id: 'paladin.holy.core.holyPowerOverview.overview',
+            message: 'Holy Power Overview',
+          })}
           stats={this.stats}
           additionalContent={{
-            title: 'Holy Power Spent By Spell',
+            title: t({
+              id: 'paladin.holy.core.holyPowerOverview.spentBySpell',
+              message: 'Holy Power Spent By Spell',
+            }),
             content: <StackedBar segments={this.spenderSegments} />,
           }}
         />

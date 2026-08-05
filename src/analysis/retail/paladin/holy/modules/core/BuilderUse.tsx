@@ -109,7 +109,8 @@ export default class BuilderUse extends Analyzer {
       <Statistic position={STATISTIC_ORDER.CORE(5)} size="flexible">
         <div className="pad">
           <label>
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> {t({ id: 'paladin.holy.core.builderUse.builderUsage', message: 'builder usage' })}
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />{' '}
+            {t({ id: 'paladin.holy.core.builderUse.builderUsage', message: 'builder usage' })}
           </label>
           {this.chart}
         </div>

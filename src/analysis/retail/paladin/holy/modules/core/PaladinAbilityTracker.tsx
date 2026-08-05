@@ -23,7 +23,10 @@ export interface TrackedPaladinAbility extends TrackedAbility {
 
 const TIMELINE_REASON = (
   <>
-    {t({ id: 'paladin.holy.core.paladinAbilityTracker.thisCastConsumedIOL.p1', message: 'This cast consumed ' })}
+    {t({
+      id: 'paladin.holy.core.paladinAbilityTracker.thisCastConsumedIOL.p1',
+      message: 'This cast consumed ',
+    })}
     <SpellLink spell={SPELLS.INFUSION_OF_LIGHT} />
     {t({ id: 'paladin.holy.core.paladinAbilityTracker.thisCastConsumedIOL.p2', message: '.' })}
   </>

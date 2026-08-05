@@ -21,9 +21,7 @@ import talents from 'common/TALENTS/paladin';
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section
-        title={t({ id: 'paladin.protection.section.coreSkills', message: 'Core Skills' })}
-      >
+      <Section title={t({ id: 'paladin.protection.section.coreSkills', message: 'Core Skills' })}>
         <FoundationDowntimeSection />
         <FoundationCooldownSection />
       </Section>
@@ -32,9 +30,15 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         {!info.combatant.hasTalent(talents.LIGHTS_GUIDANCE_TALENT) && (
           <AlertWarning>
             <>
-              {t({ id: 'paladin.protection.rotation.lightsmithNotImplemented.p1', message: 'Rotational analysis for ' })}
+              {t({
+                id: 'paladin.protection.rotation.lightsmithNotImplemented.p1',
+                message: 'Rotational analysis for ',
+              })}
               <SpellLink spell={talents.HOLY_ARMAMENTS_PROTECTION_TALENT}>Lightsmith</SpellLink>
-              {t({ id: 'paladin.protection.rotation.lightsmithNotImplemented.p2', message: ' is not implemented at this time.' })}
+              {t({
+                id: 'paladin.protection.rotation.lightsmithNotImplemented.p2',
+                message: ' is not implemented at this time.',
+              })}
             </>
           </AlertWarning>
         )}
@@ -63,23 +67,33 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
   const holyPowerWasted = modules.holyPowerTracker.wasted;
 
   return (
-    <Section
-      title={t({ id: 'paladin.protection.section.resourceUse', message: 'Resource Use' })}
-    >
+    <Section title={t({ id: 'paladin.protection.section.resourceUse', message: 'Resource Use' })}>
       <SubSection
         title={t({ id: 'paladin.protection.subsection.holyPower', message: 'Holy Power' })}
       >
         <p>
           <>
-            {t({ id: 'paladin.protection.holyPower.description.p1', message: 'Most of your rotational abilities either ' })}
-            <strong>{t({ id: 'paladin.protection.holyPower.description.build', message: 'build' })}</strong>
+            {t({
+              id: 'paladin.protection.holyPower.description.p1',
+              message: 'Most of your rotational abilities either ',
+            })}
+            <strong>
+              {t({ id: 'paladin.protection.holyPower.description.build', message: 'build' })}
+            </strong>
             {t({ id: 'paladin.protection.holyPower.description.p2', message: ' or ' })}
-            <strong>{t({ id: 'paladin.protection.holyPower.description.spend', message: 'spend' })}</strong>
-            {' '}
+            <strong>
+              {t({ id: 'paladin.protection.holyPower.description.spend', message: 'spend' })}
+            </strong>{' '}
             <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
-            {t({ id: 'paladin.protection.holyPower.description.p3', message: '. Never use a builder at max ' })}
+            {t({
+              id: 'paladin.protection.holyPower.description.p3',
+              message: '. Never use a builder at max ',
+            })}
             <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
-            {t({ id: 'paladin.protection.holyPower.description.p4', message: ' or when doing so will cause you to overcap on ' })}
+            {t({
+              id: 'paladin.protection.holyPower.description.p4',
+              message: ' or when doing so will cause you to overcap on ',
+            })}
             <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
             {t({ id: 'paladin.protection.holyPower.description.p5', message: '.' })}
           </>
@@ -87,13 +101,14 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
         <SideBySidePanels>
           <RoundedPanel>
             <strong>
-              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+              <>
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
                 {t({ id: 'paladin.protection.holyPower.wasteTitle.p1', message: 'Waste' })}
               </>
             </strong>
             <p>
-              <>{t({ id: 'paladin.protection.holyPower.wasted.p1', message: 'You wasted' })}
-                {' '}
+              <>
+                {t({ id: 'paladin.protection.holyPower.wasted.p1', message: 'You wasted' })}{' '}
                 <PerformancePercentage
                   performance={percentAtHolyPowerCapPerformance}
                   perfectPercentage={PERFECT_HOLY_POWER_CAP}
@@ -101,10 +116,8 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
                   okPercentage={OK_HOLY_POWER_CAP}
                   percentage={percentAtHolyPowerCap}
                   flatAmount={holyPowerWasted}
-                />
-                {' '}
-                {t({ id: 'paladin.protection.holyPower.wasted.p2', message: 'of your' })}
-                {' '}
+                />{' '}
+                {t({ id: 'paladin.protection.holyPower.wasted.p2', message: 'of your' })}{' '}
                 <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
                 {t({ id: 'paladin.protection.holyPower.wasted.p3', message: '.' })}
               </>
@@ -112,8 +125,12 @@ function ResourceUsageSection({ modules, info }: GuideProps<typeof CombatLogPars
           </RoundedPanel>
           <RoundedPanel>
             <strong>
-              <><ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
-                {t({ id: 'paladin.protection.holyPower.builderEffectiveness.p1', message: 'Builder Effectiveness' })}
+              <>
+                <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+                {t({
+                  id: 'paladin.protection.holyPower.builderEffectiveness.p1',
+                  message: 'Builder Effectiveness',
+                })}
               </>
             </strong>
             {modules.builderUse.chart}

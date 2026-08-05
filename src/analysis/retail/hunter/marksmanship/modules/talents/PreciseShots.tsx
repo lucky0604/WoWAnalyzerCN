@@ -27,7 +27,6 @@ import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import SpellUsable from 'parser/shared/modules/SpellUsable';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 
 /**
  * Aimed Shot causes your next 1-2 Arcane Shots, Chimaera Shots or Multi-Shots to deal 100% more damage.

@@ -107,9 +107,18 @@ class GrandCrusader extends Analyzer.withDependencies({
         size="flexible"
         tooltip={
           <>
-            {t({ id: 'paladin.protection.grandCrusader.tooltip.p1', message: "Grand Crusader reset the cooldown of Avenger's Shield {count} times.", values: { count: this.gcProcs }})}
+            {t({
+              id: 'paladin.protection.grandCrusader.tooltip.p1',
+              message: "Grand Crusader reset the cooldown of Avenger's Shield {count} times.",
+              values: { count: this.gcProcs },
+            })}
             <br />
-            {t({ id: 'paladin.protection.grandCrusader.tooltip.p2', message: 'You had {chances} chances for Grand Crusader to trigger with a {pct}% chance to trigger.', values: { chances: this.resetChances, pct: formatPercentage(this.procChance, 0) }})}
+            {t({
+              id: 'paladin.protection.grandCrusader.tooltip.p2',
+              message:
+                'You had {chances} chances for Grand Crusader to trigger with a {pct}% chance to trigger.',
+              values: { chances: this.resetChances, pct: formatPercentage(this.procChance, 0) },
+            })}
           </>
         }
         dropdown={
@@ -124,9 +133,18 @@ class GrandCrusader extends Analyzer.withDependencies({
               binomChartXAxis,
             )}
             <p>
-              <>{t({ id: 'paladin.protection.grandCrusader.likelihood.p1', message: 'Likelihood of having ' })}
-                <em>{t({ id: 'paladin.protection.grandCrusader.likelihood.em', message: 'exactly' })}</em>
-                {t({ id: 'paladin.protection.grandCrusader.likelihood.p2', message: 'as many resets as you did with your talents.' })}
+              <>
+                {t({
+                  id: 'paladin.protection.grandCrusader.likelihood.p1',
+                  message: 'Likelihood of having ',
+                })}
+                <em>
+                  {t({ id: 'paladin.protection.grandCrusader.likelihood.em', message: 'exactly' })}
+                </em>
+                {t({
+                  id: 'paladin.protection.grandCrusader.likelihood.p2',
+                  message: 'as many resets as you did with your talents.',
+                })}
               </>
             </p>
           </div>

@@ -1,4 +1,5 @@
 import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import Analyzer from 'parser/core/Analyzer';
 import DonutChart from 'parser/ui/DonutChart';
@@ -61,7 +62,7 @@ class CastBehavior extends Analyzer {
         <Statistic ultrawide size="flexible">
           <div className="pad">
             <label>
-              <Trans id="paladin.holy.modules.castBehavior.fillers">Fillers</Trans>
+              {t({ id: 'paladin.holy.modules.castBehavior.fillers', message: 'Fillers' })}
             </label>
 
             {this.fillerCastRatioChart()}

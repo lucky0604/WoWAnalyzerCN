@@ -26,14 +26,31 @@ const CooldownGraphSubsection = () => {
     <SubSection>
       <>
         <p>
-          <strong>{t({ id: 'paladin.holy.guide.cooldownGraph.description.strong', message: 'Cooldown Graph' })}</strong>
-          {t({ id: 'paladin.holy.guide.cooldownGraph.description.p1', message: ' - this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.' })}
+          <strong>
+            {t({
+              id: 'paladin.holy.guide.cooldownGraph.description.strong',
+              message: 'Cooldown Graph',
+            })}
+          </strong>
+          {t({
+            id: 'paladin.holy.guide.cooldownGraph.description.p1',
+            message:
+              ' - this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.',
+          })}
         </p>
       </>
       <>
         <p>
-          {t({ id: 'paladin.holy.guide.cooldownGraph.reliance.p1', message: 'Holy Paladin is deeply reliant on its cooldown to function. ' })}
-          <strong>{t({ id: 'paladin.holy.guide.cooldownGraph.reliance.strong', message: 'You should use them as close to on cooldown as possible !' })}</strong>
+          {t({
+            id: 'paladin.holy.guide.cooldownGraph.reliance.p1',
+            message: 'Holy Paladin is deeply reliant on its cooldown to function. ',
+          })}
+          <strong>
+            {t({
+              id: 'paladin.holy.guide.cooldownGraph.reliance.strong',
+              message: 'You should use them as close to on cooldown as possible !',
+            })}
+          </strong>
         </p>
       </>
 

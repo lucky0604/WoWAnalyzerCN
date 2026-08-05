@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -44,14 +45,18 @@ class BeaconOverview extends Analyzer {
     return (
       <>
         <p>
-          Your beacons copy a share of your healing onto whoever holds them, so most of what matters
-          is not how long they were up but whether that copy reached them and whether you spent your
-          own casts wisely given it.
+          {t({
+            id: 'paladin.holy.overview.beacon.explanation.p1',
+            message:
+              'Your beacons copy a share of your healing onto whoever holds them, so most of what matters is not how long they were up but whether that copy reached them and whether you spent your own casts wisely given it.',
+          })}
         </p>
         <p>
-          Healing your beacon target directly is the main way to waste this. The transfer already
-          heals them, so the same cast on anyone else does more. Healing lost to line of sight is a
-          positioning problem instead -- the transfer simply fails when they cannot be reached.
+          {t({
+            id: 'paladin.holy.overview.beacon.explanation.p2',
+            message:
+              'Healing your beacon target directly is the main way to waste this. The transfer already heals them, so the same cast on anyone else does more. Healing lost to line of sight is a positioning problem instead -- the transfer simply fails when they cannot be reached.',
+          })}
         </p>
       </>
     );
@@ -61,12 +66,17 @@ class BeaconOverview extends Analyzer {
     const stats: StatisticData[] = [
       {
         value: `${formatPercentage(this.directBeaconPercentage, 0)}%`,
-        label: 'Healing On Beacon',
+        label: t({
+          id: 'paladin.holy.overview.beacon.healingOnBeacon',
+          message: 'Healing On Beacon',
+        }),
         tooltip: (
           <>
-            The share of your beacon transferring healing that landed on a beacon target directly.
-            They are already being healed by the transfer, so this is healing that would have been
-            worth more on someone else.
+            {t({
+              id: 'paladin.holy.overview.beacon.healingOnBeacon.tooltip',
+              message:
+                'The share of your beacon transferring healing that landed on a beacon target directly. They are already being healed by the transfer, so this is healing that would have been worth more on someone else.',
+            })}
           </>
         ),
         performance: evaluateQualitativePerformanceByThreshold({
@@ -76,11 +86,17 @@ class BeaconOverview extends Analyzer {
       },
       {
         value: formatNumber(this.failedBeaconTransfers.lostBeaconHealing),
-        label: 'Lost To Line Of Sight',
+        label: t({
+          id: 'paladin.holy.overview.beacon.lostLos',
+          message: 'Lost To Line Of Sight',
+        }),
         tooltip: (
           <>
-            Raw healing that never reached a beacon target because they were out of line of sight or
-            phased. Approximate, and usually a sign of where you or they were standing.
+            {t({
+              id: 'paladin.holy.overview.beacon.lostLos.tooltip',
+              message:
+                'Raw healing that never reached a beacon target because they were out of line of sight or phased. Approximate, and usually a sign of where you or they were standing.',
+            })}
           </>
         ),
       },
@@ -89,11 +105,22 @@ class BeaconOverview extends Analyzer {
     if (this.tracksMissingBeacons) {
       stats.push({
         value: formatNumber(this.missingBeacons.lostBeaconHealing),
-        label: 'Lost To Missing Beacon',
+        label: t({
+          id: 'paladin.holy.overview.beacon.lostMissing',
+          message: 'Lost To Missing Beacon',
+        }),
         tooltip: (
           <>
-            Raw healing that did not transfer because a beacon was not on anyone. Reapply{' '}
-            <SpellLink spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} /> promptly when it drops.
+            {t({
+              id: 'paladin.holy.overview.beacon.lostMissing.tooltip.p1',
+              message:
+                'Raw healing that did not transfer because a beacon was not on anyone. Reapply ',
+            })}
+            <SpellLink spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF} />
+            {t({
+              id: 'paladin.holy.overview.beacon.lostMissing.tooltip.p2',
+              message: ' promptly when it drops.',
+            })}
           </>
         ),
       });
@@ -110,7 +137,10 @@ class BeaconOverview extends Analyzer {
       >
         <CastOverview
           spell={SPELLS.BEACON_OF_LIGHT_CAST_AND_BUFF}
-          title="Beacon Overview"
+          title={t({
+            id: 'paladin.holy.overview.beacon.beaconOverview',
+            message: 'Beacon Overview',
+          })}
           stats={this.stats}
         />
       </GuideSection>

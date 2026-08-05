@@ -6,5 +6,16 @@
   "paladin.holy.holyPower.usage": "使用 <0/> 时，尽量避免以信标队友为目标，除非他们即将死亡。如果不需要治疗，不要犹豫使用 <1/> 来避免 <2/> 溢出。",
   "paladin.holy.holyPower.wasted": "你浪费了 <0/> 点 <1/>。",
   "paladin.holy.guide.cooldownGraph.description": "<0><1>冷却时间图表</1> - 此图表显示您何时使用了冷却技能以及用了多久才再次使用它们。灰色段表示该法术可用，黄色段表示该法术正在冷却中。红色段高亮显示本可以额外施放一整个冷却技能的时间。</0>",
-  "paladin.holy.guide.cooldownGraph.reliance": "<0>神圣圣骑士深深依赖于其冷却技能来运作。<1>您应该尽可能接近冷却完成时就使用它们！</1></0>"
+  "paladin.holy.guide.cooldownGraph.reliance": "<0>神圣圣骑士深深依赖于其冷却技能来运作。<1>您应该尽可能接近冷却完成时就使用它们！</1></0>",
+  "paladin.holy.section.alwaysBeCasting": "始终施法",
+  "paladin.holy.section.beacons": "信标",
+  "paladin.holy.section.coreRotation": "核心循环",
+  "paladin.holy.coreRotation.description.p1": "神圣圣骑士是一名反应式治疗者。没有固定的循环，但有一个在无更紧急情况时始终遵守的优先级列表：攒出",
+  "paladin.holy.coreRotation.description.p2": "并花掉它，两端都不要浪费。",
+  "paladin.holy.coreRotation.description.strong": "此列表无法看到你在应对的伤害。",
+  "paladin.holy.coreRotation.description.p3": "因预期伤害而多等一个公共CD，或因某队友即将死亡而去治疗他，都会在此处显示为违例。用它来找出值得查看的时刻，而不是作为打分。",
+  "paladin.holy.section.defensives": "防御技能",
+  "paladin.holy.section.defensives.explanation": "减少自己受到的伤害就是在治疗队友——或者在地城中，就是你不必做的治疗。这些技能足够短，可以用来应对任何你能预见的情况，而不是存着等更糟的情况。",
+  "paladin.holy.section.damageTaken": "承受伤害",
+  "paladin.holy.section.infusionOfLight": "光明灌注"
 }

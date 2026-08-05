@@ -12,5 +12,7 @@
   "hunter.marksmanship.preciseShots.buffsUsed": "已使用层数",
   "hunter.marksmanship.rapidFire.possibleFocusGained": "可能获得的总集中值",
   "hunter.marksmanship.trueshot.perTrueshot": "每次百发百中",
-  "hunter.marksmanship.steadyShot.possibleFocusGained": "可能获得的总集中值"
+  "hunter.marksmanship.steadyShot.possibleFocusGained": "可能获得的总集中值",
+  "hunter.marksmanship.modules.talents.preciseShots.castWithoutBuff": "在精确射击未激活时不应施放此技能。",
+  "hunter.marksmanship.modules.talents.wailingArrow.wastedDeathblow": "你已经有一个死亡之箭的触发效果。哀嚎箭必定触发死亡之箭，因此此施法浪费了必定的触发。"
 }

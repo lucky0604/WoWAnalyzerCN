@@ -72,9 +72,21 @@ class MissingBeacons extends Analyzer {
         }
         tooltip={
           <>
-            {t({ id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.p1', message: 'The amount of ' })}
-            <strong>{t({ id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.raw', message: 'raw' })}</strong>
-            {t({ id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.p2', message: " healing that didn't transfer to one or more beacon targets due to a missing beacon. When a beacon drops, re-apply it quickly." })}
+            {t({
+              id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.p1',
+              message: 'The amount of ',
+            })}
+            <strong>
+              {t({
+                id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.raw',
+                message: 'raw',
+              })}
+            </strong>
+            {t({
+              id: 'paladin.holy.modules.beacons.missingBeacons.lostBeaconHealingTooltip.p2',
+              message:
+                " healing that didn't transfer to one or more beacon targets due to a missing beacon. When a beacon drops, re-apply it quickly.",
+            })}
           </>
         }
       />

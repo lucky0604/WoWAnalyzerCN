@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import Spell from 'common/SPELLS/Spell';
@@ -102,28 +103,65 @@ class InfusionOfLight extends Analyzer {
     return (
       <>
         <p>
-          <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} /> gives{' '}
-          <SpellLink spell={TALENTS.HOLY_SHOCK_TALENT} /> a chance to empower your next{' '}
-          <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> or{' '}
-          <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />. It holds{' '}
+          <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} />
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p1',
+            message: ' gives ',
+          })}
+          <SpellLink spell={TALENTS.HOLY_SHOCK_TALENT} />
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p2',
+            message: ' a chance to empower your next ',
+          })}
+          <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} />
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p3',
+            message: ' or ',
+          })}
+          <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p4',
+            message: '. It holds ',
+          })}
           {this.maxCharges === 2 ? (
             <>
-              two charges, thanks to{' '}
+              {t({
+                id: 'paladin.holy.talents.infusionOfLight.explanation.p5',
+                message: 'two charges, thanks to ',
+              })}
               <SpellLink spell={TALENTS.INFLORESCENCE_OF_THE_SUNWELL_TALENT} />
             </>
           ) : (
-            'a single charge'
+            t({
+              id: 'paladin.holy.talents.infusionOfLight.explanation.p6',
+              message: 'a single charge',
+            })
           )}
-          .
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p7',
+            message: '.',
+          })}
         </p>
         <p>
-          <SpellLink spell={SPELLS.FLASH_OF_LIGHT} /> is the better home for a proc, but{' '}
-          <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> is a reasonable one when nobody needs the
-          healing. Either beats letting the proc expire.
+          <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p8',
+            message: ' is the better home for a proc, but ',
+          })}
+          <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} />
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p9',
+            message:
+              ' is a reasonable one when nobody needs the healing. Either beats letting the proc expire.',
+          })}
         </p>
         <p>
-          Spend your procs before they expire, and don't sit at max charges. Once you are capped,
-          the next proc is lost entirely -- the buff simply refreshes and you gain nothing from it.
+          <SpellLink spell={SPELLS.INFUSION_OF_LIGHT} />
+          {t({
+            id: 'paladin.holy.talents.infusionOfLight.explanation.p10',
+            message:
+              " Spend your procs before they expire, and don't sit at max charges. Once you are capped, the next proc is lost entirely -- the buff simply refreshes and you gain nothing from it.",
+          })}
         </p>
       </>
     );
@@ -133,26 +171,54 @@ class InfusionOfLight extends Analyzer {
     return [
       {
         value: `${this.procs}`,
-        label: 'Procs Gained',
+        label: t({
+          id: 'paladin.holy.talents.infusionOfLight.procsGained',
+          message: 'Procs Gained',
+        }),
         tooltip: (
           <>
-            Every <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} /> charge you gained, counted
-            from the buff itself.
+            {t({
+              id: 'paladin.holy.talents.infusionOfLight.procsGained.tooltip.p1',
+              message: 'Every ',
+            })}
+            <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.infusionOfLight.procsGained.tooltip.p2',
+              message: ' charge you gained, counted from the buff itself.',
+            })}
           </>
         ),
       },
       {
         value: `${this.procsUsed}`,
-        label: 'Procs Used',
-        tooltip: <>{formatPercentage(this.procsUsedPercentage, 0)}% of your procs were spent.</>,
+        label: t({ id: 'paladin.holy.talents.infusionOfLight.procsUsed', message: 'Procs Used' }),
+        tooltip: (
+          <>
+            {t({
+              id: 'paladin.holy.talents.infusionOfLight.procsUsed.tooltip',
+              message: '{pct}% of your procs were spent.',
+              values: { pct: formatPercentage(this.procsUsedPercentage, 0) },
+            })}
+          </>
+        ),
       },
       {
         value: `${this.procsWasted}`,
-        label: 'Procs Wasted',
+        label: t({
+          id: 'paladin.holy.talents.infusionOfLight.procsWasted',
+          message: 'Procs Wasted',
+        }),
         tooltip: (
           <>
-            {this.procsExpired} expired before you spent them, {this.procsOvercapped} arrived while
-            you were already at max charges.
+            {t({
+              id: 'paladin.holy.talents.infusionOfLight.procsWasted.tooltip',
+              message:
+                '{expired} expired before you spent them, {overcapped} arrived while you were already at max charges.',
+              values: {
+                expired: this.procsExpired,
+                overcapped: this.procsOvercapped,
+              },
+            })}
           </>
         ),
       },
@@ -172,11 +238,23 @@ class InfusionOfLight extends Analyzer {
         color: SPENDER_COLORS[spell.id],
         tooltip: (
           <>
-            {casts} procs spent on <SpellLink spell={spell} />
+            {t({
+              id: 'paladin.holy.talents.infusionOfLight.spender.tooltip.p1',
+              message: '{casts} procs spent on ',
+              values: { casts },
+            })}
+            <SpellLink spell={spell} />
             {spell.id === SPELLS.JUDGMENT_CAST_HOLY.id && (
               <div>
-                Worth less than <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />, but a fine home for a
-                proc when nobody needs the healing.
+                {t({
+                  id: 'paladin.holy.talents.infusionOfLight.spender.judgmentTooltip',
+                  message: 'Worth less than ',
+                })}
+                <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />
+                {t({
+                  id: 'paladin.holy.talents.infusionOfLight.spender.judgmentTooltip.p2',
+                  message: ', but a fine home for a proc when nobody needs the healing.',
+                })}
               </div>
             )}
           </>
@@ -185,13 +263,17 @@ class InfusionOfLight extends Analyzer {
 
     if (this.procsWasted > 0) {
       segments.push({
-        label: 'Wasted',
+        label: t({ id: 'paladin.holy.talents.infusionOfLight.wasted', message: 'Wasted' }),
         value: this.procsWasted,
         color: WASTED_COLOR,
         tooltip: (
           <>
-            {this.procsExpired} procs expired before you spent them, {this.procsOvercapped} arrived
-            while you were already at max charges.
+            {t({
+              id: 'paladin.holy.talents.infusionOfLight.wasted.tooltip',
+              message:
+                '{expired} procs expired before you spent them, {overcapped} arrived while you were already at max charges.',
+              values: { expired: this.procsExpired, overcapped: this.procsOvercapped },
+            })}
           </>
         ),
       });
@@ -208,10 +290,16 @@ class InfusionOfLight extends Analyzer {
       >
         <CastOverview
           spell={SPELLS.INFUSION_OF_LIGHT}
-          title="Infusion of Light Overview"
+          title={t({
+            id: 'paladin.holy.talents.infusionOfLight.overview',
+            message: 'Infusion of Light Overview',
+          })}
           stats={this.stats}
           additionalContent={{
-            title: 'Proc Usage',
+            title: t({
+              id: 'paladin.holy.talents.infusionOfLight.procUsage',
+              message: 'Proc Usage',
+            }),
             content: <StackedBar segments={this.spenderSegments} />,
           }}
         />

@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -96,22 +97,44 @@ class Judgment extends Analyzer {
         <p>
           <b>
             <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} />
-          </b>{' '}
-          is a filler you cast for damage, and for the{' '}
-          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> it generates. It is not worth holding a
-          global open for, and not worth casting over anything that heals when healing is needed.
+          </b>
+          {t({
+            id: 'paladin.holy.talents.judgment.guideExplanation.p1',
+            message: ' is a filler you cast for damage, and for the ',
+          })}
+          <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+          {t({
+            id: 'paladin.holy.talents.judgment.guideExplanation.p2',
+            message:
+              ' it generates. It is not worth holding a global open for, and not worth casting over anything that heals when healing is needed.',
+          })}
         </p>
         {this.hasGreaterJudgment && (
           <p>
-            <SpellLink spell={TALENTS.GREATER_JUDGMENT_HOLY_TALENT} /> adds a shield on top, which
-            you get for free from casts you were making anyway -- it is not a reason to cast it more
-            often.
+            <SpellLink spell={TALENTS.GREATER_JUDGMENT_HOLY_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.judgment.guideExplanation.p3',
+              message:
+                ' adds a shield on top, which you get for free from casts you were making anyway -- it is not a reason to cast it more often.',
+            })}
           </p>
         )}
         <p>
-          An <SpellLink spell={SPELLS.INFUSION_OF_LIGHT} /> proc is better spent on{' '}
-          <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />, but spending it here beats letting it expire
-          when nobody needs the healing.
+          {t({
+            id: 'paladin.holy.talents.judgment.guideExplanation.p4',
+            message: 'An ',
+          })}
+          <SpellLink spell={SPELLS.INFUSION_OF_LIGHT} />
+          {t({
+            id: 'paladin.holy.talents.judgment.guideExplanation.p5',
+            message: ' proc is better spent on ',
+          })}
+          <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />
+          {t({
+            id: 'paladin.holy.talents.judgment.guideExplanation.p6',
+            message:
+              ', but spending it here beats letting it expire when nobody needs the healing.',
+          })}
         </p>
       </>
     );
@@ -119,32 +142,52 @@ class Judgment extends Analyzer {
     const stats: StatisticData[] = [
       {
         value: `${this.casts}`,
-        label: 'Casts',
+        label: t({ id: 'paladin.holy.talents.judgment.casts', message: 'Casts' }),
         tooltip: (
           <>
-            There is no target to hit here. How often you cast{' '}
-            <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} /> depends on how much healing the fight
-            asked of you.
+            {t({
+              id: 'paladin.holy.talents.judgment.casts.tooltip.p1',
+              message: 'There is no target to hit here. How often you cast ',
+            })}
+            <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} />
+            {t({
+              id: 'paladin.holy.talents.judgment.casts.tooltip.p2',
+              message: ' depends on how much healing the fight asked of you.',
+            })}
           </>
         ),
       },
       {
         value: formatNumber(this.damage),
-        label: 'Damage',
+        label: t({ id: 'paladin.holy.talents.judgment.damage', message: 'Damage' }),
         tooltip: (
           <>
-            Damage done by <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} />, the main reason to press
-            it.
+            {t({
+              id: 'paladin.holy.talents.judgment.damage.tooltip.p1',
+              message: 'Damage done by ',
+            })}
+            <SpellLink spell={SPELLS.JUDGMENT_CAST_HOLY} />
+            {t({
+              id: 'paladin.holy.talents.judgment.damage.tooltip.p2',
+              message: ', the main reason to press it.',
+            })}
           </>
         ),
       },
       {
         value: `${this.holyPowerGenerated}`,
-        label: 'Holy Power Generated',
+        label: t({
+          id: 'paladin.holy.talents.judgment.hpGenerated',
+          message: 'Holy Power Generated',
+        }),
         tooltip: (
           <>
-            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} /> generated across {this.casts} casts,
-            excluding any that was wasted by capping.
+            <ResourceLink id={RESOURCE_TYPES.HOLY_POWER.id} />
+            {t({
+              id: 'paladin.holy.talents.judgment.hpGenerated.tooltip.p1',
+              message: ' generated across {casts} casts, excluding any that was wasted by capping.',
+              values: { casts: this.casts },
+            })}
           </>
         ),
       },
@@ -153,16 +196,30 @@ class Judgment extends Analyzer {
     if (this.hasGreaterJudgment) {
       stats.push({
         value: formatNumber(this.greaterJudgmentHealing),
-        label: 'Greater Judgment Healing',
+        label: t({
+          id: 'paladin.holy.talents.judgment.greaterJudgmentHealing',
+          message: 'Greater Judgment Healing',
+        }),
         tooltip: (
           <>
-            Damage absorbed by the shield <SpellLink spell={TALENTS.GREATER_JUDGMENT_HOLY_TALENT} />{' '}
-            applies, plus any healing it did.
+            {t({
+              id: 'paladin.holy.talents.judgment.greaterJudgmentHealing.tooltip.p1',
+              message: 'Damage absorbed by the shield ',
+            })}
+            <SpellLink spell={TALENTS.GREATER_JUDGMENT_HOLY_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.judgment.greaterJudgmentHealing.tooltip.p2',
+              message: ' applies, plus any healing it did.',
+            })}
             {this.greaterJudgmentOverhealing > 0 && (
               <>
-                {' '}
-                {formatPercentage(this.greaterJudgmentOverhealingPercentage, 0)}% of the healing
-                overhealed.
+                {t({
+                  id: 'paladin.holy.talents.judgment.greaterJudgmentHealing.tooltip.p3',
+                  message: ' {pct}% of the healing overhealed.',
+                  values: {
+                    pct: formatPercentage(this.greaterJudgmentOverhealingPercentage, 0),
+                  },
+                })}
               </>
             )}
           </>
@@ -172,7 +229,14 @@ class Judgment extends Analyzer {
 
     return (
       <GuideSection explanation={explanation} explanationPercent={GUIDE_CORE_EXPLANATION_PERCENT}>
-        <CastOverview spell={SPELLS.JUDGMENT_CAST_HOLY} title="Judgment Overview" stats={stats} />
+        <CastOverview
+          spell={SPELLS.JUDGMENT_CAST_HOLY}
+          title={t({
+            id: 'paladin.holy.talents.judgment.overview',
+            message: 'Judgment Overview',
+          })}
+          stats={stats}
+        />
       </GuideSection>
     );
   }

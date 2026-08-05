@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/paladin';
@@ -83,7 +84,10 @@ class FlashOfLightUsage extends Analyzer {
       return {
         timestamp: event.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: 'Hard cast without an Infusion of Light proc',
+        reason: t({
+          id: 'paladin.holy.talents.flashOfLightUsage.reason.hardCast',
+          message: 'Hard cast without an Infusion of Light proc',
+        }),
       };
     }
 
@@ -91,7 +95,10 @@ class FlashOfLightUsage extends Analyzer {
       return {
         timestamp: event.timestamp,
         performance: QualitativePerformance.Perfect,
-        reason: 'Spent an Infusion of Light proc',
+        reason: t({
+          id: 'paladin.holy.talents.flashOfLightUsage.reason.spentProc',
+          message: 'Spent an Infusion of Light proc',
+        }),
       };
     }
 
@@ -99,14 +106,20 @@ class FlashOfLightUsage extends Analyzer {
       return {
         timestamp: event.timestamp,
         performance: QualitativePerformance.Perfect,
-        reason: 'Spent a proc on your Beacon of the Savior target',
+        reason: t({
+          id: 'paladin.holy.talents.flashOfLightUsage.reason.spentOnSavior',
+          message: 'Spent a proc on your Beacon of the Savior target',
+        }),
       };
     }
 
     return {
       timestamp: event.timestamp,
       performance: QualitativePerformance.Ok,
-      reason: 'Spent a proc on a target without Beacon of the Savior',
+      reason: t({
+        id: 'paladin.holy.talents.flashOfLightUsage.reason.spentOffSavior',
+        message: 'Spent a proc on a target without Beacon of the Savior',
+      }),
     };
   }
 
@@ -128,18 +141,38 @@ class FlashOfLightUsage extends Analyzer {
     return (
       <>
         <p>
-          Never hard cast <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />. Without an{' '}
-          <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} /> proc it is the lowest priority
-          thing you can spend a global on.
+          {t({
+            id: 'paladin.holy.talents.flashOfLightUsage.explanation.p1',
+            message: 'Never hard cast ',
+          })}
+          <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />
+          {t({
+            id: 'paladin.holy.talents.flashOfLightUsage.explanation.p2',
+            message: '. Without an ',
+          })}
+          <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} />
+          {t({
+            id: 'paladin.holy.talents.flashOfLightUsage.explanation.p3',
+            message: ' proc it is the lowest priority thing you can spend a global on.',
+          })}
         </p>
         {this.gradesOnBeacon && (
           <p>
-            With <SpellLink spell={TALENTS.MOMENT_OF_COMPASSION_TALENT} /> talented, aim your procs
-            at whoever holds <SpellLink spell={TALENTS.BEACON_OF_THE_SAVIOR_1_HOLY_TALENT} />. Its
-            bonus multiplies with the beacon transfer rather than adding to it, so the same cast is
-            worth considerably more there. A proc spent on anyone else is a real loss, even though
-            healing someone to save them is still the right call -- treat this as a strong
-            preference rather than a rule.
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.explanation.p4',
+              message: 'With ',
+            })}
+            <SpellLink spell={TALENTS.MOMENT_OF_COMPASSION_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.explanation.p5',
+              message: ' talented, aim your procs at whoever holds ',
+            })}
+            <SpellLink spell={TALENTS.BEACON_OF_THE_SAVIOR_1_HOLY_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.explanation.p6',
+              message:
+                '. Its bonus multiplies with the beacon transfer rather than adding to it, so the same cast is worth considerably more there. A proc spent on anyone else is a real loss, even though healing someone to save them is still the right call -- treat this as a strong preference rather than a rule.',
+            })}
           </p>
         )}
         {this.legend}
@@ -151,17 +184,33 @@ class FlashOfLightUsage extends Analyzer {
     return (
       <TipBox hideIcon>
         <div>
-          <PerformanceMark perf={QualitativePerformance.Perfect} /> Perfect - spent a proc
-          {this.gradesOnBeacon ? ' on your Beacon of the Savior target' : ''}
+          <PerformanceMark perf={QualitativePerformance.Perfect} />
+          {t({
+            id: 'paladin.holy.talents.flashOfLightUsage.legend.perfect',
+            message: ' Perfect - spent a proc',
+          })}
+          {this.gradesOnBeacon
+            ? t({
+                id: 'paladin.holy.talents.flashOfLightUsage.legend.perfectOnSavior',
+                message: ' on your Beacon of the Savior target',
+              })
+            : ''}
         </div>
         {this.gradesOnBeacon && (
           <div>
-            <PerformanceMark perf={QualitativePerformance.Ok} /> Ok - spent a proc on a target
-            without Beacon of the Savior
+            <PerformanceMark perf={QualitativePerformance.Ok} />
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.legend.ok',
+              message: ' Ok - spent a proc on a target without Beacon of the Savior',
+            })}
           </div>
         )}
         <div>
-          <PerformanceMark perf={QualitativePerformance.Fail} /> Fail - hard cast, no proc spent
+          <PerformanceMark perf={QualitativePerformance.Fail} />
+          {t({
+            id: 'paladin.holy.talents.flashOfLightUsage.legend.fail',
+            message: ' Fail - hard cast, no proc spent',
+          })}
         </div>
       </TipBox>
     );
@@ -171,20 +220,36 @@ class FlashOfLightUsage extends Analyzer {
     const stats = [
       {
         value: `${this.casts}`,
-        label: 'Casts',
+        label: t({ id: 'paladin.holy.talents.flashOfLightUsage.casts', message: 'Casts' }),
         tooltip: (
           <>
-            Every <SpellLink spell={SPELLS.FLASH_OF_LIGHT} /> you cast.
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.casts.tooltip.p1',
+              message: 'Every ',
+            })}
+            <SpellLink spell={SPELLS.FLASH_OF_LIGHT} />
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.casts.tooltip.p2',
+              message: ' you cast.',
+            })}
           </>
         ),
       },
       {
         value: `${this.hardCasts}`,
-        label: 'Hard Casts',
+        label: t({ id: 'paladin.holy.talents.flashOfLightUsage.hardCasts', message: 'Hard Casts' }),
         tooltip: (
           <>
-            {formatPercentage(this.hardCastPercentage, 0)}% of your casts were made without an{' '}
-            <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} /> proc.
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.hardCasts.tooltip.p1',
+              message: '{pct}% of your casts were made without an ',
+              values: { pct: formatPercentage(this.hardCastPercentage, 0) },
+            })}
+            <SpellLink spell={TALENTS.INFUSION_OF_LIGHT_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.hardCasts.tooltip.p2',
+              message: ' proc.',
+            })}
           </>
         ),
       },
@@ -193,13 +258,28 @@ class FlashOfLightUsage extends Analyzer {
     if (this.gradesOnBeacon) {
       stats.push({
         value: `${this.procsOffBeacon}`,
-        label: 'Procs Off Beacon',
+        label: t({
+          id: 'paladin.holy.talents.flashOfLightUsage.procsOffBeacon',
+          message: 'Procs Off Beacon',
+        }),
         tooltip: (
           <>
-            {formatPercentage(this.offBeaconPercentage, 0)}% of the procs you spent went to someone
-            without <SpellLink spell={TALENTS.BEACON_OF_THE_SAVIOR_1_HOLY_TALENT} />, missing the{' '}
-            <SpellLink spell={TALENTS.MOMENT_OF_COMPASSION_TALENT} /> multiplier.{' '}
-            {this.castsOnSavior} landed on the beacon.
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.procsOffBeacon.tooltip.p1',
+              message: '{pct}% of the procs you spent went to someone without ',
+              values: { pct: formatPercentage(this.offBeaconPercentage, 0) },
+            })}
+            <SpellLink spell={TALENTS.BEACON_OF_THE_SAVIOR_1_HOLY_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.procsOffBeacon.tooltip.p2',
+              message: ', missing the ',
+            })}
+            <SpellLink spell={TALENTS.MOMENT_OF_COMPASSION_TALENT} />
+            {t({
+              id: 'paladin.holy.talents.flashOfLightUsage.procsOffBeacon.tooltip.p3',
+              message: ' multiplier. {onSavior} landed on the beacon.',
+              values: { onSavior: this.castsOnSavior },
+            })}
           </>
         ),
       });
@@ -216,7 +296,10 @@ class FlashOfLightUsage extends Analyzer {
       >
         <CastOverview
           spell={SPELLS.FLASH_OF_LIGHT}
-          title="Flash of Light Overview"
+          title={t({
+            id: 'paladin.holy.talents.flashOfLightUsage.overview',
+            message: 'Flash of Light Overview',
+          })}
           stats={this.stats}
         />
         <CastSummary spell={SPELLS.FLASH_OF_LIGHT} casts={this.castEvaluations} showBreakdown />
