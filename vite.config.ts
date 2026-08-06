@@ -125,6 +125,13 @@ export default defineConfig((env) => ({
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/wcl-api/, '/v1'),
       },
+      // CN fork: 角色资料走 CN 英雄榜网关。网关 CORS 不允许自定义 `auth` 头，
+      // 故同源代理到 webapi.rpglogs.cn 以消除 preflight。
+      '/cn-armory': {
+        target: 'https://webapi.rpglogs.cn',
+        changeOrigin: true,
+        rewrite: (path: string) => path.replace(/^\/cn-armory/, ''),
+      },
     },
   },
   test: {

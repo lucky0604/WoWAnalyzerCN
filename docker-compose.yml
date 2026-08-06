@@ -20,6 +20,8 @@ services:
       WCL_API_PROXY_HOST: '${WCL_API_PROXY_HOST:-wcl-live-mp.rpglogs.cn}'
       WOWANALYZER_API_PROXY_TARGET: '${WOWANALYZER_API_PROXY_TARGET:-https://wowanalyzer.com/i/}'
       WOWANALYZER_API_PROXY_HOST: '${WOWANALYZER_API_PROXY_HOST:-wowanalyzer.com}'
+      CN_ARMORY_API_PROXY_TARGET: '${CN_ARMORY_API_PROXY_TARGET:-https://webapi.rpglogs.cn}'
+      CN_ARMORY_API_PROXY_HOST: '${CN_ARMORY_API_PROXY_HOST:-webapi.rpglogs.cn}'
     ports:
       - '${NGINX_PORT:-9000}:80'
     restart: unless-stopped

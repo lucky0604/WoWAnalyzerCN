@@ -50,6 +50,8 @@ ENV WCL_API_PROXY_TARGET=https://wcl-live-mp.rpglogs.cn/v1/
 ENV WCL_API_PROXY_HOST=wcl-live-mp.rpglogs.cn
 ENV WOWANALYZER_API_PROXY_TARGET=https://wowanalyzer.com/i/
 ENV WOWANALYZER_API_PROXY_HOST=wowanalyzer.com
+ENV CN_ARMORY_API_PROXY_TARGET=https://webapi.rpglogs.cn
+ENV CN_ARMORY_API_PROXY_HOST=webapi.rpglogs.cn
 
 COPY default.conf.template /etc/nginx/templates/default.conf.template
 COPY --from=builder /app/dist /usr/share/nginx/html
