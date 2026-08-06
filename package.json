@@ -105,6 +105,7 @@
     "generate-talents:ptr": "npx tsx ./scripts/talents/generate-talents.ts --ptr && oxfmt src/common/TALENTS/*.ts",
     "generate-enchants": "npx tsx ./scripts/enchants/generate-enchants.ts && oxfmt src/common/ITEMS/**/*.ts",
     "generate-enchants:ptr": "npx tsx ./scripts/enchants/generate-enchants.ts --ptr && oxfmt src/common/ITEMS/**/*.ts",
+    "generate-cn-server-slug": "node ./scripts/cn-sn-slug/generate-cn-server-slug.mjs",
     "spell-lists:create": "node --experimental-strip-types scripts/spell-lists/generate-list.ts",
     "spell-lists:update": "node --experimental-strip-types scripts/spell-lists/update-all-lists.ts src/analysis/**/*.ts",
     "preview": "vite build && vite preview",
