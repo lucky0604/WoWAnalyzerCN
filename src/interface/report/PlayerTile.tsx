@@ -110,7 +110,11 @@ const PlayerTile = ({ player, makeUrl, config }: PlayerTileProps) => {
 
   useEffect(() => {
     const load = async () => {
-      if (!player.region || !player.server || !isSupportedRegion(player.region)) {
+      if (!player.region || !player.server) {
+        return null;
+      }
+      // CN 走 CN armory 网关(允许);其余地区仍要求上游支持
+      if (player.region.toLowerCase() !== 'cn' && !isSupportedRegion(player.region)) {
         return null;
       }
 

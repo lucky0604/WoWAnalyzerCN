@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { makeCharacterApiUrl } from 'common/makeApiUrl';
 import { isSupportedRegion } from 'common/regions';
+import fetchCnCharacterProfile from 'common/fetchCnArmory';
 import CharacterProfile from 'parser/core/CharacterProfile';
 
 interface FetchCharacterArgs {
@@ -13,6 +14,15 @@ interface FetchCharacterArgs {
 export const fetchCharacter = createAsyncThunk<CharacterProfile | null, FetchCharacterArgs>(
   'charactersById/fetchCharacter',
   async (arg) => {
+    if (arg.region?.toLowerCase() === 'cn') {
+      // CN 没有上游 API,改走 CN armory 网关;失败静默降级(不报 404)
+      const profile = await fetchCnCharacterProfile({
+        guid: arg.guid,
+        realm: arg.server,
+        name: arg.name,
+      });
+      return profile;
+    }
     if (!isSupportedRegion(arg.region)) {
       throw new Error('Region not supported');
     }
