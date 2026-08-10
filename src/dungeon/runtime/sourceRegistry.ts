@@ -84,7 +84,15 @@ export const dungeonSourceRegistry: SourceRegistry = {
       approvedAt: '2026-08-10',
       status: 'approved',
       evidenceRef: 'agent_flow/dungeon-learning/08-confirmed-development-source-decisions.md',
-      fieldAllowlist: ['floorId', 'position', 'patrol', 'groupId', 'coordinateSpace'],
+      fieldAllowlist: [
+        'floorId',
+        'position',
+        'patrol',
+        'groupId',
+        'coordinateSpace',
+        'sourceEnemyId',
+        'sourceEnemyIndex',
+      ],
     },
   ],
 };

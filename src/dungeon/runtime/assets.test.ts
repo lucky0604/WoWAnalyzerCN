@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { createDungeonAssetProvider } from './assets';
+import { createAssetProviderFromEnv, createDungeonAssetProvider } from './assets';
 
 describe('Dungeon asset providers', () => {
   it('resolves remote development assets from a manifest', () => {
@@ -49,5 +49,20 @@ describe('Dungeon asset providers', () => {
         manifest: { provider: 'remote-dev', assets: { map: 'https://example.test/map.png' } },
       }),
     ).toThrow('DUNGEON_ASSET_PROVIDER_MISMATCH');
+  });
+
+  it('reads the local-only manifest from Vite env without exposing it by default', () => {
+    const provider = createAssetProviderFromEnv(
+      {
+        MODE: 'development',
+        VITE_DUNGEON_ASSET_PROVIDER: 'remote-dev',
+        VITE_DUNGEON_DEV_ASSET_MANIFEST: JSON.stringify({
+          provider: 'remote-dev',
+          assets: { 'floor-1': 'https://example.test/floor.png' },
+        }),
+      },
+      'localhost',
+    );
+    expect(provider.getFloorMap('floor-1').url).toBe('https://example.test/floor.png');
   });
 });
