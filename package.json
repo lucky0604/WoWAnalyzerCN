@@ -109,6 +109,7 @@
     "dungeon:check": "tsx scripts/dungeons/check.ts",
     "dungeon:validate": "tsx scripts/dungeons/validate.ts",
     "dungeon:report": "tsx scripts/dungeons/report.ts",
+    "dungeon:check-dist": "tsx scripts/dungeons/check-dist.ts",
     "dungeon:generate": "tsx scripts/dungeons/import-threechest.ts",
     "dungeon:import-threechest": "tsx scripts/dungeons/import-threechest.ts",
     "spell-lists:create": "node --experimental-strip-types scripts/spell-lists/generate-list.ts",
