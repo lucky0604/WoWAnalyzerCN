@@ -147,6 +147,7 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
   });
   const linkedSituations = useMemo(() => getLinkedSituations(document, boss), [document, boss]);
   const bossSituations = linkedSituations.filter((situation) => situation.kind === 'boss');
+  const primarySituation = bossSituations[0] ?? linkedSituations[0];
   const bossSpawns = enemy ? document.spawns.filter((spawn) => spawn.enemyId === enemy.id) : [];
   const floorNames = [
     ...new Set(
@@ -335,8 +336,8 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
           <span>
             先按角色看核心机制，再进入完整 Situation 复习；本页不提供编辑、导入或保存操作。
           </span>
-          {bossSituations.length ? (
-            <Link to={getLessonSharePath(document.id, 'full', bossSituations[0]!.id)}>
+          {primarySituation ? (
+            <Link to={getLessonSharePath(document.id, 'full', primarySituation.id)}>
               进入完整学习 →
             </Link>
           ) : (
