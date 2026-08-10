@@ -599,6 +599,25 @@
   margin: 8px 0;
   color: #ffc1bd;
 }
+.dungeon-panel--warning {
+  border-color: rgba(229, 185, 101, 0.55);
+}
+.dungeon-panel--warning p {
+  margin: 10px 0 0;
+  color: design.$colors_unfocusedText;
+  line-height: 1.6;
+}
+.dungeon-panel--warning ul {
+  margin: 12px 0 0;
+  padding-left: 22px;
+}
+.dungeon-panel--warning li {
+  margin: 8px 0;
+  color: #f3ce7d;
+}
+.dungeon-panel--warning code {
+  color: #fff2bd;
+}
 
 @media (max-width: 900px) {
   .dungeon-grid--summary {

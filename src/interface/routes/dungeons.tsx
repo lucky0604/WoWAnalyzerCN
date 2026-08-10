@@ -495,6 +495,19 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
             </ul>
           </section>
         )}
+        {validation.warnings.length > 0 && (
+          <section className="dungeon-panel dungeon-panel--warning">
+            <h2>待处理门禁</h2>
+            <p>这些 warning 不影响本地预览，但在进入 reviewed/published 前必须逐条关闭。</p>
+            <ul>
+              {validation.warnings.map((warning) => (
+                <li key={`${warning.code}-${warning.path}`}>
+                  <code>{warning.code}</code> {warning.path}：{warning.message}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </main>
     </>
   );
