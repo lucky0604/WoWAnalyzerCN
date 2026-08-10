@@ -8,3 +8,5 @@ export * from './runtime/resolve';
 export * from './runtime/sourceRegistry';
 export * from './runtime/learning';
 export * from './runtime/progress';
+export * from './runtime/map';
+export * from './ui/DungeonMap';

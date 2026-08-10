@@ -1,9 +1,11 @@
 import DocumentTitle from 'interface/DocumentTitle';
 import NavigationBar from 'interface/NavigationBar';
 import { Link, useParams } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import {
+  createAssetProviderFromEnv,
+  DungeonMap,
   dungeonDocuments,
   getDungeonDocument,
   getPullStepForces,
@@ -49,30 +51,52 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
   );
 }
 
-function StepRow({ document, step }: { document: DungeonDocument; step: RouteStep }) {
+function StepRow({
+  document,
+  step,
+  selected,
+  onSelect,
+}: {
+  document: DungeonDocument;
+  step: RouteStep;
+  selected: boolean;
+  onSelect: () => void;
+}) {
   if (step.type === 'pull') {
     const forces = getPullStepForces(document, step);
     return (
-      <li className="dungeon-step dungeon-step--pull">
-        <div className="dungeon-step__index">{step.order.toString().padStart(2, '0')}</div>
-        <div className="dungeon-step__body">
-          <strong>{step.title.zhCN}</strong>
-          <span>
-            {step.spawnIds.length} spawns · {forces} forces
-          </span>
-          <p>{step.rationale.zhCN}</p>
-        </div>
+      <li>
+        <button
+          className={`dungeon-step dungeon-step--pull ${selected ? 'is-selected' : ''}`}
+          onClick={onSelect}
+          type="button"
+        >
+          <div className="dungeon-step__index">{step.order.toString().padStart(2, '0')}</div>
+          <div className="dungeon-step__body">
+            <strong>{step.title.zhCN}</strong>
+            <span>
+              {step.spawnIds.length} spawns · {forces} forces
+            </span>
+            <p>{step.rationale.zhCN}</p>
+          </div>
+        </button>
       </li>
     );
   }
   return (
-    <li className="dungeon-step dungeon-step--transition">
-      <div className="dungeon-step__index">{step.order.toString().padStart(2, '0')}</div>
-      <div className="dungeon-step__body">
-        <strong>{step.title.zhCN}</strong>
-        <span>{step.type === 'transition' ? '楼层/区域过渡' : '事件步骤'}</span>
-        <p>{step.type === 'transition' ? step.instruction.zhCN : step.instruction.zhCN}</p>
-      </div>
+    <li>
+      <button
+        className={`dungeon-step dungeon-step--transition ${selected ? 'is-selected' : ''}`}
+        onClick={onSelect}
+        type="button"
+      >
+        <div className="dungeon-step__index">{step.order.toString().padStart(2, '0')}</div>
+        <div className="dungeon-step__body">
+          <strong>{step.title.zhCN}</strong>
+          <span>{step.type === 'transition' ? '楼层/区域过渡' : '事件步骤'}</span>
+          <p>{step.instruction.zhCN}</p>
+        </div>
+      </button>
     </li>
   );
 }
@@ -81,6 +105,20 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
   const validation = useMemo(() => validateDungeonDocument(document), [document]);
   const route = document.routes[0];
   const resolvedRoute = route ? resolveRoute(document, route) : undefined;
+  const [selectedStepId, setSelectedStepId] = useState(route?.steps[0]?.id);
+  const [selectedFloorId, setSelectedFloorId] = useState(document.floors[0]?.id);
+  const [selectedSpawnId, setSelectedSpawnId] = useState<string>();
+  const assetProvider = useMemo(() => createAssetProviderFromEnv(import.meta.env), []);
+  const selectedStep = route?.steps.find((step) => step.id === selectedStepId);
+  const selectedPull = selectedStep?.type === 'pull' ? selectedStep : undefined;
+  const selectedFloor =
+    document.floors.find((floor) => floor.id === selectedFloorId) ?? document.floors[0];
+  const floorSpawns = selectedFloor
+    ? document.spawns.filter((spawn) => spawn.floorId === selectedFloor.id)
+    : [];
+  const selectedSpawn = selectedSpawnId
+    ? document.spawns.find((spawn) => spawn.id === selectedSpawnId)
+    : undefined;
 
   return (
     <>
@@ -139,6 +177,53 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
           </article>
         </section>
 
+        {selectedFloor && (
+          <section className="dungeon-panel dungeon-map-panel">
+            <div className="dungeon-panel__heading">
+              <div>
+                <span className="dungeon-kicker">SPATIAL CONTEXT</span>
+                <h2>地图与路线位置</h2>
+              </div>
+              <span className="dungeon-panel__hint">点击路线步骤或地图 spawn 查看上下文</span>
+            </div>
+            <div className="dungeon-floor-tabs" role="tablist" aria-label="楼层选择">
+              {document.floors.map((floor) => (
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={floor.id === selectedFloor.id}
+                  className={floor.id === selectedFloor.id ? 'is-active' : undefined}
+                  key={floor.id}
+                  onClick={() => {
+                    setSelectedFloorId(floor.id);
+                    setSelectedSpawnId(undefined);
+                  }}
+                >
+                  {floor.name.zhCN}
+                </button>
+              ))}
+            </div>
+            <DungeonMap
+              floor={selectedFloor}
+              spawns={floorSpawns}
+              selectedSpawnIds={
+                selectedSpawnId ? [selectedSpawnId] : (selectedPull?.spawnIds ?? [])
+              }
+              asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
+              onSpawnSelect={setSelectedSpawnId}
+            />
+            {selectedSpawn && (
+              <div className="dungeon-map-selection">
+                <strong>{selectedSpawn.id}</strong>
+                <span>
+                  {selectedSpawn.position[0].toFixed(2)}, {selectedSpawn.position[1].toFixed(2)} ·{' '}
+                  {document.enemies.find((enemy) => enemy.id === selectedSpawn.enemyId)?.name.zhCN}
+                </span>
+              </div>
+            )}
+          </section>
+        )}
+
         <div className="dungeon-grid dungeon-grid--main">
           <section className="dungeon-panel dungeon-panel--wide">
             <div className="dungeon-panel__heading">
@@ -186,7 +271,16 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                 <h3 className="dungeon-route-name">{route.name.zhCN}</h3>
                 <ol className="dungeon-step-list">
                   {route.steps.map((step) => (
-                    <StepRow document={document} step={step} key={step.id} />
+                    <StepRow
+                      document={document}
+                      step={step}
+                      key={step.id}
+                      selected={step.id === selectedStepId}
+                      onSelect={() => {
+                        setSelectedStepId(step.id);
+                        setSelectedSpawnId(undefined);
+                      }}
+                    />
                   ))}
                 </ol>
               </>
@@ -250,6 +344,35 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                 })}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="dungeon-panel">
+          <div className="dungeon-panel__heading">
+            <div>
+              <span className="dungeon-kicker">BOSS REFERENCE</span>
+              <h2>Boss 机制索引</h2>
+            </div>
+            <span className="dungeon-panel__hint">先看核心机制，再进入完整学习</span>
+          </div>
+          <div className="dungeon-boss-list">
+            {document.bosses.map((boss) => (
+              <article className="dungeon-boss" key={boss.id}>
+                <div>
+                  <span className="dungeon-boss__eyebrow">{boss.id}</span>
+                  <h3>{boss.title.zhCN}</h3>
+                  <p>{boss.summary.zhCN}</p>
+                </div>
+                <div className="dungeon-chip-row">
+                  {boss.focusAbilityIds.map((abilityId) => (
+                    <span className="dungeon-chip" key={abilityId}>
+                      {document.abilities.find((ability) => ability.id === abilityId)?.name.zhCN ??
+                        abilityId}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
