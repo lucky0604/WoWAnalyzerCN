@@ -47,7 +47,7 @@ const argument = (name: string, fallback: string) =>
 
 const dungeonArgument = argument('--dungeon', 'magi');
 const snapshotId = argument('--snapshot', 'local-coordinate-fixture-2026-08-10');
-const sourceUrl = argument('--source-url', 'https://threechest.io/');
+const sourceUrl = argument('--source-url', process.env.DUNGEON_THREECHEST_SOURCE_URL ?? '');
 const retrievedAt = argument('--retrieved-at', '2026-08-10');
 const root = resolve(argument('--threechest-root', 'agent_flow/threechest'));
 const inputDir = resolve(root, 'src/data/mdtDungeons');
@@ -56,6 +56,12 @@ const requestedOutputDir = process.argv.find((value) => value.startsWith('--outp
 const outputDir = requestedOutputDir
   ? requestedOutputDir.slice('--output-dir='.length)
   : '.tmp/dungeons';
+
+if (!sourceUrl) {
+  throw new Error(
+    'DUNGEON_THREECHEST_SOURCE_URL_REQUIRED: pass --source-url or DUNGEON_THREECHEST_SOURCE_URL.',
+  );
+}
 
 const dungeonKeys =
   dungeonArgument === 'all'
