@@ -16,6 +16,7 @@ import {
   getEnemyReference,
   getPullStepForces,
   getSpawnBounds,
+  legacyThreechestCoordinateInventory,
   searchDungeon,
   isLearningPublished,
   resolveRoute,
@@ -890,6 +891,32 @@ export function Component() {
               ))}
           </div>
         </section>
+
+        {import.meta.env.DEV && (
+          <section
+            className="dungeon-panel dungeon-fixture-panel"
+            aria-labelledby="legacy-qa-title"
+          >
+            <div className="dungeon-panel__heading">
+              <div>
+                <span className="dungeon-kicker">DEV ONLY · SOURCE QA</span>
+                <h2 id="legacy-qa-title">Threechest legacy 坐标 QA</h2>
+              </div>
+              <span className="dungeon-panel__hint">不属于 S2，不提供路线编辑或学习内容</span>
+            </div>
+            <p className="dungeon-coverage-intro">
+              仅用于本地验证 remote-dev 图片 manifest、坐标转换和 spawn
+              渲染；正式目录不会自动复用这些快照。
+            </p>
+            <div className="dungeon-legacy-qa-list">
+              {legacyThreechestCoordinateInventory.map((entry) => (
+                <Link key={entry.sourceKey} to={`/dungeons/legacy/${entry.sourceKey}`}>
+                  {entry.name.zhCN} · {entry.sourceKey}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
     </>
   );

@@ -115,6 +115,23 @@
   color: design.$colors_unfocusedText;
   line-height: 1.7;
 }
+.dungeon-legacy-qa-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dungeon-legacy-qa-list a {
+  padding: 8px 10px;
+  border: 1px dashed rgba(250, 183, 0, 0.35);
+  border-radius: 5px;
+  color: design.$colors_wowaYellow;
+  font-size: 0.78rem;
+}
+.dungeon-legacy-qa-list a:hover,
+.dungeon-legacy-qa-list a:focus-visible {
+  border-color: design.$colors_wowaYellow;
+  background: rgba(250, 183, 0, 0.08);
+}
 .dungeon-panel,
 .dungeon-card {
   border: 1px solid design.$level1_border;
