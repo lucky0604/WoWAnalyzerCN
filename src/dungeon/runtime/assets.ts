@@ -26,6 +26,17 @@ const placeholder = (assetKey: string, reason: string): DungeonAssetResult => ({
   reason,
 });
 
+function isAssetManifest(value: unknown): value is AssetManifest {
+  if (!value || typeof value !== 'object') return false;
+  const candidate = value as Partial<AssetManifest>;
+  return (
+    (candidate.provider === 'remote-dev' || candidate.provider === 'oss') &&
+    !!candidate.assets &&
+    typeof candidate.assets === 'object' &&
+    !Array.isArray(candidate.assets)
+  );
+}
+
 export function createDungeonAssetProvider(options: AssetProviderOptions): DungeonAssetProvider {
   if (options.manifest && options.manifest.provider !== options.provider) {
     throw new Error(
@@ -94,7 +105,9 @@ export function createAssetProviderFromEnv(
   let manifest: AssetManifest | undefined;
   if (manifestJson) {
     try {
-      manifest = JSON.parse(manifestJson) as AssetManifest;
+      const parsed: unknown = JSON.parse(manifestJson);
+      if (!isAssetManifest(parsed)) throw new Error('invalid manifest shape');
+      manifest = parsed;
     } catch {
       throw new Error(
         'DUNGEON_REMOTE_DEV_MANIFEST_INVALID: local asset manifest is not valid JSON.',

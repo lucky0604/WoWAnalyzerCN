@@ -94,4 +94,17 @@ describe('Dungeon asset providers', () => {
       origin: [0, 0],
     });
   });
+
+  it('rejects a manifest with an invalid top-level shape', () => {
+    expect(() =>
+      createAssetProviderFromEnv(
+        {
+          MODE: 'development',
+          VITE_DUNGEON_ASSET_PROVIDER: 'remote-dev',
+          VITE_DUNGEON_DEV_ASSET_MANIFEST: JSON.stringify({ provider: 'remote-dev' }),
+        },
+        'localhost',
+      ),
+    ).toThrow('DUNGEON_REMOTE_DEV_MANIFEST_INVALID');
+  });
 });
