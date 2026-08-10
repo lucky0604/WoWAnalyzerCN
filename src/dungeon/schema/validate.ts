@@ -355,6 +355,107 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       );
     }
   }
+  const authoringEffort = review?.authoringEffort;
+  if (!authoringEffort) {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        releaseStatus ? 'error' : 'warning',
+        'DUNGEON_REVIEW_EFFORT_PENDING',
+        'review.authoringEffort',
+        releaseStatus
+          ? '正式内容必须记录整本副本总工时和每个 Routine/Critical Situation 的工时。'
+          : '尚未记录作者工时；进入 reviewed/published 前必须补齐整本副本与关键 Situation 的工时。',
+        document.id,
+      ),
+    );
+  } else {
+    const totalMinutes = authoringEffort.totalMinutes;
+    if (!Number.isInteger(totalMinutes) || totalMinutes <= 0) {
+      (releaseStatus ? errors : warnings).push(
+        diagnostic(
+          releaseStatus ? 'error' : 'warning',
+          'DUNGEON_REVIEW_EFFORT_TOTAL_INVALID',
+          'review.authoringEffort.totalMinutes',
+          releaseStatus
+            ? '整本副本总工时必须是正整数分钟。'
+            : '整本副本总工时必须填写为正整数分钟。',
+          document.id,
+        ),
+      );
+    }
+    const situationMinutes = authoringEffort.situationMinutes;
+    const minutesRecord =
+      situationMinutes && typeof situationMinutes === 'object' && !Array.isArray(situationMinutes)
+        ? situationMinutes
+        : undefined;
+    if (!minutesRecord) {
+      (releaseStatus ? errors : warnings).push(
+        diagnostic(
+          releaseStatus ? 'error' : 'warning',
+          'DUNGEON_REVIEW_EFFORT_SITUATIONS_INVALID',
+          'review.authoringEffort.situationMinutes',
+          releaseStatus
+            ? '每个 Situation 的工时必须使用对象记录。'
+            : 'Situation 工时记录不是有效对象。',
+          document.id,
+        ),
+      );
+    } else {
+      const measuredSituationIds = Object.keys(minutesRecord);
+      const unknownSituationIds = measuredSituationIds.filter(
+        (id) => !document.situations.some((situation) => situation.id === id),
+      );
+      if (unknownSituationIds.length > 0) {
+        errors.push(
+          diagnostic(
+            'error',
+            'DUNGEON_REVIEW_EFFORT_UNKNOWN_SITUATION',
+            'review.authoringEffort.situationMinutes',
+            `作者工时引用了未知 Situation：${unknownSituationIds.join(', ')}。`,
+            document.id,
+            unknownSituationIds,
+          ),
+        );
+      }
+      const measuredValuesInvalid = measuredSituationIds.some((id) => {
+        const minutes = minutesRecord[id];
+        return typeof minutes !== 'number' || !Number.isInteger(minutes) || minutes <= 0;
+      });
+      if (measuredValuesInvalid) {
+        (releaseStatus ? errors : warnings).push(
+          diagnostic(
+            releaseStatus ? 'error' : 'warning',
+            'DUNGEON_REVIEW_EFFORT_SITUATION_VALUE_INVALID',
+            'review.authoringEffort.situationMinutes',
+            releaseStatus
+              ? '每个已记录 Situation 的工时必须是正整数分钟。'
+              : '已记录 Situation 的工时必须是正整数分钟。',
+            document.id,
+          ),
+        );
+      }
+      const requiredSituationIds = document.situations
+        .filter((situation) => situation.kind === 'routine' || situation.kind === 'critical')
+        .map((situation) => situation.id);
+      const missingSituationIds = requiredSituationIds.filter(
+        (id) => !Object.prototype.hasOwnProperty.call(minutesRecord, id),
+      );
+      if (missingSituationIds.length > 0) {
+        (releaseStatus ? errors : warnings).push(
+          diagnostic(
+            releaseStatus ? 'error' : 'warning',
+            'DUNGEON_REVIEW_EFFORT_SITUATIONS_INCOMPLETE',
+            'review.authoringEffort.situationMinutes',
+            releaseStatus
+              ? `作者工时尚未覆盖所有 Routine/Critical Situation：${missingSituationIds.join(', ')}。`
+              : `作者工时尚未覆盖所有 Routine/Critical Situation：${missingSituationIds.join(', ')}。`,
+            document.id,
+            missingSituationIds,
+          ),
+        );
+      }
+    }
+  }
   const documentSourceMissing = document.provenance.length === 0;
   const documentSourceUnapproved = document.provenance.some(
     (source) => source.licenseStatus !== 'approved',

@@ -478,6 +478,7 @@ exact → auto-match → ambiguous → new → removed
 - Boss order 重复/缺口。
 - `decisionCritical` 技能缺少 action 或 consequence；Critical Situation 缺少 memory cue/checkpoint 关联。
 - Route Pull 没有合法 Situation 引用，或错误使用 Pull order 作为知识 ID。
+- formal review 缺少整本副本作者总工时，或缺少任一 `routine`/`critical` Situation 的正整数工时记录。
 - published 内容没有 provenance/version/verifiedAt。
 - production asset manifest 指向 dev fixture。
 - reconciliation 存在 ambiguous，或生成数据与 identity registry 未一一对应。

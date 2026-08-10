@@ -38,6 +38,12 @@ describe('dungeon learning access gates', () => {
         situationIds: document.situations.map((situation) => situation.id),
         routeIds: document.routes.map((route) => route.id),
       },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
+      },
     };
     const access = getDungeonLearningAccess(document);
     expect(access).toMatchObject({ state: 'available', canOpen: true, isFormal: true });
@@ -57,6 +63,12 @@ describe('dungeon learning access gates', () => {
         modes: ['quick', 'overview', 'full'],
         situationIds: document.situations.map((situation) => situation.id),
         routeIds: document.routes.map((route) => route.id),
+      },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
       },
     };
     document.provenance[0]!.licenseStatus = 'reference-only';

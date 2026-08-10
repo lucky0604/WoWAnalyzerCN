@@ -43,6 +43,13 @@ function releaseReadyFixture(): DungeonDocument {
       routeIds: document.routes.map((route) => route.id),
       evidence: 'test fixture only',
     },
+    authoringEffort: {
+      totalMinutes: 30,
+      situationMinutes: Object.fromEntries(
+        document.situations.map((situation) => [situation.id, 1]),
+      ),
+      evidence: 'test fixture only',
+    },
   };
   return document;
 }

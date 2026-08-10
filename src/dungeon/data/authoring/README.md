@@ -24,3 +24,6 @@ passes provenance and completeness gates; it does not mutate the runtime registr
 
 Before requesting second-person review, record `review.selfTest` with the
 learning modes exercised and every Situation/Route covered by the author pass.
+Also record `review.authoringEffort` with the full-dungeon minutes and one
+positive-minute entry for every `routine` or `critical` Situation. This is
+release evidence, not a runtime progress metric.

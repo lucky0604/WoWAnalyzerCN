@@ -30,6 +30,7 @@ const report = dungeonDocuments.map((document) => {
       routes: document.routes.length,
     },
     routeForces: resolved?.totalForcesPoints ?? 0,
+    authoringEffort: document.review?.authoringEffort ?? null,
     coverage: {
       situations: coverage.situations.length,
       routeBackedSituations: coverage.situations.filter((entry) => entry.hasRouteCoverage).length,

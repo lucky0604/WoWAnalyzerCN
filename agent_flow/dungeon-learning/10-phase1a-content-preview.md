@@ -25,6 +25,7 @@ forcesStatus: pending
 - Pull 可以先作为“学习上下文”存在，但没有未经核验的 spawn 坐标。
 - 总 forces 暂不计算；页面必须显示待接入，而不是显示伪造的数值。
 - draft 阶段这些问题是可定位 warning；切换到 reviewed/published 时会变成阻断错误。
+- reviewed/published 还必须记录整本副本作者工时，以及每个 `routine`/`critical` Situation 的正整数分钟数；缺失或无效记录会阻断发布。
 - Threechest legacy 坐标库存不能自动填充 RLP，除非后续获得明确的 S2 对应快照并完成 reconciliation。
 
 ## 学习入口与审校门禁

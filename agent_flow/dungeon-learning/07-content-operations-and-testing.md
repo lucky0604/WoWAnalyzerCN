@@ -41,6 +41,7 @@ Scaffold 写入 TODO、稳定 ID、provenance 占位和最小合法结构，不�
 8. 运行 validate/report，检查未知引用、缺失知识和重复 spawn。
 9. 本地打开 debug inspector 核对位置、ID、反向引用。
 10. 第二位审校者检查“事实正确”和“动作可执行”，再进入 reviewed。
+11. 在 `review.authoringEffort` 记录整本副本总分钟数，并为每个 `routine`/`critical` Situation 记录正整数分钟数；这只用于内容产能校准。
 
 知识应优先归入稳定 Situation（区域/地标/怪物组合/危险模式），再由具体路线 Pull 引用。不要以“第 7 波”作为攻略实体名；路线重排、合并或拆分后，学习记录和知识引用仍应有效。
 

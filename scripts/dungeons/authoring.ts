@@ -464,6 +464,7 @@ async function createScaffold(options: AuthoringCommandOptions): Promise<void> {
       '- [ ] Add stable Situations and a learning route\n' +
       '- [ ] Add BossKnowledge and approved provenance\n' +
       '- [ ] Record review.selfTest for the learning modes and every Situation/Route\n' +
+      '- [ ] Record review.authoringEffort for every Routine/Critical Situation and the full dungeon\n' +
       '- [ ] Run `pnpm dungeon:check --dungeon ' +
       slug +
       '`\n' +

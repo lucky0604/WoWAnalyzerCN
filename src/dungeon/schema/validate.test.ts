@@ -66,6 +66,12 @@ describe('Dungeon document validation', () => {
         situationIds: document.situations.map((situation) => situation.id),
         routeIds: document.routes.map((route) => route.id),
       },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
+      },
     };
     const firstStep = document.routes[0]!.steps[0]!;
     expect(firstStep.type).toBe('pull');
@@ -97,6 +103,12 @@ describe('Dungeon document validation', () => {
         modes: ['quick', 'overview', 'full'],
         situationIds: document.situations.map((situation) => situation.id),
         routeIds: document.routes.map((route) => route.id),
+      },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
       },
     };
     const firstStep = document.routes[0]!.steps[0]!;
@@ -159,6 +171,91 @@ describe('Dungeon document validation', () => {
         'DUNGEON_REVIEW_SELF_TEST_DATE_INVALID',
         'DUNGEON_REVIEW_SELF_TEST_MODES_INVALID',
         'DUNGEON_REVIEW_SELF_TEST_INCOMPLETE',
+      ]),
+    );
+  });
+
+  it('requires measured effort for every routine or critical Situation', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
+      authoringEffort: {
+        totalMinutes: 20,
+        situationMinutes: {},
+      },
+    };
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'DUNGEON_REVIEW_EFFORT_SITUATIONS_INCOMPLETE' }),
+      ]),
+    );
+  });
+
+  it('does not throw when effort JSON is malformed', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+      authoringEffort: {
+        totalMinutes: Number.NaN,
+        situationMinutes: null as never,
+      },
+    };
+
+    expect(() => validateDungeonDocument(document)).not.toThrow();
+    const result = validateDungeonDocument(document);
+    expect(result.errors.map((error) => error.code)).toEqual(
+      expect.arrayContaining([
+        'DUNGEON_REVIEW_SELF_TEST_PENDING',
+        'DUNGEON_REVIEW_EFFORT_TOTAL_INVALID',
+        'DUNGEON_REVIEW_EFFORT_SITUATIONS_INVALID',
+      ]),
+    );
+  });
+
+  it('rejects unknown and non-positive Situation effort entries', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+      authoringEffort: {
+        totalMinutes: 20,
+        situationMinutes: {
+          [document.situations[0]!.id]: 0,
+          'missing-situation': 1,
+        },
+      },
+    };
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors.map((error) => error.code)).toEqual(
+      expect.arrayContaining([
+        'DUNGEON_REVIEW_SELF_TEST_PENDING',
+        'DUNGEON_REVIEW_EFFORT_UNKNOWN_SITUATION',
+        'DUNGEON_REVIEW_EFFORT_SITUATION_VALUE_INVALID',
       ]),
     );
   });
@@ -242,6 +339,12 @@ describe('Dungeon document validation', () => {
         situationIds: document.situations.map((situation) => situation.id),
         routeIds: document.routes.map((route) => route.id),
       },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
+      },
     };
     document.enemies[0]!.provenance[0]!.licenseStatus = 'reference-only';
 
@@ -271,6 +374,12 @@ describe('Dungeon document validation', () => {
         modes: ['quick', 'overview', 'full'],
         situationIds: document.situations.map((situation) => situation.id),
         routeIds: document.routes.map((route) => route.id),
+      },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
       },
     };
     document.provenance = [];

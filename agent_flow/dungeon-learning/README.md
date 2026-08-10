@@ -65,6 +65,7 @@
 - Inspector、只读 Route 和只读 Boss 学习页已建立互相可达的深链；Route/Boss 页面只解释已有知识，不提供编辑、导入或保存路线的操作。
 - Phase 1B 已加入内容完整度报告：分别审计 Enemy 事实引用、Situation/Route/Boss 学习表面、无上下文 Pull 和空 Boss 技能卡；正式状态会将缺口升级为 release error。
 - formal review 还必须记录作者自测（学习模式、全部 Situation/Route 覆盖和完成时间），不能只填写作者/第二审校者姓名。
+- formal review 还必须记录作者工时：整本副本总分钟数，以及每个 `routine`/`critical` Situation 的分钟数；这些数据用于校准后续八本扩展成本，不进入玩家进度。
 - 学习页已完成“先选把握程度、再揭示答案”的主动回忆约束，并显示已回忆/模糊/不会/待复习汇总；进度写入失败时会明确提示，不把内存状态伪装成已持久化。
 - 学习入口统一经过 `getDungeonLearningAccess`：draft 只能显示为本地预览，fixture、stale、来源未批准或正式校验失败的文档不能渲染学习课件；WCL 适配器也复用同一正式门禁。
 - 内容维护 quickstart 已提供 `dungeon:new` / `dungeon:add` / `dungeon:check --dungeon`，草稿不会自动进入 runtime registry。

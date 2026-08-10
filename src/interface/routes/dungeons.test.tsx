@@ -124,6 +124,12 @@ describe('dungeon inspector query', () => {
         situationIds: formalDocument.situations.map((situation) => situation.id),
         routeIds: formalDocument.routes.map((route) => route.id),
       },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          formalDocument.situations.map((situation) => [situation.id, 1]),
+        ),
+      },
     };
     dungeonDocumentsById.set(formalDocument.id, formalDocument);
 

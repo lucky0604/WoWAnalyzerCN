@@ -33,6 +33,18 @@ export interface ContentSelfTest {
   evidence?: string;
 }
 
+/**
+ * Small, auditable effort record used to calibrate the cost of expanding a
+ * season pack.  Per-Situation values intentionally cover only routine and
+ * critical learning units; transition/boss work remains part of the dungeon
+ * total and can be explained in `evidence`.
+ */
+export interface ContentAuthoringEffort {
+  totalMinutes: number;
+  situationMinutes: Partial<Record<SituationId, number>>;
+  evidence?: string;
+}
+
 export interface ContentVersion {
   season: string;
   build: string;
@@ -48,6 +60,7 @@ export interface ContentReview {
   gameBuild: string;
   evidence?: string;
   selfTest?: ContentSelfTest;
+  authoringEffort?: ContentAuthoringEffort;
 }
 
 export type ProvenanceType =
