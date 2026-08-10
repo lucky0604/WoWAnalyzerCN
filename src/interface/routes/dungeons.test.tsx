@@ -67,4 +67,32 @@ describe('dungeon inspector query', () => {
 
     await waitFor(() => expect(screen.getByTestId('location-search')).toHaveTextContent(''));
   });
+
+  it('lets keyboard users collapse or focus the map without losing the selected floor', () => {
+    render(
+      <MemoryRouter initialEntries={['/dungeons/ruby-life-pools?floor=rlp-dragonheart-outpost']}>
+        <Routes>
+          <Route path="/dungeons/:dungeonId" element={<Component />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const mapContent = screen.getByRole('tablist', { name: '楼层选择' }).parentElement;
+    expect(mapContent).not.toHaveAttribute('hidden');
+    expect(screen.getByRole('tab', { name: /龙心岗哨/ })).toHaveAttribute('aria-selected', 'true');
+
+    fireEvent.click(screen.getByRole('button', { name: '收起地图' }));
+    expect(screen.getByRole('button', { name: '展开地图' })).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    );
+    expect(mapContent).toHaveAttribute('hidden');
+
+    fireEvent.click(screen.getByRole('button', { name: '地图聚焦' }));
+    expect(screen.getByRole('button', { name: '退出聚焦' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    expect(screen.getByRole('tab', { name: /龙心岗哨/ })).toHaveAttribute('aria-selected', 'true');
+  });
 });

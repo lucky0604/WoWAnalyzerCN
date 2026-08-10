@@ -103,6 +103,8 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
   const resolved = route ? resolveRoute(document, route) : undefined;
   const firstStepId = route?.steps[0]?.id;
   const [selectedStepId, setSelectedStepId] = useState(firstStepId);
+  const [mapCollapsed, setMapCollapsed] = useState(false);
+  const [mapExpanded, setMapExpanded] = useState(false);
   useEffect(() => {
     setSelectedStepId(firstStepId);
   }, [firstStepId, route?.id]);
@@ -188,27 +190,57 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
         </section>
 
         <div className="dungeon-grid dungeon-route-layout">
-          <section className="dungeon-panel dungeon-map-panel">
+          <section
+            className={`dungeon-panel dungeon-map-panel${mapCollapsed ? ' is-collapsed' : ''}${mapExpanded ? ' is-expanded' : ''}`}
+          >
             <div className="dungeon-panel__heading">
               <div>
                 <span className="dungeon-kicker">SPATIAL CONTEXT</span>
                 <h2>路线位置</h2>
               </div>
-              <span className="dungeon-panel__hint">
-                {document.spatialStatus === 'pending' ? '位置数据待核验' : '点击步骤切换地图上下文'}
-              </span>
+              <div className="dungeon-map-panel__heading-actions">
+                <span className="dungeon-panel__hint">
+                  {document.spatialStatus === 'pending'
+                    ? '位置数据待核验'
+                    : '点击步骤切换地图上下文'}
+                </span>
+                <div className="dungeon-map-panel__actions" aria-label="地图显示选项">
+                  <button
+                    aria-controls="dungeon-route-map-content"
+                    aria-expanded={!mapCollapsed}
+                    className="dungeon-map-panel__toggle"
+                    onClick={() => setMapCollapsed((current) => !current)}
+                    type="button"
+                  >
+                    {mapCollapsed ? '展开地图' : '收起地图'}
+                  </button>
+                  <button
+                    aria-pressed={mapExpanded}
+                    className="dungeon-map-panel__toggle"
+                    onClick={() => {
+                      setMapExpanded((current) => !current);
+                      setMapCollapsed(false);
+                    }}
+                    type="button"
+                  >
+                    {mapExpanded ? '退出聚焦' : '地图聚焦'}
+                  </button>
+                </div>
+              </div>
             </div>
-            {selectedFloor ? (
-              <DungeonMap
-                asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
-                floor={selectedFloor}
-                hullSpawns={selectedPullSpawns}
-                selectedSpawnIds={selectedPull?.spawnIds ?? []}
-                spawns={floorSpawns}
-              />
-            ) : (
-              <p>路线尚未绑定楼层。</p>
-            )}
+            <div id="dungeon-route-map-content" hidden={mapCollapsed}>
+              {selectedFloor ? (
+                <DungeonMap
+                  asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
+                  floor={selectedFloor}
+                  hullSpawns={selectedPullSpawns}
+                  selectedSpawnIds={selectedPull?.spawnIds ?? []}
+                  spawns={floorSpawns}
+                />
+              ) : (
+                <p>路线尚未绑定楼层。</p>
+              )}
+            </div>
           </section>
           <section className="dungeon-panel dungeon-panel--wide">
             <div className="dungeon-panel__heading">

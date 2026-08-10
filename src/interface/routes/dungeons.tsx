@@ -353,6 +353,8 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
   );
   const [selectedSpawnId, setSelectedSpawnId] = useState<string>();
   const [mapFocus, setMapFocus] = useState<'floor' | 'pull'>('floor');
+  const [mapCollapsed, setMapCollapsed] = useState(false);
+  const [mapExpanded, setMapExpanded] = useState(false);
   const assetProvider = useMemo(() => createAssetProviderFromEnv(import.meta.env), []);
   const selectedStep = route?.steps.find((step) => step.id === selectedStepId);
   const selectedPull = selectedStep?.type === 'pull' ? selectedStep : undefined;
@@ -483,72 +485,103 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
         </section>
 
         {selectedFloor && (
-          <section className="dungeon-panel dungeon-map-panel">
+          <section
+            className={`dungeon-panel dungeon-map-panel${mapCollapsed ? ' is-collapsed' : ''}${mapExpanded ? ' is-expanded' : ''}`}
+          >
             <div className="dungeon-panel__heading">
               <div>
                 <span className="dungeon-kicker">SPATIAL CONTEXT</span>
                 <h2>地图与路线位置</h2>
               </div>
-              <span className="dungeon-panel__hint">
-                {document.spatialStatus === 'pending'
-                  ? '位置数据待核验；当前仅展示学习章节上下文'
-                  : '点击路线步骤或地图 spawn 查看上下文'}
-              </span>
-            </div>
-            <div className="dungeon-floor-tabs" role="tablist" aria-label="楼层选择">
-              {document.floors.map((floor) => (
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={floor.id === selectedFloor.id}
-                  className={floor.id === selectedFloor.id ? 'is-active' : undefined}
-                  key={floor.id}
-                  onClick={() => {
-                    selectFloor(floor.id);
-                    setSelectedSpawnId(undefined);
-                  }}
-                >
-                  {floor.name.zhCN}
-                </button>
-              ))}
-            </div>
-            <div className="dungeon-map-controls" aria-label="地图范围">
-              <button
-                className={mapFocus === 'floor' ? 'is-active' : undefined}
-                onClick={() => setMapFocus('floor')}
-                type="button"
-              >
-                全楼层 / 重置
-              </button>
-              <button
-                className={mapFocus === 'pull' ? 'is-active' : undefined}
-                disabled={selectedPullSpawns.length === 0}
-                onClick={() => setMapFocus('pull')}
-                type="button"
-              >
-                当前 Pull
-              </button>
-            </div>
-            <DungeonMap
-              floor={selectedFloor}
-              spawns={floorSpawns}
-              selectedSpawnIds={
-                selectedSpawnId ? [selectedSpawnId] : (selectedPull?.spawnIds ?? [])
-              }
-              asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
-              hullSpawns={mapFocus === 'pull' ? selectedPullSpawns : floorSpawns}
-              onSpawnSelect={setSelectedSpawnId}
-              viewBounds={mapViewBounds}
-            />
-            {selectedSpawn && (
-              <div className="dungeon-map-selection">
-                <strong>{selectedSpawn.id}</strong>
-                <span>
-                  {selectedSpawn.position[0].toFixed(2)}, {selectedSpawn.position[1].toFixed(2)} ·{' '}
-                  {document.enemies.find((enemy) => enemy.id === selectedSpawn.enemyId)?.name.zhCN}
+              <div className="dungeon-map-panel__heading-actions">
+                <span className="dungeon-panel__hint">
+                  {document.spatialStatus === 'pending'
+                    ? '位置数据待核验；当前仅展示学习章节上下文'
+                    : '点击路线步骤或地图 spawn 查看上下文'}
                 </span>
+                <div className="dungeon-map-panel__actions" aria-label="地图显示选项">
+                  <button
+                    aria-controls="dungeon-detail-map-content"
+                    aria-expanded={!mapCollapsed}
+                    className="dungeon-map-panel__toggle"
+                    onClick={() => setMapCollapsed((current) => !current)}
+                    type="button"
+                  >
+                    {mapCollapsed ? '展开地图' : '收起地图'}
+                  </button>
+                  <button
+                    aria-pressed={mapExpanded}
+                    className="dungeon-map-panel__toggle"
+                    onClick={() => {
+                      setMapExpanded((current) => !current);
+                      setMapCollapsed(false);
+                    }}
+                    type="button"
+                  >
+                    {mapExpanded ? '退出聚焦' : '地图聚焦'}
+                  </button>
+                </div>
               </div>
-            )}
+            </div>
+            <div id="dungeon-detail-map-content" hidden={mapCollapsed}>
+              <div className="dungeon-floor-tabs" role="tablist" aria-label="楼层选择">
+                {document.floors.map((floor) => (
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={floor.id === selectedFloor.id}
+                    className={floor.id === selectedFloor.id ? 'is-active' : undefined}
+                    key={floor.id}
+                    onClick={() => {
+                      selectFloor(floor.id);
+                      setSelectedSpawnId(undefined);
+                    }}
+                  >
+                    {floor.name.zhCN}
+                  </button>
+                ))}
+              </div>
+              <div className="dungeon-map-controls" aria-label="地图范围">
+                <button
+                  className={mapFocus === 'floor' ? 'is-active' : undefined}
+                  onClick={() => setMapFocus('floor')}
+                  type="button"
+                >
+                  全楼层 / 重置
+                </button>
+                <button
+                  className={mapFocus === 'pull' ? 'is-active' : undefined}
+                  disabled={selectedPullSpawns.length === 0}
+                  onClick={() => setMapFocus('pull')}
+                  type="button"
+                >
+                  当前 Pull
+                </button>
+              </div>
+              <DungeonMap
+                floor={selectedFloor}
+                spawns={floorSpawns}
+                selectedSpawnIds={
+                  selectedSpawnId ? [selectedSpawnId] : (selectedPull?.spawnIds ?? [])
+                }
+                asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
+                hullSpawns={mapFocus === 'pull' ? selectedPullSpawns : floorSpawns}
+                onSpawnSelect={setSelectedSpawnId}
+                viewBounds={mapViewBounds}
+              />
+              {selectedSpawn && (
+                <div className="dungeon-map-selection">
+                  <strong>{selectedSpawn.id}</strong>
+                  <span>
+                    {selectedSpawn.position[0].toFixed(2)}, {selectedSpawn.position[1].toFixed(2)} ·{' '}
+                    {
+                      document.enemies.find((enemy) => enemy.id === selectedSpawn.enemyId)?.name
+                        .zhCN
+                    }
+                  </span>
+                </div>
+              )}
+            </div>
           </section>
         )}
 
