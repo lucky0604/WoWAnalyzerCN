@@ -54,6 +54,7 @@ const buildDocument = (input: {
   name: text(input.name),
   season: 'midnight-s2',
   dataStatus: 'fixture',
+  spatialStatus: 'verified',
   version,
   provenance: [fixtureProvenance],
 });

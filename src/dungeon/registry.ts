@@ -1,16 +1,29 @@
 import type { DungeonDocument } from './schema/types';
-import { altarOfFangsFixture, dungeonFixtures, rubyLifePoolsFixture } from './data/fixtures';
+import { altarOfFangsFixture, rubyLifePoolsFixture } from './data/fixtures';
+import { phase1PrototypeDocuments, rubyLifePoolsPhase1Draft } from './data/phase1Prototypes';
 
-export const dungeonDocuments: readonly DungeonDocument[] = dungeonFixtures;
+/**
+ * Documents registered for the local learning preview. The phase-0 fixtures
+ * remain available through `phase0FixtureDocuments` but are never treated as
+ * current content by the registry.
+ */
+export const dungeonDocuments: readonly DungeonDocument[] = phase1PrototypeDocuments;
 
-export const dungeonDocumentsById = new Map(
-  dungeonDocuments.map((document) => [document.id, document]),
-);
-
+/** Internal contract fixtures used by schema/runtime tests and the dev-only inspector. */
 export const phase0FixtureDocuments = {
   rubyLifePools: rubyLifePoolsFixture,
   altarOfFangs: altarOfFangsFixture,
 };
+
+/** Everything that may be opened by the Vite development preview. */
+export const dungeonPreviewDocuments: readonly DungeonDocument[] = [
+  rubyLifePoolsPhase1Draft,
+  altarOfFangsFixture,
+];
+
+export const dungeonDocumentsById = new Map(
+  dungeonPreviewDocuments.map((document) => [document.id, document]),
+);
 
 export function getDungeonDocument(id: string): DungeonDocument | undefined {
   return dungeonDocumentsById.get(id);

@@ -39,7 +39,10 @@ function checkRouteStepReferences(
   situationIds: Set<string>,
   abilityIds: Set<string>,
   errors: Diagnostic[],
+  warnings: Diagnostic[],
 ): void {
+  const pendingSpatialDraft =
+    document.dataStatus === 'draft' && document.spatialStatus === 'pending';
   if (step.type === 'pull') {
     if (!hasId(floorIds, step.floorId)) {
       errors.push(
@@ -98,12 +101,14 @@ function checkRouteStepReferences(
       return total + (enemy?.forcesPoints ?? 0);
     }, 0);
     if (step.spawnIds.length === 0) {
-      errors.push(
+      (pendingSpatialDraft ? warnings : errors).push(
         diagnostic(
-          'error',
-          'DUNGEON_EMPTY_PULL',
+          pendingSpatialDraft ? 'warning' : 'error',
+          pendingSpatialDraft ? 'DUNGEON_PULL_SPAWN_PENDING' : 'DUNGEON_EMPTY_PULL',
           `routes.${step.id}.spawnIds`,
-          'Pull 至少需要一个 spawn。',
+          pendingSpatialDraft
+            ? '学习草稿的 Pull 尚未绑定经过核验的 spawn；接入空间数据后必须补齐。'
+            : 'Pull 至少需要一个 spawn。',
           step.id,
         ),
       );
@@ -162,6 +167,8 @@ function checkRouteStepReferences(
 export function validateDungeonDocument(document: DungeonDocument): ValidationResult {
   const errors: Diagnostic[] = [];
   const warnings: Diagnostic[] = [];
+  const pendingSpatialDraft =
+    document.dataStatus === 'draft' && document.spatialStatus === 'pending';
 
   if (!document.id || !document.slug || !document.season) {
     errors.push(
@@ -174,13 +181,28 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       ),
     );
   }
-  if (!Number.isInteger(document.totalEnemyForcesPoints) || document.totalEnemyForcesPoints <= 0) {
+  if (
+    !Number.isInteger(document.totalEnemyForcesPoints) ||
+    document.totalEnemyForcesPoints < 0 ||
+    (!pendingSpatialDraft && document.totalEnemyForcesPoints === 0)
+  ) {
     errors.push(
       diagnostic(
         'error',
         'DUNGEON_INVALID_TOTAL_FORCES',
         'totalEnemyForcesPoints',
         '副本总 forces 必须是正整数。',
+        document.id,
+      ),
+    );
+  }
+  if (pendingSpatialDraft) {
+    warnings.push(
+      diagnostic(
+        'warning',
+        'DUNGEON_SPATIAL_DATA_PENDING',
+        'spatialStatus',
+        '学习草稿尚未接入经过核验的 floor、spawn 和 forces；不得作为正式路线发布。',
         document.id,
       ),
     );
@@ -211,6 +233,17 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
     );
   }
   const releaseStatus = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
+  if (releaseStatus && document.spatialStatus !== 'verified') {
+    errors.push(
+      diagnostic(
+        'error',
+        'DUNGEON_RELEASE_SPATIAL_DATA_PENDING',
+        'spatialStatus',
+        'reviewed/published 内容必须明确标记空间数据已核验。',
+        document.id,
+      ),
+    );
+  }
   if (releaseStatus && document.version.status !== document.dataStatus) {
     errors.push(
       diagnostic(
@@ -389,6 +422,20 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
         ),
       );
     }
+    if (enemy.forcesStatus === 'pending') {
+      const status = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
+      (status ? errors : warnings).push(
+        diagnostic(
+          status ? 'error' : 'warning',
+          'DUNGEON_FORCES_SNAPSHOT_PENDING',
+          `enemies.${enemy.id}.forcesPoints`,
+          status
+            ? '正式内容不能包含尚未核验的 forces。'
+            : '该敌人的 forces 尚未核验；当前数值不能用于正式路线。',
+          enemy.id,
+        ),
+      );
+    }
     enemy.spawnIds.forEach((spawnId) => {
       if (!hasId(spawnIds, spawnId)) {
         errors.push(
@@ -450,6 +497,20 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
           'DUNGEON_MISSING_MEMORY_CUE',
           `abilities.${ability.id}.memoryCue`,
           'decision-critical 技能建议提供一句话记忆锚点。',
+          ability.id,
+        ),
+      );
+    }
+    if (ability.spellId === undefined) {
+      const status = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
+      (status ? errors : warnings).push(
+        diagnostic(
+          status ? 'error' : 'warning',
+          'DUNGEON_SPELL_ID_PENDING',
+          `abilities.${ability.id}.spellId`,
+          status
+            ? '正式内容必须绑定经过核验的 Spell ID。'
+            : 'Spell ID 尚未核验；tooltip 和版本比对暂不可用。',
           ability.id,
         ),
       );
@@ -523,6 +584,7 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
         situationIds,
         abilityIds,
         errors,
+        warnings,
       ),
     );
     const derivedForces = route.steps

@@ -6,6 +6,7 @@ import {
   validateSeason2DungeonCatalog,
 } from '../../src/dungeon/data/season2Catalog';
 import { dungeonDocuments } from '../../src/dungeon/registry';
+import { dungeonPreviewDocuments } from '../../src/dungeon/registry';
 import {
   getCoordinateReference,
   getCoordinateSnapshot,
@@ -47,7 +48,9 @@ function printSingleResult(
 }
 
 async function runSingleDungeonCheck(dungeonId: string): Promise<void> {
-  const registeredDocument = dungeonDocuments.find((document) => document.id === dungeonId);
+  const registeredDocument =
+    dungeonDocuments.find((document) => document.id === dungeonId) ??
+    dungeonPreviewDocuments.find((document) => document.id === dungeonId);
   try {
     const document = registeredDocument ?? (await loadAuthoringDocument(dungeonId, requestedRoot));
     const ok = printSingleResult(
@@ -132,7 +135,7 @@ function runGlobalDungeonCheck(): void {
     }
   }
 
-  for (const document of dungeonDocuments) {
+  for (const document of dungeonPreviewDocuments) {
     const result = validateDungeonDocument(document);
     result.errors.forEach((item) =>
       errors.push(`${document.id}: ${item.code} ${item.path} — ${item.message}`),
@@ -155,7 +158,7 @@ function runGlobalDungeonCheck(): void {
     process.exitCode = 1;
   } else {
     console.log(
-      `Dungeon check passed: ${dungeonDocuments.length} document(s), ${season2DungeonCatalog.length} S2 catalog entries (${season2CoordinateReferenceCount} coordinate reference(s)), ${legacyThreechestCoordinateInventory.length} legacy coordinate snapshot(s), source registry approved.`,
+      `Dungeon check passed: ${dungeonDocuments.length} registered document(s), ${dungeonPreviewDocuments.length} preview document(s), ${season2DungeonCatalog.length} S2 catalog entries (${season2CoordinateReferenceCount} coordinate reference(s)), ${legacyThreechestCoordinateInventory.length} legacy coordinate snapshot(s), source registry approved.`,
     );
   }
 }

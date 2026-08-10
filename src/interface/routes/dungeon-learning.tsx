@@ -279,7 +279,7 @@ export function Component() {
                     <div className="learning-ability__body">
                       <div className="learning-ability__title">
                         <h4>{ability.name.zhCN}</h4>
-                        <span>Spell {ability.spellId}</span>
+                        <span>Spell {ability.spellId ?? '待核验'}</span>
                       </div>
                       <div className="learning-action-row">
                         <strong>动作</strong>

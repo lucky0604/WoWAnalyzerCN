@@ -8,6 +8,7 @@ import {
   DungeonMap,
   dungeonCoverageStatusLabel,
   dungeonDocuments,
+  dungeonPreviewDocuments,
   getCoordinateReference,
   getDungeonDocument,
   getPullStepForces,
@@ -45,6 +46,7 @@ function CoverageBadge({ status }: { status: DungeonCoverageStatus }) {
 }
 
 function DungeonCard({ document }: { document: DungeonDocument }) {
+  const isSpatialPending = document.spatialStatus === 'pending';
   return (
     <article className="dungeon-card">
       <div className="dungeon-card__eyebrow">
@@ -53,9 +55,14 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
       </div>
       <h2>{document.name.zhCN}</h2>
       <p>
-        Phase 0 数据合同样本 · {document.situations.length} 个 Situation ·{' '}
-        {document.abilities.length} 个技能知识
+        {document.dataStatus === 'fixture' ? '数据合同样本' : '内容学习草稿'} ·{' '}
+        {document.situations.length} 个 Situation · {document.abilities.length} 个技能知识
       </p>
+      {isSpatialPending && (
+        <small className="dungeon-card__next-milestone">
+          空间数据待核验：当前只用于验证学习闭环，不代表正式路线。
+        </small>
+      )}
       <div className="dungeon-card__actions">
         <Link className="dungeon-card__action" to={`/dungeons/${document.id}/learn`}>
           开始学习 →
@@ -130,7 +137,9 @@ function StepRow({
           <div className="dungeon-step__body">
             <strong>{step.title.zhCN}</strong>
             <span>
-              {step.spawnIds.length} spawns · {forces} forces
+              {document.spatialStatus === 'pending'
+                ? '位置 / forces 待接入'
+                : `${step.spawnIds.length} spawns · ${forces} forces`}
             </span>
             <p>{step.rationale.zhCN}</p>
           </div>
@@ -221,7 +230,11 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
             <strong>
               {document.enemies.length} / {document.spawns.length}
             </strong>
-            <small>forces 总量 {document.totalEnemyForcesPoints}</small>
+            <small>
+              {document.spatialStatus === 'pending'
+                ? '位置与 forces 待核验'
+                : `forces 总量 ${document.totalEnemyForcesPoints}`}
+            </small>
           </article>
           <article className="dungeon-panel dungeon-summary-card">
             <span>教学知识</span>
@@ -233,7 +246,11 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
           <article className="dungeon-panel dungeon-summary-card">
             <span>学习路线</span>
             <strong>{document.routes.length}</strong>
-            <small>{resolvedRoute?.totalForcesPoints ?? 0} forces 覆盖</small>
+            <small>
+              {document.spatialStatus === 'pending'
+                ? '路线空间上下文待接入'
+                : `${resolvedRoute?.totalForcesPoints ?? 0} forces 覆盖`}
+            </small>
           </article>
         </section>
 
@@ -244,7 +261,11 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                 <span className="dungeon-kicker">SPATIAL CONTEXT</span>
                 <h2>地图与路线位置</h2>
               </div>
-              <span className="dungeon-panel__hint">点击路线步骤或地图 spawn 查看上下文</span>
+              <span className="dungeon-panel__hint">
+                {document.spatialStatus === 'pending'
+                  ? '位置数据待核验；当前仅展示学习章节上下文'
+                  : '点击路线步骤或地图 spawn 查看上下文'}
+              </span>
             </div>
             <div className="dungeon-floor-tabs" role="tablist" aria-label="楼层选择">
               {document.floors.map((floor) => (
@@ -357,7 +378,9 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
               <h2>怪物、技能与坐标</h2>
             </div>
             <span className="dungeon-panel__hint">
-              Normalized coordinate space · {document.version.build}
+              {document.spatialStatus === 'pending'
+                ? `空间数据待接入 · ${document.version.build}`
+                : `Normalized coordinate space · ${document.version.build}`}
             </span>
           </div>
           <div className="dungeon-table-wrap">
@@ -372,36 +395,48 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                 </tr>
               </thead>
               <tbody>
-                {document.spawns.map((spawn) => {
-                  const enemy = document.enemies.find(
-                    (candidate) => candidate.id === spawn.enemyId,
-                  );
-                  const floor = document.floors.find((candidate) => candidate.id === spawn.floorId);
-                  return (
-                    <tr key={spawn.id}>
-                      <td>
-                        <strong>{enemy?.name.zhCN ?? spawn.enemyId}</strong>
-                        <small>{enemy?.npcId}</small>
-                      </td>
-                      <td>
-                        {enemy?.abilityIds
-                          .map(
-                            (abilityId) =>
-                              document.abilities.find((ability) => ability.id === abilityId)?.name
-                                .zhCN ?? abilityId,
-                          )
-                          .join('、')}
-                      </td>
-                      <td>{floor?.name.zhCN ?? spawn.floorId}</td>
-                      <td className="dungeon-coordinate">
-                        {spawn.position[0].toFixed(2)}, {spawn.position[1].toFixed(2)}
-                      </td>
-                      <td>
-                        <code>{spawn.sourceId}</code>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {document.spawns.length === 0 ? (
+                  <tr>
+                    <td colSpan={5}>
+                      {document.spatialStatus === 'pending'
+                        ? '位置 / spawn 快照待核验；学习内容不依赖地图加载。'
+                        : '暂无位置数据。'}
+                    </td>
+                  </tr>
+                ) : (
+                  document.spawns.map((spawn) => {
+                    const enemy = document.enemies.find(
+                      (candidate) => candidate.id === spawn.enemyId,
+                    );
+                    const floor = document.floors.find(
+                      (candidate) => candidate.id === spawn.floorId,
+                    );
+                    return (
+                      <tr key={spawn.id}>
+                        <td>
+                          <strong>{enemy?.name.zhCN ?? spawn.enemyId}</strong>
+                          <small>{enemy?.npcId}</small>
+                        </td>
+                        <td>
+                          {enemy?.abilityIds
+                            .map(
+                              (abilityId) =>
+                                document.abilities.find((ability) => ability.id === abilityId)?.name
+                                  .zhCN ?? abilityId,
+                            )
+                            .join('、')}
+                        </td>
+                        <td>{floor?.name.zhCN ?? spawn.floorId}</td>
+                        <td className="dungeon-coordinate">
+                          {spawn.position[0].toFixed(2)}, {spawn.position[1].toFixed(2)}
+                        </td>
+                        <td>
+                          <code>{spawn.sourceId}</code>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
               </tbody>
             </table>
           </div>
@@ -508,15 +543,22 @@ export function Component() {
         <section className="dungeon-panel dungeon-fixture-panel" aria-labelledby="fixture-title">
           <div className="dungeon-panel__heading">
             <div>
-              <span className="dungeon-kicker">INTERNAL CONTRACT FIXTURES</span>
+              <span className="dungeon-kicker">INTERNAL PREVIEWS</span>
               <h2 id="fixture-title">内部学习原型</h2>
             </div>
-            <span className="dungeon-panel__hint">仅本地开发，用于回归数据合同和学习闭环</span>
+            <span className="dungeon-panel__hint">
+              草稿用于验证内容闭环；fixture 只用于回归数据合同，均不代表正式攻略
+            </span>
           </div>
           <div className="dungeon-grid dungeon-grid--cards">
             {dungeonDocuments.map((item) => (
-              <DungeonCard document={item} key={item.id} />
+              <DungeonCard document={item} key={`${item.id}-${item.dataStatus}`} />
             ))}
+            {dungeonPreviewDocuments
+              .filter((item) => item.dataStatus === 'fixture')
+              .map((item) => (
+                <DungeonCard document={item} key={`${item.id}-${item.dataStatus}`} />
+              ))}
           </div>
         </section>
       </main>

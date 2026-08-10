@@ -11,6 +11,8 @@ export type Coordinate = readonly [x: number, y: number];
 
 export type ContentStatus = 'draft' | 'reviewed' | 'published' | 'stale';
 export type DungeonDataStatus = 'fixture' | 'draft' | 'reviewed' | 'published';
+export type SpatialStatus = 'pending' | 'verified';
+export type ForcesStatus = 'pending' | 'verified';
 export type Severity = 'info' | 'warning' | 'critical';
 export type Role = 'tank' | 'healer' | 'dps';
 export type SituationKind = 'routine' | 'critical' | 'transition' | 'event' | 'boss';
@@ -28,7 +30,13 @@ export interface ContentVersion {
   status: ContentStatus;
 }
 
-export type ProvenanceType = 'threechest' | 'official' | 'game-data' | 'wcl' | 'manual-test';
+export type ProvenanceType =
+  | 'threechest'
+  | 'official'
+  | 'game-data'
+  | 'wcl'
+  | 'manual-test'
+  | 'external-reference';
 export type ProvenanceLicenseStatus = 'approved' | 'reference-only' | 'needs-review';
 
 export interface Provenance {
@@ -76,6 +84,11 @@ export interface Enemy {
   npcId: number;
   name: LocalizedText;
   forcesPoints: number;
+  /**
+   * Forces are deliberately independent from the NPC identity. A draft may
+   * know the enemy but not yet have an approved forces snapshot.
+   */
+  forcesStatus?: ForcesStatus;
   isBoss: boolean;
   spawnIds: SpawnId[];
   abilityIds: AbilityId[];
@@ -103,7 +116,8 @@ export interface CapabilityAdvice {
 
 export interface AbilityKnowledge {
   id: AbilityId;
-  spellId: number;
+  /** Spell ID can remain unset while a draft is being reconciled with game data. */
+  spellId?: number;
   name: LocalizedText;
   casterEnemyIds: EnemyId[];
   decisionCritical: boolean;
@@ -195,6 +209,8 @@ export interface DungeonDocument {
   name: LocalizedText;
   season: string;
   dataStatus: DungeonDataStatus;
+  /** `pending` means learning content may exist before map/spawn data is verified. */
+  spatialStatus?: SpatialStatus;
   version: ContentVersion;
   totalEnemyForcesPoints: number;
   floors: Floor[];

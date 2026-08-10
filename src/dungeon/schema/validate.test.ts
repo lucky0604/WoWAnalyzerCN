@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { phase0FixtureDocuments } from '../registry';
+import { rubyLifePoolsPhase1Draft } from '../data/phase1Prototypes';
 import { getPullStepForces, validateDungeonDocument } from './validate';
 
 describe('Dungeon document validation', () => {
@@ -83,6 +84,20 @@ describe('Dungeon document validation', () => {
         'DUNGEON_RELEASE_EMPTY_ROUTES',
         'DUNGEON_RELEASE_EMPTY_BOSSES',
         'DUNGEON_PUBLISHED_SOURCE_NOT_APPROVED',
+      ]),
+    );
+  });
+
+  it('blocks a content draft from bypassing spatial and spell/forces gates', () => {
+    const document = structuredClone(rubyLifePoolsPhase1Draft);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    const result = validateDungeonDocument(document);
+    expect(result.errors.map((error) => error.code)).toEqual(
+      expect.arrayContaining([
+        'DUNGEON_RELEASE_SPATIAL_DATA_PENDING',
+        'DUNGEON_FORCES_SNAPSHOT_PENDING',
+        'DUNGEON_SPELL_ID_PENDING',
       ]),
     );
   });
