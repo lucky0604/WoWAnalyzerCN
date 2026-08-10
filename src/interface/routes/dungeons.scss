@@ -1090,4 +1090,20 @@
     max-height: calc(100vh - 190px);
     min-height: min(420px, calc(100vh - 190px));
   }
+  .dungeon-map-panel__toggle,
+  .dungeon-floor-tabs button,
+  .dungeon-map-controls button {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dungeon-card,
+  .dungeon-map__spawn circle {
+    transition: none;
+  }
+  .dungeon-card:has(a:hover),
+  .dungeon-card:has(a:focus-visible) {
+    transform: none;
+  }
 }
