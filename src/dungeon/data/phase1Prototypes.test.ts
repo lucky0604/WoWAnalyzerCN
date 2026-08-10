@@ -9,13 +9,22 @@ describe('phase 1 learning prototypes', () => {
   it('keeps RLP content useful before spatial facts are verified', () => {
     expect(rubyLifePoolsPhase1Draft.dataStatus).toBe('draft');
     expect(rubyLifePoolsPhase1Draft.spatialStatus).toBe('pending');
-    expect(rubyLifePoolsPhase1Draft.situations).toHaveLength(5);
-    expect(rubyLifePoolsPhase1Draft.bosses).toHaveLength(1);
+    expect(rubyLifePoolsPhase1Draft.situations).toHaveLength(7);
+    expect(rubyLifePoolsPhase1Draft.bosses).toHaveLength(3);
     expect(rubyLifePoolsPhase1Draft.spawns).toHaveLength(0);
 
-    expect(buildLearningPlan(rubyLifePoolsPhase1Draft, 'quick')).toHaveLength(4);
-    expect(buildLearningPlan(rubyLifePoolsPhase1Draft, 'overview')).toHaveLength(5);
-    expect(buildLearningPlan(rubyLifePoolsPhase1Draft, 'full')).toHaveLength(5);
+    expect(buildLearningPlan(rubyLifePoolsPhase1Draft, 'quick')).toHaveLength(6);
+    expect(buildLearningPlan(rubyLifePoolsPhase1Draft, 'overview')).toHaveLength(7);
+    expect(buildLearningPlan(rubyLifePoolsPhase1Draft, 'full')).toHaveLength(7);
+    expect(rubyLifePoolsPhase1Draft.abilities.map((ability) => ability.id)).toEqual(
+      expect.arrayContaining([
+        'rlp-ability-frigid-shard',
+        'rlp-ability-molten-boulder',
+        'rlp-ability-searing-blows',
+        'rlp-ability-inferno-spit',
+        'rlp-ability-winds',
+      ]),
+    );
   });
 
   it('reports pending source gates as warnings for drafts, not release-ready facts', () => {
