@@ -81,7 +81,8 @@ export interface Spawn {
 
 export interface Enemy {
   id: EnemyId;
-  npcId: number;
+  /** NPC ID can remain unset until the game-data snapshot is reconciled. */
+  npcId?: number;
   name: LocalizedText;
   forcesPoints: number;
   /**

@@ -26,6 +26,8 @@ describe('dungeon authoring scaffold', () => {
   it('creates a draft with stable IDs and actionable empty-content diagnostics', () => {
     const document = makeAuthoringScaffold('sample-dungeon');
     expect(document.dataStatus).toBe('draft');
+    expect(document.spatialStatus).toBe('pending');
+    expect(document.totalEnemyForcesPoints).toBe(0);
     expect(document.floors[0]?.id).toBe('sample-dungeon-floor-1');
     expect(authoringDiagnostics(document).map((item) => item.code)).toEqual([
       'DUNGEON_AUTHORING_EMPTY_ENEMIES',
@@ -58,7 +60,9 @@ describe('dungeon authoring scaffold', () => {
 
     expect(source.enemies).toHaveLength(0);
     expect(final.enemies[0]?.id).toBe('sample-dungeon-enemy-1');
+    expect(final.enemies[0]?.npcId).toBeUndefined();
     expect(final.abilities[0]?.casterEnemyIds).toEqual(['sample-dungeon-enemy-1']);
+    expect(final.abilities[0]?.spellId).toBeUndefined();
     expect(final.bosses[0]?.enemyId).toBe('sample-dungeon-enemy-1');
     expect(final.routes[0]?.steps[0]).toMatchObject({
       type: 'event',

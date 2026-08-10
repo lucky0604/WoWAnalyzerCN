@@ -87,6 +87,10 @@ function parseNumberOption(args: string[], name: string, fallback: number): numb
   return parsed;
 }
 
+function parseOptionalNumberOption(args: string[], name: string): number | undefined {
+  return parseOption(args, name) === undefined ? undefined : parseNumberOption(args, name, 0);
+}
+
 function parseListOption(args: string[], name: string): string[] {
   const value = parseOption(args, name);
   return value
@@ -121,8 +125,9 @@ export function makeAuthoringScaffold(slugInput: string, season = 'midnight-s2')
     name: localized(`TODO：${slug}`),
     season,
     dataStatus: 'draft',
+    spatialStatus: 'pending',
     version: versionFor(season),
-    totalEnemyForcesPoints: 1,
+    totalEnemyForcesPoints: 0,
     floors: [
       {
         id: floorId,
@@ -213,9 +218,10 @@ function addEnemy(document: DungeonDocument, options: AuthoringCommandOptions): 
   const name = options.name ?? `TODO：${id}`;
   const enemy: Enemy = {
     id,
-    npcId: options.npcId ?? 1,
+    ...(options.npcId === undefined ? {} : { npcId: options.npcId }),
     name: localized(name),
     forcesPoints: options.forces ?? 0,
+    forcesStatus: 'pending',
     isBoss: false,
     spawnIds: [],
     abilityIds: [],
@@ -229,7 +235,7 @@ function addAbility(document: DungeonDocument, options: AuthoringCommandOptions)
   const name = options.name ?? `TODO：${id}`;
   const ability: AbilityKnowledge = {
     id,
-    spellId: options.spellId ?? 1,
+    ...(options.spellId === undefined ? {} : { spellId: options.spellId }),
     name: localized(name),
     casterEnemyIds: options.casterEnemyIds ?? [],
     decisionCritical: false,
@@ -500,8 +506,8 @@ export async function runAuthoringCommand(argv: string[]): Promise<void> {
       slug: parseOption(argv, '--dungeon'),
       id: parseOption(argv, '--id'),
       name: parseOption(argv, '--name'),
-      npcId: parseNumberOption(argv, '--npc-id', 1),
-      spellId: parseNumberOption(argv, '--spell-id', 1),
+      npcId: parseOptionalNumberOption(argv, '--npc-id'),
+      spellId: parseOptionalNumberOption(argv, '--spell-id'),
       forces: parseNumberOption(argv, '--forces', 0),
       casterEnemyIds: parseListOption(argv, '--caster'),
       enemyId: parseOption(argv, '--enemy'),

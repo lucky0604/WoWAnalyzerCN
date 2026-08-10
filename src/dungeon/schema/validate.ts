@@ -400,7 +400,20 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
   });
 
   document.enemies.forEach((enemy) => {
-    if (!Number.isInteger(enemy.npcId) || enemy.npcId <= 0) {
+    if (enemy.npcId === undefined) {
+      const status = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
+      (status ? errors : warnings).push(
+        diagnostic(
+          status ? 'error' : 'warning',
+          'DUNGEON_NPC_ID_PENDING',
+          `enemies.${enemy.id}.npcId`,
+          status
+            ? '正式内容必须绑定经过核验的 NPC ID。'
+            : 'NPC ID 尚未核验；当前敌人只能用于 authoring 草稿。',
+          enemy.id,
+        ),
+      );
+    } else if (!Number.isInteger(enemy.npcId) || enemy.npcId <= 0) {
       errors.push(
         diagnostic(
           'error',
