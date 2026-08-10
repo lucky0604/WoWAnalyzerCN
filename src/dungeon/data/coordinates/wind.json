@@ -1,0 +1,1672 @@
+{
+  "source": "threechest",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-10",
+  "retrievedAt": "2026-08-10",
+  "rawSha256": "f047b9c33d046996b7bf3811c0bf8603350c3a0ed6a223745e190a2227b5aeca",
+  "transformVersion": "threechest-yx-to-normalized-v1",
+  "dungeonKey": "wind",
+  "dungeonIndex": 152,
+  "sourceCoordinateSpace": "threechest-yx",
+  "normalizedCoordinateSpace": "normalized-v1",
+  "spawns": [
+    {
+      "sourceId": "wind:1-1",
+      "sourceEnemyId": 232070,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [39.79, -70.54],
+      "groupId": "wind:group:2"
+    },
+    {
+      "sourceId": "wind:1-2",
+      "sourceEnemyId": 232070,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [41.51, -81.41],
+      "groupId": "wind:group:1"
+    },
+    {
+      "sourceId": "wind:1-3",
+      "sourceEnemyId": 232070,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [50.41, -33.74]
+    },
+    {
+      "sourceId": "wind:1-4",
+      "sourceEnemyId": 232070,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [124.16, -47.65],
+      "groupId": "wind:group:8"
+    },
+    {
+      "sourceId": "wind:1-5",
+      "sourceEnemyId": 232070,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [228.75, -92.69],
+      "groupId": "wind:group:16"
+    },
+    {
+      "sourceId": "wind:1-6",
+      "sourceEnemyId": 232070,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [50.4, -120.04]
+    },
+    {
+      "sourceId": "wind:2-1",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [37.34, -67.08],
+      "groupId": "wind:group:2"
+    },
+    {
+      "sourceId": "wind:2-2",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [39.22, -84.96],
+      "groupId": "wind:group:1"
+    },
+    {
+      "sourceId": "wind:2-3",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [25.82, -86.84],
+      "groupId": "wind:group:5"
+    },
+    {
+      "sourceId": "wind:2-4",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [22.64, -83.88],
+      "groupId": "wind:group:5"
+    },
+    {
+      "sourceId": "wind:2-5",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [22.18, -69.99],
+      "groupId": "wind:group:6"
+    },
+    {
+      "sourceId": "wind:2-6",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [25.37, -66.58],
+      "groupId": "wind:group:6"
+    },
+    {
+      "sourceId": "wind:2-7",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [54.74, -29.69]
+    },
+    {
+      "sourceId": "wind:2-8",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [46.54, -29.46]
+    },
+    {
+      "sourceId": "wind:2-9",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [46.54, -38.34]
+    },
+    {
+      "sourceId": "wind:2-10",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [54.51, -38.34]
+    },
+    {
+      "sourceId": "wind:2-11",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [124.3, -52.34],
+      "groupId": "wind:group:8"
+    },
+    {
+      "sourceId": "wind:2-12",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [159.73, -47.79],
+      "groupId": "wind:group:10"
+    },
+    {
+      "sourceId": "wind:2-13",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [159.8, -52.38],
+      "groupId": "wind:group:10"
+    },
+    {
+      "sourceId": "wind:2-14",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [139.38, -36.26],
+      "groupId": "wind:group:9"
+    },
+    {
+      "sourceId": "wind:2-15",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [225.7, -90.39],
+      "groupId": "wind:group:16"
+    },
+    {
+      "sourceId": "wind:2-16",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [219.12, -57.86]
+    },
+    {
+      "sourceId": "wind:2-17",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [225.19, -57.95]
+    },
+    {
+      "sourceId": "wind:2-18",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [211.97, -47.47],
+      "groupId": "wind:group:23"
+    },
+    {
+      "sourceId": "wind:2-19",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [206.5, -40.92],
+      "groupId": "wind:group:22"
+    },
+    {
+      "sourceId": "wind:2-20",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [215.28, -28.67],
+      "groupId": "wind:group:24"
+    },
+    {
+      "sourceId": "wind:2-21",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [229.03, -28.57],
+      "groupId": "wind:group:25"
+    },
+    {
+      "sourceId": "wind:2-22",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [46.09, -114.39]
+    },
+    {
+      "sourceId": "wind:2-23",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [56.11, -114.39]
+    },
+    {
+      "sourceId": "wind:2-24",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [55.88, -125.78]
+    },
+    {
+      "sourceId": "wind:2-25",
+      "sourceEnemyId": 232071,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [46.09, -126.23]
+    },
+    {
+      "sourceId": "wind:3-1",
+      "sourceEnemyId": 232113,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [32.15, -83.02],
+      "groupId": "wind:group:4"
+    },
+    {
+      "sourceId": "wind:3-2",
+      "sourceEnemyId": 232113,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [31.97, -71.36],
+      "groupId": "wind:group:3"
+    },
+    {
+      "sourceId": "wind:4-1",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [52.52, -215.96],
+      "groupId": "wind:group:31"
+    },
+    {
+      "sourceId": "wind:4-2",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [74.09, -207.52],
+      "groupId": "wind:group:34"
+    },
+    {
+      "sourceId": "wind:4-3",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [73.87, -219.58],
+      "groupId": "wind:group:33"
+    },
+    {
+      "sourceId": "wind:4-4",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [56.15, -226.89],
+      "groupId": "wind:group:32"
+    },
+    {
+      "sourceId": "wind:4-5",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [270.14, -229.6],
+      "groupId": "wind:group:43"
+    },
+    {
+      "sourceId": "wind:4-6",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [246.37, -219.11],
+      "groupId": "wind:group:45"
+    },
+    {
+      "sourceId": "wind:4-7",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [245.38, -223.7],
+      "groupId": "wind:group:45"
+    },
+    {
+      "sourceId": "wind:4-8",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [226.71, -223.77],
+      "groupId": "wind:group:46"
+    },
+    {
+      "sourceId": "wind:4-9",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [228.3, -228.22],
+      "groupId": "wind:group:46"
+    },
+    {
+      "sourceId": "wind:4-10",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [262.4, -179.42],
+      "groupId": "wind:group:53"
+    },
+    {
+      "sourceId": "wind:4-11",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [241.56, -184.72],
+      "groupId": "wind:group:51"
+    },
+    {
+      "sourceId": "wind:4-12",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [242.59, -189.48],
+      "groupId": "wind:group:51"
+    },
+    {
+      "sourceId": "wind:4-13",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [224.89, -177.16],
+      "groupId": "wind:group:50"
+    },
+    {
+      "sourceId": "wind:4-14",
+      "sourceEnemyId": 232116,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [223.03, -181.82],
+      "groupId": "wind:group:50"
+    },
+    {
+      "sourceId": "wind:5-1",
+      "sourceEnemyId": 232173,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [50.2, -212.24],
+      "groupId": "wind:group:31"
+    },
+    {
+      "sourceId": "wind:5-2",
+      "sourceEnemyId": 232173,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [60.92, -158.71],
+      "groupId": "wind:group:36"
+    },
+    {
+      "sourceId": "wind:5-3",
+      "sourceEnemyId": 232173,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [145.23, -165.11],
+      "groupId": "wind:group:37"
+    },
+    {
+      "sourceId": "wind:5-4",
+      "sourceEnemyId": 232173,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [141.18, -181.92],
+      "groupId": "wind:group:38"
+    },
+    {
+      "sourceId": "wind:5-5",
+      "sourceEnemyId": 232173,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [153.98, -195.77],
+      "groupId": "wind:group:40"
+    },
+    {
+      "sourceId": "wind:5-6",
+      "sourceEnemyId": 232173,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [141, -208.11],
+      "groupId": "wind:group:41"
+    },
+    {
+      "sourceId": "wind:6-1",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [54.9, -211.87],
+      "groupId": "wind:group:31"
+    },
+    {
+      "sourceId": "wind:6-2",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [71.82, -223.45],
+      "groupId": "wind:group:33"
+    },
+    {
+      "sourceId": "wind:6-3",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [58.61, -176.32],
+      "groupId": "wind:group:36"
+    },
+    {
+      "sourceId": "wind:6-4",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [55.78, -158.86],
+      "groupId": "wind:group:36"
+    },
+    {
+      "sourceId": "wind:6-5",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [131.24, -159.7],
+      "groupId": "wind:group:37"
+    },
+    {
+      "sourceId": "wind:6-6",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [144.68, -169.95],
+      "groupId": "wind:group:37"
+    },
+    {
+      "sourceId": "wind:6-7",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [136.07, -182.43],
+      "groupId": "wind:group:38"
+    },
+    {
+      "sourceId": "wind:6-8",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [149.69, -192.97],
+      "groupId": "wind:group:40"
+    },
+    {
+      "sourceId": "wind:6-9",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [149.44, -198.07],
+      "groupId": "wind:group:40"
+    },
+    {
+      "sourceId": "wind:6-10",
+      "sourceEnemyId": 232171,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [136.16, -207.89],
+      "groupId": "wind:group:41"
+    },
+    {
+      "sourceId": "wind:7-1",
+      "sourceEnemyId": 232232,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [58.14, -154.35],
+      "groupId": "wind:group:36"
+    },
+    {
+      "sourceId": "wind:7-2",
+      "sourceEnemyId": 232232,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [53.6, -195.22],
+      "groupId": "wind:group:35"
+    },
+    {
+      "sourceId": "wind:7-3",
+      "sourceEnemyId": 232232,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [71.36, -203.42],
+      "groupId": "wind:group:34"
+    },
+    {
+      "sourceId": "wind:7-4",
+      "sourceEnemyId": 232232,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [61.12, -226.68],
+      "groupId": "wind:group:32"
+    },
+    {
+      "sourceId": "wind:7-5",
+      "sourceEnemyId": 232232,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [124.64, -191.35],
+      "groupId": "wind:group:39"
+    },
+    {
+      "sourceId": "wind:7-6",
+      "sourceEnemyId": 232232,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [124.64, -199.09],
+      "groupId": "wind:group:39"
+    },
+    {
+      "sourceId": "wind:8-1",
+      "sourceEnemyId": 232175,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [62.43, -196.86],
+      "groupId": "wind:group:35"
+    },
+    {
+      "sourceId": "wind:8-2",
+      "sourceEnemyId": 232175,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [139.12, -186.65],
+      "groupId": "wind:group:38"
+    },
+    {
+      "sourceId": "wind:9-1",
+      "sourceEnemyId": 232176,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [131.03, -169.31],
+      "groupId": "wind:group:37"
+    },
+    {
+      "sourceId": "wind:10-1",
+      "sourceEnemyId": 232056,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [128.14, -49.9],
+      "groupId": "wind:group:8"
+    },
+    {
+      "sourceId": "wind:10-2",
+      "sourceEnemyId": 232056,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [143.37, -34.41],
+      "groupId": "wind:group:9"
+    },
+    {
+      "sourceId": "wind:10-3",
+      "sourceEnemyId": 232056,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [163.96, -49.76],
+      "groupId": "wind:group:10"
+    },
+    {
+      "sourceId": "wind:10-4",
+      "sourceEnemyId": 232056,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [245.59, -64.31],
+      "groupId": "wind:group:28"
+    },
+    {
+      "sourceId": "wind:10-5",
+      "sourceEnemyId": 232056,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [249.63, -62.72],
+      "groupId": "wind:group:28"
+    },
+    {
+      "sourceId": "wind:11-1",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [148.38, -69.31],
+      "groupId": "wind:group:11"
+    },
+    {
+      "sourceId": "wind:11-2",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [144.79, -69.28],
+      "groupId": "wind:group:11"
+    },
+    {
+      "sourceId": "wind:11-3",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [146.64, -66.29],
+      "groupId": "wind:group:11"
+    },
+    {
+      "sourceId": "wind:11-4",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [143.43, -83.55],
+      "groupId": "wind:group:12"
+    },
+    {
+      "sourceId": "wind:11-5",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [149.07, -83.08],
+      "groupId": "wind:group:12"
+    },
+    {
+      "sourceId": "wind:11-6",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [150.19, -86.31],
+      "groupId": "wind:group:12"
+    },
+    {
+      "sourceId": "wind:11-7",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [142.78, -86.88],
+      "groupId": "wind:group:12"
+    },
+    {
+      "sourceId": "wind:11-8",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [146.27, -81.91],
+      "groupId": "wind:group:12"
+    },
+    {
+      "sourceId": "wind:11-9",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [144.99, -105.23],
+      "groupId": "wind:group:13"
+    },
+    {
+      "sourceId": "wind:11-10",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [144.74, -108.45],
+      "groupId": "wind:group:13"
+    },
+    {
+      "sourceId": "wind:11-11",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [147.97, -108.44],
+      "groupId": "wind:group:13"
+    },
+    {
+      "sourceId": "wind:11-12",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [148.27, -105.31],
+      "groupId": "wind:group:13"
+    },
+    {
+      "sourceId": "wind:11-13",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [139.39, -98.17]
+    },
+    {
+      "sourceId": "wind:11-14",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [150.83, -100.84]
+    },
+    {
+      "sourceId": "wind:11-15",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [153.31, -96.82]
+    },
+    {
+      "sourceId": "wind:11-16",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [219.83, -113.62],
+      "groupId": "wind:group:14"
+    },
+    {
+      "sourceId": "wind:11-17",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [223.13, -113.97],
+      "groupId": "wind:group:14"
+    },
+    {
+      "sourceId": "wind:11-18",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [220.27, -109.45],
+      "groupId": "wind:group:14"
+    },
+    {
+      "sourceId": "wind:11-19",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [223.93, -110.08],
+      "groupId": "wind:group:14"
+    },
+    {
+      "sourceId": "wind:11-20",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [224.44, -124.23]
+    },
+    {
+      "sourceId": "wind:11-21",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [226.03, -122.25]
+    },
+    {
+      "sourceId": "wind:11-22",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [214.86, -124.27]
+    },
+    {
+      "sourceId": "wind:11-23",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [211.6, -118.73]
+    },
+    {
+      "sourceId": "wind:11-24",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [211.9, -115.84]
+    },
+    {
+      "sourceId": "wind:11-25",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [221.53, -95.07],
+      "groupId": "wind:group:15"
+    },
+    {
+      "sourceId": "wind:11-26",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [221.02, -98.28],
+      "groupId": "wind:group:15"
+    },
+    {
+      "sourceId": "wind:11-27",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [215.56, -96.05],
+      "groupId": "wind:group:15"
+    },
+    {
+      "sourceId": "wind:11-28",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [217.86, -98.15],
+      "groupId": "wind:group:15"
+    },
+    {
+      "sourceId": "wind:11-29",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [230.05, -105.84]
+    },
+    {
+      "sourceId": "wind:11-30",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [212.74, -107.59]
+    },
+    {
+      "sourceId": "wind:11-31",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [211.11, -104.53]
+    },
+    {
+      "sourceId": "wind:11-32",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [211.18, -90.66]
+    },
+    {
+      "sourceId": "wind:11-33",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [213.84, -87.85]
+    },
+    {
+      "sourceId": "wind:11-34",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [231.31, -88.24]
+    },
+    {
+      "sourceId": "wind:11-35",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [229.63, -86.33]
+    },
+    {
+      "sourceId": "wind:11-36",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [234.6, -72.12]
+    },
+    {
+      "sourceId": "wind:11-37",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [232.3, -74.24]
+    },
+    {
+      "sourceId": "wind:11-38",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [231.43, -61.05]
+    },
+    {
+      "sourceId": "wind:11-39",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [213.46, -59.53]
+    },
+    {
+      "sourceId": "wind:11-40",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [213.23, -76.85]
+    },
+    {
+      "sourceId": "wind:11-41",
+      "sourceEnemyId": 234673,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [210.94, -72.68]
+    },
+    {
+      "sourceId": "wind:12-1",
+      "sourceEnemyId": 232067,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [146.27, -85.87],
+      "groupId": "wind:group:12"
+    },
+    {
+      "sourceId": "wind:12-2",
+      "sourceEnemyId": 232067,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [221.99, -111.67],
+      "groupId": "wind:group:14"
+    },
+    {
+      "sourceId": "wind:12-3",
+      "sourceEnemyId": 232067,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [218.74, -95.25],
+      "groupId": "wind:group:15"
+    },
+    {
+      "sourceId": "wind:13-1",
+      "sourceEnemyId": 232063,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [221.85, -73.14],
+      "groupId": "wind:group:17"
+    },
+    {
+      "sourceId": "wind:14-1",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [194.56, -66.69],
+      "groupId": "wind:group:19"
+    },
+    {
+      "sourceId": "wind:14-2",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [192.49, -64.64],
+      "groupId": "wind:group:19"
+    },
+    {
+      "sourceId": "wind:14-3",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [192.03, -67.74],
+      "groupId": "wind:group:19"
+    },
+    {
+      "sourceId": "wind:14-4",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [196.31, -71.84],
+      "groupId": "wind:group:18"
+    },
+    {
+      "sourceId": "wind:14-5",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [194.86, -73.57],
+      "groupId": "wind:group:18"
+    },
+    {
+      "sourceId": "wind:14-6",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [194.22, -75.84],
+      "groupId": "wind:group:18"
+    },
+    {
+      "sourceId": "wind:14-7",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [202.42, -61.09],
+      "groupId": "wind:group:21"
+    },
+    {
+      "sourceId": "wind:14-8",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [202.42, -58.63],
+      "groupId": "wind:group:21"
+    },
+    {
+      "sourceId": "wind:14-9",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [193.85, -54.26],
+      "groupId": "wind:group:20"
+    },
+    {
+      "sourceId": "wind:14-10",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [194.86, -56.81],
+      "groupId": "wind:group:20"
+    },
+    {
+      "sourceId": "wind:14-11",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [196.5, -54.71],
+      "groupId": "wind:group:20"
+    },
+    {
+      "sourceId": "wind:14-12",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [203.77, -43.1],
+      "groupId": "wind:group:22"
+    },
+    {
+      "sourceId": "wind:14-13",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [208.69, -38.27],
+      "groupId": "wind:group:22"
+    },
+    {
+      "sourceId": "wind:14-14",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [209.42, -52.57],
+      "groupId": "wind:group:23"
+    },
+    {
+      "sourceId": "wind:14-15",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [211.36, -50.54],
+      "groupId": "wind:group:23"
+    },
+    {
+      "sourceId": "wind:14-16",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [215.06, -46.84],
+      "groupId": "wind:group:23"
+    },
+    {
+      "sourceId": "wind:14-17",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [218.07, -45.92],
+      "groupId": "wind:group:23"
+    },
+    {
+      "sourceId": "wind:14-18",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [214.34, -50.02],
+      "groupId": "wind:group:23"
+    },
+    {
+      "sourceId": "wind:14-19",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [213.64, -31.4],
+      "groupId": "wind:group:24"
+    },
+    {
+      "sourceId": "wind:14-20",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [215.37, -25.2],
+      "groupId": "wind:group:24"
+    },
+    {
+      "sourceId": "wind:14-21",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [226.48, -24.75],
+      "groupId": "wind:group:25"
+    },
+    {
+      "sourceId": "wind:14-22",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [225.75, -27.48],
+      "groupId": "wind:group:25"
+    },
+    {
+      "sourceId": "wind:14-23",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [232.68, -30.03],
+      "groupId": "wind:group:25"
+    },
+    {
+      "sourceId": "wind:14-24",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [230.85, -32.22],
+      "groupId": "wind:group:25"
+    },
+    {
+      "sourceId": "wind:14-25",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [217.65, -26.75],
+      "groupId": "wind:group:24"
+    },
+    {
+      "sourceId": "wind:14-26",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [230.16, -48.69],
+      "groupId": "wind:group:26"
+    },
+    {
+      "sourceId": "wind:14-27",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [232.75, -50.12],
+      "groupId": "wind:group:26"
+    },
+    {
+      "sourceId": "wind:14-28",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [235.51, -51.66],
+      "groupId": "wind:group:26"
+    },
+    {
+      "sourceId": "wind:14-29",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [230.42, -51.22],
+      "groupId": "wind:group:26"
+    },
+    {
+      "sourceId": "wind:14-30",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [232.87, -52.96],
+      "groupId": "wind:group:26"
+    },
+    {
+      "sourceId": "wind:14-31",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [240.94, -41.75],
+      "groupId": "wind:group:27"
+    },
+    {
+      "sourceId": "wind:14-32",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [243.92, -42.98],
+      "groupId": "wind:group:27"
+    },
+    {
+      "sourceId": "wind:14-33",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [247.42, -44.91],
+      "groupId": "wind:group:27"
+    },
+    {
+      "sourceId": "wind:14-34",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [242.16, -44.73],
+      "groupId": "wind:group:27"
+    },
+    {
+      "sourceId": "wind:14-35",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [244.61, -45.83],
+      "groupId": "wind:group:27"
+    },
+    {
+      "sourceId": "wind:14-36",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [247.59, -58.22],
+      "groupId": "wind:group:28"
+    },
+    {
+      "sourceId": "wind:14-37",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [244.62, -59.27],
+      "groupId": "wind:group:28"
+    },
+    {
+      "sourceId": "wind:14-38",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [241.46, -61.37],
+      "groupId": "wind:group:28"
+    },
+    {
+      "sourceId": "wind:14-39",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [242.16, -64],
+      "groupId": "wind:group:28"
+    },
+    {
+      "sourceId": "wind:14-40",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [242.87, -67.33],
+      "groupId": "wind:group:28"
+    },
+    {
+      "sourceId": "wind:14-41",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [239.77, -77.33],
+      "groupId": "wind:group:61"
+    },
+    {
+      "sourceId": "wind:14-42",
+      "sourceEnemyId": 238099,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [237.15, -80.81],
+      "groupId": "wind:group:61"
+    },
+    {
+      "sourceId": "wind:15-1",
+      "sourceEnemyId": 236894,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [231.04, -42.11]
+    },
+    {
+      "sourceId": "wind:16-1",
+      "sourceEnemyId": 238049,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [223.88, -76.71],
+      "groupId": "wind:group:17"
+    },
+    {
+      "sourceId": "wind:16-2",
+      "sourceEnemyId": 238049,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [220.27, -76.85],
+      "groupId": "wind:group:17"
+    },
+    {
+      "sourceId": "wind:16-3",
+      "sourceEnemyId": 238049,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [232.41, -67.72]
+    },
+    {
+      "sourceId": "wind:17-1",
+      "sourceEnemyId": 232119,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [266.44, -232],
+      "groupId": "wind:group:43"
+    },
+    {
+      "sourceId": "wind:17-2",
+      "sourceEnemyId": 232119,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [230.27, -232.21],
+      "groupId": "wind:group:46"
+    },
+    {
+      "sourceId": "wind:17-3",
+      "sourceEnemyId": 232119,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [232.92, -229.95],
+      "groupId": "wind:group:46"
+    },
+    {
+      "sourceId": "wind:17-4",
+      "sourceEnemyId": 232119,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [229.45, -176.96],
+      "groupId": "wind:group:50"
+    },
+    {
+      "sourceId": "wind:17-5",
+      "sourceEnemyId": 232119,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [225.62, -186.07],
+      "groupId": "wind:group:50"
+    },
+    {
+      "sourceId": "wind:17-6",
+      "sourceEnemyId": 232119,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [262.98, -183.68],
+      "groupId": "wind:group:53"
+    },
+    {
+      "sourceId": "wind:18-1",
+      "sourceEnemyId": 232122,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [259.27, -222.42],
+      "groupId": "wind:group:44"
+    },
+    {
+      "sourceId": "wind:18-2",
+      "sourceEnemyId": 232122,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [232.24, -224.5],
+      "groupId": "wind:group:46"
+    },
+    {
+      "sourceId": "wind:18-3",
+      "sourceEnemyId": 232122,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [227.79, -181.51],
+      "groupId": "wind:group:50"
+    },
+    {
+      "sourceId": "wind:18-4",
+      "sourceEnemyId": 232122,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [252.94, -185.34],
+      "groupId": "wind:group:52"
+    },
+    {
+      "sourceId": "wind:19-1",
+      "sourceEnemyId": 232283,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [215.4, -194.96],
+      "groupId": "wind:group:54"
+    },
+    {
+      "sourceId": "wind:19-2",
+      "sourceEnemyId": 232283,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [230.04, -211.78],
+      "groupId": "wind:group:57"
+    },
+    {
+      "sourceId": "wind:19-3",
+      "sourceEnemyId": 232283,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [218.17, -203.12],
+      "groupId": "wind:group:55"
+    },
+    {
+      "sourceId": "wind:19-4",
+      "sourceEnemyId": 232283,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [238.98, -203.91],
+      "groupId": "wind:group:59"
+    },
+    {
+      "sourceId": "wind:19-5",
+      "sourceEnemyId": 232283,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [256.23, -206.17],
+      "groupId": "wind:group:60"
+    },
+    {
+      "sourceId": "wind:20-1",
+      "sourceEnemyId": 232147,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [222.84, -214.61],
+      "groupId": "wind:group:56"
+    },
+    {
+      "sourceId": "wind:20-2",
+      "sourceEnemyId": 232147,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [219, -194.29],
+      "groupId": "wind:group:54"
+    },
+    {
+      "sourceId": "wind:20-3",
+      "sourceEnemyId": 232147,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [256.12, -201.41],
+      "groupId": "wind:group:60"
+    },
+    {
+      "sourceId": "wind:20-4",
+      "sourceEnemyId": 232147,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [204.54, -207.67],
+      "groupId": "wind:group:49"
+    },
+    {
+      "sourceId": "wind:21-1",
+      "sourceEnemyId": 232148,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [187.18, -204.51],
+      "groupId": "wind:group:47"
+    },
+    {
+      "sourceId": "wind:21-2",
+      "sourceEnemyId": 232148,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [242.15, -201.68],
+      "groupId": "wind:group:59"
+    },
+    {
+      "sourceId": "wind:21-3",
+      "sourceEnemyId": 232148,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [242.34, -206.12],
+      "groupId": "wind:group:59"
+    },
+    {
+      "sourceId": "wind:21-4",
+      "sourceEnemyId": 232148,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [260.77, -206.03],
+      "groupId": "wind:group:60"
+    },
+    {
+      "sourceId": "wind:21-5",
+      "sourceEnemyId": 232148,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [260.45, -200.78],
+      "groupId": "wind:group:60"
+    },
+    {
+      "sourceId": "wind:22-1",
+      "sourceEnemyId": 232146,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [230.59, -202.54],
+      "groupId": "wind:group:58"
+    },
+    {
+      "sourceId": "wind:22-2",
+      "sourceEnemyId": 232146,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [264.9, -203.48],
+      "groupId": "wind:group:60"
+    },
+    {
+      "sourceId": "wind:23-1",
+      "sourceEnemyId": 231606,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [298.02, -67.12],
+      "groupId": "wind:group:29"
+    },
+    {
+      "sourceId": "wind:24-1",
+      "sourceEnemyId": 231626,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [130.74, -232.06],
+      "groupId": "wind:group:42"
+    },
+    {
+      "sourceId": "wind:25-1",
+      "sourceEnemyId": 231629,
+      "sourceEnemyIndex": 25,
+      "floorId": "default",
+      "position": [146.93, -231.83],
+      "groupId": "wind:group:42"
+    },
+    {
+      "sourceId": "wind:26-1",
+      "sourceEnemyId": 231631,
+      "sourceEnemyIndex": 26,
+      "floorId": "default",
+      "position": [285.78, -205.21]
+    },
+    {
+      "sourceId": "wind:27-1",
+      "sourceEnemyId": 231636,
+      "sourceEnemyIndex": 27,
+      "floorId": "default",
+      "position": [311.62, -139.43]
+    },
+    {
+      "sourceId": "wind:28-1",
+      "sourceEnemyId": 232118,
+      "sourceEnemyIndex": 28,
+      "floorId": "default",
+      "position": [304.74, -73.68],
+      "groupId": "wind:group:29"
+    },
+    {
+      "sourceId": "wind:28-2",
+      "sourceEnemyId": 232118,
+      "sourceEnemyIndex": 28,
+      "floorId": "default",
+      "position": [307.65, -68.61],
+      "groupId": "wind:group:29"
+    },
+    {
+      "sourceId": "wind:28-3",
+      "sourceEnemyId": 232118,
+      "sourceEnemyIndex": 28,
+      "floorId": "default",
+      "position": [306.95, -63],
+      "groupId": "wind:group:29"
+    },
+    {
+      "sourceId": "wind:29-1",
+      "sourceEnemyId": 232121,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [257.51, -227.85],
+      "groupId": "wind:group:44"
+    },
+    {
+      "sourceId": "wind:29-2",
+      "sourceEnemyId": 232121,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [237.33, -227.3],
+      "groupId": "wind:group:46"
+    },
+    {
+      "sourceId": "wind:29-3",
+      "sourceEnemyId": 232121,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [230.7, -186.6],
+      "groupId": "wind:group:50"
+    },
+    {
+      "sourceId": "wind:29-4",
+      "sourceEnemyId": 232121,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [251.28, -180.76],
+      "groupId": "wind:group:52"
+    },
+    {
+      "sourceId": "wind:30-1",
+      "sourceEnemyId": 258868,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [204.23, -201.86],
+      "groupId": "wind:group:49"
+    },
+    {
+      "sourceId": "wind:30-2",
+      "sourceEnemyId": 258868,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [190.61, -209.2],
+      "groupId": "wind:group:47"
+    },
+    {
+      "sourceId": "wind:30-3",
+      "sourceEnemyId": 258868,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [190.19, -200.09],
+      "groupId": "wind:group:47"
+    },
+    {
+      "sourceId": "wind:30-4",
+      "sourceEnemyId": 258868,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [233.07, -210.49],
+      "groupId": "wind:group:57"
+    },
+    {
+      "sourceId": "wind:30-5",
+      "sourceEnemyId": 258868,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [221.8, -202],
+      "groupId": "wind:group:55"
+    },
+    {
+      "sourceId": "wind:30-6",
+      "sourceEnemyId": 258868,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [219.18, -215.35],
+      "groupId": "wind:group:56"
+    }
+  ]
+}

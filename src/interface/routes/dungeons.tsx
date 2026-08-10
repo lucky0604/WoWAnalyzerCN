@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 import {
   createAssetProviderFromEnv,
   DungeonMap,
+  dungeonCoverageStatusLabel,
   dungeonDocuments,
   getDungeonDocument,
   getPullStepForces,
@@ -30,20 +31,15 @@ const statusLabel: Record<DungeonDocument['dataStatus'], string> = {
   published: '已发布',
 };
 
-const coverageStatusLabel: Record<DungeonCoverageStatus, string> = {
-  building: '攻略建设中',
-  'coordinate-ready': '坐标已接入',
-  reviewed: '已审校',
-  published: '已发布',
-};
-
 function StatusBadge({ status }: { status: DungeonDocument['dataStatus'] }) {
   return <span className={`dungeon-status dungeon-status-${status}`}>{statusLabel[status]}</span>;
 }
 
 function CoverageBadge({ status }: { status: DungeonCoverageStatus }) {
   return (
-    <span className={`dungeon-status dungeon-status-${status}`}>{coverageStatusLabel[status]}</span>
+    <span className={`dungeon-status dungeon-status-${status}`}>
+      {dungeonCoverageStatusLabel[status]}
+    </span>
   );
 }
 
@@ -93,8 +89,11 @@ function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
         ) : (
           <span className="dungeon-card__action dungeon-card__action--disabled">攻略尚未开放</span>
         )}
-        <span className="dungeon-card__reference">下一步：{entry.nextMilestone.zhCN}</span>
+        <Link className="dungeon-card__reference" to={`/dungeons/${entry.id}/reference`}>
+          查看位置参考 →
+        </Link>
       </div>
+      <small className="dungeon-card__next-milestone">下一步：{entry.nextMilestone.zhCN}</small>
     </article>
   );
 }

@@ -35,6 +35,12 @@ const appRoutes = createRoutesFromElements(
       <Route path="dungeons/:dungeonId/learn" lazy={() => import('./routes/dungeon-learning')} />
     )}
     {dungeonRoutesEnabled && (
+      <Route
+        path="dungeons/:dungeonId/reference"
+        lazy={() => import('./routes/dungeon-reference')}
+      />
+    )}
+    {dungeonRoutesEnabled && (
       <Route path="dungeons/:dungeonId" lazy={() => import('./routes/dungeons')} />
     )}
     <Route element={<HomeLayout />}>

@@ -362,6 +362,12 @@
   flex: 1;
   line-height: 1.45;
 }
+.dungeon-card__next-milestone {
+  display: block;
+  margin-top: 12px;
+  color: design.$colors_unfocusedText;
+  line-height: 1.5;
+}
 .dungeon-status {
   display: inline-flex;
   border: 1px solid currentColor;
@@ -535,6 +541,30 @@
   font-family: monospace;
   white-space: nowrap;
 }
+.dungeon-reference-select {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: design.$colors_wowaYellow;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.dungeon-reference-select:hover,
+.dungeon-reference-select:focus-visible {
+  text-decoration: underline;
+}
+.dungeon-reference-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  color: design.$colors_unfocusedText;
+  font-size: 0.82rem;
+}
+.dungeon-reference-footer a {
+  color: design.$colors_wowaYellow;
+}
 .dungeon-boss-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -618,5 +648,8 @@
   .dungeon-situation__title span {
     display: block;
     margin-top: 4px;
+  }
+  .dungeon-reference-footer {
+    display: grid;
   }
 }

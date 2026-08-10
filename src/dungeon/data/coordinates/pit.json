@@ -1,0 +1,1846 @@
+{
+  "source": "threechest",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-10",
+  "retrievedAt": "2026-08-10",
+  "rawSha256": "eda3b6d632be18815b1357dfc228abc165e2900cccfc8456e72b09f39967ec16",
+  "transformVersion": "threechest-yx-to-normalized-v1",
+  "dungeonKey": "pit",
+  "dungeonIndex": 150,
+  "sourceCoordinateSpace": "threechest-yx",
+  "normalizedCoordinateSpace": "normalized-v1",
+  "spawns": [
+    {
+      "sourceId": "pit:1-1",
+      "sourceEnemyId": 252551,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [190.52, -111.49],
+      "groupId": "pit:group:47"
+    },
+    {
+      "sourceId": "pit:1-2",
+      "sourceEnemyId": 252551,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [222.12, -148.82],
+      "groupId": "pit:group:44"
+    },
+    {
+      "sourceId": "pit:1-3",
+      "sourceEnemyId": 252551,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [153.9, -170.66],
+      "groupId": "pit:group:52"
+    },
+    {
+      "sourceId": "pit:1-4",
+      "sourceEnemyId": 252551,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [128.3, -195.62],
+      "groupId": "pit:group:28"
+    },
+    {
+      "sourceId": "pit:1-5",
+      "sourceEnemyId": 252551,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [137.24, -210.34],
+      "groupId": "pit:group:4"
+    },
+    {
+      "sourceId": "pit:1-6",
+      "sourceEnemyId": 252551,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [120.86, -185.84],
+      "groupId": "pit:group:88"
+    },
+    {
+      "sourceId": "pit:1-7",
+      "sourceEnemyId": 252551,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [135.35, -173.92],
+      "groupId": "pit:group:27"
+    },
+    {
+      "sourceId": "pit:2-1",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [192.27, -108.57],
+      "groupId": "pit:group:47"
+    },
+    {
+      "sourceId": "pit:2-2",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [190.25, -108.2],
+      "groupId": "pit:group:47"
+    },
+    {
+      "sourceId": "pit:2-3",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [220.53, -146.34],
+      "groupId": "pit:group:44"
+    },
+    {
+      "sourceId": "pit:2-4",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [222.52, -146.05],
+      "groupId": "pit:group:44"
+    },
+    {
+      "sourceId": "pit:2-5",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [224.35, -147.18],
+      "groupId": "pit:group:44"
+    },
+    {
+      "sourceId": "pit:2-6",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [156.61, -169.75],
+      "groupId": "pit:group:52"
+    },
+    {
+      "sourceId": "pit:2-7",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [155.16, -168.2],
+      "groupId": "pit:group:52"
+    },
+    {
+      "sourceId": "pit:2-8",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [153.05, -168.05],
+      "groupId": "pit:group:52"
+    },
+    {
+      "sourceId": "pit:2-9",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [127.67, -193.11],
+      "groupId": "pit:group:28"
+    },
+    {
+      "sourceId": "pit:2-10",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [129.68, -193.21],
+      "groupId": "pit:group:28"
+    },
+    {
+      "sourceId": "pit:2-11",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [131.02, -194.96],
+      "groupId": "pit:group:28"
+    },
+    {
+      "sourceId": "pit:2-12",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [138.53, -212.39],
+      "groupId": "pit:group:4"
+    },
+    {
+      "sourceId": "pit:2-13",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [139.26, -211.22],
+      "groupId": "pit:group:4"
+    },
+    {
+      "sourceId": "pit:2-14",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [139.33, -209.12],
+      "groupId": "pit:group:4"
+    },
+    {
+      "sourceId": "pit:2-15",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [118.8, -184.43],
+      "groupId": "pit:group:88"
+    },
+    {
+      "sourceId": "pit:2-16",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [122.73, -184.67],
+      "groupId": "pit:group:88"
+    },
+    {
+      "sourceId": "pit:2-17",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [134.12, -171.57],
+      "groupId": "pit:group:27"
+    },
+    {
+      "sourceId": "pit:2-18",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [136.62, -171.62],
+      "groupId": "pit:group:27"
+    },
+    {
+      "sourceId": "pit:2-19",
+      "sourceEnemyId": 252602,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [137.85, -173.41],
+      "groupId": "pit:group:27"
+    },
+    {
+      "sourceId": "pit:3-1",
+      "sourceEnemyId": 252603,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [188.43, -109.09],
+      "groupId": "pit:group:47"
+    },
+    {
+      "sourceId": "pit:3-2",
+      "sourceEnemyId": 252603,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [224.59, -149.27],
+      "groupId": "pit:group:44"
+    },
+    {
+      "sourceId": "pit:3-3",
+      "sourceEnemyId": 252603,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [151.37, -169.6],
+      "groupId": "pit:group:52"
+    },
+    {
+      "sourceId": "pit:3-4",
+      "sourceEnemyId": 252603,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [125.93, -194.35],
+      "groupId": "pit:group:28"
+    },
+    {
+      "sourceId": "pit:3-5",
+      "sourceEnemyId": 252603,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [136.73, -212.43],
+      "groupId": "pit:group:4"
+    },
+    {
+      "sourceId": "pit:3-6",
+      "sourceEnemyId": 252603,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [120.9, -183.57],
+      "groupId": "pit:group:88"
+    },
+    {
+      "sourceId": "pit:3-7",
+      "sourceEnemyId": 252603,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [132.83, -173.27],
+      "groupId": "pit:group:27"
+    },
+    {
+      "sourceId": "pit:4-1",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [212.46, -163.83],
+      "groupId": "pit:group:77"
+    },
+    {
+      "sourceId": "pit:4-2",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [176.07, -181.38],
+      "groupId": "pit:group:39"
+    },
+    {
+      "sourceId": "pit:4-3",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [151.16, -178.24],
+      "groupId": "pit:group:32"
+    },
+    {
+      "sourceId": "pit:4-4",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [109.64, -209.85],
+      "groupId": "pit:group:21"
+    },
+    {
+      "sourceId": "pit:4-5",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [101.88, -218.15],
+      "groupId": "pit:group:19"
+    },
+    {
+      "sourceId": "pit:4-6",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [105.38, -222.79],
+      "groupId": "pit:group:20"
+    },
+    {
+      "sourceId": "pit:4-7",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [104.74, -228.44],
+      "groupId": "pit:group:18"
+    },
+    {
+      "sourceId": "pit:4-8",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [100.69, -247.91],
+      "groupId": "pit:group:15"
+    },
+    {
+      "sourceId": "pit:4-9",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [146.92, -248.96],
+      "groupId": "pit:group:14"
+    },
+    {
+      "sourceId": "pit:4-10",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [143.41, -232.94],
+      "groupId": "pit:group:12"
+    },
+    {
+      "sourceId": "pit:4-11",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [130.34, -222.87],
+      "groupId": "pit:group:5"
+    },
+    {
+      "sourceId": "pit:4-12",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [86.13, -196.17],
+      "groupId": "pit:group:23"
+    },
+    {
+      "sourceId": "pit:4-13",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [113.04, -190.29],
+      "groupId": "pit:group:29"
+    },
+    {
+      "sourceId": "pit:4-14",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [179.05, -82.87],
+      "groupId": "pit:group:71"
+    },
+    {
+      "sourceId": "pit:4-15",
+      "sourceEnemyId": 252567,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [120.53, -213.7],
+      "groupId": "pit:group:81"
+    },
+    {
+      "sourceId": "pit:5-1",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [193.17, -114.94],
+      "groupId": "pit:group:47"
+    },
+    {
+      "sourceId": "pit:5-2",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [224.64, -157.67],
+      "groupId": "pit:group:43"
+    },
+    {
+      "sourceId": "pit:5-3",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [194.44, -193.3],
+      "groupId": "pit:group:38"
+    },
+    {
+      "sourceId": "pit:5-5",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [177.63, -198.66],
+      "groupId": "pit:group:67"
+    },
+    {
+      "sourceId": "pit:5-6",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [166.21, -206.01],
+      "groupId": "pit:group:35"
+    },
+    {
+      "sourceId": "pit:5-7",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [149.45, -181.33],
+      "groupId": "pit:group:32"
+    },
+    {
+      "sourceId": "pit:5-8",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [144.01, -188.98],
+      "groupId": "pit:group:31"
+    },
+    {
+      "sourceId": "pit:5-9",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [150.73, -207.72],
+      "groupId": "pit:group:6"
+    },
+    {
+      "sourceId": "pit:5-10",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [148.72, -215.57],
+      "groupId": "pit:group:8"
+    },
+    {
+      "sourceId": "pit:5-11",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [126.07, -206.51],
+      "groupId": "pit:group:2"
+    },
+    {
+      "sourceId": "pit:5-12",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [109.59, -206.61],
+      "groupId": "pit:group:21"
+    },
+    {
+      "sourceId": "pit:5-13",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [97.97, -218.88],
+      "groupId": "pit:group:19"
+    },
+    {
+      "sourceId": "pit:5-14",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [100.94, -228.85],
+      "groupId": "pit:group:18"
+    },
+    {
+      "sourceId": "pit:5-15",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [97.48, -247.07],
+      "groupId": "pit:group:15"
+    },
+    {
+      "sourceId": "pit:5-16",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [142.61, -248.88],
+      "groupId": "pit:group:14"
+    },
+    {
+      "sourceId": "pit:5-17",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [139.71, -232.79],
+      "groupId": "pit:group:12"
+    },
+    {
+      "sourceId": "pit:5-18",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [134.13, -222.42],
+      "groupId": "pit:group:5"
+    },
+    {
+      "sourceId": "pit:5-19",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [89.58, -198.55],
+      "groupId": "pit:group:23"
+    },
+    {
+      "sourceId": "pit:5-20",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [116.13, -190.4],
+      "groupId": "pit:group:29"
+    },
+    {
+      "sourceId": "pit:5-21",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [107.67, -178.43],
+      "groupId": "pit:group:25"
+    },
+    {
+      "sourceId": "pit:5-22",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [123.39, -158.1],
+      "groupId": "pit:group:26"
+    },
+    {
+      "sourceId": "pit:5-23",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [150.79, -156.12],
+      "groupId": "pit:group:51"
+    },
+    {
+      "sourceId": "pit:5-24",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [116.29, -214.02],
+      "groupId": "pit:group:81"
+    },
+    {
+      "sourceId": "pit:5-25",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [176.3, -184.26],
+      "groupId": "pit:group:39"
+    },
+    {
+      "sourceId": "pit:5-26",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [206.59, -141.82],
+      "groupId": "pit:group:85"
+    },
+    {
+      "sourceId": "pit:5-27",
+      "sourceEnemyId": 252561,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [164.21, -92.92],
+      "groupId": "pit:group:70"
+    },
+    {
+      "sourceId": "pit:6-1",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [166.42, -201],
+      "groupId": "pit:group:35"
+    },
+    {
+      "sourceId": "pit:6-2",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [132.82, -205.51],
+      "groupId": "pit:group:3"
+    },
+    {
+      "sourceId": "pit:6-3",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [116.42, -207.7],
+      "groupId": "pit:group:54"
+    },
+    {
+      "sourceId": "pit:6-4",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [94.13, -208.87],
+      "groupId": "pit:group:55"
+    },
+    {
+      "sourceId": "pit:6-5",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [130.97, -181.99],
+      "groupId": "pit:group:68"
+    },
+    {
+      "sourceId": "pit:6-6",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [119.94, -166.4],
+      "groupId": "pit:group:69"
+    },
+    {
+      "sourceId": "pit:6-7",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [200.63, -83.47],
+      "groupId": "pit:group:72"
+    },
+    {
+      "sourceId": "pit:6-9",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [203.59, -144.85],
+      "groupId": "pit:group:85"
+    },
+    {
+      "sourceId": "pit:6-10",
+      "sourceEnemyId": 252563,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [191.41, -190.6],
+      "groupId": "pit:group:38"
+    },
+    {
+      "sourceId": "pit:7-1",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [164.51, -130.19],
+      "groupId": "pit:group:49"
+    },
+    {
+      "sourceId": "pit:7-2",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [162.97, -127.74],
+      "groupId": "pit:group:49"
+    },
+    {
+      "sourceId": "pit:7-3",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [161.47, -125.08],
+      "groupId": "pit:group:49"
+    },
+    {
+      "sourceId": "pit:7-4",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [198.89, -134.44],
+      "groupId": "pit:group:45"
+    },
+    {
+      "sourceId": "pit:7-5",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [197.77, -173.68],
+      "groupId": "pit:group:41"
+    },
+    {
+      "sourceId": "pit:7-6",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [198.87, -177],
+      "groupId": "pit:group:41"
+    },
+    {
+      "sourceId": "pit:7-7",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [180.96, -189.74],
+      "groupId": "pit:group:37"
+    },
+    {
+      "sourceId": "pit:7-8",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [158.65, -200.35],
+      "groupId": "pit:group:34"
+    },
+    {
+      "sourceId": "pit:7-9",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [157.3, -203.43],
+      "groupId": "pit:group:34"
+    },
+    {
+      "sourceId": "pit:7-10",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [140.91, -189.03],
+      "groupId": "pit:group:31"
+    },
+    {
+      "sourceId": "pit:7-11",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [137.68, -188.66],
+      "groupId": "pit:group:31"
+    },
+    {
+      "sourceId": "pit:7-12",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [142.48, -195.5],
+      "groupId": "pit:group:30"
+    },
+    {
+      "sourceId": "pit:7-13",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [106.25, -206.54],
+      "groupId": "pit:group:21"
+    },
+    {
+      "sourceId": "pit:7-14",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [106.39, -210.03],
+      "groupId": "pit:group:21"
+    },
+    {
+      "sourceId": "pit:7-15",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [103.22, -236.14]
+    },
+    {
+      "sourceId": "pit:7-16",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [99.32, -239.87]
+    },
+    {
+      "sourceId": "pit:7-17",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [139.71, -237.26]
+    },
+    {
+      "sourceId": "pit:7-18",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [142.69, -244.33]
+    },
+    {
+      "sourceId": "pit:7-19",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [142.1, -221.57]
+    },
+    {
+      "sourceId": "pit:7-20",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [92.8, -200.35],
+      "groupId": "pit:group:23"
+    },
+    {
+      "sourceId": "pit:7-21",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [88.4, -185.65],
+      "groupId": "pit:group:24"
+    },
+    {
+      "sourceId": "pit:7-22",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [91.89, -187.72],
+      "groupId": "pit:group:24"
+    },
+    {
+      "sourceId": "pit:7-23",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [113.82, -173.94],
+      "groupId": "pit:group:25"
+    },
+    {
+      "sourceId": "pit:7-24",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [146.26, -156.3],
+      "groupId": "pit:group:51"
+    },
+    {
+      "sourceId": "pit:7-25",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [183.58, -86.55],
+      "groupId": "pit:group:71"
+    },
+    {
+      "sourceId": "pit:7-26",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [183.88, -83.22],
+      "groupId": "pit:group:71"
+    },
+    {
+      "sourceId": "pit:7-27",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [184.16, -79.77],
+      "groupId": "pit:group:71"
+    },
+    {
+      "sourceId": "pit:7-28",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [123, -216.64],
+      "groupId": "pit:group:81"
+    },
+    {
+      "sourceId": "pit:7-29",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [114.19, -217.71],
+      "groupId": "pit:group:81"
+    },
+    {
+      "sourceId": "pit:7-30",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [224.59, -175.15],
+      "groupId": "pit:group:42"
+    },
+    {
+      "sourceId": "pit:7-31",
+      "sourceEnemyId": 252558,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [141.4, -227.06]
+    },
+    {
+      "sourceId": "pit:8-1",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [194.91, -123.94],
+      "groupId": "pit:group:46"
+    },
+    {
+      "sourceId": "pit:8-2",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [228.89, -156.57],
+      "groupId": "pit:group:43"
+    },
+    {
+      "sourceId": "pit:8-3",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [162.77, -176.88],
+      "groupId": "pit:group:40"
+    },
+    {
+      "sourceId": "pit:8-4",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [110.44, -231.84],
+      "groupId": "pit:group:65"
+    },
+    {
+      "sourceId": "pit:8-5",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [144.92, -238.98],
+      "groupId": "pit:group:64"
+    },
+    {
+      "sourceId": "pit:8-6",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [146.1, -226.52],
+      "groupId": "pit:group:66"
+    },
+    {
+      "sourceId": "pit:8-7",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [101.24, -195.76],
+      "groupId": "pit:group:56"
+    },
+    {
+      "sourceId": "pit:8-8",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [142.71, -164.47],
+      "groupId": "pit:group:63"
+    },
+    {
+      "sourceId": "pit:8-9",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [168.5, -88.7],
+      "groupId": "pit:group:70"
+    },
+    {
+      "sourceId": "pit:8-10",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [118.78, -218.16],
+      "groupId": "pit:group:81"
+    },
+    {
+      "sourceId": "pit:8-11",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [144.44, -209.85],
+      "groupId": "pit:group:87"
+    },
+    {
+      "sourceId": "pit:8-12",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [163.76, -88.8],
+      "groupId": "pit:group:70"
+    },
+    {
+      "sourceId": "pit:8-13",
+      "sourceEnemyId": 252610,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [200.85, -88.95],
+      "groupId": "pit:group:72"
+    },
+    {
+      "sourceId": "pit:9-1",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [181.46, -117.42],
+      "groupId": "pit:group:48"
+    },
+    {
+      "sourceId": "pit:9-2",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [181.91, -120.79],
+      "groupId": "pit:group:48"
+    },
+    {
+      "sourceId": "pit:9-3",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [164.56, -124.79],
+      "groupId": "pit:group:49"
+    },
+    {
+      "sourceId": "pit:9-4",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [166.22, -127.35],
+      "groupId": "pit:group:49"
+    },
+    {
+      "sourceId": "pit:9-5",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [198.93, -130.98],
+      "groupId": "pit:group:45"
+    },
+    {
+      "sourceId": "pit:9-6",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [209, -163.13],
+      "groupId": "pit:group:77"
+    },
+    {
+      "sourceId": "pit:9-7",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [211.19, -161.03],
+      "groupId": "pit:group:77"
+    },
+    {
+      "sourceId": "pit:9-8",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [201.56, -175.99],
+      "groupId": "pit:group:41"
+    },
+    {
+      "sourceId": "pit:9-9",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [199.61, -171.19],
+      "groupId": "pit:group:41"
+    },
+    {
+      "sourceId": "pit:9-10",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [202.71, -178.84],
+      "groupId": "pit:group:41"
+    },
+    {
+      "sourceId": "pit:9-11",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [200.37, -173.3],
+      "groupId": "pit:group:41"
+    },
+    {
+      "sourceId": "pit:9-12",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [184.05, -190.43],
+      "groupId": "pit:group:37"
+    },
+    {
+      "sourceId": "pit:9-13",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [155.87, -199.33],
+      "groupId": "pit:group:34"
+    },
+    {
+      "sourceId": "pit:9-14",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [154, -201.98],
+      "groupId": "pit:group:34"
+    },
+    {
+      "sourceId": "pit:9-15",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [139.77, -186.27],
+      "groupId": "pit:group:31"
+    },
+    {
+      "sourceId": "pit:9-16",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [142.42, -186.35],
+      "groupId": "pit:group:31"
+    },
+    {
+      "sourceId": "pit:9-17",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [141.88, -198.17],
+      "groupId": "pit:group:30"
+    },
+    {
+      "sourceId": "pit:9-18",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [149.98, -227.68],
+      "groupId": "pit:group:11"
+    },
+    {
+      "sourceId": "pit:9-19",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [149.24, -230.74],
+      "groupId": "pit:group:11"
+    },
+    {
+      "sourceId": "pit:9-20",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [145.14, -219.22],
+      "groupId": "pit:group:9"
+    },
+    {
+      "sourceId": "pit:9-21",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [89.23, -194.82],
+      "groupId": "pit:group:23"
+    },
+    {
+      "sourceId": "pit:9-22",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [109.89, -175.67],
+      "groupId": "pit:group:25"
+    },
+    {
+      "sourceId": "pit:9-23",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [131.12, -142.29],
+      "groupId": "pit:group:80"
+    },
+    {
+      "sourceId": "pit:9-24",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [181.34, -85.03],
+      "groupId": "pit:group:71"
+    },
+    {
+      "sourceId": "pit:9-25",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [181.7, -82.98],
+      "groupId": "pit:group:71"
+    },
+    {
+      "sourceId": "pit:9-26",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [181.75, -80.88],
+      "groupId": "pit:group:71"
+    },
+    {
+      "sourceId": "pit:9-27",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [215.21, -77.39],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:9-28",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [216.12, -75.28],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:9-29",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [219.48, -75.57],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:9-30",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [220.33, -77.56],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:9-31",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [219.59, -79.9],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:9-32",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [217.65, -80.75],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:9-33",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [215.72, -79.67],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:9-34",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [121.93, -203.56],
+      "groupId": "pit:group:2"
+    },
+    {
+      "sourceId": "pit:9-35",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [122.86, -207.05],
+      "groupId": "pit:group:2"
+    },
+    {
+      "sourceId": "pit:9-36",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [153.47, -189.19],
+      "groupId": "pit:group:33"
+    },
+    {
+      "sourceId": "pit:9-37",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [156.7, -188.88],
+      "groupId": "pit:group:33"
+    },
+    {
+      "sourceId": "pit:9-38",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [150.19, -189.09],
+      "groupId": "pit:group:33"
+    },
+    {
+      "sourceId": "pit:9-39",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [183.69, -187.74],
+      "groupId": "pit:group:37"
+    },
+    {
+      "sourceId": "pit:9-40",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [182.49, -192.9],
+      "groupId": "pit:group:37"
+    },
+    {
+      "sourceId": "pit:9-41",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [203.71, -85.87],
+      "groupId": "pit:group:72"
+    },
+    {
+      "sourceId": "pit:9-42",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [204.05, -83.36],
+      "groupId": "pit:group:72"
+    },
+    {
+      "sourceId": "pit:9-43",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [203.82, -80.5],
+      "groupId": "pit:group:72"
+    },
+    {
+      "sourceId": "pit:9-44",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [204.16, -88.27],
+      "groupId": "pit:group:72"
+    },
+    {
+      "sourceId": "pit:9-45",
+      "sourceEnemyId": 252559,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [204.39, -90.78],
+      "groupId": "pit:group:72"
+    },
+    {
+      "sourceId": "pit:10-1",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [172.34, -122.6]
+    },
+    {
+      "sourceId": "pit:10-2",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [218.65, -168.9],
+      "groupId": "pit:group:78"
+    },
+    {
+      "sourceId": "pit:10-3",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [178.75, -183.17],
+      "groupId": "pit:group:39"
+    },
+    {
+      "sourceId": "pit:10-4",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [170.62, -204.13],
+      "groupId": "pit:group:35"
+    },
+    {
+      "sourceId": "pit:10-5",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [139.09, -195.38],
+      "groupId": "pit:group:30"
+    },
+    {
+      "sourceId": "pit:10-6",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [92.78, -196.09],
+      "groupId": "pit:group:23"
+    },
+    {
+      "sourceId": "pit:10-7",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [124.1, -187.41],
+      "groupId": "pit:group:88"
+    },
+    {
+      "sourceId": "pit:10-8",
+      "sourceEnemyId": 252606,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [150.5, -160.12],
+      "groupId": "pit:group:51"
+    },
+    {
+      "sourceId": "pit:11-1",
+      "sourceEnemyId": 252555,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [93.5, -178.63],
+      "groupId": "pit:group:58"
+    },
+    {
+      "sourceId": "pit:11-2",
+      "sourceEnemyId": 252555,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [100.04, -182.9],
+      "groupId": "pit:group:57"
+    },
+    {
+      "sourceId": "pit:11-3",
+      "sourceEnemyId": 252555,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [124.67, -172.88],
+      "groupId": "pit:group:59"
+    },
+    {
+      "sourceId": "pit:11-4",
+      "sourceEnemyId": 252555,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [132.72, -162.72],
+      "groupId": "pit:group:60"
+    },
+    {
+      "sourceId": "pit:11-5",
+      "sourceEnemyId": 252555,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [151.26, -144.22],
+      "groupId": "pit:group:62"
+    },
+    {
+      "sourceId": "pit:11-6",
+      "sourceEnemyId": 252555,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [134.8, -142.82],
+      "groupId": "pit:group:80"
+    },
+    {
+      "sourceId": "pit:12-1",
+      "sourceEnemyId": 257190,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [190.91, -126.64],
+      "groupId": "pit:group:46"
+    },
+    {
+      "sourceId": "pit:12-2",
+      "sourceEnemyId": 257190,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [228.76, -162.03],
+      "groupId": "pit:group:43"
+    },
+    {
+      "sourceId": "pit:12-3",
+      "sourceEnemyId": 257190,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [161.52, -181.74],
+      "groupId": "pit:group:40"
+    },
+    {
+      "sourceId": "pit:13-1",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [201.42, -132.36],
+      "groupId": "pit:group:45"
+    },
+    {
+      "sourceId": "pit:13-2",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [167.87, -190.38],
+      "groupId": "pit:group:53"
+    },
+    {
+      "sourceId": "pit:13-3",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [151.82, -192.45],
+      "groupId": "pit:group:33"
+    },
+    {
+      "sourceId": "pit:13-4",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [155.47, -192.22],
+      "groupId": "pit:group:33"
+    },
+    {
+      "sourceId": "pit:13-5",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [152.91, -181.24],
+      "groupId": "pit:group:32"
+    },
+    {
+      "sourceId": "pit:13-6",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [139.24, -198.83],
+      "groupId": "pit:group:30"
+    },
+    {
+      "sourceId": "pit:13-7",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [148.48, -205.94],
+      "groupId": "pit:group:6"
+    },
+    {
+      "sourceId": "pit:13-8",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [145.66, -214.88],
+      "groupId": "pit:group:8"
+    },
+    {
+      "sourceId": "pit:13-9",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [125.33, -202.71],
+      "groupId": "pit:group:2"
+    },
+    {
+      "sourceId": "pit:13-10",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [113.81, -199.77],
+      "groupId": "pit:group:22"
+    },
+    {
+      "sourceId": "pit:13-11",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [110.99, -199.68],
+      "groupId": "pit:group:22"
+    },
+    {
+      "sourceId": "pit:13-12",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [111.7, -180.01],
+      "groupId": "pit:group:25"
+    },
+    {
+      "sourceId": "pit:13-13",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [113.72, -177.29],
+      "groupId": "pit:group:25"
+    },
+    {
+      "sourceId": "pit:13-14",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [120.24, -157.89],
+      "groupId": "pit:group:26"
+    },
+    {
+      "sourceId": "pit:13-15",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [144.39, -145.1],
+      "groupId": "pit:group:50"
+    },
+    {
+      "sourceId": "pit:13-16",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [145.92, -160.12],
+      "groupId": "pit:group:51"
+    },
+    {
+      "sourceId": "pit:13-17",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [132.28, -215.13],
+      "groupId": "pit:group:82"
+    },
+    {
+      "sourceId": "pit:13-18",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [129.45, -215.62],
+      "groupId": "pit:group:82"
+    },
+    {
+      "sourceId": "pit:13-19",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [190.91, -195.18],
+      "groupId": "pit:group:38"
+    },
+    {
+      "sourceId": "pit:13-20",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [225.55, -172.27],
+      "groupId": "pit:group:42"
+    },
+    {
+      "sourceId": "pit:13-21",
+      "sourceEnemyId": 252565,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [171.49, -189.11],
+      "groupId": "pit:group:53"
+    },
+    {
+      "sourceId": "pit:14-1",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [178.79, -119.67],
+      "groupId": "pit:group:48"
+    },
+    {
+      "sourceId": "pit:14-2",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [189.11, -115.35],
+      "groupId": "pit:group:47"
+    },
+    {
+      "sourceId": "pit:14-3",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [141.69, -141.71],
+      "groupId": "pit:group:50"
+    },
+    {
+      "sourceId": "pit:14-4",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [136.85, -151.96],
+      "groupId": "pit:group:61"
+    },
+    {
+      "sourceId": "pit:14-5",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [217.66, -77.74],
+      "groupId": "pit:group:73"
+    },
+    {
+      "sourceId": "pit:14-6",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [168.18, -92.74],
+      "groupId": "pit:group:70"
+    },
+    {
+      "sourceId": "pit:14-7",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [207.78, -145.21],
+      "groupId": "pit:group:85"
+    },
+    {
+      "sourceId": "pit:14-8",
+      "sourceEnemyId": 252566,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [224.47, -161.01],
+      "groupId": "pit:group:43"
+    },
+    {
+      "sourceId": "pit:15-1",
+      "sourceEnemyId": 252564,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [229.18, -66.8],
+      "groupId": "pit:group:76"
+    },
+    {
+      "sourceId": "pit:16-1",
+      "sourceEnemyId": 252621,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [148.91, -114.53],
+      "groupId": "pit:group:75"
+    },
+    {
+      "sourceId": "pit:17-1",
+      "sourceEnemyId": 252625,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [160.11, -109.98],
+      "groupId": "pit:group:75"
+    },
+    {
+      "sourceId": "pit:18-1",
+      "sourceEnemyId": 252635,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [250.1, -159.39],
+      "groupId": "pit:group:79"
+    },
+    {
+      "sourceId": "pit:19-1",
+      "sourceEnemyId": 252648,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [137.66, -70.84],
+      "groupId": "pit:group:74"
+    },
+    {
+      "sourceId": "pit:20-1",
+      "sourceEnemyId": 252653,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [150.83, -65.58],
+      "groupId": "pit:group:74"
+    },
+    {
+      "sourceId": "pit:21-1",
+      "sourceEnemyId": 254684,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [132.97, -62.08],
+      "groupId": "pit:group:74"
+    },
+    {
+      "sourceId": "pit:21-2",
+      "sourceEnemyId": 254684,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [142.4, -80.01],
+      "groupId": "pit:group:74"
+    },
+    {
+      "sourceId": "pit:22-1",
+      "sourceEnemyId": 254691,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [128.86, -75.25],
+      "groupId": "pit:group:74"
+    },
+    {
+      "sourceId": "pit:22-2",
+      "sourceEnemyId": 254691,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [134.89, -79.78],
+      "groupId": "pit:group:74"
+    },
+    {
+      "sourceId": "pit:22-3",
+      "sourceEnemyId": 254691,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [127.15, -68.17],
+      "groupId": "pit:group:74"
+    },
+    {
+      "sourceId": "pit:23-1",
+      "sourceEnemyId": 255037,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [149.91, -100.64],
+      "groupId": "pit:group:75"
+    }
+  ]
+}

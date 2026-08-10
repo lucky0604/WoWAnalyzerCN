@@ -1,0 +1,1173 @@
+{
+  "source": "threechest",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-10",
+  "retrievedAt": "2026-08-10",
+  "rawSha256": "13c7cba46e9c39e0ba3c1c795599370c4ead2442da8ab1c51f6af150da9eb703",
+  "transformVersion": "threechest-yx-to-normalized-v1",
+  "dungeonKey": "xenas",
+  "dungeonIndex": 155,
+  "sourceCoordinateSpace": "threechest-yx",
+  "normalizedCoordinateSpace": "normalized-v1",
+  "spawns": [
+    {
+      "sourceId": "xenas:1-1",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [182.2, -171.27],
+      "groupId": "xenas:group:3"
+    },
+    {
+      "sourceId": "xenas:1-2",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [186.34, -169.15],
+      "groupId": "xenas:group:3"
+    },
+    {
+      "sourceId": "xenas:1-3",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [218.26, -162.03],
+      "groupId": "xenas:group:4"
+    },
+    {
+      "sourceId": "xenas:1-4",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [218.42, -166.7],
+      "groupId": "xenas:group:4"
+    },
+    {
+      "sourceId": "xenas:1-5",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [203.2, -166.08],
+      "groupId": "xenas:group:1"
+    },
+    {
+      "sourceId": "xenas:1-6",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [153.56, -167.44],
+      "groupId": "xenas:group:24"
+    },
+    {
+      "sourceId": "xenas:1-7",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [154.7, -172.22],
+      "groupId": "xenas:group:24"
+    },
+    {
+      "sourceId": "xenas:1-8",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [133.07, -154.69],
+      "groupId": "xenas:group:27"
+    },
+    {
+      "sourceId": "xenas:1-9",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [135.12, -158.79],
+      "groupId": "xenas:group:27"
+    },
+    {
+      "sourceId": "xenas:1-10",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [128.06, -148.09],
+      "groupId": "xenas:group:32"
+    },
+    {
+      "sourceId": "xenas:1-11",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [107.57, -155.37],
+      "groupId": "xenas:group:30"
+    },
+    {
+      "sourceId": "xenas:1-12",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [110.98, -145.58],
+      "groupId": "xenas:group:31"
+    },
+    {
+      "sourceId": "xenas:1-13",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [107.79, -148.09],
+      "groupId": "xenas:group:31"
+    },
+    {
+      "sourceId": "xenas:1-14",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [120.09, -134.88],
+      "groupId": "xenas:group:34"
+    },
+    {
+      "sourceId": "xenas:1-15",
+      "sourceEnemyId": 241643,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [99.65, -115.49],
+      "groupId": "xenas:group:40"
+    },
+    {
+      "sourceId": "xenas:2-1",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [241.4, -170.31],
+      "groupId": "xenas:group:5"
+    },
+    {
+      "sourceId": "xenas:2-2",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [241.22, -174.73],
+      "groupId": "xenas:group:5"
+    },
+    {
+      "sourceId": "xenas:2-3",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [254.88, -184.75],
+      "groupId": "xenas:group:6"
+    },
+    {
+      "sourceId": "xenas:2-4",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [253.29, -180.65],
+      "groupId": "xenas:group:6"
+    },
+    {
+      "sourceId": "xenas:2-5",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [258.13, -156.63],
+      "groupId": "xenas:group:9"
+    },
+    {
+      "sourceId": "xenas:2-6",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [261.26, -153.55],
+      "groupId": "xenas:group:9"
+    },
+    {
+      "sourceId": "xenas:2-7",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [289.95, -156.06],
+      "groupId": "xenas:group:11"
+    },
+    {
+      "sourceId": "xenas:2-8",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [289.13, -160.47],
+      "groupId": "xenas:group:11"
+    },
+    {
+      "sourceId": "xenas:2-9",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [273.55, -131.69],
+      "groupId": "xenas:group:13"
+    },
+    {
+      "sourceId": "xenas:2-10",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [274.01, -127.14],
+      "groupId": "xenas:group:13"
+    },
+    {
+      "sourceId": "xenas:2-11",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [277.2, -133.97],
+      "groupId": "xenas:group:13"
+    },
+    {
+      "sourceId": "xenas:2-12",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [286.27, -129.34],
+      "groupId": "xenas:group:14"
+    },
+    {
+      "sourceId": "xenas:2-13",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [289.34, -132.85],
+      "groupId": "xenas:group:14"
+    },
+    {
+      "sourceId": "xenas:2-14",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [303.83, -99.36],
+      "groupId": "xenas:group:18"
+    },
+    {
+      "sourceId": "xenas:2-15",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [307.48, -101.87],
+      "groupId": "xenas:group:18"
+    },
+    {
+      "sourceId": "xenas:2-16",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [311.97, -82.44],
+      "groupId": "xenas:group:21"
+    },
+    {
+      "sourceId": "xenas:2-17",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [321.24, -89.26],
+      "groupId": "xenas:group:21"
+    },
+    {
+      "sourceId": "xenas:2-18",
+      "sourceEnemyId": 248501,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [333.55, -72.37],
+      "groupId": "xenas:group:22"
+    },
+    {
+      "sourceId": "xenas:3-1",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [191.21, -153.43],
+      "groupId": "xenas:group:2"
+    },
+    {
+      "sourceId": "xenas:3-2",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [206.84, -165.62],
+      "groupId": "xenas:group:1"
+    },
+    {
+      "sourceId": "xenas:3-3",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [124.41, -172.91],
+      "groupId": "xenas:group:26"
+    },
+    {
+      "sourceId": "xenas:3-4",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [114.85, -165.39],
+      "groupId": "xenas:group:28"
+    },
+    {
+      "sourceId": "xenas:3-5",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [123.96, -149.91],
+      "groupId": "xenas:group:32"
+    },
+    {
+      "sourceId": "xenas:3-6",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [100.28, -149.68],
+      "groupId": "xenas:group:35"
+    },
+    {
+      "sourceId": "xenas:3-7",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [117.36, -138.07],
+      "groupId": "xenas:group:34"
+    },
+    {
+      "sourceId": "xenas:3-8",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [95.73, -112.57],
+      "groupId": "xenas:group:40"
+    },
+    {
+      "sourceId": "xenas:3-9",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [96.18, -101.41],
+      "groupId": "xenas:group:41"
+    },
+    {
+      "sourceId": "xenas:3-10",
+      "sourceEnemyId": 241644,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [84.34, -106.19],
+      "groupId": "xenas:group:41"
+    },
+    {
+      "sourceId": "xenas:4-1",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [189.57, -157.5],
+      "groupId": "xenas:group:2"
+    },
+    {
+      "sourceId": "xenas:4-2",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [208.43, -162.66],
+      "groupId": "xenas:group:1"
+    },
+    {
+      "sourceId": "xenas:4-3",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [265.36, -144.9],
+      "groupId": "xenas:group:10"
+    },
+    {
+      "sourceId": "xenas:4-4",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [269.68, -148.54],
+      "groupId": "xenas:group:10"
+    },
+    {
+      "sourceId": "xenas:4-5",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [276.06, -163.12]
+    },
+    {
+      "sourceId": "xenas:4-6",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [294.27, -147.41],
+      "groupId": "xenas:group:12"
+    },
+    {
+      "sourceId": "xenas:4-7",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [298.63, -144.66],
+      "groupId": "xenas:group:12"
+    },
+    {
+      "sourceId": "xenas:4-8",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [293.93, -113.46],
+      "groupId": "xenas:group:15"
+    },
+    {
+      "sourceId": "xenas:4-9",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [302.01, -119.85],
+      "groupId": "xenas:group:15"
+    },
+    {
+      "sourceId": "xenas:4-10",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [316.81, -121.22],
+      "groupId": "xenas:group:16"
+    },
+    {
+      "sourceId": "xenas:4-11",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [314.08, -125.55],
+      "groupId": "xenas:group:16"
+    },
+    {
+      "sourceId": "xenas:4-12",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [283.34, -103.69],
+      "groupId": "xenas:group:17"
+    },
+    {
+      "sourceId": "xenas:4-13",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [282.89, -110.97],
+      "groupId": "xenas:group:17"
+    },
+    {
+      "sourceId": "xenas:4-14",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [317.27, -124.64],
+      "groupId": "xenas:group:16"
+    },
+    {
+      "sourceId": "xenas:4-15",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [279.7, -106.65],
+      "groupId": "xenas:group:17"
+    },
+    {
+      "sourceId": "xenas:4-16",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [321.37, -84.47],
+      "groupId": "xenas:group:21"
+    },
+    {
+      "sourceId": "xenas:4-17",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [317.34, -80.82],
+      "groupId": "xenas:group:21"
+    },
+    {
+      "sourceId": "xenas:4-18",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [331.39, -68.47],
+      "groupId": "xenas:group:22"
+    },
+    {
+      "sourceId": "xenas:4-19",
+      "sourceEnemyId": 241645,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [331.58, -75.84],
+      "groupId": "xenas:group:22"
+    },
+    {
+      "sourceId": "xenas:5-1",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [134.89, -181.33],
+      "groupId": "xenas:group:25"
+    },
+    {
+      "sourceId": "xenas:5-2",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [133.75, -184.29],
+      "groupId": "xenas:group:25"
+    },
+    {
+      "sourceId": "xenas:5-3",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [122.56, -176.52],
+      "groupId": "xenas:group:26"
+    },
+    {
+      "sourceId": "xenas:5-4",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [115.31, -128.05],
+      "groupId": "xenas:group:38"
+    },
+    {
+      "sourceId": "xenas:5-5",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [96.18, -141.71],
+      "groupId": "xenas:group:36"
+    },
+    {
+      "sourceId": "xenas:5-6",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [92.54, -142.62],
+      "groupId": "xenas:group:36"
+    },
+    {
+      "sourceId": "xenas:5-7",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [94.81, -126.23],
+      "groupId": "xenas:group:39"
+    },
+    {
+      "sourceId": "xenas:5-8",
+      "sourceEnemyId": 241647,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [91.63, -128.96],
+      "groupId": "xenas:group:39"
+    },
+    {
+      "sourceId": "xenas:6-1",
+      "sourceEnemyId": 248708,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [99.28, -111.11],
+      "groupId": "xenas:group:40"
+    },
+    {
+      "sourceId": "xenas:6-2",
+      "sourceEnemyId": 248708,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [120.09, -173.36],
+      "groupId": "xenas:group:26"
+    },
+    {
+      "sourceId": "xenas:6-3",
+      "sourceEnemyId": 248708,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [137.39, -154.92],
+      "groupId": "xenas:group:27"
+    },
+    {
+      "sourceId": "xenas:6-4",
+      "sourceEnemyId": 248708,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [117.13, -134.2],
+      "groupId": "xenas:group:34"
+    },
+    {
+      "sourceId": "xenas:7-1",
+      "sourceEnemyId": 248373,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [115.56, -158.1],
+      "groupId": "xenas:group:29"
+    },
+    {
+      "sourceId": "xenas:7-2",
+      "sourceEnemyId": 248373,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [123.5, -143.31],
+      "groupId": "xenas:group:33"
+    },
+    {
+      "sourceId": "xenas:7-3",
+      "sourceEnemyId": 248373,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [102.56, -135.11],
+      "groupId": "xenas:group:37"
+    },
+    {
+      "sourceId": "xenas:7-4",
+      "sourceEnemyId": 248373,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [88.44, -100.05],
+      "groupId": "xenas:group:41"
+    },
+    {
+      "sourceId": "xenas:8-1",
+      "sourceEnemyId": 248706,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [243.91, -173.49],
+      "groupId": "xenas:group:5"
+    },
+    {
+      "sourceId": "xenas:8-2",
+      "sourceEnemyId": 248706,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [268.9, -165],
+      "groupId": "xenas:group:8"
+    },
+    {
+      "sourceId": "xenas:8-3",
+      "sourceEnemyId": 248706,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [264.49, -165.02],
+      "groupId": "xenas:group:8"
+    },
+    {
+      "sourceId": "xenas:8-4",
+      "sourceEnemyId": 248706,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [292.99, -131.55],
+      "groupId": "xenas:group:14"
+    },
+    {
+      "sourceId": "xenas:8-5",
+      "sourceEnemyId": 248706,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [286.76, -125.09],
+      "groupId": "xenas:group:14"
+    },
+    {
+      "sourceId": "xenas:8-6",
+      "sourceEnemyId": 248706,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [326.83, -67.89],
+      "groupId": "xenas:group:22"
+    },
+    {
+      "sourceId": "xenas:9-1",
+      "sourceEnemyId": 248506,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [297.28, -117.03],
+      "groupId": "xenas:group:15"
+    },
+    {
+      "sourceId": "xenas:9-2",
+      "sourceEnemyId": 248506,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [276.8, -179.96]
+    },
+    {
+      "sourceId": "xenas:9-3",
+      "sourceEnemyId": 248506,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [260.44, -124.96]
+    },
+    {
+      "sourceId": "xenas:9-4",
+      "sourceEnemyId": 248506,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [298.04, -166.81]
+    },
+    {
+      "sourceId": "xenas:9-5",
+      "sourceEnemyId": 248506,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [314.1, -147.31]
+    },
+    {
+      "sourceId": "xenas:9-6",
+      "sourceEnemyId": 248506,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [272.8, -115.41]
+    },
+    {
+      "sourceId": "xenas:9-7",
+      "sourceEnemyId": 248506,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [249.72, -140.16]
+    },
+    {
+      "sourceId": "xenas:10-1",
+      "sourceEnemyId": 241660,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [259.75, -171.45],
+      "groupId": "xenas:group:7"
+    },
+    {
+      "sourceId": "xenas:10-2",
+      "sourceEnemyId": 241660,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [277.65, -129.42],
+      "groupId": "xenas:group:13"
+    },
+    {
+      "sourceId": "xenas:10-3",
+      "sourceEnemyId": 241660,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [294.5, -142.62],
+      "groupId": "xenas:group:12"
+    },
+    {
+      "sourceId": "xenas:10-4",
+      "sourceEnemyId": 241660,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [316.4, -86.52],
+      "groupId": "xenas:group:21"
+    },
+    {
+      "sourceId": "xenas:11-1",
+      "sourceEnemyId": 251853,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [290.32, -127.31],
+      "groupId": "xenas:group:14"
+    },
+    {
+      "sourceId": "xenas:11-2",
+      "sourceEnemyId": 251853,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [313.97, -103.63],
+      "groupId": "xenas:group:18"
+    },
+    {
+      "sourceId": "xenas:11-3",
+      "sourceEnemyId": 251853,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [298.97, -94.72],
+      "groupId": "xenas:group:18"
+    },
+    {
+      "sourceId": "xenas:11-4",
+      "sourceEnemyId": 251853,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [258.29, -181.63],
+      "groupId": "xenas:group:6"
+    },
+    {
+      "sourceId": "xenas:11-5",
+      "sourceEnemyId": 251853,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [256.92, -151.12],
+      "groupId": "xenas:group:9"
+    },
+    {
+      "sourceId": "xenas:11-6",
+      "sourceEnemyId": 251853,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [284.25, -157.5],
+      "groupId": "xenas:group:11"
+    },
+    {
+      "sourceId": "xenas:12-1",
+      "sourceEnemyId": 248502,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [267.08, -161.02],
+      "groupId": "xenas:group:8"
+    },
+    {
+      "sourceId": "xenas:12-2",
+      "sourceEnemyId": 248502,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [269.94, -143.52],
+      "groupId": "xenas:group:10"
+    },
+    {
+      "sourceId": "xenas:12-3",
+      "sourceEnemyId": 248502,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [328.19, -72.8],
+      "groupId": "xenas:group:22"
+    },
+    {
+      "sourceId": "xenas:13-1",
+      "sourceEnemyId": 241642,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [185.77, -153.53],
+      "groupId": "xenas:group:2"
+    },
+    {
+      "sourceId": "xenas:13-2",
+      "sourceEnemyId": 241642,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [204.33, -161.07],
+      "groupId": "xenas:group:1"
+    },
+    {
+      "sourceId": "xenas:13-3",
+      "sourceEnemyId": 241642,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [307.48, -97.31],
+      "groupId": "xenas:group:18"
+    },
+    {
+      "sourceId": "xenas:13-4",
+      "sourceEnemyId": 241642,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [195.77, -127.19],
+      "groupId": "xenas:group:42"
+    },
+    {
+      "sourceId": "xenas:13-5",
+      "sourceEnemyId": 241642,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [188.28, -84.22],
+      "groupId": "xenas:group:51"
+    },
+    {
+      "sourceId": "xenas:13-6",
+      "sourceEnemyId": 241642,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [206.43, -83.68],
+      "groupId": "xenas:group:47"
+    },
+    {
+      "sourceId": "xenas:14-1",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [187.26, -124.64],
+      "groupId": "xenas:group:44"
+    },
+    {
+      "sourceId": "xenas:14-2",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [186.35, -129.65],
+      "groupId": "xenas:group:44"
+    },
+    {
+      "sourceId": "xenas:14-3",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [205.93, -124.18],
+      "groupId": "xenas:group:43"
+    },
+    {
+      "sourceId": "xenas:14-4",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [205.7, -130.33],
+      "groupId": "xenas:group:43"
+    },
+    {
+      "sourceId": "xenas:14-5",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [159.6, -70],
+      "groupId": "xenas:group:58"
+    },
+    {
+      "sourceId": "xenas:14-6",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [162.19, -70.92],
+      "groupId": "xenas:group:58"
+    },
+    {
+      "sourceId": "xenas:14-7",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [158.17, -72.9],
+      "groupId": "xenas:group:58"
+    },
+    {
+      "sourceId": "xenas:14-8",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [161.53, -73.49],
+      "groupId": "xenas:group:58"
+    },
+    {
+      "sourceId": "xenas:14-9",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [181.32, -76.42],
+      "groupId": "xenas:group:56"
+    },
+    {
+      "sourceId": "xenas:14-10",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [182.8, -79.46],
+      "groupId": "xenas:group:56"
+    },
+    {
+      "sourceId": "xenas:14-13",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [217.19, -78.69],
+      "groupId": "xenas:group:49"
+    },
+    {
+      "sourceId": "xenas:14-14",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [214.9, -75.63],
+      "groupId": "xenas:group:49"
+    },
+    {
+      "sourceId": "xenas:14-15",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [177.24, -69.22],
+      "groupId": "xenas:group:55"
+    },
+    {
+      "sourceId": "xenas:14-16",
+      "sourceEnemyId": 254932,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [173.97, -68.29],
+      "groupId": "xenas:group:55"
+    },
+    {
+      "sourceId": "xenas:15-1",
+      "sourceEnemyId": 254926,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [190.22, -100.96],
+      "groupId": "xenas:group:45"
+    },
+    {
+      "sourceId": "xenas:15-2",
+      "sourceEnemyId": 254926,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [201.37, -101.41],
+      "groupId": "xenas:group:45"
+    },
+    {
+      "sourceId": "xenas:15-3",
+      "sourceEnemyId": 254926,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [159.29, -77.55],
+      "groupId": "xenas:group:58"
+    },
+    {
+      "sourceId": "xenas:15-4",
+      "sourceEnemyId": 254926,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [162.1, -66.77],
+      "groupId": "xenas:group:58"
+    },
+    {
+      "sourceId": "xenas:15-5",
+      "sourceEnemyId": 254926,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [179.8, -81.95],
+      "groupId": "xenas:group:56"
+    },
+    {
+      "sourceId": "xenas:15-6",
+      "sourceEnemyId": 254926,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [212.09, -77.79],
+      "groupId": "xenas:group:49"
+    },
+    {
+      "sourceId": "xenas:16-1",
+      "sourceEnemyId": 254928,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [182.93, -126.91],
+      "groupId": "xenas:group:44"
+    },
+    {
+      "sourceId": "xenas:16-2",
+      "sourceEnemyId": 254928,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [203.65, -127.37],
+      "groupId": "xenas:group:43"
+    },
+    {
+      "sourceId": "xenas:16-3",
+      "sourceEnemyId": 254928,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [177.28, -77.58],
+      "groupId": "xenas:group:56"
+    },
+    {
+      "sourceId": "xenas:16-4",
+      "sourceEnemyId": 254928,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [196.59, -95.72],
+      "groupId": "xenas:group:45"
+    },
+    {
+      "sourceId": "xenas:16-5",
+      "sourceEnemyId": 254928,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [214.04, -81.19],
+      "groupId": "xenas:group:49"
+    },
+    {
+      "sourceId": "xenas:17-1",
+      "sourceEnemyId": 241539,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [81.29, -81.97]
+    },
+    {
+      "sourceId": "xenas:18-1",
+      "sourceEnemyId": 241542,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [340.69, -55.75],
+      "groupId": "xenas:group:23"
+    },
+    {
+      "sourceId": "xenas:19-1",
+      "sourceEnemyId": 241546,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [197.96, -63.53],
+      "groupId": "xenas:group:50"
+    },
+    {
+      "sourceId": "xenas:24-1",
+      "sourceEnemyId": 251568,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [193.51, -56.25],
+      "groupId": "xenas:group:50"
+    },
+    {
+      "sourceId": "xenas:24-2",
+      "sourceEnemyId": 251568,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [198.87, -56.78],
+      "groupId": "xenas:group:50"
+    },
+    {
+      "sourceId": "xenas:29-1",
+      "sourceEnemyId": 254227,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [347.8, -52.91],
+      "groupId": "xenas:group:23"
+    },
+    {
+      "sourceId": "xenas:29-2",
+      "sourceEnemyId": 254227,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [348.1, -57.24],
+      "groupId": "xenas:group:23"
+    },
+    {
+      "sourceId": "xenas:29-3",
+      "sourceEnemyId": 254227,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [346.23, -61.8],
+      "groupId": "xenas:group:23"
+    },
+    {
+      "sourceId": "xenas:32-1",
+      "sourceEnemyId": 255179,
+      "sourceEnemyIndex": 32,
+      "floorId": "default",
+      "position": [205.74, -62.13],
+      "groupId": "xenas:group:50"
+    },
+    {
+      "sourceId": "xenas:32-2",
+      "sourceEnemyId": 255179,
+      "sourceEnemyIndex": 32,
+      "floorId": "default",
+      "position": [203.42, -59.06],
+      "groupId": "xenas:group:50"
+    },
+    {
+      "sourceId": "xenas:34-1",
+      "sourceEnemyId": 249711,
+      "sourceEnemyIndex": 34,
+      "floorId": "default",
+      "position": [185.57, -158.13],
+      "groupId": "xenas:group:2"
+    }
+  ]
+}

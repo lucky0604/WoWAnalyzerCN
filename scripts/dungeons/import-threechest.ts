@@ -23,7 +23,7 @@ interface SourceDungeon {
 interface CoordinateSnapshot {
   source: 'threechest';
   snapshotId: string;
-  sourceUrl: string;
+  sourceUrl?: string;
   retrievedAt: string;
   rawSha256: string;
   transformVersion: 'threechest-yx-to-normalized-v1';
@@ -46,9 +46,10 @@ const argument = (name: string, fallback: string) =>
   process.argv.find((value) => value.startsWith(`${name}=`))?.slice(name.length + 1) ?? fallback;
 
 const dungeonArgument = argument('--dungeon', 'magi');
-const snapshotId = argument('--snapshot', 'local-coordinate-fixture-2026-08-10');
+const snapshotId = argument('--snapshot', 'threechest-coordinate-snapshot-2026-08-10');
 const sourceUrl = argument('--source-url', process.env.DUNGEON_THREECHEST_SOURCE_URL ?? '');
 const retrievedAt = argument('--retrieved-at', '2026-08-10');
+const redactSourceUrl = process.argv.includes('--redact-source-url');
 const root = resolve(argument('--threechest-root', 'agent_flow/threechest'));
 const inputDir = resolve(root, 'src/data/mdtDungeons');
 const requestedOutput = process.argv.find((value) => value.startsWith('--output='));
@@ -81,7 +82,11 @@ for (const dungeonKey of dungeonKeys) {
   }
 
   const inputPath = resolve(inputDir, `${dungeonKey}_mdt.json`);
-  const defaultOutput = `${outputDir}/${dungeonKey}.coordinates.json`;
+  // Keep the checked-in snapshot filename stable and aligned with the runtime
+  // loader (`src/dungeon/data/coordinates/<source-key>.json`). The source
+  // format/version is carried inside the document metadata instead of in the
+  // filename, so future snapshots can be regenerated without a rename step.
+  const defaultOutput = `${outputDir}/${dungeonKey}.json`;
   const outputPath = resolve(
     requestedOutput && dungeonKeys.length === 1
       ? requestedOutput.slice('--output='.length)
@@ -96,7 +101,7 @@ for (const dungeonKey of dungeonKeys) {
   const output: CoordinateSnapshot = {
     source: 'threechest',
     snapshotId,
-    sourceUrl,
+    ...(redactSourceUrl ? {} : { sourceUrl }),
     retrievedAt,
     rawSha256: createHash('sha256').update(raw).digest('hex'),
     transformVersion: 'threechest-yx-to-normalized-v1',

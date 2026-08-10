@@ -10,5 +10,6 @@ export * from './runtime/sourceRegistry';
 export * from './runtime/learning';
 export * from './runtime/progress';
 export * from './runtime/map';
+export * from './runtime/coordinates';
 export * from './runtime/wcl';
 export * from './ui/DungeonMap';

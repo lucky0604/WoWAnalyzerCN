@@ -2,6 +2,13 @@ import type { LocalizedText } from '../schema/types';
 
 export type DungeonCoverageStatus = 'building' | 'coordinate-ready' | 'reviewed' | 'published';
 
+export const dungeonCoverageStatusLabel: Record<DungeonCoverageStatus, string> = {
+  building: '攻略建设中',
+  'coordinate-ready': '坐标已接入',
+  reviewed: '已审校',
+  published: '已发布',
+};
+
 export interface DungeonCatalogEntry {
   id: string;
   slug: string;
@@ -32,7 +39,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('艾杰斯亚学院', "Algeth'ar Academy"),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:aa',
     wclEncounterId: 112526,
@@ -52,7 +59,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('魔导师平台', "Magisters' Terrace"),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:magi',
     wclEncounterId: 12811,
@@ -72,7 +79,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('迈萨拉洞窟', 'Maisara Caverns'),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:cavns',
     wclEncounterId: 12874,
@@ -92,7 +99,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('节点希纳斯', 'Nexus-Point Xenas'),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:xenas',
     wclEncounterId: 12915,
@@ -112,7 +119,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('风行者之塔', 'Windrunner Spire'),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:wind',
     wclEncounterId: 12805,
@@ -132,7 +139,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('萨隆矿坑', 'Pit of Saron'),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:pit',
     wclEncounterId: 10658,
@@ -152,7 +159,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('执政团之座', 'Seat of the Triumvirate'),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:seat',
     wclEncounterId: 361753,
@@ -172,7 +179,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     name: text('通天峰', 'Skyreach'),
     season: 'midnight-s2',
     status: 'building',
-    coordinateSnapshotId: 'local-coordinate-fixture-2026-08-10',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
     mapAssetKey: 'midnight-s2:sky',
     wclEncounterId: 61209,
