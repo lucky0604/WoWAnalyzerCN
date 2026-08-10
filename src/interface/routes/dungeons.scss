@@ -555,7 +555,16 @@
 .dungeon-status-stale {
   color: #ff827c;
 }
-.dungeon-status-building {
+.dungeon-status-registered {
+  color: #e5b965;
+}
+.dungeon-status-raw-ready {
+  color: #8cc8ff;
+}
+.dungeon-status-route-ready {
+  color: #c5a4ff;
+}
+.dungeon-status-knowledge-draft {
   color: #e5b965;
 }
 .dungeon-status-coordinate-ready {

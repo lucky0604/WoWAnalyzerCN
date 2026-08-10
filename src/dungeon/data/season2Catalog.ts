@@ -1,12 +1,24 @@
 import type { LocalizedText } from '../schema/types';
 
-export type DungeonCoverageStatus = 'building' | 'coordinate-ready' | 'reviewed' | 'published';
+export type DungeonCoverageStatus =
+  | 'registered'
+  | 'raw-ready'
+  | 'route-ready'
+  | 'knowledge-draft'
+  | 'coordinate-ready'
+  | 'reviewed'
+  | 'published'
+  | 'stale';
 
 export const dungeonCoverageStatusLabel: Record<DungeonCoverageStatus, string> = {
-  building: '攻略建设中',
+  registered: '已登记',
+  'raw-ready': '基础事实已接入',
+  'route-ready': '路线已接入',
+  'knowledge-draft': '知识草稿',
   'coordinate-ready': '坐标已接入',
   reviewed: '已审校',
   published: '已发布',
+  stale: '内容过期',
 };
 
 /**
@@ -23,6 +35,7 @@ export interface DungeonCatalogEntry {
   name: LocalizedText;
   season: 'midnight-s2';
   status: DungeonCoverageStatus;
+  updatedAt: string;
   coordinateSnapshotId?: string;
   coordinateSourceId?: 'threechest';
   mapAssetKey: string;
@@ -57,16 +70,18 @@ export const season2RotationSource = {
   fieldAllowlist: ['season', 'dungeon id', 'dungeon name', 'rotation membership'],
 } as const;
 
-const buildingSummary = (name: string): LocalizedText =>
+const catalogSummary = (name: string): LocalizedText =>
   text(
     `${name} 已登记为 Midnight S2 副本；技能、波次和位置参考仍在建设中。`,
     `${name} is registered for Midnight S2; skills, pulls, and spatial references are still being built.`,
   );
 
-const buildingMilestone = text(
+const catalogMilestone = text(
   '先接入可核验的位置/地图来源，再补齐 Situation、技能动作和学习路线。',
   'Connect a verifiable map source, then author Situations, ability actions, and a learning route.',
 );
+
+const catalogUpdatedAt = '2026-08-10';
 
 /** The eight dungeons in the current Midnight Season 2 Mythic+ rotation. */
 export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
@@ -76,10 +91,11 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'altar-of-fangs',
     name: text('尖牙祭坛', 'Altar of Fangs'),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'registered',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:altar-of-fangs',
-    summary: buildingSummary('尖牙祭坛'),
-    nextMilestone: buildingMilestone,
+    summary: catalogSummary('尖牙祭坛'),
+    nextMilestone: catalogMilestone,
   },
   {
     id: 'murder-row',
@@ -87,10 +103,11 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'murder-row',
     name: text('谋杀街', 'Murder Row'),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'registered',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:murder-row',
-    summary: buildingSummary('谋杀街'),
-    nextMilestone: buildingMilestone,
+    summary: catalogSummary('谋杀街'),
+    nextMilestone: catalogMilestone,
   },
   {
     id: 'den-of-nalorakk',
@@ -98,10 +115,11 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'den-of-nalorakk',
     name: text('纳洛拉克巢穴', 'Den of Nalorakk'),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'registered',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:den-of-nalorakk',
-    summary: buildingSummary('纳洛拉克巢穴'),
-    nextMilestone: buildingMilestone,
+    summary: catalogSummary('纳洛拉克巢穴'),
+    nextMilestone: catalogMilestone,
   },
   {
     id: 'the-blinding-vale',
@@ -109,10 +127,11 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'the-blinding-vale',
     name: text('盲谷', 'The Blinding Vale'),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'registered',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:the-blinding-vale',
-    summary: buildingSummary('盲谷'),
-    nextMilestone: buildingMilestone,
+    summary: catalogSummary('盲谷'),
+    nextMilestone: catalogMilestone,
   },
   {
     id: 'voidscar-arena',
@@ -120,10 +139,11 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'voidscar-arena',
     name: text('虚空裂痕竞技场', 'Voidscar Arena'),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'registered',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:voidscar-arena',
-    summary: buildingSummary('虚空裂痕竞技场'),
-    nextMilestone: buildingMilestone,
+    summary: catalogSummary('虚空裂痕竞技场'),
+    nextMilestone: catalogMilestone,
   },
   {
     id: 'ruby-life-pools',
@@ -131,10 +151,17 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'ruby-life-pools',
     name: text('红玉新生法池', 'Ruby Life Pools'),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'knowledge-draft',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:ruby-life-pools',
-    summary: buildingSummary('红玉新生法池'),
-    nextMilestone: buildingMilestone,
+    summary: text(
+      '红玉新生法池已有来源化知识草稿；空间快照、forces 和第二审校仍未完成。',
+      'Ruby Life Pools has a sourced knowledge draft; spatial, forces, and second-review gates remain open.',
+    ),
+    nextMilestone: text(
+      '补齐当前 S2 的位置/forces 快照，完成作者自测与第二审校后再进入 reviewed。',
+      'Complete the current S2 spatial/forces snapshot, author self-test, and second review before reviewed.',
+    ),
   },
   {
     id: 'kings-rest',
@@ -142,10 +169,11 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'kings-rest',
     name: text('诸王之眠', "Kings' Rest"),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'registered',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:kings-rest',
-    summary: buildingSummary('诸王之眠'),
-    nextMilestone: buildingMilestone,
+    summary: catalogSummary('诸王之眠'),
+    nextMilestone: catalogMilestone,
   },
   {
     id: 'temple-of-sethraliss',
@@ -153,10 +181,11 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'temple-of-sethraliss',
     name: text('塞塔里斯神庙', 'Temple of Sethraliss'),
     season: 'midnight-s2',
-    status: 'building',
+    status: 'registered',
+    updatedAt: catalogUpdatedAt,
     mapAssetKey: 'midnight-s2:temple-of-sethraliss',
-    summary: buildingSummary('塞塔里斯神庙'),
-    nextMilestone: buildingMilestone,
+    summary: catalogSummary('塞塔里斯神庙'),
+    nextMilestone: catalogMilestone,
   },
 ];
 
@@ -286,6 +315,13 @@ export function validateSeason2DungeonCatalog(
       });
     }
     sourceKeys.add(entry.sourceKey);
+    if (!Number.isFinite(Date.parse(entry.updatedAt))) {
+      diagnostics.push({
+        code: 'CATALOG_UPDATED_AT_INVALID',
+        path: `$[${index}].updatedAt`,
+        message: `目录条目的 updatedAt 必须是可解析日期：${entry.updatedAt}`,
+      });
+    }
     if (
       legacyThreechestCoordinateInventory.some((legacy) => legacy.sourceKey === entry.sourceKey)
     ) {
@@ -314,6 +350,16 @@ export function validateSeason2DungeonCatalog(
         code: 'CATALOG_COORDINATE_STATUS_INVALID',
         path: `$[${index}].status`,
         message: 'coordinate-ready 条目必须带有坐标快照。',
+      });
+    }
+    if (
+      ['raw-ready', 'route-ready', 'knowledge-draft'].includes(entry.status) &&
+      !registeredDocumentIds.has(entry.id)
+    ) {
+      diagnostics.push({
+        code: 'CATALOG_STATUS_WITHOUT_DOCUMENT',
+        path: `$[${index}].status`,
+        message: `${entry.status} 条目必须同时注册 DungeonDocument，避免目录状态脱离实际内容。`,
       });
     }
     if (isLearningPublished(entry.status) && !registeredDocumentIds.has(entry.id)) {

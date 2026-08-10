@@ -95,6 +95,10 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
 function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
   const learningAvailable = isLearningPublished(entry.status);
   const coordinateAvailable = Boolean(entry.coordinateSnapshotId && getCoordinateReference(entry));
+  const document = getDungeonDocument(entry.id);
+  const contentCoverage = document
+    ? `${document.situations.length} Situation · ${document.abilities.length} 技能 · ${document.routes.length} 路线 · ${document.bosses.length} Boss`
+    : '尚未登记学习内容文档';
   return (
     <article className="dungeon-card dungeon-card--coverage">
       <div className="dungeon-card__eyebrow">
@@ -106,6 +110,10 @@ function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
       <div className="dungeon-coverage-meta">
         <span>坐标快照</span>
         <code>{entry.coordinateSnapshotId ?? '位置参考待接入'}</code>
+        <span>内容覆盖</span>
+        <code>{contentCoverage}</code>
+        <span>最后维护</span>
+        <code>{entry.updatedAt}</code>
       </div>
       <div className="dungeon-card__actions">
         {learningAvailable ? (

@@ -27,7 +27,7 @@ describe('WCL dungeon adapter', () => {
     ).toBeUndefined();
   });
 
-  it('does not expose a learning link while the matched catalog entry is still building', () => {
+  it('does not expose a learning link while the matched catalog entry is not published', () => {
     expect(
       getPublishedDungeonFromWcl(
         { zone: 0, title: 'Ruby Life Pools +12' },
