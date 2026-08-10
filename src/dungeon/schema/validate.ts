@@ -219,6 +219,54 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
     );
   }
   const releaseStatus = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
+  const review = document.review;
+  const reviewMetadataComplete = Boolean(
+    typeof review?.author === 'string' &&
+    review.author.trim() &&
+    typeof review.reviewer === 'string' &&
+    review.reviewer.trim() &&
+    typeof review.reviewedAt === 'string' &&
+    review.reviewedAt.trim() &&
+    typeof review.gameBuild === 'string' &&
+    review.gameBuild.trim(),
+  );
+  if (!reviewMetadataComplete) {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        releaseStatus ? 'error' : 'warning',
+        'DUNGEON_REVIEW_METADATA_PENDING',
+        'review',
+        releaseStatus
+          ? 'reviewed/published 内容必须记录作者、第二审校者、审校时间和目标 build。'
+          : '尚未记录完整的作者/第二审校者/build 审校信息；当前只能作为 draft。',
+        document.id,
+      ),
+    );
+  } else if (review) {
+    const reviewedAt = Date.parse(review.reviewedAt);
+    if (!Number.isFinite(reviewedAt)) {
+      errors.push(
+        diagnostic(
+          'error',
+          'DUNGEON_REVIEW_DATE_INVALID',
+          'review.reviewedAt',
+          '审校时间必须是可解析的 ISO 日期。',
+          document.id,
+        ),
+      );
+    }
+    if (review.gameBuild !== document.version.build) {
+      (releaseStatus ? errors : warnings).push(
+        diagnostic(
+          releaseStatus ? 'error' : 'warning',
+          'DUNGEON_REVIEW_BUILD_MISMATCH',
+          'review.gameBuild',
+          `审校 build ${review.gameBuild} 与文档 build ${document.version.build} 不一致。`,
+          document.id,
+        ),
+      );
+    }
+  }
   if (releaseStatus && document.provenance.some((source) => source.licenseStatus !== 'approved')) {
     errors.push(
       diagnostic(

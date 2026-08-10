@@ -27,6 +27,12 @@ describe('dungeon learning access gates', () => {
     const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
     document.dataStatus = 'reviewed';
     document.version.status = 'reviewed';
+    document.review = {
+      author: 'fixture-author',
+      reviewer: 'fixture-reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+    };
     const access = getDungeonLearningAccess(document);
     expect(access).toMatchObject({ state: 'available', canOpen: true, isFormal: true });
   });
@@ -35,6 +41,12 @@ describe('dungeon learning access gates', () => {
     const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
     document.dataStatus = 'reviewed';
     document.version.status = 'reviewed';
+    document.review = {
+      author: 'fixture-author',
+      reviewer: 'fixture-reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+    };
     document.provenance[0]!.licenseStatus = 'reference-only';
     const access = getDungeonLearningAccess(document);
     expect(access).toMatchObject({ state: 'blocked', canOpen: false, isFormal: false });

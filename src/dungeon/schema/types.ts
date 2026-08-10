@@ -30,6 +30,15 @@ export interface ContentVersion {
   status: ContentStatus;
 }
 
+/** Evidence that a content document was reviewed against a specific game build. */
+export interface ContentReview {
+  author: string;
+  reviewer: string;
+  reviewedAt: string;
+  gameBuild: string;
+  evidence?: string;
+}
+
 export type ProvenanceType =
   | 'threechest'
   | 'official'
@@ -212,6 +221,8 @@ export interface DungeonDocument {
   dataStatus: DungeonDataStatus;
   /** `pending` means learning content may exist before map/spawn data is verified. */
   spatialStatus?: SpatialStatus;
+  /** Deliberately absent on drafts until an author and second reviewer are known. */
+  review?: ContentReview;
   version: ContentVersion;
   totalEnemyForcesPoints: number;
   floors: Floor[];

@@ -30,6 +30,13 @@ function releaseReadyFixture(): DungeonDocument {
     ...source,
     licenseStatus: 'approved',
   }));
+  document.review = {
+    author: 'fixture-author',
+    reviewer: 'fixture-reviewer',
+    reviewedAt: '2026-08-10T00:00:00.000Z',
+    gameBuild: document.version.build,
+    evidence: 'test fixture only',
+  };
   return document;
 }
 
