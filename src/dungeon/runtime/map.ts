@@ -1,4 +1,5 @@
 import type { Coordinate, CoordinateBounds, Spawn } from '../schema/types';
+import type { DungeonRemoteTilesAsset } from './assetsTypes';
 
 export interface MapPoint {
   x: number;
@@ -12,6 +13,14 @@ export interface MapViewBox {
   height: number;
 }
 
+export interface MapTile {
+  key: string;
+  url: string;
+  x: number;
+  y: number;
+  size: number;
+}
+
 export function getMapViewBox(bounds: CoordinateBounds, padding = 4): MapViewBox {
   return {
     x: bounds.xMin - padding,
@@ -23,6 +32,30 @@ export function getMapViewBox(bounds: CoordinateBounds, padding = 4): MapViewBox
 
 export function coordinateToMapPoint(coordinate: Coordinate): MapPoint {
   return { x: coordinate[0], y: coordinate[1] };
+}
+
+export function getMapTiles(bounds: CoordinateBounds, asset: DungeonRemoteTilesAsset): MapTile[] {
+  const [originX, originY] = asset.origin;
+  const epsilon = 1e-9;
+  const minTileX = Math.floor((bounds.xMin - originX) / asset.tileSize);
+  const maxTileX = Math.floor((bounds.xMax - epsilon - originX) / asset.tileSize);
+  const minTileY = Math.floor((originY - bounds.yMax + epsilon) / asset.tileSize);
+  const maxTileY = Math.floor((originY - bounds.yMin - epsilon) / asset.tileSize);
+  const tiles: MapTile[] = [];
+  for (let tileY = minTileY; tileY <= maxTileY; tileY += 1) {
+    for (let tileX = minTileX; tileX <= maxTileX; tileX += 1) {
+      const x = originX + tileX * asset.tileSize;
+      const y = originY - (tileY + 1) * asset.tileSize;
+      tiles.push({
+        key: `${tileX}:${tileY}`,
+        url: asset.urlTemplate.replace('{x}', String(tileX)).replace('{y}', String(tileY)),
+        x,
+        y,
+        size: asset.tileSize,
+      });
+    }
+  }
+  return tiles;
 }
 
 function cross(origin: MapPoint, a: MapPoint, b: MapPoint): number {

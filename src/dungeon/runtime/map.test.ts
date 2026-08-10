@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
 import type { Spawn } from '../schema/types';
-import { coordinateToMapPoint, getConvexHull, getMapViewBox, pointsToSvgPath } from './map';
+import {
+  coordinateToMapPoint,
+  getConvexHull,
+  getMapTiles,
+  getMapViewBox,
+  pointsToSvgPath,
+} from './map';
 
 const spawn = (id: string, position: [number, number]): Spawn => ({
   id,
@@ -20,6 +26,33 @@ describe('map coordinate utilities', () => {
       height: 80,
     });
     expect(coordinateToMapPoint([20, 30])).toEqual({ x: 20, y: 30 });
+  });
+
+  it('resolves a top-left tile grid for Threechest-like negative Y coordinates', () => {
+    const tiles = getMapTiles(
+      { xMin: 0, xMax: 128, yMin: -128, yMax: 0 },
+      {
+        kind: 'remote-tiles',
+        assetKey: 'map',
+        urlTemplate: 'https://example.test/maps/magi/{x}_{y}.jpg',
+        tileSize: 64,
+        origin: [0, 0],
+      },
+    );
+    expect(tiles).toHaveLength(4);
+    expect(tiles[0]).toMatchObject({
+      key: '0:0',
+      url: 'https://example.test/maps/magi/0_0.jpg',
+      x: 0,
+      y: -64,
+      size: 64,
+    });
+    expect(tiles[3]).toMatchObject({
+      key: '1:1',
+      url: 'https://example.test/maps/magi/1_1.jpg',
+      x: 64,
+      y: -128,
+    });
   });
 
   it('computes a stable convex hull for pull highlighting', () => {

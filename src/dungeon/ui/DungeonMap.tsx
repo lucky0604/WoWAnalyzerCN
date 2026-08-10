@@ -5,6 +5,7 @@ import {
   coordinateToMapPoint,
   getConvexHull,
   getMapViewBox,
+  getMapTiles,
   pointsToSvgPath,
 } from '../runtime/map';
 import type { DungeonAssetResult } from '../runtime/assetsTypes';
@@ -22,11 +23,22 @@ export function DungeonMap({ floor, spawns, selectedSpawnIds, asset, onSpawnSele
   const viewBox = useMemo(() => getMapViewBox(floor.bounds), [floor.bounds]);
   const hullPath = useMemo(() => pointsToSvgPath(getConvexHull(spawns)), [spawns]);
   const selected = new Set(selectedSpawnIds);
-  const showRemoteImage = asset.kind === 'remote' && !!asset.url && !imageFailed;
+  const assetIdentity =
+    asset.kind === 'remote'
+      ? asset.url
+      : asset.kind === 'remote-tiles'
+        ? asset.urlTemplate
+        : asset.kind;
+  const showRemoteImage = asset.kind === 'remote' && !imageFailed;
+  const showRemoteTiles = asset.kind === 'remote-tiles' && !imageFailed;
+  const tiles = useMemo(
+    () => (asset.kind === 'remote-tiles' ? getMapTiles(floor.bounds, asset) : []),
+    [asset, floor.bounds],
+  );
 
   useEffect(() => {
     setImageFailed(false);
-  }, [asset.url]);
+  }, [assetIdentity]);
 
   return (
     <div className="dungeon-map" data-asset-kind={asset.kind}>
@@ -60,7 +72,7 @@ export function DungeonMap({ floor, spawns, selectedSpawnIds, asset, onSpawnSele
           x={viewBox.x}
           y={viewBox.y}
         />
-        {showRemoteImage && asset.url && (
+        {showRemoteImage && (
           <image
             href={asset.url}
             height={viewBox.height}
@@ -71,6 +83,19 @@ export function DungeonMap({ floor, spawns, selectedSpawnIds, asset, onSpawnSele
             y={viewBox.y}
           />
         )}
+        {showRemoteTiles &&
+          tiles.map((tile) => (
+            <image
+              href={tile.url}
+              height={tile.size}
+              key={tile.key}
+              onError={() => setImageFailed(true)}
+              preserveAspectRatio="none"
+              width={tile.size}
+              x={tile.x}
+              y={tile.y}
+            />
+          ))}
         {hullPath && <path className="dungeon-map__hull" d={hullPath} />}
         {spawns.map((spawn) => {
           const point = coordinateToMapPoint(spawn.position);
@@ -97,7 +122,7 @@ export function DungeonMap({ floor, spawns, selectedSpawnIds, asset, onSpawnSele
           );
         })}
       </svg>
-      {!showRemoteImage && (
+      {!showRemoteImage && !showRemoteTiles && (
         <div className="dungeon-map__placeholder">
           <strong>{imageFailed ? '地图背景加载失败' : '地图背景未配置'}</strong>
           <span>

@@ -63,6 +63,35 @@ describe('Dungeon asset providers', () => {
       },
       'localhost',
     );
-    expect(provider.getFloorMap('floor-1').url).toBe('https://example.test/floor.png');
+    expect(provider.getFloorMap('floor-1')).toMatchObject({
+      kind: 'remote',
+      url: 'https://example.test/floor.png',
+    });
+  });
+
+  it('resolves a configured tile template without embedding a host in code', () => {
+    const provider = createDungeonAssetProvider({
+      provider: 'remote-dev',
+      mode: 'development',
+      hostname: 'localhost',
+      manifest: {
+        provider: 'remote-dev',
+        assets: {
+          'magi-floor': {
+            type: 'tiles',
+            urlTemplate: 'https://example.test/maps/magi/{x}_{y}.jpg',
+            tileSize: 64,
+            origin: [0, 0],
+          },
+        },
+      },
+    });
+    expect(provider.getFloorMap('magi-floor')).toEqual({
+      kind: 'remote-tiles',
+      assetKey: 'magi-floor',
+      urlTemplate: 'https://example.test/maps/magi/{x}_{y}.jpg',
+      tileSize: 64,
+      origin: [0, 0],
+    });
   });
 });

@@ -1,8 +1,16 @@
 import type { DungeonAssetProvider, DungeonAssetResult } from './assetsTypes';
 
+export interface AssetManifestEntry {
+  type: 'image' | 'tiles';
+  url?: string;
+  urlTemplate?: string;
+  tileSize?: number;
+  origin?: readonly [x: number, y: number];
+}
+
 export interface AssetManifest {
   provider: 'remote-dev' | 'oss';
-  assets: Record<string, string>;
+  assets: Record<string, string | AssetManifestEntry>;
 }
 
 export interface AssetProviderOptions {
@@ -51,9 +59,28 @@ function resolveAsset(assetKey: string, options: AssetProviderOptions): DungeonA
     return placeholder(assetKey, '生产资源尚未配置。');
   }
   const url = options.manifest?.assets[assetKey];
-  return url
-    ? { kind: 'remote', assetKey, url }
-    : placeholder(assetKey, 'assetKey 不在当前 manifest 中。');
+  if (typeof url === 'string') return { kind: 'remote', assetKey, url };
+  if (!url) return placeholder(assetKey, 'assetKey 不在当前 manifest 中。');
+  if (url.type === 'image' && url.url) return { kind: 'remote', assetKey, url: url.url };
+  const tileSize = url.tileSize;
+  if (
+    url.type === 'tiles' &&
+    url.urlTemplate?.includes('{x}') &&
+    url.urlTemplate.includes('{y}') &&
+    tileSize !== undefined &&
+    Number.isInteger(tileSize) &&
+    tileSize > 0 &&
+    url.origin
+  ) {
+    return {
+      kind: 'remote-tiles',
+      assetKey,
+      urlTemplate: url.urlTemplate,
+      tileSize,
+      origin: url.origin,
+    };
+  }
+  return placeholder(assetKey, 'asset manifest 条目缺少可用的图片或瓦片配置。');
 }
 
 export function createAssetProviderFromEnv(
