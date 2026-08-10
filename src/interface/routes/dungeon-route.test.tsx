@@ -47,5 +47,10 @@ describe('read-only dungeon route page', () => {
       'aria-pressed',
       'true',
     );
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(screen.getByRole('button', { name: '地图聚焦' })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
   });
 });

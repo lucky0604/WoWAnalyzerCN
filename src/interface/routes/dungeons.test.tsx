@@ -94,5 +94,11 @@ describe('dungeon inspector query', () => {
       'true',
     );
     expect(screen.getByRole('tab', { name: /龙心岗哨/ })).toHaveAttribute('aria-selected', 'true');
+
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(screen.getByRole('button', { name: '地图聚焦' })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
   });
 });

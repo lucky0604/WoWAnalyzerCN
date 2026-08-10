@@ -106,6 +106,14 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
   const [mapCollapsed, setMapCollapsed] = useState(false);
   const [mapExpanded, setMapExpanded] = useState(false);
   useEffect(() => {
+    if (!mapExpanded) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMapExpanded(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [mapExpanded]);
+  useEffect(() => {
     setSelectedStepId(firstStepId);
   }, [firstStepId, route?.id]);
   const assetProvider = useMemo(() => createAssetProviderFromEnv(import.meta.env), []);

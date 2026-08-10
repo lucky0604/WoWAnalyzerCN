@@ -355,6 +355,14 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
   const [mapFocus, setMapFocus] = useState<'floor' | 'pull'>('floor');
   const [mapCollapsed, setMapCollapsed] = useState(false);
   const [mapExpanded, setMapExpanded] = useState(false);
+  useEffect(() => {
+    if (!mapExpanded) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMapExpanded(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [mapExpanded]);
   const assetProvider = useMemo(() => createAssetProviderFromEnv(import.meta.env), []);
   const selectedStep = route?.steps.find((step) => step.id === selectedStepId);
   const selectedPull = selectedStep?.type === 'pull' ? selectedStep : undefined;
