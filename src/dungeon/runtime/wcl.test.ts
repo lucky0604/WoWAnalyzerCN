@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { matchDungeonFromWcl } from './wcl';
+import { getPublishedDungeonFromWcl, matchDungeonFromWcl } from './wcl';
 
 describe('WCL dungeon adapter', () => {
   it('prefers an exact encounter ID over title heuristics', () => {
@@ -25,6 +25,15 @@ describe('WCL dungeon adapter', () => {
   it('does not guess from an unknown report', () => {
     expect(
       matchDungeonFromWcl({ reportTitle: 'A raid report', fightName: 'Trash' }),
+    ).toBeUndefined();
+  });
+
+  it('does not expose a learning link while the matched catalog entry is still building', () => {
+    expect(
+      getPublishedDungeonFromWcl(
+        { zone: 0, title: 'Maisara Caverns +12' },
+        { boss: 0, name: 'Trash pulls' },
+      ),
     ).toBeUndefined();
   });
 });
