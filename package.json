@@ -107,6 +107,8 @@
     "generate-enchants:ptr": "npx tsx ./scripts/enchants/generate-enchants.ts --ptr && oxfmt src/common/ITEMS/**/*.ts",
     "generate-cn-server-slug": "node ./scripts/cn-sn-slug/generate-cn-server-slug.mjs",
     "dungeon:check": "tsx scripts/dungeons/check.ts",
+    "dungeon:new": "tsx scripts/dungeons/authoring.ts new",
+    "dungeon:add": "tsx scripts/dungeons/authoring.ts add",
     "dungeon:validate": "tsx scripts/dungeons/validate.ts",
     "dungeon:report": "tsx scripts/dungeons/report.ts",
     "dungeon:check-dist": "tsx scripts/dungeons/check-dist.ts",
