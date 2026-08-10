@@ -6,3 +6,5 @@ export * from './runtime/assetsTypes';
 export * from './runtime/reconcile';
 export * from './runtime/resolve';
 export * from './runtime/sourceRegistry';
+export * from './runtime/learning';
+export * from './runtime/progress';

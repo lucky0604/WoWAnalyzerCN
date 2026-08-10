@@ -157,8 +157,8 @@
     border-color 150ms ease,
     background 150ms ease;
 }
-.dungeon-card:hover,
-.dungeon-card:focus-visible {
+.dungeon-card:has(a:hover),
+.dungeon-card:has(a:focus-visible) {
   border-color: design.$colors_wowaYellow;
   background: design.$level2_background;
   color: inherit;
@@ -182,11 +182,20 @@
   color: design.$colors_unfocusedText;
   font-size: 0.8rem;
 }
+.dungeon-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+}
 .dungeon-card__action {
   justify-content: flex-start;
-  margin-top: 22px;
   color: design.$colors_wowaYellow;
   font-weight: 700;
+}
+.dungeon-card__reference {
+  color: design.$colors_unfocusedText;
+  font-size: 0.78rem;
 }
 .dungeon-status {
   display: inline-flex;

@@ -27,7 +27,7 @@ function StatusBadge({ status }: { status: DungeonDocument['dataStatus'] }) {
 
 function DungeonCard({ document }: { document: DungeonDocument }) {
   return (
-    <Link className="dungeon-card" to={`/dungeons/${document.id}`}>
+    <article className="dungeon-card">
       <div className="dungeon-card__eyebrow">
         <span>Midnight S2</span>
         <StatusBadge status={document.dataStatus} />
@@ -37,8 +37,15 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
         Phase 0 数据合同样本 · {document.situations.length} 个 Situation ·{' '}
         {document.abilities.length} 个技能知识
       </p>
-      <span className="dungeon-card__action">打开 Inspector →</span>
-    </Link>
+      <div className="dungeon-card__actions">
+        <Link className="dungeon-card__action" to={`/dungeons/${document.id}/learn`}>
+          开始学习 →
+        </Link>
+        <Link className="dungeon-card__reference" to={`/dungeons/${document.id}`}>
+          打开 Inspector
+        </Link>
+      </div>
+    </article>
   );
 }
 
