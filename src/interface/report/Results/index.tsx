@@ -315,16 +315,9 @@ const DungeonLearningEntry = ({ report, fight }: Pick<PassedProps, 'report' | 'f
   }
 
   return (
-    <div
-      style={{
-        marginTop: 24,
-        padding: '14px 16px',
-        borderLeft: '2px solid #fab700',
-        background: 'rgba(250, 183, 0, 0.08)',
-      }}
-    >
+    <div className="dungeon-learning-entry">
       <small>LEARNING COMPANION</small>
-      <div style={{ marginTop: 4 }}>
+      <div className="dungeon-learning-entry__link">
         <Link to={makeDungeonLearningPath(dungeon)}>
           查看 {dungeon.name.zhCN} 的副本攻略与波次学习 →
         </Link>

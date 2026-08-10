@@ -509,6 +509,19 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.learning-share-link {
+  overflow: hidden;
+  color: design.$colors_unfocusedText;
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.learning-share-link:hover,
+.learning-share-link:focus-visible {
+  color: design.$colors_wowaYellow;
+  text-decoration: underline;
+}
 .learning-sidebar p {
   color: design.$colors_unfocusedText;
   font-size: 0.82rem;

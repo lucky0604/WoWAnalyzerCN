@@ -6,6 +6,17 @@
   margin-bottom: 20px;
 }
 
+.dungeon-learning-entry {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border-left: 2px solid #fab700;
+  background: rgba(250, 183, 0, 0.08);
+}
+
+.dungeon-learning-entry__link {
+  margin-top: 4px;
+}
+
 .statistics > div {
   padding: 0 15px;
 }

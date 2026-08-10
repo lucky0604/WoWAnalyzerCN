@@ -81,6 +81,22 @@ describe('dungeon learning route', () => {
     expect(screen.getByRole('button', { name: '治疗' })).toHaveAttribute('aria-pressed', 'true');
   });
 
+  it('keeps the share affordance readable instead of exposing raw query state', () => {
+    render(
+      <MemoryRouter initialEntries={['/dungeons/ruby-life-pools/learn?mode=quick']}>
+        <Routes>
+          <Route path="/dungeons/:dungeonId/learn" element={<Component />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('link', { name: '分享本节学习链接' })).toHaveAttribute(
+      'href',
+      expect.stringContaining('/dungeons/ruby-life-pools/learn?mode=quick&situation='),
+    );
+    expect(screen.queryByText(/mode=quick&situation=/)).not.toBeInTheDocument();
+  });
+
   it('restores the saved role when a shared URL does not specify one', () => {
     window.localStorage.setItem(
       'wowanalyzer:dungeon-learning:v1',

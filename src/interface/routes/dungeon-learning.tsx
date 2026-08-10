@@ -494,9 +494,13 @@ export function Component() {
               <button type="button" onClick={() => moveLesson(-1)} disabled={currentIndex === 0}>
                 ← 上一个场景
               </button>
-              <span>
-                {getLessonSharePath(document.id, mode, lesson.situation.id, role).split('?')[1]}
-              </span>
+              <Link
+                aria-label="分享本节学习链接"
+                className="learning-share-link"
+                to={getLessonSharePath(document.id, mode, lesson.situation.id, role)}
+              >
+                分享本节链接 ↗
+              </Link>
               <button
                 type="button"
                 onClick={() => moveLesson(1)}

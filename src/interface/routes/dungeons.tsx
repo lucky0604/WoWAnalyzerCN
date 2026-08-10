@@ -446,11 +446,13 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
         <header className="dungeon-hero">
           <div>
             <div className="dungeon-card__eyebrow">
-              <span>Phase 0 Inspector</span>
+              <span>READ-ONLY INSPECTOR</span>
               <StatusBadge status={document.dataStatus} />
             </div>
             <h1>{document.name.zhCN}</h1>
-            <p>这是数据合同和内容引用的可视化检查入口，不是最终的攻略学习页面。</p>
+            <p>
+              这里用于核对数据合同、内容引用和空间状态；学习入口会把危险动作与路线原因分开呈现。
+            </p>
             {(document.dataStatus === 'reviewed' || document.dataStatus === 'published') && (
               <Link className="dungeon-hero__link" to="/">
                 已有 WCL 日志？回到日志分析入口 →
@@ -842,8 +844,7 @@ export function Component() {
             <span className="dungeon-kicker">DUNGEON LEARNING COMPANION</span>
             <h1>先学会处理，再进入副本</h1>
             <p>
-              Phase 0 先验证数据合同、稳定 Situation 和内容来源。最终页面会将这里的 Inspector 演进成
-              60 秒复习、5 分钟速览和完整学习体验。
+              先从覆盖路线了解哪些副本已经有内容、坐标和审校证据，再进入对应的学习预览或只读检查页。
             </p>
           </div>
           <div className="dungeon-hero__callout">
