@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rename, unlink, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
 interface SourceSpawn {
@@ -226,6 +226,17 @@ function outputPathFor(dungeonKey: string, keys: string[], options: ImportOption
   return resolve(options.output && keys.length === 1 ? options.output : defaultOutput);
 }
 
+async function writeFileAtomic(path: string, content: string): Promise<void> {
+  await mkdir(dirname(path), { recursive: true });
+  const temporaryPath = `${path}.${process.pid}.tmp`;
+  try {
+    await writeFile(temporaryPath, content, 'utf8');
+    await rename(temporaryPath, path);
+  } finally {
+    await unlink(temporaryPath).catch(() => undefined);
+  }
+}
+
 export async function runImport(args: string[]): Promise<ImportSummary[]> {
   const options = parseOptions(args);
   const keys = await dungeonKeysFor(options);
@@ -283,8 +294,7 @@ export async function runImport(args: string[]): Promise<ImportSummary[]> {
         mode: 'dry-run',
       });
     } else {
-      await mkdir(dirname(outputPath), { recursive: true });
-      await writeFile(outputPath, serialized, 'utf8');
+      await writeFileAtomic(outputPath, serialized);
       summaries.push({
         dungeonKey,
         inputPath,
