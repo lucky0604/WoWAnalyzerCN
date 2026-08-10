@@ -14,7 +14,10 @@ pnpm dungeon:add boss --dungeon example-dungeon
 pnpm dungeon:add route-step --dungeon example-dungeon
 # For a real learning wave, add `--type pull --spawn <stable-spawn-id>`.
 pnpm dungeon:check --dungeon=example-dungeon
+pnpm dungeon:preview --dungeon example-dungeon
 ```
 
 The command writes `document.json` and `AUTHORING.md` under the slug directory.
 It never edits generated coordinate snapshots or registers a public dungeon.
+`dungeon:publish` only writes an explicit release manifest after the document
+passes provenance and completeness gates; it does not mutate the runtime registry.
