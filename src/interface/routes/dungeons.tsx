@@ -9,10 +9,17 @@ import {
   dungeonDocuments,
   getDungeonDocument,
   getPullStepForces,
+  isLearningPublished,
   resolveRoute,
+  season2DungeonCatalog,
   validateDungeonDocument,
 } from '../../dungeon';
-import type { DungeonDocument, RouteStep } from '../../dungeon';
+import type {
+  DungeonCatalogEntry,
+  DungeonDocument,
+  DungeonCoverageStatus,
+  RouteStep,
+} from '../../dungeon';
 
 import './dungeons.scss';
 
@@ -23,8 +30,21 @@ const statusLabel: Record<DungeonDocument['dataStatus'], string> = {
   published: '已发布',
 };
 
+const coverageStatusLabel: Record<DungeonCoverageStatus, string> = {
+  building: '攻略建设中',
+  'coordinate-ready': '坐标已接入',
+  reviewed: '已审校',
+  published: '已发布',
+};
+
 function StatusBadge({ status }: { status: DungeonDocument['dataStatus'] }) {
   return <span className={`dungeon-status dungeon-status-${status}`}>{statusLabel[status]}</span>;
+}
+
+function CoverageBadge({ status }: { status: DungeonCoverageStatus }) {
+  return (
+    <span className={`dungeon-status dungeon-status-${status}`}>{coverageStatusLabel[status]}</span>
+  );
 }
 
 function DungeonCard({ document }: { document: DungeonDocument }) {
@@ -46,6 +66,34 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
         <Link className="dungeon-card__reference" to={`/dungeons/${document.id}`}>
           打开 Inspector
         </Link>
+      </div>
+    </article>
+  );
+}
+
+function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
+  const learningAvailable = isLearningPublished(entry.status);
+  return (
+    <article className="dungeon-card dungeon-card--coverage">
+      <div className="dungeon-card__eyebrow">
+        <span>Midnight S2 · {entry.sourceKey}</span>
+        <CoverageBadge status={entry.status} />
+      </div>
+      <h2>{entry.name.zhCN}</h2>
+      <p>{entry.summary.zhCN}</p>
+      <div className="dungeon-coverage-meta">
+        <span>坐标快照</span>
+        <code>{entry.coordinateSnapshotId}</code>
+      </div>
+      <div className="dungeon-card__actions">
+        {learningAvailable ? (
+          <Link className="dungeon-card__action" to={`/dungeons/${entry.id}/learn`}>
+            开始学习 →
+          </Link>
+        ) : (
+          <span className="dungeon-card__action dungeon-card__action--disabled">攻略尚未开放</span>
+        )}
+        <span className="dungeon-card__reference">下一步：{entry.nextMilestone.zhCN}</span>
       </div>
     </article>
   );
@@ -140,6 +188,11 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
             </div>
             <h1>{document.name.zhCN}</h1>
             <p>这是数据合同和内容引用的可视化检查入口，不是最终的攻略学习页面。</p>
+            {(document.dataStatus === 'reviewed' || document.dataStatus === 'published') && (
+              <Link className="dungeon-hero__link" to="/">
+                已有 WCL 日志？回到日志分析入口 →
+              </Link>
+            )}
           </div>
           <div className="dungeon-hero__metric">
             <span>验证状态</span>
@@ -426,10 +479,38 @@ export function Component() {
             <span>只读 · fixture · 可审计</span>
           </div>
         </header>
-        <section className="dungeon-grid dungeon-grid--cards">
-          {dungeonDocuments.map((item) => (
-            <DungeonCard document={item} key={item.id} />
-          ))}
+        <section className="dungeon-panel dungeon-coverage-panel" aria-labelledby="coverage-title">
+          <div className="dungeon-panel__heading">
+            <div>
+              <span className="dungeon-kicker">SEASON COVERAGE</span>
+              <h2 id="coverage-title">S2 八本覆盖路线</h2>
+            </div>
+            <span className="dungeon-panel__hint">只有已审校/已发布条目可以进入正式学习</span>
+          </div>
+          <p className="dungeon-coverage-intro">
+            坐标和位置关系先作为只读空间参考接入；技能、波次和学习路线必须经过内容审校后才会开放。
+            这样列表不会用空壳页面制造“已经有攻略”的错觉。
+          </p>
+          <div className="dungeon-grid dungeon-grid--cards">
+            {season2DungeonCatalog.map((entry) => (
+              <DungeonCoverageCard entry={entry} key={entry.id} />
+            ))}
+          </div>
+        </section>
+
+        <section className="dungeon-panel dungeon-fixture-panel" aria-labelledby="fixture-title">
+          <div className="dungeon-panel__heading">
+            <div>
+              <span className="dungeon-kicker">INTERNAL CONTRACT FIXTURES</span>
+              <h2 id="fixture-title">内部学习原型</h2>
+            </div>
+            <span className="dungeon-panel__hint">仅本地开发，用于回归数据合同和学习闭环</span>
+          </div>
+          <div className="dungeon-grid dungeon-grid--cards">
+            {dungeonDocuments.map((item) => (
+              <DungeonCard document={item} key={item.id} />
+            ))}
+          </div>
         </section>
       </main>
     </>

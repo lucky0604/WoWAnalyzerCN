@@ -38,6 +38,7 @@ import { useLingui } from '@lingui/react';
 import { appendReportHistory } from 'interface/reducers/reportHistory';
 import FoundationSupportBadge from 'interface/guide/foundation/FoundationSupportBadge';
 import Ad, { Location } from 'interface/Ad';
+import { getPublishedDungeonFromWcl, makeDungeonLearningPath } from '../../../dungeon';
 
 import usePremium from 'interface/usePremium';
 import useMediaQueryMatch from 'interface/hooks/useMediaQueryMatch';
@@ -209,16 +210,30 @@ const Results = (props: PassedProps) => {
             {props.build && props.build !== 'default' && (
               <div>
                 <AlertWarning style={{ marginBottom: 30 }}>
-                  <>{t({ id: 'interface.report.results.warning.build.p1', message: 'These results are analyzed under build different from the standard build. While this will make some modules more accurate, some may also not provide the ' })}
+                  <>
+                    {t({
+                      id: 'interface.report.results.warning.build.p1',
+                      message:
+                        'These results are analyzed under build different from the standard build. While this will make some modules more accurate, some may also not provide the ',
+                    })}
                     {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-                    {t({ id: 'interface.report.results.warning.build.p2', message: 'information you expect them to. ' })}
+                    {t({
+                      id: 'interface.report.results.warning.build.p2',
+                      message: 'information you expect them to. ',
+                    })}
+                    {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
                     <br />
-                    {t({ id: 'interface.report.results.warning.build.p3', message: 'Please report any issues you may find on our GitHub or Discord.' })}
+                    {t({
+                      id: 'interface.report.results.warning.build.p3',
+                      message: 'Please report any issues you may find on our GitHub or Discord.',
+                    })}
                   </>
                 </AlertWarning>
               </div>
             )}
             <Outlet />
+
+            <DungeonLearningEntry report={props.report} fight={props.fight} />
 
             <div style={{ marginTop: 40 }}>
               <div className="row">
@@ -293,6 +308,31 @@ const Results = (props: PassedProps) => {
   );
 };
 
+const DungeonLearningEntry = ({ report, fight }: Pick<PassedProps, 'report' | 'fight'>) => {
+  const dungeon = getPublishedDungeonFromWcl(report, fight);
+  if (!dungeon) {
+    return null;
+  }
+
+  return (
+    <div
+      style={{
+        marginTop: 24,
+        padding: '14px 16px',
+        borderLeft: '2px solid #fab700',
+        background: 'rgba(250, 183, 0, 0.08)',
+      }}
+    >
+      <small>LEARNING COMPANION</small>
+      <div style={{ marginTop: 4 }}>
+        <Link to={makeDungeonLearningPath(dungeon)}>
+          查看 {dungeon.name.zhCN} 的副本攻略与波次学习 →
+        </Link>
+      </div>
+    </div>
+  );
+};
+
 const SupportProvidedBy = ({
   config: { contributors, spec, supportLevel },
   aboutUrl,
@@ -321,13 +361,17 @@ const SupportProvidedBy = ({
   let description = null;
   if (supportLevel === SupportLevel.Foundation) {
     description = (
-      <>{specTitle}
+      <>
+        {specTitle}
         {t({ id: 'interface.report.results.providedByFoundation.p1', message: 'analysis has ' })}
         <FoundationSupportBadge withTooltip />
-        {t({ id: 'interface.report.results.providedByFoundation.p2', message: 'courtesy of' })}
-        {' '}
+        {t({ id: 'interface.report.results.providedByFoundation.p2', message: 'courtesy of' })}{' '}
         {contributorinfo}
-        {t({ id: 'interface.report.results.providedByFoundation.p3', message: 'but does not have a dedicated maintainer. If you\'re interested in helping improve it, let us know!' })}
+        {t({
+          id: 'interface.report.results.providedByFoundation.p3',
+          message:
+            "but does not have a dedicated maintainer. If you're interested in helping improve it, let us know!",
+        })}
       </>
     );
   } else if (supportLevel === SupportLevel.Unmaintained) {
@@ -339,11 +383,17 @@ const SupportProvidedBy = ({
     );
   } else {
     description = (
-      <>{specTitle}
-        {t({ id: 'interface.report.results.providedByDetails.p1', message: 'analysis has been provided by ' })}
+      <>
+        {specTitle}
+        {t({
+          id: 'interface.report.results.providedByDetails.p1',
+          message: 'analysis has been provided by ',
+        })}
         {contributorinfo}
-        {t({ id: 'interface.report.results.providedByDetails.p2', message: '. They love hearing what you think, so please let them know!' })}
-        {' '}
+        {t({
+          id: 'interface.report.results.providedByDetails.p2',
+          message: '. They love hearing what you think, so please let them know!',
+        })}{' '}
         <Link to={aboutUrl}>More information about this spec's analyzer.</Link>
       </>
     );

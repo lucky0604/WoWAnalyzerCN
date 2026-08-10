@@ -1,8 +1,16 @@
 import { checkSourceUse, dungeonSourceRegistry } from '../../src/dungeon/runtime/sourceRegistry';
+import { validateSeason2DungeonCatalog } from '../../src/dungeon/data/season2Catalog';
 import { dungeonDocuments } from '../../src/dungeon/registry';
 import { validateDungeonDocument } from '../../src/dungeon/schema/validate';
 
 const errors: string[] = [];
+
+validateSeason2DungeonCatalog(
+  undefined,
+  new Set(dungeonDocuments.map((document) => document.id)),
+).forEach((diagnostic) => {
+  errors.push(`catalog: ${diagnostic.code} ${diagnostic.path} — ${diagnostic.message}`);
+});
 
 for (const document of dungeonDocuments) {
   const result = validateDungeonDocument(document);

@@ -46,6 +46,12 @@
   color: design.$colors_unfocusedText;
   line-height: 1.7;
 }
+.dungeon-hero__link {
+  display: inline-flex;
+  margin-top: 16px;
+  color: design.$colors_wowaYellow;
+  font-weight: 700;
+}
 .dungeon-kicker {
   color: design.$colors_wowaYellow;
   font-size: 0.7rem;
@@ -92,6 +98,18 @@
 }
 .dungeon-grid--cards {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.dungeon-coverage-panel {
+  margin-bottom: 16px;
+}
+.dungeon-fixture-panel {
+  border-style: dashed;
+}
+.dungeon-coverage-intro {
+  max-width: 880px;
+  margin: -4px 0 20px;
+  color: design.$colors_unfocusedText;
+  line-height: 1.7;
 }
 .dungeon-panel,
 .dungeon-card {
@@ -317,6 +335,33 @@
   color: design.$colors_unfocusedText;
   font-size: 0.78rem;
 }
+.dungeon-card--coverage {
+  background:
+    linear-gradient(145deg, rgba(250, 183, 0, 0.06), transparent 55%), design.$level1_background;
+}
+.dungeon-card--coverage h2 {
+  margin-top: 14px;
+}
+.dungeon-coverage-meta {
+  display: grid;
+  gap: 3px;
+  margin-top: 12px;
+  color: design.$colors_unfocusedText;
+  font-size: 0.72rem;
+}
+.dungeon-coverage-meta code {
+  color: #c8c3bd;
+  font-size: 0.7rem;
+}
+.dungeon-card__action--disabled {
+  color: design.$colors_unfocusedText;
+  cursor: not-allowed;
+  font-weight: 600;
+}
+.dungeon-card--coverage .dungeon-card__reference {
+  flex: 1;
+  line-height: 1.45;
+}
 .dungeon-status {
   display: inline-flex;
   border: 1px solid currentColor;
@@ -337,6 +382,12 @@
 }
 .dungeon-status-stale {
   color: #ff827c;
+}
+.dungeon-status-building {
+  color: #e5b965;
+}
+.dungeon-status-coordinate-ready {
+  color: #9ea4ff;
 }
 .dungeon-situation-list {
   display: grid;
