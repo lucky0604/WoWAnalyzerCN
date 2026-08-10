@@ -62,7 +62,7 @@ const floor = (id: string, name: string): Floor => ({
   bounds: { xMin: 0, xMax: 100, yMin: 0, yMax: 100 },
 });
 
-const provenance = [blizzardS2Design, rubyPreview, rubyGuide, rubyS2PtrFeedback];
+const provenance = [blizzardS2Design, rubyS2PtrFeedback, rubyPreview, rubyGuide];
 
 const enemies: Enemy[] = [
   {
