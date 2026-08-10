@@ -1,0 +1,67 @@
+import { describe, expect, it } from 'vitest';
+
+import { phase0FixtureDocuments } from '../registry';
+import { getPullStepForces, validateDungeonDocument } from './validate';
+
+describe('Dungeon document validation', () => {
+  it('accepts both Phase 0 learning fixtures', () => {
+    for (const document of Object.values(phase0FixtureDocuments)) {
+      const result = validateDungeonDocument(document);
+      expect(result.errors).toEqual([]);
+      expect(result.ok).toBe(true);
+      expect(result.warnings.some((warning) => warning.code === 'DUNGEON_FIXTURE_DATA')).toBe(true);
+    }
+  });
+
+  it('derives Pull forces from spawn data', () => {
+    const document = phase0FixtureDocuments.rubyLifePools;
+    const route = document.routes[0]!;
+    const pull = route.steps.find((step) => step.type === 'pull');
+    expect(pull?.type).toBe('pull');
+    if (pull?.type === 'pull') {
+      expect(getPullStepForces(document, pull)).toBe(13);
+    }
+  });
+
+  it('blocks a route whose declared forces drift from its spawn composition', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.routes[0]!.expectedEnemyForcesPoints = 999;
+    const result = validateDungeonDocument(document);
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_ROUTE_FORCES_MISMATCH',
+          entityId: 'rlp-learning-route',
+        }),
+      ]),
+    );
+  });
+
+  it('reports unknown references with a copyable path', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.situations[0]!.focusAbilityIds = ['missing-ability'];
+    const result = validateDungeonDocument(document);
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_UNKNOWN_SITUATION_ABILITY',
+          path: 'situations.altar-situation-coiled-approach.focusAbilityIds',
+        }),
+      ]),
+    );
+  });
+
+  it('rejects coordinates outside their normalized floor bounds', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.spawns[0]!.position = [101, 50];
+    const result = validateDungeonDocument(document);
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_COORDINATE_OUT_OF_BOUNDS',
+          entityId: 'rlp-spawn-flamer-1',
+        }),
+      ]),
+    );
+  });
+});

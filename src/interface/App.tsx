@@ -10,6 +10,10 @@ import RouterErrorBoundary from 'interface/RouterErrorBoundary';
 import { AppLayout } from 'interface/layouts/AppLayout';
 import { HomeLayout } from 'interface/layouts/HomeLayout';
 
+// Phase 0 exposes fixture data only during local development. A production route
+// must be enabled together with a published data registry in a later phase.
+const dungeonRoutesEnabled = import.meta.env.DEV;
+
 const appRoutes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />} errorElement={<RouterErrorBoundary />}>
     <Route path="character/:region/:realm/:name" lazy={() => import('./routes/character')} />
@@ -26,6 +30,10 @@ const appRoutes = createRoutesFromElements(
       <Route path=":resultTab" lazy={() => import('./routes/report/dynamic')} />
     </Route>
     <Route path="privacy" lazy={() => import('./routes/privacy')} />
+    {dungeonRoutesEnabled && <Route path="dungeons" lazy={() => import('./routes/dungeons')} />}
+    {dungeonRoutesEnabled && (
+      <Route path="dungeons/:dungeonId" lazy={() => import('./routes/dungeons')} />
+    )}
     <Route element={<HomeLayout />}>
       <Route index lazy={() => import('./routes/news')} />
       <Route path="news" lazy={() => import('./routes/news')} />
