@@ -38,6 +38,71 @@ describe('Dungeon document validation', () => {
     );
   });
 
+  it('surfaces draft knowledge that is not connected to a learning route', () => {
+    const result = validateDungeonDocument(rubyLifePoolsPhase1Draft);
+
+    expect(result.warnings).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_SITUATION_UNCOVERED',
+          entityId: 'rlp-situation-hatchery-transition',
+        }),
+      ]),
+    );
+  });
+
+  it('turns missing learning coverage into a release error', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+    };
+    const firstStep = document.routes[0]!.steps[0]!;
+    expect(firstStep.type).toBe('pull');
+    if (firstStep.type === 'pull') firstStep.situationRefs = [];
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_PULL_WITHOUT_SITUATION',
+          entityId: 'altar-route-step-1',
+        }),
+      ]),
+    );
+  });
+
+  it('requires one full route context when a situation is only partially referenced', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+    };
+    const firstStep = document.routes[0]!.steps[0]!;
+    expect(firstStep.type).toBe('pull');
+    if (firstStep.type === 'pull') firstStep.situationRefs[0]!.coverage = 'partial';
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_SITUATION_PARTIAL_COVERAGE',
+          entityId: 'altar-situation-coiled-approach',
+        }),
+      ]),
+    );
+  });
+
   it('reports unknown references with a copyable path', () => {
     const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
     document.situations[0]!.focusAbilityIds = ['missing-ability'];

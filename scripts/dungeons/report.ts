@@ -1,6 +1,7 @@
 import { dungeonDocuments } from '../../src/dungeon/registry';
 import { getDungeonLearningAccess } from '../../src/dungeon/runtime/access';
 import { resolveRoute } from '../../src/dungeon/runtime/resolve';
+import { getDungeonContentCoverage } from '../../src/dungeon/schema/coverage';
 import { validateDungeonDocument } from '../../src/dungeon/schema/validate';
 
 const report = dungeonDocuments.map((document) => {
@@ -8,6 +9,7 @@ const report = dungeonDocuments.map((document) => {
   const learningAccess = getDungeonLearningAccess(document);
   const route = document.routes[0];
   const resolved = route ? resolveRoute(document, route) : undefined;
+  const coverage = getDungeonContentCoverage(document);
   return {
     dungeonId: document.id,
     status: document.dataStatus,
@@ -28,6 +30,17 @@ const report = dungeonDocuments.map((document) => {
       routes: document.routes.length,
     },
     routeForces: resolved?.totalForcesPoints ?? 0,
+    coverage: {
+      situations: coverage.situations.length,
+      routeBackedSituations: coverage.situations.filter((entry) => entry.hasRouteCoverage).length,
+      uncoveredSituationIds: coverage.uncoveredSituationIds,
+      incompleteSituationIds: coverage.incompleteSituationIds,
+      abilities: coverage.abilities.length,
+      uncoveredDecisionCriticalAbilityIds: coverage.uncoveredDecisionCriticalAbilityIds,
+      pulls: coverage.route.pullCount,
+      pullsWithoutSituation: coverage.route.pullsWithoutSituation.map((step) => step.id),
+      bossesWithoutFocusAbilityIds: coverage.bosses.withoutFocusAbilityIds,
+    },
   };
 });
 

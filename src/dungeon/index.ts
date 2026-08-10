@@ -1,6 +1,7 @@
 export * from './registry';
 export * from './data/season2Catalog';
 export * from './schema/types';
+export * from './schema/coverage';
 export * from './schema/validate';
 export * from './runtime/assets';
 export * from './runtime/assetsTypes';

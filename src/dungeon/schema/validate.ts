@@ -1,3 +1,4 @@
+import { getDungeonContentCoverage } from './coverage';
 import type { Diagnostic, DungeonDocument, PullStep, RouteStep, ValidationResult } from './types';
 
 const diagnostic = (
@@ -757,6 +758,74 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
         );
       }
     });
+  });
+
+  const coverage = getDungeonContentCoverage(document);
+  const coverageSeverity = releaseStatus ? 'error' : 'warning';
+  coverage.uncoveredSituationIds.forEach((situationId) => {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        coverageSeverity,
+        'DUNGEON_SITUATION_UNCOVERED',
+        `situations.${situationId}`,
+        releaseStatus
+          ? '正式内容中的非 Boss Situation 必须被路线步骤引用，并至少有一个 full 学习上下文。'
+          : '该 Situation 尚未挂到路线步骤；正式内容必须提供可达的学习上下文。',
+        situationId,
+      ),
+    );
+  });
+  coverage.incompleteSituationIds.forEach((situationId) => {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        coverageSeverity,
+        'DUNGEON_SITUATION_PARTIAL_COVERAGE',
+        `situations.${situationId}`,
+        releaseStatus
+          ? '正式内容中的 Situation 必须至少在一个路线步骤中得到完整解释。'
+          : '该 Situation 目前只有 partial 路线引用；正式内容需要至少一个 full 学习上下文。',
+        situationId,
+      ),
+    );
+  });
+  coverage.uncoveredDecisionCriticalAbilityIds.forEach((abilityId) => {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        coverageSeverity,
+        'DUNGEON_CRITICAL_ABILITY_UNCOVERED',
+        `abilities.${abilityId}`,
+        releaseStatus
+          ? 'decision-critical 技能必须出现在 Situation、路线或 Boss 学习表面。'
+          : '该 decision-critical 技能目前只挂在敌人事实层，尚未进入学习表面。',
+        abilityId,
+      ),
+    );
+  });
+  coverage.route.pullsWithoutSituation.forEach((step) => {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        coverageSeverity,
+        'DUNGEON_PULL_WITHOUT_SITUATION',
+        `routes.${step.id}.situationRefs`,
+        releaseStatus
+          ? '正式路线的 Pull 必须引用至少一个 Situation，说明这一波为什么这样处理。'
+          : '该 Pull 尚未引用 Situation；当前只能作为路线骨架。',
+        step.id,
+      ),
+    );
+  });
+  coverage.bosses.withoutFocusAbilityIds.forEach((bossId) => {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        coverageSeverity,
+        'DUNGEON_BOSS_KNOWLEDGE_EMPTY',
+        `bosses.${bossId}.focusAbilityIds`,
+        releaseStatus
+          ? '正式 Boss 学习卡必须至少绑定一个核心技能。'
+          : 'Boss 学习卡尚未绑定核心技能。',
+        bossId,
+      ),
+    );
   });
 
   return { errors, warnings, ok: errors.length === 0 };

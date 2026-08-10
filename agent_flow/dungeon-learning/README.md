@@ -63,6 +63,7 @@
 - `/dungeons/:dungeonId/reference` 仅展示位置、组别、巡逻和快照审计信息，不展示未经批准的 forces、技能或路线事实。
 - 正式学习页目前通过本地预览展示 RLP 的来源化内容草稿；空间数据 pending、forces pending 或缺失 Spell ID 都会保留为 warning，并在 reviewed/published 时强制阻断。Altar fixture 仍仅用于数据合同回归。
 - Inspector、只读 Route 和只读 Boss 学习页已建立互相可达的深链；Route/Boss 页面只解释已有知识，不提供编辑、导入或保存路线的操作。
+- Phase 1B 已加入内容完整度报告：分别审计 Enemy 事实引用、Situation/Route/Boss 学习表面、无上下文 Pull 和空 Boss 技能卡；正式状态会将缺口升级为 release error。
 - 学习页已完成“先选把握程度、再揭示答案”的主动回忆约束，并显示已回忆/模糊/不会/待复习汇总；进度写入失败时会明确提示，不把内存状态伪装成已持久化。
 - 学习入口统一经过 `getDungeonLearningAccess`：draft 只能显示为本地预览，fixture、stale、来源未批准或正式校验失败的文档不能渲染学习课件；WCL 适配器也复用同一正式门禁。
 - 内容维护 quickstart 已提供 `dungeon:new` / `dungeon:add` / `dungeon:check --dungeon`，草稿不会自动进入 runtime registry。

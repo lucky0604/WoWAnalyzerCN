@@ -60,3 +60,11 @@ forcesStatus: pending
 - Route 页面只读展示路线意图、层级假设、Pull 顺序、位置上下文和 Situation 入口；空间 pending 时 forces 明确显示“待核验”。
 - Boss 页面把现有 Boss、核心技能、Situation、角色建议和位置门禁串成学习卡；没有 WCL/实测样本时不生成“常见失败”排名，也不把未建模内容写成阶段时间轴。
 - 主动回忆必须先选择置信度再揭示答案；学习页会汇总薄弱节点，并保持 fingerprint 与 revision 绑定。
+
+## Phase 1B 内容完整度审查补充
+
+- `src/dungeon/schema/coverage.ts` 现在会分别记录 Enemy 事实引用与 Situation/Route/Boss 学习表面，避免“怪物挂了技能”被误算成“玩家学到了技能”。
+- `pnpm dungeon:report` 输出 Situation 是否被路线覆盖、decision-critical 技能是否进入学习表面、没有 Situation 的 Pull 以及缺少核心技能的 Boss 卡。
+- 报告还会区分“完全没有路线引用”和“只有 partial 引用”；正式内容至少要有一个 `full` 学习上下文。
+- `validateDungeonDocument` 在 draft/fixture 阶段将这些缺口作为可定位 warning，在 reviewed/published 阶段升级为 release error；RLP 当前会明确报告未挂路线的 `rlp-situation-hatchery-transition`。
+- 这一步只关闭内容完整度的工程门，不改变 RLP 的 `spatialStatus: pending`、`forcesStatus: pending`、来源批准和第二人审校门；因此 RLP 仍然不能发布。
