@@ -8,6 +8,7 @@ import {
   getDueLessons,
   getDungeonLearningAccess,
   getDungeonDocument,
+  getLearningProgressSummary,
   getLessonSharePath,
   getLessonRecallRecord,
   getRoleText,
@@ -169,22 +170,11 @@ export function Component() {
 
   const record = getLessonRecallRecord(progress, document.id, lesson);
   const dueLessons = getDueLessons(plan, progress, document.id);
-  const completedCount = plan.filter(
-    (item) => getLessonRecallRecord(progress, document.id, item)?.revealed,
-  ).length;
-  const fuzzyCount = plan.filter(
-    (item) => getLessonRecallRecord(progress, document.id, item)?.confidence === 'fuzzy',
-  ).length;
-  const unknownCount = plan.filter(
-    (item) => getLessonRecallRecord(progress, document.id, item)?.confidence === 'unknown',
-  ).length;
-  const weakCount =
-    plan.length -
-    plan.filter(
-      (item) =>
-        getLessonRecallRecord(progress, document.id, item)?.revealed &&
-        getLessonRecallRecord(progress, document.id, item)?.confidence === 'ready',
-    ).length;
+  const { completedCount, fuzzyCount, unknownCount, weakCount } = getLearningProgressSummary(
+    plan,
+    progress,
+    document.id,
+  );
   const updateProgress = (nextProgress: typeof progress) => {
     setProgress(nextProgress);
     setStorageWarning(!writeLearningProgress(nextProgress));

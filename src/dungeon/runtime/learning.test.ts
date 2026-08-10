@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
 import { phase0FixtureDocuments } from '../registry';
-import { buildLearningPlan, getDueLessons, getLessonSharePath, getRoleText } from './learning';
+import {
+  buildLearningPlan,
+  getDueLessons,
+  getLearningProgressSummary,
+  getLessonSharePath,
+  getRoleText,
+} from './learning';
 import { emptyLearningProgress, recordRecall } from './progress';
 
 describe('learning plan', () => {
@@ -63,5 +69,43 @@ describe('learning plan', () => {
         1,
       )[0]?.situation.id,
     ).toBe(plan[0]!.situation.id);
+  });
+
+  it('summarizes only current-fingerprint progress', () => {
+    const document = phase0FixtureDocuments.rubyLifePools;
+    const plan = buildLearningPlan(document, 'full');
+    let progress = emptyLearningProgress();
+    progress = recordRecall(
+      progress,
+      document.id,
+      plan[0]!.situation.id,
+      'ready',
+      true,
+      plan[0]!.fingerprint,
+    );
+    progress = recordRecall(
+      progress,
+      document.id,
+      plan[1]!.situation.id,
+      'fuzzy',
+      true,
+      plan[1]!.fingerprint,
+    );
+    progress = recordRecall(
+      progress,
+      document.id,
+      'removed-situation',
+      'unknown',
+      true,
+      'stale-fingerprint',
+    );
+
+    expect(getLearningProgressSummary(plan, progress, document.id)).toEqual({
+      completedCount: 2,
+      masteredCount: 1,
+      fuzzyCount: 1,
+      unknownCount: 0,
+      weakCount: plan.length - 1,
+    });
   });
 });

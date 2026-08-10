@@ -20,6 +20,14 @@ export interface LearningLesson {
   fingerprint: string;
 }
 
+export interface LearningProgressSummary {
+  completedCount: number;
+  masteredCount: number;
+  fuzzyCount: number;
+  unknownCount: number;
+  weakCount: number;
+}
+
 const quickKinds = new Set<SituationKind>(['critical', 'boss']);
 
 function isIncluded(mode: LearningMode, kind: SituationKind): boolean {
@@ -99,6 +107,34 @@ export function getLessonRecallRecord(
 ): RecallRecord | undefined {
   const record = progress.byDungeon[dungeonId]?.bySituation[lesson.situation.id];
   return record?.contentFingerprint === lesson.fingerprint ? record : undefined;
+}
+
+export function getLearningProgressSummary(
+  plan: LearningLesson[],
+  progress: LearningProgress,
+  dungeonId: string,
+): LearningProgressSummary {
+  let completedCount = 0;
+  let masteredCount = 0;
+  let fuzzyCount = 0;
+  let unknownCount = 0;
+
+  plan.forEach((lesson) => {
+    const record = getLessonRecallRecord(progress, dungeonId, lesson);
+    if (!record) return;
+    if (record.revealed) completedCount += 1;
+    if (record.revealed && record.confidence === 'ready') masteredCount += 1;
+    if (record.confidence === 'fuzzy') fuzzyCount += 1;
+    if (record.confidence === 'unknown') unknownCount += 1;
+  });
+
+  return {
+    completedCount,
+    masteredCount,
+    fuzzyCount,
+    unknownCount,
+    weakCount: plan.length - masteredCount,
+  };
 }
 
 export function isRecallDue(record: RecallRecord | undefined, now = Date.now()): boolean {
