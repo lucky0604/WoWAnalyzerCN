@@ -119,14 +119,14 @@ export function Component() {
   const navigate = useNavigate();
   const document = dungeonId ? getDungeonDocument(dungeonId) : undefined;
   const learningAccess = document ? getDungeonLearningAccess(document) : undefined;
+  const [progress, setProgress] = useState(() => readLearningProgress());
   const mode = parseMode(searchParams.get('mode'));
-  const role = parseRole(searchParams.get('role'));
+  const role = parseRole(searchParams.get('role') ?? progress.lastRole ?? null);
   const plan = useMemo(() => (document ? buildLearningPlan(document, mode) : []), [document, mode]);
   const requestedSituation = searchParams.get('situation');
   const foundIndex = plan.findIndex((lesson) => lesson.situation.id === requestedSituation);
   const currentIndex = foundIndex < 0 ? 0 : foundIndex;
   const lesson = plan[currentIndex];
-  const [progress, setProgress] = useState(() => readLearningProgress());
   const [storageWarning, setStorageWarning] = useState(false);
 
   useEffect(() => {

@@ -9,9 +9,19 @@ vi.mock('interface/NavigationBar', () => ({
   default: ({ children }: { children?: ReactNode }) => <nav>{children}</nav>,
 }));
 
+const storageValues = new Map<string, string>();
+
 describe('dungeon learning route', () => {
   beforeEach(() => {
-    window.localStorage.clear?.();
+    storageValues.clear();
+    Object.defineProperty(window, 'localStorage', {
+      configurable: true,
+      value: {
+        clear: () => storageValues.clear(),
+        getItem: (key: string) => storageValues.get(key) ?? null,
+        setItem: (key: string, value: string) => storageValues.set(key, value),
+      },
+    });
   });
 
   it('does not expose contract fixtures as learning content', () => {
@@ -68,6 +78,22 @@ describe('dungeon learning route', () => {
     expect(screen.getByText('参考答案')).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: '治疗' }));
+    expect(screen.getByRole('button', { name: '治疗' })).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it('restores the saved role when a shared URL does not specify one', () => {
+    window.localStorage.setItem(
+      'wowanalyzer:dungeon-learning:v1',
+      JSON.stringify({ version: 1, byDungeon: {}, lastRole: 'healer' }),
+    );
+    render(
+      <MemoryRouter initialEntries={['/dungeons/ruby-life-pools/learn?mode=quick']}>
+        <Routes>
+          <Route path="/dungeons/:dungeonId/learn" element={<Component />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
     expect(screen.getByRole('button', { name: '治疗' })).toHaveAttribute('aria-pressed', 'true');
   });
 });
