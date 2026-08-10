@@ -7,6 +7,7 @@ import type {
   SituationKnowledge,
   PullStep,
 } from '../schema/types';
+import type { LearningProgress, RecallRecord } from './progress';
 
 export type LearningMode = 'quick' | 'overview' | 'full';
 
@@ -16,6 +17,7 @@ export interface LearningLesson {
   routeSteps: PullStep[];
   route?: RouteKnowledge;
   index: number;
+  fingerprint: string;
 }
 
 const quickKinds = new Set<SituationKind>(['critical', 'boss']);
@@ -51,16 +53,77 @@ export function buildLearningPlan(document: DungeonDocument, mode: LearningMode)
       return aOrder - bOrder || a.id.localeCompare(b.id);
     });
 
-  return sortedSituations.map((situation, index) => ({
-    situation,
-    abilities: situation.focusAbilityIds.flatMap((abilityId) => {
+  return sortedSituations.map((situation, index) => {
+    const abilities = situation.focusAbilityIds.flatMap((abilityId) => {
       const ability = abilitiesById.get(abilityId);
       return ability ? [ability] : [];
-    }),
-    routeSteps: routeStepsBySituation.get(situation.id) ?? [],
-    route: routeBySituation.get(situation.id),
-    index,
-  }));
+    });
+    const routeSteps = routeStepsBySituation.get(situation.id) ?? [];
+    return {
+      situation,
+      abilities,
+      routeSteps,
+      route: routeBySituation.get(situation.id),
+      index,
+      fingerprint: getKnowledgeFingerprint(situation, abilities, routeSteps),
+    };
+  });
+}
+
+function hashFingerprint(value: string): string {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, '0');
+}
+
+export function getKnowledgeFingerprint(
+  situation: SituationKnowledge,
+  abilities: AbilityKnowledge[],
+  routeSteps: PullStep[],
+): string {
+  const payload = JSON.stringify({
+    situation,
+    abilities,
+    routeSteps,
+  });
+  return `v1:${hashFingerprint(payload)}`;
+}
+
+export function getLessonRecallRecord(
+  progress: LearningProgress,
+  dungeonId: string,
+  lesson: LearningLesson,
+): RecallRecord | undefined {
+  const record = progress.byDungeon[dungeonId]?.bySituation[lesson.situation.id];
+  return record?.contentFingerprint === lesson.fingerprint ? record : undefined;
+}
+
+export function isRecallDue(record: RecallRecord | undefined, now = Date.now()): boolean {
+  if (!record || record.confidence !== 'ready' || !record.revealed) return true;
+  const updatedAt = Date.parse(record.updatedAt);
+  return !Number.isFinite(updatedAt) || now - updatedAt >= 24 * 60 * 60 * 1000;
+}
+
+export function getDueLessons(
+  plan: LearningLesson[],
+  progress: LearningProgress,
+  dungeonId: string,
+  limit = 3,
+  now = Date.now(),
+): LearningLesson[] {
+  return plan
+    .filter((lesson) => isRecallDue(getLessonRecallRecord(progress, dungeonId, lesson), now))
+    .sort((a, b) => {
+      const aRecord = getLessonRecallRecord(progress, dungeonId, a);
+      const bRecord = getLessonRecallRecord(progress, dungeonId, b);
+      const priority = (record: RecallRecord | undefined) =>
+        !record ? 0 : record.confidence === 'unknown' ? 1 : record.confidence === 'fuzzy' ? 2 : 3;
+      return priority(aRecord) - priority(bRecord) || a.index - b.index;
+    })
+    .slice(0, limit);
 }
 
 export function getRoleText(

@@ -6,6 +6,7 @@ export interface RecallRecord {
   confidence: RecallConfidence;
   revealed: boolean;
   updatedAt: string;
+  contentFingerprint: string;
 }
 
 export interface DungeonProgress {
@@ -62,6 +63,7 @@ export function recordRecall(
   situationId: SituationId,
   confidence: RecallConfidence,
   revealed: boolean,
+  contentFingerprint = 'legacy',
 ): LearningProgress {
   const dungeon = progress.byDungeon[dungeonId] ?? { bySituation: {} };
   return {
@@ -72,7 +74,12 @@ export function recordRecall(
         ...dungeon,
         bySituation: {
           ...dungeon.bySituation,
-          [situationId]: { confidence, revealed, updatedAt: new Date().toISOString() },
+          [situationId]: {
+            confidence,
+            revealed,
+            updatedAt: new Date().toISOString(),
+            contentFingerprint,
+          },
         },
       },
     },

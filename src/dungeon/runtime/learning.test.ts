@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import { phase0FixtureDocuments } from '../registry';
-import { buildLearningPlan, getLessonSharePath, getRoleText } from './learning';
+import { buildLearningPlan, getDueLessons, getLessonSharePath, getRoleText } from './learning';
+import { emptyLearningProgress, recordRecall } from './progress';
 
 describe('learning plan', () => {
   it('keeps critical and boss situations in quick review', () => {
@@ -29,5 +30,38 @@ describe('learning plan', () => {
     ).toBe(
       '/dungeons/ruby-life-pools/learn?mode=quick&situation=rlp-situation-infusion-first-pack&role=tank',
     );
+  });
+
+  it('invalidates recall when the lesson fingerprint changes and prioritizes weak lessons', () => {
+    const document = phase0FixtureDocuments.rubyLifePools;
+    const plan = buildLearningPlan(document, 'full');
+    let progress = emptyLearningProgress();
+    progress = recordRecall(
+      progress,
+      document.id,
+      plan[0]!.situation.id,
+      'ready',
+      true,
+      plan[0]!.fingerprint,
+    );
+    progress = recordRecall(
+      progress,
+      document.id,
+      plan[1]!.situation.id,
+      'unknown',
+      true,
+      plan[1]!.fingerprint,
+    );
+    expect(
+      getDueLessons(plan, progress, document.id, 1).map((lesson) => lesson.situation.id),
+    ).toEqual([plan[1]!.situation.id]);
+    expect(
+      getDueLessons(
+        plan,
+        recordRecall(progress, document.id, plan[0]!.situation.id, 'ready', true, 'changed'),
+        document.id,
+        1,
+      )[0]?.situation.id,
+    ).toBe(plan[0]!.situation.id);
   });
 });

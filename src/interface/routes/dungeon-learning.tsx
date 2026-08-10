@@ -5,8 +5,10 @@ import { useEffect, useMemo, useState } from 'react';
 
 import {
   buildLearningPlan,
+  getDueLessons,
   getDungeonDocument,
   getLessonSharePath,
+  getLessonRecallRecord,
   getRoleText,
   readLearningProgress,
   recordRecall,
@@ -120,9 +122,10 @@ export function Component() {
     );
   }
 
-  const record = progress.byDungeon[document.id]?.bySituation[lesson.situation.id];
+  const record = getLessonRecallRecord(progress, document.id, lesson);
+  const dueLessons = getDueLessons(plan, progress, document.id);
   const completedCount = plan.filter(
-    (item) => progress.byDungeon[document.id]?.bySituation[item.situation.id]?.revealed,
+    (item) => getLessonRecallRecord(progress, document.id, item)?.revealed,
   ).length;
   const updateProgress = (nextProgress: typeof progress) => {
     setProgress(nextProgress);
@@ -135,7 +138,16 @@ export function Component() {
     if (target) go({ situation: target.situation.id });
   };
   const onConfidence = (confidence: RecallConfidence) =>
-    updateProgress(recordRecall(progress, document.id, lesson.situation.id, confidence, false));
+    updateProgress(
+      recordRecall(
+        progress,
+        document.id,
+        lesson.situation.id,
+        confidence,
+        false,
+        lesson.fingerprint,
+      ),
+    );
   const onReveal = () =>
     updateProgress(
       recordRecall(
@@ -144,6 +156,7 @@ export function Component() {
         lesson.situation.id,
         record?.confidence ?? 'unknown',
         true,
+        lesson.fingerprint,
       ),
     );
 
@@ -202,12 +215,13 @@ export function Component() {
             <h2>学习章节</h2>
             <ol>
               {plan.map((item, index) => {
-                const itemRecord = progress.byDungeon[document.id]?.bySituation[item.situation.id];
+                const itemRecord = getLessonRecallRecord(progress, document.id, item);
                 return (
                   <li key={item.situation.id}>
                     <button
                       type="button"
                       className={index === currentIndex ? 'is-active' : undefined}
+                      aria-current={index === currentIndex ? 'step' : undefined}
                       onClick={() => go({ situation: item.situation.id })}
                     >
                       <span className="learning-outline__index">
@@ -369,6 +383,26 @@ export function Component() {
                   {roleLabels[item]}
                 </button>
               ))}
+            </div>
+            <div className="learning-sidebar__review">
+              <strong>进本前 3 条复习</strong>
+              {dueLessons.length > 0 ? (
+                <ol>
+                  {dueLessons.map((dueLesson) => (
+                    <li key={dueLesson.situation.id}>
+                      <button
+                        type="button"
+                        onClick={() => go({ situation: dueLesson.situation.id })}
+                      >
+                        <span>{dueLesson.situation.title.zhCN}</span>
+                        <small>{dueLesson.situation.kind === 'boss' ? 'Boss' : '需要再回忆'}</small>
+                      </button>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p>当前模式已完成回忆，下一次复习会在内容变更或 24 小时后出现。</p>
+              )}
             </div>
             <div className="learning-sidebar__note">
               <strong>{roleLabels[role]}先看什么</strong>

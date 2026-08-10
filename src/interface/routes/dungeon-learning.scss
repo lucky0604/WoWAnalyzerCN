@@ -457,6 +457,64 @@
   background: rgba(250, 183, 0, 0.13);
   color: design.$colors_bodyText;
 }
+.learning-sidebar__review {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid design.$level2_border;
+}
+.learning-sidebar__review > strong {
+  color: design.$colors_wowaYellow;
+  font-size: 0.78rem;
+}
+.learning-sidebar__review ol {
+  display: grid;
+  gap: 5px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: review;
+}
+.learning-sidebar__review li {
+  counter-increment: review;
+}
+.learning-sidebar__review li button {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 5px;
+  width: 100%;
+  padding: 7px 0;
+  border: 0;
+  background: transparent;
+  color: design.$colors_bodyText;
+  text-align: left;
+  cursor: pointer;
+}
+.learning-sidebar__review li button::before {
+  content: counter(review, decimal-leading-zero);
+  color: design.$colors_wowaYellow;
+  font: 700 0.68rem monospace;
+}
+.learning-sidebar__review li button:hover,
+.learning-sidebar__review li button:focus-visible {
+  color: design.$colors_wowaYellow;
+}
+.learning-sidebar__review li button span,
+.learning-sidebar__review li button small {
+  display: block;
+}
+.learning-sidebar__review li button span {
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+.learning-sidebar__review li button small {
+  margin-top: 2px;
+  color: design.$colors_unfocusedText;
+  font-size: 0.68rem;
+}
+.learning-sidebar__review > p {
+  margin: 9px 0 0;
+  font-size: 0.76rem;
+}
 .learning-sidebar__note {
   margin-top: 20px;
   padding-top: 14px;
