@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import type { Floor, Spawn } from '../schema/types';
+import type { CoordinateBounds, Floor, Spawn } from '../schema/types';
 import {
   coordinateToMapPoint,
   getConvexHull,
@@ -16,12 +16,22 @@ interface Props {
   selectedSpawnIds: string[];
   asset: DungeonAssetResult;
   onSpawnSelect?: (spawnId: string) => void;
+  viewBounds?: CoordinateBounds;
+  hullSpawns?: Spawn[];
 }
 
-export function DungeonMap({ floor, spawns, selectedSpawnIds, asset, onSpawnSelect }: Props) {
+export function DungeonMap({
+  floor,
+  spawns,
+  selectedSpawnIds,
+  asset,
+  onSpawnSelect,
+  viewBounds = floor.bounds,
+  hullSpawns = spawns,
+}: Props) {
   const [imageFailed, setImageFailed] = useState(false);
-  const viewBox = useMemo(() => getMapViewBox(floor.bounds), [floor.bounds]);
-  const hullPath = useMemo(() => pointsToSvgPath(getConvexHull(spawns)), [spawns]);
+  const viewBox = useMemo(() => getMapViewBox(viewBounds), [viewBounds]);
+  const hullPath = useMemo(() => pointsToSvgPath(getConvexHull(hullSpawns)), [hullSpawns]);
   const selected = new Set(selectedSpawnIds);
   const assetIdentity =
     asset.kind === 'remote'
@@ -32,8 +42,8 @@ export function DungeonMap({ floor, spawns, selectedSpawnIds, asset, onSpawnSele
   const showRemoteImage = asset.kind === 'remote' && !imageFailed;
   const showRemoteTiles = asset.kind === 'remote-tiles' && !imageFailed;
   const tiles = useMemo(
-    () => (asset.kind === 'remote-tiles' ? getMapTiles(floor.bounds, asset) : []),
-    [asset, floor.bounds],
+    () => (asset.kind === 'remote-tiles' ? getMapTiles(viewBounds, asset) : []),
+    [asset, viewBounds],
   );
 
   useEffect(() => {

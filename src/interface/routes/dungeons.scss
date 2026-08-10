@@ -124,6 +124,96 @@
 .dungeon-panel--wide {
   min-width: 0;
 }
+.dungeon-query-panel {
+  margin: 16px 0;
+}
+.dungeon-query-input {
+  display: grid;
+  gap: 7px;
+  color: design.$colors_unfocusedText;
+  font-size: 0.78rem;
+}
+.dungeon-query-input input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid design.$level2_border;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  color: design.$colors_bodyText;
+  font: inherit;
+}
+.dungeon-query-input input:focus {
+  border-color: design.$colors_wowaYellow;
+  outline: 2px solid rgba(250, 183, 0, 0.18);
+  outline-offset: 1px;
+}
+.dungeon-query-results {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.dungeon-query-results button {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid design.$level2_border;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.14);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.dungeon-query-results button:hover,
+.dungeon-query-results button:focus-visible,
+.dungeon-query-results button.is-selected {
+  border-color: design.$colors_wowaYellow;
+  background: rgba(250, 183, 0, 0.08);
+}
+.dungeon-query-results button > span {
+  color: design.$colors_wowaYellow;
+  font-size: 0.68rem;
+}
+.dungeon-query-results button strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dungeon-query-results button small,
+.dungeon-query-empty,
+.dungeon-query-detail small {
+  color: design.$colors_unfocusedText;
+  line-height: 1.5;
+}
+.dungeon-query-empty {
+  margin: 12px 0 0;
+}
+.dungeon-query-detail {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 14px;
+  border-left: 2px solid design.$colors_wowaYellow;
+  background: rgba(250, 183, 0, 0.06);
+}
+.dungeon-query-detail__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+.dungeon-query-detail__header span {
+  color: design.$colors_wowaYellow;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dungeon-query-detail p {
+  margin: 0;
+  color: design.$colors_bodyText;
+  line-height: 1.6;
+}
 .dungeon-panel--error {
   border-color: rgba(255, 130, 124, 0.55);
 }
@@ -171,6 +261,31 @@
 .dungeon-floor-tabs button.is-active {
   border-color: design.$colors_wowaYellow;
   color: design.$colors_bodyText;
+}
+.dungeon-map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+.dungeon-map-controls button {
+  padding: 6px 10px;
+  border: 1px solid design.$level2_border;
+  border-radius: 4px;
+  background: transparent;
+  color: design.$colors_unfocusedText;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+.dungeon-map-controls button:hover:not(:disabled),
+.dungeon-map-controls button:focus-visible,
+.dungeon-map-controls button.is-active {
+  border-color: design.$colors_wowaYellow;
+  color: design.$colors_bodyText;
+}
+.dungeon-map-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 .dungeon-map {
   position: relative;
@@ -628,6 +743,9 @@
   .dungeon-boss-list {
     grid-template-columns: 1fr;
   }
+  .dungeon-query-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .dungeon-hero {
     align-items: flex-start;
     flex-direction: column;
@@ -669,6 +787,12 @@
     margin-top: 4px;
   }
   .dungeon-reference-footer {
+    display: grid;
+  }
+  .dungeon-query-results {
+    grid-template-columns: 1fr;
+  }
+  .dungeon-query-detail__header {
     display: grid;
   }
 }

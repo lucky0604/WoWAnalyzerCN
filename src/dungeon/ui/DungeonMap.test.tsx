@@ -45,4 +45,20 @@ describe('DungeonMap', () => {
     fireEvent.keyDown(spawn, { key: 'Enter' });
     expect(onSpawnSelect).toHaveBeenCalledWith('spawn-1');
   });
+
+  it('uses an explicit focus window without changing spawn coordinates', () => {
+    const { container } = render(
+      <DungeonMap
+        asset={{ kind: 'placeholder', assetKey: 'map', reason: 'test' }}
+        floor={floor}
+        hullSpawns={[spawns[0]!]}
+        onSpawnSelect={vi.fn()}
+        selectedSpawnIds={['spawn-1']}
+        spawns={spawns}
+        viewBounds={{ xMin: 10, xMax: 30, yMin: 20, yMax: 40 }}
+      />,
+    );
+    expect(container.querySelector('svg')).toHaveAttribute('viewBox', '6 16 28 28');
+    expect(screen.getByRole('button', { name: 'spawn-1 位置' })).toBeInTheDocument();
+  });
 });

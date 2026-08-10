@@ -30,6 +30,25 @@ export function getMapViewBox(bounds: CoordinateBounds, padding = 4): MapViewBox
   };
 }
 
+/** Return a padded bounds around a pull without changing normalized coordinates. */
+export function getSpawnBounds(spawns: Spawn[], fallback: CoordinateBounds): CoordinateBounds {
+  if (spawns.length === 0) return fallback;
+  const xValues = spawns.map((spawn) => spawn.position[0]);
+  const yValues = spawns.map((spawn) => spawn.position[1]);
+  const xMin = Math.min(...xValues);
+  const xMax = Math.max(...xValues);
+  const yMin = Math.min(...yValues);
+  const yMax = Math.max(...yValues);
+  const xPadding = Math.max(4, (xMax - xMin) * 0.25);
+  const yPadding = Math.max(4, (yMax - yMin) * 0.25);
+  return {
+    xMin: xMin - xPadding,
+    xMax: xMax + xPadding,
+    yMin: yMin - yPadding,
+    yMax: yMax + yPadding,
+  };
+}
+
 export function coordinateToMapPoint(coordinate: Coordinate): MapPoint {
   return { x: coordinate[0], y: coordinate[1] };
 }

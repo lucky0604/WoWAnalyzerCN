@@ -1,7 +1,7 @@
 import DocumentTitle from 'interface/DocumentTitle';
 import NavigationBar from 'interface/NavigationBar';
-import { Link, useParams } from 'react-router-dom';
-import { useMemo, useState } from 'react';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
 
 import {
   createAssetProviderFromEnv,
@@ -12,7 +12,11 @@ import {
   getCoordinateReference,
   getDungeonLearningAccess,
   getDungeonDocument,
+  getAbilityReference,
+  getEnemyReference,
   getPullStepForces,
+  getSpawnBounds,
+  searchDungeon,
   isLearningPublished,
   resolveRoute,
   season2DungeonCatalog,
@@ -22,6 +26,7 @@ import type {
   DungeonCatalogEntry,
   DungeonDocument,
   DungeonCoverageStatus,
+  DungeonSearchResult,
   RouteStep,
 } from '../../dungeon';
 
@@ -177,13 +182,177 @@ function StepRow({
   );
 }
 
+const searchKindLabel: Record<DungeonSearchResult['kind'], string> = {
+  enemy: '敌人',
+  ability: '技能',
+  situation: 'Situation',
+  route: '路线',
+};
+
+function KnowledgeQueryPanel({ document }: { document: DungeonDocument }) {
+  const [query, setQuery] = useState('');
+  const [selectedKey, setSelectedKey] = useState<string>();
+  const results = useMemo(() => searchDungeon(document, query), [document, query]);
+  const selected = results.find((result) => `${result.kind}:${result.id}` === selectedKey);
+  const enemyReference =
+    selected?.kind === 'enemy' ? getEnemyReference(document, selected.id) : undefined;
+  const abilityReference =
+    selected?.kind === 'ability' ? getAbilityReference(document, selected.id) : undefined;
+  const situation =
+    selected?.kind === 'situation'
+      ? document.situations.find((candidate) => candidate.id === selected.id)
+      : undefined;
+  const route =
+    selected?.kind === 'route'
+      ? document.routes.find((candidate) => candidate.id === selected.id)
+      : undefined;
+
+  const routeStepsForSituation = situation
+    ? document.routes.flatMap((candidate) =>
+        candidate.steps.flatMap((step) =>
+          step.type !== 'transition' &&
+          step.situationRefs.some(({ situationId }) => situationId === situation.id)
+            ? [{ route: candidate, step }]
+            : [],
+        ),
+      )
+    : [];
+
+  return (
+    <section className="dungeon-panel dungeon-query-panel">
+      <div className="dungeon-panel__heading">
+        <div>
+          <span className="dungeon-kicker">KNOWLEDGE QUERY</span>
+          <h2>快速查找</h2>
+        </div>
+        <span className="dungeon-panel__hint">只读反查：对象 → 技能 → 场景 → 路线</span>
+      </div>
+      <label className="dungeon-query-input">
+        <span>搜索怪物、技能、Situation 或路线</span>
+        <input
+          aria-label="搜索怪物、技能、Situation 或路线"
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setSelectedKey(undefined);
+          }}
+          placeholder="例如：冰霜护盾、梅莉杜莎、学习路线"
+          type="search"
+          value={query}
+        />
+      </label>
+      {query.trim() && results.length === 0 && (
+        <p className="dungeon-query-empty">没有匹配项；搜索不会把“第 7 波”当作稳定知识 ID。</p>
+      )}
+      {results.length > 0 && (
+        <div className="dungeon-query-results" role="listbox" aria-label="查询结果">
+          {results.map((result) => {
+            const key = `${result.kind}:${result.id}`;
+            return (
+              <button
+                aria-selected={selectedKey === key}
+                className={selectedKey === key ? 'is-selected' : undefined}
+                key={key}
+                onClick={() => setSelectedKey(key)}
+                role="option"
+                type="button"
+              >
+                <span>{searchKindLabel[result.kind]}</span>
+                <strong>{result.title}</strong>
+                <small>{result.subtitle}</small>
+              </button>
+            );
+          })}
+        </div>
+      )}
+      {enemyReference && (
+        <div className="dungeon-query-detail">
+          <div className="dungeon-query-detail__header">
+            <span>敌人反查</span>
+            <strong>{enemyReference.enemy.name.zhCN}</strong>
+          </div>
+          <p>
+            NPC ID：{enemyReference.enemy.npcId ?? '待核验'} · forces{' '}
+            {enemyReference.enemy.forcesStatus === 'pending'
+              ? '待核验'
+              : enemyReference.enemy.forcesPoints}
+          </p>
+          <div className="dungeon-chip-row">
+            {enemyReference.abilities.map((ability) => (
+              <span className="dungeon-chip" key={ability.id}>
+                {ability.name.zhCN}
+              </span>
+            ))}
+          </div>
+          <small>
+            {enemyReference.spawns.length} 个出现位置 · {enemyReference.situations.length}{' '}
+            个学习场景 · {enemyReference.routeSteps.length} 个路线步骤
+          </small>
+        </div>
+      )}
+      {abilityReference && (
+        <div className="dungeon-query-detail">
+          <div className="dungeon-query-detail__header">
+            <span>技能反查</span>
+            <strong>{abilityReference.ability.name.zhCN}</strong>
+          </div>
+          <p>{abilityReference.ability.action.zhCN}</p>
+          <small>
+            施法者：
+            {abilityReference.casters.map((enemy) => enemy.name.zhCN).join('、') || '待核验'} ·{' '}
+            {abilityReference.situations.length} 个学习场景 · {abilityReference.spawns.length}{' '}
+            个出现位置
+          </small>
+        </div>
+      )}
+      {situation && (
+        <div className="dungeon-query-detail">
+          <div className="dungeon-query-detail__header">
+            <span>Situation 反查</span>
+            <strong>{situation.title.zhCN}</strong>
+          </div>
+          <p>{situation.summary.zhCN}</p>
+          <small>
+            关注技能：
+            {situation.focusAbilityIds
+              .map(
+                (abilityId) =>
+                  document.abilities.find((ability) => ability.id === abilityId)?.name.zhCN ??
+                  abilityId,
+              )
+              .join('、') || '无'}{' '}
+            · 路线步骤：{routeStepsForSituation.length}
+          </small>
+        </div>
+      )}
+      {route && (
+        <div className="dungeon-query-detail">
+          <div className="dungeon-query-detail__header">
+            <span>路线反查</span>
+            <strong>{route.name.zhCN}</strong>
+          </div>
+          <p>
+            {route.intent} · 适用层级{' '}
+            {route.keyRange ? `${route.keyRange.min}–${route.keyRange.max ?? '∞'}` : '未指定'}
+          </p>
+          <small>{route.steps.length} 个步骤 · 只读学习路线，不支持编辑或导入</small>
+        </div>
+      )}
+    </section>
+  );
+}
+
 function DungeonDetail({ document }: { document: DungeonDocument }) {
   const validation = useMemo(() => validateDungeonDocument(document), [document]);
   const route = document.routes[0];
   const resolvedRoute = route ? resolveRoute(document, route) : undefined;
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedStepId, setSelectedStepId] = useState(route?.steps[0]?.id);
-  const [selectedFloorId, setSelectedFloorId] = useState(document.floors[0]?.id);
+  const [selectedFloorId, setSelectedFloorId] = useState(
+    document.floors.find((floor) => floor.id === searchParams.get('floor'))?.id ??
+      document.floors[0]?.id,
+  );
   const [selectedSpawnId, setSelectedSpawnId] = useState<string>();
+  const [mapFocus, setMapFocus] = useState<'floor' | 'pull'>('floor');
   const assetProvider = useMemo(() => createAssetProviderFromEnv(import.meta.env), []);
   const selectedStep = route?.steps.find((step) => step.id === selectedStepId);
   const selectedPull = selectedStep?.type === 'pull' ? selectedStep : undefined;
@@ -195,6 +364,53 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
   const selectedSpawn = selectedSpawnId
     ? document.spawns.find((spawn) => spawn.id === selectedSpawnId)
     : undefined;
+  const selectedPullSpawns = selectedPull
+    ? document.spawns.filter(
+        (spawn) =>
+          selectedPull.spawnIds.includes(spawn.id) &&
+          (!selectedFloor || spawn.floorId === selectedFloor.id),
+      )
+    : [];
+  const mapViewBounds =
+    mapFocus === 'pull' && selectedFloor
+      ? getSpawnBounds(selectedPullSpawns, selectedFloor.bounds)
+      : selectedFloor?.bounds;
+  useEffect(() => {
+    const requestedFloorId = searchParams.get('floor');
+    if (requestedFloorId && document.floors.some((floor) => floor.id === requestedFloorId)) {
+      setSelectedFloorId(requestedFloorId);
+    } else if (requestedFloorId) {
+      setSearchParams(
+        (current) => {
+          const next = new URLSearchParams(current);
+          next.delete('floor');
+          return next;
+        },
+        { replace: true },
+      );
+    }
+  }, [document.floors, searchParams, setSearchParams]);
+  const selectFloor = (floorId: string) => {
+    setSelectedFloorId(floorId);
+    setMapFocus('floor');
+    setSearchParams(
+      (current) => {
+        const next = new URLSearchParams(current);
+        next.set('floor', floorId);
+        return next;
+      },
+      { replace: true },
+    );
+  };
+  const selectStep = (step: RouteStep) => {
+    setSelectedStepId(step.id);
+    setSelectedSpawnId(undefined);
+    if (step.type === 'pull' || step.type === 'event') {
+      selectFloor(step.floorId);
+    } else {
+      selectFloor(step.toFloorId);
+    }
+  };
 
   return (
     <>
@@ -288,13 +504,30 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                   className={floor.id === selectedFloor.id ? 'is-active' : undefined}
                   key={floor.id}
                   onClick={() => {
-                    setSelectedFloorId(floor.id);
+                    selectFloor(floor.id);
                     setSelectedSpawnId(undefined);
                   }}
                 >
                   {floor.name.zhCN}
                 </button>
               ))}
+            </div>
+            <div className="dungeon-map-controls" aria-label="地图范围">
+              <button
+                className={mapFocus === 'floor' ? 'is-active' : undefined}
+                onClick={() => setMapFocus('floor')}
+                type="button"
+              >
+                全楼层 / 重置
+              </button>
+              <button
+                className={mapFocus === 'pull' ? 'is-active' : undefined}
+                disabled={selectedPullSpawns.length === 0}
+                onClick={() => setMapFocus('pull')}
+                type="button"
+              >
+                当前 Pull
+              </button>
             </div>
             <DungeonMap
               floor={selectedFloor}
@@ -303,7 +536,9 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                 selectedSpawnId ? [selectedSpawnId] : (selectedPull?.spawnIds ?? [])
               }
               asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
+              hullSpawns={mapFocus === 'pull' ? selectedPullSpawns : floorSpawns}
               onSpawnSelect={setSelectedSpawnId}
+              viewBounds={mapViewBounds}
             />
             {selectedSpawn && (
               <div className="dungeon-map-selection">
@@ -369,10 +604,7 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                       step={step}
                       key={step.id}
                       selected={step.id === selectedStepId}
-                      onSelect={() => {
-                        setSelectedStepId(step.id);
-                        setSelectedSpawnId(undefined);
-                      }}
+                      onSelect={() => selectStep(step)}
                     />
                   ))}
                 </ol>
@@ -382,6 +614,8 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
             )}
           </section>
         </div>
+
+        <KnowledgeQueryPanel document={document} />
 
         <section className="dungeon-panel">
           <div className="dungeon-panel__heading">

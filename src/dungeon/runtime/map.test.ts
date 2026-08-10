@@ -6,6 +6,7 @@ import {
   getConvexHull,
   getMapTiles,
   getMapViewBox,
+  getSpawnBounds,
   pointsToSvgPath,
 } from './map';
 
@@ -67,5 +68,16 @@ describe('map coordinate utilities', () => {
     expect(pointsToSvgPath(hull)).toMatch(/^M /);
     expect(pointsToSvgPath([])).toBe('');
     expect(pointsToSvgPath([{ x: 1, y: 2 }])).toBe('M 1 2');
+  });
+
+  it('creates a padded focus window and falls back for an empty pull', () => {
+    const fallback = { xMin: 0, xMax: 100, yMin: 0, yMax: 100 };
+    expect(getSpawnBounds([spawn('focus', [20, 30])], fallback)).toEqual({
+      xMin: 16,
+      xMax: 24,
+      yMin: 26,
+      yMax: 34,
+    });
+    expect(getSpawnBounds([], fallback)).toBe(fallback);
   });
 });
