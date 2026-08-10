@@ -41,6 +41,9 @@ const appRoutes = createRoutesFromElements(
       />
     )}
     {dungeonRoutesEnabled && (
+      <Route path="dungeons/:dungeonId/boss/:bossId" lazy={() => import('./routes/dungeon-boss')} />
+    )}
+    {dungeonRoutesEnabled && (
       <Route
         path="dungeons/:dungeonId/reference"
         lazy={() => import('./routes/dungeon-reference')}

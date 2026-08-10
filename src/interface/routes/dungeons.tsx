@@ -709,7 +709,9 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
               <article className="dungeon-boss" key={boss.id}>
                 <div>
                   <span className="dungeon-boss__eyebrow">{boss.id}</span>
-                  <h3>{boss.title.zhCN}</h3>
+                  <h3>
+                    <Link to={`/dungeons/${document.id}/boss/${boss.id}`}>{boss.title.zhCN}</Link>
+                  </h3>
                   <p>{boss.summary.zhCN}</p>
                 </div>
                 <div className="dungeon-chip-row">
@@ -720,6 +722,12 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                     </span>
                   ))}
                 </div>
+                <Link
+                  className="dungeon-card__reference"
+                  to={`/dungeons/${document.id}/boss/${boss.id}`}
+                >
+                  查看 Boss 学习页 →
+                </Link>
               </article>
             ))}
           </div>

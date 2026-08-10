@@ -758,6 +758,15 @@
 .dungeon-boss h3 {
   margin: 4px 0 6px;
 }
+.dungeon-boss h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.dungeon-boss h3 a:hover,
+.dungeon-boss h3 a:focus-visible {
+  color: design.$colors_wowaYellow;
+  text-decoration: underline;
+}
 .dungeon-boss p {
   margin: 0;
   color: design.$colors_unfocusedText;
@@ -767,6 +776,150 @@
   color: design.$colors_wowaYellow;
   font: 0.7rem monospace;
   letter-spacing: 0.05em;
+}
+.dungeon-boss-situation-list,
+.dungeon-boss-mechanism-list {
+  display: grid;
+  gap: 12px;
+}
+.dungeon-boss-situation {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid design.$level2_border;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.14);
+}
+.dungeon-boss-situation h3 {
+  margin: 5px 0 7px;
+}
+.dungeon-boss-situation p,
+.dungeon-boss-footer-note span {
+  margin: 0;
+  color: design.$colors_unfocusedText;
+  line-height: 1.6;
+}
+.dungeon-boss-situation .dungeon-card__reference {
+  flex: 0 0 auto;
+  align-self: center;
+}
+.dungeon-boss-mechanism {
+  padding: 18px;
+  border: 1px solid design.$level2_border;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.14);
+}
+.dungeon-boss-mechanism__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.dungeon-boss-mechanism__heading h3 {
+  margin: 5px 0 0;
+}
+.dungeon-boss-mechanism__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.dungeon-boss-mechanism__grid p {
+  margin: 6px 0 0;
+  color: design.$colors_unfocusedText;
+  line-height: 1.6;
+}
+.dungeon-boss-label {
+  color: design.$colors_wowaYellow;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+.dungeon-boss-memory {
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  border-left: 2px solid design.$colors_wowaYellow;
+  background: rgba(250, 183, 0, 0.07);
+  color: design.$colors_bodyText;
+  line-height: 1.6;
+}
+.dungeon-boss-source {
+  display: block;
+  margin-top: 12px;
+  color: design.$colors_unfocusedText;
+  line-height: 1.5;
+}
+.dungeon-severity {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.dungeon-severity-critical {
+  color: #ff827c;
+}
+.dungeon-severity-warning {
+  color: #e5b965;
+}
+.dungeon-severity-info {
+  color: #9ea4ff;
+}
+.dungeon-role-tabs {
+  display: flex;
+  gap: 6px;
+}
+.dungeon-role-tabs button {
+  border: 1px solid design.$level2_border;
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: transparent;
+  color: design.$colors_unfocusedText;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.dungeon-role-tabs button:hover,
+.dungeon-role-tabs button:focus-visible,
+.dungeon-role-tabs button.is-active {
+  border-color: design.$colors_wowaYellow;
+  color: design.$colors_wowaYellow;
+}
+.dungeon-empty-state {
+  margin: 0;
+  color: design.$colors_unfocusedText;
+  line-height: 1.6;
+}
+.dungeon-boss-location-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dungeon-boss-location-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid design.$level2_border;
+}
+.dungeon-boss-location-list span {
+  color: design.$colors_unfocusedText;
+  font-family: monospace;
+}
+.dungeon-boss-footer-note {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.dungeon-boss-footer-note a {
+  margin-left: auto;
+  color: design.$colors_wowaYellow;
+  font-weight: 600;
+  white-space: nowrap;
 }
 .dungeon-panel--error ul {
   margin: 12px 0 0;
@@ -805,6 +958,17 @@
   .dungeon-boss-list,
   .dungeon-route-layout {
     grid-template-columns: 1fr;
+  }
+  .dungeon-boss-mechanism__grid {
+    grid-template-columns: 1fr;
+  }
+  .dungeon-boss-situation,
+  .dungeon-boss-footer-note {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .dungeon-boss-footer-note a {
+    margin-left: 0;
   }
   .dungeon-query-results {
     grid-template-columns: repeat(2, minmax(0, 1fr));
