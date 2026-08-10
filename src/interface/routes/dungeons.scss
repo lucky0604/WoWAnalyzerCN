@@ -96,6 +96,10 @@
   grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.75fr);
   margin-bottom: 16px;
 }
+.dungeon-route-layout {
+  grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.9fr);
+  margin: 16px 0;
+}
 .dungeon-grid--cards {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -238,6 +242,10 @@
   color: design.$colors_unfocusedText;
   font-size: 0.78rem;
   text-align: right;
+}
+.dungeon-panel__hint--link {
+  color: design.$colors_wowaYellow;
+  font-weight: 600;
 }
 .dungeon-map-panel {
   margin: 16px 0;
@@ -620,6 +628,60 @@
   font-size: 0.85rem;
   line-height: 1.5;
 }
+.dungeon-route-step-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dungeon-route-step {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid design.$level2_border;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+.dungeon-route-step:hover,
+.dungeon-route-step:focus-visible,
+.dungeon-route-step.is-selected {
+  color: design.$colors_bodyText;
+}
+.dungeon-route-step.is-selected {
+  border-left: 2px solid design.$colors_wowaYellow;
+  padding-left: 8px;
+  background: rgba(250, 183, 0, 0.07);
+}
+.dungeon-route-step__body {
+  display: grid;
+  gap: 4px;
+}
+.dungeon-route-step__body small,
+.dungeon-route-step__body > span {
+  color: design.$colors_unfocusedText;
+  line-height: 1.5;
+}
+.dungeon-route-rationale {
+  margin: 0 0 14px;
+  color: design.$colors_bodyText;
+  line-height: 1.7;
+}
+.dungeon-chip--link {
+  color: #f3ce7d;
+  text-decoration: none;
+}
+.dungeon-chip--link:hover,
+.dungeon-chip--link:focus-visible {
+  color: design.$colors_bodyText;
+  text-decoration: underline;
+}
 .dungeon-table-wrap {
   overflow-x: auto;
 }
@@ -740,7 +802,8 @@
   }
   .dungeon-grid--main,
   .dungeon-grid--cards,
-  .dungeon-boss-list {
+  .dungeon-boss-list,
+  .dungeon-route-layout {
     grid-template-columns: 1fr;
   }
   .dungeon-query-results {

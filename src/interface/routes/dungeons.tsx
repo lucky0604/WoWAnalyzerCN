@@ -593,6 +593,14 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                 <span className="dungeon-kicker">ROUTE CONTEXT</span>
                 <h2>只读路线</h2>
               </div>
+              {route && (
+                <Link
+                  className="dungeon-panel__hint dungeon-panel__hint--link"
+                  to={`/dungeons/${document.id}/route/${route.id}`}
+                >
+                  查看 Route 详情 →
+                </Link>
+              )}
             </div>
             {route ? (
               <>
