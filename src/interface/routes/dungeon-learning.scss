@@ -59,6 +59,22 @@
   color: design.$colors_unfocusedText;
   line-height: 1.65;
 }
+.learning-hero__sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 14px;
+  color: design.$colors_unfocusedText;
+  font-size: 0.7rem;
+}
+.learning-hero__sources a {
+  color: design.$colors_wowaYellow;
+  text-decoration: none;
+}
+.learning-hero__sources a:hover,
+.learning-hero__sources a:focus-visible {
+  text-decoration: underline;
+}
 .learning-hero__progress {
   display: grid;
   align-content: center;

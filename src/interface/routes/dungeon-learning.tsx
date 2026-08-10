@@ -202,6 +202,17 @@ export function Component() {
             </span>
             <h1>{document.name.zhCN}</h1>
             <p>先记住危险和动作，再回到路线确认空间位置。页面不会要求你编辑路线。</p>
+            <div className="learning-hero__sources" aria-label="内容来源">
+              <span>来源版本 · {document.version.build}</span>
+              {document.provenance
+                .filter((source) => source.url)
+                .slice(0, 3)
+                .map((source) => (
+                  <a href={source.url} key={source.url} rel="noreferrer" target="_blank">
+                    {source.title}
+                  </a>
+                ))}
+            </div>
           </div>
           <div className="learning-hero__progress">
             <span>本次学习</span>
