@@ -101,4 +101,28 @@ describe('Dungeon document validation', () => {
       ]),
     );
   });
+
+  it('blocks a release when nested knowledge keeps a reference-only source', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+    };
+    document.enemies[0]!.provenance[0]!.licenseStatus = 'reference-only';
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_NESTED_SOURCE_NOT_APPROVED',
+          path: 'enemies.rlp-primalist-flamer.provenance[0]',
+        }),
+      ]),
+    );
+  });
 });

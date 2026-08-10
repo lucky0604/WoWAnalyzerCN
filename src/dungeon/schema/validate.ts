@@ -280,6 +280,30 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       ),
     );
   }
+  const nestedProvenance = [
+    ...document.enemies.map((item) => ({ collection: 'enemies', item })),
+    ...document.abilities.map((item) => ({ collection: 'abilities', item })),
+    ...document.situations.map((item) => ({ collection: 'situations', item })),
+    ...document.routes.map((item) => ({ collection: 'routes', item })),
+    ...document.bosses.map((item) => ({ collection: 'bosses', item })),
+  ];
+  nestedProvenance.forEach(({ collection, item }) => {
+    item.provenance.forEach((source, sourceIndex) => {
+      if (source.licenseStatus === 'approved') return;
+      const severity = releaseStatus ? 'error' : 'warning';
+      (severity === 'error' ? errors : warnings).push(
+        diagnostic(
+          severity,
+          'DUNGEON_NESTED_SOURCE_NOT_APPROVED',
+          `${collection}.${item.id}.provenance[${sourceIndex}]`,
+          releaseStatus
+            ? '正式内容的嵌套知识来源必须全部经过批准。'
+            : '嵌套知识包含未批准来源；进入 reviewed/published 前必须替换或完成授权审查。',
+          item.id,
+        ),
+      );
+    });
+  });
   if (releaseStatus && document.spatialStatus !== 'verified') {
     errors.push(
       diagnostic(
