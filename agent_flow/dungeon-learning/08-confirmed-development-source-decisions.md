@@ -88,6 +88,11 @@ pnpm dungeon:import-threechest -- \
   --output-dir=src/dungeon/data/coordinates
 ```
 
+只做预检时追加 `--dry-run`，不会创建或覆盖输出文件；CI/提交前可用
+`--check` 对规范化结果与已提交 snapshot 做 JSON 语义比对（忽略格式化空白）。`--check` 默认检查
+`src/dungeon/data/coordinates`，并假定 tracked snapshot 已使用
+`--redact-source-url`，因此不需要在 CI 注入来源 URL。
+
 如果输出要进入 tracked 坐标目录，必须追加 `--redact-source-url`；含真实 URL 的审计输出只保留在 ignored 本地快照中。
 
 `.env.local` 仍必须 gitignored；`.env.example` 中的 Threechest 地址是公开的开发期示例，不属于业务代码或生产资源承诺。部署前应把该 manifest 替换为 OSS/placeholder 配置，并由 dist 门禁确认没有 dev-only 地址进入产物。

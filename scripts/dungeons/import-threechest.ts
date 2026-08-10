@@ -20,7 +20,7 @@ interface SourceDungeon {
   enemies: SourceEnemy[];
 }
 
-interface CoordinateSnapshot {
+export interface CoordinateSnapshot {
   source: 'threechest';
   snapshotId: string;
   sourceUrl?: string;
@@ -42,67 +42,143 @@ interface CoordinateSnapshot {
   }>;
 }
 
-const argument = (name: string, fallback: string) =>
-  process.argv.find((value) => value.startsWith(`${name}=`))?.slice(name.length + 1) ?? fallback;
-
-const dungeonArgument = argument('--dungeon', 'magi');
-const snapshotId = argument('--snapshot', 'threechest-coordinate-snapshot-2026-08-10');
-const sourceUrl = argument('--source-url', process.env.DUNGEON_THREECHEST_SOURCE_URL ?? '');
-const retrievedAt = argument('--retrieved-at', '2026-08-10');
-const redactSourceUrl = process.argv.includes('--redact-source-url');
-const root = resolve(argument('--threechest-root', 'agent_flow/threechest'));
-const inputDir = resolve(root, 'src/data/mdtDungeons');
-const requestedOutput = process.argv.find((value) => value.startsWith('--output='));
-const requestedOutputDir = process.argv.find((value) => value.startsWith('--output-dir='));
-const outputDir = requestedOutputDir
-  ? requestedOutputDir.slice('--output-dir='.length)
-  : '.tmp/dungeons';
-
-if (!sourceUrl) {
-  throw new Error(
-    'DUNGEON_THREECHEST_SOURCE_URL_REQUIRED: pass --source-url or DUNGEON_THREECHEST_SOURCE_URL.',
-  );
+export interface ImportSummary {
+  dungeonKey: string;
+  inputPath: string;
+  outputPath: string;
+  spawnCount: number;
+  mode: 'write' | 'dry-run' | 'check';
+  changed?: boolean;
 }
 
-const dungeonKeys =
-  dungeonArgument === 'all'
-    ? (await readdir(inputDir))
-        .filter((file) => file.endsWith('_mdt.json'))
-        .map((file) => file.replace(/_mdt\.json$/, ''))
-        .sort()
-    : [dungeonArgument];
-
-if (dungeonKeys.length === 0) {
-  throw new Error(`DUNGEON_THREECHEST_NO_SNAPSHOTS: ${inputDir}`);
+interface ImportOptions {
+  dungeonArgument: string;
+  snapshotId: string;
+  sourceUrl: string;
+  retrievedAt: string;
+  redactSourceUrl: boolean;
+  root: string;
+  output?: string;
+  outputDir: string;
+  dryRun: boolean;
+  check: boolean;
 }
 
-for (const dungeonKey of dungeonKeys) {
-  if (!/^[a-z0-9-]+$/.test(dungeonKey)) {
-    throw new Error(`DUNGEON_THREECHEST_KEY_INVALID: ${dungeonKey}`);
+const argument = (args: string[], name: string, fallback: string): string =>
+  args.find((value) => value.startsWith(`${name}=`))?.slice(name.length + 1) ?? fallback;
+
+function parseOptions(args: string[]): ImportOptions {
+  const check = args.includes('--check');
+  const dryRun = args.includes('--dry-run') || check;
+  const requestedOutput = args.find((value) => value.startsWith('--output='));
+  const requestedOutputDir = args.find((value) => value.startsWith('--output-dir='));
+  const sourceUrl = argument(args, '--source-url', process.env.DUNGEON_THREECHEST_SOURCE_URL ?? '');
+  if (!sourceUrl && !check) {
+    throw new Error(
+      'DUNGEON_THREECHEST_SOURCE_URL_REQUIRED: pass --source-url or DUNGEON_THREECHEST_SOURCE_URL.',
+    );
   }
+  if (requestedOutput && requestedOutputDir) {
+    throw new Error('DUNGEON_THREECHEST_OUTPUT_CONFLICT: use --output or --output-dir, not both.');
+  }
+  return {
+    dungeonArgument: argument(args, '--dungeon', 'magi'),
+    snapshotId: argument(args, '--snapshot', 'threechest-coordinate-snapshot-2026-08-10'),
+    sourceUrl,
+    retrievedAt: argument(args, '--retrieved-at', '2026-08-10'),
+    redactSourceUrl: args.includes('--redact-source-url') || check,
+    root: resolve(argument(args, '--threechest-root', 'agent_flow/threechest')),
+    ...(requestedOutput ? { output: requestedOutput.slice('--output='.length) } : {}),
+    outputDir: requestedOutputDir
+      ? requestedOutputDir.slice('--output-dir='.length)
+      : check
+        ? 'src/dungeon/data/coordinates'
+        : '.tmp/dungeons',
+    dryRun,
+    check,
+  };
+}
 
-  const inputPath = resolve(inputDir, `${dungeonKey}_mdt.json`);
-  // Keep the checked-in snapshot filename stable and aligned with the runtime
-  // loader (`src/dungeon/data/coordinates/<source-key>.json`). The source
-  // format/version is carried inside the document metadata instead of in the
-  // filename, so future snapshots can be regenerated without a rename step.
-  const defaultOutput = `${outputDir}/${dungeonKey}.json`;
-  const outputPath = resolve(
-    requestedOutput && dungeonKeys.length === 1
-      ? requestedOutput.slice('--output='.length)
-      : defaultOutput,
-  );
-  const raw = await readFile(inputPath, 'utf8');
-  const source = JSON.parse(raw) as SourceDungeon;
+function assertFiniteCoordinate(value: number, label: string): number {
+  if (!Number.isFinite(value)) {
+    throw new Error(`DUNGEON_THREECHEST_COORDINATE_INVALID: ${label}`);
+  }
+  return value;
+}
 
-  if (!Number.isInteger(source.dungeonIndex) || !Array.isArray(source.enemies)) {
+function normalizePoint(point: unknown, label: string): [number, number] {
+  if (
+    !Array.isArray(point) ||
+    point.length < 2 ||
+    typeof point[0] !== 'number' ||
+    typeof point[1] !== 'number'
+  ) {
+    throw new Error(`DUNGEON_THREECHEST_COORDINATE_INVALID: ${label}`);
+  }
+  return [assertFiniteCoordinate(point[1], label), assertFiniteCoordinate(point[0], label)];
+}
+
+function validateSource(source: SourceDungeon, inputPath: string): void {
+  if (
+    !source ||
+    typeof source !== 'object' ||
+    !Number.isInteger(source.dungeonIndex) ||
+    !Array.isArray(source.enemies)
+  ) {
     throw new Error(`DUNGEON_THREECHEST_SNAPSHOT_INVALID: ${inputPath}`);
   }
-  const output: CoordinateSnapshot = {
+  const sourceSpawnIds = new Set<string>();
+  source.enemies.forEach((enemy, enemyIndex) => {
+    if (
+      !enemy ||
+      typeof enemy !== 'object' ||
+      !Number.isInteger(enemy.id) ||
+      !Number.isInteger(enemy.enemyIndex) ||
+      !Array.isArray(enemy.spawns)
+    ) {
+      throw new Error(`DUNGEON_THREECHEST_ENEMY_INVALID: ${inputPath}#${enemyIndex}`);
+    }
+    enemy.spawns.forEach((spawn, spawnIndex) => {
+      if (!spawn || typeof spawn !== 'object' || typeof spawn.id !== 'string' || !spawn.id) {
+        throw new Error(
+          `DUNGEON_THREECHEST_SPAWN_INVALID: ${inputPath}#${enemyIndex}/${spawnIndex}`,
+        );
+      }
+      if (sourceSpawnIds.has(spawn.id)) {
+        throw new Error(`DUNGEON_THREECHEST_DUPLICATE_SPAWN_ID: ${spawn.id}`);
+      }
+      sourceSpawnIds.add(spawn.id);
+      if (
+        spawn.group !== undefined &&
+        spawn.group !== null &&
+        (!Number.isInteger(spawn.group) || spawn.group < 0)
+      ) {
+        throw new Error(`DUNGEON_THREECHEST_GROUP_INVALID: ${enemy.enemyIndex}/${spawn.id}`);
+      }
+      normalizePoint(spawn.pos, `${enemy.enemyIndex}/${spawn.id}`);
+      if (spawn.patrol !== undefined) {
+        if (!Array.isArray(spawn.patrol)) {
+          throw new Error(`DUNGEON_THREECHEST_PATROL_INVALID: ${enemy.enemyIndex}/${spawn.id}`);
+        }
+        spawn.patrol.forEach((point, pointIndex) =>
+          normalizePoint(point, `${enemy.enemyIndex}/${spawn.id}/patrol/${pointIndex}`),
+        );
+      }
+    });
+  });
+}
+
+function buildSnapshot(
+  source: SourceDungeon,
+  raw: string,
+  dungeonKey: string,
+  options: ImportOptions,
+): CoordinateSnapshot {
+  return {
     source: 'threechest',
-    snapshotId,
-    ...(redactSourceUrl ? {} : { sourceUrl }),
-    retrievedAt,
+    snapshotId: options.snapshotId,
+    ...(options.redactSourceUrl ? {} : { sourceUrl: options.sourceUrl }),
+    retrievedAt: options.retrievedAt,
     rawSha256: createHash('sha256').update(raw).digest('hex'),
     transformVersion: 'threechest-yx-to-normalized-v1',
     dungeonKey,
@@ -111,28 +187,129 @@ for (const dungeonKey of dungeonKeys) {
     normalizedCoordinateSpace: 'normalized-v1',
     spawns: source.enemies.flatMap((enemy) =>
       enemy.spawns.map((spawn) => ({
-        ...(Array.isArray(spawn.pos) && spawn.pos.length >= 2
-          ? {}
-          : (() => {
-              throw new Error(
-                `DUNGEON_THREECHEST_COORDINATE_INVALID: ${enemy.enemyIndex}/${spawn.id}`,
-              );
-            })()),
         sourceId: `${dungeonKey}:${spawn.id}`,
         sourceEnemyId: enemy.id,
         sourceEnemyIndex: enemy.enemyIndex,
         floorId: 'default' as const,
-        position: [spawn.pos[1]!, spawn.pos[0]!] as [number, number],
+        position: normalizePoint(spawn.pos, `${enemy.enemyIndex}/${spawn.id}`),
         ...(spawn.group == null ? {} : { groupId: `${dungeonKey}:group:${spawn.group}` }),
         ...(spawn.patrol
-          ? { patrol: spawn.patrol.map((point) => [point[1]!, point[0]!] as [number, number]) }
+          ? {
+              patrol: spawn.patrol.map((point, pointIndex) =>
+                normalizePoint(point, `${enemy.enemyIndex}/${spawn.id}/patrol/${pointIndex}`),
+              ),
+            }
           : {}),
       })),
     ),
   };
+}
 
-  await mkdir(dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
-  console.log(`Imported ${output.spawns.length} coordinate spawns from ${inputPath}`);
-  console.log(`Wrote ${outputPath}`);
+async function dungeonKeysFor(options: ImportOptions): Promise<string[]> {
+  const keys =
+    options.dungeonArgument === 'all'
+      ? (await readdir(resolve(options.root, 'src/data/mdtDungeons')))
+          .filter((file) => file.endsWith('_mdt.json'))
+          .map((file) => file.replace(/_mdt\.json$/, ''))
+          .sort()
+      : [options.dungeonArgument];
+  if (keys.length === 0) {
+    throw new Error(
+      `DUNGEON_THREECHEST_NO_SNAPSHOTS: ${resolve(options.root, 'src/data/mdtDungeons')}`,
+    );
+  }
+  return keys;
+}
+
+function outputPathFor(dungeonKey: string, keys: string[], options: ImportOptions): string {
+  const defaultOutput = `${options.outputDir}/${dungeonKey}.json`;
+  return resolve(options.output && keys.length === 1 ? options.output : defaultOutput);
+}
+
+export async function runImport(args: string[]): Promise<ImportSummary[]> {
+  const options = parseOptions(args);
+  const keys = await dungeonKeysFor(options);
+  const summaries: ImportSummary[] = [];
+
+  for (const dungeonKey of keys) {
+    if (!/^[a-z0-9-]+$/.test(dungeonKey)) {
+      throw new Error(`DUNGEON_THREECHEST_KEY_INVALID: ${dungeonKey}`);
+    }
+    const inputPath = resolve(options.root, 'src/data/mdtDungeons', `${dungeonKey}_mdt.json`);
+    const outputPath = outputPathFor(dungeonKey, keys, options);
+    const raw = await readFile(inputPath, 'utf8');
+    let source: SourceDungeon;
+    try {
+      source = JSON.parse(raw) as SourceDungeon;
+    } catch {
+      throw new Error(`DUNGEON_THREECHEST_SNAPSHOT_INVALID: ${inputPath}`);
+    }
+    validateSource(source, inputPath);
+    const snapshot = buildSnapshot(source, raw, dungeonKey, options);
+    const serialized = `${JSON.stringify(snapshot, null, 2)}\n`;
+
+    if (options.check) {
+      let existing: string;
+      try {
+        existing = await readFile(outputPath, 'utf8');
+      } catch (error) {
+        if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
+          throw new Error(`DUNGEON_THREECHEST_CHECK_MISSING: ${outputPath}`);
+        }
+        throw error;
+      }
+      let existingSnapshot: unknown;
+      try {
+        existingSnapshot = JSON.parse(existing);
+      } catch {
+        throw new Error(`DUNGEON_THREECHEST_CHECK_INVALID: ${outputPath}`);
+      }
+      const changed = JSON.stringify(existingSnapshot) !== JSON.stringify(snapshot);
+      summaries.push({
+        dungeonKey,
+        inputPath,
+        outputPath,
+        spawnCount: snapshot.spawns.length,
+        mode: 'check',
+        changed,
+      });
+      if (changed) throw new Error(`DUNGEON_THREECHEST_CHECK_MISMATCH: ${outputPath}`);
+    } else if (options.dryRun) {
+      summaries.push({
+        dungeonKey,
+        inputPath,
+        outputPath,
+        spawnCount: snapshot.spawns.length,
+        mode: 'dry-run',
+      });
+    } else {
+      await mkdir(dirname(outputPath), { recursive: true });
+      await writeFile(outputPath, serialized, 'utf8');
+      summaries.push({
+        dungeonKey,
+        inputPath,
+        outputPath,
+        spawnCount: snapshot.spawns.length,
+        mode: 'write',
+      });
+    }
+  }
+  return summaries;
+}
+
+if (process.argv[1]?.endsWith('scripts/dungeons/import-threechest.ts')) {
+  runImport(process.argv.slice(2))
+    .then((summaries) =>
+      summaries.forEach((summary) => {
+        const action =
+          summary.mode === 'write' ? 'Wrote' : summary.mode === 'check' ? 'Checked' : 'Would write';
+        console.log(
+          `${action} ${summary.outputPath} (${summary.spawnCount} coordinate spawns from ${summary.inputPath})`,
+        );
+      }),
+    )
+    .catch((error: unknown) => {
+      console.error(error instanceof Error ? error.message : error);
+      process.exitCode = 1;
+    });
 }
