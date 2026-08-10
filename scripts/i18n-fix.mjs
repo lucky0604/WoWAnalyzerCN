@@ -53,6 +53,58 @@ function isCoreFile(file) {
   return coreFiles.has(rel) || rel.includes('localization/overrides/');
 }
 
+/**
+ * Collect (id, message) pairs of <Trans> elements that appear at module scope
+ * (i.e., NOT inside a function/component body or class/namespace).
+ *
+ * Pass 1 converts simple <Trans> → t() to reduce upstream-merge conflict surface,
+ * but that conversion is only safe when the result lands inside a function body.
+ * At module scope, t() calls i18n._() before i18n.activate() has run and crashes
+ * with "Attempted to call a translation function without setting a locale".
+ * Such <Trans> must stay as-is (see docs/i18n-guide.md, Rule 2). This mirrors the
+ * guard already applied to CONFIG.tsx via scripts/upstream-i18n-core-files.txt.
+ */
+function getModuleScopeTransPairs(content, file) {
+  const pairs = new Set();
+  let sf;
+  try {
+    sf = ts.createSourceFile(file, content, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  } catch {
+    return pairs;
+  }
+  const isScope = (n) =>
+    ts.isFunctionExpression(n) ||
+    ts.isArrowFunction(n) ||
+    ts.isFunctionDeclaration(n) ||
+    ts.isMethodDeclaration(n) ||
+    ts.isConstructorDeclaration(n) ||
+    ts.isGetAccessor(n) ||
+    ts.isSetAccessor(n) ||
+    ts.isClassDeclaration(n) ||
+    ts.isModuleDeclaration(n) ||
+    ts.isClassStaticBlockDeclaration(n);
+  function walk(node, depth) {
+    if (depth === 0 && ts.isJsxElement(node) && node.openingElement.tagName.getText(sf) === 'Trans') {
+      const idAttr = getJsxAttribute(node.openingElement, 'id');
+      const id = getStringValue(idAttr);
+      if (id != null) {
+        // Only guard the simple text-child Trans that Pass 1 would otherwise convert.
+        const text = node.children
+          .filter((c) => ts.isJsxText(c))
+          .map((c) => c.getText(sf))
+          .join('');
+        if (!/[<{\n]/.test(text)) {
+          pairs.add(`${id}|${text.trim()}`);
+        }
+      }
+    }
+    const cd = isScope(node) ? depth + 1 : depth;
+    ts.forEachChild(node, (c) => walk(c, cd));
+  }
+  walk(sf, 0);
+  return pairs;
+}
+
 function ensureTImport(content) {
   if (/import\s*\{[^}]*\bt\b[^}]*\}\s*from\s*'@lingui\/core\/macro'/.test(content)) {
     return content;
@@ -404,9 +456,15 @@ for (const file of walk('src')) {
 
   // --- Pass 1: Simple <Trans id="x">plain text</Trans> → t() (non-core files only) ---
   if (!isOverride && !isCore && file.endsWith('.tsx')) {
+    // Skip module-scope <Trans>: converting them to t() would crash at module load
+    // (i18n not yet activated). See getModuleScopeTransPairs().
+    const moduleScopeTransPairs = getModuleScopeTransPairs(content, file);
     content = content.replace(
       /<Trans\s+id="([^"]+)"\s*>([^<{\n]+)<\/Trans>/g,
       (full, id, message, offset) => {
+        if (moduleScopeTransPairs.has(`${id}|${message.trim()}`)) {
+          return full; // keep as <Trans> — t() is unsafe at module scope
+        }
         stats.transToT++;
         const before = content.slice(Math.max(0, offset - 10), offset);
         const inExpression = /[=,(]\s*$/.test(before) || /return\s+$/.test(before);

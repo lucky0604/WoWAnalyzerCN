@@ -1,6 +1,5 @@
 import { Seriousnes } from 'CONTRIBUTORS';
 import { Trans } from '@lingui/react/macro'
-import { t } from '@lingui/core/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -19,10 +18,10 @@ export default {
   description: (
     <>
       <p>
-        <>{t({ id: 'shaman.elemental.config.welcome.p1', message: 'Hello there! Welcome to the analyzer for Elemental Shaman! This analyzer has functionalities that I hope you find useful when playing the spec. If you have any input or suggestions please ask questions in the #elemental channel in the' })}
+        <><Trans id="shaman.elemental.config.welcome.p1">Hello there! Welcome to the analyzer for Elemental Shaman! This analyzer has functionalities that I hope you find useful when playing the spec. If you have any input or suggestions please ask questions in the #elemental channel in the</Trans>
           {' '}
-          <a href="https://discord.gg/earthshrine">{t({ id: 'shaman.elemental.config.welcome.a', message: 'Earthshrine discord' })}</a>
-          {t({ id: 'shaman.elemental.config.welcome.p2', message: '.' })}
+          <a href="https://discord.gg/earthshrine"><Trans id="shaman.elemental.config.welcome.a">Earthshrine discord</Trans></a>
+          <Trans id="shaman.elemental.config.welcome.p2">.</Trans>
         </>
       </p>
       <p>

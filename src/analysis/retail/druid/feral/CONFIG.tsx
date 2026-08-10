@@ -1,6 +1,5 @@
 import { Drowzen } from 'CONTRIBUTORS';
 import { Trans } from '@lingui/react/macro'
-import { t } from '@lingui/core/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -24,15 +23,15 @@ const config: Config = {
         </Trans>
       </p>
       <p>
-        <>{t({ id: 'druid.feral.config.feedback.p1', message: 'If you questions, comments, or suggestions about this analyzer, you can reach the WoWAnalyzer team on' })}
+        <><Trans id="druid.feral.config.feedback.p1">If you questions, comments, or suggestions about this analyzer, you can reach the WoWAnalyzer team on</Trans>
           {' '}
-          <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">{t({ id: 'druid.feral.config.feedback.a', message: 'GitHub' })}</a>
-          {t({ id: 'druid.feral.config.feedback.p2', message: ', on' })}
+          <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new"><Trans id="druid.feral.config.feedback.a">GitHub</Trans></a>
+          <Trans id="druid.feral.config.feedback.p2">, on</Trans>
           {' '}
-          <a href="https://discord.gg/AxphPxU">{t({ id: 'druid.feral.config.feedback.a2', message: 'Discord' })}</a>
-          {t({ id: 'druid.feral.config.feedback.p3', message: ', or message me ( ' })}
-          <a href="/contributor/Sref">{t({ id: 'druid.feral.config.feedback.a3', message: 'Sref' })}</a>
-          {t({ id: 'druid.feral.config.feedback.p4', message: ') directly on Discord. We\'re always interested in improving the analyzer, whether it\'s in-depth theorycraft or rewording some text to be easier to understand. The whole project is open source and welcomes contributions so you can directly improve it too!' })}
+          <a href="https://discord.gg/AxphPxU"><Trans id="druid.feral.config.feedback.a2">Discord</Trans></a>
+          <Trans id="druid.feral.config.feedback.p3">, or message me ( </Trans>
+          <a href="/contributor/Sref"><Trans id="druid.feral.config.feedback.a3">Sref</Trans></a>
+          <Trans id="druid.feral.config.feedback.p4">) directly on Discord. We're always interested in improving the analyzer, whether it's in-depth theorycraft or rewording some text to be easier to understand. The whole project is open source and welcomes contributions so you can directly improve it too!</Trans>
         </>
       </p>
       <p>

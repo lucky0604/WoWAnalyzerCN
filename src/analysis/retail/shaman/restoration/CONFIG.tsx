@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { Harrek } from 'CONTRIBUTORS';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
@@ -18,27 +18,27 @@ const CONFIG: Config = {
   // If this spec's analysis does not show a complete picture please mention this in the `<Warning>` component.
   description: (
     <>
-      {t({ id: 'shaman.restoration.config.description.p1', message: 'Welcome to the Resto Shaman analyzer! We hope you find these suggestions and statistics useful.' })}
+      <Trans id="shaman.restoration.config.description.p1">Welcome to the Resto Shaman analyzer! We hope you find these suggestions and statistics useful.</Trans>
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
-      {t({ id: 'shaman.restoration.config.description.p2', message: 'If you want to learn more about Resto Shaman, join the Resto Shaman community at the' })}
+      <Trans id="shaman.restoration.config.description.p2">If you want to learn more about Resto Shaman, join the Resto Shaman community at the</Trans>
       <a href="https://discord.gg/earthshrine" target="_blank" rel="noopener noreferrer">
         Earthshrine
       </a>{' '}
-      {t({ id: 'shaman.restoration.config.description.p3', message: 'discord server and make sure to visit the guides on' })}
+      <Trans id="shaman.restoration.config.description.p3">discord server and make sure to visit the guides on</Trans>
       <a href="https://www.wowhead.com/restoration-shaman-guide">Wowhead</a>{' '}
-      {t({ id: 'shaman.restoration.config.description.p4', message: 'and' })}
+      <Trans id="shaman.restoration.config.description.p4">and</Trans>
       <a href="https://www.icy-veins.com/wow/restoration-shaman-pve-healing-guide">Icy Veins</a>.
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
       {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
       <br />
       <AlertWarning>
-        {t({ id: 'shaman.restoration.config.description.p5', message: 'If there is something missing, incorrect, or inaccurate, please report it on' })}
+        <Trans id="shaman.restoration.config.description.p5">If there is something missing, incorrect, or inaccurate, please report it on</Trans>
         <a href="https://github.com/WoWAnalyzer/WoWAnalyzer/issues/new">GitHub</a>{' '}
-        {t({ id: 'shaman.restoration.config.description.p6', message: 'or contact us on' })}
+        <Trans id="shaman.restoration.config.description.p6">or contact us on</Trans>
         <a href="https://discord.gg/AxphPxU">Discord</a>.
       </AlertWarning>
     </>

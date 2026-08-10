@@ -3,7 +3,6 @@ import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
 import { Trans } from '@lingui/react/macro'
-import { t } from '@lingui/core/macro';
 
 const config: Config = {
   // The people that have contributed to this spec recently. People don't have to sign up to be long-time maintainers to be included in this list. If someone built a large part of the spec or contributed something recently to that spec, they can be added to the contributors list. If someone goes MIA, they may be removed after major changes or during a new expansion.
@@ -23,12 +22,12 @@ const config: Config = {
         </Trans>
       </p>
       <p>
-        {t({ id: 'deathknight.frost.config.resources', message: 'More resources for Frost:' })}
+        <Trans id="deathknight.frost.config.resources">More resources for Frost:</Trans>
       </p>
       <ul>
         <li>
           <a href="https://discord.gg/acherus" target="_blank" rel="noopener noreferrer">
-            {t({ id: 'deathknight.frost.config.discord', message: 'Death Knight Class Discord' })}
+            <Trans id="deathknight.frost.config.discord">Death Knight Class Discord</Trans>
           </a>
         </li>
         <li>
@@ -37,7 +36,7 @@ const config: Config = {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t({ id: 'deathknight.frost.config.wowheadGuide', message: 'Wowhead Guide' })}
+            <Trans id="deathknight.frost.config.wowheadGuide">Wowhead Guide</Trans>
           </a>
         </li>
         <li>
@@ -46,7 +45,7 @@ const config: Config = {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t({ id: 'deathknight.frost.config.icyVeinsGuide', message: 'Icy Veins Guide' })}
+            <Trans id="deathknight.frost.config.icyVeinsGuide">Icy Veins Guide</Trans>
           </a>
         </li>
       </ul>

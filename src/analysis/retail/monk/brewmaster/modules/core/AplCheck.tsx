@@ -8,6 +8,7 @@ import talents from 'common/TALENTS/monk';
 import { AnyEvent } from 'parser/core/Events';
 import { SpellLink, TooltipElement } from 'interface';
 import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 const withCombo = cnd.buffPresent(SPELLS_COMMON.BLACKOUT_COMBO_BUFF);
 
@@ -30,26 +31,26 @@ const CHP_SETUP = {
         content={
           <>
             <p>
-              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p1', message: 'Applying ' })}
+              <Trans id="monk.brewmaster.apl.charred_passions_tooltip.p1">Applying </Trans>
               <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} />
-              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p2', message: ' before using ' })}
+              <Trans id="monk.brewmaster.apl.charred_passions_tooltip.p2"> before using </Trans>
               <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} />
-              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p3', message: ' can be a damage gain, but if you find yourself doing it too often it means you are missing ' })}
+              <Trans id="monk.brewmaster.apl.charred_passions_tooltip.p3"> can be a damage gain, but if you find yourself doing it too often it means you are missing </Trans>
               <SpellLink spell={talents.BREATH_OF_FIRE_TALENT} />
-              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p4', message: ' casts during your normal rotation.' })}
+              <Trans id="monk.brewmaster.apl.charred_passions_tooltip.p4"> casts during your normal rotation.</Trans>
             </p>
             <p>
-              {t({ id: 'monk.brewmaster.apl.charred_passions_tooltip.p5', message: 'You might run into this condition naturally when dealing with forced downtime, such as tank mechanics that require you to run away.' })}
+              <Trans id="monk.brewmaster.apl.charred_passions_tooltip.p5">You might run into this condition naturally when dealing with forced downtime, such as tank mechanics that require you to run away.</Trans>
             </p>
           </>
         }
       >
-        {t({ id: 'monk.brewmaster.apl.optional', message: '(Optional)' })}
+        <Trans id="monk.brewmaster.apl.optional">(Optional)</Trans>
       </TooltipElement>{' '}
       <>
-        {t({ id: 'monk.brewmaster.apl.apply_charred_passions.p1', message: 'Apply ' })}
+        <Trans id="monk.brewmaster.apl.apply_charred_passions.p1">Apply </Trans>
         <SpellLink spell={talents.CHARRED_PASSIONS_TALENT} />
-        {t({ id: 'monk.brewmaster.apl.apply_charred_passions.p2', message: ' when it is missing before using ' })}
+        <Trans id="monk.brewmaster.apl.apply_charred_passions.p2"> when it is missing before using </Trans>
         <SpellLink spell={SPELLS_COMMON.BLACKOUT_KICK_BRM} />
       </>
     </>
@@ -141,11 +142,11 @@ const standardApl = build([
     ),
     description: (
       <>
-        {t({ id: 'monk.brewmaster.apl.cast_keg_smash_charges.p1', message: 'Cast ' })}
+        <Trans id="monk.brewmaster.apl.cast_keg_smash_charges.p1">Cast </Trans>
         <SpellLink spell={SPELLS.KEG_SMASH_TALENT} />
-        {t({ id: 'monk.brewmaster.apl.cast_keg_smash_charges.p2', message: ' at or near 2 charges (as ' })}
+        <Trans id="monk.brewmaster.apl.cast_keg_smash_charges.p2"> at or near 2 charges (as </Trans>
         <SpellLink spell={SPELLS.FLURRY_STRIKES_TALENT}>Shado-Pan</SpellLink>
-        {t({ id: 'monk.brewmaster.apl.cast_keg_smash_charges.p3', message: ')' })}
+        <Trans id="monk.brewmaster.apl.cast_keg_smash_charges.p3">)</Trans>
       </>
     ),
   },

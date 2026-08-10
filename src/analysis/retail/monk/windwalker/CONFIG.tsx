@@ -3,7 +3,6 @@ import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
 import { Trans } from '@lingui/react/macro'
-import { t } from '@lingui/core/macro';
 
 import CHANGELOG from './CHANGELOG';
 
@@ -27,15 +26,15 @@ const config: Config = {
         </Trans>
       </p>
       <p>
-        <>{t({ id: 'monk.windwalker.config.desc2.p1', message: 'If you have any questions about the analyzer or Windwalker monks in general, join us in the' })}
+        <><Trans id="monk.windwalker.config.desc2.p1">If you have any questions about the analyzer or Windwalker monks in general, join us in the</Trans>
           {' '}
-          <a href="https://discord.gg/0dkfBMAxzTkWj21F" target="_blank" rel="noopener noreferrer">{t({ id: 'monk.windwalker.config.desc2.a', message: 'Peak of Serenity discord server' })}</a>
+          <a href="https://discord.gg/0dkfBMAxzTkWj21F" target="_blank" rel="noopener noreferrer"><Trans id="monk.windwalker.config.desc2.a">Peak of Serenity discord server</Trans></a>
           {' '}
-          {t({ id: 'monk.windwalker.config.desc2.p2', message: 'and talk to us. You can reach me there as Juko8. Make sure to also check out our resources on the' })}
+          <Trans id="monk.windwalker.config.desc2.p2">and talk to us. You can reach me there as Juko8. Make sure to also check out our resources on the</Trans>
           {' '}
-          <a href="https://peakofserenity.com/windwalker/" target="_blank" rel="noopener noreferrer">{t({ id: 'monk.windwalker.config.desc2.a2', message: 'Peak of Serenity website' })}</a>
+          <a href="https://peakofserenity.com/windwalker/" target="_blank" rel="noopener noreferrer"><Trans id="monk.windwalker.config.desc2.a2">Peak of Serenity website</Trans></a>
           {' '}
-          {t({ id: 'monk.windwalker.config.desc2.p3', message: 'as well, it has pretty much everything you need to know.' })}
+          <Trans id="monk.windwalker.config.desc2.p3">as well, it has pretty much everything you need to know.</Trans>
         </>
       </p>
     </>

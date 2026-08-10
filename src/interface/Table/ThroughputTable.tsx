@@ -72,7 +72,7 @@ export const spellName: Column<{ spell: number | Spell; school?: number; isPet?:
 };
 
 export const amountBar = (
-  label: string,
+  label: React.ReactNode,
 ): Column<
   { amount: number; school?: number; type?: string; isAbsorb?: boolean },
   { max: number; total: number }

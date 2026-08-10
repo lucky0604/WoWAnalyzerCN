@@ -1,6 +1,5 @@
 import { Azortharion, Putro } from 'CONTRIBUTORS';
 import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
 import GameBranch from 'game/GameBranch';
 import SPECS from 'game/SPECS';
 import Config, { SupportLevel } from 'parser/Config';
@@ -29,38 +28,21 @@ const config: Config = {
       <p />
       <p>
         <>
-          {t({
-            id: 'hunter.beastmastery.config.description.p2.p1',
-            message:
-              'If you want to learn more about Beast Mastery Hunters, join the Hunter community on the Trueshot Lodge Discord: ',
-          })}
+          <Trans id="hunter.beastmastery.config.description.p2.p1">If you want to learn more about Beast Mastery Hunters, join the Hunter community on the Trueshot Lodge Discord: </Trans>
           <a href="https://www.discord.gg/trueshot" target="_blank" rel="noopener noreferrer">
             discord.gg/trueshot
           </a>
-          {t({
-            id: 'hunter.beastmastery.config.description.p2.p2',
-            message: '. The ',
-          })}
+          <Trans id="hunter.beastmastery.config.description.p2.p2">. The </Trans>
           <kbd>#beast-mastery</kbd>
-          {t({
-            id: 'hunter.beastmastery.config.description.p2.p3',
-            message: ' channel has a lot of helpful people, and if you post your logs in ',
-          })}
+          <Trans id="hunter.beastmastery.config.description.p2.p3"> channel has a lot of helpful people, and if you post your logs in </Trans>
           <kbd>#log-reviews</kbd>
-          {t({
-            id: 'hunter.beastmastery.config.description.p2.p4',
-            message:
-              ', you can expect to get some good pointers for improvement from the community.',
-          })}
+          <Trans id="hunter.beastmastery.config.description.p2.p4">, you can expect to get some good pointers for improvement from the community.</Trans>
         </>
       </p>
       <p />
       <p>
         <>
-          {t({
-            id: 'hunter.beastmastery.config.description.p3.p1',
-            message: 'For general gameplay guides and tips, please refer to the ',
-          })}
+          <Trans id="hunter.beastmastery.config.description.p3.p1">For general gameplay guides and tips, please refer to the </Trans>
           <a
             href="https://www.wowhead.com/guide/classes/hunter/beast-mastery/overview-pve-dps"
             target="_blank"
@@ -68,10 +50,7 @@ const config: Config = {
           >
             Wowhead
           </a>
-          {t({
-            id: 'hunter.beastmastery.config.description.p3.p2',
-            message: ' or ',
-          })}
+          <Trans id="hunter.beastmastery.config.description.p3.p2"> or </Trans>
           <a
             href="https://www.icy-veins.com/wow/beast-mastery-hunter-pve-dps-guide"
             target="_blank"
@@ -79,10 +58,7 @@ const config: Config = {
           >
             Icy-veins
           </a>
-          {t({
-            id: 'hunter.beastmastery.config.description.p3.p3',
-            message: ' guide.',
-          })}
+          <Trans id="hunter.beastmastery.config.description.p3.p3"> guide.</Trans>
         </>
       </p>
     </>

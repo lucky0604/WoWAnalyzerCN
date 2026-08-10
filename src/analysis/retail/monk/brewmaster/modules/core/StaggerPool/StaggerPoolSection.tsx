@@ -194,14 +194,14 @@ export default function StaggerPoolSection(): JSX.Element | null {
 
 const commonTableColumns = {
   staggerSpellName: spellName.withLabels({
-    [spells.STAGGER_TALENT.id]: t({ id: 'monk.brewmaster.stagger.dot', message: 'Stagger (DoT)' }),
+    [spells.STAGGER_TALENT.id]: <Trans id="monk.brewmaster.stagger.dot">Stagger (DoT)</Trans>,
   }),
-  amountBar: amountBar(t({ id: 'monk.brewmaster.stagger.damage', message: 'Damage' })),
+  amountBar: amountBar(<Trans id="monk.brewmaster.stagger.damage">Damage</Trans>),
 };
 
 const damageTakenColumns = {
   ...commonTableColumns,
-  hits: literalNumberColumn(t({ id: 'monk.brewmaster.stagger.hits', message: 'Hits' }), 'hits'),
+  hits: literalNumberColumn(<Trans id="monk.brewmaster.stagger.hits">Hits</Trans>, 'hits'),
 };
 
 const MAX_DATA_ROWS = 5;
@@ -264,7 +264,7 @@ const PURIFICATION_SOURCES = [
 const purificationColumns = {
   ...commonTableColumns,
   triggers: literalNumberColumn(
-    t({ id: 'monk.brewmaster.stagger.triggers', message: 'Triggers' }),
+    <Trans id="monk.brewmaster.stagger.triggers">Triggers</Trans>,
     'count',
   ),
 };

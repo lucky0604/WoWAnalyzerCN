@@ -40,11 +40,11 @@ const sentinelRules: Rule[] = [
     condition: debuffMissing(SPELLS.SENTINELS_MARK_DEBUFF),
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.sentinelBoomstick.p1', message: 'Cast ' })}
+        <Trans id="hunter.survival.apl.sentinelBoomstick.p1">Cast </Trans>
         <SpellLink spell={TALENTS.BOOMSTICK_TALENT} />
-        {t({ id: 'hunter.survival.apl.sentinelBoomstick.p2', message: ' if ' })}
+        <Trans id="hunter.survival.apl.sentinelBoomstick.p2"> if </Trans>
         <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} />
-        {t({ id: 'hunter.survival.apl.sentinelBoomstick.p3', message: ' is not present.' })}
+        <Trans id="hunter.survival.apl.sentinelBoomstick.p3"> is not present.</Trans>
       </>
     ),
   },
@@ -56,14 +56,11 @@ const sentinelRules: Rule[] = [
     ),
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.sentinelWildfireBomb.p1', message: 'Cast ' })}
+        <Trans id="hunter.survival.apl.sentinelWildfireBomb.p1">Cast </Trans>
         <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
-        {t({ id: 'hunter.survival.apl.sentinelWildfireBomb.p2', message: ' if ' })}
+        <Trans id="hunter.survival.apl.sentinelWildfireBomb.p2"> if </Trans>
         <SpellLink spell={SPELLS.SENTINELS_MARK_DEBUFF} />
-        {t({
-          id: 'hunter.survival.apl.sentinelWildfireBomb.p3',
-          message: ' is present or you are about to cap charges.',
-        })}
+        <Trans id="hunter.survival.apl.sentinelWildfireBomb.p3"> is present or you are about to cap charges.</Trans>
       </>
     ),
   },
@@ -72,11 +69,11 @@ const sentinelRules: Rule[] = [
     condition: buffMissing(SPELLS.TIP_OF_THE_SPEAR_CAST),
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.sentinelTakedown.p1', message: 'Cast ' })}
+        <Trans id="hunter.survival.apl.sentinelTakedown.p1">Cast </Trans>
         <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />
-        {t({ id: 'hunter.survival.apl.sentinelTakedown.p2', message: ' if ' })}
+        <Trans id="hunter.survival.apl.sentinelTakedown.p2"> if </Trans>
         <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
-        {t({ id: 'hunter.survival.apl.sentinelTakedown.p3', message: ' is not present.' })}
+        <Trans id="hunter.survival.apl.sentinelTakedown.p3"> is not present.</Trans>
       </>
     ),
   },
@@ -86,9 +83,8 @@ const sentinelRules: Rule[] = [
     condition: buffPresent(SPELLS.RAPTOR_SWIPE_BUFF),
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.sentinelRaptorSwipe.p1', message: 'Cast ' })}
+        <Trans id="hunter.survival.apl.sentinelRaptorSwipe.p1">Cast </Trans>
         <SpellLink spell={SPELLS.RAPTOR_SWIPE_DAMAGE} />
-        {t({ id: 'hunter.survival.apl.sentinelRaptorSwipe.p2', message: '' })}
       </>
     ),
   },
@@ -97,9 +93,9 @@ const sentinelRules: Rule[] = [
     spell: SPELLS.HATCHET_TOSS,
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.neverCastHatchetToss.p1', message: 'Never cast ' })}
+        <Trans id="hunter.survival.apl.neverCastHatchetToss.p1">Never cast </Trans>
         <SpellLink spell={SPELLS.HATCHET_TOSS} />
-        {t({ id: 'hunter.survival.apl.neverCastHatchetToss.p2', message: '.' })}
+        <Trans id="hunter.survival.apl.neverCastHatchetToss.p2">.</Trans>
       </>
     ),
   },
@@ -117,16 +113,13 @@ const packLeaderRules: Rule[] = [
     ),
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.packLeaderKillCommand.p1', message: 'Cast ' })}
+        <Trans id="hunter.survival.apl.packLeaderKillCommand.p1">Cast </Trans>
         <SpellLink spell={TALENTS.KILL_COMMAND_SURVIVAL_TALENT} />
-        {t({ id: 'hunter.survival.apl.packLeaderKillCommand.p2', message: ' if ' })}
+        <Trans id="hunter.survival.apl.packLeaderKillCommand.p2"> if </Trans>
         <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
-        {t({ id: 'hunter.survival.apl.packLeaderKillCommand.p3', message: ' is missing, or if ' })}
+        <Trans id="hunter.survival.apl.packLeaderKillCommand.p3"> is missing, or if </Trans>
         <SpellLink spell={SPELLS.HOWL_OF_THE_PACKLEADER_BUFF} />
-        {t({
-          id: 'hunter.survival.apl.packLeaderKillCommand.p4',
-          message: ' is ready and Tip is at 0-1 stacks.',
-        })}
+        <Trans id="hunter.survival.apl.packLeaderKillCommand.p4"> is ready and Tip is at 0-1 stacks.</Trans>
       </>
     ),
   },
@@ -135,14 +128,11 @@ const packLeaderRules: Rule[] = [
     condition: buffMissing(SPELLS.TIP_OF_THE_SPEAR_CAST),
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.packLeaderTakedown.p1', message: 'Cast ' })}
+        <Trans id="hunter.survival.apl.packLeaderTakedown.p1">Cast </Trans>
         <SpellLink spell={TALENTS.TAKEDOWN_TALENT} />
-        {t({ id: 'hunter.survival.apl.packLeaderTakedown.p2', message: ' if no stacks of ' })}
+        <Trans id="hunter.survival.apl.packLeaderTakedown.p2"> if no stacks of </Trans>
         <SpellLink spell={SPELLS.TIP_OF_THE_SPEAR_CAST} />
-        {t({
-          id: 'hunter.survival.apl.packLeaderTakedown.p3',
-          message: ' to maximise Twin Fangs.',
-        })}
+        <Trans id="hunter.survival.apl.packLeaderTakedown.p3"> to maximise Twin Fangs.</Trans>
       </>
     ),
   },
@@ -155,14 +145,11 @@ const packLeaderRules: Rule[] = [
     ),
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.packLeaderWildfireBomb.p1', message: 'Cast ' })}
+        <Trans id="hunter.survival.apl.packLeaderWildfireBomb.p1">Cast </Trans>
         <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
-        {t({ id: 'hunter.survival.apl.packLeaderWildfireBomb.p2', message: ' if ' })}
+        <Trans id="hunter.survival.apl.packLeaderWildfireBomb.p2"> if </Trans>
         <SpellLink spell={SPELLS.HOWL_WYVERN_BUFF} />
-        {t({
-          id: 'hunter.survival.apl.packLeaderWildfireBomb.p3',
-          message: ' can be extended.',
-        })}
+        <Trans id="hunter.survival.apl.packLeaderWildfireBomb.p3"> can be extended.</Trans>
       </>
     ),
   },
@@ -178,9 +165,9 @@ const packLeaderRules: Rule[] = [
     spell: SPELLS.HATCHET_TOSS,
     description: (
       <>
-        {t({ id: 'hunter.survival.apl.neverCastHatchetToss.p1', message: 'Never cast ' })}
+        <Trans id="hunter.survival.apl.neverCastHatchetToss.p1">Never cast </Trans>
         <SpellLink spell={SPELLS.HATCHET_TOSS} />
-        {t({ id: 'hunter.survival.apl.neverCastHatchetToss.p2', message: '.' })}
+        <Trans id="hunter.survival.apl.neverCastHatchetToss.p2">.</Trans>
       </>
     ),
   },
