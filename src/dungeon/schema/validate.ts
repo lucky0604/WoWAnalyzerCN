@@ -210,6 +210,32 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       ),
     );
   }
+  const releaseStatus = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
+  if (releaseStatus && document.version.status !== document.dataStatus) {
+    errors.push(
+      diagnostic(
+        'error',
+        'DUNGEON_RELEASE_VERSION_STATUS_MISMATCH',
+        'version.status',
+        `reviewed/published 文档的 version.status 必须与 dataStatus 一致：${document.dataStatus}。`,
+        document.id,
+      ),
+    );
+  }
+  if (releaseStatus) {
+    const requiredCollections: Array<[keyof DungeonDocument, string, string]> = [
+      ['abilities', 'DUNGEON_RELEASE_EMPTY_ABILITIES', '至少需要一条已审校技能知识。'],
+      ['situations', 'DUNGEON_RELEASE_EMPTY_SITUATIONS', '至少需要一个稳定 Situation。'],
+      ['routes', 'DUNGEON_RELEASE_EMPTY_ROUTES', '至少需要一条学习路线。'],
+      ['bosses', 'DUNGEON_RELEASE_EMPTY_BOSSES', '至少需要一个 BossKnowledge。'],
+    ];
+    requiredCollections.forEach(([field, code, message]) => {
+      const value = document[field];
+      if (Array.isArray(value) && value.length === 0) {
+        errors.push(diagnostic('error', code, field, message, document.id));
+      }
+    });
+  }
 
   checkUnique(
     document.floors.map((item) => item.id),

@@ -64,4 +64,26 @@ describe('Dungeon document validation', () => {
       ]),
     );
   });
+
+  it('does not allow an incomplete draft to be relabeled as published', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'published';
+    document.version.status = 'draft';
+    document.abilities = [];
+    document.situations = [];
+    document.routes = [];
+    document.bosses = [];
+    document.provenance[0]!.licenseStatus = 'needs-review';
+    const result = validateDungeonDocument(document);
+    expect(result.errors.map((error) => error.code)).toEqual(
+      expect.arrayContaining([
+        'DUNGEON_RELEASE_VERSION_STATUS_MISMATCH',
+        'DUNGEON_RELEASE_EMPTY_ABILITIES',
+        'DUNGEON_RELEASE_EMPTY_SITUATIONS',
+        'DUNGEON_RELEASE_EMPTY_ROUTES',
+        'DUNGEON_RELEASE_EMPTY_BOSSES',
+        'DUNGEON_PUBLISHED_SOURCE_NOT_APPROVED',
+      ]),
+    );
+  });
 });
