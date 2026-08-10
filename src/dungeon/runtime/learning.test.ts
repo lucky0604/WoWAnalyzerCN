@@ -7,6 +7,7 @@ import {
   getLearningProgressSummary,
   getLessonSharePath,
   getRoleText,
+  getWeakLessons,
 } from './learning';
 import { emptyLearningProgress, recordRecall } from './progress';
 
@@ -69,6 +70,34 @@ describe('learning plan', () => {
         1,
       )[0]?.situation.id,
     ).toBe(plan[0]!.situation.id);
+  });
+
+  it('filters a dedicated weak review without treating revealed ready lessons as weak', () => {
+    const document = phase0FixtureDocuments.rubyLifePools;
+    const plan = buildLearningPlan(document, 'full');
+    let progress = emptyLearningProgress();
+    progress = recordRecall(
+      progress,
+      document.id,
+      plan[0]!.situation.id,
+      'ready',
+      true,
+      plan[0]!.fingerprint,
+    );
+    progress = recordRecall(
+      progress,
+      document.id,
+      plan[1]!.situation.id,
+      'fuzzy',
+      true,
+      plan[1]!.fingerprint,
+    );
+
+    const weak = getWeakLessons(plan, progress, document.id);
+    expect(weak.map((lesson) => lesson.situation.id)).toEqual(
+      expect.arrayContaining(plan.slice(1).map((lesson) => lesson.situation.id)),
+    );
+    expect(weak).not.toEqual(expect.arrayContaining([plan[0]]));
   });
 
   it('summarizes only current-fingerprint progress', () => {

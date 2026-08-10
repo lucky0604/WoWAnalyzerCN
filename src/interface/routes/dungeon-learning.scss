@@ -159,6 +159,26 @@
 .dungeon-learning-panel--error a {
   color: design.$colors_wowaYellow;
 }
+.learning-review-empty {
+  display: grid;
+  gap: 10px;
+}
+.learning-review-empty h1,
+.learning-review-empty p {
+  margin: 0;
+}
+.learning-review-empty__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.learning-review-empty__actions a {
+  padding: 9px 12px;
+  border: 1px solid design.$level2_border;
+  border-radius: 5px;
+  text-decoration: none;
+}
 .learning-outline,
 .learning-sidebar {
   padding: 20px;
@@ -223,6 +243,26 @@
   border-top: 1px solid design.$level2_border;
   color: design.$colors_wowaYellow;
   font-size: 0.75rem;
+}
+.learning-outline__review-link,
+.learning-sidebar__weak-link {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: design.$colors_wowaYellow;
+  text-align: left;
+  cursor: pointer;
+}
+.learning-outline__review-link {
+  margin-top: 12px;
+  padding: 0;
+  font-size: 0.75rem;
+}
+.learning-outline__review-link:hover,
+.learning-outline__review-link:focus-visible,
+.learning-sidebar__weak-link:hover,
+.learning-sidebar__weak-link:focus-visible {
+  text-decoration: underline;
 }
 .learning-lesson {
   min-width: 0;
@@ -557,6 +597,11 @@
 .learning-sidebar__review > p {
   margin: 9px 0 0;
   font-size: 0.76rem;
+}
+.learning-sidebar__weak-link {
+  margin-top: 12px;
+  padding: 0;
+  font-size: 0.74rem;
 }
 .learning-sidebar__note {
   margin-top: 20px;

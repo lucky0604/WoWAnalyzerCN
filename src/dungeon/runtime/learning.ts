@@ -162,6 +162,22 @@ export function getDueLessons(
     .slice(0, limit);
 }
 
+/**
+ * Returns only lessons that still need active recall. A lesson is weak until
+ * the user has revealed it with `ready`; fuzzy/unknown answers and an
+ * unrevealed confidence choice remain intentionally reviewable.
+ */
+export function getWeakLessons(
+  plan: LearningLesson[],
+  progress: LearningProgress,
+  dungeonId: string,
+): LearningLesson[] {
+  return plan.filter((lesson) => {
+    const record = getLessonRecallRecord(progress, dungeonId, lesson);
+    return !record || !record.revealed || record.confidence !== 'ready';
+  });
+}
+
 export function getRoleText(
   role: Role,
   situation: SituationKnowledge,

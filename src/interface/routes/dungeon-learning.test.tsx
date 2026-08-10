@@ -96,4 +96,22 @@ describe('dungeon learning route', () => {
 
     expect(screen.getByRole('button', { name: '治疗' })).toHaveAttribute('aria-pressed', 'true');
   });
+
+  it('opens a dedicated weak review after a lesson is mastered', () => {
+    render(
+      <MemoryRouter initialEntries={['/dungeons/ruby-life-pools/learn?mode=quick']}>
+        <Routes>
+          <Route path="/dungeons/:dungeonId/learn" element={<Component />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: '我能处理' }));
+    fireEvent.click(screen.getByRole('button', { name: '显示参考答案' }));
+    fireEvent.click(screen.getByRole('button', { name: '只复习薄弱项 →' }));
+
+    expect(screen.getByText('薄弱项复习')).toBeInTheDocument();
+    expect(screen.getByText(/这次只复习尚未稳定回忆的场景/)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: '回到全部章节 →' })).toBeInTheDocument();
+  });
 });

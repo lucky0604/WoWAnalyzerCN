@@ -12,6 +12,7 @@ import {
   getLessonSharePath,
   getLessonRecallRecord,
   getRoleText,
+  getWeakLessons,
   readLearningProgress,
   recordRecall,
   writeLearningProgress,
@@ -41,12 +42,17 @@ const parseRole = (value: string | null): Role =>
 
 function updateSearch(
   searchParams: URLSearchParams,
-  updates: Partial<{ mode: LearningMode; situation: string; role: Role }>,
+  updates: Partial<{ mode: LearningMode; situation: string; role: Role; review: 'weak' | null }>,
 ): string {
   const next = new URLSearchParams(searchParams);
-  Object.entries(updates).forEach(([key, value]) => value && next.set(key, value));
+  Object.entries(updates).forEach(([key, value]) => {
+    if (value) next.set(key, value);
+    else next.delete(key);
+  });
   return `?${next.toString()}`;
 }
+
+const isWeakReview = (searchParams: URLSearchParams) => searchParams.get('review') === 'weak';
 
 function LearningNotFound() {
   return (
@@ -88,6 +94,28 @@ function LearningUnavailable({
   );
 }
 
+function LearningReviewEmpty({ dungeonId, mode }: { dungeonId: string; mode: LearningMode }) {
+  return (
+    <>
+      <DocumentTitle title="薄弱项已清空" />
+      <NavigationBar style={{ margin: 0, position: 'static' }} />
+      <main className="dungeon-learning-shell">
+        <section className="dungeon-learning-panel dungeon-learning-panel--error learning-review-empty">
+          <span className="learning-panel-kicker">WEAK REVIEW</span>
+          <h1>当前模式没有待复习薄弱项</h1>
+          <p>
+            你已经把当前范围的场景回忆为“我能处理”。可以继续完整学习，或等待内容变更后重新复习。
+          </p>
+          <div className="learning-review-empty__actions">
+            <Link to={`/dungeons/${dungeonId}/learn?mode=${mode}`}>返回当前模式</Link>
+            <Link to={`/dungeons/${dungeonId}/learn?mode=full`}>打开完整学习</Link>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
+
 function ConfidenceButton({
   confidence,
   selected,
@@ -122,8 +150,13 @@ export function Component() {
   const learningAccess = document ? getDungeonLearningAccess(document) : undefined;
   const [progress, setProgress] = useState(() => readLearningProgress());
   const mode = parseMode(searchParams.get('mode'));
+  const weakReview = isWeakReview(searchParams);
   const role = parseRole(searchParams.get('role') ?? progress.lastRole ?? null);
-  const plan = useMemo(() => (document ? buildLearningPlan(document, mode) : []), [document, mode]);
+  const plan = useMemo(() => {
+    if (!document) return [];
+    const fullPlan = buildLearningPlan(document, mode);
+    return weakReview ? getWeakLessons(fullPlan, progress, document.id) : fullPlan;
+  }, [document, mode, progress, weakReview]);
   const requestedSituation = searchParams.get('situation');
   const foundIndex = plan.findIndex((lesson) => lesson.situation.id === requestedSituation);
   const currentIndex = foundIndex < 0 ? 0 : foundIndex;
@@ -153,6 +186,7 @@ export function Component() {
     );
   }
   if (!lesson) {
+    if (weakReview) return <LearningReviewEmpty dungeonId={document.id} mode={mode} />;
     return (
       <>
         <DocumentTitle title={`${document.name.zhCN} · 学习内容`} />
@@ -179,8 +213,9 @@ export function Component() {
     setProgress(nextProgress);
     setStorageWarning(!writeLearningProgress(nextProgress));
   };
-  const go = (updates: Partial<{ mode: LearningMode; situation: string; role: Role }>) =>
-    navigate({ search: updateSearch(searchParams, updates) }, { replace: true });
+  const go = (
+    updates: Partial<{ mode: LearningMode; situation: string; role: Role; review: 'weak' | null }>,
+  ) => navigate({ search: updateSearch(searchParams, updates) }, { replace: true });
   const moveLesson = (direction: -1 | 1) => {
     const target = plan[currentIndex + direction];
     if (target) go({ situation: target.situation.id });
@@ -242,7 +277,11 @@ export function Component() {
               LEARNING COMPANION · {document.season.toUpperCase()}
             </span>
             <h1>{document.name.zhCN}</h1>
-            <p>先记住危险和动作，再回到路线确认空间位置。页面不会要求你编辑路线。</p>
+            <p>
+              {weakReview
+                ? '这次只复习尚未稳定回忆的场景；完成后再回到路线确认空间位置。'
+                : '先记住危险和动作，再回到路线确认空间位置。页面不会要求你编辑路线。'}
+            </p>
             <div className="learning-hero__sources" aria-label="内容来源">
               <span>来源版本 · {document.version.build}</span>
               {document.provenance
@@ -256,7 +295,7 @@ export function Component() {
             </div>
           </div>
           <div className="learning-hero__progress">
-            <span>本次学习</span>
+            <span>{weakReview ? '薄弱项复习' : '本次学习'}</span>
             <strong>
               {completedCount}/{plan.length}
             </strong>
@@ -318,6 +357,23 @@ export function Component() {
             >
               查看对象与坐标 →
             </Link>
+            {weakReview ? (
+              <button
+                className="learning-outline__review-link"
+                type="button"
+                onClick={() => go({ review: null, situation: plan[0]?.situation.id })}
+              >
+                回到全部章节 →
+              </button>
+            ) : (
+              <button
+                className="learning-outline__review-link"
+                type="button"
+                onClick={() => go({ review: 'weak', situation: undefined })}
+              >
+                只复习薄弱项 →
+              </button>
+            )}
           </aside>
           <section
             className="dungeon-learning-panel learning-lesson"
@@ -504,6 +560,15 @@ export function Component() {
                 </ol>
               ) : (
                 <p>当前模式已完成回忆，下一次复习会在内容变更或 24 小时后出现。</p>
+              )}
+              {!weakReview && weakCount > 0 && (
+                <button
+                  className="learning-sidebar__weak-link"
+                  type="button"
+                  onClick={() => go({ review: 'weak', situation: undefined })}
+                >
+                  只看 {weakCount} 个薄弱场景 →
+                </button>
               )}
             </div>
             <div className="learning-sidebar__note">
