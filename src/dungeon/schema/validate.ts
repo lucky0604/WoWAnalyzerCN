@@ -218,21 +218,20 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       ),
     );
   }
-  if (
-    document.dataStatus === 'published' &&
-    document.provenance.some((source) => source.licenseStatus !== 'approved')
-  ) {
+  const releaseStatus = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
+  if (releaseStatus && document.provenance.some((source) => source.licenseStatus !== 'approved')) {
     errors.push(
       diagnostic(
         'error',
-        'DUNGEON_PUBLISHED_SOURCE_NOT_APPROVED',
+        document.dataStatus === 'published'
+          ? 'DUNGEON_PUBLISHED_SOURCE_NOT_APPROVED'
+          : 'DUNGEON_REVIEWED_SOURCE_NOT_APPROVED',
         'provenance',
-        'published 内容不能包含未批准的来源。',
+        `${document.dataStatus} 内容不能包含未批准的来源。`,
         document.id,
       ),
     );
   }
-  const releaseStatus = document.dataStatus === 'reviewed' || document.dataStatus === 'published';
   if (releaseStatus && document.spatialStatus !== 'verified') {
     errors.push(
       diagnostic(

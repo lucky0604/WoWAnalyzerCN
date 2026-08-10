@@ -30,4 +30,18 @@ describe('dungeon learning access gates', () => {
     const access = getDungeonLearningAccess(document);
     expect(access).toMatchObject({ state: 'available', canOpen: true, isFormal: true });
   });
+
+  it('does not treat a reviewed document with reference-only sources as formal', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.provenance[0]!.licenseStatus = 'reference-only';
+    const access = getDungeonLearningAccess(document);
+    expect(access).toMatchObject({ state: 'blocked', canOpen: false, isFormal: false });
+    expect(access.validation.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'DUNGEON_REVIEWED_SOURCE_NOT_APPROVED' }),
+      ]),
+    );
+  });
 });
