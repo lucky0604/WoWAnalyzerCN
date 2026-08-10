@@ -25,6 +25,11 @@ const modeLabels: Record<LearningMode, { label: string; detail: string }> = {
   full: { label: '完整学习', detail: '逐个场景理解因果' },
 };
 const roleLabels: Record<Role, string> = { tank: '坦克', healer: '治疗', dps: 'DPS' };
+const confidenceLabels: Record<RecallConfidence, string> = {
+  ready: '我能处理',
+  fuzzy: '有点模糊',
+  unknown: '还不会',
+};
 const validModes = new Set<LearningMode>(['quick', 'overview', 'full']);
 const validRoles = new Set<Role>(['tank', 'healer', 'dps']);
 
@@ -167,6 +172,19 @@ export function Component() {
   const completedCount = plan.filter(
     (item) => getLessonRecallRecord(progress, document.id, item)?.revealed,
   ).length;
+  const fuzzyCount = plan.filter(
+    (item) => getLessonRecallRecord(progress, document.id, item)?.confidence === 'fuzzy',
+  ).length;
+  const unknownCount = plan.filter(
+    (item) => getLessonRecallRecord(progress, document.id, item)?.confidence === 'unknown',
+  ).length;
+  const weakCount =
+    plan.length -
+    plan.filter(
+      (item) =>
+        getLessonRecallRecord(progress, document.id, item)?.revealed &&
+        getLessonRecallRecord(progress, document.id, item)?.confidence === 'ready',
+    ).length;
   const updateProgress = (nextProgress: typeof progress) => {
     setProgress(nextProgress);
     setStorageWarning(!writeLearningProgress(nextProgress));
@@ -252,7 +270,7 @@ export function Component() {
             <strong>
               {completedCount}/{plan.length}
             </strong>
-            <small>场景已完成回忆</small>
+            <small>{weakCount > 0 ? `${weakCount} 个待复习` : '场景已完成回忆'}</small>
           </div>
         </header>
         <div className="learning-mode-bar" role="tablist" aria-label="学习时长">
@@ -458,6 +476,17 @@ export function Component() {
             </div>
             <div className="learning-sidebar__review">
               <strong>进本前 3 条复习</strong>
+              <div className="learning-progress-summary" aria-label="学习状态">
+                <span>
+                  已回忆 <b>{completedCount}</b>
+                </span>
+                <span>
+                  模糊 <b>{fuzzyCount}</b>
+                </span>
+                <span>
+                  不会 <b>{unknownCount}</b>
+                </span>
+              </div>
               {dueLessons.length > 0 ? (
                 <ol>
                   {dueLessons.map((dueLesson) => (
@@ -467,7 +496,15 @@ export function Component() {
                         onClick={() => go({ situation: dueLesson.situation.id })}
                       >
                         <span>{dueLesson.situation.title.zhCN}</span>
-                        <small>{dueLesson.situation.kind === 'boss' ? 'Boss' : '需要再回忆'}</small>
+                        <small>
+                          {getLessonRecallRecord(progress, document.id, dueLesson)?.confidence
+                            ? confidenceLabels[
+                                getLessonRecallRecord(progress, document.id, dueLesson)!.confidence
+                              ]
+                            : dueLesson.situation.kind === 'boss'
+                              ? 'Boss · 尚未回忆'
+                              : '尚未回忆'}
+                        </small>
                       </button>
                     </li>
                   ))}

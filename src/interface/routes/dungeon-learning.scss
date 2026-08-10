@@ -497,6 +497,18 @@
   color: design.$colors_wowaYellow;
   font-size: 0.78rem;
 }
+.learning-progress-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 9px;
+  color: design.$colors_unfocusedText;
+  font-size: 0.7rem;
+}
+.learning-progress-summary b {
+  color: design.$colors_bodyText;
+  font-weight: 700;
+}
 .learning-sidebar__review ol {
   display: grid;
   gap: 5px;

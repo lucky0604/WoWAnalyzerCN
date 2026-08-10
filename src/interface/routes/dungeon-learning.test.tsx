@@ -58,6 +58,7 @@ describe('dungeon learning route', () => {
     );
 
     expect(screen.getByRole('button', { name: '先选择把握程度' })).toBeDisabled();
+    expect(screen.getByLabelText('学习状态')).toHaveTextContent('模糊 0');
     fireEvent.click(screen.getByRole('button', { name: '有点模糊' }));
     expect(screen.getByRole('button', { name: '有点模糊' })).toHaveAttribute(
       'aria-pressed',
