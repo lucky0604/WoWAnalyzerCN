@@ -60,6 +60,12 @@ describe('Dungeon document validation', () => {
       reviewer: 'reviewer',
       reviewedAt: '2026-08-10T00:00:00.000Z',
       gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
     };
     const firstStep = document.routes[0]!.steps[0]!;
     expect(firstStep.type).toBe('pull');
@@ -86,6 +92,12 @@ describe('Dungeon document validation', () => {
       reviewer: 'reviewer',
       reviewedAt: '2026-08-10T00:00:00.000Z',
       gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
     };
     const firstStep = document.routes[0]!.steps[0]!;
     expect(firstStep.type).toBe('pull');
@@ -99,6 +111,54 @@ describe('Dungeon document validation', () => {
           code: 'DUNGEON_SITUATION_PARTIAL_COVERAGE',
           entityId: 'altar-situation-coiled-approach',
         }),
+      ]),
+    );
+  });
+
+  it('requires author self-test evidence before formal release', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+    };
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'DUNGEON_REVIEW_SELF_TEST_PENDING' }),
+      ]),
+    );
+  });
+
+  it('returns diagnostics instead of throwing for malformed self-test JSON', () => {
+    const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+      selfTest: {
+        completedAt: 'not-a-date',
+        modes: [],
+        situationIds: undefined as never,
+        routeIds: null as never,
+      },
+    };
+
+    expect(() => validateDungeonDocument(document)).not.toThrow();
+    const result = validateDungeonDocument(document);
+    expect(result.errors.map((error) => error.code)).toEqual(
+      expect.arrayContaining([
+        'DUNGEON_REVIEW_SELF_TEST_DATE_INVALID',
+        'DUNGEON_REVIEW_SELF_TEST_MODES_INVALID',
+        'DUNGEON_REVIEW_SELF_TEST_INCOMPLETE',
       ]),
     );
   });
@@ -176,6 +236,12 @@ describe('Dungeon document validation', () => {
       reviewer: 'reviewer',
       reviewedAt: '2026-08-10T00:00:00.000Z',
       gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
     };
     document.enemies[0]!.provenance[0]!.licenseStatus = 'reference-only';
 
@@ -200,6 +266,12 @@ describe('Dungeon document validation', () => {
       reviewer: 'reviewer',
       reviewedAt: '2026-08-10T00:00:00.000Z',
       gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
     };
     document.provenance = [];
     document.abilities[0]!.provenance = [];

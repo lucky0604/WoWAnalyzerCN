@@ -96,5 +96,8 @@ describe('dungeon authoring scaffold', () => {
     expect(await readFile(join(root, 'sample', 'AUTHORING.md'), 'utf8')).toContain(
       'second-person review',
     );
+    expect(await readFile(join(root, 'sample', 'AUTHORING.md'), 'utf8')).toContain(
+      'review.selfTest',
+    );
   });
 });

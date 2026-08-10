@@ -23,6 +23,16 @@ export interface LocalizedText {
   enUS?: string;
 }
 
+export type ContentSelfTestMode = 'quick' | 'overview' | 'full';
+
+export interface ContentSelfTest {
+  completedAt: string;
+  modes: ContentSelfTestMode[];
+  situationIds: SituationId[];
+  routeIds: RouteId[];
+  evidence?: string;
+}
+
 export interface ContentVersion {
   season: string;
   build: string;
@@ -37,6 +47,7 @@ export interface ContentReview {
   reviewedAt: string;
   gameBuild: string;
   evidence?: string;
+  selfTest?: ContentSelfTest;
 }
 
 export type ProvenanceType =

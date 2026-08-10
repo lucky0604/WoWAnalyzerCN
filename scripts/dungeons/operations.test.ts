@@ -36,6 +36,13 @@ function releaseReadyFixture(): DungeonDocument {
     reviewedAt: '2026-08-10T00:00:00.000Z',
     gameBuild: document.version.build,
     evidence: 'test fixture only',
+    selfTest: {
+      completedAt: '2026-08-10T00:00:00.000Z',
+      modes: ['quick', 'overview', 'full'],
+      situationIds: document.situations.map((situation) => situation.id),
+      routeIds: document.routes.map((route) => route.id),
+      evidence: 'test fixture only',
+    },
   };
   return document;
 }

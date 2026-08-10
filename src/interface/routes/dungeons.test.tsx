@@ -118,6 +118,12 @@ describe('dungeon inspector query', () => {
       reviewer: 'reviewer',
       reviewedAt: '2026-08-10',
       gameBuild: formalDocument.version.build,
+      selfTest: {
+        completedAt: '2026-08-10',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: formalDocument.situations.map((situation) => situation.id),
+        routeIds: formalDocument.routes.map((route) => route.id),
+      },
     };
     dungeonDocumentsById.set(formalDocument.id, formalDocument);
 

@@ -67,4 +67,5 @@ forcesStatus: pending
 - `pnpm dungeon:report` 输出 Situation 是否被路线覆盖、decision-critical 技能是否进入学习表面、没有 Situation 的 Pull 以及缺少核心技能的 Boss 卡。
 - 报告还会区分“完全没有路线引用”和“只有 partial 引用”；正式内容至少要有一个 `full` 学习上下文。
 - `validateDungeonDocument` 在 draft/fixture 阶段将这些缺口作为可定位 warning，在 reviewed/published 阶段升级为 release error；RLP 当前会明确报告未挂路线的 `rlp-situation-hatchery-transition`。
+- `ContentReview.selfTest` 记录作者自测完成时间、学习模式和覆盖的 Situation/Route；formal release 会拒绝缺失、日期无效、未知 ID 或未覆盖全部实体的自测记录。
 - 这一步只关闭内容完整度的工程门，不改变 RLP 的 `spatialStatus: pending`、`forcesStatus: pending`、来源批准和第二人审校门；因此 RLP 仍然不能发布。

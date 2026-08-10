@@ -268,6 +268,93 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       );
     }
   }
+  const selfTest = review?.selfTest;
+  if (!selfTest) {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        releaseStatus ? 'error' : 'warning',
+        'DUNGEON_REVIEW_SELF_TEST_PENDING',
+        'review.selfTest',
+        releaseStatus
+          ? '正式内容必须记录作者自测完成时间、学习模式以及覆盖的 Situation/Route。'
+          : '尚未记录作者自测；进入 reviewed/published 前必须走完学习模式和内容覆盖检查。',
+        document.id,
+      ),
+    );
+  } else {
+    if (
+      typeof selfTest.completedAt !== 'string' ||
+      !Number.isFinite(Date.parse(selfTest.completedAt))
+    ) {
+      errors.push(
+        diagnostic(
+          'error',
+          'DUNGEON_REVIEW_SELF_TEST_DATE_INVALID',
+          'review.selfTest.completedAt',
+          '作者自测完成时间必须是可解析的 ISO 日期。',
+          document.id,
+        ),
+      );
+    }
+    const validModes = new Set(['quick', 'overview', 'full']);
+    if (
+      !Array.isArray(selfTest.modes) ||
+      selfTest.modes.length === 0 ||
+      selfTest.modes.some((mode) => !validModes.has(mode))
+    ) {
+      (releaseStatus ? errors : warnings).push(
+        diagnostic(
+          releaseStatus ? 'error' : 'warning',
+          'DUNGEON_REVIEW_SELF_TEST_MODES_INVALID',
+          'review.selfTest.modes',
+          releaseStatus
+            ? '作者自测必须至少记录一个有效学习模式：quick、overview 或 full。'
+            : '作者自测的学习模式为空或无效。',
+          document.id,
+        ),
+      );
+    }
+    const selfTestSituationIds = Array.isArray(selfTest.situationIds) ? selfTest.situationIds : [];
+    const selfTestRouteIds = Array.isArray(selfTest.routeIds) ? selfTest.routeIds : [];
+    const testedSituationIds = new Set(selfTestSituationIds);
+    const testedRouteIds = new Set(selfTestRouteIds);
+    const missingSituationIds = document.situations
+      .map((situation) => situation.id)
+      .filter((id) => !testedSituationIds.has(id));
+    const missingRouteIds = document.routes
+      .map((route) => route.id)
+      .filter((id) => !testedRouteIds.has(id));
+    const unknownSituationIds = selfTestSituationIds.filter(
+      (id) => !document.situations.some((situation) => situation.id === id),
+    );
+    const unknownRouteIds = selfTestRouteIds.filter(
+      (id) => !document.routes.some((route) => route.id === id),
+    );
+    if (missingSituationIds.length > 0 || missingRouteIds.length > 0) {
+      (releaseStatus ? errors : warnings).push(
+        diagnostic(
+          releaseStatus ? 'error' : 'warning',
+          'DUNGEON_REVIEW_SELF_TEST_INCOMPLETE',
+          'review.selfTest',
+          `作者自测尚未覆盖全部内容：Situation=${missingSituationIds.join(', ') || 'none'}；Route=${missingRouteIds.join(', ') || 'none'}。`,
+          document.id,
+          [...missingSituationIds, ...missingRouteIds],
+        ),
+      );
+    }
+    if (unknownSituationIds.length > 0 || unknownRouteIds.length > 0) {
+      errors.push(
+        diagnostic(
+          'error',
+          'DUNGEON_REVIEW_SELF_TEST_UNKNOWN_ID',
+          'review.selfTest',
+          `作者自测引用了未知实体：Situation=${unknownSituationIds.join(', ') || 'none'}；Route=${unknownRouteIds.join(', ') || 'none'}。`,
+          document.id,
+          [...unknownSituationIds, ...unknownRouteIds],
+        ),
+      );
+    }
+  }
   const documentSourceMissing = document.provenance.length === 0;
   const documentSourceUnapproved = document.provenance.some(
     (source) => source.licenseStatus !== 'approved',

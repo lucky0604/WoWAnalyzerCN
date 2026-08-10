@@ -463,6 +463,7 @@ async function createScaffold(options: AuthoringCommandOptions): Promise<void> {
       '- [ ] Add decision-critical abilities with actions and consequences\n' +
       '- [ ] Add stable Situations and a learning route\n' +
       '- [ ] Add BossKnowledge and approved provenance\n' +
+      '- [ ] Record review.selfTest for the learning modes and every Situation/Route\n' +
       '- [ ] Run `pnpm dungeon:check --dungeon ' +
       slug +
       '`\n' +

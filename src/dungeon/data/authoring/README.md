@@ -21,3 +21,6 @@ The command writes `document.json` and `AUTHORING.md` under the slug directory.
 It never edits generated coordinate snapshots or registers a public dungeon.
 `dungeon:publish` only writes an explicit release manifest after the document
 passes provenance and completeness gates; it does not mutate the runtime registry.
+
+Before requesting second-person review, record `review.selfTest` with the
+learning modes exercised and every Situation/Route covered by the author pass.
