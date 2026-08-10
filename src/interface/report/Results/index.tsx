@@ -38,7 +38,7 @@ import { useLingui } from '@lingui/react';
 import { appendReportHistory } from 'interface/reducers/reportHistory';
 import FoundationSupportBadge from 'interface/guide/foundation/FoundationSupportBadge';
 import Ad, { Location } from 'interface/Ad';
-import { getPublishedDungeonFromWcl, makeDungeonLearningPath } from '../../../dungeon';
+import { getPublishedDungeonFromWcl, makeDungeonLearningPath } from '../../../dungeon/runtime/wcl';
 
 import usePremium from 'interface/usePremium';
 import useMediaQueryMatch from 'interface/hooks/useMediaQueryMatch';
