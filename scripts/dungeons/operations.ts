@@ -153,6 +153,11 @@ export async function publishDocument(
   if (document.dataStatus === 'fixture') {
     throw new Error('DUNGEON_PUBLISH_FIXTURE_FORBIDDEN: fixture documents cannot be published.');
   }
+  if (document.version.status === 'stale') {
+    throw new Error(
+      'DUNGEON_PUBLISH_STALE_FORBIDDEN: stale content must be refreshed and re-authored before publication.',
+    );
+  }
   const preview = await previewDocument(document);
   if (!preview.ok) {
     throw new Error(

@@ -91,4 +91,14 @@ describe('dungeon content operations', () => {
     await publishDocument(document, 2, root);
     await expect(publishDocument(document, 2, root)).rejects.toThrow('DUNGEON_RELEASE_EXISTS');
   });
+
+  it('refuses publishing a stale source without a fresh authoring pass', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'wowa-dungeon-stale-guard-'));
+    temporaryRoots.push(root);
+    const document = releaseReadyFixture();
+    document.version.status = 'stale';
+    await expect(publishDocument(document, 3, root)).rejects.toThrow(
+      'DUNGEON_PUBLISH_STALE_FORBIDDEN',
+    );
+  });
 });

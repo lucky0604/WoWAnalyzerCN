@@ -2,6 +2,7 @@ import type { WCLFight } from 'parser/core/Fight';
 import type Report from 'parser/core/Report';
 
 import { getDungeonDocument } from '../registry';
+import { getDungeonLearningAccess } from './access';
 import type { DungeonDocument } from '../schema/types';
 import { season2DungeonCatalog } from '../data/season2Catalog';
 
@@ -77,9 +78,7 @@ export function getPublishedDungeonFromWcl(
     return undefined;
   }
   const document = getDungeonDocument(match.entry.id);
-  return document && (document.dataStatus === 'reviewed' || document.dataStatus === 'published')
-    ? document
-    : undefined;
+  return document && getDungeonLearningAccess(document).isFormal ? document : undefined;
 }
 
 export function makeDungeonLearningPath(document: DungeonDocument): string {

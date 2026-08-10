@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   buildLearningPlan,
   getDueLessons,
+  getDungeonLearningAccess,
   getDungeonDocument,
   getLessonSharePath,
   getLessonRecallRecord,
@@ -57,15 +58,23 @@ function LearningNotFound() {
   );
 }
 
-function LearningUnavailable({ dungeonId }: { dungeonId: string }) {
+function LearningUnavailable({
+  dungeonId,
+  title = '学习内容待审校',
+  detail = '当前链接指向开发契约 fixture，不提供可学习的正式攻略内容。',
+}: {
+  dungeonId: string;
+  title?: string;
+  detail?: string;
+}) {
   return (
     <>
-      <DocumentTitle title="学习内容待审校" />
+      <DocumentTitle title={title} />
       <NavigationBar style={{ margin: 0, position: 'static' }} />
       <main className="dungeon-learning-shell">
         <section className="dungeon-learning-panel dungeon-learning-panel--error">
-          <h1>学习内容待审校</h1>
-          <p>当前链接指向开发契约 fixture，不提供可学习的正式攻略内容。</p>
+          <h1>{title}</h1>
+          <p>{detail}</p>
           <Link to={`/dungeons/${dungeonId}`}>打开 Inspector</Link>
         </section>
       </main>
@@ -103,6 +112,7 @@ export function Component() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const document = dungeonId ? getDungeonDocument(dungeonId) : undefined;
+  const learningAccess = document ? getDungeonLearningAccess(document) : undefined;
   const mode = parseMode(searchParams.get('mode'));
   const role = parseRole(searchParams.get('role'));
   const plan = useMemo(() => (document ? buildLearningPlan(document, mode) : []), [document, mode]);
@@ -122,7 +132,18 @@ export function Component() {
   }, [document, lesson, navigate, requestedSituation, searchParams]);
 
   if (!document || !dungeonId) return <LearningNotFound />;
-  if (document.dataStatus === 'fixture') return <LearningUnavailable dungeonId={document.id} />;
+  if (learningAccess && !learningAccess.canOpen) {
+    if (learningAccess.state === 'fixture') {
+      return <LearningUnavailable dungeonId={document.id} />;
+    }
+    return (
+      <LearningUnavailable
+        dungeonId={document.id}
+        title={learningAccess.state === 'stale' ? '学习内容已过期' : learningAccess.label}
+        detail={learningAccess.reason}
+      />
+    );
+  }
   if (!lesson) {
     return (
       <>
@@ -190,7 +211,7 @@ export function Component() {
           <Link to={`/dungeons/${document.id}`}>Inspector</Link>
           <span>/</span>学习模式
         </div>
-        {document.dataStatus === 'draft' && (
+        {learningAccess?.state === 'preview' && (
           <div className="learning-fixture-notice">
             内容草稿：以下内容用于验证学习交互和来源链路，不代表已审校的正式 S2 攻略。
           </div>

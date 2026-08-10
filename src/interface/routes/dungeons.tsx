@@ -10,6 +10,7 @@ import {
   dungeonDocuments,
   dungeonPreviewDocuments,
   getCoordinateReference,
+  getDungeonLearningAccess,
   getDungeonDocument,
   getPullStepForces,
   isLearningPublished,
@@ -47,6 +48,7 @@ function CoverageBadge({ status }: { status: DungeonCoverageStatus }) {
 
 function DungeonCard({ document }: { document: DungeonDocument }) {
   const isSpatialPending = document.spatialStatus === 'pending';
+  const learningAccess = getDungeonLearningAccess(document);
   return (
     <article className="dungeon-card">
       <div className="dungeon-card__eyebrow">
@@ -64,14 +66,18 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
         </small>
       )}
       <div className="dungeon-card__actions">
-        {document.dataStatus === 'fixture' ? (
+        {learningAccess.state === 'fixture' ? (
           <span className="dungeon-card__action dungeon-card__action--disabled">
             学习内容仅用于契约测试
           </span>
-        ) : (
+        ) : learningAccess.canOpen ? (
           <Link className="dungeon-card__action" to={`/dungeons/${document.id}/learn`}>
-            开始学习 →
+            {learningAccess.state === 'preview' ? '打开学习预览 →' : '开始学习 →'}
           </Link>
+        ) : (
+          <span className="dungeon-card__action dungeon-card__action--disabled">
+            {learningAccess.label}
+          </span>
         )}
         <Link className="dungeon-card__reference" to={`/dungeons/${document.id}`}>
           打开 Inspector
