@@ -64,9 +64,15 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
         </small>
       )}
       <div className="dungeon-card__actions">
-        <Link className="dungeon-card__action" to={`/dungeons/${document.id}/learn`}>
-          开始学习 →
-        </Link>
+        {document.dataStatus === 'fixture' ? (
+          <span className="dungeon-card__action dungeon-card__action--disabled">
+            学习内容仅用于契约测试
+          </span>
+        ) : (
+          <Link className="dungeon-card__action" to={`/dungeons/${document.id}/learn`}>
+            开始学习 →
+          </Link>
+        )}
         <Link className="dungeon-card__reference" to={`/dungeons/${document.id}`}>
           打开 Inspector
         </Link>

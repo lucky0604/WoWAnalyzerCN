@@ -57,6 +57,22 @@ function LearningNotFound() {
   );
 }
 
+function LearningUnavailable({ dungeonId }: { dungeonId: string }) {
+  return (
+    <>
+      <DocumentTitle title="学习内容待审校" />
+      <NavigationBar style={{ margin: 0, position: 'static' }} />
+      <main className="dungeon-learning-shell">
+        <section className="dungeon-learning-panel dungeon-learning-panel--error">
+          <h1>学习内容待审校</h1>
+          <p>当前链接指向开发契约 fixture，不提供可学习的正式攻略内容。</p>
+          <Link to={`/dungeons/${dungeonId}`}>打开 Inspector</Link>
+        </section>
+      </main>
+    </>
+  );
+}
+
 function ConfidenceButton({
   confidence,
   selected,
@@ -106,6 +122,7 @@ export function Component() {
   }, [document, lesson, navigate, requestedSituation, searchParams]);
 
   if (!document || !dungeonId) return <LearningNotFound />;
+  if (document.dataStatus === 'fixture') return <LearningUnavailable dungeonId={document.id} />;
   if (!lesson) {
     return (
       <>
@@ -173,9 +190,9 @@ export function Component() {
           <Link to={`/dungeons/${document.id}`}>Inspector</Link>
           <span>/</span>学习模式
         </div>
-        {document.dataStatus === 'fixture' && (
+        {document.dataStatus === 'draft' && (
           <div className="learning-fixture-notice">
-            开发样本：以下内容用于验证学习交互和数据合同，不代表已审校的正式 S2 攻略。
+            内容草稿：以下内容用于验证学习交互和来源链路，不代表已审校的正式 S2 攻略。
           </div>
         )}
         <header className="learning-hero">
