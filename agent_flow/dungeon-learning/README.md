@@ -50,6 +50,7 @@
 - [10-phase1a-content-preview.md](./10-phase1a-content-preview.md)：Phase 1A RLP 内容草稿、空间待接入门禁与审查记录。
 - [11-phase2-3-implementation-review.md](./11-phase2-3-implementation-review.md)：Phase 2–3 实现、对抗性 Review、修复与验证证据。
 - [12-browser-qa.md](./12-browser-qa.md)：本地 Chrome 桌面/移动端路由、交互、错误与溢出检查记录。
+- [13-phase1b-implementation-review.md](./13-phase1b-implementation-review.md)：Phase 1B 作者工时门禁、坐标 importer 预检与对抗性 Review 记录。
 
 ## 当前代码审计摘要
 
