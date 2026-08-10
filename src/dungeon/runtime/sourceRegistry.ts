@@ -79,8 +79,8 @@ export const dungeonSourceRegistry: SourceRegistry = {
       sourceId: 'threechest',
       snapshotId: 'threechest-coordinate-snapshot-2026-08-10',
       // sha256 of the sorted `sourceKey:rawSha256` lines for the eight
-      // committed coordinate snapshots. Recompute this value when a snapshot
-      // is added or regenerated.
+      // committed legacy coordinate snapshots. These snapshots are not the
+      // current Midnight S2 rotation; recompute when the inventory changes.
       hash: 'sha256:dd24df43ea1426dd0dddd9bc770f9b3d7cbdbcd2300589a3c5b90a4f6ad8bc09',
       allowedUses: ['local-research', 'commit-derived-data', 'redistribute'],
       approvedBy: 'project-owner',

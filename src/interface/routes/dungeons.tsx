@@ -8,6 +8,7 @@ import {
   DungeonMap,
   dungeonCoverageStatusLabel,
   dungeonDocuments,
+  getCoordinateReference,
   getDungeonDocument,
   getPullStepForces,
   isLearningPublished,
@@ -69,6 +70,7 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
 
 function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
   const learningAvailable = isLearningPublished(entry.status);
+  const coordinateAvailable = Boolean(entry.coordinateSnapshotId && getCoordinateReference(entry));
   return (
     <article className="dungeon-card dungeon-card--coverage">
       <div className="dungeon-card__eyebrow">
@@ -79,7 +81,7 @@ function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
       <p>{entry.summary.zhCN}</p>
       <div className="dungeon-coverage-meta">
         <span>坐标快照</span>
-        <code>{entry.coordinateSnapshotId}</code>
+        <code>{entry.coordinateSnapshotId ?? '位置参考待接入'}</code>
       </div>
       <div className="dungeon-card__actions">
         {learningAvailable ? (
@@ -89,9 +91,15 @@ function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
         ) : (
           <span className="dungeon-card__action dungeon-card__action--disabled">攻略尚未开放</span>
         )}
-        <Link className="dungeon-card__reference" to={`/dungeons/${entry.id}/reference`}>
-          查看位置参考 →
-        </Link>
+        {coordinateAvailable ? (
+          <Link className="dungeon-card__reference" to={`/dungeons/${entry.id}/reference`}>
+            查看位置参考 →
+          </Link>
+        ) : (
+          <span className="dungeon-card__reference dungeon-card__reference--disabled">
+            位置参考待接入
+          </span>
+        )}
       </div>
       <small className="dungeon-card__next-milestone">下一步：{entry.nextMilestone.zhCN}</small>
     </article>

@@ -9,6 +9,13 @@ export const dungeonCoverageStatusLabel: Record<DungeonCoverageStatus, string> =
   published: '已发布',
 };
 
+/**
+ * The catalog is the product's season roster. It deliberately does not imply that
+ * a coordinate snapshot, route, or learning document exists for every entry.
+ *
+ * `sourceKey` is a stable internal key for future data adapters. It is not a
+ * Threechest key and must not be used as proof that a coordinate source exists.
+ */
 export interface DungeonCatalogEntry {
   id: string;
   slug: string;
@@ -16,181 +23,215 @@ export interface DungeonCatalogEntry {
   name: LocalizedText;
   season: 'midnight-s2';
   status: DungeonCoverageStatus;
-  coordinateSnapshotId: string;
-  coordinateSourceId: 'threechest';
+  coordinateSnapshotId?: string;
+  coordinateSourceId?: 'threechest';
   mapAssetKey: string;
   wclEncounterId?: number;
   summary: LocalizedText;
   nextMilestone: LocalizedText;
 }
 
+/**
+ * Threechest snapshots already committed to this repository are kept as a
+ * separately named inventory. The clone currently contains an older dungeon
+ * pool, so these entries are useful for importer/renderer regression tests but
+ * are not members of the Midnight S2 roster.
+ */
+export interface ThreechestCoordinateInventoryEntry {
+  id: string;
+  slug: string;
+  sourceKey: string;
+  name: LocalizedText;
+  coordinateSnapshotId: string;
+  coordinateSourceId: 'threechest';
+  mapAssetKey: string;
+}
+
 const text = (zhCN: string, enUS: string): LocalizedText => ({ zhCN, enUS });
 
-/**
- * Coverage metadata is deliberately separate from DungeonDocument. An entry in this
- * catalog is not an invitation to browse an empty route: it only records what has
- * actually entered the local data pipeline and what still needs content review.
- */
+export const season2RotationSource = {
+  sourceId: 'blizzard-midnight-s2-rotation',
+  title: 'The Shadows Deepen: Midnight Season 2 Begins August 18',
+  url: 'https://news.blizzard.com/en-us/article/24294369/the-shadows-deepen-midnight-season-2-begins-august-18',
+  retrievedAt: '2026-08-10',
+  fieldAllowlist: ['season', 'dungeon id', 'dungeon name', 'rotation membership'],
+} as const;
+
+const buildingSummary = (name: string): LocalizedText =>
+  text(
+    `${name} 已登记为 Midnight S2 副本；技能、波次和位置参考仍在建设中。`,
+    `${name} is registered for Midnight S2; skills, pulls, and spatial references are still being built.`,
+  );
+
+const buildingMilestone = text(
+  '先接入可核验的位置/地图来源，再补齐 Situation、技能动作和学习路线。',
+  'Connect a verifiable map source, then author Situations, ability actions, and a learning route.',
+);
+
+/** The eight dungeons in the current Midnight Season 2 Mythic+ rotation. */
 export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
+  {
+    id: 'altar-of-fangs',
+    slug: 'altar-of-fangs',
+    sourceKey: 'altar-of-fangs',
+    name: text('尖牙祭坛', 'Altar of Fangs'),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:altar-of-fangs',
+    summary: buildingSummary('尖牙祭坛'),
+    nextMilestone: buildingMilestone,
+  },
+  {
+    id: 'murder-row',
+    slug: 'murder-row',
+    sourceKey: 'murder-row',
+    name: text('谋杀街', 'Murder Row'),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:murder-row',
+    summary: buildingSummary('谋杀街'),
+    nextMilestone: buildingMilestone,
+  },
+  {
+    id: 'den-of-nalorakk',
+    slug: 'den-of-nalorakk',
+    sourceKey: 'den-of-nalorakk',
+    name: text('纳洛拉克巢穴', 'Den of Nalorakk'),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:den-of-nalorakk',
+    summary: buildingSummary('纳洛拉克巢穴'),
+    nextMilestone: buildingMilestone,
+  },
+  {
+    id: 'the-blinding-vale',
+    slug: 'the-blinding-vale',
+    sourceKey: 'the-blinding-vale',
+    name: text('盲谷', 'The Blinding Vale'),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:the-blinding-vale',
+    summary: buildingSummary('盲谷'),
+    nextMilestone: buildingMilestone,
+  },
+  {
+    id: 'voidscar-arena',
+    slug: 'voidscar-arena',
+    sourceKey: 'voidscar-arena',
+    name: text('虚空裂痕竞技场', 'Voidscar Arena'),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:voidscar-arena',
+    summary: buildingSummary('虚空裂痕竞技场'),
+    nextMilestone: buildingMilestone,
+  },
+  {
+    id: 'ruby-life-pools',
+    slug: 'ruby-life-pools',
+    sourceKey: 'ruby-life-pools',
+    name: text('红玉新生法池', 'Ruby Life Pools'),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:ruby-life-pools',
+    summary: buildingSummary('红玉新生法池'),
+    nextMilestone: buildingMilestone,
+  },
+  {
+    id: 'kings-rest',
+    slug: 'kings-rest',
+    sourceKey: 'kings-rest',
+    name: text('诸王之眠', "Kings' Rest"),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:kings-rest',
+    summary: buildingSummary('诸王之眠'),
+    nextMilestone: buildingMilestone,
+  },
+  {
+    id: 'temple-of-sethraliss',
+    slug: 'temple-of-sethraliss',
+    sourceKey: 'temple-of-sethraliss',
+    name: text('塞塔里斯神庙', 'Temple of Sethraliss'),
+    season: 'midnight-s2',
+    status: 'building',
+    mapAssetKey: 'midnight-s2:temple-of-sethraliss',
+    summary: buildingSummary('塞塔里斯神庙'),
+    nextMilestone: buildingMilestone,
+  },
+];
+
+export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateInventoryEntry[] = [
   {
     id: 'algethar-academy',
     slug: 'algethar-academy',
     sourceKey: 'aa',
     name: text('艾杰斯亚学院', "Algeth'ar Academy"),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:aa',
-    wclEncounterId: 112526,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:aa',
   },
   {
     id: 'magisters-terrace',
     slug: 'magisters-terrace',
     sourceKey: 'magi',
     name: text('魔导师平台', "Magisters' Terrace"),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:magi',
-    wclEncounterId: 12811,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:magi',
   },
   {
     id: 'maisara-caverns',
     slug: 'maisara-caverns',
     sourceKey: 'cavns',
     name: text('迈萨拉洞窟', 'Maisara Caverns'),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:cavns',
-    wclEncounterId: 12874,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:cavns',
   },
   {
     id: 'nexuspoint-xenas',
     slug: 'nexuspoint-xenas',
     sourceKey: 'xenas',
     name: text('节点希纳斯', 'Nexus-Point Xenas'),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:xenas',
-    wclEncounterId: 12915,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:xenas',
   },
   {
     id: 'windrunner-spire',
     slug: 'windrunner-spire',
     sourceKey: 'wind',
     name: text('风行者之塔', 'Windrunner Spire'),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:wind',
-    wclEncounterId: 12805,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:wind',
   },
   {
     id: 'pit-of-saron',
     slug: 'pit-of-saron',
     sourceKey: 'pit',
     name: text('萨隆矿坑', 'Pit of Saron'),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:pit',
-    wclEncounterId: 10658,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:pit',
   },
   {
     id: 'seat-of-the-triumvirate',
     slug: 'seat-of-the-triumvirate',
     sourceKey: 'seat',
     name: text('执政团之座', 'Seat of the Triumvirate'),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:seat',
-    wclEncounterId: 361753,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:seat',
   },
   {
     id: 'skyreach',
     slug: 'skyreach',
     sourceKey: 'sky',
     name: text('通天峰', 'Skyreach'),
-    season: 'midnight-s2',
-    status: 'building',
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
-    mapAssetKey: 'midnight-s2:sky',
-    wclEncounterId: 61209,
-    summary: text(
-      '坐标与位置关系已进入本地导入链路，攻略知识尚未发布。',
-      'Coordinates are in the local import pipeline; learning content is not published.',
-    ),
-    nextMilestone: text(
-      '补齐稳定 Situation、技能动作和学习路线。',
-      'Author reviewed Situations, ability actions, and a learning route.',
-    ),
+    mapAssetKey: 'legacy-threechest:sky',
   },
 ];
 
@@ -241,15 +282,38 @@ export function validateSeason2DungeonCatalog(
       diagnostics.push({
         code: 'CATALOG_DUPLICATE_SOURCE_KEY',
         path: `$[${index}].sourceKey`,
-        message: `重复的 Threechest source key：${entry.sourceKey}`,
+        message: `重复的副本 source key：${entry.sourceKey}`,
       });
     }
     sourceKeys.add(entry.sourceKey);
-    if (!entry.coordinateSnapshotId || entry.coordinateSourceId !== 'threechest') {
+    if (
+      legacyThreechestCoordinateInventory.some((legacy) => legacy.sourceKey === entry.sourceKey)
+    ) {
+      diagnostics.push({
+        code: 'CATALOG_LEGACY_SOURCE_KEY_REUSED',
+        path: `$[${index}].sourceKey`,
+        message: `S2 条目不能复用 legacy Threechest source key：${entry.sourceKey}`,
+      });
+    }
+    if (entry.coordinateSourceId && !entry.coordinateSnapshotId) {
       diagnostics.push({
         code: 'CATALOG_COORDINATE_PROVENANCE',
         path: `$[${index}]`,
-        message: '坐标就绪条目必须带有 approved source snapshot 和 threechest source ID。',
+        message: '坐标来源 ID 不能脱离 coordinate snapshot 单独存在。',
+      });
+    }
+    if (entry.coordinateSnapshotId && entry.coordinateSourceId !== 'threechest') {
+      diagnostics.push({
+        code: 'CATALOG_COORDINATE_PROVENANCE',
+        path: `$[${index}]`,
+        message: '当前坐标快照只允许显式标记为 threechest 来源。',
+      });
+    }
+    if (entry.status === 'coordinate-ready' && !entry.coordinateSnapshotId) {
+      diagnostics.push({
+        code: 'CATALOG_COORDINATE_STATUS_INVALID',
+        path: `$[${index}].status`,
+        message: 'coordinate-ready 条目必须带有坐标快照。',
       });
     }
     if (isLearningPublished(entry.status) && !registeredDocumentIds.has(entry.id)) {

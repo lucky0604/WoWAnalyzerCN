@@ -1,7 +1,7 @@
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-import { season2DungeonCatalog } from '../../src/dungeon/data/season2Catalog';
+import { legacyThreechestCoordinateInventory } from '../../src/dungeon/data/season2Catalog';
 import { dungeonDocuments } from '../../src/dungeon/registry';
 import {
   getCoordinateSnapshot,
@@ -237,7 +237,7 @@ export function coordinateImpact(
   snapshotId: string,
   previousBySourceKey: Record<string, string> = {},
 ): CoordinateImpact[] {
-  return season2DungeonCatalog.flatMap((entry) => {
+  return legacyThreechestCoordinateInventory.flatMap((entry) => {
     const snapshot: CoordinateSnapshot | undefined = getCoordinateSnapshot(entry.sourceKey);
     if (!snapshot || snapshot.snapshotId !== snapshotId) return [];
     const previousHash = previousBySourceKey[entry.sourceKey];

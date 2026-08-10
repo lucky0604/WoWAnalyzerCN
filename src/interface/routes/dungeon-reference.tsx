@@ -13,15 +13,19 @@ import {
 
 import './dungeons.scss';
 
-function ReferenceNotFound() {
+function ReferenceNotFound({ pending = false }: { pending?: boolean }) {
   return (
     <>
       <DocumentTitle title="位置参考不存在" />
       <NavigationBar style={{ margin: 0, position: 'static' }} />
       <main className="dungeon-shell">
         <section className="dungeon-panel dungeon-panel--error">
-          <h1>找不到这个位置参考</h1>
-          <p>链接中的副本还没有进入坐标快照注册表。</p>
+          <h1>{pending ? '位置参考还在建设中' : '找不到这个位置参考'}</h1>
+          <p>
+            {pending
+              ? '这个 S2 副本已经登记，但可靠的地图/坐标来源尚未接入；当前不会用旧副本数据代替。'
+              : '链接中的副本还没有进入 S2 目录。'}
+          </p>
           <Link to="/dungeons">返回副本覆盖路线</Link>
         </section>
       </main>
@@ -37,7 +41,7 @@ export function Component() {
   const [selectedSpawnId, setSelectedSpawnId] = useState<string>();
 
   if (!entry || !reference) {
-    return <ReferenceNotFound />;
+    return <ReferenceNotFound pending={Boolean(entry)} />;
   }
 
   const selectedSpawn = reference.spawns.find((spawn) => spawn.id === selectedSpawnId);

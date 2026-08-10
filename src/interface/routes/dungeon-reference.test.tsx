@@ -10,19 +10,21 @@ vi.mock('interface/NavigationBar', () => ({
 }));
 
 describe('dungeon coordinate reference route', () => {
-  it('renders a coordinate-only view for a building dungeon without a learning link', () => {
+  it('keeps a current S2 dungeon visible while its coordinate reference is pending', () => {
     render(
-      <MemoryRouter initialEntries={['/dungeons/magisters-terrace/reference']}>
+      <MemoryRouter initialEntries={['/dungeons/kings-rest/reference']}>
         <Routes>
           <Route path="/dungeons/:dungeonId/reference" element={<Component />} />
         </Routes>
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { name: '魔导师平台' })).toBeInTheDocument();
-    expect(screen.getByText('地图背景未配置')).toBeInTheDocument();
-    expect(screen.getByText('位置数量')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '位置参考还在建设中' })).toBeInTheDocument();
+    expect(screen.getByText(/可靠的地图\/坐标来源尚未接入/)).toBeInTheDocument();
     expect(screen.queryByText('开始学习')).not.toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /进入日志分析/ })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: '返回副本覆盖路线' })).toHaveAttribute(
+      'href',
+      '/dungeons',
+    );
   });
 });

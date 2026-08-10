@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 
 import {
+  legacyThreechestCoordinateInventory,
   season2DungeonCatalog,
   validateSeason2DungeonCatalog,
 } from '../../src/dungeon/data/season2Catalog';
@@ -82,7 +83,10 @@ function runGlobalDungeonCheck(): void {
     errors.push(`catalog: ${diagnostic.code} ${diagnostic.path} — ${diagnostic.message}`);
   });
 
+  let season2CoordinateReferenceCount = 0;
   for (const entry of season2DungeonCatalog) {
+    if (!entry.coordinateSnapshotId) continue;
+    season2CoordinateReferenceCount += 1;
     const reference = getCoordinateReference(entry);
     if (!reference) {
       errors.push(`catalog: COORDINATE_SNAPSHOT_MISSING ${entry.id} — ${entry.sourceKey}`);
@@ -95,7 +99,7 @@ function runGlobalDungeonCheck(): void {
 
   const coordinateSnapshotHash = createHash('sha256')
     .update(
-      season2DungeonCatalog
+      legacyThreechestCoordinateInventory
         .map((entry) => {
           const snapshot = getCoordinateSnapshot(entry.sourceKey);
           return `${entry.sourceKey}:${snapshot?.rawSha256 ?? 'missing'}`;
@@ -113,6 +117,19 @@ function runGlobalDungeonCheck(): void {
     errors.push(
       `source registry: COORDINATE_HASH_MISMATCH ${registeredCoordinateHash ?? 'missing'} !== sha256:${coordinateSnapshotHash}`,
     );
+  }
+
+  for (const entry of legacyThreechestCoordinateInventory) {
+    const snapshot = getCoordinateSnapshot(entry.sourceKey);
+    if (!snapshot) {
+      errors.push(
+        `coordinate inventory: COORDINATE_SNAPSHOT_MISSING ${entry.id} — ${entry.sourceKey}`,
+      );
+    } else if (snapshot.snapshotId !== entry.coordinateSnapshotId) {
+      errors.push(
+        `coordinate inventory: COORDINATE_SNAPSHOT_MISMATCH ${entry.id} — ${snapshot.snapshotId} !== ${entry.coordinateSnapshotId}`,
+      );
+    }
   }
 
   for (const document of dungeonDocuments) {
@@ -138,7 +155,7 @@ function runGlobalDungeonCheck(): void {
     process.exitCode = 1;
   } else {
     console.log(
-      `Dungeon check passed: ${dungeonDocuments.length} document(s), ${season2DungeonCatalog.length} coordinate reference(s), source registry approved.`,
+      `Dungeon check passed: ${dungeonDocuments.length} document(s), ${season2DungeonCatalog.length} S2 catalog entries (${season2CoordinateReferenceCount} coordinate reference(s)), ${legacyThreechestCoordinateInventory.length} legacy coordinate snapshot(s), source registry approved.`,
     );
   }
 }

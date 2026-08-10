@@ -7,7 +7,14 @@ import sky from '../data/coordinates/sky.json';
 import wind from '../data/coordinates/wind.json';
 import xenas from '../data/coordinates/xenas.json';
 import type { Floor, Spawn } from '../schema/types';
-import type { DungeonCatalogEntry } from '../data/season2Catalog';
+
+export interface CoordinateReferenceEntry {
+  id: string;
+  sourceKey: string;
+  name: { zhCN: string; enUS?: string };
+  mapAssetKey: string;
+  coordinateSnapshotId?: string;
+}
 
 export interface CoordinateSnapshotSpawn {
   sourceId: string;
@@ -73,10 +80,13 @@ export interface CoordinateReference {
 }
 
 export function getCoordinateReference(
-  entry: DungeonCatalogEntry,
+  entry: CoordinateReferenceEntry,
 ): CoordinateReference | undefined {
+  if (!entry.coordinateSnapshotId) {
+    return undefined;
+  }
   const snapshot = getCoordinateSnapshot(entry.sourceKey);
-  if (!snapshot) {
+  if (!snapshot || snapshot.snapshotId !== entry.coordinateSnapshotId) {
     return undefined;
   }
   const floorId = `${entry.id}:default`;
