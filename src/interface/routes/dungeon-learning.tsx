@@ -98,6 +98,7 @@ function ConfidenceButton({
   };
   return (
     <button
+      aria-pressed={selected}
       className={`learning-confidence learning-confidence--${confidence} ${selected ? 'is-selected' : ''}`}
       onClick={onClick}
       type="button"
@@ -121,6 +122,7 @@ export function Component() {
   const currentIndex = foundIndex < 0 ? 0 : foundIndex;
   const lesson = plan[currentIndex];
   const [progress, setProgress] = useState(() => readLearningProgress());
+  const [storageWarning, setStorageWarning] = useState(false);
 
   useEffect(() => {
     if (document && lesson && requestedSituation !== lesson.situation.id) {
@@ -167,7 +169,7 @@ export function Component() {
   ).length;
   const updateProgress = (nextProgress: typeof progress) => {
     setProgress(nextProgress);
-    writeLearningProgress(nextProgress);
+    setStorageWarning(!writeLearningProgress(nextProgress));
   };
   const go = (updates: Partial<{ mode: LearningMode; situation: string; role: Role }>) =>
     navigate({ search: updateSearch(searchParams, updates) }, { replace: true });
@@ -187,16 +189,21 @@ export function Component() {
       ),
     );
   const onReveal = () =>
+    record?.confidence &&
     updateProgress(
       recordRecall(
         progress,
         document.id,
         lesson.situation.id,
-        record?.confidence ?? 'unknown',
+        record.confidence,
         true,
         lesson.fingerprint,
       ),
     );
+  const onRoleChange = (nextRole: Role) => {
+    go({ role: nextRole });
+    updateProgress({ ...progress, lastRole: nextRole });
+  };
 
   return (
     <>
@@ -214,6 +221,11 @@ export function Component() {
         {learningAccess?.state === 'preview' && (
           <div className="learning-fixture-notice">
             内容草稿：以下内容用于验证学习交互和来源链路，不代表已审校的正式 S2 攻略。
+          </div>
+        )}
+        {storageWarning && (
+          <div className="learning-storage-notice" role="status">
+            当前浏览器未能保存复习进度；本次页面内仍可继续学习，但刷新后可能丢失记录。
           </div>
         )}
         <header className="learning-hero">
@@ -249,6 +261,7 @@ export function Component() {
               type="button"
               role="tab"
               aria-selected={item === mode}
+              aria-controls="learning-lesson-panel"
               className={item === mode ? 'is-active' : undefined}
               key={item}
               onClick={() => go({ mode: item, situation: plan[0]?.situation.id })}
@@ -295,7 +308,11 @@ export function Component() {
               查看对象与坐标 →
             </Link>
           </aside>
-          <section className="dungeon-learning-panel learning-lesson" aria-live="polite">
+          <section
+            className="dungeon-learning-panel learning-lesson"
+            id="learning-lesson-panel"
+            aria-live="polite"
+          >
             <div className="learning-lesson__meta">
               <span className={`learning-kind learning-kind--${lesson.situation.kind}`}>
                 {lesson.situation.kind === 'boss' ? 'BOSS' : lesson.situation.kind.toUpperCase()}
@@ -396,8 +413,13 @@ export function Component() {
                   </p>
                 </div>
               ) : (
-                <button className="learning-reveal" type="button" onClick={onReveal}>
-                  显示参考答案
+                <button
+                  className="learning-reveal"
+                  type="button"
+                  onClick={onReveal}
+                  disabled={!record?.confidence}
+                >
+                  {record?.confidence ? '显示参考答案' : '先选择把握程度'}
                 </button>
               )}
             </div>
@@ -425,9 +447,10 @@ export function Component() {
               {(Object.keys(roleLabels) as Role[]).map((item) => (
                 <button
                   type="button"
+                  aria-pressed={role === item}
                   className={role === item ? 'is-active' : undefined}
                   key={item}
-                  onClick={() => go({ role: item })}
+                  onClick={() => onRoleChange(item)}
                 >
                   {roleLabels[item]}
                 </button>
