@@ -27,7 +27,7 @@
 
 - `pnpm vitest run scripts/dungeons/import-threechest.test.ts`：4 tests passed。
 - `pnpm vitest run src/dungeon/schema/validate.test.ts`：17 tests passed，包含缺失、malformed、unknown、非正整数工时路径。
-- 受影响 dungeon/UI/operations suite：22 files，91 tests passed。
+- 受影响 dungeon/UI/operations/importer suite：23 files，96 tests passed。
 - `pnpm dungeon:generate -- --dungeon=all --check`：8 个 legacy snapshot 全部通过。
 - `pnpm dungeon:check`：通过，1 registered、2 preview、8 S2 catalog、8 legacy snapshot。
 - `pnpm typecheck`、受影响文件 `oxlint`、`oxfmt`：通过。
