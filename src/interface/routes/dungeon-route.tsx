@@ -47,7 +47,7 @@ function RouteUnavailable({ dungeonId }: { dungeonId: string }) {
         <section className="dungeon-panel dungeon-panel--error">
           <h1>路线待审校</h1>
           <p>当前副本没有可以公开学习的正式路线；草稿只在副本 Inspector 中审阅。</p>
-          <Link to={`/dungeons/${dungeonId}`}>打开 Inspector</Link>
+          <Link to={`/dungeons/${dungeonId}?view=inspector`}>打开 Inspector</Link>
         </section>
       </main>
     </>
@@ -137,11 +137,11 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
       <NavigationBar style={{ margin: 0, position: 'static' }}>
         <Link to="/dungeons">大秘境学习</Link>
         <span className="learning-nav-separator">/</span>
-        <Link to={`/dungeons/${document.id}`}>{document.name.zhCN}</Link>
+        <Link to={`/dungeons/${document.id}?view=inspector`}>{document.name.zhCN}</Link>
       </NavigationBar>
       <main className="dungeon-shell">
         <div className="dungeon-breadcrumb">
-          <Link to={`/dungeons/${document.id}`}>Inspector</Link>
+          <Link to={`/dungeons/${document.id}?view=inspector`}>Inspector</Link>
           <span>/</span>
           {route.name.zhCN}
         </div>

@@ -81,7 +81,7 @@ function LearningUnavailable({
         <section className="dungeon-learning-panel dungeon-learning-panel--error">
           <h1>{title}</h1>
           <p>{detail}</p>
-          <Link to={`/dungeons/${dungeonId}`}>打开 Inspector</Link>
+          <Link to={`/dungeons/${dungeonId}?view=inspector`}>打开 Inspector</Link>
         </section>
       </main>
     </>
@@ -161,7 +161,7 @@ export function Component() {
           <section className="dungeon-learning-panel dungeon-learning-panel--error">
             <h1>该模式暂无学习内容</h1>
             <p>当前副本还没有完成该模式所需的内容。</p>
-            <Link to={`/dungeons/${document.id}`}>返回 Inspector</Link>
+            <Link to={`/dungeons/${document.id}?view=inspector`}>返回 Inspector</Link>
           </section>
         </main>
       </>
@@ -223,7 +223,7 @@ export function Component() {
       </NavigationBar>
       <main className="dungeon-learning-shell">
         <div className="dungeon-learning-breadcrumb">
-          <Link to={`/dungeons/${document.id}`}>Inspector</Link>
+          <Link to={`/dungeons/${document.id}?view=inspector`}>Inspector</Link>
           <span>/</span>学习模式
         </div>
         {learningAccess?.state === 'preview' && (
@@ -312,7 +312,10 @@ export function Component() {
                 );
               })}
             </ol>
-            <Link className="learning-outline__reference" to={`/dungeons/${document.id}`}>
+            <Link
+              className="learning-outline__reference"
+              to={`/dungeons/${document.id}?view=inspector`}
+            >
               查看对象与坐标 →
             </Link>
           </aside>

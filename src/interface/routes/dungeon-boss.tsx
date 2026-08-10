@@ -47,7 +47,7 @@ function BossUnavailable({ dungeonId, label }: { dungeonId: string; label: strin
         <section className="dungeon-panel dungeon-panel--error">
           <h1>Boss 学习待开放</h1>
           <p>{label}。正式学习内容必须通过来源、空间数据和第二审校门禁。</p>
-          <Link to={`/dungeons/${dungeonId}`}>打开 Inspector</Link>
+          <Link to={`/dungeons/${dungeonId}?view=inspector`}>打开 Inspector</Link>
         </section>
       </main>
     </>
@@ -163,11 +163,11 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
       <NavigationBar style={{ margin: 0, position: 'static' }}>
         <Link to="/dungeons">大秘境学习</Link>
         <span className="learning-nav-separator">/</span>
-        <Link to={`/dungeons/${document.id}`}>{document.name.zhCN}</Link>
+        <Link to={`/dungeons/${document.id}?view=inspector`}>{document.name.zhCN}</Link>
       </NavigationBar>
       <main className="dungeon-shell">
         <div className="dungeon-breadcrumb">
-          <Link to={`/dungeons/${document.id}`}>Inspector</Link>
+          <Link to={`/dungeons/${document.id}?view=inspector`}>Inspector</Link>
           <span>/</span>
           Boss 学习
         </div>
@@ -341,7 +341,7 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
               进入完整学习 →
             </Link>
           ) : (
-            <Link to={`/dungeons/${document.id}`}>返回 Inspector →</Link>
+            <Link to={`/dungeons/${document.id}?view=inspector`}>返回 Inspector →</Link>
           )}
         </section>
       </main>

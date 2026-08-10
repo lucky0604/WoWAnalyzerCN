@@ -3,6 +3,7 @@ import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
 import { Component } from './dungeons';
+import { dungeonDocumentsById, phase0FixtureDocuments } from '../../dungeon';
 
 vi.mock('interface/DocumentTitle', () => ({ default: () => null }));
 vi.mock('interface/NavigationBar', () => ({
@@ -11,6 +12,10 @@ vi.mock('interface/NavigationBar', () => ({
 
 function LocationProbe() {
   return <output data-testid="location-search">{useLocation().search}</output>;
+}
+
+function LearningTarget() {
+  return <output data-testid="learning-target">learning target</output>;
 }
 
 describe('dungeon inspector query', () => {
@@ -100,5 +105,35 @@ describe('dungeon inspector query', () => {
       'aria-pressed',
       'false',
     );
+  });
+
+  it('redirects a formally reviewed document to learning by default', () => {
+    const formalDocument = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    formalDocument.id = 'formal-dungeon-test';
+    formalDocument.slug = 'formal-dungeon-test';
+    formalDocument.dataStatus = 'reviewed';
+    formalDocument.version = { ...formalDocument.version, status: 'reviewed' };
+    formalDocument.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10',
+      gameBuild: formalDocument.version.build,
+    };
+    dungeonDocumentsById.set(formalDocument.id, formalDocument);
+
+    try {
+      render(
+        <MemoryRouter initialEntries={[`/dungeons/${formalDocument.id}`]}>
+          <Routes>
+            <Route path="/dungeons/:dungeonId" element={<Component />} />
+            <Route path="/dungeons/:dungeonId/learn" element={<LearningTarget />} />
+          </Routes>
+        </MemoryRouter>,
+      );
+
+      expect(screen.getByTestId('learning-target')).toHaveTextContent('learning target');
+    } finally {
+      dungeonDocumentsById.delete(formalDocument.id);
+    }
   });
 });

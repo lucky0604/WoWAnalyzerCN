@@ -1,6 +1,6 @@
 import DocumentTitle from 'interface/DocumentTitle';
 import NavigationBar from 'interface/NavigationBar';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 
 import {
@@ -84,7 +84,7 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
             {learningAccess.label}
           </span>
         )}
-        <Link className="dungeon-card__reference" to={`/dungeons/${document.id}`}>
+        <Link className="dungeon-card__reference" to={`/dungeons/${document.id}?view=inspector`}>
           打开 Inspector
         </Link>
       </div>
@@ -806,6 +806,7 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
 
 export function Component() {
   const { dungeonId } = useParams();
+  const [searchParams] = useSearchParams();
   const document = dungeonId ? getDungeonDocument(dungeonId) : undefined;
 
   if (dungeonId && !document) {
@@ -813,6 +814,10 @@ export function Component() {
   }
 
   if (document) {
+    const access = getDungeonLearningAccess(document);
+    if (access.isFormal && searchParams.get('view') !== 'inspector') {
+      return <Navigate replace to={`/dungeons/${document.id}/learn`} />;
+    }
     return <DungeonDetail document={document} />;
   }
 
