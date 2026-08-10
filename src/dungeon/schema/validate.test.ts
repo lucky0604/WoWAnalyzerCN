@@ -125,4 +125,30 @@ describe('Dungeon document validation', () => {
       ]),
     );
   });
+
+  it('requires source records on formal documents and nested entities', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'published';
+    document.version.status = 'published';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+    };
+    document.provenance = [];
+    document.abilities[0]!.provenance = [];
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'DUNGEON_RELEASE_SOURCE_MISSING', path: 'provenance' }),
+        expect.objectContaining({
+          code: 'DUNGEON_NESTED_SOURCE_MISSING',
+          path: 'abilities.rlp-ability-burning-focus.provenance',
+        }),
+      ]),
+    );
+  });
 });

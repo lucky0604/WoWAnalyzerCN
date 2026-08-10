@@ -267,15 +267,34 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       );
     }
   }
-  if (releaseStatus && document.provenance.some((source) => source.licenseStatus !== 'approved')) {
+  const documentSourceMissing = document.provenance.length === 0;
+  const documentSourceUnapproved = document.provenance.some(
+    (source) => source.licenseStatus !== 'approved',
+  );
+  if (releaseStatus && (documentSourceMissing || documentSourceUnapproved)) {
     errors.push(
       diagnostic(
         'error',
-        document.dataStatus === 'published'
-          ? 'DUNGEON_PUBLISHED_SOURCE_NOT_APPROVED'
-          : 'DUNGEON_REVIEWED_SOURCE_NOT_APPROVED',
+        documentSourceMissing
+          ? 'DUNGEON_RELEASE_SOURCE_MISSING'
+          : document.dataStatus === 'published'
+            ? 'DUNGEON_PUBLISHED_SOURCE_NOT_APPROVED'
+            : 'DUNGEON_REVIEWED_SOURCE_NOT_APPROVED',
         'provenance',
-        `${document.dataStatus} 内容不能包含未批准的来源。`,
+        documentSourceMissing
+          ? '正式内容必须登记至少一条来源。'
+          : `${document.dataStatus} 内容不能包含未批准的来源。`,
+        document.id,
+      ),
+    );
+  }
+  if (!releaseStatus && documentSourceMissing) {
+    warnings.push(
+      diagnostic(
+        'warning',
+        'DUNGEON_RELEASE_SOURCE_MISSING',
+        'provenance',
+        '草稿尚未登记来源；进入 reviewed/published 前必须补齐。',
         document.id,
       ),
     );
@@ -288,6 +307,21 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
     ...document.bosses.map((item) => ({ collection: 'bosses', item })),
   ];
   nestedProvenance.forEach(({ collection, item }) => {
+    if (item.provenance.length === 0) {
+      const severity = releaseStatus ? 'error' : 'warning';
+      (severity === 'error' ? errors : warnings).push(
+        diagnostic(
+          severity,
+          'DUNGEON_NESTED_SOURCE_MISSING',
+          `${collection}.${item.id}.provenance`,
+          releaseStatus
+            ? '正式知识实体必须登记至少一条来源。'
+            : '知识实体尚未登记来源；进入 reviewed/published 前必须补齐。',
+          item.id,
+        ),
+      );
+      return;
+    }
     item.provenance.forEach((source, sourceIndex) => {
       if (source.licenseStatus === 'approved') return;
       const severity = releaseStatus ? 'error' : 'warning';
