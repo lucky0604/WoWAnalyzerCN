@@ -128,6 +128,20 @@ describe('fact snapshot preflight contract', () => {
     expect(result.errors.map((error) => error.code)).toContain('FACT_SNAPSHOT_DIGEST_MISMATCH');
   });
 
+  it('rejects duplicate caster keys instead of normalizing them away', async () => {
+    const snapshot = await makeSnapshot({
+      abilities: [
+        {
+          abilityKey: 'test-ability',
+          spellId: 2001,
+          casterEnemyKeys: ['test-enemy', 'test-enemy'],
+        },
+      ],
+    });
+    const result = await validateFactSnapshot(snapshot);
+    expect(result.errors.map((error) => error.code)).toContain('FACT_SNAPSHOT_DUPLICATE_CASTER');
+  });
+
   it('requires valid timestamps, complete forces totals and a non-empty release payload', async () => {
     const invalidTimestamp = await validateFactSnapshotIntegrity(
       await makeSnapshot({ capturedAt: 'yesterday' }),

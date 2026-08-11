@@ -59,6 +59,7 @@
 - [19-s2-coordinate-expansion-review.md](./19-s2-coordinate-expansion-review.md)：S2 八本坐标快照、stable SpawnId、来源 hash 与对抗性 Review 证据。
 - [20-content-readiness-phase.md](./20-content-readiness-phase.md)：S2 六道内容就绪门、正式深链授权与缺口报告的实现证据。
 - [21-fact-snapshot-preflight-phase.md](./21-fact-snapshot-preflight-phase.md)：NPC/Spell/forces 事实快照合同、canonical digest 与 release 预检 CLI。
+- [22-fact-binding-phase.md](./22-fact-binding-phase.md)：事实快照到自有 Enemy/Ability 的显式 mapping、draft 生成、forces 重算与 release 覆盖门禁。
 
 ## 当前代码审计摘要
 
@@ -87,6 +88,7 @@
 - `dungeon:impact`、`dungeon:status stale`、`dungeon:preview`、`dungeon:publish`、`dungeon:rollback` 已提供显式 release/stale ledger 流程；publish 只写 release manifest，不自动注册页面。
 - `pnpm dungeon:check-dist` 是发布前的 remote-dev/Threechest 产物扫描门禁。
 - `pnpm dungeon:fact-check --input=<file>` 提供事实快照的只读结构、目录、build、来源与 canonical digest 预检；当前没有因此新增或猜测 S2 NPC、Spell 或 forces 数据。
+- `pnpm dungeon:fact-bind --snapshot=<file> --bindings=<file> --document=<file> --out=<file>` 将已预检事实绑定到新的 authoring draft；不覆盖来源、不发布、不自动生成路线或攻略结论。
 - WCL 前置导航已接入：正式副本可从 Inspector 进入现有 report selector；正式报告识别到已发布副本后才显示学习深链。报告侧通过 dynamic import 加载 Dungeon adapter，默认不会影响 parser/analysis 初始路径。
 - 生产/preview 路由必须显式设置 `VITE_DUNGEON_ROUTES=true`；Threechest legacy 坐标 QA 路由永远只在 DEV 注册。图片 provider 仍需单独切换为 OSS 或 placeholder。
 

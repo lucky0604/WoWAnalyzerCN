@@ -334,6 +334,20 @@ function validateAbilityFacts(
         ),
       );
     } else {
+      const validCasterKeys = casterEnemyKeys.filter(isNonEmptyString);
+      if (
+        validCasterKeys.length === casterEnemyKeys.length &&
+        new Set(validCasterKeys).size !== validCasterKeys.length
+      ) {
+        errors.push(
+          diagnostic(
+            'error',
+            'FACT_SNAPSHOT_DUPLICATE_CASTER',
+            `${path}.casterEnemyKeys`,
+            'casterEnemyKeys 不能包含重复 enemyKey。',
+          ),
+        );
+      }
       casterEnemyKeys.forEach((enemyKey, casterIndex) => {
         if (!isNonEmptyString(enemyKey) || !enemyKeys.has(enemyKey)) {
           errors.push(

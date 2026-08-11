@@ -13,6 +13,7 @@ export * from './runtime/access';
 export * from './runtime/contentReadiness';
 export * from './runtime/formalAccess';
 export * from './runtime/factSnapshot';
+export * from './runtime/factBinding';
 export * from './runtime/query';
 export * from './runtime/progress';
 export * from './runtime/map';
