@@ -166,7 +166,7 @@ flowchart LR
 - Batch D：Altar of Fangs（新三 Boss 本，随 S2 实际数据稳定度安排）。
 - Batch E：Ruby Life Pools（回归本；既作为垂直切片，也必须重新绑定 S2 版本事实，不能直接把历史 fixture 当作发布内容）。
 
-本批次清单以 `season2DungeonCatalog` 的官方轮换来源为准；Threechest 克隆当前可见的旧 8 本只作为独立坐标库存，不能替代 S2 目录或自动提供位置参考。
+本批次清单以 `season2DungeonCatalog` 的官方轮换来源为准；Threechest 克隆当前可见的旧 8 本仍只作为独立坐标库存，不能替代 S2 目录或自动提供位置参考。RLP 另有固定到 `origin/ptr` 的当前 S2 PTR 坐标快照，但它只关闭位置参考门，不替代自有 spawn identity、forces 或学习内容审校。
 
 每加入一个特殊机制先判断能否由通用 `Situation`、`TransitionStep`、`EventStep` 或既有 Schema 表达；禁止在组件按 slug hardcode。
 

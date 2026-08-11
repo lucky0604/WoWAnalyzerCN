@@ -2,6 +2,7 @@ import aa from '../data/coordinates/aa.json';
 import cavns from '../data/coordinates/cavns.json';
 import magi from '../data/coordinates/magi.json';
 import pit from '../data/coordinates/pit.json';
+import rlp from '../data/coordinates/rlp.json';
 import seat from '../data/coordinates/seat.json';
 import sky from '../data/coordinates/sky.json';
 import wind from '../data/coordinates/wind.json';
@@ -14,6 +15,7 @@ export interface CoordinateReferenceEntry {
   name: { zhCN: string; enUS?: string };
   mapAssetKey: string;
   coordinateSnapshotId?: string;
+  coordinateSnapshotKey?: string;
 }
 
 export interface CoordinateSnapshotSpawn {
@@ -44,6 +46,7 @@ const snapshots: Record<string, CoordinateSnapshot> = {
   cavns: cavns as CoordinateSnapshot,
   magi: magi as CoordinateSnapshot,
   pit: pit as CoordinateSnapshot,
+  rlp: rlp as CoordinateSnapshot,
   seat: seat as CoordinateSnapshot,
   sky: sky as CoordinateSnapshot,
   wind: wind as CoordinateSnapshot,
@@ -85,7 +88,7 @@ export function getCoordinateReference(
   if (!entry.coordinateSnapshotId) {
     return undefined;
   }
-  const snapshot = getCoordinateSnapshot(entry.sourceKey);
+  const snapshot = getCoordinateSnapshot(entry.coordinateSnapshotKey ?? entry.sourceKey);
   if (!snapshot || snapshot.snapshotId !== entry.coordinateSnapshotId) {
     return undefined;
   }

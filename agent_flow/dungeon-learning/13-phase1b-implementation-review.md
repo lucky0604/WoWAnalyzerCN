@@ -5,11 +5,12 @@
 
 ## 本轮范围
 
-本轮没有把 RLP 的空间或 forces 数据写成猜测值，完成了三个可以独立验收的 Phase 1B/内容运营门禁：
+本轮没有把 RLP 的 forces 或学习内容写成猜测值；在原有三个可以独立验收的 Phase 1B/内容运营门禁之外，又完成了当前 S2 PTR 坐标快照的来源固定与只读接入：
 
 1. `ContentReview.authoringEffort`：正式内容必须记录整本副本总工时，以及每个 `routine`/`critical` Situation 的正整数分钟数。该字段只用于估算后续 S2 内容生产成本，不进入玩家 localStorage 进度或学习指纹。
 2. Threechest 坐标 importer：`--dry-run` 不写文件，`--check` 对规范化 JSON 做语义比对；输入结构、坐标、group 和重复 source spawn identity 在写入前阻断；正式写入使用同目录临时文件 + `rename`。
 3. Threechest spawn identity reconciliation：以显式的规范化 snapshot、可选上一版 snapshot 和 identity registry 为输入；默认只预览，只有 `--write-registry` 才写 registry；source ID 变化时优先按上一版坐标自动匹配，无法唯一匹配则阻断，且 registry 写入同样采用原子替换。
+4. RLP 当前 S2 坐标接入：固定 Threechest `origin/ptr` 提交，导入 166 个位置 spawn，仅在 catalog 显式声明 snapshot/key 后开放只读位置参考。
 
 ## Review 发现与修复
 
@@ -24,7 +25,7 @@
 | reconciliation 可能把不同副本的历史 snapshot 混配        | 校验 previous/current `dungeonKey` 一致；snapshot、registry 的 slug、ID、坐标和版本均先校验 |
 | ambiguous auto-match 若仍写 registry 会固化错误身份      | `--write-registry` 遇到 ambiguous 直接失败，保持原 registry 不变；默认 preview 不产生写入   |
 
-没有发现 SQL、网络代理、XSS、parser/analysis 侵入或 Threechest URL 进入 production bundle 的新增问题。
+没有发现 SQL、网络代理、XSS、parser/analysis 侵入或 Threechest URL 进入 production bundle 的新增问题。RLP 坐标接入的具体来源与反例审查见 [15-rlp-s2-coordinate-import-review.md](./15-rlp-s2-coordinate-import-review.md)。
 
 ## 验证证据
 
@@ -32,7 +33,7 @@
 - `pnpm vitest run src/dungeon/schema/validate.test.ts`：17 tests passed，包含缺失、malformed、unknown、非正整数工时路径。
 - 受影响 dungeon/UI/operations/importer/reconciliation suite：24 files，100 tests passed。
 - `pnpm dungeon:generate -- --dungeon=all --check`：8 个 legacy snapshot 全部通过。
-- `pnpm dungeon:check`：通过，1 registered、2 preview、8 S2 catalog、8 legacy snapshot。
+- `pnpm dungeon:check`：通过，1 registered、2 preview、8 S2 catalog、1 current S2 coordinate reference、8 legacy snapshot。
 - `pnpm typecheck`、受影响文件 `oxlint`、`oxfmt`：通过。
 - `pnpm dungeon:reconcile -- --snapshot=src/dungeon/data/coordinates/aa.json --json`：仅输出 preview 报告，没有创建默认 registry；ambiguous、跨副本 previous snapshot 和 malformed identity 均有测试覆盖。
 
@@ -45,9 +46,9 @@
 
 ## 退出条件仍未满足
 
-RLP 仍保持 `draft + spatial pending + forces pending`。当前仓库只有 Threechest 克隆中的旧副本坐标库存，不能证明它们是 Midnight S2 RLP 坐标；因此没有给 RLP 填充坐标、forces、spawn 或 `published` 状态。进入 reviewed/published 前仍需：
+RLP 学习文档仍保持 `draft + spatial pending + forces pending`。当前 S2 PTR 的位置快照已接入 catalog，但它仍是只读来源坐标，不等于已经完成自有 spawn identity、forces 和教学波次。进入 reviewed/published 前仍需：
 
-- 当前 S2 的可核验空间/forces snapshot 与 reconciliation；
+- 当前 S2 坐标与自有 spawn identity 的 reconciliation，以及 forces snapshot；
 - 作者自测记录和真实第二人审校；
 - 当前游戏 build 的 Spell/NPC/机制验证；
 - 再运行完整浏览器 QA 与 release manifest 检查。

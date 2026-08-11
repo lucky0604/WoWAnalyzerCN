@@ -1,6 +1,6 @@
 # WoWAnalyzerCN 大秘境学习模块规划索引
 
-> 状态：方案已确认，开发分支已完成 Phase 0、Phase 1A 预览、Phase 2 的地图/查询/只读 Route 与 Boss 页面，以及 Phase 3 的主动回忆薄弱项反馈；正式攻略内容仍按副本逐本建设，Phase 1B 尚未宣称完成。
+> 状态：方案已确认，开发分支已完成 Phase 0、Phase 1A 预览、Phase 2 的地图/查询/只读 Route 与 Boss 页面，以及 Phase 3 的主动回忆薄弱项反馈；RLP 当前 S2 坐标参考已接入，但正式攻略内容仍按副本逐本建设，Phase 1B 尚未宣称完成。
 >
 > 目标版本：Midnight Season 2。
 >
@@ -52,6 +52,7 @@
 - [12-browser-qa.md](./12-browser-qa.md)：本地 Chrome 桌面/移动端路由、交互、错误与溢出检查记录。
 - [13-phase1b-implementation-review.md](./13-phase1b-implementation-review.md)：Phase 1B 作者工时门禁、坐标 importer 预检与对抗性 Review 记录。
 - [14-phase5-wcl-navigation-review.md](./14-phase5-wcl-navigation-review.md)：WCL 与学习双向导航、动态加载和生产路由 flag 的实现 Review。
+- [15-rlp-s2-coordinate-import-review.md](./15-rlp-s2-coordinate-import-review.md)：RLP 当前 S2 PTR 坐标快照、来源 hash、字段白名单与门禁 Review。
 
 ## 当前代码审计摘要
 
@@ -59,9 +60,9 @@
 
 - `/dungeons` 已展示官方 Midnight S2 八本覆盖路线；建设中副本只能显示建设状态，不能进入空壳学习页。
 - 当前 S2 轮换来源记录在 `season2RotationSource`，以 Blizzard 公告为目录事实来源；Threechest 克隆里的旧 8 本不再标记为 S2。
-- Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`，作为独立的 `legacyThreechestCoordinateInventory` 保留，用于导入/地图回归测试，不自动映射到 S2。
+- Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`；旧库存继续作为独立的 `legacyThreechestCoordinateInventory` 保留，当前 S2 RLP 则通过显式 snapshot/key 引用接入，不自动映射其它 S2 副本。
 - 本地开发可从 `/dungeons/legacy/:sourceKey` 打开明确标注为 `DEV ONLY · LEGACY COORDINATE QA` 的只读页面，验证 Threechest 瓦片 manifest、坐标转换和 spawn 层；该 route 在 production 不注册，也不提供路线编辑。
-- 当前 S2 条目只有在显式配置 `coordinateSnapshotId` 后才会开放位置参考；没有可靠坐标时显示“位置参考待接入”，不会用旧副本数据替代。
+- 当前 S2 条目只有在显式配置 `coordinateSnapshotId` 后才会开放位置参考；RLP 已接入固定到 Threechest `origin/ptr` 提交的当前 S2 PTR 坐标快照，没有可靠坐标的其它条目仍显示“位置参考待接入”，不会用旧副本数据替代。
 - `/dungeons/:dungeonId/reference` 仅展示位置、组别、巡逻和快照审计信息，不展示未经批准的 forces、技能或路线事实。
 - 正式学习页目前通过本地预览展示 RLP 的来源化内容草稿；空间数据 pending、forces pending 或缺失 Spell ID 都会保留为 warning，并在 reviewed/published 时强制阻断。Altar fixture 仍仅用于数据合同回归。
 - Inspector、只读 Route 和只读 Boss 学习页已建立互相可达的深链；Route/Boss 页面只解释已有知识，不提供编辑、导入或保存路线的操作。

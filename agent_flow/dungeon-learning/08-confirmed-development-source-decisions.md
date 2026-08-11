@@ -16,7 +16,7 @@
 
 ## 2. 坐标/位置信息采用合同
 
-当前已提交的八份坐标登记为 snapshot `threechest-coordinate-snapshot-2026-08-10`，对应 Threechest 克隆中的旧副本库存，并不等同于官方 Midnight S2 轮换池；它们在代码中通过 `legacyThreechestCoordinateInventory` 独立维护。提交到仓库的规范化 JSON 脱敏保存 source URL，但保留 raw SHA-256、转换版本和 source key，真实来源地址只通过导入命令参数或本地配置注入。
+当前已提交的八份旧坐标登记为 snapshot `threechest-coordinate-snapshot-2026-08-10`，对应 Threechest 克隆中的旧副本库存，并不等同于官方 Midnight S2 轮换池；它们在代码中通过 `legacyThreechestCoordinateInventory` 独立维护。另有 RLP 当前 S2 PTR snapshot `threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr`，固定到 Threechest `origin/ptr` 提交并通过 `coordinateSnapshotKey: rlp` 显式接入。提交到仓库的规范化 JSON 脱敏保存 source URL，但保留 raw SHA-256、转换版本和 source key，真实来源地址只通过导入命令参数或本地配置注入。
 
 官方 Midnight S2 轮换目录单独记录在 `season2RotationSource`，当前 8 本以 Blizzard 公告为事实来源。只有某个 S2 条目显式绑定经过核验的 coordinate snapshot，才允许打开位置参考；不能因为 legacy 库存在相同或相似地图就自动复用。
 

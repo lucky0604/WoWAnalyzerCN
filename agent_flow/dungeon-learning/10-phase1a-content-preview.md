@@ -22,11 +22,11 @@ forcesStatus: pending
 
 因此：
 
-- Pull 可以先作为“学习上下文”存在，但没有未经核验的 spawn 坐标。
+- Pull 可以先作为“学习上下文”存在；当前 S2 RLP 坐标快照已接入只读 reference，但正式文档仍不自动填充未经 reconciliation 的自有 spawn。
 - 总 forces 暂不计算；页面必须显示待接入，而不是显示伪造的数值。
 - draft 阶段这些问题是可定位 warning；切换到 reviewed/published 时会变成阻断错误。
 - reviewed/published 还必须记录整本副本作者工时，以及每个 `routine`/`critical` Situation 的正整数分钟数；缺失或无效记录会阻断发布。
-- Threechest legacy 坐标库存不能自动填充 RLP，除非后续获得明确的 S2 对应快照并完成 reconciliation。
+- Threechest legacy 坐标库存不能自动填充 RLP；当前 S2 PTR 快照虽已取得，仍需完成自有 spawn identity reconciliation 后才能进入正式内容。
 
 ## 学习入口与审校门禁
 
@@ -36,7 +36,7 @@ forcesStatus: pending
 
 ## 未完成与进入 Phase 1B 的门
 
-1. 获取并登记 S2 对应的坐标/位置 snapshot，完成 stable spawn identity reconciliation。
+1. 对已登记的 RLP S2 坐标/位置 snapshot 完成 stable spawn identity reconciliation。
 2. 从获批准来源补齐 forces，并为缺失技能补齐经过版本核验的 Spell ID。
 3. 对 RLP 全部稳定 Situation、路线和 Boss 进行作者自测与第二人审校。
 4. 根据 live build 重跑机制验证；PTR 草稿不能直接标记 published。

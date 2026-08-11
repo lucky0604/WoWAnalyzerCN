@@ -38,6 +38,12 @@ export interface DungeonCatalogEntry {
   updatedAt: string;
   coordinateSnapshotId?: string;
   coordinateSourceId?: 'threechest';
+  /**
+   * Explicit key used to resolve the coordinate snapshot when a source's
+   * dungeon key differs from WoWAnalyzerCN's stable catalog sourceKey.
+   * Keeping this in the catalog avoids a hidden alias in the runtime adapter.
+   */
+  coordinateSnapshotKey?: string;
   mapAssetKey: string;
   wclEncounterId?: number;
   summary: LocalizedText;
@@ -151,16 +157,19 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'ruby-life-pools',
     name: text('红玉新生法池', 'Ruby Life Pools'),
     season: 'midnight-s2',
-    status: 'knowledge-draft',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 'rlp',
     mapAssetKey: 'midnight-s2:ruby-life-pools',
     summary: text(
-      '红玉新生法池已有来源化知识草稿；空间快照、forces 和第二审校仍未完成。',
-      'Ruby Life Pools has a sourced knowledge draft; spatial, forces, and second-review gates remain open.',
+      '红玉新生法池已有来源化知识草稿和当前 S2 坐标快照；forces、作者自测和第二审校仍未完成。',
+      'Ruby Life Pools has a sourced knowledge draft and current S2 coordinate snapshot; forces, author self-test, and second review remain open.',
     ),
     nextMilestone: text(
-      '补齐当前 S2 的位置/forces 快照，完成作者自测与第二审校后再进入 reviewed。',
-      'Complete the current S2 spatial/forces snapshot, author self-test, and second review before reviewed.',
+      '核对当前 S2 坐标与自有 spawn 身份，补齐 forces，完成作者自测与第二审校后再进入 reviewed。',
+      'Reconcile current S2 coordinates with owned spawn identities, complete forces, author self-test, and second review before reviewed.',
     ),
   },
   {
@@ -336,6 +345,13 @@ export function validateSeason2DungeonCatalog(
         code: 'CATALOG_COORDINATE_PROVENANCE',
         path: `$[${index}]`,
         message: '坐标来源 ID 不能脱离 coordinate snapshot 单独存在。',
+      });
+    }
+    if (entry.coordinateSnapshotKey && !entry.coordinateSnapshotId) {
+      diagnostics.push({
+        code: 'CATALOG_COORDINATE_PROVENANCE',
+        path: `$[${index}].coordinateSnapshotKey`,
+        message: '坐标快照解析 key 不能脱离 coordinate snapshot 单独存在。',
       });
     }
     if (entry.coordinateSnapshotId && entry.coordinateSourceId !== 'threechest') {

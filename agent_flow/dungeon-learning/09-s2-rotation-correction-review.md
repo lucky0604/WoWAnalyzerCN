@@ -63,4 +63,4 @@ pnpm build
 
 ## 后续门
 
-下一步不是把 legacy 坐标强行映射到 S2，而是逐本取得当前 S2 的可核验位置/地图来源，再为 Ruby Life Pools 和 Altar of Fangs 完成真实知识垂直切片，最后扩展到其余 6 本。
+下一步不是把 legacy 坐标强行映射到 S2；RLP 已取得并固定当前 S2 PTR 坐标快照，接下来要完成其自有 spawn identity/forces 与学习门禁，再为 Altar of Fangs 取得独立的可核验位置/地图来源，最后扩展到其余 6 本。

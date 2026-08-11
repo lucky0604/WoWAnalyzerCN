@@ -77,6 +77,28 @@ export const dungeonSourceRegistry: SourceRegistry = {
   snapshots: [
     {
       sourceId: 'threechest',
+      snapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+      // sha256 of the coordinate-source key and raw payload hash. The
+      // normalized snapshot contains positions/group identity only; forces,
+      // abilities, and route decisions remain WoWAnalyzerCN-owned fields.
+      hash: 'sha256:65f33abb4bf1855746c6fff7ccb7731729004194ace0f412fb78c041fdf5b331',
+      allowedUses: ['local-research', 'commit-derived-data', 'redistribute'],
+      approvedBy: 'project-owner',
+      approvedAt: '2026-08-11',
+      status: 'approved',
+      evidenceRef: 'agent_flow/dungeon-learning/15-rlp-s2-coordinate-import-review.md',
+      fieldAllowlist: [
+        'floorId',
+        'position',
+        'patrol',
+        'groupId',
+        'coordinateSpace',
+        'sourceEnemyId',
+        'sourceEnemyIndex',
+      ],
+    },
+    {
+      sourceId: 'threechest',
       snapshotId: 'threechest-coordinate-snapshot-2026-08-10',
       // sha256 of the sorted `sourceKey:rawSha256` lines for the eight
       // committed legacy coordinate snapshots. These snapshots are not the

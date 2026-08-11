@@ -25,6 +25,36 @@ describe('coordinate references', () => {
     expect(reference.floor.bounds.yMin).toBeLessThan(0);
   });
 
+  it('resolves the current S2 RLP coordinate snapshot through explicit source metadata', () => {
+    const entry = season2DungeonCatalog.find((candidate) => candidate.id === 'ruby-life-pools')!;
+    const reference = getCoordinateReference(entry)!;
+    expect(reference.snapshot.snapshotId).toBe(
+      'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+    );
+    expect(reference.snapshot.dungeonKey).toBe('rlp');
+    expect(reference.spawns).toHaveLength(166);
+    expect(reference.floor.id).toBe('ruby-life-pools:default');
+  });
+
+  it('keeps the RLP snapshot limited to approved spatial fields', () => {
+    const snapshot = getCoordinateSnapshot('rlp')!;
+    const spawnFields = [...new Set(snapshot.spawns.flatMap((spawn) => Object.keys(spawn)))].sort();
+    expect(spawnFields).toEqual(
+      [
+        'floorId',
+        'groupId',
+        'patrol',
+        'position',
+        'sourceEnemyId',
+        'sourceEnemyIndex',
+        'sourceId',
+      ].sort(),
+    );
+    expect(snapshot).not.toHaveProperty('sourceUrl');
+    expect(snapshot).not.toHaveProperty('forces');
+    expect(snapshot).not.toHaveProperty('route');
+  });
+
   it('does not resolve a current S2 entry without a coordinate snapshot', () => {
     const entry = season2DungeonCatalog.find((candidate) => candidate.id === 'kings-rest')!;
     expect(getCoordinateReference(entry)).toBeUndefined();

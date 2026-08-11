@@ -1,0 +1,68 @@
+# RLP 当前 S2 坐标快照导入与对抗性 Review
+
+日期：2026-08-11
+分支：`codex/dungeon-learning`
+结论：坐标参考门关闭条件已满足；学习内容的 forces、作者自测和第二人审校门仍保持关闭。
+
+## 来源与范围
+
+本次导入使用用户提供的 Threechest 克隆目录 `agent_flow/threechest` 的
+`origin/ptr` 分支，并固定到提交：
+
+```text
+9eb71e0ca19d777b06ec0faa53f2e6608b991a55  mdt update
+source file: src/data/mdtDungeons/rlp_mdt.json
+source dungeon key: rlp
+source dungeon index: 42
+```
+
+规范化结果提交为 `src/dungeon/data/coordinates/rlp.json`：
+
+- snapshot：`threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr`；
+- raw SHA-256：`2f0736b96608b8899b823a902c755563de245f484ebf2c8c439b9d08d226c60a`；
+- 转换：`threechest-yx → normalized-v1`；
+- 规模：166 个 spawn；
+- 字段：`floorId`、`position`、`groupId`、`patrol`、`sourceEnemyId`、`sourceEnemyIndex`；
+- 未导入：forces、技能/数值、攻略文字、路线决策、图片 URL 和 Threechest 源码。
+
+这是“当前 S2 PTR 的位置参考快照”，不是已发布的 WoWAnalyzerCN 攻略，也不是把
+MDT/Threechest 路线搬进来。
+
+## 接入设计
+
+S2 catalog 的稳定 `sourceKey` 保持 `ruby-life-pools`，坐标源 key 显式记录为
+`coordinateSnapshotKey: rlp`。runtime 只按这个声明解析 snapshot，不增加隐式的
+slug 别名表，也不从旧 `legacyThreechestCoordinateInventory` 回退。
+
+RLP catalog 状态提升为 `coordinate-ready`，但 `rubyLifePoolsPhase1Draft` 仍是
+`dataStatus: draft`、`spatialStatus: pending`、`forcesStatus: pending`。因此：
+
+- 位置参考可以展示为只读地图/spawn 层；
+- 位置快照不能自动填充自有 Enemy、Situation、Route 或 forces；
+- `/dungeons/ruby-life-pools/learn` 仍不会被正式学习门禁放行；
+- WCL 识别不会因坐标 ready 而生成正式学习链接。
+
+## 对抗性 Review
+
+| 反例                                          | 保护措施                                            | 结果 |
+| --------------------------------------------- | --------------------------------------------------- | ---- |
+| `rlp` 被错误当成 catalog 的 `ruby-life-pools` | catalog 显式声明 `coordinateSnapshotKey`            | 通过 |
+| RLP 误回退到旧副本坐标                        | snapshot ID、source key 双重匹配，未匹配即返回空    | 通过 |
+| 只替换 JSON 却忘记更新来源证据                | source registry 记录 hash、提交证据和字段白名单     | 通过 |
+| 坐标导入顺便带入 forces/攻略事实              | normalized JSON 只保留位置关系字段                  | 通过 |
+| `coordinate-ready` 被误解为可发布攻略         | 正式文档仍维持 draft/spatial pending/forces pending | 通过 |
+
+## 验证证据
+
+```text
+pnpm exec vitest run src/dungeon/data/season2Catalog.test.ts src/dungeon/runtime/coordinates.test.ts
+  2 files, 10 tests passed
+pnpm dungeon:check
+  1 registered, 2 preview, 8 S2 catalog, 1 coordinate reference, 8 legacy snapshots
+pnpm typecheck
+  passed
+```
+
+下一步仍需对 RLP 的 166 个 source spawn 做自有 identity reconciliation，确认当前
+build 的 NPC/Spell/forces 事实，再补作者自测和真实第二人审校；这些完成前不进入
+`reviewed`/`published`。

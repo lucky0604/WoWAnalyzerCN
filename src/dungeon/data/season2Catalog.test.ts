@@ -22,9 +22,14 @@ describe('season 2 dungeon catalog', () => {
       'temple-of-sethraliss',
     ]);
     expect(season2DungeonCatalog.filter((entry) => entry.status === 'registered')).toHaveLength(7);
-    expect(getDungeonCatalogEntry('ruby-life-pools')?.status).toBe('knowledge-draft');
+    expect(getDungeonCatalogEntry('ruby-life-pools')?.status).toBe('coordinate-ready');
     expect(season2DungeonCatalog.every((entry) => entry.updatedAt === '2026-08-10')).toBe(true);
-    expect(season2DungeonCatalog.every((entry) => !entry.coordinateSnapshotId)).toBe(true);
+    expect(season2DungeonCatalog.filter((entry) => entry.coordinateSnapshotId)).toHaveLength(1);
+    expect(getDungeonCatalogEntry('ruby-life-pools')).toMatchObject({
+      coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+      coordinateSnapshotKey: 'rlp',
+      coordinateSourceId: 'threechest',
+    });
     expect(
       season2DungeonCatalog
         .map((entry) => entry.sourceKey)

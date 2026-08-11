@@ -122,6 +122,21 @@ function runGlobalDungeonCheck(): void {
     );
   }
 
+  const rlpSnapshot = getCoordinateSnapshot('rlp');
+  const rlpCoordinateHash = createHash('sha256')
+    .update(`rlp:${rlpSnapshot?.rawSha256 ?? 'missing'}`)
+    .digest('hex');
+  const registeredRlpHash = dungeonSourceRegistry.snapshots.find(
+    (snapshot) =>
+      snapshot.sourceId === 'threechest' &&
+      snapshot.snapshotId === 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+  )?.hash;
+  if (registeredRlpHash !== `sha256:${rlpCoordinateHash}`) {
+    errors.push(
+      `source registry: RLP_COORDINATE_HASH_MISMATCH ${registeredRlpHash ?? 'missing'} !== sha256:${rlpCoordinateHash}`,
+    );
+  }
+
   for (const entry of legacyThreechestCoordinateInventory) {
     const snapshot = getCoordinateSnapshot(entry.sourceKey);
     if (!snapshot) {
@@ -150,6 +165,16 @@ function runGlobalDungeonCheck(): void {
   );
   if (!coordinateSource.ok) {
     errors.push(`source registry: ${coordinateSource.reason}`);
+  }
+
+  const rlpCoordinateSource = checkSourceUse(
+    dungeonSourceRegistry,
+    'threechest',
+    'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+    'commit-derived-data',
+  );
+  if (!rlpCoordinateSource.ok) {
+    errors.push(`source registry: ${rlpCoordinateSource.reason}`);
   }
 
   if (errors.length > 0) {

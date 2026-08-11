@@ -27,7 +27,7 @@
 ## 验证证据
 
 - 受影响 Dungeon/UI/WCL/dist-guard suite：22 files，100 tests passed。
-- `pnpm dungeon:check`：通过；8 个 S2 catalog、8 个 legacy coordinate snapshot。
+- `pnpm dungeon:check`：通过；8 个 S2 catalog、1 个当前 S2 RLP coordinate reference、8 个 legacy coordinate snapshot。
 - `pnpm dungeon:generate -- --dungeon=all --check`：8 个 legacy snapshot 全部通过。
 - `pnpm typecheck`、受影响文件 `oxlint`：通过。
 - `pnpm build`：通过；保留仓库既有 LightningCSS `:global`、大 chunk 和 plugin timing warning。
@@ -35,6 +35,6 @@
 
 ## 尚未满足的 Phase 5B 条件
 
-- RLP 仍未有当前 S2 的空间、forces、作者自测和第二人审校证据，因此 report adapter 当前不会产生真实学习链接。
+- RLP 已有固定到 Threechest `origin/ptr` 的当前 S2 坐标快照，但仍未完成自有 spawn identity、forces、作者自测和第二人审校，因此 report adapter 当前不会产生真实学习链接。
 - 正式部署前仍需批准 OSS 图片 manifest、开启 `VITE_DUNGEON_ROUTES=true`，并执行生产浏览器 QA。
 - WCL 报告识别仍遵守“verified encounter ID 优先、标题只作保守 fallback”；没有把模糊标题当成事实。

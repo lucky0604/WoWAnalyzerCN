@@ -12,7 +12,7 @@
 - 薄弱项复习：支持 `review=weak` 深链，只保留未揭示、模糊或不会的场景；当薄弱项清空时提供回到完整学习的空状态，而不是显示空课件。
 - 响应式地图：Inspector 与只读 Route 均支持键盘可用的收起/展开和“地图聚焦”视图；聚焦会自动恢复地图内容，不改变楼层深链、Pull 选择或路线只读边界。
 - 正式入口：`reviewed/published` 文档访问副本根路径时 canonical redirect 到学习页；需要调试对象的链接显式使用 `?view=inspector`，避免正式内容默认落到 Inspector。
-- 覆盖路线图：目录状态细化为 `registered → raw-ready → route-ready → knowledge-draft → reviewed → published → stale`，卡片显示实际文档计数与 `updatedAt`；RLP 当前为 `knowledge-draft`，其余 S2 副本为 `registered`。
+- 覆盖路线图：目录状态细化为 `registered → raw-ready → route-ready → knowledge-draft → coordinate-ready → reviewed → published → stale`，卡片显示实际文档计数与 `updatedAt`；RLP 当前为 `coordinate-ready`，其余 S2 副本为 `registered`。
 - 本地资源 QA：新增 dev-only `/dungeons/legacy/:sourceKey` 只读页，直接验证 Threechest manifest、normalized 坐标和 spawn 索引；App production route 不注册。
 - 发布门禁：顶层及 Enemy/Ability/Situation/Route/Boss 嵌套 provenance 必须存在且批准；诊断 path 带来源索引。
 
@@ -37,7 +37,7 @@
 ## 证据
 
 - Dungeon 相关测试：19 个文件，当前 72 个测试通过；新增 schema/learning/UI/地图状态/目录覆盖/legacy 资源 QA 测试覆盖上述负例，并包含薄弱项复习和分享链接回归。
-- `pnpm dungeon:check` 通过，当前登记 1 个学习草稿、2 个预览文档、8 个 S2 目录项、8 个 legacy Threechest 坐标快照。
+- `pnpm dungeon:check` 通过，当前登记 1 个学习草稿、2 个预览文档、8 个 S2 目录项、1 个当前 S2 RLP 坐标参考、8 个 legacy Threechest 坐标快照。
 - `pnpm typecheck`、受影响文件 `oxlint`、`oxfmt --check` 通过。
 - `pnpm build` 通过；存在仓库原有 LightningCSS 选择器和大 chunk warning。
 - `pnpm dungeon:check-dist` 通过，未把 Threechest/remote-dev 标记带入 dist。
