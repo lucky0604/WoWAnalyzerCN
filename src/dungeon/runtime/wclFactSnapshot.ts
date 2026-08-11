@@ -7,6 +7,7 @@ import {
   type FactSnapshotDiagnostic,
   type FactSnapshotDraft,
 } from './factSnapshot';
+import { isValidatedWclFactSource, type WclFactSourceResult } from './wclFactSource';
 
 /**
  * WCL report/event payloads are deliberately treated as unknown JSON here.
@@ -541,10 +542,11 @@ function buildAbilityGroups(
  * warning for draft use; release validation still fails on missing forces and
  * incomplete evidence.
  */
-export async function buildWclFactSnapshot(
+async function buildWclFactSnapshotInternal(
   rawReport: unknown,
   rawEvents: unknown,
   options: WclFactSnapshotOptions,
+  scopeAlreadyValidated: boolean,
 ): Promise<WclFactSnapshotResult> {
   const errors: FactSnapshotDiagnostic[] = [];
   const warnings: FactSnapshotDiagnostic[] = [];
@@ -604,7 +606,13 @@ export async function buildWclFactSnapshot(
     return { ok: false, errors, warnings, stats };
   }
 
-  const scopedInputs = scopeWclFightInputs(rawReport, rawEvents, options.fightId);
+  const scopedInputs = scopeAlreadyValidated
+    ? {
+        report: rawReport as RecordValue,
+        events: rawEvents,
+        errors: [] as FactSnapshotDiagnostic[],
+      }
+    : scopeWclFightInputs(rawReport, rawEvents, options.fightId);
   if (scopedInputs.errors.length > 0) {
     return { ok: false, errors: scopedInputs.errors, warnings, stats };
   }
@@ -720,6 +728,43 @@ export async function buildWclFactSnapshot(
     warnings,
     stats,
   };
+}
+
+export async function buildWclFactSnapshot(
+  rawReport: unknown,
+  rawEvents: unknown,
+  options: WclFactSnapshotOptions,
+): Promise<WclFactSnapshotResult> {
+  return buildWclFactSnapshotInternal(rawReport, rawEvents, options, false);
+}
+
+/**
+ * Adapter entry point for capture results.  `captureWclFactInputs` has already
+ * validated fight ranges, filtered cast events, and checked pagination.  The
+ * opaque runtime marker lets this path avoid repeating those O(fights²) and
+ * O(events) operations while the normal public adapter remains defensive for
+ * arbitrary JSON callers.
+ */
+export async function buildWclFactSnapshotFromCapturedSource(
+  source: WclFactSourceResult,
+  options: WclFactSnapshotOptions,
+): Promise<WclFactSnapshotResult> {
+  if (!isValidatedWclFactSource(source) || !source.report) {
+    return {
+      ok: false,
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_CAPTURE_SCOPE_REQUIRED',
+          'source',
+          '只有通过 captureWclFactInputs 验证 scope 的结果可以走已裁剪快照路径。',
+        ),
+      ],
+      warnings: [],
+      stats: emptyStats(),
+    };
+  }
+  return buildWclFactSnapshotInternal(source.report, source.events, options, true);
 }
 
 function appendDiagnostics(

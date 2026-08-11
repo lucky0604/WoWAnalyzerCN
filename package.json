@@ -123,6 +123,7 @@
     "dungeon:fact-check": "tsx scripts/dungeons/fact-preflight.ts",
     "dungeon:fact-from-wcl": "tsx scripts/dungeons/fact-from-wcl.ts",
     "dungeon:fact-from-wcl-api": "tsx scripts/dungeons/fact-from-wcl-api.ts",
+    "dungeon:fact-intake": "tsx scripts/dungeons/fact-intake.ts",
     "dungeon:fact-bind": "tsx scripts/dungeons/fact-bind.ts",
     "dungeon:fact-binding-plan": "tsx scripts/dungeons/fact-binding-plan.ts",
     "dungeon:fact-binding-decisions-template": "tsx scripts/dungeons/fact-binding-decisions-template.ts",

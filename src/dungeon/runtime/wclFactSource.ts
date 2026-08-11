@@ -36,6 +36,19 @@ export interface WclFactSourceResult {
   warnings: WclFactSourceDiagnostic[];
 }
 
+// Runtime-only marker: it is deliberately not serializable or part of the
+// public JSON contract.  The snapshot adapter may skip its second fight-scope
+// pass only for results produced by this module's validated capture path.
+const validatedScopeToken = Symbol('wcl-fact-source-scope-validated');
+
+export function isValidatedWclFactSource(value: unknown): value is WclFactSourceResult {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    (value as Record<PropertyKey, unknown>)[validatedScopeToken] === true
+  );
+}
+
 type RecordValue = Record<string, unknown>;
 
 const diagnostic = (
@@ -555,9 +568,13 @@ export async function captureWclFactInputs(
     return {
       ok: true,
       report,
-      fightId: options.fightId,
+      // Preserve the validated single-fight identity even when the caller did
+      // not pass --fight-id.  Otherwise a one-fight report can be reused under
+      // a custom snapshotId without retaining the scope that was checked.
+      ...(range.id === undefined ? {} : { fightId: range.id }),
       eventPages: 0,
       errors: [],
+      [validatedScopeToken]: true,
       warnings: [
         diagnostic(
           'warning',
@@ -765,9 +782,10 @@ export async function captureWclFactInputs(
       ...(everyEventPageHasCode && eventSourceCode ? { code: eventSourceCode } : {}),
       events,
     },
-    fightId: options.fightId,
+    ...(range.id === undefined ? {} : { fightId: range.id }),
     eventPages,
     errors: [],
+    [validatedScopeToken]: true,
     warnings: [],
   };
 }

@@ -63,6 +63,23 @@ describe('WCL fact API source capture', () => {
     expect(String(fetchImpl.mock.calls[1]?.[0])).toContain('/v1/report/events/CAPTURE1');
   });
 
+  it('retains the validated id for an implicit single-fight scope', async () => {
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes('/report/fights/CAPTURE1')) return jsonResponse(report);
+      return jsonResponse({ code: 'CAPTURE1', events: [] });
+    });
+
+    const result = await captureWclFactInputs({
+      apiBase: 'http://localhost:9528',
+      reportCode: 'CAPTURE1',
+      fetchImpl,
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.fightId).toBe(1);
+  });
+
   it('feeds the captured scope into the existing adapter and keeps fightId in the digest payload', async () => {
     const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
