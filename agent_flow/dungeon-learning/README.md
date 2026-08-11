@@ -60,7 +60,7 @@
 
 - `/dungeons` 已展示官方 Midnight S2 八本覆盖路线；建设中副本只能显示建设状态，不能进入空壳学习页。
 - 当前 S2 轮换来源记录在 `season2RotationSource`，以 Blizzard 公告为目录事实来源；Threechest 克隆里的旧 8 本不再标记为 S2。
-- Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`；旧库存继续作为独立的 `legacyThreechestCoordinateInventory` 保留，当前 S2 RLP 则通过显式 snapshot/key 引用接入，不自动映射其它 S2 副本。
+- Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`；旧库存继续作为独立的 `legacyThreechestCoordinateInventory` 保留，当前 S2 RLP 则通过显式 snapshot/key 和 committed identity sidecar 接入，不自动映射其它 S2 副本。
 - 本地开发可从 `/dungeons/legacy/:sourceKey` 打开明确标注为 `DEV ONLY · LEGACY COORDINATE QA` 的只读页面，验证 Threechest 瓦片 manifest、坐标转换和 spawn 层；该 route 在 production 不注册，也不提供路线编辑。
 - 当前 S2 条目只有在显式配置 `coordinateSnapshotId` 后才会开放位置参考；RLP 已接入固定到 Threechest `origin/ptr` 提交的当前 S2 PTR 坐标快照，没有可靠坐标的其它条目仍显示“位置参考待接入”，不会用旧副本数据替代。
 - `/dungeons/:dungeonId/reference` 仅展示位置、组别、巡逻和快照审计信息，不展示未经批准的 forces、技能或路线事实。

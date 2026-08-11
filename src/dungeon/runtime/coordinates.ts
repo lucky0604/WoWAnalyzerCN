@@ -3,10 +3,12 @@ import cavns from '../data/coordinates/cavns.json';
 import magi from '../data/coordinates/magi.json';
 import pit from '../data/coordinates/pit.json';
 import rlp from '../data/coordinates/rlp.json';
+import rlpIdentity from '../data/coordinates/rlp.identity.json';
 import seat from '../data/coordinates/seat.json';
 import sky from '../data/coordinates/sky.json';
 import wind from '../data/coordinates/wind.json';
 import xenas from '../data/coordinates/xenas.json';
+import type { SpawnIdentityRegistry } from './reconcile';
 import type { Floor, Spawn } from '../schema/types';
 
 export interface CoordinateReferenceEntry {
@@ -16,6 +18,7 @@ export interface CoordinateReferenceEntry {
   mapAssetKey: string;
   coordinateSnapshotId?: string;
   coordinateSnapshotKey?: string;
+  coordinateIdentityRegistryKey?: string;
 }
 
 export interface CoordinateSnapshotSpawn {
@@ -51,6 +54,10 @@ const snapshots: Record<string, CoordinateSnapshot> = {
   sky: sky as CoordinateSnapshot,
   wind: wind as CoordinateSnapshot,
   xenas: xenas as CoordinateSnapshot,
+};
+
+const identityRegistries: Record<string, SpawnIdentityRegistry> = {
+  rlp: rlpIdentity as SpawnIdentityRegistry,
 };
 
 export function getCoordinateSnapshot(sourceKey: string): CoordinateSnapshot | undefined {
@@ -92,6 +99,24 @@ export function getCoordinateReference(
   if (!snapshot || snapshot.snapshotId !== entry.coordinateSnapshotId) {
     return undefined;
   }
+  const identityRegistry = entry.coordinateIdentityRegistryKey
+    ? identityRegistries[entry.coordinateIdentityRegistryKey]
+    : undefined;
+  if (entry.coordinateIdentityRegistryKey && !identityRegistry) {
+    return undefined;
+  }
+  const identityBySource = identityRegistry
+    ? new Map(identityRegistry.entries.map((identity) => [identity.sourceId, identity]))
+    : undefined;
+  if (
+    identityBySource &&
+    (identityBySource.size !== snapshot.spawns.length ||
+      snapshot.spawns.some((spawn) => !identityBySource.has(spawn.sourceId)) ||
+      new Set(identityRegistry?.entries.map((identity) => identity.stableId)).size !==
+        identityRegistry?.entries.length)
+  ) {
+    return undefined;
+  }
   const floorId = `${entry.id}:default`;
   const floor: Floor = {
     id: floorId,
@@ -104,7 +129,7 @@ export function getCoordinateReference(
     mapAssetKey: entry.mapAssetKey,
   };
   const spawns: Spawn[] = snapshot.spawns.map((spawn) => ({
-    id: `${entry.id}:${spawn.sourceId}`,
+    id: identityBySource?.get(spawn.sourceId)?.stableId ?? `${entry.id}:${spawn.sourceId}`,
     enemyId: `${entry.id}:source-enemy:${spawn.sourceEnemyId}`,
     floorId,
     position: spawn.position,

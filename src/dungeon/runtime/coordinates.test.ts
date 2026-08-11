@@ -34,6 +34,11 @@ describe('coordinate references', () => {
     expect(reference.snapshot.dungeonKey).toBe('rlp');
     expect(reference.spawns).toHaveLength(166);
     expect(reference.floor.id).toBe('ruby-life-pools:default');
+    expect(reference.spawns[0]?.id).toBe('spawn-1');
+    expect(reference.spawns[165]?.id).toBe('spawn-166');
+    expect(
+      getCoordinateReference({ ...entry, coordinateIdentityRegistryKey: 'missing-registry' }),
+    ).toBeUndefined();
   });
 
   it('keeps the RLP snapshot limited to approved spatial fields', () => {

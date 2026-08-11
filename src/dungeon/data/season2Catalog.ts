@@ -44,6 +44,8 @@ export interface DungeonCatalogEntry {
    * Keeping this in the catalog avoids a hidden alias in the runtime adapter.
    */
   coordinateSnapshotKey?: string;
+  /** Committed source→stable SpawnId registry used by the reference adapter. */
+  coordinateIdentityRegistryKey?: string;
   mapAssetKey: string;
   wclEncounterId?: number;
   summary: LocalizedText;
@@ -162,6 +164,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
     coordinateSourceId: 'threechest',
     coordinateSnapshotKey: 'rlp',
+    coordinateIdentityRegistryKey: 'rlp',
     mapAssetKey: 'midnight-s2:ruby-life-pools',
     summary: text(
       '红玉新生法池已有来源化知识草稿和当前 S2 坐标快照；forces、作者自测和第二审校仍未完成。',
@@ -352,6 +355,13 @@ export function validateSeason2DungeonCatalog(
         code: 'CATALOG_COORDINATE_PROVENANCE',
         path: `$[${index}].coordinateSnapshotKey`,
         message: '坐标快照解析 key 不能脱离 coordinate snapshot 单独存在。',
+      });
+    }
+    if (entry.coordinateIdentityRegistryKey && !entry.coordinateSnapshotId) {
+      diagnostics.push({
+        code: 'CATALOG_COORDINATE_PROVENANCE',
+        path: `$[${index}].coordinateIdentityRegistryKey`,
+        message: '坐标 identity registry key 不能脱离 coordinate snapshot 单独存在。',
       });
     }
     if (entry.coordinateSnapshotId && entry.coordinateSourceId !== 'threechest') {

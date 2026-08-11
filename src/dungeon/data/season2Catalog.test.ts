@@ -28,6 +28,7 @@ describe('season 2 dungeon catalog', () => {
     expect(getDungeonCatalogEntry('ruby-life-pools')).toMatchObject({
       coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
       coordinateSnapshotKey: 'rlp',
+      coordinateIdentityRegistryKey: 'rlp',
       coordinateSourceId: 'threechest',
     });
     expect(

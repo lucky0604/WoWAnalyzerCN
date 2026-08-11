@@ -22,6 +22,7 @@ source dungeon index: 42
 - raw SHA-256：`2f0736b96608b8899b823a902c755563de245f484ebf2c8c439b9d08d226c60a`；
 - 转换：`threechest-yx → normalized-v1`；
 - 规模：166 个 spawn；
+- identity registry：`src/dungeon/data/coordinates/rlp.identity.json`，166 个稳定 SpawnId；
 - 字段：`floorId`、`position`、`groupId`、`patrol`、`sourceEnemyId`、`sourceEnemyIndex`；
 - 未导入：forces、技能/数值、攻略文字、路线决策、图片 URL 和 Threechest 源码。
 
@@ -39,7 +40,8 @@ S2 catalog 的稳定 `sourceKey` 保持 `ruby-life-pools`，坐标源 key 显式
 `coordinateSnapshotKey: rlp`。runtime 只按这个声明解析 snapshot，不增加隐式的
 slug 别名表，也不从旧 `legacyThreechestCoordinateInventory` 回退。
 
-RLP catalog 状态提升为 `coordinate-ready`，但 `rubyLifePoolsPhase1Draft` 仍是
+RLP catalog 状态提升为 `coordinate-ready`，位置参考 runtime 已消费 committed identity
+registry，但 `rubyLifePoolsPhase1Draft` 仍是
 `dataStatus: draft`、`spatialStatus: pending`、`forcesStatus: pending`。因此：
 
 - 位置参考可以展示为只读地图/spawn 层；
@@ -49,13 +51,14 @@ RLP catalog 状态提升为 `coordinate-ready`，但 `rubyLifePoolsPhase1Draft` 
 
 ## 对抗性 Review
 
-| 反例                                          | 保护措施                                            | 结果 |
-| --------------------------------------------- | --------------------------------------------------- | ---- |
-| `rlp` 被错误当成 catalog 的 `ruby-life-pools` | catalog 显式声明 `coordinateSnapshotKey`            | 通过 |
-| RLP 误回退到旧副本坐标                        | snapshot ID、source key 双重匹配，未匹配即返回空    | 通过 |
-| 只替换 JSON 却忘记更新来源证据                | source registry 记录 hash、提交证据和字段白名单     | 通过 |
-| 坐标导入顺便带入 forces/攻略事实              | normalized JSON 只保留位置关系字段                  | 通过 |
-| `coordinate-ready` 被误解为可发布攻略         | 正式文档仍维持 draft/spatial pending/forces pending | 通过 |
+| 反例                                          | 保护措施                                                 | 结果 |
+| --------------------------------------------- | -------------------------------------------------------- | ---- |
+| `rlp` 被错误当成 catalog 的 `ruby-life-pools` | catalog 显式声明 `coordinateSnapshotKey`                 | 通过 |
+| RLP 误回退到旧副本坐标                        | snapshot ID、source key 双重匹配，未匹配即返回空         | 通过 |
+| 源顺序变化导致 Route/Situation 引用漂移       | 166 个 source spawn 与 committed stable SpawnId 一一对应 | 通过 |
+| 只替换 JSON 却忘记更新来源证据                | source registry 记录 hash、提交证据和字段白名单          | 通过 |
+| 坐标导入顺便带入 forces/攻略事实              | normalized JSON 只保留位置关系字段                       | 通过 |
+| `coordinate-ready` 被误解为可发布攻略         | 正式文档仍维持 draft/spatial pending/forces pending      | 通过 |
 
 ## 验证证据
 
@@ -64,6 +67,8 @@ pnpm exec vitest run src/dungeon/data/season2Catalog.test.ts src/dungeon/runtime
   2 files, 10 tests passed
 pnpm dungeon:check
   1 registered, 2 preview, 8 S2 catalog, 1 coordinate reference, 8 legacy snapshots
+pnpm exec tsx scripts/dungeons/reconcile-threechest.ts --snapshot=src/dungeon/data/coordinates/rlp.json --registry=src/dungeon/data/coordinates/rlp.identity.json --json
+  blocked=false, exact=166, registry entries=166
 pnpm typecheck
   passed
 ```
