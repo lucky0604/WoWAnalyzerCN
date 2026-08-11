@@ -68,6 +68,7 @@
 - [28-fact-binding-intake-phase.md](./28-fact-binding-intake-phase.md)：从候选计划生成不可直接消费的人工决策模板，降低真实快照接入时的漏项风险。
 - [29-wcl-encounter-identity-phase.md](./29-wcl-encounter-identity-phase.md)：绑定 WCL S2 zone/encounter identity，让报告侧可以保守识别八本副本。
 - [30-wcl-fact-intake-bundle-phase.md](./30-wcl-fact-intake-bundle-phase.md)：把当前 build 的 WCL 抓取、事实快照、候选计划和人工 TODO 模板原子整理为可审阅 bundle。
+- [31-learning-progress-hardening-phase.md](./31-learning-progress-hardening-phase.md)：加固浏览器学习进度的本地存储合同、部分恢复和 fail-closed 行为。
 
 ## 当前代码审计摘要
 
@@ -103,6 +104,7 @@
 - `pnpm dungeon:fact-from-wcl --report=<file> --events=<file> --dungeon=<id> --build=<build> --out=<file>` 将用户提供的 WCL 导出转换为 draft FactSnapshot；不生成 forces、路线或攻略结论。
 - `pnpm dungeon:fact-from-wcl-api --api-base=<url> --report-code=<code> --dungeon=<id> --build=<build> --out=<file>` 从配置化 WCL 服务抓取 report/events 后复用同一 draft 适配器；分页、fight scope 或服务响应异常会 fail-closed。
 - `pnpm dungeon:fact-intake --api-base=<url> --report-code=<code> --dungeon=<id> --build=<build> --out-dir=<dir>` 将一次当前 build WCL 抓取原子整理为 snapshot-only bundle；额外提供 `--document`、`--reviewer` 和 `--reviewed-at` 才会生成候选计划与不可消费的 TODO 决策模板，不会自动绑定或发布。
+- 学习进度只接受合法的版本、角色、置信度、UTC 时间和内容指纹；损坏的 localStorage 记录按条丢弃，不会阻断学习页面，也不会把未确认的对象写回浏览器存储。
 - 多 fight WCL report 可额外传 `--fight-id=<id>`，只按可验证的 fight 时间和 actor 归属裁剪；不传时拒绝把全局 roster 与单场 events 拼接。
 - WCL 前置导航已接入：正式副本可从 Inspector 进入现有 report selector；正式报告识别到已发布副本后才显示学习深链。报告侧通过 dynamic import 加载 Dungeon adapter，默认不会影响 parser/analysis 初始路径。
 - S2 目录已绑定 WCL live zone 55/PTR zone 56 及八组 live/PTR encounter ID；规范化 identity evidence 与 digest 位于 `src/dungeon/data/wcl/season2.identity.json`，报告侧优先使用 encounter ID，显式 zone 冲突、Boss/originalBoss 冲突和歧义标题均 fail-closed，只有未带 encounter ID 且 report zone 未冲突时才使用标题回退，避免把多区域/团本报告的复制标题误识别为副本。
