@@ -58,6 +58,27 @@ describe('dungeon learning route', () => {
     expect(screen.getByText(/midnight-s2-ptr-12.1/)).toBeInTheDocument();
   });
 
+  it('keeps the learning lesson connected to wave context without inventing forces', () => {
+    render(
+      <MemoryRouter initialEntries={['/dungeons/ruby-life-pools/learn?mode=quick']}>
+        <Routes>
+          <Route path="/dungeons/:dungeonId/learn" element={<Component />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('heading', { name: '这一节对应哪些波次' })).toBeInTheDocument();
+    expect(screen.getByText('路线节点 P1')).toBeInTheDocument();
+    expect(screen.getByText('6 个位置参考锚点')).toBeInTheDocument();
+    expect(screen.getAllByText('forces 待核验')).toHaveLength(1);
+    expect(screen.getByText('学习锚点')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '打开只读路线节点 →' })).toHaveAttribute(
+      'href',
+      '/dungeons/ruby-life-pools/route/rlp-phase1-learning-route',
+    );
+    expect(screen.getByText(/位置锚点不等于完整 Pull 或 forces 结论/)).toBeInTheDocument();
+  });
+
   it('requires a confidence choice before revealing and exposes role state accessibly', () => {
     render(
       <MemoryRouter initialEntries={['/dungeons/ruby-life-pools/learn?mode=quick']}>

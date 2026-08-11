@@ -4,12 +4,15 @@ import { phase0FixtureDocuments } from '../registry';
 import {
   buildLearningPlan,
   getDueLessons,
+  getKnowledgeFingerprint,
+  getLearningWaveContexts,
   getLearningProgressSummary,
   getLessonSharePath,
   getRoleText,
   getWeakLessons,
 } from './learning';
 import { emptyLearningProgress, recordRecall } from './progress';
+import { rubyLifePoolsSpatialPreview } from '../data/rlpSpatialPreview';
 
 describe('learning plan', () => {
   it('keeps critical and boss situations in quick review', () => {
@@ -29,6 +32,78 @@ describe('learning plan', () => {
     ]);
     expect(plan[0]?.routeSteps[0]?.id).toBe('altar-route-step-1');
     expect(getRoleText('dps', plan[0]!.situation, plan[0]!.abilities[0]!)).toBeUndefined();
+  });
+
+  it('exposes source-plane anchors without presenting them as a complete pull', () => {
+    const route = rubyLifePoolsSpatialPreview.routes[0]!;
+    const situation = rubyLifePoolsSpatialPreview.situations.find(
+      (candidate) => candidate.id === 'rlp-situation-first-caster-pack',
+    )!;
+    const routeSteps = route.steps.flatMap((step) =>
+      step.type === 'pull' &&
+      step.situationRefs.some(({ situationId }) => situationId === situation.id)
+        ? [step]
+        : [],
+    );
+    const contexts = getLearningWaveContexts(rubyLifePoolsSpatialPreview, route, routeSteps);
+
+    expect(contexts).toHaveLength(1);
+    expect(contexts[0]).toMatchObject({
+      anchorSpawnIds: ['spawn-1', 'spawn-2', 'spawn-20', 'spawn-21', 'spawn-22', 'spawn-23'],
+      hasCompletePull: false,
+      hasVerifiedForces: false,
+      forcesPoints: 0,
+    });
+    expect(contexts[0]?.enemies.map((enemy) => enemy.id)).toEqual([
+      'rlp-primal-juggernaut',
+      'rlp-flashfrost-chillweaver',
+    ]);
+  });
+
+  it('invalidates the lesson fingerprint when its wave anchor context changes', () => {
+    const document = rubyLifePoolsSpatialPreview;
+    const lesson = buildLearningPlan(document, 'quick').find(
+      (candidate) => candidate.situation.id === 'rlp-situation-first-caster-pack',
+    )!;
+    const changedWaveContexts = lesson.waveContexts.map((context) => ({
+      ...context,
+      anchorSpawnIds: [],
+    }));
+
+    expect(
+      getKnowledgeFingerprint(
+        lesson.situation,
+        lesson.abilities,
+        lesson.routeSteps,
+        changedWaveContexts,
+      ),
+    ).not.toBe(lesson.fingerprint);
+  });
+
+  it('keeps route identity paired when one situation appears in multiple routes', () => {
+    const sourceRoute = rubyLifePoolsSpatialPreview.routes[0]!;
+    const alternateRoute = {
+      ...sourceRoute,
+      id: 'rlp-alternate-learning-route',
+      name: { zhCN: '备用学习路线', enUS: 'Alternate learning route' },
+      steps: sourceRoute.steps.map((step) => ({ ...step, id: `alternate-${step.id}` })),
+    };
+    const document = {
+      ...rubyLifePoolsSpatialPreview,
+      routes: [sourceRoute, alternateRoute],
+    };
+    const lesson = buildLearningPlan(document, 'quick').find(
+      (candidate) => candidate.situation.id === 'rlp-situation-first-caster-pack',
+    )!;
+
+    expect(lesson.waveContexts.map((context) => context.route.id)).toEqual([
+      sourceRoute.id,
+      alternateRoute.id,
+    ]);
+    expect(lesson.waveContexts.map((context) => context.step.id)).toEqual([
+      'rlp-phase1-pull-01',
+      'alternate-rlp-phase1-pull-01',
+    ]);
   });
 
   it('creates a shareable URL with only stable learning state', () => {

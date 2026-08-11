@@ -399,17 +399,88 @@
   padding-top: 2px;
   border-top: 1px solid design.$level2_border;
 }
-.learning-route-context > div:not(.learning-section-heading) {
-  margin: 9px 0;
-  padding: 11px 13px;
-  border-left: 2px solid rgba(250, 183, 0, 0.45);
+.learning-route-context__intro {
+  margin: 0 0 12px;
+  color: design.$colors_unfocusedText;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.learning-wave-context {
+  display: grid;
+  gap: 12px;
+  margin: 10px 0;
+  padding: 14px 15px;
+  border: 1px solid design.$level2_border;
+  border-left: 2px solid rgba(250, 183, 0, 0.55);
+  border-radius: 5px;
   background: rgba(0, 0, 0, 0.12);
 }
-.learning-route-context p {
-  margin: 5px 0 0;
+.learning-wave-context__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+.learning-wave-context__header > div {
+  display: grid;
+  gap: 4px;
+}
+.learning-wave-context__header strong {
+  font-size: 0.92rem;
+}
+.learning-wave-context__status {
+  flex: 0 0 auto;
+  padding: 3px 7px;
+  border: 1px solid rgba(229, 185, 101, 0.45);
+  border-radius: 999px;
+  color: #e5b965;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+.learning-wave-context__status.is-complete {
+  border-color: rgba(118, 214, 154, 0.45);
+  color: #8ed7a9;
+}
+.learning-wave-context > p {
+  margin: 0;
   color: design.$colors_unfocusedText;
   font-size: 0.83rem;
   line-height: 1.55;
+}
+.learning-wave-context__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+.learning-wave-context__facts > div {
+  min-width: 0;
+  padding: 8px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.12);
+}
+.learning-wave-context__facts dt {
+  color: design.$colors_unfocusedText;
+  font-size: 0.68rem;
+}
+.learning-wave-context__facts dd {
+  margin: 4px 0 0;
+  overflow: hidden;
+  color: design.$colors_bodyText;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+}
+.learning-wave-context__route-link {
+  justify-self: start;
+  color: design.$colors_wowaYellow;
+  font-size: 0.76rem;
+  text-decoration: none;
+}
+.learning-wave-context__route-link:hover,
+.learning-wave-context__route-link:focus-visible {
+  text-decoration: underline;
 }
 .learning-recall {
   margin-top: 32px;
@@ -673,6 +744,9 @@
   }
   .learning-lesson {
     padding: 20px;
+  }
+  .learning-wave-context__facts {
+    grid-template-columns: 1fr;
   }
   .learning-sidebar__note {
     display: block;

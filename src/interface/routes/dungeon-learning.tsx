@@ -17,7 +17,7 @@ import {
   recordRecall,
   writeLearningProgress,
 } from '../../dungeon';
-import type { LearningMode, RecallConfidence, Role } from '../../dungeon';
+import type { LearningMode, LearningWaveContext, RecallConfidence, Role } from '../../dungeon';
 
 import './dungeon-learning.scss';
 
@@ -139,6 +139,58 @@ function ConfidenceButton({
     >
       {labels[confidence]}
     </button>
+  );
+}
+
+function LearningWaveContextCard({
+  documentId,
+  context,
+}: {
+  documentId: string;
+  context: LearningWaveContext;
+}) {
+  const enemyNames = context.enemies.map((enemy) => enemy.name.zhCN).join('、');
+  const locationLabel =
+    context.anchorSpawnIds.length > 0
+      ? `${context.anchorSpawnIds.length} 个位置参考锚点`
+      : '位置参考待接入';
+  const forceLabel = context.hasVerifiedForces ? `${context.forcesPoints} forces` : 'forces 待核验';
+
+  return (
+    <article className="learning-wave-context">
+      <div className="learning-wave-context__header">
+        <div>
+          <span className="learning-panel-kicker">路线节点 P{context.step.order}</span>
+          <strong>{context.step.title.zhCN}</strong>
+        </div>
+        <span
+          className={`learning-wave-context__status${context.hasCompletePull ? ' is-complete' : ''}`}
+        >
+          {context.hasCompletePull ? '完整波次' : '学习锚点'}
+        </span>
+      </div>
+      <p>{context.step.rationale.zhCN}</p>
+      <dl className="learning-wave-context__facts">
+        <div>
+          <dt>怪物上下文</dt>
+          <dd>{enemyNames || '完整怪物组成待核验'}</dd>
+        </div>
+        <div>
+          <dt>空间</dt>
+          <dd>{locationLabel}</dd>
+        </div>
+        <div>
+          <dt>力量</dt>
+          <dd>{forceLabel}</dd>
+        </div>
+      </dl>
+      <Link
+        className="learning-wave-context__route-link"
+        to={`/dungeons/${encodeURIComponent(documentId)}/route/${encodeURIComponent(context.route.id)}`}
+      >
+        打开只读路线节点 →
+      </Link>
+    </article>
   );
 }
 
@@ -433,17 +485,22 @@ export function Component() {
                 );
               })}
             </div>
-            {lesson.routeSteps.length > 0 && (
+            {lesson.waveContexts.length > 0 && (
               <div className="learning-route-context">
                 <div className="learning-section-heading">
                   <span className="learning-panel-kicker">ROUTE CONTEXT</span>
-                  <h3>这条路线为什么这样组织</h3>
+                  <h3>这一节对应哪些波次</h3>
                 </div>
-                {lesson.routeSteps.map((step) => (
-                  <div key={step.id}>
-                    <strong>{step.title.zhCN}</strong>
-                    <p>{step.rationale.zhCN}</p>
-                  </div>
+                <p className="learning-route-context__intro">
+                  先用动作理解这波的风险，再用位置锚点确认上下文；位置锚点不等于完整 Pull 或 forces
+                  结论。
+                </p>
+                {lesson.waveContexts.map((context) => (
+                  <LearningWaveContextCard
+                    context={context}
+                    documentId={document.id}
+                    key={context.step.id}
+                  />
                 ))}
               </div>
             )}

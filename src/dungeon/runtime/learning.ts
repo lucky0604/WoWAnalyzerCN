@@ -1,20 +1,42 @@
 import type {
   AbilityKnowledge,
   DungeonDocument,
+  Enemy,
   Role,
   RouteKnowledge,
   SituationKind,
   SituationKnowledge,
   PullStep,
+  Spawn,
 } from '../schema/types';
 import type { LearningProgress, RecallRecord } from './progress';
+import { getRouteStepAnchorSpawnIds } from './resolve';
+import { getPullStepForces } from '../schema/validate';
 
 export type LearningMode = 'quick' | 'overview' | 'full';
+
+/**
+ * The route context shown inside a lesson is deliberately not a second route
+ * model. It resolves the existing PullStep into the smallest useful learning
+ * surface: known spawns/enemies, source-plane anchors, and whether a complete
+ * pull/forces fact is actually available for this document revision.
+ */
+export interface LearningWaveContext {
+  route: RouteKnowledge;
+  step: PullStep;
+  anchorSpawnIds: string[];
+  spawns: Spawn[];
+  enemies: Enemy[];
+  forcesPoints: number;
+  hasCompletePull: boolean;
+  hasVerifiedForces: boolean;
+}
 
 export interface LearningLesson {
   situation: SituationKnowledge;
   abilities: AbilityKnowledge[];
   routeSteps: PullStep[];
+  waveContexts: LearningWaveContext[];
   route?: RouteKnowledge;
   index: number;
   fingerprint: string;
@@ -36,19 +58,71 @@ function isIncluded(mode: LearningMode, kind: SituationKind): boolean {
   return quickKinds.has(kind);
 }
 
+export function getLearningWaveContexts(
+  document: DungeonDocument,
+  route: RouteKnowledge | undefined,
+  routeSteps: PullStep[],
+): LearningWaveContext[] {
+  if (!route) return [];
+
+  const spawnsById = new Map(document.spawns.map((spawn) => [spawn.id, spawn]));
+  const enemiesById = new Map(document.enemies.map((enemy) => [enemy.id, enemy]));
+  return routeSteps.map((step) => {
+    const spawns = step.spawnIds.flatMap((spawnId) => {
+      const spawn = spawnsById.get(spawnId);
+      return spawn ? [spawn] : [];
+    });
+    const anchorSpawnIds = getRouteStepAnchorSpawnIds(document, step);
+    const contextualSpawns = [
+      ...spawns,
+      ...anchorSpawnIds.flatMap((spawnId) => {
+        const spawn = spawnsById.get(spawnId);
+        return spawn ? [spawn] : [];
+      }),
+    ];
+    const enemies = [...new Set(contextualSpawns.map((spawn) => spawn.enemyId))].flatMap(
+      (enemyId) => {
+        const enemy = enemiesById.get(enemyId);
+        return enemy ? [enemy] : [];
+      },
+    );
+    const hasCompletePull =
+      document.spatialStatus === 'verified' &&
+      step.spawnIds.length > 0 &&
+      spawns.length === step.spawnIds.length;
+    const hasVerifiedForces =
+      hasCompletePull &&
+      document.totalEnemyForcesPoints > 0 &&
+      enemies.length > 0 &&
+      enemies.every((enemy) => enemy.forcesStatus === 'verified');
+
+    return {
+      route,
+      step,
+      anchorSpawnIds,
+      spawns,
+      enemies,
+      forcesPoints: getPullStepForces(document, step),
+      hasCompletePull,
+      hasVerifiedForces,
+    };
+  });
+}
+
 export function buildLearningPlan(document: DungeonDocument, mode: LearningMode): LearningLesson[] {
   const abilitiesById = new Map(document.abilities.map((ability) => [ability.id, ability]));
-  const routeStepsBySituation = new Map<string, PullStep[]>();
-  const routeBySituation = new Map<string, RouteKnowledge>();
+  const routeContextsBySituation = new Map<
+    string,
+    Array<{ route: RouteKnowledge; step: PullStep }>
+  >();
 
   document.routes.forEach((route) => {
     route.steps.forEach((step) => {
       if (step.type !== 'pull') return;
       step.situationRefs.forEach(({ situationId }) => {
-        const steps = routeStepsBySituation.get(situationId) ?? [];
-        steps.push(step);
-        routeStepsBySituation.set(situationId, steps);
-        routeBySituation.set(situationId, route);
+        const contexts = routeContextsBySituation.get(situationId) ?? [];
+        contexts.push({ route, step });
+        routeContextsBySituation.set(situationId, contexts);
       });
     });
   });
@@ -56,8 +130,8 @@ export function buildLearningPlan(document: DungeonDocument, mode: LearningMode)
   const sortedSituations = [...document.situations]
     .filter((situation) => isIncluded(mode, situation.kind))
     .sort((a, b) => {
-      const aOrder = routeStepsBySituation.get(a.id)?.[0]?.order ?? Number.MAX_SAFE_INTEGER;
-      const bOrder = routeStepsBySituation.get(b.id)?.[0]?.order ?? Number.MAX_SAFE_INTEGER;
+      const aOrder = routeContextsBySituation.get(a.id)?.[0]?.step.order ?? Number.MAX_SAFE_INTEGER;
+      const bOrder = routeContextsBySituation.get(b.id)?.[0]?.step.order ?? Number.MAX_SAFE_INTEGER;
       return aOrder - bOrder || a.id.localeCompare(b.id);
     });
 
@@ -66,14 +140,20 @@ export function buildLearningPlan(document: DungeonDocument, mode: LearningMode)
       const ability = abilitiesById.get(abilityId);
       return ability ? [ability] : [];
     });
-    const routeSteps = routeStepsBySituation.get(situation.id) ?? [];
+    const routeContexts = routeContextsBySituation.get(situation.id) ?? [];
+    const routeSteps = routeContexts.map(({ step }) => step);
+    const route = routeContexts[0]?.route;
+    const waveContexts = routeContexts.flatMap(({ route: contextRoute, step }) =>
+      getLearningWaveContexts(document, contextRoute, [step]),
+    );
     return {
       situation,
       abilities,
       routeSteps,
-      route: routeBySituation.get(situation.id),
+      waveContexts,
+      route,
       index,
-      fingerprint: getKnowledgeFingerprint(situation, abilities, routeSteps),
+      fingerprint: getKnowledgeFingerprint(situation, abilities, routeSteps, waveContexts),
     };
   });
 }
@@ -91,11 +171,22 @@ export function getKnowledgeFingerprint(
   situation: SituationKnowledge,
   abilities: AbilityKnowledge[],
   routeSteps: PullStep[],
+  waveContexts: LearningWaveContext[] = [],
 ): string {
   const payload = JSON.stringify({
     situation,
     abilities,
     routeSteps,
+    waveContexts: waveContexts.map((context) => ({
+      routeId: context.route.id,
+      stepId: context.step.id,
+      anchorSpawnIds: context.anchorSpawnIds,
+      spawnIds: context.spawns.map((spawn) => spawn.id),
+      enemyIds: context.enemies.map((enemy) => enemy.id),
+      forcesPoints: context.forcesPoints,
+      hasCompletePull: context.hasCompletePull,
+      hasVerifiedForces: context.hasVerifiedForces,
+    })),
   });
   return `v1:${hashFingerprint(payload)}`;
 }
