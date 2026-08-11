@@ -120,6 +120,7 @@
     "dungeon:generate": "tsx scripts/dungeons/import-threechest.ts",
     "dungeon:import-threechest": "tsx scripts/dungeons/import-threechest.ts",
     "dungeon:reconcile": "tsx scripts/dungeons/reconcile-threechest.ts",
+    "dungeon:fact-check": "tsx scripts/dungeons/fact-preflight.ts",
     "spell-lists:create": "node --experimental-strip-types scripts/spell-lists/generate-list.ts",
     "spell-lists:update": "node --experimental-strip-types scripts/spell-lists/update-all-lists.ts src/analysis/**/*.ts",
     "preview": "vite build && vite preview",
