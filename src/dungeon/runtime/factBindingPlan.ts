@@ -17,6 +17,8 @@ import {
 
 export const factBindingPlanSchemaVersion = 1 as const;
 
+export type FactBindingPlanDigest = `sha256:${string}`;
+
 export type FactBindingCandidateStatus = 'suggested' | 'ambiguous' | 'unmapped' | 'blocked';
 export type FactBindingPlanStatus = 'ready-for-review' | 'needs-review' | 'blocked';
 
@@ -43,6 +45,7 @@ export interface FactBindingAbilityPlanRow {
 
 export interface FactBindingPlan {
   version: typeof factBindingPlanSchemaVersion;
+  planDigest: FactBindingPlanDigest;
   snapshot: {
     snapshotId: string;
     digest: FactSnapshot['digest'];
@@ -68,6 +71,43 @@ export interface FactBindingPlan {
     unambiguousAbilityCandidates: number;
   };
   status: FactBindingPlanStatus;
+}
+
+type FactBindingPlanPayload = Omit<FactBindingPlan, 'planDigest'>;
+
+function stableSort(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(stableSort);
+  if (!value || typeof value !== 'object') return value;
+  const record = value as Record<string, unknown>;
+  return Object.fromEntries(
+    Object.keys(record)
+      .sort()
+      .map((key) => [key, stableSort(record[key])]),
+  );
+}
+
+/** Canonical candidate plan payload; planDigest is intentionally excluded. */
+export function serializeFactBindingPlanPayload(
+  plan: FactBindingPlan | FactBindingPlanPayload,
+): string {
+  const payload = { ...plan } as Partial<FactBindingPlan>;
+  delete payload.planDigest;
+  return JSON.stringify(stableSort(payload));
+}
+
+export async function computeFactBindingPlanDigest(
+  plan: FactBindingPlan | FactBindingPlanPayload,
+): Promise<FactBindingPlanDigest> {
+  const subtle = globalThis.crypto?.subtle;
+  if (!subtle) throw new Error('FACT_BINDING_PLAN_CRYPTO_UNAVAILABLE: Web Crypto is required.');
+  const hash = await subtle.digest(
+    'SHA-256',
+    new TextEncoder().encode(serializeFactBindingPlanPayload(plan)),
+  );
+  const hex = Array.from(new Uint8Array(hash), (byte) => byte.toString(16).padStart(2, '0')).join(
+    '',
+  );
+  return `sha256:${hex}`;
 }
 
 export interface FactBindingPlanResult {
@@ -288,21 +328,20 @@ function abilityCandidates(
 function markCandidateTargetCollisions<
   T extends { candidates: FactBindingCandidate[]; status: FactBindingCandidateStatus },
 >(rows: T[]): void {
-  const rowsByTarget = new Map<string, T[]>();
+  const rowsByTarget = new Map<string, Array<{ row: T; candidate: FactBindingCandidate }>>();
   rows.forEach((row) => {
     row.candidates.forEach((candidate) => {
       const targetRows = rowsByTarget.get(candidate.documentId) ?? [];
-      targetRows.push(row);
+      targetRows.push({ row, candidate });
       rowsByTarget.set(candidate.documentId, targetRows);
     });
   });
-  rowsByTarget.forEach((targetRows, documentId) => {
-    const uniqueRows = [...new Set(targetRows)];
+  rowsByTarget.forEach((targetEntries) => {
+    const uniqueRows = [...new Set(targetEntries.map(({ row }) => row))];
     if (uniqueRows.length < 2) return;
-    uniqueRows.forEach((row) => {
+    targetEntries.forEach(({ row, candidate }) => {
       if (row.status !== 'blocked') row.status = 'ambiguous';
-      const candidate = row.candidates.find((item) => item.documentId === documentId);
-      if (candidate && !candidate.reasons.includes('target-id-collision')) {
+      if (!candidate.reasons.includes('target-id-collision')) {
         candidate.reasons.push('target-id-collision');
       }
     });
@@ -428,36 +467,57 @@ export async function buildFactBindingPlan(
     enemies: [] as FactBindingEnemy[],
     abilities: [] as FactBindingAbility[],
   };
+  const planPayload: FactBindingPlanPayload = {
+    version: factBindingPlanSchemaVersion,
+    snapshot: {
+      snapshotId: snapshot.snapshotId,
+      digest: snapshot.digest,
+      dungeonId: snapshot.dungeonId,
+      season: snapshot.season,
+      gameBuild: snapshot.gameBuild,
+    },
+    document: {
+      id: document.id,
+      season: document.season,
+      gameBuild: document.version.build,
+      revision: document.version.revision,
+    },
+    manifestTemplate,
+    enemies: enemyRows,
+    abilities: abilityRows,
+    coverage: {
+      snapshotEnemies: enemyRows.length,
+      snapshotAbilities: abilityRows.length,
+      documentEnemies: document.enemies.length,
+      documentAbilities: document.abilities.length,
+      unambiguousEnemyCandidates: enemyRows.filter((row) => row.status === 'suggested').length,
+      unambiguousAbilityCandidates: abilityRows.filter((row) => row.status === 'suggested').length,
+    },
+    status: hasHardBlockedRows ? 'blocked' : hasBlockedRows ? 'needs-review' : 'ready-for-review',
+  };
+  let planDigest: FactBindingPlanDigest;
+  try {
+    planDigest = await computeFactBindingPlanDigest(planPayload);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return {
+      ok: false,
+      errors: [
+        diagnostic(
+          'error',
+          'FACT_BINDING_PLAN_DIGEST_UNAVAILABLE',
+          'planDigest',
+          `无法计算候选计划 digest：${message}`,
+        ),
+      ],
+      warnings,
+    };
+  }
   return {
     ok: errors.length === 0,
     plan: {
-      version: factBindingPlanSchemaVersion,
-      snapshot: {
-        snapshotId: snapshot.snapshotId,
-        digest: snapshot.digest,
-        dungeonId: snapshot.dungeonId,
-        season: snapshot.season,
-        gameBuild: snapshot.gameBuild,
-      },
-      document: {
-        id: document.id,
-        season: document.season,
-        gameBuild: document.version.build,
-        revision: document.version.revision,
-      },
-      manifestTemplate,
-      enemies: enemyRows,
-      abilities: abilityRows,
-      coverage: {
-        snapshotEnemies: enemyRows.length,
-        snapshotAbilities: abilityRows.length,
-        documentEnemies: document.enemies.length,
-        documentAbilities: document.abilities.length,
-        unambiguousEnemyCandidates: enemyRows.filter((row) => row.status === 'suggested').length,
-        unambiguousAbilityCandidates: abilityRows.filter((row) => row.status === 'suggested')
-          .length,
-      },
-      status: hasHardBlockedRows ? 'blocked' : hasBlockedRows ? 'needs-review' : 'ready-for-review',
+      ...planPayload,
+      planDigest,
     },
     errors,
     warnings,
