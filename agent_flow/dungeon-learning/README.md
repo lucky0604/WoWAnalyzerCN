@@ -53,6 +53,8 @@
 - [13-phase1b-implementation-review.md](./13-phase1b-implementation-review.md)：Phase 1B 作者工时门禁、坐标 importer 预检与对抗性 Review 记录。
 - [14-phase5-wcl-navigation-review.md](./14-phase5-wcl-navigation-review.md)：WCL 与学习双向导航、动态加载和生产路由 flag 的实现 Review。
 - [15-rlp-s2-coordinate-import-review.md](./15-rlp-s2-coordinate-import-review.md)：RLP 当前 S2 PTR 坐标快照、来源 hash、字段白名单与门禁 Review。
+- [16-learning-wave-context-review.md](./16-learning-wave-context-review.md)：学习课节与波次上下文、锚点/forces 门禁、多路线配对与代码 Review。
+- [17-learning-wave-context-browser-qa.md](./17-learning-wave-context-browser-qa.md)：桌面/移动浏览器 smoke、主动回忆和只读 Route 深链证据。
 
 ## 当前代码审计摘要
 
