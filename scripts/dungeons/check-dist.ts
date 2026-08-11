@@ -23,31 +23,44 @@ async function collectFiles(path: string): Promise<string[]> {
   return files;
 }
 
-try {
-  const files = await collectFiles(distRoot);
+export function findForbiddenMarkers(file: string, content: string): string[] {
+  return forbiddenMarkers
+    .filter((marker) => content.includes(marker))
+    .map((marker) => `${file}: ${marker}`);
+}
+
+export interface DistCheckResult {
+  filesScanned: number;
+  violations: string[];
+}
+
+export async function checkDist(root: string): Promise<DistCheckResult> {
+  const files = await collectFiles(root);
   const violations: string[] = [];
   for (const file of files) {
-    const content = await readFile(file, 'utf8');
-    forbiddenMarkers.forEach((marker) => {
-      if (content.includes(marker)) {
-        violations.push(`${file}: ${marker}`);
-      }
-    });
+    violations.push(...findForbiddenMarkers(file, await readFile(file, 'utf8')));
   }
+  return { filesScanned: files.length, violations };
+}
 
-  if (violations.length > 0) {
-    console.error(`Dungeon dist guard failed with ${violations.length} violation(s).`);
-    violations.forEach((violation) => console.error(`- ${violation}`));
-    process.exitCode = 1;
-  } else {
-    console.log(`Dungeon dist guard passed: ${files.length} asset(s) scanned.`);
-  }
-} catch (error) {
-  const missingDist = error instanceof Error && 'code' in error && error.code === 'ENOENT';
-  if (missingDist) {
-    console.error(`Dungeon dist guard failed: 未找到构建目录 ${distRoot}。`);
-  } else {
-    console.error(error);
-  }
-  process.exitCode = 1;
+if (process.argv[1]?.endsWith('scripts/dungeons/check-dist.ts')) {
+  checkDist(distRoot)
+    .then(({ filesScanned, violations }) => {
+      if (violations.length > 0) {
+        console.error(`Dungeon dist guard failed with ${violations.length} violation(s).`);
+        violations.forEach((violation) => console.error(`- ${violation}`));
+        process.exitCode = 1;
+      } else {
+        console.log(`Dungeon dist guard passed: ${filesScanned} asset(s) scanned.`);
+      }
+    })
+    .catch((error: unknown) => {
+      const missingDist = error instanceof Error && 'code' in error && error.code === 'ENOENT';
+      if (missingDist) {
+        console.error(`Dungeon dist guard failed: 未找到构建目录 ${distRoot}。`);
+      } else {
+        console.error(error);
+      }
+      process.exitCode = 1;
+    });
 }
