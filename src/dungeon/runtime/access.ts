@@ -19,6 +19,7 @@ import { validateDungeonDocument } from '../schema/validate';
 export type DungeonLearningAccessState = 'available' | 'preview' | 'fixture' | 'stale' | 'blocked';
 
 export interface DungeonLearningAccess {
+  documentId: string;
   state: DungeonLearningAccessState;
   canOpen: boolean;
   isFormal: boolean;
@@ -42,6 +43,7 @@ export function getDungeonLearningAccess(document: DungeonDocument): DungeonLear
 
   if (document.dataStatus === 'fixture') {
     return {
+      documentId: document.id,
       state: 'fixture',
       canOpen: false,
       isFormal: false,
@@ -53,6 +55,7 @@ export function getDungeonLearningAccess(document: DungeonDocument): DungeonLear
 
   if (document.version.status === 'stale') {
     return {
+      documentId: document.id,
       state: 'stale',
       canOpen: false,
       isFormal: false,
@@ -66,6 +69,7 @@ export function getDungeonLearningAccess(document: DungeonDocument): DungeonLear
     if (document.version.status !== 'draft' || !validation.ok) {
       const diagnostic = firstBlockingDiagnostic(validation);
       return {
+        documentId: document.id,
         state: 'blocked',
         canOpen: false,
         isFormal: false,
@@ -75,6 +79,7 @@ export function getDungeonLearningAccess(document: DungeonDocument): DungeonLear
       };
     }
     return {
+      documentId: document.id,
       state: 'preview',
       canOpen: true,
       isFormal: false,
@@ -90,6 +95,7 @@ export function getDungeonLearningAccess(document: DungeonDocument): DungeonLear
     validation.ok
   ) {
     return {
+      documentId: document.id,
       state: 'available',
       canOpen: true,
       isFormal: true,
@@ -101,6 +107,7 @@ export function getDungeonLearningAccess(document: DungeonDocument): DungeonLear
 
   const diagnostic = firstBlockingDiagnostic(validation);
   return {
+    documentId: document.id,
     state: 'blocked',
     canOpen: false,
     isFormal: false,

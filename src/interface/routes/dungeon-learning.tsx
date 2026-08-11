@@ -6,8 +6,9 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   buildLearningPlan,
   getDueLessons,
-  getDungeonLearningAccess,
+  getDungeonCatalogEntry,
   getDungeonDocument,
+  getDungeonScopedLearningAccess,
   getLearningProgressSummary,
   getLessonSharePath,
   getLessonRecallRecord,
@@ -199,7 +200,8 @@ export function Component() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const document = dungeonId ? getDungeonDocument(dungeonId) : undefined;
-  const learningAccess = document ? getDungeonLearningAccess(document) : undefined;
+  const entry = dungeonId ? getDungeonCatalogEntry(dungeonId) : undefined;
+  const learningAccess = entry ? getDungeonScopedLearningAccess(entry, document) : undefined;
   const [progress, setProgress] = useState(() => readLearningProgress());
   const mode = parseMode(searchParams.get('mode'));
   const weakReview = isWeakReview(searchParams);
@@ -224,8 +226,35 @@ export function Component() {
     }
   }, [document, lesson, navigate, requestedSituation, searchParams]);
 
-  if (!document || !dungeonId) return <LearningNotFound />;
-  if (learningAccess && !learningAccess.canOpen) {
+  if (!dungeonId) return <LearningNotFound />;
+  if (!entry) {
+    return (
+      <LearningUnavailable
+        dungeonId={dungeonId}
+        title="副本尚未登记"
+        detail="该 DungeonDocument 没有对应的 S2 目录门禁，不能通过深链打开学习页。"
+      />
+    );
+  }
+  if (!document) {
+    return (
+      <LearningUnavailable
+        dungeonId={entry.id}
+        title="攻略尚未接入"
+        detail="该副本已有目录或位置参考，但尚未登记可学习的 DungeonDocument。"
+      />
+    );
+  }
+  if (!learningAccess) {
+    return (
+      <LearningUnavailable
+        dungeonId={document.id}
+        title="学习入口不可用"
+        detail="未能建立副本内容门禁，已按 fail-closed 处理。"
+      />
+    );
+  }
+  if (!learningAccess.canOpen) {
     if (learningAccess.state === 'fixture') {
       return <LearningUnavailable dungeonId={document.id} />;
     }

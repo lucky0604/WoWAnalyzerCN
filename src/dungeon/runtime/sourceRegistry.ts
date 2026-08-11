@@ -23,6 +23,24 @@ export interface ApprovedSourceSnapshot {
   identityHash?: string;
 }
 
+/**
+ * An independently committed forces snapshot.  The registry entry is the
+ * binding between a digest and the exact enemy→forces payload; a document may
+ * not certify editable `forcesPoints` values by itself.
+ */
+export interface ApprovedForcesSnapshot {
+  registryKey: string;
+  dungeonId: string;
+  snapshotId: string;
+  source: Extract<Provenance['type'], 'official' | 'game-data' | 'wcl' | 'manual-test'>;
+  gameBuild: string;
+  digest: string;
+  enemyForces: Record<string, number>;
+  totalEnemyForcesPoints: number;
+  evidenceRef: string;
+  status: 'approved' | 'revoked' | 'expired';
+}
+
 export interface SourceRegistry {
   version: 1;
   snapshots: ApprovedSourceSnapshot[];
@@ -183,3 +201,54 @@ export const dungeonSourceRegistry: SourceRegistry = {
     ),
   ],
 };
+
+/**
+ * No S2 forces snapshot is approved yet.  Keeping this registry explicit makes
+ * the readiness gate fail closed until a maintainer commits the canonical
+ * payload, build, source evidence and digest together.
+ */
+export const dungeonForcesSnapshotRegistry: readonly ApprovedForcesSnapshot[] = [];
+
+export function getForcesSnapshotRegistryEntry(
+  registryKey: string,
+): ApprovedForcesSnapshot | undefined {
+  const matches = dungeonForcesSnapshotRegistry.filter(
+    (entry) => entry.registryKey === registryKey,
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+}
+
+export function validateForcesSnapshotRegistry(
+  registry: readonly ApprovedForcesSnapshot[] = dungeonForcesSnapshotRegistry,
+): string[] {
+  const errors: string[] = [];
+  const allowedSources = new Set(['official', 'game-data', 'wcl', 'manual-test']);
+  const keys = new Set<string>();
+  registry.forEach((entry, index) => {
+    if (!entry.registryKey || keys.has(entry.registryKey)) {
+      errors.push(`FORCES_REGISTRY_DUPLICATE_KEY ${entry.registryKey || `#${index}`}`);
+    }
+    keys.add(entry.registryKey);
+    if (!/^sha256:[a-f0-9]{64}$/.test(entry.digest)) {
+      errors.push(`FORCES_REGISTRY_INVALID_DIGEST ${entry.registryKey}`);
+    }
+    if (!allowedSources.has(entry.source)) {
+      errors.push(`FORCES_REGISTRY_INVALID_SOURCE ${entry.registryKey}`);
+    }
+    if (!entry.evidenceRef || !entry.gameBuild || !entry.snapshotId || !entry.dungeonId) {
+      errors.push(`FORCES_REGISTRY_MISSING_METADATA ${entry.registryKey}`);
+    }
+    const enemyForces = entry.enemyForces as unknown;
+    const isRecord =
+      typeof enemyForces === 'object' && enemyForces !== null && !Array.isArray(enemyForces);
+    const values = isRecord ? Object.values(enemyForces) : [];
+    if (
+      values.length === 0 ||
+      values.some((value) => !Number.isInteger(value) || value < 0) ||
+      values.reduce((total, value) => total + value, 0) !== entry.totalEnemyForcesPoints
+    ) {
+      errors.push(`FORCES_REGISTRY_INVALID_PAYLOAD ${entry.registryKey}`);
+    }
+  });
+  return errors;
+}

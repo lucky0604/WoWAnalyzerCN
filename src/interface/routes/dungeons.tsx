@@ -9,9 +9,11 @@ import {
   dungeonCoverageStatusLabel,
   dungeonDocuments,
   dungeonPreviewDocuments,
-  getCoordinateReference,
-  getDungeonLearningAccess,
+  getDungeonContentReadiness,
+  getDungeonCatalogEntry,
   getDungeonDocument,
+  getDungeonLearningAccess,
+  getDungeonScopedLearningAccess,
   getAbilityReference,
   getEnemyReference,
   getPullStepForces,
@@ -95,11 +97,15 @@ function DungeonCard({ document }: { document: DungeonDocument }) {
 }
 
 function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
-  const learningAvailable = isLearningPublished(entry.status);
-  const coordinateAvailable = Boolean(entry.coordinateSnapshotId && getCoordinateReference(entry));
   const document = getDungeonDocument(entry.id);
-  const contentCoverage = document
-    ? `${document.situations.length} Situation · ${document.abilities.length} 技能 · ${document.routes.length} 路线 · ${document.bosses.length} Boss`
+  const learningDocument = document?.dataStatus === 'fixture' ? undefined : document;
+  const readiness = getDungeonContentReadiness(entry, learningDocument);
+  const coordinateAvailable = readiness.gates.some(
+    (readinessGate) => readinessGate.id === 'coordinates' && readinessGate.state === 'ready',
+  );
+  const learningAvailable = isLearningPublished(entry.status) && readiness.state === 'ready';
+  const contentCoverage = learningDocument
+    ? `${learningDocument.situations.length} Situation · ${learningDocument.abilities.length} 技能 · ${learningDocument.routes.length} 路线 · ${learningDocument.bosses.length} Boss`
     : '尚未登记学习内容文档';
   return (
     <article className="dungeon-card dungeon-card--coverage">
@@ -114,9 +120,37 @@ function DungeonCoverageCard({ entry }: { entry: DungeonCatalogEntry }) {
         <code>{entry.coordinateSnapshotId ?? '位置参考待接入'}</code>
         <span>内容覆盖</span>
         <code>{contentCoverage}</code>
+        <span>学习就绪度</span>
+        <code>
+          {readiness.readyGateCount}/{readiness.totalGateCount} ·{' '}
+          {readiness.state === 'coordinate-only'
+            ? '仅位置参考'
+            : readiness.state === 'catalog-only'
+              ? '目录已登记，内容待接入'
+              : readiness.state === 'learning-preview'
+                ? '本地学习预览'
+                : readiness.state === 'ready'
+                  ? '可进入正式学习'
+                  : '门禁阻断'}
+        </code>
         <span>最后维护</span>
         <code>{entry.updatedAt}</code>
       </div>
+      <ul className="dungeon-readiness-list" aria-label={`${entry.name.zhCN} 内容就绪度`}>
+        {readiness.gates.map((readinessGate) => (
+          <li className={`is-${readinessGate.state}`} key={readinessGate.id}>
+            <span aria-hidden="true">
+              {readinessGate.state === 'ready'
+                ? '✓'
+                : readinessGate.state === 'blocked'
+                  ? '!'
+                  : '·'}
+            </span>
+            <strong>{readinessGate.label}</strong>
+            <small>{readinessGate.detail}</small>
+          </li>
+        ))}
+      </ul>
       <div className="dungeon-card__actions">
         {learningAvailable ? (
           <Link className="dungeon-card__action" to={`/dungeons/${entry.id}/learn`}>
@@ -826,8 +860,9 @@ export function Component() {
   }
 
   if (document) {
-    const access = getDungeonLearningAccess(document);
-    if (access.isFormal && searchParams.get('view') !== 'inspector') {
+    const entry = getDungeonCatalogEntry(document.id);
+    const access = entry ? getDungeonScopedLearningAccess(entry, document) : undefined;
+    if (access?.isFormal && searchParams.get('view') !== 'inspector') {
       return <Navigate replace to={`/dungeons/${document.id}/learn`} />;
     }
     return <DungeonDetail document={document} />;

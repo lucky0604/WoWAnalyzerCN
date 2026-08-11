@@ -10,6 +10,8 @@ export * from './runtime/resolve';
 export * from './runtime/sourceRegistry';
 export * from './runtime/learning';
 export * from './runtime/access';
+export * from './runtime/contentReadiness';
+export * from './runtime/formalAccess';
 export * from './runtime/query';
 export * from './runtime/progress';
 export * from './runtime/map';

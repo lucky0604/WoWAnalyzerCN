@@ -545,6 +545,43 @@
   color: #c8c3bd;
   font-size: 0.7rem;
 }
+.dungeon-readiness-list {
+  display: grid;
+  gap: 6px;
+  margin: 16px 0 0;
+  padding: 12px;
+  border: 1px solid design.$level2_border;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.12);
+  list-style: none;
+}
+.dungeon-readiness-list li {
+  display: grid;
+  grid-template-columns: 18px 104px minmax(0, 1fr);
+  gap: 6px;
+  align-items: baseline;
+  color: design.$colors_unfocusedText;
+  font-size: 0.72rem;
+}
+.dungeon-readiness-list li > span {
+  color: #e5b965;
+  font-weight: 700;
+  text-align: center;
+}
+.dungeon-readiness-list li.is-ready > span {
+  color: #76d69a;
+}
+.dungeon-readiness-list li.is-blocked > span {
+  color: #ff827c;
+}
+.dungeon-readiness-list li strong {
+  color: design.$colors_bodyText;
+  font-size: 0.72rem;
+}
+.dungeon-readiness-list li small {
+  min-width: 0;
+  line-height: 1.45;
+}
 .dungeon-card__action--disabled {
   color: design.$colors_unfocusedText;
   cursor: not-allowed;
@@ -1106,6 +1143,13 @@
   }
   .dungeon-query-detail__header {
     display: grid;
+  }
+  .dungeon-readiness-list li {
+    grid-template-columns: 18px 1fr;
+  }
+  .dungeon-readiness-list li small {
+    grid-column: 2;
+    white-space: normal;
   }
   .dungeon-map-panel.is-expanded {
     inset: 0;

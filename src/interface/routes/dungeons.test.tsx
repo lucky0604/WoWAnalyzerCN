@@ -107,7 +107,7 @@ describe('dungeon inspector query', () => {
     );
   });
 
-  it('redirects a formally reviewed document to learning by default', () => {
+  it('keeps a formally reviewed document without an S2 catalog entry in the inspector', () => {
     const formalDocument = structuredClone(phase0FixtureDocuments.rubyLifePools);
     formalDocument.id = 'formal-dungeon-test';
     formalDocument.slug = 'formal-dungeon-test';
@@ -143,7 +143,8 @@ describe('dungeon inspector query', () => {
         </MemoryRouter>,
       );
 
-      expect(screen.getByTestId('learning-target')).toHaveTextContent('learning target');
+      expect(screen.queryByTestId('learning-target')).not.toBeInTheDocument();
+      expect(screen.getByText('READ-ONLY INSPECTOR')).toBeInTheDocument();
     } finally {
       dungeonDocumentsById.delete(formalDocument.id);
     }

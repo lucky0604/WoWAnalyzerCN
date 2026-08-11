@@ -3,7 +3,12 @@ import NavigationBar from 'interface/NavigationBar';
 import { Link, useParams } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 
-import { getDungeonDocument, getDungeonLearningAccess, getLessonSharePath } from '../../dungeon';
+import {
+  getDungeonCatalogEntry,
+  getDungeonDocument,
+  getDungeonScopedLearningAccess,
+  getLessonSharePath,
+} from '../../dungeon';
 import type { AbilityKnowledge, BossKnowledge, DungeonDocument, Role } from '../../dungeon';
 
 import './dungeons.scss';
@@ -352,11 +357,21 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
 export function Component() {
   const { dungeonId, bossId } = useParams();
   const document = dungeonId ? getDungeonDocument(dungeonId) : undefined;
+  const entry = dungeonId ? getDungeonCatalogEntry(dungeonId) : undefined;
   const boss = document?.bosses.find((candidate) => candidate.id === bossId);
 
-  if (!document || !boss) return <BossNotFound />;
+  if (!dungeonId || !bossId) return <BossNotFound />;
+  if (!document) {
+    return entry ? (
+      <BossUnavailable dungeonId={dungeonId} label="该副本已有目录或位置参考，但攻略尚未接入" />
+    ) : (
+      <BossNotFound />
+    );
+  }
+  if (!boss) return <BossNotFound />;
 
-  const access = getDungeonLearningAccess(document);
+  const access = entry ? getDungeonScopedLearningAccess(entry, document) : undefined;
+  if (!access) return <BossUnavailable dungeonId={document.id} label="攻略尚未开放" />;
   if (!access.canOpen) return <BossUnavailable dungeonId={document.id} label={access.label} />;
 
   return <BossDetail boss={boss} document={document} />;

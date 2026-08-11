@@ -57,12 +57,15 @@
 - [17-learning-wave-context-browser-qa.md](./17-learning-wave-context-browser-qa.md)：桌面/移动浏览器 smoke、主动回忆和只读 Route 深链证据。
 - [18-s2-fact-and-asset-preflight.md](./18-s2-fact-and-asset-preflight.md)：S2 坐标、NPC/Spell/forces 事实与 Threechest 远程图片的预检和替换契约。
 - [19-s2-coordinate-expansion-review.md](./19-s2-coordinate-expansion-review.md)：S2 八本坐标快照、stable SpawnId、来源 hash 与对抗性 Review 证据。
+- [20-content-readiness-phase.md](./20-content-readiness-phase.md)：S2 六道内容就绪门、正式深链授权与缺口报告的实现证据。
 
 ## 当前代码审计摘要
 
 ## 当前实现进度
 
 - `/dungeons` 已展示官方 Midnight S2 八本覆盖路线；建设中副本只能显示建设状态，不能进入空壳学习页。
+- `/dungeons` 与 `pnpm dungeon:report` 共用六道内容就绪门；目录只展示 `coordinate-only`、`learning-preview` 或阻断原因，不把坐标、fixture 或旧 build 事实伪装成正式攻略。
+- 六道门与正式深链共用 `getDungeonScopedLearningAccess`；forces 只有在 committed registry 的 digest、当前 build、enemy→forces payload 和 Pull 推导全部匹配时才可放行，当前仍没有虚构的 S2 forces 快照。
 - 当前 S2 轮换来源记录在 `season2RotationSource`，以 Blizzard 公告为目录事实来源；Threechest 克隆里的旧 8 本不再标记为 S2。
 - Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`；旧库存继续作为独立的 `legacyThreechestCoordinateInventory` 保留，S2 八本通过显式 snapshot/key 和 committed identity sidecar 接入，不与 legacy source key 混用。
 - 本地开发可从 `/dungeons/legacy/:sourceKey` 打开明确标注为 `DEV ONLY · LEGACY COORDINATE QA` 的只读页面，验证 Threechest 瓦片 manifest、坐标转换和 spawn 层；该 route 在 production 不注册，也不提供路线编辑。
@@ -78,7 +81,7 @@
 - formal review 还必须记录作者自测（学习模式、全部 Situation/Route 覆盖和完成时间），不能只填写作者/第二审校者姓名。
 - formal review 还必须记录作者工时：整本副本总分钟数，以及每个 `routine`/`critical` Situation 的分钟数；这些数据用于校准后续八本扩展成本，不进入玩家进度。
 - 学习页已完成“先选把握程度、再揭示答案”的主动回忆约束，并显示已回忆/模糊/不会/待复习汇总；进度写入失败时会明确提示，不把内存状态伪装成已持久化。
-- 学习入口统一经过 `getDungeonLearningAccess`：draft 只能显示为本地预览，fixture、stale、来源未批准或正式校验失败的文档不能渲染学习课件；WCL 适配器也复用同一正式门禁。
+- 学习入口统一经过 `getDungeonScopedLearningAccess`：draft 只能显示为本地预览，正式学习、Route、Boss 和 WCL 深链必须同时通过目录状态、文档校验和六道内容门；fixture、stale、来源未批准或正式校验失败的文档不能渲染学习课件。
 - 内容维护 quickstart 已提供 `dungeon:new` / `dungeon:add` / `dungeon:check --dungeon`，草稿不会自动进入 runtime registry。
 - `dungeon:impact`、`dungeon:status stale`、`dungeon:preview`、`dungeon:publish`、`dungeon:rollback` 已提供显式 release/stale ledger 流程；publish 只写 release manifest，不自动注册页面。
 - `pnpm dungeon:check-dist` 是发布前的 remote-dev/Threechest 产物扫描门禁。

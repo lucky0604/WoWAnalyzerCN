@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 
 import {
   legacyThreechestCoordinateInventory,
+  isLearningPublished,
   season2DungeonCatalog,
   validateSeason2DungeonCatalog,
 } from '../../src/dungeon/data/season2Catalog';
@@ -15,7 +16,13 @@ import {
   serializeCoordinateSnapshot,
   coordinateSnapshotUsesAllowedFields,
 } from '../../src/dungeon/runtime/coordinates';
-import { checkSourceUse, dungeonSourceRegistry } from '../../src/dungeon/runtime/sourceRegistry';
+import {
+  checkSourceUse,
+  dungeonForcesSnapshotRegistry,
+  dungeonSourceRegistry,
+  validateForcesSnapshotRegistry,
+} from '../../src/dungeon/runtime/sourceRegistry';
+import { getDungeonScopedLearningAccess } from '../../src/dungeon/runtime/formalAccess';
 import type {
   ApprovedSourceSnapshot,
   SourceUseCheck,
@@ -83,6 +90,17 @@ export function validateS2CoordinateGate(
   return errors;
 }
 
+export function validatePublishedLearningGate(
+  entry: DungeonCatalogEntry,
+  document: (typeof dungeonDocuments)[number] | undefined,
+): string[] {
+  if (!isLearningPublished(entry.status)) return [];
+  const access = getDungeonScopedLearningAccess(entry, document);
+  return access.isFormal
+    ? []
+    : [`catalog: FORMAL_LEARNING_GATE_FAILED ${entry.id} — ${access.reason}`];
+}
+
 function printSingleResult(
   dungeonId: string,
   result: ReturnType<typeof validateDungeonDocument>,
@@ -135,6 +153,12 @@ async function runSingleDungeonCheck(dungeonId: string): Promise<void> {
 function runGlobalDungeonCheck(): void {
   const errors: string[] = [];
 
+  errors.push(
+    ...validateForcesSnapshotRegistry(dungeonForcesSnapshotRegistry).map(
+      (diagnostic) => `source registry: ${diagnostic}`,
+    ),
+  );
+
   validateSeason2DungeonCatalog(
     undefined,
     new Set(dungeonDocuments.map((document) => document.id)),
@@ -144,6 +168,12 @@ function runGlobalDungeonCheck(): void {
 
   let season2CoordinateReferenceCount = 0;
   for (const entry of season2DungeonCatalog) {
+    errors.push(
+      ...validatePublishedLearningGate(
+        entry,
+        dungeonDocuments.find((candidate) => candidate.id === entry.id),
+      ),
+    );
     if (!entry.coordinateSnapshotId) continue;
     season2CoordinateReferenceCount += 1;
     const reference = getCoordinateReference(entry);

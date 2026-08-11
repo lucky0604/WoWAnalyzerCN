@@ -6,8 +6,9 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   createAssetProviderFromEnv,
   DungeonMap,
+  getDungeonCatalogEntry,
   getDungeonDocument,
-  getDungeonLearningAccess,
+  getDungeonScopedLearningAccess,
   getPullStepForces,
   getRouteStepAnchorSpawnIds,
   resolveRoute,
@@ -320,8 +321,10 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
 export function Component() {
   const { dungeonId, routeId } = useParams();
   const document = dungeonId ? getDungeonDocument(dungeonId) : undefined;
-  const access = document ? getDungeonLearningAccess(document) : undefined;
-  if (!document || !routeId) return <RouteNotFound />;
-  if (!access?.canOpen) return <RouteUnavailable dungeonId={document.id} />;
+  const entry = dungeonId ? getDungeonCatalogEntry(dungeonId) : undefined;
+  const access = entry && document ? getDungeonScopedLearningAccess(entry, document) : undefined;
+  if (!dungeonId || !routeId) return <RouteNotFound />;
+  if (!document) return entry ? <RouteUnavailable dungeonId={dungeonId} /> : <RouteNotFound />;
+  if (!entry || !access?.canOpen) return <RouteUnavailable dungeonId={document.id} />;
   return <RouteDetail document={document} routeId={routeId} />;
 }

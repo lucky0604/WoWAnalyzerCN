@@ -5,8 +5,12 @@ import {
   getCoordinateIdentityRegistry,
   getCoordinateSnapshot,
 } from '../../src/dungeon/runtime/coordinates';
-import { checkSourceUse, dungeonSourceRegistry } from '../../src/dungeon/runtime/sourceRegistry';
-import { validateS2CoordinateGate } from './check';
+import {
+  checkSourceUse,
+  dungeonSourceRegistry,
+  validateForcesSnapshotRegistry,
+} from '../../src/dungeon/runtime/sourceRegistry';
+import { validatePublishedLearningGate, validateS2CoordinateGate } from './check';
 
 describe('dungeon coordinate release gate', () => {
   const entry = season2DungeonCatalog[0]!;
@@ -136,5 +140,78 @@ describe('dungeon coordinate release gate', () => {
     } finally {
       registry.entries[0]!.stableId = original;
     }
+  });
+
+  it('blocks a published catalog entry without a formal scoped document', () => {
+    const publishedEntry = { ...entry, status: 'published' as const };
+    expect(validatePublishedLearningGate(publishedEntry, undefined)).toEqual([
+      expect.stringContaining('FORMAL_LEARNING_GATE_FAILED altar-of-fangs'),
+    ]);
+  });
+
+  it('does not require formal content for a coordinate-only catalog entry', () => {
+    expect(validatePublishedLearningGate(entry, undefined)).toEqual([]);
+  });
+
+  it('rejects duplicate or internally inconsistent forces registry entries', () => {
+    const forceEntry = {
+      registryKey: 'test-forces',
+      dungeonId: entry.id,
+      snapshotId: 'forces-snapshot',
+      source: 'game-data' as const,
+      gameBuild: 'midnight-s2-ptr-12.1',
+      digest: 'sha256:' + 'a'.repeat(64),
+      enemyForces: { enemy: 5 },
+      totalEnemyForcesPoints: 4,
+      evidenceRef: 'test-evidence',
+      status: 'approved' as const,
+    };
+    const errors = validateForcesSnapshotRegistry([forceEntry, forceEntry]);
+
+    expect(errors).toEqual(
+      expect.arrayContaining([
+        'FORCES_REGISTRY_DUPLICATE_KEY test-forces',
+        'FORCES_REGISTRY_INVALID_PAYLOAD test-forces',
+      ]),
+    );
+  });
+
+  it('fails closed for a malformed forces payload instead of throwing', () => {
+    const malformed = {
+      registryKey: 'malformed-forces',
+      dungeonId: entry.id,
+      snapshotId: 'forces-snapshot',
+      source: 'game-data' as const,
+      gameBuild: 'midnight-s2-ptr-12.1',
+      digest: 'sha256:' + 'a'.repeat(64),
+      enemyForces: null,
+      totalEnemyForcesPoints: 0,
+      evidenceRef: 'test-evidence',
+      status: 'approved' as const,
+    } as never;
+
+    expect(() => validateForcesSnapshotRegistry([malformed])).not.toThrow();
+    expect(validateForcesSnapshotRegistry([malformed])).toContain(
+      'FORCES_REGISTRY_INVALID_PAYLOAD malformed-forces',
+    );
+  });
+
+  it('rejects unknown forces sources at the registry boundary', () => {
+    const unknownSource = {
+      registryKey: 'unknown-source',
+      dungeonId: entry.id,
+      snapshotId: 'forces-snapshot',
+      source: 'bogus',
+      gameBuild: 'midnight-s2-ptr-12.1',
+      digest: 'sha256:' + 'a'.repeat(64),
+      enemyForces: { enemy: 5 },
+      totalEnemyForcesPoints: 5,
+      evidenceRef: 'test-evidence',
+      status: 'approved',
+    } as never;
+
+    expect(validateForcesSnapshotRegistry([unknownSource])).toContain(
+      'FORCES_REGISTRY_INVALID_SOURCE unknown-source',
+    );
   });
 });

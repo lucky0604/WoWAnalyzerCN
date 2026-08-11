@@ -77,9 +77,25 @@ export interface Provenance {
   title: string;
   url?: string;
   snapshot?: string;
+  /** Machine-checkable game/data build for facts derived from a live snapshot. */
+  gameBuild?: string;
   retrievedAt?: string;
   verifiedAt?: string;
   licenseStatus: ProvenanceLicenseStatus;
+  notes?: string;
+}
+
+/** Independent evidence record for enemy forces values. */
+export interface ForcesSnapshot {
+  /** Key into the committed forces snapshot registry. */
+  registryKey: string;
+  source: Extract<ProvenanceType, 'official' | 'game-data' | 'wcl' | 'manual-test'>;
+  title: string;
+  snapshot: string;
+  gameBuild: string;
+  digest: string;
+  licenseStatus: ProvenanceLicenseStatus;
+  verifiedAt?: string;
   notes?: string;
 }
 
@@ -116,6 +132,8 @@ export interface Enemy {
   id: EnemyId;
   /** NPC ID can remain unset until the game-data snapshot is reconciled. */
   npcId?: number;
+  /** Build binding for the current NPC fact snapshot. */
+  factBuild?: string;
   name: LocalizedText;
   forcesPoints: number;
   /**
@@ -249,6 +267,8 @@ export interface DungeonDocument {
   review?: ContentReview;
   version: ContentVersion;
   totalEnemyForcesPoints: number;
+  /** Forces numbers are not releasable without an independent snapshot record. */
+  forcesSnapshot?: ForcesSnapshot;
   floors: Floor[];
   spawns: Spawn[];
   enemies: Enemy[];
