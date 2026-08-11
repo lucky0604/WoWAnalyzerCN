@@ -49,6 +49,14 @@ registry，但 `rubyLifePoolsPhase1Draft` 仍是
 - `/dungeons/ruby-life-pools/learn` 仍不会被正式学习门禁放行；
 - WCL 识别不会因坐标 ready 而生成正式学习链接。
 
+## 学习预览接入
+
+当前本地 registry 使用 `rlpSpatialPreview` 作为 runtime 文档：它把 166 个稳定 SpawnId
+投影到独立的只读 source plane，并为已确认的少量概念提供代表性 anchor；尚未完成语义绑定
+的 NPC 只生成 `未绑定的源 NPC <id>` 数字占位符。该层只表达“哪里有一个来源 spawn”，不
+宣称自有 Floor/Enemy、forces、Spell、路线顺序或拉怪建议。identity sidecar 形状、数量或
+映射异常时预览 fail-closed，保留原草稿而不是让 dungeon chunk 在加载时崩溃。
+
 ## 对抗性 Review
 
 | 反例                                           | 保护措施                                                 | 结果 |
@@ -77,7 +85,7 @@ pnpm exec tsx scripts/dungeons/reconcile-threechest.ts --snapshot=src/dungeon/da
 pnpm typecheck
   passed
 pnpm exec vitest run src/dungeon scripts/dungeons src/interface/routes/dungeon-reference.test.tsx src/interface/routes/dungeons.test.tsx
-  21 files, 100 tests passed
+  21 files, 101 tests passed
 VITE_DUNGEON_ROUTES=true pnpm build && pnpm dungeon:check-dist
   build passed; dist guard scanned 769 assets
 ```

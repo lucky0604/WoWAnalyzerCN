@@ -63,6 +63,7 @@
 - Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`；旧库存继续作为独立的 `legacyThreechestCoordinateInventory` 保留，当前 S2 RLP 则通过显式 snapshot/key 和 committed identity sidecar 接入，不自动映射其它 S2 副本。
 - 本地开发可从 `/dungeons/legacy/:sourceKey` 打开明确标注为 `DEV ONLY · LEGACY COORDINATE QA` 的只读页面，验证 Threechest 瓦片 manifest、坐标转换和 spawn 层；该 route 在 production 不注册，也不提供路线编辑。
 - 当前 S2 条目只有在显式配置 `coordinateSnapshotId` 后才会开放位置参考；RLP 已接入固定到 Threechest `origin/ptr` 提交的当前 S2 PTR 坐标快照，没有可靠坐标的其它条目仍显示“位置参考待接入”，不会用旧副本数据替代。
+- RLP 本地学习预览已将 166 个稳定 SpawnId 接入独立的只读位置参考平面，并为少量已确认概念提供代表性锚点；未绑定 NPC 仅显示数字占位符，空间层不会推导 forces、技能或路线事实，sidecar 漂移时 fail-closed。
 - `/dungeons/:dungeonId/reference` 仅展示位置、组别、巡逻和快照审计信息，不展示未经批准的 forces、技能或路线事实。
 - 正式学习页目前通过本地预览展示 RLP 的来源化内容草稿；空间数据 pending、forces pending 或缺失 Spell ID 都会保留为 warning，并在 reviewed/published 时强制阻断。Altar fixture 仍仅用于数据合同回归。
 - Inspector、只读 Route 和只读 Boss 学习页已建立互相可达的深链；Route/Boss 页面只解释已有知识，不提供编辑、导入或保存路线的操作。

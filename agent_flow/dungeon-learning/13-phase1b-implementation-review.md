@@ -12,6 +12,7 @@
 3. Threechest spawn identity reconciliation：以显式的规范化 snapshot、可选上一版 snapshot 和 identity registry 为输入；默认只预览，只有 `--write-registry` 才写 registry；source ID 变化时优先按上一版坐标自动匹配，无法唯一匹配则阻断，且 registry 写入同样采用原子替换。
 4. RLP 当前 S2 坐标接入：固定 Threechest `origin/ptr` 提交，导入 166 个位置 spawn，并以 committed identity registry 生成稳定 SpawnId；仅在 catalog 显式声明 snapshot/key 后开放只读位置参考。
 5. Identity drift 门：sourceId 相同但 enemy/floor 事实变化时输出 `drift` 并阻断 registry 写入，避免静默重绑学习引用。
+6. RLP 空间学习预览：消费 166 个稳定 SpawnId，生成单独的只读“位置参考平面”；仅为已确认的少量自有 NPC 概念建立代表性锚点，未绑定 NPC 保留为数字占位符，不生成 forces、技能或路线事实。
 
 ## Review 发现与修复
 
@@ -27,13 +28,15 @@
 | ambiguous auto-match 若仍写 registry 会固化错误身份      | `--write-registry` 遇到 ambiguous 直接失败，保持原 registry 不变；默认 preview 不产生写入   |
 | sourceId 相同但 enemy/floor 改变被误判 exact             | 增加 `drift` 诊断并阻断写入；必须人工确认                                                   |
 
+本轮空间预览的额外对抗性检查：sidecar 形状或 identity 映射异常时不应让整个 dungeon chunk 在模块加载阶段崩溃；实现已改为 fail-closed，保留原草稿并隐藏空间层，等待人工修复来源。
+
 没有发现 SQL、网络代理、XSS、parser/analysis 侵入或 Threechest URL 进入 production bundle 的新增问题。RLP 坐标接入的具体来源与反例审查见 [15-rlp-s2-coordinate-import-review.md](./15-rlp-s2-coordinate-import-review.md)。
 
 ## 验证证据
 
 - `pnpm vitest run scripts/dungeons/import-threechest.test.ts scripts/dungeons/reconcile-threechest.test.ts`：8 tests passed。
 - `pnpm vitest run src/dungeon/schema/validate.test.ts`：17 tests passed，包含缺失、malformed、unknown、非正整数工时路径。
-- 受影响 dungeon/UI/operations/importer/reconciliation suite：21 files，100 tests passed。
+- 受影响 dungeon/UI/operations/importer/reconciliation suite：21 files，101 tests passed。
 - `pnpm dungeon:generate -- --dungeon=all --check`：8 个 legacy snapshot 全部通过。
 - RLP PTR 固定 checkout 使用 `pnpm dungeon:generate -- --dungeon=rlp --threechest-root=<ptr-checkout> --snapshot=threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr --retrieved-at=2026-08-11 --check`：166 个坐标 spawn 通过。
 - `pnpm dungeon:check`：通过，1 registered、2 preview、8 S2 catalog、1 current S2 coordinate reference、8 legacy snapshot；RLP identity registry 另有 166 个 exact 匹配。
@@ -49,12 +52,13 @@
 - `b30915afdb feat: add spawn identity reconciliation workflow`
 - `f93431b74b fix: block dungeon identity fact drift`
 - `ed5d1eddc3 fix: label dungeon reconciliation drift diagnostics`
+- `ee73f069f1 feat: add rlp spatial learning preview`
 
 ## 退出条件仍未满足
 
 RLP 学习文档仍保持 `draft + spatial pending + forces pending`。当前 S2 PTR 的位置快照已接入 catalog，但它仍是只读来源坐标，不等于已经完成自有 spawn identity、forces 和教学波次。进入 reviewed/published 前仍需：
 
-- 当前 S2 坐标的 source identity reconciliation 已完成 166 个 exact snapshot；仍需将 stable SpawnId 绑定到自有 Floor/Enemy 语义，并取得 forces snapshot；
+- 当前 S2 坐标的 source identity reconciliation 已完成 166 个 exact snapshot，并已在本地预览绑定到只读 source plane 与少量代表性锚点；仍需将 stable SpawnId 绑定到完整自有 Floor/Enemy 语义，并取得 forces snapshot；
 - 作者自测记录和真实第二人审校；
 - 当前游戏 build 的 Spell/NPC/机制验证；
 - 再运行完整浏览器 QA 与 release manifest 检查。
