@@ -262,7 +262,7 @@ function validateSource(
       );
     }
   }
-  if (source.ok && source.errors.length > 0) {
+  if (source.ok && Array.isArray(source.errors) && source.errors.length > 0) {
     errors.push(
       diagnostic(
         'error',

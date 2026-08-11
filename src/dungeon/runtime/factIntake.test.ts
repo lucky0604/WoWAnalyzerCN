@@ -225,4 +225,25 @@ describe('WCL fact intake bundle', () => {
       'FACT_INTAKE_FIGHT_ID_MISMATCH',
     );
   });
+
+  it('returns a structured diagnostic when source errors are malformed', async () => {
+    const malformed = await buildFactIntakeBundle(
+      {
+        ...source,
+        errors: null as unknown as WclFactSourceResult['errors'],
+      },
+      options,
+    );
+
+    expect(malformed.ok).toBe(false);
+    expect(malformed.artifacts).toBeUndefined();
+    expect(malformed.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'FACT_INTAKE_SOURCE_INVALID',
+          path: 'source.errors',
+        }),
+      ]),
+    );
+  });
 });
