@@ -9,6 +9,7 @@ import {
   getDungeonDocument,
   getDungeonLearningAccess,
   getPullStepForces,
+  getRouteStepAnchorSpawnIds,
   resolveRoute,
 } from '../../dungeon';
 import type { DungeonDocument, RouteStep } from '../../dungeon';
@@ -85,7 +86,7 @@ function RouteStepCard({
           <small>
             {isPull
               ? document.spatialStatus === 'pending'
-                ? '位置 / forces 待接入'
+                ? '位置参考锚点 · 完整 Pull 待核验'
                 : `${step.spawnIds.length} spawns · ${forces} forces`
               : step.type === 'transition'
                 ? '楼层 / 区域过渡'
@@ -125,8 +126,17 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
     ? document.spawns.filter((spawn) => spawn.floorId === selectedFloor.id)
     : [];
   const selectedPull = selectedStep?.type === 'pull' ? selectedStep : undefined;
+  const selectedAnchorSpawnIds = selectedPull
+    ? getRouteStepAnchorSpawnIds(document, selectedPull)
+    : [];
+  const selectedMapSpawnIds = selectedPull
+    ? [...new Set([...selectedPull.spawnIds, ...selectedAnchorSpawnIds])]
+    : [];
   const selectedPullSpawns = selectedPull
     ? floorSpawns.filter((spawn) => selectedPull.spawnIds.includes(spawn.id))
+    : [];
+  const selectedHullSpawns = selectedPull
+    ? floorSpawns.filter((spawn) => selectedMapSpawnIds.includes(spawn.id))
     : [];
 
   if (!route || !resolved) return <RouteNotFound />;
@@ -241,8 +251,10 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
                 <DungeonMap
                   asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
                   floor={selectedFloor}
-                  hullSpawns={selectedPullSpawns}
-                  selectedSpawnIds={selectedPull?.spawnIds ?? []}
+                  hullSpawns={
+                    selectedHullSpawns.length > 0 ? selectedHullSpawns : selectedPullSpawns
+                  }
+                  selectedSpawnIds={selectedMapSpawnIds}
                   spawns={floorSpawns}
                 />
               ) : (

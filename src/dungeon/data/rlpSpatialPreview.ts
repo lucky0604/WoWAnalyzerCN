@@ -182,6 +182,19 @@ function withSpatialAnchors(document: DungeonDocument): DungeonDocument {
         ? spawnIdsForNpc(spatialSpawns, anchorNpcIds[situation.id]!)
         : situation.anchorSpawnIds,
     })),
+    routes: document.routes.map((route) => ({
+      ...route,
+      steps: route.steps.map((step) => {
+        if (step.type === 'pull' || step.type === 'event') {
+          return { ...step, floorId: sourcePlaneFloorId };
+        }
+        return {
+          ...step,
+          fromFloorId: sourcePlaneFloorId,
+          toFloorId: sourcePlaneFloorId,
+        };
+      }),
+    })),
     provenance: [...document.provenance, coordinateProvenance],
   };
 }
