@@ -56,6 +56,8 @@ registry，但 `rubyLifePoolsPhase1Draft` 仍是
 的 NPC 只生成 `未绑定的源 NPC <id>` 数字占位符。该层只表达“哪里有一个来源 spawn”，不
 宣称自有 Floor/Enemy、forces、Spell、路线顺序或拉怪建议。identity sidecar 形状、数量或
 映射异常时预览 fail-closed，保留原草稿而不是让 dungeon chunk 在加载时崩溃。
+路线预览会把 pending 文档的步骤投影到同一 source plane；地图只高亮 Situation 的已绑定
+学习锚点，不把这些锚点显示成完整 Pull 或 forces 结论。
 
 ## 对抗性 Review
 
@@ -85,7 +87,7 @@ pnpm exec tsx scripts/dungeons/reconcile-threechest.ts --snapshot=src/dungeon/da
 pnpm typecheck
   passed
 pnpm exec vitest run src/dungeon scripts/dungeons src/interface/routes/dungeon-reference.test.tsx src/interface/routes/dungeons.test.tsx
-  21 files, 101 tests passed
+  23 files, 104 tests passed
 VITE_DUNGEON_ROUTES=true pnpm build && pnpm dungeon:check-dist
   build passed; dist guard scanned 769 assets
 ```

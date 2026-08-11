@@ -13,6 +13,7 @@
 4. RLP 当前 S2 坐标接入：固定 Threechest `origin/ptr` 提交，导入 166 个位置 spawn，并以 committed identity registry 生成稳定 SpawnId；仅在 catalog 显式声明 snapshot/key 后开放只读位置参考。
 5. Identity drift 门：sourceId 相同但 enemy/floor 事实变化时输出 `drift` 并阻断 registry 写入，避免静默重绑学习引用。
 6. RLP 空间学习预览：消费 166 个稳定 SpawnId，生成单独的只读“位置参考平面”；仅为已确认的少量自有 NPC 概念建立代表性锚点，未绑定 NPC 保留为数字占位符，不生成 forces、技能或路线事实。
+7. 路线空间上下文：预览路线步骤统一落到 source plane；地图只高亮 Situation 提供的学习锚点，完整 Pull 组成仍显示为待核验。
 
 ## Review 发现与修复
 
@@ -37,6 +38,7 @@
 - `pnpm vitest run scripts/dungeons/import-threechest.test.ts scripts/dungeons/reconcile-threechest.test.ts`：8 tests passed。
 - `pnpm vitest run src/dungeon/schema/validate.test.ts`：17 tests passed，包含缺失、malformed、unknown、非正整数工时路径。
 - 受影响 dungeon/UI/operations/importer/reconciliation suite：21 files，101 tests passed。
+- 空间路线修复后的受影响 suite：23 files，104 tests passed；覆盖 source-plane route floor、transition 不生成锚点和锚点过滤。
 - `pnpm dungeon:generate -- --dungeon=all --check`：8 个 legacy snapshot 全部通过。
 - RLP PTR 固定 checkout 使用 `pnpm dungeon:generate -- --dungeon=rlp --threechest-root=<ptr-checkout> --snapshot=threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr --retrieved-at=2026-08-11 --check`：166 个坐标 spawn 通过。
 - `pnpm dungeon:check`：通过，1 registered、2 preview、8 S2 catalog、1 current S2 coordinate reference、8 legacy snapshot；RLP identity registry 另有 166 个 exact 匹配。
@@ -53,6 +55,7 @@
 - `f93431b74b fix: block dungeon identity fact drift`
 - `ed5d1eddc3 fix: label dungeon reconciliation drift diagnostics`
 - `ee73f069f1 feat: add rlp spatial learning preview`
+- `e2590ba379 fix: show rlp spatial anchors in route preview`
 
 ## 退出条件仍未满足
 
