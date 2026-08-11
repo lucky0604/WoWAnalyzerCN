@@ -41,12 +41,22 @@ export interface WclFactSourceResult {
 // pass only for results produced by this module's validated capture path.
 const validatedScopeToken = Symbol('wcl-fact-source-scope-validated');
 
-export function isValidatedWclFactSource(value: unknown): value is WclFactSourceResult {
+export function isValidatedWclFactSource(value: unknown): boolean {
   return (
     typeof value === 'object' &&
     value !== null &&
     (value as Record<PropertyKey, unknown>)[validatedScopeToken] === true
   );
+}
+
+function markScopeValidated(result: WclFactSourceResult): WclFactSourceResult {
+  Object.defineProperty(result, validatedScopeToken, {
+    configurable: false,
+    enumerable: false,
+    value: true,
+    writable: false,
+  });
+  return result;
 }
 
 type RecordValue = Record<string, unknown>;
@@ -565,7 +575,7 @@ export async function captureWclFactInputs(
     return { ok: false, report, eventPages: 0, errors: range, warnings: [] };
   }
   if (options.includeEvents === false) {
-    return {
+    return markScopeValidated({
       ok: true,
       report,
       // Preserve the validated single-fight identity even when the caller did
@@ -574,7 +584,6 @@ export async function captureWclFactInputs(
       ...(range.id === undefined ? {} : { fightId: range.id }),
       eventPages: 0,
       errors: [],
-      [validatedScopeToken]: true,
       warnings: [
         diagnostic(
           'warning',
@@ -583,7 +592,7 @@ export async function captureWclFactInputs(
           '已跳过 events 抓取；下游只会生成敌人目录 draft，不能作为完整事实快照。',
         ),
       ],
-    };
+    });
   }
 
   const maxEventPages = options.maxEventPages ?? 100;
@@ -775,7 +784,7 @@ export async function captureWclFactInputs(
     }
     pageStart = nextPageTimestamp;
   }
-  return {
+  return markScopeValidated({
     ok: true,
     report,
     events: {
@@ -785,7 +794,6 @@ export async function captureWclFactInputs(
     ...(range.id === undefined ? {} : { fightId: range.id }),
     eventPages,
     errors: [],
-    [validatedScopeToken]: true,
     warnings: [],
-  };
+  });
 }
