@@ -2,13 +2,14 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { reconcileThreechest } from './reconcile-threechest';
+import { printReport, reconcileThreechest } from './reconcile-threechest';
 
 const temporaryRoots: string[] = [];
 
 afterEach(async () => {
+  vi.restoreAllMocks();
   await Promise.all(
     temporaryRoots.splice(0).map((root) => rm(root, { recursive: true, force: true })),
   );
@@ -177,5 +178,32 @@ describe('Threechest spawn reconciliation CLI', () => {
     await expect(
       reconcileThreechest(['--snapshot', snapshotPath, '--previous-snapshot', previousPath]),
     ).rejects.toThrow('DUNGEON_RECONCILE_SOURCE_MISMATCH');
+  });
+
+  it('prints drift diagnostics as drift rather than ambiguous', () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => undefined);
+    printReport(
+      {
+        sourceKey: 'demo',
+        snapshotPath: 'next.json',
+        registryPath: 'identity.json',
+        blocked: true,
+        counts: { drift: 1 },
+        result: {
+          blocked: true,
+          nextRegistry: { version: 1, entries: [] },
+          items: [
+            {
+              kind: 'drift',
+              sourceId: 'old-a',
+              stableId: 'spawn-a',
+              reason: 'enemy/floor facts changed',
+            },
+          ],
+        },
+      },
+      false,
+    );
+    expect(log).toHaveBeenLastCalledWith('  DRIFT old-a: enemy/floor facts changed');
   });
 });

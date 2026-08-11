@@ -233,7 +233,7 @@ export async function reconcileThreechest(args: string[]): Promise<Reconciliatio
   return report;
 }
 
-function printReport(report: ReconciliationReport, json: boolean): void {
+export function printReport(report: ReconciliationReport, json: boolean): void {
   if (json) {
     console.log(JSON.stringify(report, null, 2));
     return;
@@ -246,9 +246,13 @@ function printReport(report: ReconciliationReport, json: boolean): void {
   );
   report.result.items
     .filter((item) => item.kind === 'ambiguous' || item.kind === 'drift')
-    .forEach((item) =>
-      console.log(`  AMBIGUOUS ${item.sourceId}: ${(item.candidates ?? []).join(', ')}`),
-    );
+    .forEach((item) => {
+      const detail =
+        item.kind === 'ambiguous'
+          ? (item.candidates ?? []).join(', ')
+          : (item.reason ?? '必须人工确认。');
+      console.log(`  ${item.kind.toUpperCase()} ${item.sourceId}: ${detail}`);
+    });
 }
 
 if (process.argv[1]?.endsWith('scripts/dungeons/reconcile-threechest.ts')) {
