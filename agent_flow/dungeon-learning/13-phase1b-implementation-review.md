@@ -33,10 +33,12 @@
 
 - `pnpm vitest run scripts/dungeons/import-threechest.test.ts scripts/dungeons/reconcile-threechest.test.ts`：8 tests passed。
 - `pnpm vitest run src/dungeon/schema/validate.test.ts`：17 tests passed，包含缺失、malformed、unknown、非正整数工时路径。
-- 受影响 dungeon/UI/operations/importer/reconciliation suite：24 files，100 tests passed。
+- 受影响 dungeon/UI/operations/importer/reconciliation suite：21 files，100 tests passed。
 - `pnpm dungeon:generate -- --dungeon=all --check`：8 个 legacy snapshot 全部通过。
+- RLP PTR 固定 checkout 使用 `pnpm dungeon:generate -- --dungeon=rlp --threechest-root=<ptr-checkout> --snapshot=threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr --retrieved-at=2026-08-11 --check`：166 个坐标 spawn 通过。
 - `pnpm dungeon:check`：通过，1 registered、2 preview、8 S2 catalog、1 current S2 coordinate reference、8 legacy snapshot；RLP identity registry 另有 166 个 exact 匹配。
 - `pnpm typecheck`、受影响文件 `oxlint`、`oxfmt`：通过。
+- `VITE_DUNGEON_ROUTES=true pnpm build` 与 `pnpm dungeon:check-dist`：通过，dist guard 扫描 769 个资源。
 - `pnpm dungeon:reconcile -- --snapshot=src/dungeon/data/coordinates/aa.json --json`：仅输出 preview 报告，没有创建默认 registry；ambiguous、跨副本 previous snapshot 和 malformed identity 均有测试覆盖。
 
 对应提交：
@@ -45,12 +47,14 @@
 - `41072c0d6f feat: add safe coordinate import preflight`
 - `1fcd281d65 fix: atomically write dungeon snapshots`
 - `b30915afdb feat: add spawn identity reconciliation workflow`
+- `f93431b74b fix: block dungeon identity fact drift`
+- `ed5d1eddc3 fix: label dungeon reconciliation drift diagnostics`
 
 ## 退出条件仍未满足
 
 RLP 学习文档仍保持 `draft + spatial pending + forces pending`。当前 S2 PTR 的位置快照已接入 catalog，但它仍是只读来源坐标，不等于已经完成自有 spawn identity、forces 和教学波次。进入 reviewed/published 前仍需：
 
-- 当前 S2 坐标与自有 spawn identity 的 reconciliation 已完成首个 exact snapshot；仍需将 stable SpawnId 绑定到自有 Floor/Enemy 语义，并取得 forces snapshot；
+- 当前 S2 坐标的 source identity reconciliation 已完成 166 个 exact snapshot；仍需将 stable SpawnId 绑定到自有 Floor/Enemy 语义，并取得 forces snapshot；
 - 作者自测记录和真实第二人审校；
 - 当前游戏 build 的 Spell/NPC/机制验证；
 - 再运行完整浏览器 QA 与 release manifest 检查。

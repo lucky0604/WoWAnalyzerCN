@@ -66,14 +66,22 @@ registry，但 `rubyLifePoolsPhase1Draft` 仍是
 ```text
 pnpm exec vitest run src/dungeon/data/season2Catalog.test.ts src/dungeon/runtime/coordinates.test.ts
   2 files, 10 tests passed
+pnpm dungeon:generate -- --dungeon=rlp --threechest-root=<ptr-checkout> \
+  --snapshot=threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr \
+  --retrieved-at=2026-08-11 --check
+  166 coordinate spawns checked against the fixed PTR source
 pnpm dungeon:check
   1 registered, 2 preview, 8 S2 catalog, 1 coordinate reference, 8 legacy snapshots
 pnpm exec tsx scripts/dungeons/reconcile-threechest.ts --snapshot=src/dungeon/data/coordinates/rlp.json --registry=src/dungeon/data/coordinates/rlp.identity.json --json
   blocked=false, exact=166, registry entries=166
 pnpm typecheck
   passed
+pnpm exec vitest run src/dungeon scripts/dungeons src/interface/routes/dungeon-reference.test.tsx src/interface/routes/dungeons.test.tsx
+  21 files, 100 tests passed
+VITE_DUNGEON_ROUTES=true pnpm build && pnpm dungeon:check-dist
+  build passed; dist guard scanned 769 assets
 ```
 
-下一步仍需对 RLP 的 166 个 source spawn 做自有 identity reconciliation，确认当前
+下一步仍需把已提交的 source identity registry 绑定到 RLP 自有 Floor/Enemy 语义，确认当前
 build 的 NPC/Spell/forces 事实，再补作者自测和真实第二人审校；这些完成前不进入
 `reviewed`/`published`。
