@@ -66,6 +66,7 @@
 - [26-wcl-api-capture-phase.md](./26-wcl-api-capture-phase.md)：配置化 WCL API 抓取、分页汇总与 FactSnapshot 草稿生成。
 - [27-fact-binding-decision-phase.md](./27-fact-binding-decision-phase.md)：人工映射决策文件、候选采纳边界与安全 manifest 生成。
 - [28-fact-binding-intake-phase.md](./28-fact-binding-intake-phase.md)：从候选计划生成不可直接消费的人工决策模板，降低真实快照接入时的漏项风险。
+- [29-wcl-encounter-identity-phase.md](./29-wcl-encounter-identity-phase.md)：绑定 WCL S2 zone/encounter identity，让报告侧可以保守识别八本副本。
 
 ## 当前代码审计摘要
 
@@ -102,6 +103,7 @@
 - `pnpm dungeon:fact-from-wcl-api --api-base=<url> --report-code=<code> --dungeon=<id> --build=<build> --out=<file>` 从配置化 WCL 服务抓取 report/events 后复用同一 draft 适配器；分页、fight scope 或服务响应异常会 fail-closed。
 - 多 fight WCL report 可额外传 `--fight-id=<id>`，只按可验证的 fight 时间和 actor 归属裁剪；不传时拒绝把全局 roster 与单场 events 拼接。
 - WCL 前置导航已接入：正式副本可从 Inspector 进入现有 report selector；正式报告识别到已发布副本后才显示学习深链。报告侧通过 dynamic import 加载 Dungeon adapter，默认不会影响 parser/analysis 初始路径。
+- S2 目录已绑定 WCL live zone 55/PTR zone 56 及八组 live/PTR encounter ID；规范化 identity evidence 与 digest 位于 `src/dungeon/data/wcl/season2.identity.json`，报告侧优先使用 encounter ID，显式 zone 冲突、Boss/originalBoss 冲突和歧义标题均 fail-closed，只有未带 encounter ID 且 report zone 未冲突时才使用标题回退，避免把多区域/团本报告的复制标题误识别为副本。
 - 生产/preview 路由必须显式设置 `VITE_DUNGEON_ROUTES=true`；Threechest legacy 坐标 QA 路由永远只在 DEV 注册。图片 provider 仍需单独切换为 OSS 或 placeholder。
 
 ### 可直接复用

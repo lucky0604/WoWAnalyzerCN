@@ -4,6 +4,8 @@ import {
   legacyThreechestCoordinateInventory,
   isLearningPublished,
   season2DungeonCatalog,
+  season2WclCatalogSource,
+  serializeSeason2WclSourceIdentity,
   validateSeason2DungeonCatalog,
 } from '../../src/dungeon/data/season2Catalog';
 import { dungeonDocuments } from '../../src/dungeon/registry';
@@ -165,6 +167,15 @@ function runGlobalDungeonCheck(): void {
   ).forEach((diagnostic) => {
     errors.push(`catalog: ${diagnostic.code} ${diagnostic.path} — ${diagnostic.message}`);
   });
+
+  const wclIdentityDigest = createHash('sha256')
+    .update(serializeSeason2WclSourceIdentity())
+    .digest('hex');
+  if (season2WclCatalogSource.identityDigest !== `sha256:${wclIdentityDigest}`) {
+    errors.push(
+      `catalog: CATALOG_WCL_SOURCE_DIGEST_MISMATCH ${season2WclCatalogSource.identityDigest} !== sha256:${wclIdentityDigest}`,
+    );
+  }
 
   let season2CoordinateReferenceCount = 0;
   for (const entry of season2DungeonCatalog) {
