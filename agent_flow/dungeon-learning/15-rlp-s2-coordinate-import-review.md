@@ -51,14 +51,15 @@ registry，但 `rubyLifePoolsPhase1Draft` 仍是
 
 ## 对抗性 Review
 
-| 反例                                          | 保护措施                                                 | 结果 |
-| --------------------------------------------- | -------------------------------------------------------- | ---- |
-| `rlp` 被错误当成 catalog 的 `ruby-life-pools` | catalog 显式声明 `coordinateSnapshotKey`                 | 通过 |
-| RLP 误回退到旧副本坐标                        | snapshot ID、source key 双重匹配，未匹配即返回空         | 通过 |
-| 源顺序变化导致 Route/Situation 引用漂移       | 166 个 source spawn 与 committed stable SpawnId 一一对应 | 通过 |
-| 只替换 JSON 却忘记更新来源证据                | source registry 记录 hash、提交证据和字段白名单          | 通过 |
-| 坐标导入顺便带入 forces/攻略事实              | normalized JSON 只保留位置关系字段                       | 通过 |
-| `coordinate-ready` 被误解为可发布攻略         | 正式文档仍维持 draft/spatial pending/forces pending      | 通过 |
+| 反例                                           | 保护措施                                                 | 结果 |
+| ---------------------------------------------- | -------------------------------------------------------- | ---- |
+| `rlp` 被错误当成 catalog 的 `ruby-life-pools`  | catalog 显式声明 `coordinateSnapshotKey`                 | 通过 |
+| RLP 误回退到旧副本坐标                         | snapshot ID、source key 双重匹配，未匹配即返回空         | 通过 |
+| 源顺序变化导致 Route/Situation 引用漂移        | 166 个 source spawn 与 committed stable SpawnId 一一对应 | 通过 |
+| 只替换 JSON 却忘记更新来源证据                 | source registry 记录 hash、提交证据和字段白名单          | 通过 |
+| 坐标导入顺便带入 forces/攻略事实               | normalized JSON 只保留位置关系字段                       | 通过 |
+| `coordinate-ready` 被误解为可发布攻略          | 正式文档仍维持 draft/spatial pending/forces pending      | 通过 |
+| sourceId 相同但 enemy/floor 事实改变仍静默重绑 | reconciliation 输出 `drift` 并阻断 registry 写入         | 通过 |
 
 ## 验证证据
 

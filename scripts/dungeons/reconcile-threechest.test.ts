@@ -143,6 +143,29 @@ describe('Threechest spawn reconciliation CLI', () => {
     expect(JSON.parse(await readFile(registryPath, 'utf8'))).toEqual(registry);
   });
 
+  it('blocks an exact source drift and preserves the previous registry', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'wowa-threechest-reconcile-drift-'));
+    temporaryRoots.push(root);
+    const snapshotPath = join(root, 'next.json');
+    const registryPath = join(root, 'identity.json');
+    await writeJson(snapshotPath, {
+      dungeonKey: 'demo',
+      spawns: [{ sourceId: 'old-a', sourceEnemyId: 2, floorId: 'default', position: [10, 10] }],
+    });
+    await writeJson(registryPath, registry);
+
+    await expect(
+      reconcileThreechest([
+        '--snapshot',
+        snapshotPath,
+        '--registry',
+        registryPath,
+        '--write-registry',
+      ]),
+    ).rejects.toThrow('DUNGEON_RECONCILE_DRIFT');
+    expect(JSON.parse(await readFile(registryPath, 'utf8'))).toEqual(registry);
+  });
+
   it('rejects a previous snapshot from a different dungeon', async () => {
     const root = await mkdtemp(join(tmpdir(), 'wowa-threechest-reconcile-mismatch-'));
     temporaryRoots.push(root);

@@ -454,10 +454,11 @@ Phase 0 必须在 `schema/common.ts` 定义而不能留作隐式占位：`Locali
 每次导入将来源对象与 identity registry 对账，输出：
 
 ```text
-exact → auto-match → ambiguous → new → removed
+exact → auto-match → ambiguous/drift → new → removed
 ```
 
 - exact：来源稳定标识和事实都一致。
+- drift：来源稳定标识仍存在，但 enemy/floor 事实发生变化；必须人工确认，不能静默重绑。
 - auto-match：NPC/floor/group/邻近坐标等证据达到阈值；坐标只用于匹配。
 - ambiguous：多个候选或明显漂移，必须人工确认，生成失败。
 - new/removed：人工接受后更新 registry 和迁移说明。

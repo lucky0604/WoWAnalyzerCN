@@ -219,12 +219,14 @@ export async function reconcileThreechest(args: string[]): Promise<Reconciliatio
   );
   if (args.includes('--write-registry')) {
     if (result.blocked) {
-      throw new Error(
-        `DUNGEON_RECONCILE_AMBIGUOUS: ${result.items
-          .filter((item) => item.kind === 'ambiguous')
-          .map((item) => item.sourceId)
-          .join(', ')}`,
-      );
+      const ambiguous = result.items.filter((item) => item.kind === 'ambiguous');
+      const drift = result.items.filter((item) => item.kind === 'drift');
+      if (ambiguous.length > 0) {
+        throw new Error(
+          `DUNGEON_RECONCILE_AMBIGUOUS: ${ambiguous.map((item) => item.sourceId).join(', ')}`,
+        );
+      }
+      throw new Error(`DUNGEON_RECONCILE_DRIFT: ${drift.map((item) => item.sourceId).join(', ')}`);
     }
     await writeRegistryAtomic(registryPath, result.nextRegistry);
   }
@@ -243,7 +245,7 @@ function printReport(report: ReconciliationReport, json: boolean): void {
     `Reconciled ${report.sourceKey}: ${summary || 'no changes'}${report.blocked ? ' · BLOCKED' : ''}`,
   );
   report.result.items
-    .filter((item) => item.kind === 'ambiguous')
+    .filter((item) => item.kind === 'ambiguous' || item.kind === 'drift')
     .forEach((item) =>
       console.log(`  AMBIGUOUS ${item.sourceId}: ${(item.candidates ?? []).join(', ')}`),
     );

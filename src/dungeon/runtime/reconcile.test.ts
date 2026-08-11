@@ -37,6 +37,19 @@ describe('spawn reconciliation', () => {
     });
   });
 
+  it('blocks an exact source ID whose enemy or floor facts drift', () => {
+    const result = reconcileSpawns(
+      [{ stableId: 'spawn-a', sourceId: 'same-source', enemyId: 'enemy-a', floorId: 'floor' }],
+      [{ sourceId: 'same-source', enemyId: 'enemy-b', floorId: 'floor', position: [10, 10] }],
+    );
+    expect(result.blocked).toBe(true);
+    expect(result.items[0]).toMatchObject({
+      kind: 'drift',
+      stableId: 'spawn-a',
+      sourceId: 'same-source',
+    });
+  });
+
   it('creates a new stable identity when no candidate exists', () => {
     const result = reconcileSpawns(
       [],

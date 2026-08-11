@@ -11,6 +11,7 @@
 2. Threechest 坐标 importer：`--dry-run` 不写文件，`--check` 对规范化 JSON 做语义比对；输入结构、坐标、group 和重复 source spawn identity 在写入前阻断；正式写入使用同目录临时文件 + `rename`。
 3. Threechest spawn identity reconciliation：以显式的规范化 snapshot、可选上一版 snapshot 和 identity registry 为输入；默认只预览，只有 `--write-registry` 才写 registry；source ID 变化时优先按上一版坐标自动匹配，无法唯一匹配则阻断，且 registry 写入同样采用原子替换。
 4. RLP 当前 S2 坐标接入：固定 Threechest `origin/ptr` 提交，导入 166 个位置 spawn，并以 committed identity registry 生成稳定 SpawnId；仅在 catalog 显式声明 snapshot/key 后开放只读位置参考。
+5. Identity drift 门：sourceId 相同但 enemy/floor 事实变化时输出 `drift` 并阻断 registry 写入，避免静默重绑学习引用。
 
 ## Review 发现与修复
 
@@ -24,6 +25,7 @@
 | formal review 可跳过作者工时证据                         | 增加 `DUNGEON_REVIEW_EFFORT_*` 诊断；draft 为 warning，reviewed/published 为 release error  |
 | reconciliation 可能把不同副本的历史 snapshot 混配        | 校验 previous/current `dungeonKey` 一致；snapshot、registry 的 slug、ID、坐标和版本均先校验 |
 | ambiguous auto-match 若仍写 registry 会固化错误身份      | `--write-registry` 遇到 ambiguous 直接失败，保持原 registry 不变；默认 preview 不产生写入   |
+| sourceId 相同但 enemy/floor 改变被误判 exact             | 增加 `drift` 诊断并阻断写入；必须人工确认                                                   |
 
 没有发现 SQL、网络代理、XSS、parser/analysis 侵入或 Threechest URL 进入 production bundle 的新增问题。RLP 坐标接入的具体来源与反例审查见 [15-rlp-s2-coordinate-import-review.md](./15-rlp-s2-coordinate-import-review.md)。
 

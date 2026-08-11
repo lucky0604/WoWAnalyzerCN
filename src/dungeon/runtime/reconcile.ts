@@ -21,7 +21,14 @@ export interface SpawnIdentityRegistry {
   entries: IdentityEntry[];
 }
 
-export type ReconciliationKind = 'exact' | 'alias' | 'auto-match' | 'ambiguous' | 'new' | 'removed';
+export type ReconciliationKind =
+  | 'exact'
+  | 'alias'
+  | 'auto-match'
+  | 'ambiguous'
+  | 'drift'
+  | 'new'
+  | 'removed';
 
 export interface ReconciliationItem {
   kind: ReconciliationKind;
@@ -41,6 +48,9 @@ const distanceSquared = (a: Coordinate, b: Coordinate) => (a[0] - b[0]) ** 2 + (
 
 const identityKey = (spawn: Pick<IncomingSpawn, 'enemyId' | 'floorId'>) =>
   `${spawn.enemyId}|${spawn.floorId}`;
+
+const factsMatch = (entry: IdentityEntry, spawn: IncomingSpawn) =>
+  entry.enemyId === spawn.enemyId && entry.floorId === spawn.floorId;
 
 export function reconcileSpawns(
   previous: IdentityEntry[],
@@ -66,6 +76,15 @@ export function reconcileSpawns(
   for (const spawn of incoming) {
     const exact = previousBySource.get(spawn.sourceId);
     if (exact && !usedStableIds.has(exact.stableId)) {
+      if (!factsMatch(exact, spawn)) {
+        items.push({
+          kind: 'drift',
+          stableId: exact.stableId,
+          sourceId: spawn.sourceId,
+          reason: '来源 ID 对应的 enemy/floor 事实发生变化，必须人工确认。',
+        });
+        continue;
+      }
       usedStableIds.add(exact.stableId);
       nextEntries.push({ ...exact, enemyId: spawn.enemyId, floorId: spawn.floorId });
       items.push({ kind: 'exact', stableId: exact.stableId, sourceId: spawn.sourceId });
@@ -74,6 +93,15 @@ export function reconcileSpawns(
 
     const alias = previousByAlias.get(spawn.sourceId);
     if (alias && !usedStableIds.has(alias.stableId)) {
+      if (!factsMatch(alias, spawn)) {
+        items.push({
+          kind: 'drift',
+          stableId: alias.stableId,
+          sourceId: spawn.sourceId,
+          reason: 'alias 对应的 enemy/floor 事实发生变化，必须人工确认。',
+        });
+        continue;
+      }
       usedStableIds.add(alias.stableId);
       nextEntries.push({
         ...alias,
@@ -145,6 +173,6 @@ export function reconcileSpawns(
   return {
     items,
     nextRegistry: { version: 1, entries: nextEntries },
-    blocked: items.some((item) => item.kind === 'ambiguous'),
+    blocked: items.some((item) => item.kind === 'ambiguous' || item.kind === 'drift'),
   };
 }
