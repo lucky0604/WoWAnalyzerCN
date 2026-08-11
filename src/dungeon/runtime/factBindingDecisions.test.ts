@@ -195,4 +195,45 @@ describe('fact binding decision manifest', () => {
       ]),
     );
   });
+
+  it('rejects an empty plan instead of emitting an empty manifest', async () => {
+    const emptyPlan = structuredClone(plan);
+    emptyPlan.enemies = [];
+    emptyPlan.abilities = [];
+    emptyPlan.coverage = {
+      ...emptyPlan.coverage,
+      snapshotEnemies: 0,
+      snapshotAbilities: 0,
+      unambiguousEnemyCandidates: 0,
+      unambiguousAbilityCandidates: 0,
+    };
+    emptyPlan.status = 'ready-for-review';
+    emptyPlan.planDigest = await computeFactBindingPlanDigest(emptyPlan);
+    const result = await buildFactBindingManifestFromDecisions(emptyPlan, {
+      version: 1,
+      plan: {
+        planDigest: emptyPlan.planDigest,
+        snapshotId: emptyPlan.snapshot.snapshotId,
+        snapshotDigest: emptyPlan.snapshot.digest,
+        dungeonId: emptyPlan.snapshot.dungeonId,
+        season: emptyPlan.snapshot.season,
+        gameBuild: emptyPlan.snapshot.gameBuild,
+        documentId: emptyPlan.document.id,
+        documentSeason: emptyPlan.document.season,
+        documentGameBuild: emptyPlan.document.gameBuild,
+        documentRevision: emptyPlan.document.revision,
+      },
+      reviewer: 'content-owner',
+      reviewedAt: '2026-08-11T12:00:00.000Z',
+      enemies: [],
+      abilities: [],
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'FACT_BINDING_DECISION_EMPTY_PLAN' }),
+      ]),
+    );
+  });
 });

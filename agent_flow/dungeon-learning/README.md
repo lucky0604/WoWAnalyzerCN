@@ -65,6 +65,7 @@
 - [25-wcl-fight-scope-phase.md](./25-wcl-fight-scope-phase.md)：多 fight WCL report 的显式单 fight 裁剪与 fail-closed 合同。
 - [26-wcl-api-capture-phase.md](./26-wcl-api-capture-phase.md)：配置化 WCL API 抓取、分页汇总与 FactSnapshot 草稿生成。
 - [27-fact-binding-decision-phase.md](./27-fact-binding-decision-phase.md)：人工映射决策文件、候选采纳边界与安全 manifest 生成。
+- [28-fact-binding-intake-phase.md](./28-fact-binding-intake-phase.md)：从候选计划生成不可直接消费的人工决策模板，降低真实快照接入时的漏项风险。
 
 ## 当前代码审计摘要
 
@@ -95,6 +96,7 @@
 - `pnpm dungeon:fact-check --input=<file>` 提供事实快照的只读结构、目录、build、来源与 canonical digest 预检；当前没有因此新增或猜测 S2 NPC、Spell 或 forces 数据。
 - `pnpm dungeon:fact-bind --snapshot=<file> --bindings=<file> --document=<file> --out=<file>` 将已预检事实绑定到新的 authoring draft；不覆盖来源、不发布、不自动生成路线或攻略结论。
 - `pnpm dungeon:fact-binding-plan --snapshot=<file> --document=<file> --out=<file>` 只生成候选映射审计和空 manifest 模板；候选不会自动写入绑定文件。
+- `pnpm dungeon:fact-binding-decisions-template --plan=<file> --out=<file> --reviewer=<name> --reviewed-at=<UTC ISO>` 从候选计划生成带完整 identity/sourceKey 的人工决策模板；模板中的 `TODO` 不是合法决策，必须逐行改成 `accept`、`reject` 或 `override` 后才能进入 manifest 流程。已有输出必须显式传 `--force` 才会替换。
 - `pnpm dungeon:fact-binding-manifest --plan=<file> --decisions=<file> --out=<file>` 只把维护者明确记录的 accept/override 决策生成 binding manifest；缺失、歧义或 reject 不会被静默采纳。
 - `pnpm dungeon:fact-from-wcl --report=<file> --events=<file> --dungeon=<id> --build=<build> --out=<file>` 将用户提供的 WCL 导出转换为 draft FactSnapshot；不生成 forces、路线或攻略结论。
 - `pnpm dungeon:fact-from-wcl-api --api-base=<url> --report-code=<code> --dungeon=<id> --build=<build> --out=<file>` 从配置化 WCL 服务抓取 report/events 后复用同一 draft 适配器；分页、fight scope 或服务响应异常会 fail-closed。

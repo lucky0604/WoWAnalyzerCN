@@ -45,6 +45,28 @@ export interface FactBindingDecisionFile {
   abilities: FactBindingDecisionRow[];
 }
 
+/**
+ * A deliberately non-consumable decision template.  `TODO` is not part of
+ * FactBindingDecision, so a template cannot accidentally be passed to the
+ * manifest generator before every row has been reviewed.
+ */
+export interface FactBindingDecisionTemplate {
+  version: typeof factBindingDecisionSchemaVersion;
+  plan: FactBindingDecisionFile['plan'];
+  reviewer: string;
+  reviewedAt: string;
+  enemies: Array<{
+    sourceKey: string;
+    decision: 'TODO';
+    reason: string;
+  }>;
+  abilities: Array<{
+    sourceKey: string;
+    decision: 'TODO';
+    reason: string;
+  }>;
+}
+
 export interface FactBindingDecisionResult {
   ok: boolean;
   manifest?: FactBindingManifest;
@@ -127,6 +149,56 @@ function readPlanIdentity(plan: FactBindingPlan): FactBindingDecisionFile['plan'
     documentSeason: plan.document.season,
     documentGameBuild: plan.document.gameBuild,
     documentRevision: plan.document.revision,
+  };
+}
+
+export function isFactBindingDecisionTimestamp(value: unknown): value is string {
+  return validIsoTimestamp(value);
+}
+
+/**
+ * Build a review-only template from a validated candidate plan.  The rows use
+ * an intentionally invalid decision value so the template is safe to save and
+ * edit, but cannot be consumed as a manifest until every TODO is replaced.
+ */
+export function createFactBindingDecisionTemplate(
+  plan: FactBindingPlan,
+  options: { reviewer: string; reviewedAt: string },
+): FactBindingDecisionTemplate {
+  if (
+    !plan ||
+    !Array.isArray(plan.enemies) ||
+    !Array.isArray(plan.abilities) ||
+    [...plan.enemies, ...plan.abilities].some(
+      (row) => !isRecord(row) || !nonEmptyString(row.sourceKey),
+    )
+  ) {
+    throw new Error('FACT_BINDING_DECISION_TEMPLATE_PLAN_INVALID');
+  }
+  if (plan.enemies.length + plan.abilities.length === 0) {
+    throw new Error('FACT_BINDING_DECISION_TEMPLATE_NO_SOURCE_ROWS');
+  }
+  if (!nonEmptyString(options.reviewer)) {
+    throw new Error('FACT_BINDING_DECISION_TEMPLATE_REVIEWER_REQUIRED');
+  }
+  if (!validIsoTimestamp(options.reviewedAt)) {
+    throw new Error('FACT_BINDING_DECISION_TEMPLATE_TIMESTAMP_INVALID');
+  }
+  return {
+    version: factBindingDecisionSchemaVersion,
+    plan: readPlanIdentity(plan),
+    reviewer: options.reviewer,
+    reviewedAt: options.reviewedAt,
+    enemies: plan.enemies.map((row) => ({
+      sourceKey: row.sourceKey,
+      decision: 'TODO',
+      reason: '',
+    })),
+    abilities: plan.abilities.map((row) => ({
+      sourceKey: row.sourceKey,
+      decision: 'TODO',
+      reason: '',
+    })),
   };
 }
 
@@ -828,6 +900,17 @@ export async function buildFactBindingManifestFromDecisions(
     return { ok: false, errors, warnings, summary };
   }
   if (!validatePlanRows(plan.abilities, 'plan.abilities', 'ability', errors)) {
+    return { ok: false, errors, warnings, summary };
+  }
+  if (plan.enemies.length + plan.abilities.length === 0) {
+    errors.push(
+      diagnostic(
+        'error',
+        'FACT_BINDING_DECISION_EMPTY_PLAN',
+        'plan',
+        '候选计划没有任何 Enemy 或 Ability sourceKey，不能生成空 binding manifest。',
+      ),
+    );
     return { ok: false, errors, warnings, summary };
   }
   const expectedCoverage = {
