@@ -19,6 +19,26 @@ const events = {
   ],
 };
 
+const multiFightReport = {
+  code: 'WCLTEST1',
+  fights: [
+    { id: 1, start_time: 0, end_time: 200 },
+    { id: 2, start_time: 201, end_time: 400 },
+  ],
+  enemies: [
+    { id: 11, guid: 1001, type: 'NPC', subType: 'NPC', fights: [{ id: 1 }] },
+    { id: 12, guid: 1002, type: 'NPC', subType: 'Boss', fights: [{ id: 2 }] },
+  ],
+};
+
+const multiFightEvents = {
+  code: 'WCLTEST1',
+  events: [
+    { type: 'cast', timestamp: 100, sourceID: 11, ability: { guid: 2001 } },
+    { type: 'cast', timestamp: 300, sourceID: 12, ability: { guid: 2002 } },
+  ],
+};
+
 function runCli(
   directory: string,
   extra: string[] = [],
@@ -144,6 +164,34 @@ describe('dungeon:fact-from-wcl CLI', () => {
       expect(JSON.parse(result.stdout).errors[0]).toMatchObject({
         code: 'WCL_FACT_REPORT_INVALID',
       });
+    } finally {
+      await rm(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts an explicit fight scope for a standard multi-fight report export', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'wac-fact-from-wcl-'));
+    try {
+      await Promise.all([
+        writeFile(join(directory, 'report.json'), JSON.stringify(multiFightReport), 'utf8'),
+        writeFile(join(directory, 'events.json'), JSON.stringify(multiFightEvents), 'utf8'),
+      ]);
+      const result = runCli(directory, ['--fight-id=1']);
+
+      expect(result.status).toBe(0);
+      expect(JSON.parse(result.stdout)).toMatchObject({
+        ok: true,
+        snapshotId: 'wcl:wcl-report:WCLTEST1:ruby-life-pools:midnight-s2-test-build:fight-1',
+        stats: { groupedEnemies: 1, groupedAbilities: 1 },
+      });
+      const snapshot = JSON.parse(await readFile(join(directory, 'snapshot.json'), 'utf8')) as {
+        fightId?: number;
+        enemies: unknown[];
+        abilities: unknown[];
+      };
+      expect(snapshot.fightId).toBe(1);
+      expect(snapshot.enemies).toHaveLength(1);
+      expect(snapshot.abilities).toHaveLength(1);
     } finally {
       await rm(directory, { recursive: true, force: true });
     }

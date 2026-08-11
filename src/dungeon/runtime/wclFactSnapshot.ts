@@ -21,6 +21,8 @@ export interface WclFactSnapshotOptions {
   snapshotId: string;
   evidenceRef: string;
   capturedAt: string;
+  /** Explicit WCL fight id used to scope a multi-fight report before parsing. */
+  fightId?: number;
   licenseStatus?: ProvenanceLicenseStatus;
   requireApproved?: boolean;
   catalogEntry?: DungeonCatalogEntry;
@@ -74,6 +76,27 @@ const nonEmptyString = (value: unknown): value is string =>
 
 const castEventTypes = new Set(['cast', 'begincast', 'channel', 'beginchannel', 'empowerstart']);
 
+function readSourceCodeAliases(
+  value: RecordValue,
+  path: string,
+): { sourceCode?: string; errors: FactSnapshotDiagnostic[] } {
+  const aliases = [value.code, value.reportCode].filter(nonEmptyString);
+  const uniqueAliases = [...new Set(aliases)];
+  if (uniqueAliases.length > 1) {
+    return {
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_SOURCE_CODE_ALIAS_MISMATCH',
+          path,
+          '同一输入中的 code 与 reportCode 不一致，拒绝选择其中一个继续处理。',
+        ),
+      ],
+    };
+  }
+  return { sourceCode: uniqueAliases[0], errors: [] };
+}
+
 function emptyStats(): WclFactSnapshotStats {
   return {
     reportEnemies: 0,
@@ -93,6 +116,7 @@ function readEvents(rawEvents: unknown): {
   if (rawEvents === undefined) return { events: [], errors: [] };
   if (Array.isArray(rawEvents)) return { events: rawEvents, errors: [] };
   if (isRecord(rawEvents) && Array.isArray(rawEvents.events)) {
+    const sourceCode = readSourceCodeAliases(rawEvents, 'events');
     const hasPaginationMarker =
       (rawEvents.nextPageTimestamp !== undefined && rawEvents.nextPageTimestamp !== null) ||
       rawEvents.hasMore === true ||
@@ -101,6 +125,7 @@ function readEvents(rawEvents: unknown): {
       return {
         events: [],
         errors: [
+          ...sourceCode.errors,
           diagnostic(
             'error',
             'WCL_FACT_EVENTS_PAGINATED',
@@ -112,13 +137,8 @@ function readEvents(rawEvents: unknown): {
     }
     return {
       events: rawEvents.events,
-      sourceCode:
-        typeof rawEvents.code === 'string' && rawEvents.code.trim().length > 0
-          ? rawEvents.code
-          : typeof rawEvents.reportCode === 'string' && rawEvents.reportCode.trim().length > 0
-            ? rawEvents.reportCode
-            : undefined,
-      errors: [],
+      sourceCode: sourceCode.sourceCode,
+      errors: sourceCode.errors,
     };
   }
   return {
@@ -132,6 +152,238 @@ function readEvents(rawEvents: unknown): {
       ),
     ],
   };
+}
+
+interface WclFightScopeResult {
+  report: RecordValue;
+  events: unknown;
+  errors: FactSnapshotDiagnostic[];
+}
+
+function scopeWclFightInputs(
+  rawReport: RecordValue,
+  rawEvents: unknown,
+  fightId: number | undefined,
+): WclFightScopeResult {
+  const rawFights = rawReport.fights;
+  if (rawFights !== undefined && !Array.isArray(rawFights)) {
+    return {
+      report: rawReport,
+      events: rawEvents,
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_FIGHTS_INVALID',
+          'report.fights',
+          'report.fights 必须是数组；不能用其它形状表示 fight scope。',
+        ),
+      ],
+    };
+  }
+  if (!Array.isArray(rawFights) || rawFights.length === 0) {
+    if (fightId === undefined) {
+      return { report: rawReport, events: rawEvents, errors: [] };
+    }
+    return {
+      report: rawReport,
+      events: rawEvents,
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_FIGHT_SCOPE_UNAVAILABLE',
+          'report.fights',
+          '--fight-id 只能用于包含可验证 fights 数组的 report；不能对缺失或空 fights 的输入猜测范围。',
+        ),
+      ],
+    };
+  }
+  if (fightId !== undefined || rawFights.length > 1) {
+    const invalidFight = rawFights.find(
+      (candidate) => !isRecord(candidate) || !positiveInteger(candidate.id),
+    );
+    if (invalidFight !== undefined) {
+      return {
+        report: rawReport,
+        events: rawEvents,
+        errors: [
+          diagnostic(
+            'error',
+            'WCL_FACT_FIGHT_RECORD_INVALID',
+            'report.fights',
+            'report.fights 中每个 fight 都必须包含正整数 id，才能执行安全 scope。',
+          ),
+        ],
+      };
+    }
+    const fightIds = rawFights.map((candidate) => (candidate as RecordValue).id as number);
+    if (new Set(fightIds).size !== fightIds.length) {
+      return {
+        report: rawReport,
+        events: rawEvents,
+        errors: [
+          diagnostic(
+            'error',
+            'WCL_FACT_DUPLICATE_FIGHT_ID',
+            'report.fights',
+            'report.fights 中存在重复 id，不能无歧义地选择目标战斗。',
+          ),
+        ],
+      };
+    }
+    const invalidRange = rawFights.find((candidate) => {
+      const range = candidate as RecordValue;
+      return (
+        typeof range.start_time !== 'number' ||
+        !Number.isFinite(range.start_time) ||
+        typeof range.end_time !== 'number' ||
+        !Number.isFinite(range.end_time) ||
+        (range.end_time as number) < (range.start_time as number)
+      );
+    });
+    if (invalidRange !== undefined) {
+      return {
+        report: rawReport,
+        events: rawEvents,
+        errors: [
+          diagnostic(
+            'error',
+            'WCL_FACT_FIGHT_RANGE_INVALID',
+            'report.fights',
+            'report.fights 中每个 fight 都必须包含有限且非倒置的 start_time/end_time。',
+          ),
+        ],
+      };
+    }
+    const ranges = rawFights.map((candidate) => candidate as RecordValue);
+    for (let leftIndex = 0; leftIndex < ranges.length; leftIndex += 1) {
+      const left = ranges[leftIndex]!;
+      for (let rightIndex = leftIndex + 1; rightIndex < ranges.length; rightIndex += 1) {
+        const right = ranges[rightIndex]!;
+        if (
+          (left.start_time as number) <= (right.end_time as number) &&
+          (right.start_time as number) <= (left.end_time as number)
+        ) {
+          return {
+            report: rawReport,
+            events: rawEvents,
+            errors: [
+              diagnostic(
+                'error',
+                'WCL_FACT_FIGHT_RANGE_OVERLAP',
+                'report.fights',
+                'report.fights 的时间范围重叠或边界相等，无法仅凭 timestamp 安全归属事件。',
+              ),
+            ],
+          };
+        }
+      }
+    }
+  }
+  if (fightId === undefined) {
+    if (rawFights.length <= 1) {
+      return { report: rawReport, events: rawEvents, errors: [] };
+    }
+    return {
+      report: rawReport,
+      events: rawEvents,
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_FIGHT_SCOPE_REQUIRED',
+          'report.fights',
+          'report 包含多场 fight；请提供 --fight-id，不能把全报告 roster 与单场 events 直接拼接。',
+        ),
+      ],
+    };
+  }
+  const selectedFight = rawFights.find(
+    (candidate) => isRecord(candidate) && candidate.id === fightId,
+  );
+  if (!isRecord(selectedFight)) {
+    return {
+      report: rawReport,
+      events: rawEvents,
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_FIGHT_ID_NOT_FOUND',
+          'fightId',
+          `report.fights 中不存在 fight id：${fightId}。`,
+        ),
+      ],
+    };
+  }
+  const startTime = selectedFight.start_time as number;
+  const endTime = selectedFight.end_time as number;
+  const rawEnemies = rawReport.enemies;
+  if (!Array.isArray(rawEnemies)) {
+    return { report: rawReport, events: rawEvents, errors: [] };
+  }
+  const unscopableEnemy = rawEnemies.find(
+    (candidate) => !isRecord(candidate) || !Array.isArray(candidate.fights),
+  );
+  if (unscopableEnemy !== undefined) {
+    return {
+      report: rawReport,
+      events: rawEvents,
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_ENEMY_SCOPE_UNAVAILABLE',
+          'report.enemies',
+          `fight ${fightId} 的 report.enemies 缺少逐 actor fights 归属，拒绝按不完整 roster 生成快照。`,
+        ),
+      ],
+    };
+  }
+  const scopedEnemies = rawEnemies.filter(
+    (candidate) =>
+      isRecord(candidate) &&
+      Array.isArray(candidate.fights) &&
+      candidate.fights.some(
+        (enemyFight: unknown) => isRecord(enemyFight) && enemyFight.id === fightId,
+      ),
+  );
+  const parsedEvents = readEvents(rawEvents);
+  if (parsedEvents.errors.length > 0) {
+    return { report: rawReport, events: rawEvents, errors: parsedEvents.errors };
+  }
+  const scopedEvents: unknown[] = [];
+  let hasUnscopableCast = false;
+  parsedEvents.events.forEach((candidate) => {
+    if (!isRecord(candidate) || !castEventTypes.has(String(candidate.type))) return;
+    const timestamp = candidate.timestamp;
+    if (typeof timestamp !== 'number' || !Number.isFinite(timestamp)) {
+      hasUnscopableCast = true;
+      return;
+    }
+    if (timestamp >= startTime && timestamp <= endTime) scopedEvents.push(candidate);
+  });
+  if (hasUnscopableCast) {
+    return {
+      report: rawReport,
+      events: rawEvents,
+      errors: [
+        diagnostic(
+          'error',
+          'WCL_FACT_EVENT_SCOPE_TIMESTAMP_INVALID',
+          'events',
+          `fight ${fightId} 的施法事件缺少可比较 timestamp，拒绝跨 fight 猜测施法归属。`,
+        ),
+      ],
+    };
+  }
+  const scopedReport: RecordValue = {
+    ...rawReport,
+    fights: [selectedFight],
+    enemies: scopedEnemies,
+  };
+  const scopedRawEvents = isRecord(rawEvents)
+    ? { ...rawEvents, events: scopedEvents }
+    : rawEvents === undefined
+      ? undefined
+      : scopedEvents;
+  return { report: scopedReport, events: scopedRawEvents, errors: [] };
 }
 
 function buildEnemyGroups(
@@ -321,6 +573,12 @@ export async function buildWclFactSnapshot(
     );
     return { ok: false, errors, warnings, stats };
   }
+  if (options.fightId !== undefined && !positiveInteger(options.fightId)) {
+    errors.push(
+      diagnostic('error', 'WCL_FACT_FIGHT_ID_INVALID', 'options.fightId', 'fightId 必须是正整数。'),
+    );
+    return { ok: false, errors, warnings, stats };
+  }
 
   const catalogEntry = options.catalogEntry ?? getDungeonCatalogEntry(options.dungeonId);
   if (!catalogEntry) {
@@ -346,32 +604,20 @@ export async function buildWclFactSnapshot(
     return { ok: false, errors, warnings, stats };
   }
 
-  if (Array.isArray(rawReport.fights) && rawReport.fights.length > 1) {
-    return {
-      ok: false,
-      errors: [
-        diagnostic(
-          'error',
-          'WCL_FACT_FIGHT_SCOPE_REQUIRED',
-          'report.fights',
-          'report 必须先裁剪为单个 dungeon fight；全报告 roster 不能与单场 events 直接拼接。',
-        ),
-      ],
-      warnings,
-      stats,
-    };
+  const scopedInputs = scopeWclFightInputs(rawReport, rawEvents, options.fightId);
+  if (scopedInputs.errors.length > 0) {
+    return { ok: false, errors: scopedInputs.errors, warnings, stats };
   }
+  const report = scopedInputs.report;
+  const eventsInput = scopedInputs.events;
 
-  const enemyResult = buildEnemyGroups(rawReport, errors);
+  const enemyResult = buildEnemyGroups(report, errors);
   Object.assign(stats, enemyResult.stats);
-  const events = readEvents(rawEvents);
+  const events = readEvents(eventsInput);
   appendDiagnostics(errors, events.errors);
-  const reportCode =
-    typeof rawReport.code === 'string' && rawReport.code.trim().length > 0
-      ? rawReport.code
-      : typeof rawReport.reportCode === 'string' && rawReport.reportCode.trim().length > 0
-        ? rawReport.reportCode
-        : undefined;
+  const reportSourceCode = readSourceCodeAliases(report, 'report');
+  appendDiagnostics(errors, reportSourceCode.errors);
+  const reportCode = reportSourceCode.sourceCode;
   if (reportCode && events.sourceCode && reportCode !== events.sourceCode) {
     errors.push(
       diagnostic(
@@ -381,7 +627,7 @@ export async function buildWclFactSnapshot(
         `report code ${reportCode} 与 events code ${events.sourceCode} 不一致；拒绝拼接两个来源。`,
       ),
     );
-  } else if (rawEvents !== undefined && (!reportCode || !events.sourceCode)) {
+  } else if (eventsInput !== undefined && (!reportCode || !events.sourceCode)) {
     const severity = options.requireApproved ? 'error' : 'warning';
     (severity === 'error' ? errors : warnings).push(
       diagnostic(
@@ -394,7 +640,7 @@ export async function buildWclFactSnapshot(
       ),
     );
   }
-  if (rawEvents === undefined) {
+  if (eventsInput === undefined) {
     warnings.push(
       diagnostic(
         'warning',
@@ -427,7 +673,7 @@ export async function buildWclFactSnapshot(
         casterEnemyKeys,
       };
     });
-  if (abilityRows.length === 0 && rawEvents !== undefined) {
+  if (abilityRows.length === 0 && eventsInput !== undefined) {
     warnings.push(
       diagnostic(
         'warning',
@@ -449,6 +695,7 @@ export async function buildWclFactSnapshot(
   const draft: FactSnapshotDraft = {
     version: 1,
     snapshotId: options.snapshotId,
+    ...(options.fightId === undefined ? {} : { fightId: options.fightId }),
     dungeonId: options.dungeonId,
     season: options.season,
     gameBuild: options.gameBuild,

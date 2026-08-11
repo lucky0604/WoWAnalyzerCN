@@ -111,6 +111,11 @@ async function main(): Promise<void> {
       'WCL_FACT_INPUT_REQUIRED: pass --report=<report.json> --dungeon=<id> --build=<build> --out=<snapshot.json>.',
     );
   }
+  const requestedFightId = option('--fight-id');
+  const fightId = requestedFightId === undefined ? undefined : Number(requestedFightId);
+  if (fightId !== undefined && (!Number.isInteger(fightId) || fightId <= 0)) {
+    throw new Error('WCL_FACT_FIGHT_ID_INVALID: --fight-id 必须是正整数。');
+  }
   const outputPath = resolve(requestedOutput);
   const sourcePaths = [resolve(reportPath), ...(eventsPath ? [resolve(eventsPath)] : [])];
   const report = await readJson(reportPath, 'WCL_FACT_REPORT_INVALID');
@@ -137,7 +142,8 @@ async function main(): Promise<void> {
     );
   }
   const snapshotId =
-    option('--snapshot-id') ?? `wcl:${resolvedEvidenceRef}:${dungeonId}:${gameBuild}`;
+    option('--snapshot-id') ??
+    `wcl:${resolvedEvidenceRef}:${dungeonId}:${gameBuild}${fightId === undefined ? '' : `:fight-${fightId}`}`;
   const requestedLicenseStatus = option('--license-status');
   if (
     requestedLicenseStatus !== undefined &&
@@ -154,6 +160,7 @@ async function main(): Promise<void> {
     snapshotId,
     evidenceRef: resolvedEvidenceRef,
     capturedAt: option('--captured-at') ?? new Date().toISOString(),
+    fightId,
     licenseStatus:
       requestedLicenseStatus === 'approved'
         ? 'approved'

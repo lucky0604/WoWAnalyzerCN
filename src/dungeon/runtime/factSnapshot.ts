@@ -29,6 +29,8 @@ export interface FactSnapshotAbility {
 export interface FactSnapshot {
   version: typeof factSnapshotSchemaVersion;
   snapshotId: string;
+  /** Optional source scope, e.g. a WCL fight id within a report. */
+  fightId?: number;
   dungeonId: string;
   season: string;
   gameBuild: string;
@@ -83,6 +85,7 @@ const licenseValues = new Set<ProvenanceLicenseStatus>([
 const topLevelKeys = new Set([
   'version',
   'snapshotId',
+  'fightId',
   'dungeonId',
   'season',
   'gameBuild',
@@ -418,6 +421,7 @@ function validateFactSnapshotShape(
   reportUnknownKeys(value, topLevelKeys, '$', errors);
   const version = value.version;
   const snapshotId = value.snapshotId;
+  const fightId = value.fightId;
   const dungeonId = value.dungeonId;
   const season = value.season;
   const gameBuild = value.gameBuild;
@@ -459,6 +463,11 @@ function validateFactSnapshotShape(
         'capturedAt',
         'capturedAt 必须是可解析的 UTC ISO timestamp。',
       ),
+    );
+  }
+  if (fightId !== undefined && (!Number.isInteger(fightId) || (fightId as number) <= 0)) {
+    errors.push(
+      diagnostic('error', 'FACT_SNAPSHOT_FIGHT_ID_INVALID', 'fightId', 'fightId 必须是正整数。'),
     );
   }
   if (!isNonEmptyString(source) || !sourceValues.has(source as FactSnapshotSource)) {
@@ -662,6 +671,7 @@ function validateFactSnapshotShape(
   const snapshot = {
     version: factSnapshotSchemaVersion,
     snapshotId: String(snapshotId),
+    ...(Number.isInteger(fightId) ? { fightId: fightId as number } : {}),
     dungeonId: String(dungeonId),
     season: String(season),
     gameBuild: String(gameBuild),

@@ -32,6 +32,7 @@
 {
   "version": 1,
   "snapshotId": "<source snapshot identity>",
+  "fightId": 123,
   "dungeonId": "<S2 catalog id>",
   "season": "midnight-s2",
   "gameBuild": "<exact build or data snapshot build>",
@@ -54,6 +55,9 @@
   "totalEnemyForcesPoints": 5
 }
 ```
+
+`fightId` 是可选的 source scope；只有 WCL 等来源能证明 report 内的单场 fight 时才填写。
+它属于 canonical payload，会参与 digest；缺省时保持其它来源快照的 v1 行为。
 
 `forcesPoints` 可以暂时全部缺省，表示事实尚未接入；一旦出现一个 forces 值，就必须覆盖快照中每个敌人，并与 `totalEnemyForcesPoints` 精确相等。零 forces Boss 是合法值，不应被当作缺失。
 

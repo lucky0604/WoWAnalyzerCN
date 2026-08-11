@@ -28,6 +28,26 @@ const events = {
   ],
 };
 
+const multiFightReport = {
+  code: 'TEST123',
+  fights: [
+    { id: 1, start_time: 0, end_time: 200 },
+    { id: 2, start_time: 201, end_time: 400 },
+  ],
+  enemies: [
+    { id: 11, guid: 1001, type: 'NPC', subType: 'NPC', fights: [{ id: 1 }] },
+    { id: 12, guid: 1002, type: 'NPC', subType: 'Boss', fights: [{ id: 2 }] },
+  ],
+};
+
+const multiFightEvents = {
+  code: 'TEST123',
+  events: [
+    { type: 'cast', timestamp: 100, sourceID: 11, ability: { guid: 2001 } },
+    { type: 'cast', timestamp: 300, sourceID: 12, ability: { guid: 2002 } },
+  ],
+};
+
 describe('WCL fact snapshot adapter', () => {
   it('groups report enemies and enemy casts without inventing forces', async () => {
     const result = await buildWclFactSnapshot(report, events, options);
@@ -128,14 +148,135 @@ describe('WCL fact snapshot adapter', () => {
   });
 
   it('requires a report to be pre-cropped to one dungeon fight', async () => {
-    const result = await buildWclFactSnapshot(
-      { ...report, fights: [{ id: 1 }, { id: 2 }] },
-      events,
-      options,
-    );
+    const result = await buildWclFactSnapshot(multiFightReport, multiFightEvents, options);
 
     expect(result.ok).toBe(false);
     expect(result.errors.map((error) => error.code)).toContain('WCL_FACT_FIGHT_SCOPE_REQUIRED');
+  });
+
+  it('scopes a multi-fight report and events when fightId is explicit', async () => {
+    const result = await buildWclFactSnapshot(multiFightReport, multiFightEvents, {
+      ...options,
+      fightId: 1,
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.snapshot?.fightId).toBe(1);
+    expect(result.snapshot?.enemies).toEqual([
+      { enemyKey: 'wcl:npc:1001', npcId: 1001, isBoss: false },
+    ]);
+    expect(result.snapshot?.abilities).toEqual([
+      {
+        abilityKey: 'wcl:spell:2001:wcl:npc:1001',
+        spellId: 2001,
+        casterEnemyKeys: ['wcl:npc:1001'],
+      },
+    ]);
+    expect(result.stats).toMatchObject({ groupedEnemies: 1, castEvents: 1, groupedAbilities: 1 });
+  });
+
+  it('fails closed when a selected fight has no actor-level scope metadata', async () => {
+    const result = await buildWclFactSnapshot(
+      {
+        ...multiFightReport,
+        enemies: [{ id: 11, guid: 1001, type: 'NPC', subType: 'NPC' }],
+      },
+      multiFightEvents,
+      { ...options, fightId: 1 },
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.errors.map((error) => error.code)).toContain('WCL_FACT_ENEMY_SCOPE_UNAVAILABLE');
+  });
+
+  it('rejects an unknown fight id and an unscopable cast timestamp', async () => {
+    const unknownFight = await buildWclFactSnapshot(multiFightReport, multiFightEvents, {
+      ...options,
+      fightId: 99,
+    });
+    expect(unknownFight.ok).toBe(false);
+    expect(unknownFight.errors.map((error) => error.code)).toContain('WCL_FACT_FIGHT_ID_NOT_FOUND');
+
+    const missingTimestamp = await buildWclFactSnapshot(
+      multiFightReport,
+      {
+        ...multiFightEvents,
+        events: [{ type: 'cast', sourceID: 11, ability: { guid: 2001 } }],
+      },
+      { ...options, fightId: 1 },
+    );
+    expect(missingTimestamp.ok).toBe(false);
+    expect(missingTimestamp.errors.map((error) => error.code)).toContain(
+      'WCL_FACT_EVENT_SCOPE_TIMESTAMP_INVALID',
+    );
+  });
+
+  it('rejects duplicate fight ids and conflicting report code aliases', async () => {
+    const duplicateFight = await buildWclFactSnapshot(
+      {
+        ...multiFightReport,
+        fights: [
+          { id: 1, start_time: 0, end_time: 200 },
+          { id: 1, start_time: 201, end_time: 400 },
+        ],
+      },
+      multiFightEvents,
+      { ...options, fightId: 1 },
+    );
+    expect(duplicateFight.ok).toBe(false);
+    expect(duplicateFight.errors.map((error) => error.code)).toContain(
+      'WCL_FACT_DUPLICATE_FIGHT_ID',
+    );
+
+    const aliasMismatch = await buildWclFactSnapshot(
+      { ...report, reportCode: 'OTHER_REPORT' },
+      events,
+      options,
+    );
+    expect(aliasMismatch.ok).toBe(false);
+    expect(aliasMismatch.errors.map((error) => error.code)).toContain(
+      'WCL_FACT_SOURCE_CODE_ALIAS_MISMATCH',
+    );
+
+    const invalidRange = await buildWclFactSnapshot(
+      {
+        ...multiFightReport,
+        fights: [
+          { id: 1, start_time: 200, end_time: 100 },
+          { id: 2, start_time: 201, end_time: 400 },
+        ],
+      },
+      multiFightEvents,
+      { ...options, fightId: 1 },
+    );
+    expect(invalidRange.ok).toBe(false);
+    expect(invalidRange.errors.map((error) => error.code)).toContain(
+      'WCL_FACT_FIGHT_RANGE_INVALID',
+    );
+
+    const overlappingRanges = await buildWclFactSnapshot(
+      {
+        ...multiFightReport,
+        fights: [
+          { id: 1, start_time: 0, end_time: 200 },
+          { id: 2, start_time: 100, end_time: 400 },
+        ],
+      },
+      multiFightEvents,
+      { ...options, fightId: 1 },
+    );
+    expect(overlappingRanges.ok).toBe(false);
+    expect(overlappingRanges.errors.map((error) => error.code)).toContain(
+      'WCL_FACT_FIGHT_RANGE_OVERLAP',
+    );
+
+    const malformedFights = await buildWclFactSnapshot(
+      { ...report, fights: { id: 1 } },
+      events,
+      options,
+    );
+    expect(malformedFights.ok).toBe(false);
+    expect(malformedFights.errors.map((error) => error.code)).toContain('WCL_FACT_FIGHTS_INVALID');
   });
 
   it('never turns a WCL draft into a release candidate without forces evidence', async () => {

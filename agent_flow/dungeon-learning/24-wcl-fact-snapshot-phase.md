@@ -21,9 +21,9 @@
   情况升级为 error 并阻断。
 - `events` 必须是完整事件数组；如果 envelope 带有 `nextPageTimestamp`、`nextPage` 或
   `hasMore=true` 等分页标记，适配器会阻断，必须先在输入侧汇总所有页面。
-- 输入 report 必须已裁剪为单个副本战斗：`report.fights` 只能为空、缺省或包含一项。
-  适配器不会猜测 fight，也没有把全报告 roster 与单场 events 拼接的安全依据；多 fight
-  导出应先按目标 fight 过滤 `enemies`/`events` 并移除其余 fights，再运行 CLI。
+- 输入 report 默认必须已裁剪为单个副本战斗：`report.fights` 只能为空、缺省或包含一项。
+  对标准多 fight 导出可以显式传入 `--fight-id`，适配器只在 report.fights、每个 enemy
+  的 fights 归属和事件 timestamp 都可验证时执行裁剪；无法验证时仍 fail-closed。
 - 仅 `cast`/`begincast`/`channel`/`beginchannel`/`empowerstart` 事件参与提取；
   `damage` 等带有 ability 字段的事件不会被误当作施法事实。
 - `events[].ability.guid` 生成 Spell ID 与 caster enemyKey 关系；不推断
@@ -39,6 +39,7 @@
 pnpm dungeon:fact-from-wcl \
   --report=./incoming/report.json \
   --events=./incoming/events.json \
+  --fight-id=123 \
   --dungeon=ruby-life-pools \
   --build=<当前目标 build> \
   --evidence-ref=<WCL report URL/code> \
@@ -52,9 +53,9 @@ pnpm dungeon:fact-from-wcl \
 `licenseStatus=reference-only`；`--release` 仍会因 forces 缺失和事实授权/完整性门禁失败，
 不能把 WCL report 导出直接当作正式事实。
 
-注意：WCL report API 的完整报告通常包含多个 `fights` 和全局 `enemies` roster。当前 CLI
-不负责选择 fight；请在保存输入前完成单 fight 裁剪，并保留原始 report URL/code 作为
-`--evidence-ref`，避免把同一报告中的其它战斗 NPC 带入本次快照。
+注意：WCL report API 的完整报告通常包含多个 `fights` 和全局 `enemies` roster。传入
+`--fight-id` 后 CLI 会按 fight 时间范围过滤施法事件、按 actor fights 归属过滤敌人，并
+保留原始 report URL/code 作为 `--evidence-ref`；不传则必须先在输入侧完成单 fight 裁剪。
 
 生成文件下一步必须经过：
 
