@@ -28,6 +28,11 @@ source dungeon index: 42
 这是“当前 S2 PTR 的位置参考快照”，不是已发布的 WoWAnalyzerCN 攻略，也不是把
 MDT/Threechest 路线搬进来。
 
+复现注意：`agent_flow/threechest` 当前工作分支是 `main`，默认 checkout 不含
+`rlp_mdt.json`；本次 importer 的 `--check` 使用了单独的 `origin/ptr` 固定提交
+checkout，并通过 `--threechest-root=<ptr-checkout>` 指定输入。不要为重跑校验而切换
+用户的 Threechest 工作目录；运行时不依赖该目录，只依赖本仓库的规范化快照与来源 hash。
+
 ## 接入设计
 
 S2 catalog 的稳定 `sourceKey` 保持 `ruby-life-pools`，坐标源 key 显式记录为
