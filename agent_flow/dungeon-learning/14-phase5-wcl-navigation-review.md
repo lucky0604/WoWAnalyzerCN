@@ -26,7 +26,7 @@
 
 ## 验证证据
 
-- 受影响 Dungeon/UI/WCL suite：21 files，98 tests passed。
+- 受影响 Dungeon/UI/WCL/dist-guard suite：22 files，100 tests passed。
 - `pnpm dungeon:check`：通过；8 个 S2 catalog、8 个 legacy coordinate snapshot。
 - `pnpm dungeon:generate -- --dungeon=all --check`：8 个 legacy snapshot 全部通过。
 - `pnpm typecheck`、受影响文件 `oxlint`：通过。
