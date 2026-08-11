@@ -18,11 +18,57 @@ import { usePageView } from 'interface/useGoogleAnalytics';
 import { isPresent } from 'common/typeGuards';
 import { useWaDispatch } from 'interface/utils/useWaDispatch';
 import { clearFight, setFight } from 'interface/reducers/navigation';
-import Report from 'parser/core/Report';
+import type { WCLFight } from 'parser/core/Fight';
+import type Report from 'parser/core/Report';
 import { useLingui } from '@lingui/react';
 import { isEligibleFight } from 'common/isEligibleFight';
 import ReportNoEligibleFightsWarning from 'interface/report/ReportNoEligibleFightsWarning';
 import ReportFightNotEligibleWarning from 'interface/report/ReportFightNotEligibleWarning';
+
+import Panel from 'interface/Panel';
+
+/**
+ * Keep the dungeon catalog out of the report's initial bundle. The bridge is
+ * loaded only after a fight has been selected, and it renders only when the
+ * WCL adapter finds a formally available dungeon document.
+ */
+const DungeonLearningBridge = ({ report, fight }: { report: Report; fight: WCLFight }) => {
+  const [learningPath, setLearningPath] = useState<string>();
+
+  useEffect(() => {
+    let active = true;
+    setLearningPath(undefined);
+    void import('../../dungeon/runtime/wcl')
+      .then(({ getPublishedDungeonLearningPathFromWcl }) => {
+        if (active) {
+          setLearningPath(getPublishedDungeonLearningPathFromWcl(report, fight));
+        }
+      })
+      .catch(() => {
+        // The report must remain usable when the optional dungeon chunk fails.
+      });
+    return () => {
+      active = false;
+    };
+  }, [fight, report]);
+
+  if (!learningPath) return null;
+
+  return (
+    <div className="container offset">
+      <Panel
+        title="大秘境学习"
+        subheading
+        explanation="WCL 已识别当前日志所属副本；攻略内容与日志分析保持独立。"
+      >
+        <p>先复习路线、怪物技能和每个场景的可执行动作，再回到日志分析核对表现。</p>
+        <Link className="btn btn-primary" to={learningPath}>
+          查看副本攻略 →
+        </Link>
+      </Panel>
+    </div>
+  );
+};
 
 const getFightFromReport = (report: Report, fightId: number) => {
   if (!report.fights) {
@@ -170,7 +216,10 @@ const FightSelection = ({ children }: Props) => {
             : report.title
         }
       />
-      <FightProvider fight={fight}>{children}</FightProvider>
+      <FightProvider fight={fight}>
+        <DungeonLearningBridge report={report} fight={fight} />
+        {children}
+      </FightProvider>
     </>
   );
 };

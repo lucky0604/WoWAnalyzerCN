@@ -10,9 +10,10 @@ import RouterErrorBoundary from 'interface/RouterErrorBoundary';
 import { AppLayout } from 'interface/layouts/AppLayout';
 import { HomeLayout } from 'interface/layouts/HomeLayout';
 
-// Phase 0 exposes fixture data only during local development. A production route
-// must be enabled together with a published data registry in a later phase.
-const dungeonRoutesEnabled = import.meta.env.DEV;
+// Local previews are always available in DEV. Production/preview must opt in
+// only after a published data registry and route QA are part of that deploy.
+const dungeonRoutesEnabled = import.meta.env.DEV || import.meta.env.VITE_DUNGEON_ROUTES === 'true';
+const dungeonLegacyRoutesEnabled = import.meta.env.DEV;
 
 const appRoutes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />} errorElement={<RouterErrorBoundary />}>
@@ -49,7 +50,7 @@ const appRoutes = createRoutesFromElements(
         lazy={() => import('./routes/dungeon-reference')}
       />
     )}
-    {dungeonRoutesEnabled && (
+    {dungeonLegacyRoutesEnabled && (
       <Route
         path="dungeons/legacy/:sourceKey"
         lazy={() => import('./routes/dungeon-legacy-reference')}

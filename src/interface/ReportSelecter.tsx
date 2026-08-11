@@ -1,7 +1,6 @@
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import REGION_CODES from './REGION_CODES';
 import Tooltip from './Tooltip';
@@ -134,6 +133,8 @@ const ReportSelecter = () => {
   const [reportCode, setReportCode] = useState<string>('');
   const reportCodeRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const dungeonIntent = searchParams.get('dungeon');
   useEffect(() => {
     reportCodeRef.current?.focus();
   }, []);
@@ -170,7 +171,11 @@ const ReportSelecter = () => {
       <div className="report-selector">
         <Tooltip
           content={
-            <>{t({ id: 'interface.reportSelecter.reportSelecter.tooltip.supportedLinks.p1', message: 'Supported links:' })}
+            <>
+              {t({
+                id: 'interface.reportSelecter.reportSelecter.tooltip.supportedLinks.p1',
+                message: 'Supported links:',
+              })}
               {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
               <br />
               <ul>
@@ -199,10 +204,14 @@ const ReportSelecter = () => {
               ref={reportCodeRef}
               onChange={(e) => setReportCode(e.target.value)}
               value={reportCode}
-              placeholder={t({
-                id: 'interface.reportSelecter.reportSelecter.placeholder',
-                message: `https://www.warcraftlogs.com/reports/<report code>`,
-              })}
+              placeholder={
+                dungeonIntent
+                  ? '粘贴此副本的 WCL 日志链接，开始分析'
+                  : t({
+                      id: 'interface.reportSelecter.reportSelecter.placeholder',
+                      message: `https://www.warcraftlogs.com/reports/<report code>`,
+                    })
+              }
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"

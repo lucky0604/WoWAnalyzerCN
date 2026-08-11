@@ -84,3 +84,20 @@ export function getPublishedDungeonFromWcl(
 export function makeDungeonLearningPath(document: DungeonDocument): string {
   return `/dungeons/${encodeURIComponent(document.id)}/learn`;
 }
+
+/**
+ * Keep the existing report selector as the single WCL entry point. The dungeon
+ * query is an intent hint only; it must never be treated as a report match or
+ * passed into the combat-log parser.
+ */
+export function makeDungeonAnalysisPath(document: Pick<DungeonDocument, 'id'>): string {
+  return `/?dungeon=${encodeURIComponent(document.id)}`;
+}
+
+export function getPublishedDungeonLearningPathFromWcl(
+  report: Pick<Report, 'zone' | 'title'>,
+  fight: Pick<WCLFight, 'boss' | 'originalBoss' | 'name'>,
+): string | undefined {
+  const document = getPublishedDungeonFromWcl(report, fight);
+  return document ? makeDungeonLearningPath(document) : undefined;
+}

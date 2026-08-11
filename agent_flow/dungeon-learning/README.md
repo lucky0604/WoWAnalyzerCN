@@ -51,6 +51,7 @@
 - [11-phase2-3-implementation-review.md](./11-phase2-3-implementation-review.md)：Phase 2–3 实现、对抗性 Review、修复与验证证据。
 - [12-browser-qa.md](./12-browser-qa.md)：本地 Chrome 桌面/移动端路由、交互、错误与溢出检查记录。
 - [13-phase1b-implementation-review.md](./13-phase1b-implementation-review.md)：Phase 1B 作者工时门禁、坐标 importer 预检与对抗性 Review 记录。
+- [14-phase5-wcl-navigation-review.md](./14-phase5-wcl-navigation-review.md)：WCL 与学习双向导航、动态加载和生产路由 flag 的实现 Review。
 
 ## 当前代码审计摘要
 
@@ -72,6 +73,8 @@
 - 内容维护 quickstart 已提供 `dungeon:new` / `dungeon:add` / `dungeon:check --dungeon`，草稿不会自动进入 runtime registry。
 - `dungeon:impact`、`dungeon:status stale`、`dungeon:preview`、`dungeon:publish`、`dungeon:rollback` 已提供显式 release/stale ledger 流程；publish 只写 release manifest，不自动注册页面。
 - `pnpm dungeon:check-dist` 是发布前的 remote-dev/Threechest 产物扫描门禁。
+- WCL 前置导航已接入：正式副本可从 Inspector 进入现有 report selector；正式报告识别到已发布副本后才显示学习深链。报告侧通过 dynamic import 加载 Dungeon adapter，默认不会影响 parser/analysis 初始路径。
+- 生产/preview 路由必须显式设置 `VITE_DUNGEON_ROUTES=true`；Threechest legacy 坐标 QA 路由永远只在 DEV 注册。图片 provider 仍需单独切换为 OSS 或 placeholder。
 
 ### 可直接复用
 

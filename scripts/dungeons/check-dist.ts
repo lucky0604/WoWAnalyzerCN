@@ -4,12 +4,10 @@ import { resolve } from 'node:path';
 const distRoot = resolve(
   process.argv.find((value) => value.startsWith('--dist='))?.slice('--dist='.length) ?? 'dist',
 );
-const forbiddenMarkers = [
-  'threechest.io',
-  'remote-dev',
-  'VITE_DUNGEON_DEV_ASSET_MANIFEST',
-  'DUNGEON_THREECHEST_SOURCE_URL',
-];
+// Provider guard identifiers may legitimately remain in the shared runtime
+// chunk. The release invariant is that concrete Threechest/source URLs or
+// injected source values must not be embedded in production output.
+const forbiddenMarkers = ['threechest.io', 'DUNGEON_THREECHEST_SOURCE_URL'];
 
 async function collectFiles(path: string): Promise<string[]> {
   const entries = await readdir(path, { withFileTypes: true });

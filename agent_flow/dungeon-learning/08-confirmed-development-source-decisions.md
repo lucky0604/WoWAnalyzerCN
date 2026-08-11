@@ -74,6 +74,14 @@ VITE_DUNGEON_ASSET_PROVIDER=remote-dev
 VITE_DUNGEON_DEV_ASSET_MANIFEST={"provider":"remote-dev","assets":{"<asset-key>":{"type":"tiles","urlTemplate":"https://example.invalid/maps/{x}_{y}.jpg","tileSize":64,"origin":[0,0]}}}
 ```
 
+Dungeon 页面默认只在 DEV 注册。生产/preview 只有在发布清单、OSS/placeholder 资源和浏览器 QA 已就绪后，才通过显式配置开启：
+
+```dotenv
+VITE_DUNGEON_ROUTES=true
+```
+
+这个 flag 不会开启 `/dungeons/legacy/**`；legacy Threechest 坐标 QA 路由始终只在本地 DEV 注册。
+
 当前 Vite 浏览器端只读取 `VITE_` 前缀变量，因此 manifest 以 JSON 字符串注入；真实 URL 仍应只存在于被 `.gitignore` 保护的 `.env.local` 或本地启动脚本中。
 
 坐标导入命令也要求通过参数或环境变量注入来源地址，不在脚本常量中内置：
@@ -115,7 +123,7 @@ legacy Threechest snapshot 映射到 S2 目录，也不会替路线生成或改�
 - `remote-dev` 仅允许 Vite DEV、`localhost`/loopback 和明确 flag 同时成立时启用。
 - production、preview、staging、CI build 选择 `remote-dev` 必须立即失败。
 - `src/**`、`public/**`、generated data 和 authored knowledge 禁止出现 Threechest URL。
-- production build 后扫描 `dist`；出现 `threechest.io` 或实际资源 host 即失败。
+- production build 后扫描 `dist`；出现 `threechest.io` 或实际 Threechest 资源 host 即失败。provider 的 guard 标识符可以留在共享运行时代码中，但不能有具体远程 URL 或注入的 source value。
 - 远程图片加载失败时显示 placeholder，学习文字和列表仍可使用。
 - 不创建代理、缓存镜像或绕过来源站 CORS/防盗链的逻辑。
 - 不把本地页面截图用于 PR、公开演示或宣传材料。

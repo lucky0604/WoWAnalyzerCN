@@ -16,6 +16,7 @@ import {
   getEnemyReference,
   getPullStepForces,
   getSpawnBounds,
+  makeDungeonAnalysisPath,
   legacyThreechestCoordinateInventory,
   searchDungeon,
   isLearningPublished,
@@ -454,8 +455,8 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
               这里用于核对数据合同、内容引用和空间状态；学习入口会把危险动作与路线原因分开呈现。
             </p>
             {(document.dataStatus === 'reviewed' || document.dataStatus === 'published') && (
-              <Link className="dungeon-hero__link" to="/">
-                已有 WCL 日志？回到日志分析入口 →
+              <Link className="dungeon-hero__link" to={makeDungeonAnalysisPath(document)}>
+                已有 WCL 日志？进入日志分析入口 →
               </Link>
             )}
           </div>
