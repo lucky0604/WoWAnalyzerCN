@@ -58,6 +58,9 @@ registry，但 `rubyLifePoolsPhase1Draft` 仍是
 映射异常时预览 fail-closed，保留原草稿而不是让 dungeon chunk 在加载时崩溃。
 路线预览会把 pending 文档的步骤投影到同一 source plane；地图只高亮 Situation 的已绑定
 学习锚点，不把这些锚点显示成完整 Pull 或 forces 结论。
+NPC 与 Situation 的绑定位于 `src/dungeon/data/coordinates/rlp.bindings.json`，后续赛季更新
+可替换 manifest 与 snapshot；运行时会校验 snapshot、source floor、已 authored NPC 和全部
+Situation 覆盖，失败时回退到没有 spawn 的原草稿。
 
 ## 对抗性 Review
 
@@ -87,7 +90,7 @@ pnpm exec tsx scripts/dungeons/reconcile-threechest.ts --snapshot=src/dungeon/da
 pnpm typecheck
   passed
 pnpm exec vitest run src/dungeon scripts/dungeons src/interface/routes/dungeon-reference.test.tsx src/interface/routes/dungeons.test.tsx
-  23 files, 104 tests passed
+  24 files, 107 tests passed
 VITE_DUNGEON_ROUTES=true pnpm build && pnpm dungeon:check-dist
   build passed; dist guard scanned 769 assets
 ```
