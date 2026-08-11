@@ -1,0 +1,611 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "stableId": "spawn-1",
+      "sourceId": "kr:1-1",
+      "enemyId": "kr:source-enemy:133935",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-2",
+      "sourceId": "kr:1-2",
+      "enemyId": "kr:source-enemy:133935",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-3",
+      "sourceId": "kr:1-3",
+      "enemyId": "kr:source-enemy:133935",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-4",
+      "sourceId": "kr:1-4",
+      "enemyId": "kr:source-enemy:133935",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-5",
+      "sourceId": "kr:2-1",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-6",
+      "sourceId": "kr:2-2",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-7",
+      "sourceId": "kr:2-3",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-8",
+      "sourceId": "kr:2-4",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-9",
+      "sourceId": "kr:2-5",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-10",
+      "sourceId": "kr:2-6",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-11",
+      "sourceId": "kr:2-7",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-12",
+      "sourceId": "kr:2-8",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-13",
+      "sourceId": "kr:2-9",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-14",
+      "sourceId": "kr:2-10",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-15",
+      "sourceId": "kr:2-11",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-16",
+      "sourceId": "kr:2-12",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-17",
+      "sourceId": "kr:2-14",
+      "enemyId": "kr:source-enemy:133943",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-18",
+      "sourceId": "kr:3-4",
+      "enemyId": "kr:source-enemy:134174",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-19",
+      "sourceId": "kr:4-1",
+      "enemyId": "kr:source-enemy:134158",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-20",
+      "sourceId": "kr:4-2",
+      "enemyId": "kr:source-enemy:134158",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-21",
+      "sourceId": "kr:5-1",
+      "enemyId": "kr:source-enemy:134157",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-22",
+      "sourceId": "kr:5-4",
+      "enemyId": "kr:source-enemy:134157",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-23",
+      "sourceId": "kr:5-5",
+      "enemyId": "kr:source-enemy:134157",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-24",
+      "sourceId": "kr:5-6",
+      "enemyId": "kr:source-enemy:134157",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-25",
+      "sourceId": "kr:5-7",
+      "enemyId": "kr:source-enemy:134157",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-26",
+      "sourceId": "kr:5-8",
+      "enemyId": "kr:source-enemy:134157",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-27",
+      "sourceId": "kr:6-1",
+      "enemyId": "kr:source-enemy:135322",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-28",
+      "sourceId": "kr:7-1",
+      "enemyId": "kr:source-enemy:137487",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-29",
+      "sourceId": "kr:8-1",
+      "enemyId": "kr:source-enemy:137486",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-30",
+      "sourceId": "kr:9-1",
+      "enemyId": "kr:source-enemy:137484",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-31",
+      "sourceId": "kr:10-1",
+      "enemyId": "kr:source-enemy:137485",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-32",
+      "sourceId": "kr:10-2",
+      "enemyId": "kr:source-enemy:137485",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-33",
+      "sourceId": "kr:10-3",
+      "enemyId": "kr:source-enemy:137485",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-34",
+      "sourceId": "kr:10-4",
+      "enemyId": "kr:source-enemy:137485",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-35",
+      "sourceId": "kr:11-1",
+      "enemyId": "kr:source-enemy:134251",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-36",
+      "sourceId": "kr:12-1",
+      "enemyId": "kr:source-enemy:137473",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-37",
+      "sourceId": "kr:13-1",
+      "enemyId": "kr:source-enemy:134331",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-38",
+      "sourceId": "kr:14-1",
+      "enemyId": "kr:source-enemy:137474",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-39",
+      "sourceId": "kr:15-1",
+      "enemyId": "kr:source-enemy:137478",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-40",
+      "sourceId": "kr:16-1",
+      "enemyId": "kr:source-enemy:134739",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-41",
+      "sourceId": "kr:17-1",
+      "enemyId": "kr:source-enemy:137969",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-42",
+      "sourceId": "kr:17-2",
+      "enemyId": "kr:source-enemy:137969",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-43",
+      "sourceId": "kr:18-1",
+      "enemyId": "kr:source-enemy:134993",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-44",
+      "sourceId": "kr:19-1",
+      "enemyId": "kr:source-enemy:135204",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-45",
+      "sourceId": "kr:19-2",
+      "enemyId": "kr:source-enemy:135204",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-46",
+      "sourceId": "kr:19-3",
+      "enemyId": "kr:source-enemy:135204",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-47",
+      "sourceId": "kr:20-1",
+      "enemyId": "kr:source-enemy:135167",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-48",
+      "sourceId": "kr:20-3",
+      "enemyId": "kr:source-enemy:135167",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-49",
+      "sourceId": "kr:20-6",
+      "enemyId": "kr:source-enemy:135167",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-50",
+      "sourceId": "kr:21-2",
+      "enemyId": "kr:source-enemy:135239",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-51",
+      "sourceId": "kr:21-4",
+      "enemyId": "kr:source-enemy:135239",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-52",
+      "sourceId": "kr:21-5",
+      "enemyId": "kr:source-enemy:135239",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-53",
+      "sourceId": "kr:21-6",
+      "enemyId": "kr:source-enemy:135239",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-54",
+      "sourceId": "kr:22-1",
+      "enemyId": "kr:source-enemy:135231",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-55",
+      "sourceId": "kr:22-2",
+      "enemyId": "kr:source-enemy:135231",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-56",
+      "sourceId": "kr:23-1",
+      "enemyId": "kr:source-enemy:135192",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-57",
+      "sourceId": "kr:23-2",
+      "enemyId": "kr:source-enemy:135192",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-58",
+      "sourceId": "kr:23-5",
+      "enemyId": "kr:source-enemy:135192",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-59",
+      "sourceId": "kr:23-6",
+      "enemyId": "kr:source-enemy:135192",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-60",
+      "sourceId": "kr:24-1",
+      "enemyId": "kr:source-enemy:138489",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-61",
+      "sourceId": "kr:25-1",
+      "enemyId": "kr:source-enemy:136160",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-62",
+      "sourceId": "kr:26-1",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-63",
+      "sourceId": "kr:26-2",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-64",
+      "sourceId": "kr:26-3",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-65",
+      "sourceId": "kr:26-4",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-66",
+      "sourceId": "kr:26-5",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-67",
+      "sourceId": "kr:26-6",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-68",
+      "sourceId": "kr:26-7",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-69",
+      "sourceId": "kr:26-8",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-70",
+      "sourceId": "kr:26-9",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-71",
+      "sourceId": "kr:26-10",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-72",
+      "sourceId": "kr:26-11",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-73",
+      "sourceId": "kr:26-12",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-74",
+      "sourceId": "kr:26-13",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-75",
+      "sourceId": "kr:26-14",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-76",
+      "sourceId": "kr:26-15",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-77",
+      "sourceId": "kr:26-16",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-78",
+      "sourceId": "kr:26-17",
+      "enemyId": "kr:source-enemy:137989",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-79",
+      "sourceId": "kr:27-1",
+      "enemyId": "kr:source-enemy:135761",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-80",
+      "sourceId": "kr:28-1",
+      "enemyId": "kr:source-enemy:135764",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-81",
+      "sourceId": "kr:29-1",
+      "enemyId": "kr:source-enemy:135765",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-82",
+      "sourceId": "kr:30-1",
+      "enemyId": "kr:source-enemy:136256",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-83",
+      "sourceId": "kr:31-1",
+      "enemyId": "kr:source-enemy:136976",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-84",
+      "sourceId": "kr:32-1",
+      "enemyId": "kr:source-enemy:136984",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-85",
+      "sourceId": "kr:33-1",
+      "enemyId": "kr:source-enemy:138493",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-86",
+      "sourceId": "kr:34-1",
+      "enemyId": "kr:source-enemy:269808",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-87",
+      "sourceId": "kr:35-1",
+      "enemyId": "kr:source-enemy:269810",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-88",
+      "sourceId": "kr:36-1",
+      "enemyId": "kr:source-enemy:269811",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-89",
+      "sourceId": "kr:37-1",
+      "enemyId": "kr:source-enemy:270502",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-90",
+      "sourceId": "kr:37-2",
+      "enemyId": "kr:source-enemy:270502",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-91",
+      "sourceId": "kr:37-3",
+      "enemyId": "kr:source-enemy:270502",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-92",
+      "sourceId": "kr:37-4",
+      "enemyId": "kr:source-enemy:270502",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-93",
+      "sourceId": "kr:38-1",
+      "enemyId": "kr:source-enemy:135406",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-94",
+      "sourceId": "kr:38-2",
+      "enemyId": "kr:source-enemy:135406",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-95",
+      "sourceId": "kr:38-3",
+      "enemyId": "kr:source-enemy:135406",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-96",
+      "sourceId": "kr:38-4",
+      "enemyId": "kr:source-enemy:135406",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-97",
+      "sourceId": "kr:38-5",
+      "enemyId": "kr:source-enemy:135406",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-98",
+      "sourceId": "kr:39-1",
+      "enemyId": "kr:source-enemy:137591",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-99",
+      "sourceId": "kr:39-2",
+      "enemyId": "kr:source-enemy:137591",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-100",
+      "sourceId": "kr:40-1",
+      "enemyId": "kr:source-enemy:138250",
+      "floorId": "kr:default"
+    },
+    {
+      "stableId": "spawn-101",
+      "sourceId": "kr:41-1",
+      "enemyId": "kr:source-enemy:273050",
+      "floorId": "kr:default"
+    }
+  ]
+}

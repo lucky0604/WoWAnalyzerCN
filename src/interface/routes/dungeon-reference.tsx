@@ -151,6 +151,7 @@ export function Component() {
                   <th>源位置 ID</th>
                   <th>源 enemy</th>
                   <th>组别</th>
+                  <th>巡逻</th>
                   <th>坐标</th>
                 </tr>
               </thead>
@@ -168,6 +169,7 @@ export function Component() {
                     </td>
                     <td>{spawn.enemyId.replace(`${entry.id}:source-enemy:`, '')}</td>
                     <td>{spawn.groupId ?? '—'}</td>
+                    <td>{spawn.patrol ? `${spawn.patrol.points.length} 点` : '—'}</td>
                     <td className="dungeon-coordinate">
                       {spawn.position[0].toFixed(2)}, {spawn.position[1].toFixed(2)}
                     </td>

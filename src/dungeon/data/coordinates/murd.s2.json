@@ -1,0 +1,1772 @@
+{
+  "source": "threechest",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-11-s2-murd-ptr",
+  "retrievedAt": "2026-08-11",
+  "rawSha256": "941862fbb05bb5fb2eae488dbee7ce2b9fdd56b84f35c760e9209e5ed127507b",
+  "transformVersion": "threechest-yx-to-normalized-v1",
+  "dungeonKey": "murd",
+  "dungeonIndex": 160,
+  "sourceCoordinateSpace": "threechest-yx",
+  "normalizedCoordinateSpace": "normalized-v1",
+  "spawns": [
+    {
+      "sourceId": "murd:1-1",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [319.24, -219.07],
+      "groupId": "murd:group:2"
+    },
+    {
+      "sourceId": "murd:1-2",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [322.69, -215.97],
+      "groupId": "murd:group:2"
+    },
+    {
+      "sourceId": "murd:1-3",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [306.19, -234.44],
+      "groupId": "murd:group:3"
+    },
+    {
+      "sourceId": "murd:1-4",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [320.01, -200.44],
+      "groupId": "murd:group:5"
+    },
+    {
+      "sourceId": "murd:1-5",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [323.93, -198.29],
+      "groupId": "murd:group:5"
+    },
+    {
+      "sourceId": "murd:1-6",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [304.01, -176.92],
+      "groupId": "murd:group:6"
+    },
+    {
+      "sourceId": "murd:1-7",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [301.95, -234.68],
+      "groupId": "murd:group:3"
+    },
+    {
+      "sourceId": "murd:1-8",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [298.68, -231.33],
+      "groupId": "murd:group:3"
+    },
+    {
+      "sourceId": "murd:1-9",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [298.13, -226.89],
+      "groupId": "murd:group:3"
+    },
+    {
+      "sourceId": "murd:1-10",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [254.88, -195.27],
+      "groupId": "murd:group:14"
+    },
+    {
+      "sourceId": "murd:1-11",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [260.1, -194.83],
+      "groupId": "murd:group:14"
+    },
+    {
+      "sourceId": "murd:1-12",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [237.16, -177.66],
+      "groupId": "murd:group:15"
+    },
+    {
+      "sourceId": "murd:1-13",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [240.07, -172.47],
+      "groupId": "murd:group:15"
+    },
+    {
+      "sourceId": "murd:1-14",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [239.78, -183.73],
+      "groupId": "murd:group:15"
+    },
+    {
+      "sourceId": "murd:1-15",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [350.25, -171.05],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:1-16",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [347.38, -168.16],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:1-17",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [353.04, -174.04],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:1-18",
+      "sourceEnemyId": 236085,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [356.14, -177.61],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:2-1",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [328.16, -236.14],
+      "groupId": "murd:group:1"
+    },
+    {
+      "sourceId": "murd:2-2",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [322.63, -235.45],
+      "groupId": "murd:group:1"
+    },
+    {
+      "sourceId": "murd:2-3",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [304.78, -220.13],
+      "groupId": "murd:group:3"
+    },
+    {
+      "sourceId": "murd:2-4",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [311.8, -226.84],
+      "groupId": "murd:group:3"
+    },
+    {
+      "sourceId": "murd:2-5",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [337.19, -181.66],
+      "groupId": "murd:group:9"
+    },
+    {
+      "sourceId": "murd:2-6",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [341.11, -185.71],
+      "groupId": "murd:group:9"
+    },
+    {
+      "sourceId": "murd:2-7",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [314.97, -170.04],
+      "groupId": "murd:group:8"
+    },
+    {
+      "sourceId": "murd:2-8",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [310.79, -167.59],
+      "groupId": "murd:group:8"
+    },
+    {
+      "sourceId": "murd:2-9",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [258.85, -173.75],
+      "groupId": "murd:group:11"
+    },
+    {
+      "sourceId": "murd:2-10",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [258.59, -179.67],
+      "groupId": "murd:group:11"
+    },
+    {
+      "sourceId": "murd:2-11",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [246.64, -189.21],
+      "groupId": "murd:group:11"
+    },
+    {
+      "sourceId": "murd:2-12",
+      "sourceEnemyId": 236073,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [245.76, -167.18],
+      "groupId": "murd:group:11"
+    },
+    {
+      "sourceId": "murd:3-1",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [315.68, -215.68],
+      "groupId": "murd:group:2"
+    },
+    {
+      "sourceId": "murd:3-2",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [319.61, -212.31],
+      "groupId": "murd:group:2"
+    },
+    {
+      "sourceId": "murd:3-3",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [317.41, -196.18],
+      "groupId": "murd:group:5"
+    },
+    {
+      "sourceId": "murd:3-4",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [321.86, -193.24],
+      "groupId": "murd:group:5"
+    },
+    {
+      "sourceId": "murd:3-5",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [297.13, -181.3],
+      "groupId": "murd:group:6"
+    },
+    {
+      "sourceId": "murd:3-6",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [259.36, -189.53],
+      "groupId": "murd:group:14"
+    },
+    {
+      "sourceId": "murd:3-7",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [254.3, -189.65],
+      "groupId": "murd:group:14"
+    },
+    {
+      "sourceId": "murd:3-8",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [352.25, -166.93],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:3-9",
+      "sourceEnemyId": 236084,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [357.7, -172.35],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:4-1",
+      "sourceEnemyId": 236071,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [304.24, -228.31],
+      "groupId": "murd:group:3"
+    },
+    {
+      "sourceId": "murd:4-4",
+      "sourceEnemyId": 236071,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [345.21, -178.06],
+      "groupId": "murd:group:9"
+    },
+    {
+      "sourceId": "murd:5-1",
+      "sourceEnemyId": 252529,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [315.64, -183.59],
+      "groupId": "murd:group:4"
+    },
+    {
+      "sourceId": "murd:6-1",
+      "sourceEnemyId": 236082,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [76.76, -133.07],
+      "groupId": "murd:group:25"
+    },
+    {
+      "sourceId": "murd:6-2",
+      "sourceEnemyId": 236082,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [82.04, -194.58],
+      "groupId": "murd:group:34"
+    },
+    {
+      "sourceId": "murd:6-4",
+      "sourceEnemyId": 236082,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [86.65, -198.2],
+      "groupId": "murd:group:34"
+    },
+    {
+      "sourceId": "murd:6-5",
+      "sourceEnemyId": 236082,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [358.85, -160.82],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:7-1",
+      "sourceEnemyId": 236902,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [244.23, -177.85],
+      "groupId": "murd:group:15"
+    },
+    {
+      "sourceId": "murd:8-1",
+      "sourceEnemyId": 236091,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [306.82, -165.29],
+      "groupId": "murd:group:8"
+    },
+    {
+      "sourceId": "murd:8-2",
+      "sourceEnemyId": 236091,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [318.86, -172.45],
+      "groupId": "murd:group:8"
+    },
+    {
+      "sourceId": "murd:8-3",
+      "sourceEnemyId": 236091,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [299.48, -176.76],
+      "groupId": "murd:group:6"
+    },
+    {
+      "sourceId": "murd:8-4",
+      "sourceEnemyId": 236091,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [281.49, -172.66],
+      "groupId": "murd:group:7"
+    },
+    {
+      "sourceId": "murd:8-5",
+      "sourceEnemyId": 236091,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [283.58, -178.27],
+      "groupId": "murd:group:7"
+    },
+    {
+      "sourceId": "murd:8-6",
+      "sourceEnemyId": 236091,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [302.81, -181.68],
+      "groupId": "murd:group:6"
+    },
+    {
+      "sourceId": "murd:9-1",
+      "sourceEnemyId": 236893,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [220.69, -29.15],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:9-2",
+      "sourceEnemyId": 236893,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [223.29, -34.06],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:9-3",
+      "sourceEnemyId": 236893,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [217.59, -33.92],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:9-4",
+      "sourceEnemyId": 236893,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [191.71, -43.25],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:9-5",
+      "sourceEnemyId": 236893,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [186.89, -46.07],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:9-6",
+      "sourceEnemyId": 236893,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [191.66, -48.9],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:10-1",
+      "sourceEnemyId": 236897,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [201.41, -46.46],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:10-2",
+      "sourceEnemyId": 236897,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [220.33, -45.12],
+      "groupId": "murd:group:16"
+    },
+    {
+      "sourceId": "murd:11-1",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [138.5, -203.97],
+      "groupId": "murd:group:42"
+    },
+    {
+      "sourceId": "murd:11-3",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [141.1, -202.77],
+      "groupId": "murd:group:42"
+    },
+    {
+      "sourceId": "murd:11-4",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [143.84, -201.44],
+      "groupId": "murd:group:42"
+    },
+    {
+      "sourceId": "murd:11-5",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [137.31, -201.13],
+      "groupId": "murd:group:42"
+    },
+    {
+      "sourceId": "murd:11-6",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [139.87, -200],
+      "groupId": "murd:group:42"
+    },
+    {
+      "sourceId": "murd:11-7",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [142.61, -198.76],
+      "groupId": "murd:group:42"
+    },
+    {
+      "sourceId": "murd:11-8",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [116.24, -165.95],
+      "groupId": "murd:group:45"
+    },
+    {
+      "sourceId": "murd:11-9",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [118.69, -164.91],
+      "groupId": "murd:group:45"
+    },
+    {
+      "sourceId": "murd:11-10",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [121.03, -163.84],
+      "groupId": "murd:group:45"
+    },
+    {
+      "sourceId": "murd:11-11",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [116.47, -163.03],
+      "groupId": "murd:group:45"
+    },
+    {
+      "sourceId": "murd:11-12",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [119.07, -161.84],
+      "groupId": "murd:group:45"
+    },
+    {
+      "sourceId": "murd:11-13",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [120.09, -105.55],
+      "groupId": "murd:group:50"
+    },
+    {
+      "sourceId": "murd:11-14",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [123.04, -105.49],
+      "groupId": "murd:group:50"
+    },
+    {
+      "sourceId": "murd:11-15",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [126.17, -105.42],
+      "groupId": "murd:group:50"
+    },
+    {
+      "sourceId": "murd:11-16",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [120.39, -108.84],
+      "groupId": "murd:group:50"
+    },
+    {
+      "sourceId": "murd:11-17",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [123.27, -108.55],
+      "groupId": "murd:group:50"
+    },
+    {
+      "sourceId": "murd:11-18",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [126.25, -108.6],
+      "groupId": "murd:group:50"
+    },
+    {
+      "sourceId": "murd:11-19",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [122.02, -124.36],
+      "groupId": "murd:group:47"
+    },
+    {
+      "sourceId": "murd:11-20",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [125.31, -124.49],
+      "groupId": "murd:group:47"
+    },
+    {
+      "sourceId": "murd:11-21",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [128.23, -124.51],
+      "groupId": "murd:group:47"
+    },
+    {
+      "sourceId": "murd:11-22",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [122.24, -127.64],
+      "groupId": "murd:group:47"
+    },
+    {
+      "sourceId": "murd:11-23",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [125.14, -127.6],
+      "groupId": "murd:group:47"
+    },
+    {
+      "sourceId": "murd:11-24",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [128.21, -127.61],
+      "groupId": "murd:group:47"
+    },
+    {
+      "sourceId": "murd:11-25",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [94.38, -153.23],
+      "groupId": "murd:group:31"
+    },
+    {
+      "sourceId": "murd:11-26",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [97.2, -152.14],
+      "groupId": "murd:group:31"
+    },
+    {
+      "sourceId": "murd:11-27",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [99.93, -151.22],
+      "groupId": "murd:group:31"
+    },
+    {
+      "sourceId": "murd:11-28",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [93.63, -150],
+      "groupId": "murd:group:31"
+    },
+    {
+      "sourceId": "murd:11-29",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [96.41, -149.18],
+      "groupId": "murd:group:31"
+    },
+    {
+      "sourceId": "murd:11-30",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [99.16, -148.41],
+      "groupId": "murd:group:31"
+    },
+    {
+      "sourceId": "murd:11-31",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [82.27, -131.65],
+      "groupId": "murd:group:25"
+    },
+    {
+      "sourceId": "murd:11-32",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [81.24, -133.71],
+      "groupId": "murd:group:25"
+    },
+    {
+      "sourceId": "murd:11-33",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [80.14, -136.33],
+      "groupId": "murd:group:25"
+    },
+    {
+      "sourceId": "murd:11-34",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [82.6, -136.68],
+      "groupId": "murd:group:25"
+    },
+    {
+      "sourceId": "murd:11-35",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [83.38, -134.54],
+      "groupId": "murd:group:25"
+    },
+    {
+      "sourceId": "murd:11-36",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [84.38, -132.42],
+      "groupId": "murd:group:25"
+    },
+    {
+      "sourceId": "murd:11-37",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [72.02, -139.82],
+      "groupId": "murd:group:26"
+    },
+    {
+      "sourceId": "murd:11-38",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [74.88, -139.84],
+      "groupId": "murd:group:26"
+    },
+    {
+      "sourceId": "murd:11-39",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [77.49, -139.69],
+      "groupId": "murd:group:26"
+    },
+    {
+      "sourceId": "murd:11-40",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [72.15, -141.99],
+      "groupId": "murd:group:26"
+    },
+    {
+      "sourceId": "murd:11-41",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [74.72, -142.14],
+      "groupId": "murd:group:26"
+    },
+    {
+      "sourceId": "murd:11-42",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [77.25, -142.14],
+      "groupId": "murd:group:26"
+    },
+    {
+      "sourceId": "murd:11-43",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [74.13, -127.64],
+      "groupId": "murd:group:23"
+    },
+    {
+      "sourceId": "murd:11-44",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [76.45, -127.56],
+      "groupId": "murd:group:23"
+    },
+    {
+      "sourceId": "murd:11-45",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [79.01, -127.3],
+      "groupId": "murd:group:23"
+    },
+    {
+      "sourceId": "murd:11-46",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [73.68, -125.05],
+      "groupId": "murd:group:23"
+    },
+    {
+      "sourceId": "murd:11-47",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [76.11, -124.79],
+      "groupId": "murd:group:23"
+    },
+    {
+      "sourceId": "murd:11-48",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [78.78, -124.95],
+      "groupId": "murd:group:23"
+    },
+    {
+      "sourceId": "murd:11-49",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [65.49, -128.78],
+      "groupId": "murd:group:24"
+    },
+    {
+      "sourceId": "murd:11-50",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [65.32, -131.35],
+      "groupId": "murd:group:24"
+    },
+    {
+      "sourceId": "murd:11-51",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [65.53, -134.28],
+      "groupId": "murd:group:24"
+    },
+    {
+      "sourceId": "murd:11-52",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [67.88, -134.21],
+      "groupId": "murd:group:24"
+    },
+    {
+      "sourceId": "murd:11-53",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [67.82, -131.42],
+      "groupId": "murd:group:24"
+    },
+    {
+      "sourceId": "murd:11-54",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [67.78, -128.62],
+      "groupId": "murd:group:24"
+    },
+    {
+      "sourceId": "murd:11-55",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [61.66, -117.97],
+      "groupId": "murd:group:19"
+    },
+    {
+      "sourceId": "murd:11-56",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [64.52, -117.95],
+      "groupId": "murd:group:19"
+    },
+    {
+      "sourceId": "murd:11-57",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [88.98, -102.72],
+      "groupId": "murd:group:22"
+    },
+    {
+      "sourceId": "murd:11-58",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [63.87, -156.56],
+      "groupId": "murd:group:30"
+    },
+    {
+      "sourceId": "murd:11-59",
+      "sourceEnemyId": 234849,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [53.85, -166.22],
+      "groupId": "murd:group:30"
+    },
+    {
+      "sourceId": "murd:12-1",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [107.56, -180.27],
+      "groupId": "murd:group:32"
+    },
+    {
+      "sourceId": "murd:12-3",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [100.22, -172.96],
+      "groupId": "murd:group:32"
+    },
+    {
+      "sourceId": "murd:12-4",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [102.22, -120.36],
+      "groupId": "murd:group:48"
+    },
+    {
+      "sourceId": "murd:12-5",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [107.18, -120.82],
+      "groupId": "murd:group:48"
+    },
+    {
+      "sourceId": "murd:12-6",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [110.56, -116.95],
+      "groupId": "murd:group:48"
+    },
+    {
+      "sourceId": "murd:12-7",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [98.09, -60.32],
+      "groupId": "murd:group:53"
+    },
+    {
+      "sourceId": "murd:12-8",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [93.39, -61.46],
+      "groupId": "murd:group:53"
+    },
+    {
+      "sourceId": "murd:12-9",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [70.63, -102.51],
+      "groupId": "murd:group:21"
+    },
+    {
+      "sourceId": "murd:12-10",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [75.45, -102.55],
+      "groupId": "murd:group:21"
+    },
+    {
+      "sourceId": "murd:12-11",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [90.67, -106.19],
+      "groupId": "murd:group:22"
+    },
+    {
+      "sourceId": "murd:12-12",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [90.67, -110.73],
+      "groupId": "murd:group:22"
+    },
+    {
+      "sourceId": "murd:12-13",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [71.58, -181.82],
+      "groupId": "murd:group:35"
+    },
+    {
+      "sourceId": "murd:12-14",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [75.34, -184.93],
+      "groupId": "murd:group:35"
+    },
+    {
+      "sourceId": "murd:12-15",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [123.1, -229.85],
+      "groupId": "murd:group:39"
+    },
+    {
+      "sourceId": "murd:12-16",
+      "sourceEnemyId": 235261,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [111.77, -234.68],
+      "groupId": "murd:group:39"
+    },
+    {
+      "sourceId": "murd:13-1",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [103.85, -176.61],
+      "groupId": "murd:group:32"
+    },
+    {
+      "sourceId": "murd:13-2",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [92.35, -56.4],
+      "groupId": "murd:group:53"
+    },
+    {
+      "sourceId": "murd:13-3",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [96.99, -55.78],
+      "groupId": "murd:group:53"
+    },
+    {
+      "sourceId": "murd:13-4",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [130.44, -141.52],
+      "groupId": "murd:group:46"
+    },
+    {
+      "sourceId": "murd:13-5",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [73.2, -98.42],
+      "groupId": "murd:group:21"
+    },
+    {
+      "sourceId": "murd:13-6",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [85.94, -110.7],
+      "groupId": "murd:group:22"
+    },
+    {
+      "sourceId": "murd:13-7",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [74.78, -114.86],
+      "groupId": "murd:group:20"
+    },
+    {
+      "sourceId": "murd:13-8",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [67.26, -157.81],
+      "groupId": "murd:group:30"
+    },
+    {
+      "sourceId": "murd:13-9",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [54.28, -170.16],
+      "groupId": "murd:group:30"
+    },
+    {
+      "sourceId": "murd:13-10",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [96.6, -186.83],
+      "groupId": "murd:group:33"
+    },
+    {
+      "sourceId": "murd:13-12",
+      "sourceEnemyId": 235268,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [93.39, -190.66],
+      "groupId": "murd:group:33"
+    },
+    {
+      "sourceId": "murd:14-1",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [132.31, -212.72],
+      "groupId": "murd:group:41"
+    },
+    {
+      "sourceId": "murd:14-2",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [137.2, -212.3],
+      "groupId": "murd:group:41"
+    },
+    {
+      "sourceId": "murd:14-3",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [104.8, -171.64],
+      "groupId": "murd:group:32"
+    },
+    {
+      "sourceId": "murd:14-4",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [108.56, -175.53],
+      "groupId": "murd:group:32"
+    },
+    {
+      "sourceId": "murd:14-5",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [128.73, -146.13],
+      "groupId": "murd:group:46"
+    },
+    {
+      "sourceId": "murd:14-6",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [133.46, -145.62],
+      "groupId": "murd:group:46"
+    },
+    {
+      "sourceId": "murd:14-7",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [86.51, -105.94],
+      "groupId": "murd:group:22"
+    },
+    {
+      "sourceId": "murd:14-8",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [72.39, -119.42],
+      "groupId": "murd:group:20"
+    },
+    {
+      "sourceId": "murd:14-9",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [77.09, -119.21],
+      "groupId": "murd:group:20"
+    },
+    {
+      "sourceId": "murd:14-10",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [78.2, -149.26],
+      "groupId": "murd:group:29"
+    },
+    {
+      "sourceId": "murd:14-11",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [84.51, -152.89],
+      "groupId": "murd:group:29"
+    },
+    {
+      "sourceId": "murd:14-12",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [106.85, -222.11],
+      "groupId": "murd:group:38"
+    },
+    {
+      "sourceId": "murd:14-13",
+      "sourceEnemyId": 235267,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [118.93, -219.63],
+      "groupId": "murd:group:38"
+    },
+    {
+      "sourceId": "murd:15-1",
+      "sourceEnemyId": 235265,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [79.04, -155],
+      "groupId": "murd:group:29"
+    },
+    {
+      "sourceId": "murd:15-2",
+      "sourceEnemyId": 235265,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [63.03, -161.39],
+      "groupId": "murd:group:30"
+    },
+    {
+      "sourceId": "murd:15-3",
+      "sourceEnemyId": 235265,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [58.54, -165.99],
+      "groupId": "murd:group:30"
+    },
+    {
+      "sourceId": "murd:15-4",
+      "sourceEnemyId": 235265,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [112.97, -221.11],
+      "groupId": "murd:group:38"
+    },
+    {
+      "sourceId": "murd:15-5",
+      "sourceEnemyId": 235265,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [104.97, -114.96],
+      "groupId": "murd:group:48"
+    },
+    {
+      "sourceId": "murd:16-1",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [90.23, -128],
+      "groupId": "murd:group:28"
+    },
+    {
+      "sourceId": "murd:16-2",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [93.29, -128.09],
+      "groupId": "murd:group:28"
+    },
+    {
+      "sourceId": "murd:16-4",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [90.17, -130.76],
+      "groupId": "murd:group:28"
+    },
+    {
+      "sourceId": "murd:16-5",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [93.15, -130.67],
+      "groupId": "murd:group:28"
+    },
+    {
+      "sourceId": "murd:16-6",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [85.48, -144.1],
+      "groupId": "murd:group:27"
+    },
+    {
+      "sourceId": "murd:16-7",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [88.41, -144.37],
+      "groupId": "murd:group:27"
+    },
+    {
+      "sourceId": "murd:16-8",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [86.2, -141.03],
+      "groupId": "murd:group:27"
+    },
+    {
+      "sourceId": "murd:16-9",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [89.14, -141.56],
+      "groupId": "murd:group:27"
+    },
+    {
+      "sourceId": "murd:16-10",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [104.55, -195.16],
+      "groupId": "murd:group:36"
+    },
+    {
+      "sourceId": "murd:16-11",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [102.15, -196.9],
+      "groupId": "murd:group:36"
+    },
+    {
+      "sourceId": "murd:16-12",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [103.99, -199.4],
+      "groupId": "murd:group:36"
+    },
+    {
+      "sourceId": "murd:16-13",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [106.28, -197.7],
+      "groupId": "murd:group:36"
+    },
+    {
+      "sourceId": "murd:16-14",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [110.2, -207.57],
+      "groupId": "murd:group:37"
+    },
+    {
+      "sourceId": "murd:16-15",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [112.95, -206.76],
+      "groupId": "murd:group:37"
+    },
+    {
+      "sourceId": "murd:16-16",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [111.27, -210.45],
+      "groupId": "murd:group:37"
+    },
+    {
+      "sourceId": "murd:16-17",
+      "sourceEnemyId": 235257,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [114.11, -209.16],
+      "groupId": "murd:group:37"
+    },
+    {
+      "sourceId": "murd:17-1",
+      "sourceEnemyId": 235465,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [113.53, -48.33],
+      "groupId": "murd:group:54"
+    },
+    {
+      "sourceId": "murd:17-2",
+      "sourceEnemyId": 235465,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [107.41, -51.74],
+      "groupId": "murd:group:54"
+    },
+    {
+      "sourceId": "murd:17-3",
+      "sourceEnemyId": 235465,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [75.82, -54.63],
+      "groupId": "murd:group:55"
+    },
+    {
+      "sourceId": "murd:17-4",
+      "sourceEnemyId": 235465,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [81.79, -57.93],
+      "groupId": "murd:group:55"
+    },
+    {
+      "sourceId": "murd:17-5",
+      "sourceEnemyId": 235465,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [103.54, -107.04],
+      "groupId": "murd:group:49"
+    },
+    {
+      "sourceId": "murd:17-6",
+      "sourceEnemyId": 235465,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [58.12, -106.83],
+      "groupId": "murd:group:18"
+    },
+    {
+      "sourceId": "murd:17-7",
+      "sourceEnemyId": 235465,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [90.9, -184.97],
+      "groupId": "murd:group:33"
+    },
+    {
+      "sourceId": "murd:18-1",
+      "sourceEnemyId": 236905,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [117.42, -232.54],
+      "groupId": "murd:group:39"
+    },
+    {
+      "sourceId": "murd:19-1",
+      "sourceEnemyId": 235322,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [81.19, -51.11],
+      "groupId": "murd:group:55"
+    },
+    {
+      "sourceId": "murd:19-2",
+      "sourceEnemyId": 235322,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [107.64, -44.88],
+      "groupId": "murd:group:54"
+    },
+    {
+      "sourceId": "murd:19-3",
+      "sourceEnemyId": 235322,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [115.39, -77.93],
+      "groupId": "murd:group:51"
+    },
+    {
+      "sourceId": "murd:19-4",
+      "sourceEnemyId": 235322,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [127.32, -193.73],
+      "groupId": "murd:group:43"
+    },
+    {
+      "sourceId": "murd:19-5",
+      "sourceEnemyId": 235322,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [84, -83.27],
+      "groupId": "murd:group:52"
+    },
+    {
+      "sourceId": "murd:19-6",
+      "sourceEnemyId": 235322,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [133.23, -164],
+      "groupId": "murd:group:44"
+    },
+    {
+      "sourceId": "murd:19-7",
+      "sourceEnemyId": 235322,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [93.87, -50.04],
+      "groupId": "murd:group:53"
+    },
+    {
+      "sourceId": "murd:20-1",
+      "sourceEnemyId": 234647,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [130.97, -248.98],
+      "groupId": "murd:group:40"
+    },
+    {
+      "sourceId": "murd:21-1",
+      "sourceEnemyId": 234648,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [306, -122.7],
+      "groupId": "murd:group:12"
+    },
+    {
+      "sourceId": "murd:22-1",
+      "sourceEnemyId": 234649,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [195.5, -112.54],
+      "groupId": "murd:group:17"
+    },
+    {
+      "sourceId": "murd:23-1",
+      "sourceEnemyId": 234660,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [289.91, -122.85],
+      "groupId": "murd:group:12"
+    },
+    {
+      "sourceId": "murd:24-1",
+      "sourceEnemyId": 234763,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [88.43, -25.03],
+      "groupId": "murd:group:56"
+    },
+    {
+      "sourceId": "murd:25-1",
+      "sourceEnemyId": 234799,
+      "sourceEnemyIndex": 25,
+      "floorId": "default",
+      "position": [95.22, -18.57],
+      "groupId": "murd:group:56"
+    },
+    {
+      "sourceId": "murd:26-1",
+      "sourceEnemyId": 234852,
+      "sourceEnemyIndex": 26,
+      "floorId": "default",
+      "position": [188.93, -93.95],
+      "groupId": "murd:group:17"
+    },
+    {
+      "sourceId": "murd:26-2",
+      "sourceEnemyId": 234852,
+      "sourceEnemyIndex": 26,
+      "floorId": "default",
+      "position": [200.57, -94.05],
+      "groupId": "murd:group:17"
+    },
+    {
+      "sourceId": "murd:26-3",
+      "sourceEnemyId": 234852,
+      "sourceEnemyIndex": 26,
+      "floorId": "default",
+      "position": [194.5, -85.51],
+      "groupId": "murd:group:17"
+    },
+    {
+      "sourceId": "murd:26-4",
+      "sourceEnemyId": 234852,
+      "sourceEnemyIndex": 26,
+      "floorId": "default",
+      "position": [184.83, -86.82],
+      "groupId": "murd:group:17"
+    },
+    {
+      "sourceId": "murd:26-5",
+      "sourceEnemyId": 234852,
+      "sourceEnemyIndex": 26,
+      "floorId": "default",
+      "position": [203.55, -86.39],
+      "groupId": "murd:group:17"
+    },
+    {
+      "sourceId": "murd:27-1",
+      "sourceEnemyId": 234860,
+      "sourceEnemyIndex": 27,
+      "floorId": "default",
+      "position": [165.93, -95.63],
+      "groupId": "murd:group:17"
+    },
+    {
+      "sourceId": "murd:28-1",
+      "sourceEnemyId": 234984,
+      "sourceEnemyIndex": 28,
+      "floorId": "default",
+      "position": [281.98, -49.91]
+    },
+    {
+      "sourceId": "murd:29-1",
+      "sourceEnemyId": 235520,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [138.66, -246.99],
+      "groupId": "murd:group:40"
+    },
+    {
+      "sourceId": "murd:30-1",
+      "sourceEnemyId": 235841,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [281.88, -45.71]
+    },
+    {
+      "sourceId": "murd:31-1",
+      "sourceEnemyId": 236088,
+      "sourceEnemyIndex": 31,
+      "floorId": "default",
+      "position": [277.78, -45.9]
+    },
+    {
+      "sourceId": "murd:32-1",
+      "sourceEnemyId": 236525,
+      "sourceEnemyIndex": 32,
+      "floorId": "default",
+      "position": [286.19, -45.62]
+    },
+    {
+      "sourceId": "murd:33-1",
+      "sourceEnemyId": 237626,
+      "sourceEnemyIndex": 33,
+      "floorId": "default",
+      "position": [97.59, -27.36],
+      "groupId": "murd:group:56"
+    },
+    {
+      "sourceId": "murd:34-1",
+      "sourceEnemyId": 238414,
+      "sourceEnemyIndex": 34,
+      "floorId": "default",
+      "position": [97.63, -22.62],
+      "groupId": "murd:group:56"
+    },
+    {
+      "sourceId": "murd:35-1",
+      "sourceEnemyId": 240289,
+      "sourceEnemyIndex": 35,
+      "floorId": "default",
+      "position": [277.79, -49.87]
+    },
+    {
+      "sourceId": "murd:36-1",
+      "sourceEnemyId": 253081,
+      "sourceEnemyIndex": 36,
+      "floorId": "default",
+      "position": [286.22, -49.7]
+    },
+    {
+      "sourceId": "murd:37-1",
+      "sourceEnemyId": 253324,
+      "sourceEnemyIndex": 37,
+      "floorId": "default",
+      "position": [239.8, -175.96]
+    },
+    {
+      "sourceId": "murd:37-2",
+      "sourceEnemyId": 253324,
+      "sourceEnemyIndex": 37,
+      "floorId": "default",
+      "position": [239.77, -180]
+    },
+    {
+      "sourceId": "murd:38-1",
+      "sourceEnemyId": 255050,
+      "sourceEnemyIndex": 38,
+      "floorId": "default",
+      "position": [296.96, -132.17],
+      "groupId": "murd:group:12"
+    },
+    {
+      "sourceId": "murd:39-1",
+      "sourceEnemyId": 255604,
+      "sourceEnemyIndex": 39,
+      "floorId": "default",
+      "position": [362.88, -164.69],
+      "groupId": "murd:group:10"
+    },
+    {
+      "sourceId": "murd:40-1",
+      "sourceEnemyId": 263940,
+      "sourceEnemyIndex": 40,
+      "floorId": "default",
+      "position": [297.12, -101.57],
+      "groupId": "murd:group:13"
+    },
+    {
+      "sourceId": "murd:41-1",
+      "sourceEnemyId": 272246,
+      "sourceEnemyIndex": 41,
+      "floorId": "default",
+      "position": [247.98, -17.86]
+    }
+  ]
+}

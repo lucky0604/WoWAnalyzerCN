@@ -50,6 +50,26 @@ describe('spawn reconciliation', () => {
     });
   });
 
+  it('blocks a material position move for an unchanged source ID', () => {
+    const result = reconcileSpawns(
+      [{ stableId: 'spawn-a', sourceId: 'same-source', enemyId: 'enemy', floorId: 'floor' }],
+      [{ sourceId: 'same-source', enemyId: 'enemy', floorId: 'floor', position: [100, 100] }],
+      { 'spawn-a': [10, 10] },
+    );
+    expect(result.blocked).toBe(true);
+    expect(result.items[0]).toMatchObject({ kind: 'drift', stableId: 'spawn-a' });
+  });
+
+  it('blocks an auto-match candidate that moved materially', () => {
+    const result = reconcileSpawns(
+      [{ stableId: 'spawn-a', sourceId: 'old-source', enemyId: 'enemy', floorId: 'floor' }],
+      [{ sourceId: 'new-source', enemyId: 'enemy', floorId: 'floor', position: [100, 100] }],
+      { 'spawn-a': [10, 10] },
+    );
+    expect(result.blocked).toBe(true);
+    expect(result.items[0]).toMatchObject({ kind: 'drift', stableId: 'spawn-a' });
+  });
+
   it('creates a new stable identity when no candidate exists', () => {
     const result = reconcileSpawns(
       [],

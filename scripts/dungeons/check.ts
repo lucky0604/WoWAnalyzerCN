@@ -9,9 +9,18 @@ import { dungeonDocuments } from '../../src/dungeon/registry';
 import { dungeonPreviewDocuments } from '../../src/dungeon/registry';
 import {
   getCoordinateReference,
+  getCoordinateIdentityRegistry,
   getCoordinateSnapshot,
+  serializeCoordinateData,
+  serializeCoordinateSnapshot,
+  coordinateSnapshotUsesAllowedFields,
 } from '../../src/dungeon/runtime/coordinates';
 import { checkSourceUse, dungeonSourceRegistry } from '../../src/dungeon/runtime/sourceRegistry';
+import type {
+  ApprovedSourceSnapshot,
+  SourceUseCheck,
+} from '../../src/dungeon/runtime/sourceRegistry';
+import type { DungeonCatalogEntry } from '../../src/dungeon/data/season2Catalog';
 import { validateDungeonDocument } from '../../src/dungeon/schema/validate';
 import { authoringDiagnostics, loadAuthoringDocument } from './authoring';
 
@@ -26,6 +35,53 @@ function option(name: string): string | undefined {
 const requestedDungeon = option('--dungeon');
 const jsonOutput = process.argv.includes('--json');
 const requestedRoot = option('--root');
+
+export function validateS2CoordinateGate(
+  entry: DungeonCatalogEntry,
+  snapshot: ReturnType<typeof getCoordinateSnapshot>,
+  registeredSnapshot: ApprovedSourceSnapshot | undefined,
+  sourceUse: SourceUseCheck,
+): string[] {
+  const errors: string[] = [];
+  if (!snapshot || !registeredSnapshot) {
+    errors.push(`source registry: S2_COORDINATE_SNAPSHOT_MISSING ${entry.id}`);
+    return errors;
+  }
+  const coordinateHash = createHash('sha256')
+    .update(serializeCoordinateSnapshot(snapshot))
+    .digest('hex');
+  if (registeredSnapshot.hash !== `sha256:${coordinateHash}`) {
+    errors.push(
+      `source registry: S2_COORDINATE_HASH_MISMATCH ${entry.id} ${registeredSnapshot.hash} !== sha256:${coordinateHash}`,
+    );
+  }
+  if (!registeredSnapshot.rawSha256) {
+    errors.push(`source registry: S2_COORDINATE_RAW_HASH_MISSING ${entry.id}`);
+  } else if (snapshot.rawSha256 !== registeredSnapshot.rawSha256) {
+    errors.push(`source registry: S2_COORDINATE_RAW_HASH_MISMATCH ${entry.id}`);
+  }
+  if (
+    !registeredSnapshot.fieldAllowlist ||
+    !coordinateSnapshotUsesAllowedFields(snapshot, registeredSnapshot.fieldAllowlist)
+  ) {
+    errors.push(`source registry: S2_COORDINATE_FIELD_NOT_ALLOWED ${entry.id}`);
+  }
+  if (!entry.coordinateIdentityRegistryKey || !registeredSnapshot.identityHash) {
+    errors.push(`source registry: S2_COORDINATE_IDENTITY_REGISTRY_MISSING ${entry.id}`);
+  } else {
+    const identityRegistry = getCoordinateIdentityRegistry(entry.coordinateIdentityRegistryKey);
+    const identityHash = identityRegistry
+      ? createHash('sha256').update(serializeCoordinateData(identityRegistry)).digest('hex')
+      : undefined;
+    if (identityHash !== registeredSnapshot.identityHash.slice('sha256:'.length)) {
+      errors.push(`source registry: S2_COORDINATE_IDENTITY_HASH_MISMATCH ${entry.id}`);
+    }
+  }
+  if (!sourceUse.ok) {
+    errors.push(`source registry: ${sourceUse.reason}`);
+  }
+  return errors;
+}
 
 function printSingleResult(
   dungeonId: string,
@@ -105,7 +161,7 @@ function runGlobalDungeonCheck(): void {
       legacyThreechestCoordinateInventory
         .map((entry) => {
           const snapshot = getCoordinateSnapshot(entry.sourceKey);
-          return `${entry.sourceKey}:${snapshot?.rawSha256 ?? 'missing'}`;
+          return `${entry.sourceKey}:${snapshot ? createHash('sha256').update(serializeCoordinateSnapshot(snapshot)).digest('hex') : 'missing'}`;
         })
         .sort()
         .join('\n'),
@@ -122,21 +178,6 @@ function runGlobalDungeonCheck(): void {
     );
   }
 
-  const rlpSnapshot = getCoordinateSnapshot('rlp');
-  const rlpCoordinateHash = createHash('sha256')
-    .update(`rlp:${rlpSnapshot?.rawSha256 ?? 'missing'}`)
-    .digest('hex');
-  const registeredRlpHash = dungeonSourceRegistry.snapshots.find(
-    (snapshot) =>
-      snapshot.sourceId === 'threechest' &&
-      snapshot.snapshotId === 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
-  )?.hash;
-  if (registeredRlpHash !== `sha256:${rlpCoordinateHash}`) {
-    errors.push(
-      `source registry: RLP_COORDINATE_HASH_MISMATCH ${registeredRlpHash ?? 'missing'} !== sha256:${rlpCoordinateHash}`,
-    );
-  }
-
   for (const entry of legacyThreechestCoordinateInventory) {
     const snapshot = getCoordinateSnapshot(entry.sourceKey);
     if (!snapshot) {
@@ -147,7 +188,40 @@ function runGlobalDungeonCheck(): void {
       errors.push(
         `coordinate inventory: COORDINATE_SNAPSHOT_MISMATCH ${entry.id} — ${snapshot.snapshotId} !== ${entry.coordinateSnapshotId}`,
       );
+    } else {
+      const registeredSnapshot = dungeonSourceRegistry.snapshots.find(
+        (candidate) =>
+          candidate.sourceId === entry.coordinateSourceId &&
+          candidate.snapshotId === entry.coordinateSnapshotId,
+      );
+      if (
+        !registeredSnapshot?.fieldAllowlist ||
+        !coordinateSnapshotUsesAllowedFields(snapshot, registeredSnapshot.fieldAllowlist)
+      ) {
+        errors.push(`coordinate inventory: COORDINATE_FIELD_NOT_ALLOWED ${entry.id}`);
+      }
     }
+  }
+
+  for (const entry of season2DungeonCatalog) {
+    if (!entry.coordinateSnapshotId) continue;
+    const snapshot = getCoordinateSnapshot(entry.coordinateSnapshotKey ?? entry.sourceKey);
+    const registeredSnapshot = dungeonSourceRegistry.snapshots.find(
+      (candidate) =>
+        candidate.sourceId === entry.coordinateSourceId &&
+        candidate.snapshotId === entry.coordinateSnapshotId,
+    );
+    if (!snapshot || !registeredSnapshot) {
+      errors.push(`source registry: S2_COORDINATE_SNAPSHOT_MISSING ${entry.id}`);
+      continue;
+    }
+    const coordinateSource = checkSourceUse(
+      dungeonSourceRegistry,
+      entry.coordinateSourceId ?? 'threechest',
+      entry.coordinateSnapshotId,
+      'commit-derived-data',
+    );
+    errors.push(...validateS2CoordinateGate(entry, snapshot, registeredSnapshot, coordinateSource));
   }
 
   for (const document of dungeonPreviewDocuments) {
@@ -167,16 +241,6 @@ function runGlobalDungeonCheck(): void {
     errors.push(`source registry: ${coordinateSource.reason}`);
   }
 
-  const rlpCoordinateSource = checkSourceUse(
-    dungeonSourceRegistry,
-    'threechest',
-    'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
-    'commit-derived-data',
-  );
-  if (!rlpCoordinateSource.ok) {
-    errors.push(`source registry: ${rlpCoordinateSource.reason}`);
-  }
-
   if (errors.length > 0) {
     console.error(`Dungeon check failed with ${errors.length} error(s).`);
     errors.forEach((error) => console.error(`- ${error}`));
@@ -188,8 +252,10 @@ function runGlobalDungeonCheck(): void {
   }
 }
 
-if (requestedDungeon) {
-  await runSingleDungeonCheck(requestedDungeon);
-} else {
-  runGlobalDungeonCheck();
+if (process.argv[1]?.endsWith('scripts/dungeons/check.ts')) {
+  if (requestedDungeon) {
+    await runSingleDungeonCheck(requestedDungeon);
+  } else {
+    runGlobalDungeonCheck();
+  }
 }

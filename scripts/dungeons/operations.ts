@@ -1,7 +1,10 @@
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-import { legacyThreechestCoordinateInventory } from '../../src/dungeon/data/season2Catalog';
+import {
+  legacyThreechestCoordinateInventory,
+  season2DungeonCatalog,
+} from '../../src/dungeon/data/season2Catalog';
 import { dungeonDocuments } from '../../src/dungeon/registry';
 import {
   getCoordinateSnapshot,
@@ -242,13 +245,29 @@ export function coordinateImpact(
   snapshotId: string,
   previousBySourceKey: Record<string, string> = {},
 ): CoordinateImpact[] {
-  return legacyThreechestCoordinateInventory.flatMap((entry) => {
+  const coordinateEntries = [
+    ...legacyThreechestCoordinateInventory.map((entry) => ({
+      dungeonId: entry.id,
+      sourceKey: entry.sourceKey,
+    })),
+    ...season2DungeonCatalog.flatMap((entry) =>
+      entry.coordinateSnapshotId
+        ? [
+            {
+              dungeonId: entry.id,
+              sourceKey: entry.coordinateSnapshotKey ?? entry.sourceKey,
+            },
+          ]
+        : [],
+    ),
+  ];
+  return coordinateEntries.flatMap((entry) => {
     const snapshot: CoordinateSnapshot | undefined = getCoordinateSnapshot(entry.sourceKey);
     if (!snapshot || snapshot.snapshotId !== snapshotId) return [];
     const previousHash = previousBySourceKey[entry.sourceKey];
     return [
       {
-        dungeonId: entry.id,
+        dungeonId: entry.dungeonId,
         sourceKey: entry.sourceKey,
         snapshotId: snapshot.snapshotId,
         rawSha256: snapshot.rawSha256,

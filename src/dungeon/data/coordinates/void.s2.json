@@ -1,0 +1,1746 @@
+{
+  "source": "threechest",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-11-s2-void-ptr",
+  "retrievedAt": "2026-08-11",
+  "rawSha256": "95b315b5ffde21f819ff382ff0e1a353f53bd3f0972a632887c09c807e83256f",
+  "transformVersion": "threechest-yx-to-normalized-v1",
+  "dungeonKey": "void",
+  "dungeonIndex": 163,
+  "sourceCoordinateSpace": "threechest-yx",
+  "normalizedCoordinateSpace": "normalized-v1",
+  "spawns": [
+    {
+      "sourceId": "void:1-1",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [84.88, -74.68],
+      "groupId": "void:group:10"
+    },
+    {
+      "sourceId": "void:1-2",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [85.15, -92.12],
+      "groupId": "void:group:11"
+    },
+    {
+      "sourceId": "void:1-3",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [100.31, -91.03],
+      "groupId": "void:group:11"
+    },
+    {
+      "sourceId": "void:1-4",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [68.21, -94.35],
+      "groupId": "void:group:17"
+    },
+    {
+      "sourceId": "void:1-5",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [64.51, -90.56],
+      "groupId": "void:group:17"
+    },
+    {
+      "sourceId": "void:1-6",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [273.49, -150.39],
+      "groupId": "void:group:45"
+    },
+    {
+      "sourceId": "void:1-7",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [326.91, -185.39],
+      "groupId": "void:group:52"
+    },
+    {
+      "sourceId": "void:1-8",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [308.37, -182.88],
+      "groupId": "void:group:51"
+    },
+    {
+      "sourceId": "void:1-9",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [281.33, -162.3],
+      "groupId": "void:group:37"
+    },
+    {
+      "sourceId": "void:1-10",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [286.91, -162.52],
+      "groupId": "void:group:37"
+    },
+    {
+      "sourceId": "void:1-11",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [112.52, -210.47],
+      "groupId": "void:group:1"
+    },
+    {
+      "sourceId": "void:1-12",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [79.12, -232.43],
+      "groupId": "void:group:5"
+    },
+    {
+      "sourceId": "void:1-13",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [63.68, -218.97],
+      "groupId": "void:group:6"
+    },
+    {
+      "sourceId": "void:1-14",
+      "sourceEnemyId": 243996,
+      "sourceEnemyIndex": 1,
+      "floorId": "default",
+      "position": [70.42, -207.6],
+      "groupId": "void:group:6"
+    },
+    {
+      "sourceId": "void:2-1",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [92.2, -80.3],
+      "groupId": "void:group:10"
+    },
+    {
+      "sourceId": "void:2-2",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [102.87, -82.56],
+      "groupId": "void:group:11"
+    },
+    {
+      "sourceId": "void:2-3",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [78.15, -83.12],
+      "groupId": "void:group:10"
+    },
+    {
+      "sourceId": "void:2-4",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [109.72, -63.43],
+      "groupId": "void:group:13"
+    },
+    {
+      "sourceId": "void:2-5",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [114.69, -66.39],
+      "groupId": "void:group:13"
+    },
+    {
+      "sourceId": "void:2-6",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [321.64, -185.25],
+      "groupId": "void:group:52"
+    },
+    {
+      "sourceId": "void:2-7",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [311.47, -149.5],
+      "groupId": "void:group:49"
+    },
+    {
+      "sourceId": "void:2-8",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [316.43, -149.42],
+      "groupId": "void:group:49"
+    },
+    {
+      "sourceId": "void:2-9",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [289.11, -139.98],
+      "groupId": "void:group:48"
+    },
+    {
+      "sourceId": "void:2-10",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [295.51, -139.65],
+      "groupId": "void:group:48"
+    },
+    {
+      "sourceId": "void:2-11",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [104.09, -231.57],
+      "groupId": "void:group:1"
+    },
+    {
+      "sourceId": "void:2-12",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [84.03, -224.97],
+      "groupId": "void:group:5"
+    },
+    {
+      "sourceId": "void:2-13",
+      "sourceEnemyId": 243988,
+      "sourceEnemyIndex": 2,
+      "floorId": "default",
+      "position": [76.03, -209.64],
+      "groupId": "void:group:6"
+    },
+    {
+      "sourceId": "void:3-1",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [89.07, -72.05],
+      "groupId": "void:group:10"
+    },
+    {
+      "sourceId": "void:3-2",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [88.62, -95.42],
+      "groupId": "void:group:11"
+    },
+    {
+      "sourceId": "void:3-3",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [97.32, -95.56],
+      "groupId": "void:group:11"
+    },
+    {
+      "sourceId": "void:3-4",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [120.41, -89.26],
+      "groupId": "void:group:16"
+    },
+    {
+      "sourceId": "void:3-5",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [116.8, -92.78],
+      "groupId": "void:group:16"
+    },
+    {
+      "sourceId": "void:3-6",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [308.1, -177.39],
+      "groupId": "void:group:51"
+    },
+    {
+      "sourceId": "void:3-7",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [300.07, -157.24],
+      "groupId": "void:group:50"
+    },
+    {
+      "sourceId": "void:3-8",
+      "sourceEnemyId": 243983,
+      "sourceEnemyIndex": 3,
+      "floorId": "default",
+      "position": [305.91, -157],
+      "groupId": "void:group:50"
+    },
+    {
+      "sourceId": "void:4-1",
+      "sourceEnemyId": 243985,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [92.36, -84.72],
+      "groupId": "void:group:10"
+    },
+    {
+      "sourceId": "void:4-2",
+      "sourceEnemyId": 243985,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [107.64, -82.47],
+      "groupId": "void:group:11"
+    },
+    {
+      "sourceId": "void:4-3",
+      "sourceEnemyId": 243985,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [82.75, -83.11],
+      "groupId": "void:group:10"
+    },
+    {
+      "sourceId": "void:4-4",
+      "sourceEnemyId": 243985,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [74.21, -62.62],
+      "groupId": "void:group:14"
+    },
+    {
+      "sourceId": "void:4-5",
+      "sourceEnemyId": 243985,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [69.43, -66.12],
+      "groupId": "void:group:14"
+    },
+    {
+      "sourceId": "void:4-6",
+      "sourceEnemyId": 243985,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [98.12, -225.48],
+      "groupId": "void:group:1"
+    },
+    {
+      "sourceId": "void:4-7",
+      "sourceEnemyId": 243985,
+      "sourceEnemyIndex": 4,
+      "floorId": "default",
+      "position": [117.43, -218.34],
+      "groupId": "void:group:1"
+    },
+    {
+      "sourceId": "void:5-4",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [339.73, -181.2],
+      "groupId": "void:group:53"
+    },
+    {
+      "sourceId": "void:5-8",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [39.9, -86.67],
+      "groupId": "void:group:33"
+    },
+    {
+      "sourceId": "void:5-9",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [48.1, -53.11],
+      "groupId": "void:group:32"
+    },
+    {
+      "sourceId": "void:5-10",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [54.11, -53.05],
+      "groupId": "void:group:32"
+    },
+    {
+      "sourceId": "void:5-11",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [319.46, -163.95],
+      "groupId": "void:group:55"
+    },
+    {
+      "sourceId": "void:5-12",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [281.1, -174.25],
+      "groupId": "void:group:36"
+    },
+    {
+      "sourceId": "void:5-13",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [107.51, -219.23],
+      "groupId": "void:group:1"
+    },
+    {
+      "sourceId": "void:5-14",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [71.3, -213.18],
+      "groupId": "void:group:6"
+    },
+    {
+      "sourceId": "void:5-15",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [54.53, -200.89],
+      "groupId": "void:group:7"
+    },
+    {
+      "sourceId": "void:5-16",
+      "sourceEnemyId": 238883,
+      "sourceEnemyIndex": 5,
+      "floorId": "default",
+      "position": [49.64, -208.97],
+      "groupId": "void:group:7"
+    },
+    {
+      "sourceId": "void:6-2",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [128.74, -201.38],
+      "groupId": "void:group:2"
+    },
+    {
+      "sourceId": "void:6-3",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [132.74, -206.83],
+      "groupId": "void:group:2"
+    },
+    {
+      "sourceId": "void:6-4",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [91.71, -131.62],
+      "groupId": "void:group:19"
+    },
+    {
+      "sourceId": "void:6-6",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [54.93, -86.45],
+      "groupId": "void:group:33"
+    },
+    {
+      "sourceId": "void:6-7",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [48.5, -45.64],
+      "groupId": "void:group:32"
+    },
+    {
+      "sourceId": "void:6-8",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [54.19, -45.83],
+      "groupId": "void:group:32"
+    },
+    {
+      "sourceId": "void:6-9",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [260.92, -188.77],
+      "groupId": "void:group:38"
+    },
+    {
+      "sourceId": "void:6-10",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [260.97, -183.02],
+      "groupId": "void:group:38"
+    },
+    {
+      "sourceId": "void:6-11",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [253.25, -176.96],
+      "groupId": "void:group:40"
+    },
+    {
+      "sourceId": "void:6-12",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [323.15, -172.47],
+      "groupId": "void:group:56"
+    },
+    {
+      "sourceId": "void:6-13",
+      "sourceEnemyId": 241496,
+      "sourceEnemyIndex": 6,
+      "floorId": "default",
+      "position": [75.58, -220.85],
+      "groupId": "void:group:5"
+    },
+    {
+      "sourceId": "void:7-1",
+      "sourceEnemyId": 252072,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [142.23, -195.31],
+      "groupId": "void:group:3"
+    },
+    {
+      "sourceId": "void:7-3",
+      "sourceEnemyId": 252072,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [66.03, -49.43],
+      "groupId": "void:group:31"
+    },
+    {
+      "sourceId": "void:7-4",
+      "sourceEnemyId": 252072,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [244.18, -134.33],
+      "groupId": "void:group:43"
+    },
+    {
+      "sourceId": "void:7-5",
+      "sourceEnemyId": 252072,
+      "sourceEnemyIndex": 7,
+      "floorId": "default",
+      "position": [349, -148.22],
+      "groupId": "void:group:57"
+    },
+    {
+      "sourceId": "void:8-1",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [40.54, -195.54],
+      "groupId": "void:group:8"
+    },
+    {
+      "sourceId": "void:8-3",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [47.39, -86.6],
+      "groupId": "void:group:33"
+    },
+    {
+      "sourceId": "void:8-4",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [108.96, -50.15],
+      "groupId": "void:group:30"
+    },
+    {
+      "sourceId": "void:8-5",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [232.03, -151.67],
+      "groupId": "void:group:42"
+    },
+    {
+      "sourceId": "void:8-6",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [266.36, -147.33],
+      "groupId": "void:group:45"
+    },
+    {
+      "sourceId": "void:8-7",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [367.35, -141.91],
+      "groupId": "void:group:58"
+    },
+    {
+      "sourceId": "void:8-8",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [359.51, -141.91],
+      "groupId": "void:group:58"
+    },
+    {
+      "sourceId": "void:8-9",
+      "sourceEnemyId": 252053,
+      "sourceEnemyIndex": 8,
+      "floorId": "default",
+      "position": [333.45, -133.21],
+      "groupId": "void:group:59"
+    },
+    {
+      "sourceId": "void:9-1",
+      "sourceEnemyId": 267545,
+      "sourceEnemyIndex": 9,
+      "floorId": "default",
+      "position": [59.53, -158.02],
+      "groupId": "void:group:9"
+    },
+    {
+      "sourceId": "void:10-1",
+      "sourceEnemyId": 267546,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [123.04, -158.36],
+      "groupId": "void:group:4"
+    },
+    {
+      "sourceId": "void:11-1",
+      "sourceEnemyId": 244260,
+      "sourceEnemyIndex": 11,
+      "floorId": "default",
+      "position": [92.08, -60.52],
+      "groupId": "void:group:12"
+    },
+    {
+      "sourceId": "void:12-1",
+      "sourceEnemyId": 249608,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [110.11, -68.23],
+      "groupId": "void:group:13"
+    },
+    {
+      "sourceId": "void:13-1",
+      "sourceEnemyId": 249603,
+      "sourceEnemyIndex": 13,
+      "floorId": "default",
+      "position": [74.98, -68.03],
+      "groupId": "void:group:14"
+    },
+    {
+      "sourceId": "void:14-1",
+      "sourceEnemyId": 244309,
+      "sourceEnemyIndex": 14,
+      "floorId": "default",
+      "position": [92.43, -51.07],
+      "groupId": "void:group:15"
+    },
+    {
+      "sourceId": "void:15-1",
+      "sourceEnemyId": 249461,
+      "sourceEnemyIndex": 15,
+      "floorId": "default",
+      "position": [115.16, -87.85],
+      "groupId": "void:group:16"
+    },
+    {
+      "sourceId": "void:16-1",
+      "sourceEnemyId": 249590,
+      "sourceEnemyIndex": 16,
+      "floorId": "default",
+      "position": [69.74, -89.08],
+      "groupId": "void:group:17"
+    },
+    {
+      "sourceId": "void:17-1",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [88.73, -137.13],
+      "groupId": "void:group:19"
+    },
+    {
+      "sourceId": "void:17-2",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [119.52, -103.99],
+      "groupId": "void:group:22"
+    },
+    {
+      "sourceId": "void:17-3",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [124, -108.23],
+      "groupId": "void:group:22"
+    },
+    {
+      "sourceId": "void:17-4",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [128.75, -40.56],
+      "groupId": "void:group:29"
+    },
+    {
+      "sourceId": "void:17-5",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [133.66, -38.89],
+      "groupId": "void:group:29"
+    },
+    {
+      "sourceId": "void:17-6",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [266.94, -183.03],
+      "groupId": "void:group:38"
+    },
+    {
+      "sourceId": "void:17-7",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [266.73, -188.8],
+      "groupId": "void:group:38"
+    },
+    {
+      "sourceId": "void:17-8",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [250.48, -172.14],
+      "groupId": "void:group:40"
+    },
+    {
+      "sourceId": "void:17-9",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [251.12, -129.07],
+      "groupId": "void:group:43"
+    },
+    {
+      "sourceId": "void:17-10",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [252.16, -133.91],
+      "groupId": "void:group:43"
+    },
+    {
+      "sourceId": "void:17-11",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [250.56, -139.68],
+      "groupId": "void:group:43"
+    },
+    {
+      "sourceId": "void:17-12",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [342.24, -185.63],
+      "groupId": "void:group:53"
+    },
+    {
+      "sourceId": "void:17-13",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [336.75, -185.49],
+      "groupId": "void:group:53"
+    },
+    {
+      "sourceId": "void:17-14",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [324.54, -163.71],
+      "groupId": "void:group:55"
+    },
+    {
+      "sourceId": "void:17-15",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [302.92, -176.98],
+      "groupId": "void:group:51"
+    },
+    {
+      "sourceId": "void:17-16",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [300.65, -163.01],
+      "groupId": "void:group:50"
+    },
+    {
+      "sourceId": "void:17-17",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [306.34, -162.96],
+      "groupId": "void:group:50"
+    },
+    {
+      "sourceId": "void:17-18",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [277.87, -179.26],
+      "groupId": "void:group:36"
+    },
+    {
+      "sourceId": "void:17-19",
+      "sourceEnemyId": 243835,
+      "sourceEnemyIndex": 17,
+      "floorId": "default",
+      "position": [283.67, -179.24],
+      "groupId": "void:group:36"
+    },
+    {
+      "sourceId": "void:18-1",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [95.34, -136.93],
+      "groupId": "void:group:19"
+    },
+    {
+      "sourceId": "void:18-2",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [143.18, -100.98],
+      "groupId": "void:group:24"
+    },
+    {
+      "sourceId": "void:18-3",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [145.65, -95.28],
+      "groupId": "void:group:24"
+    },
+    {
+      "sourceId": "void:18-4",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [138.97, -53.32],
+      "groupId": "void:group:28"
+    },
+    {
+      "sourceId": "void:18-5",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [141.65, -48.08],
+      "groupId": "void:group:28"
+    },
+    {
+      "sourceId": "void:18-6",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [247.72, -177.12],
+      "groupId": "void:group:40"
+    },
+    {
+      "sourceId": "void:18-7",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [273.49, -144.41],
+      "groupId": "void:group:45"
+    },
+    {
+      "sourceId": "void:18-8",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [324.28, -180.33],
+      "groupId": "void:group:52"
+    },
+    {
+      "sourceId": "void:18-9",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [348.74, -156.64],
+      "groupId": "void:group:57"
+    },
+    {
+      "sourceId": "void:18-10",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [328.73, -139.46],
+      "groupId": "void:group:59"
+    },
+    {
+      "sourceId": "void:18-11",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [334.57, -140.15],
+      "groupId": "void:group:59"
+    },
+    {
+      "sourceId": "void:18-12",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [339.72, -136.88],
+      "groupId": "void:group:59"
+    },
+    {
+      "sourceId": "void:18-13",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [322.31, -158.77],
+      "groupId": "void:group:55"
+    },
+    {
+      "sourceId": "void:18-14",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [302.92, -182.94],
+      "groupId": "void:group:51"
+    },
+    {
+      "sourceId": "void:18-15",
+      "sourceEnemyId": 243766,
+      "sourceEnemyIndex": 18,
+      "floorId": "default",
+      "position": [284.25, -157.52],
+      "groupId": "void:group:37"
+    },
+    {
+      "sourceId": "void:19-1",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [109.6, -113.34],
+      "groupId": "void:group:20"
+    },
+    {
+      "sourceId": "void:19-2",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [128.6, -79.96],
+      "groupId": "void:group:25"
+    },
+    {
+      "sourceId": "void:19-4",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [117.98, -50.08],
+      "groupId": "void:group:30"
+    },
+    {
+      "sourceId": "void:19-5",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [137.06, -80.13],
+      "groupId": "void:group:25"
+    },
+    {
+      "sourceId": "void:19-6",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [240.86, -151.91],
+      "groupId": "void:group:42"
+    },
+    {
+      "sourceId": "void:19-7",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [364.16, -133.51],
+      "groupId": "void:group:58"
+    },
+    {
+      "sourceId": "void:19-8",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [310.61, -143.13],
+      "groupId": "void:group:49"
+    },
+    {
+      "sourceId": "void:19-9",
+      "sourceEnemyId": 263228,
+      "sourceEnemyIndex": 19,
+      "floorId": "default",
+      "position": [317.45, -143.26],
+      "groupId": "void:group:49"
+    },
+    {
+      "sourceId": "void:20-1",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [109.6, -102.42],
+      "groupId": "void:group:21"
+    },
+    {
+      "sourceId": "void:20-2",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [107.23, -104.69],
+      "groupId": "void:group:21"
+    },
+    {
+      "sourceId": "void:20-3",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [110.02, -105.1],
+      "groupId": "void:group:21"
+    },
+    {
+      "sourceId": "void:20-4",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [148.73, -82.14],
+      "groupId": "void:group:26"
+    },
+    {
+      "sourceId": "void:20-5",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [150.46, -79.09],
+      "groupId": "void:group:26"
+    },
+    {
+      "sourceId": "void:20-6",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [152.03, -82.34],
+      "groupId": "void:group:26"
+    },
+    {
+      "sourceId": "void:20-7",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [133.28, -63.23],
+      "groupId": "void:group:27"
+    },
+    {
+      "sourceId": "void:20-8",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [134.81, -66.42],
+      "groupId": "void:group:27"
+    },
+    {
+      "sourceId": "void:20-9",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [130.91, -66.46],
+      "groupId": "void:group:27"
+    },
+    {
+      "sourceId": "void:20-10",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [132.26, -96],
+      "groupId": "void:group:23"
+    },
+    {
+      "sourceId": "void:20-11",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [134.14, -99.42],
+      "groupId": "void:group:23"
+    },
+    {
+      "sourceId": "void:20-12",
+      "sourceEnemyId": 243736,
+      "sourceEnemyIndex": 20,
+      "floorId": "default",
+      "position": [130.39, -99.43],
+      "groupId": "void:group:23"
+    },
+    {
+      "sourceId": "void:21-1",
+      "sourceEnemyId": 245950,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [63.73, -106.83],
+      "groupId": "void:group:34"
+    },
+    {
+      "sourceId": "void:21-2",
+      "sourceEnemyId": 245950,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [268.91, -133.59],
+      "groupId": "void:group:47"
+    },
+    {
+      "sourceId": "void:21-3",
+      "sourceEnemyId": 245950,
+      "sourceEnemyIndex": 21,
+      "floorId": "default",
+      "position": [325.04, -121.14],
+      "groupId": "void:group:60"
+    },
+    {
+      "sourceId": "void:22-1",
+      "sourceEnemyId": 268184,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [335.18, -160.82],
+      "groupId": "void:group:54"
+    },
+    {
+      "sourceId": "void:22-2",
+      "sourceEnemyId": 268184,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [264.35, -159.98],
+      "groupId": "void:group:46"
+    },
+    {
+      "sourceId": "void:22-3",
+      "sourceEnemyId": 268184,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [292.79, -132.25],
+      "groupId": "void:group:48"
+    },
+    {
+      "sourceId": "void:23-1",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [256.97, -201.54],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-2",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [259.57, -201.51],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-3",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [256.98, -204.16],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-4",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [254.39, -204.23],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-5",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [259.51, -204.11],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-6",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [261.99, -204],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-7",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [254.44, -206.77],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-8",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [257, -206.65],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-9",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [259.57, -206.65],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-10",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [261.89, -206.61],
+      "groupId": "void:group:39"
+    },
+    {
+      "sourceId": "void:23-11",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [234.45, -164.35],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-12",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [237, -166.8],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-13",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [239.5, -166.64],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-14",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [237.37, -171.8],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-15",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [237.21, -169.25],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-16",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [234.5, -166.8],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-17",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [234.5, -172.01],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-18",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [236.95, -164.25],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-19",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [239.55, -169.25],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-20",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [234.45, -169.25],
+      "groupId": "void:group:41"
+    },
+    {
+      "sourceId": "void:23-21",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [253.46, -115.18],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-22",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [256.12, -115.3],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-23",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [258.84, -115.32],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-24",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [256.15, -118.06],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-25",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [258.87, -118.1],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-26",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [261.38, -115.29],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-27",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [253.35, -112.47],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-28",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [256, -112.44],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-29",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [258.62, -112.39],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-30",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [261.29, -112.52],
+      "groupId": "void:group:44"
+    },
+    {
+      "sourceId": "void:23-31",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [328.33, -204.45],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-32",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [330.87, -201.79],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-33",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [333.69, -201.74],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-34",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [330.85, -204.51],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-35",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [333.47, -204.49],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-36",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [336.02, -204.58],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-37",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [335.99, -207.3],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-38",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [333.38, -207.33],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-39",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [330.69, -207.23],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-40",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [328.32, -207.33],
+      "groupId": "void:group:61"
+    },
+    {
+      "sourceId": "void:23-41",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [349.08, -168.27]
+    },
+    {
+      "sourceId": "void:23-42",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [351.5, -165.13]
+    },
+    {
+      "sourceId": "void:23-43",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [354.22, -167.96]
+    },
+    {
+      "sourceId": "void:23-44",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [349.38, -171.03]
+    },
+    {
+      "sourceId": "void:23-45",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [351.59, -167.84]
+    },
+    {
+      "sourceId": "void:23-46",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [354.3, -170.83]
+    },
+    {
+      "sourceId": "void:23-47",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [351.68, -173.59]
+    },
+    {
+      "sourceId": "void:23-48",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [351.72, -170.77]
+    },
+    {
+      "sourceId": "void:23-49",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [354.39, -173.6]
+    },
+    {
+      "sourceId": "void:23-50",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [354.16, -165.1]
+    },
+    {
+      "sourceId": "void:23-51",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [304.94, -128.04],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-52",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [307.09, -126.56],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-53",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [309.22, -125.07],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-54",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [308.7, -128.45],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-55",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [310.95, -127.18],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-56",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [313.15, -125.61],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-57",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [312.59, -129.6],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-58",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [310.41, -131.11],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-59",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [306.64, -129.94],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:23-60",
+      "sourceEnemyId": 252508,
+      "sourceEnemyIndex": 23,
+      "floorId": "default",
+      "position": [311.36, -123.57],
+      "groupId": "void:group:62"
+    },
+    {
+      "sourceId": "void:24-1",
+      "sourceEnemyId": 244708,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [341.86, -161.89],
+      "groupId": "void:group:54"
+    },
+    {
+      "sourceId": "void:24-2",
+      "sourceEnemyId": 244708,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [338.88, -167.31],
+      "groupId": "void:group:54"
+    },
+    {
+      "sourceId": "void:24-3",
+      "sourceEnemyId": 244708,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [259.81, -166.07],
+      "groupId": "void:group:46"
+    },
+    {
+      "sourceId": "void:24-4",
+      "sourceEnemyId": 244708,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [257.34, -160.27],
+      "groupId": "void:group:46"
+    },
+    {
+      "sourceId": "void:24-5",
+      "sourceEnemyId": 244708,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [285.8, -134.3],
+      "groupId": "void:group:48"
+    },
+    {
+      "sourceId": "void:24-6",
+      "sourceEnemyId": 244708,
+      "sourceEnemyIndex": 24,
+      "floorId": "default",
+      "position": [299.55, -134.89],
+      "groupId": "void:group:48"
+    },
+    {
+      "sourceId": "void:25-1",
+      "sourceEnemyId": 238887,
+      "sourceEnemyIndex": 25,
+      "floorId": "default",
+      "position": [91.26, -111.48],
+      "groupId": "void:group:18"
+    },
+    {
+      "sourceId": "void:26-1",
+      "sourceEnemyId": 239008,
+      "sourceEnemyIndex": 26,
+      "floorId": "default",
+      "position": [294.18, -223.68],
+      "groupId": "void:group:35"
+    },
+    {
+      "sourceId": "void:27-1",
+      "sourceEnemyId": 239167,
+      "sourceEnemyIndex": 27,
+      "floorId": "default",
+      "position": [293.57, -100.96],
+      "groupId": "void:group:63"
+    },
+    {
+      "sourceId": "void:28-1",
+      "sourceEnemyId": 239070,
+      "sourceEnemyIndex": 28,
+      "floorId": "default",
+      "position": [315.32, -225.62],
+      "groupId": "void:group:35"
+    },
+    {
+      "sourceId": "void:28-2",
+      "sourceEnemyId": 239070,
+      "sourceEnemyIndex": 28,
+      "floorId": "default",
+      "position": [271.19, -226.17],
+      "groupId": "void:group:35"
+    },
+    {
+      "sourceId": "void:29-1",
+      "sourceEnemyId": 248666,
+      "sourceEnemyIndex": 29,
+      "floorId": "default",
+      "position": [187.39, -31.54]
+    },
+    {
+      "sourceId": "void:30-1",
+      "sourceEnemyId": 254677,
+      "sourceEnemyIndex": 30,
+      "floorId": "default",
+      "position": [99.24, -112.48],
+      "groupId": "void:group:18"
+    },
+    {
+      "sourceId": "void:31-1",
+      "sourceEnemyId": 255000,
+      "sourceEnemyIndex": 31,
+      "floorId": "default",
+      "position": [304.36, -100.3],
+      "groupId": "void:group:63"
+    },
+    {
+      "sourceId": "void:32-1",
+      "sourceEnemyId": 255001,
+      "sourceEnemyIndex": 32,
+      "floorId": "default",
+      "position": [302.98, -95.45],
+      "groupId": "void:group:63"
+    }
+  ]
+}

@@ -1,0 +1,965 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "stableId": "spawn-1",
+      "sourceId": "fang:1-1",
+      "enemyId": "fang:source-enemy:270306",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-2",
+      "sourceId": "fang:1-2",
+      "enemyId": "fang:source-enemy:270306",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-3",
+      "sourceId": "fang:1-3",
+      "enemyId": "fang:source-enemy:270306",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-4",
+      "sourceId": "fang:1-4",
+      "enemyId": "fang:source-enemy:270306",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-5",
+      "sourceId": "fang:1-5",
+      "enemyId": "fang:source-enemy:270306",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-6",
+      "sourceId": "fang:1-6",
+      "enemyId": "fang:source-enemy:270306",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-7",
+      "sourceId": "fang:2-1",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-8",
+      "sourceId": "fang:2-2",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-9",
+      "sourceId": "fang:2-3",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-10",
+      "sourceId": "fang:2-4",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-11",
+      "sourceId": "fang:2-5",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-12",
+      "sourceId": "fang:2-6",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-13",
+      "sourceId": "fang:2-7",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-14",
+      "sourceId": "fang:2-8",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-15",
+      "sourceId": "fang:2-9",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-16",
+      "sourceId": "fang:2-10",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-17",
+      "sourceId": "fang:2-11",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-18",
+      "sourceId": "fang:2-12",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-19",
+      "sourceId": "fang:2-13",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-20",
+      "sourceId": "fang:2-14",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-21",
+      "sourceId": "fang:2-15",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-22",
+      "sourceId": "fang:2-16",
+      "enemyId": "fang:source-enemy:261552",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-23",
+      "sourceId": "fang:3-1",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-24",
+      "sourceId": "fang:3-2",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-25",
+      "sourceId": "fang:3-3",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-26",
+      "sourceId": "fang:3-4",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-27",
+      "sourceId": "fang:3-8",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-28",
+      "sourceId": "fang:3-9",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-29",
+      "sourceId": "fang:3-10",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-30",
+      "sourceId": "fang:3-11",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-31",
+      "sourceId": "fang:3-12",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-32",
+      "sourceId": "fang:3-13",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-33",
+      "sourceId": "fang:3-14",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-34",
+      "sourceId": "fang:3-15",
+      "enemyId": "fang:source-enemy:261557",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-35",
+      "sourceId": "fang:4-1",
+      "enemyId": "fang:source-enemy:261556",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-36",
+      "sourceId": "fang:5-1",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-37",
+      "sourceId": "fang:5-2",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-38",
+      "sourceId": "fang:5-3",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-39",
+      "sourceId": "fang:5-4",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-40",
+      "sourceId": "fang:5-5",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-41",
+      "sourceId": "fang:5-6",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-42",
+      "sourceId": "fang:5-7",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-43",
+      "sourceId": "fang:5-8",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-44",
+      "sourceId": "fang:5-9",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-45",
+      "sourceId": "fang:5-10",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-46",
+      "sourceId": "fang:5-11",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-47",
+      "sourceId": "fang:5-12",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-48",
+      "sourceId": "fang:5-13",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-49",
+      "sourceId": "fang:5-14",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-50",
+      "sourceId": "fang:5-15",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-51",
+      "sourceId": "fang:5-16",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-52",
+      "sourceId": "fang:5-17",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-53",
+      "sourceId": "fang:5-18",
+      "enemyId": "fang:source-enemy:263112",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-54",
+      "sourceId": "fang:6-1",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-55",
+      "sourceId": "fang:6-2",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-56",
+      "sourceId": "fang:6-3",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-57",
+      "sourceId": "fang:6-4",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-58",
+      "sourceId": "fang:6-5",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-59",
+      "sourceId": "fang:6-6",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-60",
+      "sourceId": "fang:6-7",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-61",
+      "sourceId": "fang:6-8",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-62",
+      "sourceId": "fang:6-9",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-63",
+      "sourceId": "fang:6-10",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-64",
+      "sourceId": "fang:6-11",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-65",
+      "sourceId": "fang:6-12",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-66",
+      "sourceId": "fang:6-13",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-67",
+      "sourceId": "fang:6-14",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-68",
+      "sourceId": "fang:6-15",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-69",
+      "sourceId": "fang:6-16",
+      "enemyId": "fang:source-enemy:261560",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-70",
+      "sourceId": "fang:7-1",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-71",
+      "sourceId": "fang:7-2",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-72",
+      "sourceId": "fang:7-3",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-73",
+      "sourceId": "fang:7-4",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-74",
+      "sourceId": "fang:7-5",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-75",
+      "sourceId": "fang:7-6",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-76",
+      "sourceId": "fang:7-7",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-77",
+      "sourceId": "fang:7-8",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-78",
+      "sourceId": "fang:7-9",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-79",
+      "sourceId": "fang:7-10",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-80",
+      "sourceId": "fang:7-11",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-81",
+      "sourceId": "fang:7-12",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-82",
+      "sourceId": "fang:7-13",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-83",
+      "sourceId": "fang:7-14",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-84",
+      "sourceId": "fang:7-15",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-85",
+      "sourceId": "fang:7-16",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-86",
+      "sourceId": "fang:7-17",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-87",
+      "sourceId": "fang:7-18",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-88",
+      "sourceId": "fang:7-19",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-89",
+      "sourceId": "fang:7-20",
+      "enemyId": "fang:source-enemy:261553",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-90",
+      "sourceId": "fang:8-1",
+      "enemyId": "fang:source-enemy:263109",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-91",
+      "sourceId": "fang:8-2",
+      "enemyId": "fang:source-enemy:263109",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-92",
+      "sourceId": "fang:8-3",
+      "enemyId": "fang:source-enemy:263109",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-93",
+      "sourceId": "fang:8-4",
+      "enemyId": "fang:source-enemy:263109",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-94",
+      "sourceId": "fang:9-1",
+      "enemyId": "fang:source-enemy:261573",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-95",
+      "sourceId": "fang:10-1",
+      "enemyId": "fang:source-enemy:261554",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-96",
+      "sourceId": "fang:10-2",
+      "enemyId": "fang:source-enemy:261554",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-97",
+      "sourceId": "fang:10-3",
+      "enemyId": "fang:source-enemy:261554",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-98",
+      "sourceId": "fang:10-4",
+      "enemyId": "fang:source-enemy:261554",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-99",
+      "sourceId": "fang:11-1",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-100",
+      "sourceId": "fang:11-2",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-101",
+      "sourceId": "fang:11-3",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-102",
+      "sourceId": "fang:11-4",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-103",
+      "sourceId": "fang:11-5",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-104",
+      "sourceId": "fang:11-6",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-105",
+      "sourceId": "fang:11-7",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-106",
+      "sourceId": "fang:11-8",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-107",
+      "sourceId": "fang:11-9",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-108",
+      "sourceId": "fang:11-10",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-109",
+      "sourceId": "fang:11-11",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-110",
+      "sourceId": "fang:11-12",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-111",
+      "sourceId": "fang:11-13",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-112",
+      "sourceId": "fang:11-14",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-113",
+      "sourceId": "fang:11-15",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-114",
+      "sourceId": "fang:11-16",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-115",
+      "sourceId": "fang:11-17",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-116",
+      "sourceId": "fang:11-18",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-117",
+      "sourceId": "fang:11-19",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-118",
+      "sourceId": "fang:11-20",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-119",
+      "sourceId": "fang:11-21",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-120",
+      "sourceId": "fang:11-22",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-121",
+      "sourceId": "fang:11-23",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-122",
+      "sourceId": "fang:11-24",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-123",
+      "sourceId": "fang:11-25",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-124",
+      "sourceId": "fang:11-26",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-125",
+      "sourceId": "fang:11-27",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-126",
+      "sourceId": "fang:11-28",
+      "enemyId": "fang:source-enemy:261550",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-127",
+      "sourceId": "fang:12-1",
+      "enemyId": "fang:source-enemy:262011",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-128",
+      "sourceId": "fang:12-2",
+      "enemyId": "fang:source-enemy:262011",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-129",
+      "sourceId": "fang:12-3",
+      "enemyId": "fang:source-enemy:262011",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-130",
+      "sourceId": "fang:13-1",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-131",
+      "sourceId": "fang:13-2",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-132",
+      "sourceId": "fang:13-3",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-133",
+      "sourceId": "fang:13-4",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-134",
+      "sourceId": "fang:13-5",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-135",
+      "sourceId": "fang:13-6",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-136",
+      "sourceId": "fang:13-7",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-137",
+      "sourceId": "fang:13-8",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-138",
+      "sourceId": "fang:13-9",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-139",
+      "sourceId": "fang:13-10",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-140",
+      "sourceId": "fang:13-11",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-141",
+      "sourceId": "fang:13-12",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-142",
+      "sourceId": "fang:13-13",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-143",
+      "sourceId": "fang:13-14",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-144",
+      "sourceId": "fang:13-15",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-145",
+      "sourceId": "fang:13-16",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-146",
+      "sourceId": "fang:13-17",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-147",
+      "sourceId": "fang:13-18",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-148",
+      "sourceId": "fang:13-19",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-149",
+      "sourceId": "fang:13-20",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-150",
+      "sourceId": "fang:13-21",
+      "enemyId": "fang:source-enemy:271453",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-151",
+      "sourceId": "fang:14-1",
+      "enemyId": "fang:source-enemy:259445",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-152",
+      "sourceId": "fang:15-1",
+      "enemyId": "fang:source-enemy:259446",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-153",
+      "sourceId": "fang:16-1",
+      "enemyId": "fang:source-enemy:259447",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-154",
+      "sourceId": "fang:17-1",
+      "enemyId": "fang:source-enemy:262398",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-155",
+      "sourceId": "fang:17-2",
+      "enemyId": "fang:source-enemy:262398",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-156",
+      "sourceId": "fang:18-1",
+      "enemyId": "fang:source-enemy:264798",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-157",
+      "sourceId": "fang:19-1",
+      "enemyId": "fang:source-enemy:268358",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-158",
+      "sourceId": "fang:20-1",
+      "enemyId": "fang:source-enemy:270378",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-159",
+      "sourceId": "fang:21-1",
+      "enemyId": "fang:source-enemy:270417",
+      "floorId": "fang:default"
+    },
+    {
+      "stableId": "spawn-160",
+      "sourceId": "fang:21-2",
+      "enemyId": "fang:source-enemy:270417",
+      "floorId": "fang:default"
+    }
+  ]
+}

@@ -65,6 +65,7 @@ export interface ThreechestCoordinateInventoryEntry {
   name: LocalizedText;
   coordinateSnapshotId: string;
   coordinateSourceId: 'threechest';
+  allowEphemeralIdentity: true;
   mapAssetKey: string;
 }
 
@@ -78,18 +79,18 @@ export const season2RotationSource = {
   fieldAllowlist: ['season', 'dungeon id', 'dungeon name', 'rotation membership'],
 } as const;
 
-const catalogSummary = (name: string): LocalizedText =>
+const coordinateSummary = (name: string): LocalizedText =>
   text(
-    `${name} 已登记为 Midnight S2 副本；技能、波次和位置参考仍在建设中。`,
-    `${name} is registered for Midnight S2; skills, pulls, and spatial references are still being built.`,
+    `${name} 已接入只读位置参考；技能、forces、波次和学习路线仍需独立核验。`,
+    `${name} has a read-only spatial reference; skills, forces, pulls, and the learning route still require independent review.`,
   );
 
-const catalogMilestone = text(
-  '先接入可核验的位置/地图来源，再补齐 Situation、技能动作和学习路线。',
-  'Connect a verifiable map source, then author Situations, ability actions, and a learning route.',
+const coordinateMilestone = text(
+  '先绑定自有 Floor/Enemy 语义并核对当前 build，再补齐 forces、Situation 和学习路线。',
+  'Bind the snapshot to owned Floor/Enemy semantics and verify the current build before adding forces, Situations, and the learning route.',
 );
 
-const catalogUpdatedAt = '2026-08-10';
+const catalogUpdatedAt = '2026-08-11';
 
 /** The eight dungeons in the current Midnight Season 2 Mythic+ rotation. */
 export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
@@ -99,11 +100,15 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'altar-of-fangs',
     name: text('尖牙祭坛', 'Altar of Fangs'),
     season: 'midnight-s2',
-    status: 'registered',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-s2-fang-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 's2-fang',
+    coordinateIdentityRegistryKey: 's2-fang',
     mapAssetKey: 'midnight-s2:altar-of-fangs',
-    summary: catalogSummary('尖牙祭坛'),
-    nextMilestone: catalogMilestone,
+    summary: coordinateSummary('尖牙祭坛'),
+    nextMilestone: coordinateMilestone,
   },
   {
     id: 'murder-row',
@@ -111,11 +116,15 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'murder-row',
     name: text('谋杀街', 'Murder Row'),
     season: 'midnight-s2',
-    status: 'registered',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-s2-murd-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 's2-murd',
+    coordinateIdentityRegistryKey: 's2-murd',
     mapAssetKey: 'midnight-s2:murder-row',
-    summary: catalogSummary('谋杀街'),
-    nextMilestone: catalogMilestone,
+    summary: coordinateSummary('谋杀街'),
+    nextMilestone: coordinateMilestone,
   },
   {
     id: 'den-of-nalorakk',
@@ -123,11 +132,15 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'den-of-nalorakk',
     name: text('纳洛拉克巢穴', 'Den of Nalorakk'),
     season: 'midnight-s2',
-    status: 'registered',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-s2-nalo-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 's2-nalo',
+    coordinateIdentityRegistryKey: 's2-nalo',
     mapAssetKey: 'midnight-s2:den-of-nalorakk',
-    summary: catalogSummary('纳洛拉克巢穴'),
-    nextMilestone: catalogMilestone,
+    summary: coordinateSummary('纳洛拉克巢穴'),
+    nextMilestone: coordinateMilestone,
   },
   {
     id: 'the-blinding-vale',
@@ -135,11 +148,15 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'the-blinding-vale',
     name: text('盲谷', 'The Blinding Vale'),
     season: 'midnight-s2',
-    status: 'registered',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-s2-vale-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 's2-vale',
+    coordinateIdentityRegistryKey: 's2-vale',
     mapAssetKey: 'midnight-s2:the-blinding-vale',
-    summary: catalogSummary('盲谷'),
-    nextMilestone: catalogMilestone,
+    summary: coordinateSummary('盲谷'),
+    nextMilestone: coordinateMilestone,
   },
   {
     id: 'voidscar-arena',
@@ -147,11 +164,15 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'voidscar-arena',
     name: text('虚空裂痕竞技场', 'Voidscar Arena'),
     season: 'midnight-s2',
-    status: 'registered',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-s2-void-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 's2-void',
+    coordinateIdentityRegistryKey: 's2-void',
     mapAssetKey: 'midnight-s2:voidscar-arena',
-    summary: catalogSummary('虚空裂痕竞技场'),
-    nextMilestone: catalogMilestone,
+    summary: coordinateSummary('虚空裂痕竞技场'),
+    nextMilestone: coordinateMilestone,
   },
   {
     id: 'ruby-life-pools',
@@ -181,11 +202,15 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'kings-rest',
     name: text('诸王之眠', "Kings' Rest"),
     season: 'midnight-s2',
-    status: 'registered',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-s2-kr-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 's2-kr',
+    coordinateIdentityRegistryKey: 's2-kr',
     mapAssetKey: 'midnight-s2:kings-rest',
-    summary: catalogSummary('诸王之眠'),
-    nextMilestone: catalogMilestone,
+    summary: coordinateSummary('诸王之眠'),
+    nextMilestone: coordinateMilestone,
   },
   {
     id: 'temple-of-sethraliss',
@@ -193,11 +218,15 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     sourceKey: 'temple-of-sethraliss',
     name: text('塞塔里斯神庙', 'Temple of Sethraliss'),
     season: 'midnight-s2',
-    status: 'registered',
+    status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-s2-tos-ptr',
+    coordinateSourceId: 'threechest',
+    coordinateSnapshotKey: 's2-tos',
+    coordinateIdentityRegistryKey: 's2-tos',
     mapAssetKey: 'midnight-s2:temple-of-sethraliss',
-    summary: catalogSummary('塞塔里斯神庙'),
-    nextMilestone: catalogMilestone,
+    summary: coordinateSummary('塞塔里斯神庙'),
+    nextMilestone: coordinateMilestone,
   },
 ];
 
@@ -209,6 +238,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('艾杰斯亚学院', "Algeth'ar Academy"),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:aa',
   },
   {
@@ -218,6 +248,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('魔导师平台', "Magisters' Terrace"),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:magi',
   },
   {
@@ -227,6 +258,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('迈萨拉洞窟', 'Maisara Caverns'),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:cavns',
   },
   {
@@ -236,6 +268,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('节点希纳斯', 'Nexus-Point Xenas'),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:xenas',
   },
   {
@@ -245,6 +278,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('风行者之塔', 'Windrunner Spire'),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:wind',
   },
   {
@@ -254,6 +288,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('萨隆矿坑', 'Pit of Saron'),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:pit',
   },
   {
@@ -263,6 +298,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('执政团之座', 'Seat of the Triumvirate'),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:seat',
   },
   {
@@ -272,6 +308,7 @@ export const legacyThreechestCoordinateInventory: readonly ThreechestCoordinateI
     name: text('通天峰', 'Skyreach'),
     coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-10',
     coordinateSourceId: 'threechest',
+    allowEphemeralIdentity: true,
     mapAssetKey: 'legacy-threechest:sky',
   },
 ];
@@ -376,6 +413,14 @@ export function validateSeason2DungeonCatalog(
         code: 'CATALOG_COORDINATE_STATUS_INVALID',
         path: `$[${index}].status`,
         message: 'coordinate-ready 条目必须带有坐标快照。',
+      });
+    }
+    if (entry.status === 'coordinate-ready' && !entry.coordinateIdentityRegistryKey) {
+      diagnostics.push({
+        code: 'CATALOG_COORDINATE_IDENTITY_REQUIRED',
+        path: `$[${index}].coordinateIdentityRegistryKey`,
+        message:
+          'coordinate-ready 条目必须绑定 committed identity registry，禁止生成临时 SpawnId。',
       });
     }
     if (

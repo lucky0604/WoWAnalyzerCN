@@ -1,0 +1,1331 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "stableId": "spawn-1",
+      "sourceId": "murd:1-1",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-2",
+      "sourceId": "murd:1-2",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-3",
+      "sourceId": "murd:1-3",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-4",
+      "sourceId": "murd:1-4",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-5",
+      "sourceId": "murd:1-5",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-6",
+      "sourceId": "murd:1-6",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-7",
+      "sourceId": "murd:1-7",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-8",
+      "sourceId": "murd:1-8",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-9",
+      "sourceId": "murd:1-9",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-10",
+      "sourceId": "murd:1-10",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-11",
+      "sourceId": "murd:1-11",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-12",
+      "sourceId": "murd:1-12",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-13",
+      "sourceId": "murd:1-13",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-14",
+      "sourceId": "murd:1-14",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-15",
+      "sourceId": "murd:1-15",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-16",
+      "sourceId": "murd:1-16",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-17",
+      "sourceId": "murd:1-17",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-18",
+      "sourceId": "murd:1-18",
+      "enemyId": "murd:source-enemy:236085",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-19",
+      "sourceId": "murd:2-1",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-20",
+      "sourceId": "murd:2-2",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-21",
+      "sourceId": "murd:2-3",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-22",
+      "sourceId": "murd:2-4",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-23",
+      "sourceId": "murd:2-5",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-24",
+      "sourceId": "murd:2-6",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-25",
+      "sourceId": "murd:2-7",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-26",
+      "sourceId": "murd:2-8",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-27",
+      "sourceId": "murd:2-9",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-28",
+      "sourceId": "murd:2-10",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-29",
+      "sourceId": "murd:2-11",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-30",
+      "sourceId": "murd:2-12",
+      "enemyId": "murd:source-enemy:236073",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-31",
+      "sourceId": "murd:3-1",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-32",
+      "sourceId": "murd:3-2",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-33",
+      "sourceId": "murd:3-3",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-34",
+      "sourceId": "murd:3-4",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-35",
+      "sourceId": "murd:3-5",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-36",
+      "sourceId": "murd:3-6",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-37",
+      "sourceId": "murd:3-7",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-38",
+      "sourceId": "murd:3-8",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-39",
+      "sourceId": "murd:3-9",
+      "enemyId": "murd:source-enemy:236084",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-40",
+      "sourceId": "murd:4-1",
+      "enemyId": "murd:source-enemy:236071",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-41",
+      "sourceId": "murd:4-4",
+      "enemyId": "murd:source-enemy:236071",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-42",
+      "sourceId": "murd:5-1",
+      "enemyId": "murd:source-enemy:252529",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-43",
+      "sourceId": "murd:6-1",
+      "enemyId": "murd:source-enemy:236082",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-44",
+      "sourceId": "murd:6-2",
+      "enemyId": "murd:source-enemy:236082",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-45",
+      "sourceId": "murd:6-4",
+      "enemyId": "murd:source-enemy:236082",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-46",
+      "sourceId": "murd:6-5",
+      "enemyId": "murd:source-enemy:236082",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-47",
+      "sourceId": "murd:7-1",
+      "enemyId": "murd:source-enemy:236902",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-48",
+      "sourceId": "murd:8-1",
+      "enemyId": "murd:source-enemy:236091",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-49",
+      "sourceId": "murd:8-2",
+      "enemyId": "murd:source-enemy:236091",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-50",
+      "sourceId": "murd:8-3",
+      "enemyId": "murd:source-enemy:236091",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-51",
+      "sourceId": "murd:8-4",
+      "enemyId": "murd:source-enemy:236091",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-52",
+      "sourceId": "murd:8-5",
+      "enemyId": "murd:source-enemy:236091",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-53",
+      "sourceId": "murd:8-6",
+      "enemyId": "murd:source-enemy:236091",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-54",
+      "sourceId": "murd:9-1",
+      "enemyId": "murd:source-enemy:236893",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-55",
+      "sourceId": "murd:9-2",
+      "enemyId": "murd:source-enemy:236893",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-56",
+      "sourceId": "murd:9-3",
+      "enemyId": "murd:source-enemy:236893",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-57",
+      "sourceId": "murd:9-4",
+      "enemyId": "murd:source-enemy:236893",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-58",
+      "sourceId": "murd:9-5",
+      "enemyId": "murd:source-enemy:236893",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-59",
+      "sourceId": "murd:9-6",
+      "enemyId": "murd:source-enemy:236893",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-60",
+      "sourceId": "murd:10-1",
+      "enemyId": "murd:source-enemy:236897",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-61",
+      "sourceId": "murd:10-2",
+      "enemyId": "murd:source-enemy:236897",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-62",
+      "sourceId": "murd:11-1",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-63",
+      "sourceId": "murd:11-3",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-64",
+      "sourceId": "murd:11-4",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-65",
+      "sourceId": "murd:11-5",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-66",
+      "sourceId": "murd:11-6",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-67",
+      "sourceId": "murd:11-7",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-68",
+      "sourceId": "murd:11-8",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-69",
+      "sourceId": "murd:11-9",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-70",
+      "sourceId": "murd:11-10",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-71",
+      "sourceId": "murd:11-11",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-72",
+      "sourceId": "murd:11-12",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-73",
+      "sourceId": "murd:11-13",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-74",
+      "sourceId": "murd:11-14",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-75",
+      "sourceId": "murd:11-15",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-76",
+      "sourceId": "murd:11-16",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-77",
+      "sourceId": "murd:11-17",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-78",
+      "sourceId": "murd:11-18",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-79",
+      "sourceId": "murd:11-19",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-80",
+      "sourceId": "murd:11-20",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-81",
+      "sourceId": "murd:11-21",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-82",
+      "sourceId": "murd:11-22",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-83",
+      "sourceId": "murd:11-23",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-84",
+      "sourceId": "murd:11-24",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-85",
+      "sourceId": "murd:11-25",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-86",
+      "sourceId": "murd:11-26",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-87",
+      "sourceId": "murd:11-27",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-88",
+      "sourceId": "murd:11-28",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-89",
+      "sourceId": "murd:11-29",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-90",
+      "sourceId": "murd:11-30",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-91",
+      "sourceId": "murd:11-31",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-92",
+      "sourceId": "murd:11-32",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-93",
+      "sourceId": "murd:11-33",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-94",
+      "sourceId": "murd:11-34",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-95",
+      "sourceId": "murd:11-35",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-96",
+      "sourceId": "murd:11-36",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-97",
+      "sourceId": "murd:11-37",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-98",
+      "sourceId": "murd:11-38",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-99",
+      "sourceId": "murd:11-39",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-100",
+      "sourceId": "murd:11-40",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-101",
+      "sourceId": "murd:11-41",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-102",
+      "sourceId": "murd:11-42",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-103",
+      "sourceId": "murd:11-43",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-104",
+      "sourceId": "murd:11-44",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-105",
+      "sourceId": "murd:11-45",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-106",
+      "sourceId": "murd:11-46",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-107",
+      "sourceId": "murd:11-47",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-108",
+      "sourceId": "murd:11-48",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-109",
+      "sourceId": "murd:11-49",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-110",
+      "sourceId": "murd:11-50",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-111",
+      "sourceId": "murd:11-51",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-112",
+      "sourceId": "murd:11-52",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-113",
+      "sourceId": "murd:11-53",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-114",
+      "sourceId": "murd:11-54",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-115",
+      "sourceId": "murd:11-55",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-116",
+      "sourceId": "murd:11-56",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-117",
+      "sourceId": "murd:11-57",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-118",
+      "sourceId": "murd:11-58",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-119",
+      "sourceId": "murd:11-59",
+      "enemyId": "murd:source-enemy:234849",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-120",
+      "sourceId": "murd:12-1",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-121",
+      "sourceId": "murd:12-3",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-122",
+      "sourceId": "murd:12-4",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-123",
+      "sourceId": "murd:12-5",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-124",
+      "sourceId": "murd:12-6",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-125",
+      "sourceId": "murd:12-7",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-126",
+      "sourceId": "murd:12-8",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-127",
+      "sourceId": "murd:12-9",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-128",
+      "sourceId": "murd:12-10",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-129",
+      "sourceId": "murd:12-11",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-130",
+      "sourceId": "murd:12-12",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-131",
+      "sourceId": "murd:12-13",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-132",
+      "sourceId": "murd:12-14",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-133",
+      "sourceId": "murd:12-15",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-134",
+      "sourceId": "murd:12-16",
+      "enemyId": "murd:source-enemy:235261",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-135",
+      "sourceId": "murd:13-1",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-136",
+      "sourceId": "murd:13-2",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-137",
+      "sourceId": "murd:13-3",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-138",
+      "sourceId": "murd:13-4",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-139",
+      "sourceId": "murd:13-5",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-140",
+      "sourceId": "murd:13-6",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-141",
+      "sourceId": "murd:13-7",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-142",
+      "sourceId": "murd:13-8",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-143",
+      "sourceId": "murd:13-9",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-144",
+      "sourceId": "murd:13-10",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-145",
+      "sourceId": "murd:13-12",
+      "enemyId": "murd:source-enemy:235268",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-146",
+      "sourceId": "murd:14-1",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-147",
+      "sourceId": "murd:14-2",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-148",
+      "sourceId": "murd:14-3",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-149",
+      "sourceId": "murd:14-4",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-150",
+      "sourceId": "murd:14-5",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-151",
+      "sourceId": "murd:14-6",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-152",
+      "sourceId": "murd:14-7",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-153",
+      "sourceId": "murd:14-8",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-154",
+      "sourceId": "murd:14-9",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-155",
+      "sourceId": "murd:14-10",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-156",
+      "sourceId": "murd:14-11",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-157",
+      "sourceId": "murd:14-12",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-158",
+      "sourceId": "murd:14-13",
+      "enemyId": "murd:source-enemy:235267",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-159",
+      "sourceId": "murd:15-1",
+      "enemyId": "murd:source-enemy:235265",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-160",
+      "sourceId": "murd:15-2",
+      "enemyId": "murd:source-enemy:235265",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-161",
+      "sourceId": "murd:15-3",
+      "enemyId": "murd:source-enemy:235265",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-162",
+      "sourceId": "murd:15-4",
+      "enemyId": "murd:source-enemy:235265",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-163",
+      "sourceId": "murd:15-5",
+      "enemyId": "murd:source-enemy:235265",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-164",
+      "sourceId": "murd:16-1",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-165",
+      "sourceId": "murd:16-2",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-166",
+      "sourceId": "murd:16-4",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-167",
+      "sourceId": "murd:16-5",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-168",
+      "sourceId": "murd:16-6",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-169",
+      "sourceId": "murd:16-7",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-170",
+      "sourceId": "murd:16-8",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-171",
+      "sourceId": "murd:16-9",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-172",
+      "sourceId": "murd:16-10",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-173",
+      "sourceId": "murd:16-11",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-174",
+      "sourceId": "murd:16-12",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-175",
+      "sourceId": "murd:16-13",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-176",
+      "sourceId": "murd:16-14",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-177",
+      "sourceId": "murd:16-15",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-178",
+      "sourceId": "murd:16-16",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-179",
+      "sourceId": "murd:16-17",
+      "enemyId": "murd:source-enemy:235257",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-180",
+      "sourceId": "murd:17-1",
+      "enemyId": "murd:source-enemy:235465",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-181",
+      "sourceId": "murd:17-2",
+      "enemyId": "murd:source-enemy:235465",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-182",
+      "sourceId": "murd:17-3",
+      "enemyId": "murd:source-enemy:235465",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-183",
+      "sourceId": "murd:17-4",
+      "enemyId": "murd:source-enemy:235465",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-184",
+      "sourceId": "murd:17-5",
+      "enemyId": "murd:source-enemy:235465",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-185",
+      "sourceId": "murd:17-6",
+      "enemyId": "murd:source-enemy:235465",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-186",
+      "sourceId": "murd:17-7",
+      "enemyId": "murd:source-enemy:235465",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-187",
+      "sourceId": "murd:18-1",
+      "enemyId": "murd:source-enemy:236905",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-188",
+      "sourceId": "murd:19-1",
+      "enemyId": "murd:source-enemy:235322",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-189",
+      "sourceId": "murd:19-2",
+      "enemyId": "murd:source-enemy:235322",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-190",
+      "sourceId": "murd:19-3",
+      "enemyId": "murd:source-enemy:235322",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-191",
+      "sourceId": "murd:19-4",
+      "enemyId": "murd:source-enemy:235322",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-192",
+      "sourceId": "murd:19-5",
+      "enemyId": "murd:source-enemy:235322",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-193",
+      "sourceId": "murd:19-6",
+      "enemyId": "murd:source-enemy:235322",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-194",
+      "sourceId": "murd:19-7",
+      "enemyId": "murd:source-enemy:235322",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-195",
+      "sourceId": "murd:20-1",
+      "enemyId": "murd:source-enemy:234647",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-196",
+      "sourceId": "murd:21-1",
+      "enemyId": "murd:source-enemy:234648",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-197",
+      "sourceId": "murd:22-1",
+      "enemyId": "murd:source-enemy:234649",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-198",
+      "sourceId": "murd:23-1",
+      "enemyId": "murd:source-enemy:234660",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-199",
+      "sourceId": "murd:24-1",
+      "enemyId": "murd:source-enemy:234763",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-200",
+      "sourceId": "murd:25-1",
+      "enemyId": "murd:source-enemy:234799",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-201",
+      "sourceId": "murd:26-1",
+      "enemyId": "murd:source-enemy:234852",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-202",
+      "sourceId": "murd:26-2",
+      "enemyId": "murd:source-enemy:234852",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-203",
+      "sourceId": "murd:26-3",
+      "enemyId": "murd:source-enemy:234852",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-204",
+      "sourceId": "murd:26-4",
+      "enemyId": "murd:source-enemy:234852",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-205",
+      "sourceId": "murd:26-5",
+      "enemyId": "murd:source-enemy:234852",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-206",
+      "sourceId": "murd:27-1",
+      "enemyId": "murd:source-enemy:234860",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-207",
+      "sourceId": "murd:28-1",
+      "enemyId": "murd:source-enemy:234984",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-208",
+      "sourceId": "murd:29-1",
+      "enemyId": "murd:source-enemy:235520",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-209",
+      "sourceId": "murd:30-1",
+      "enemyId": "murd:source-enemy:235841",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-210",
+      "sourceId": "murd:31-1",
+      "enemyId": "murd:source-enemy:236088",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-211",
+      "sourceId": "murd:32-1",
+      "enemyId": "murd:source-enemy:236525",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-212",
+      "sourceId": "murd:33-1",
+      "enemyId": "murd:source-enemy:237626",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-213",
+      "sourceId": "murd:34-1",
+      "enemyId": "murd:source-enemy:238414",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-214",
+      "sourceId": "murd:35-1",
+      "enemyId": "murd:source-enemy:240289",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-215",
+      "sourceId": "murd:36-1",
+      "enemyId": "murd:source-enemy:253081",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-216",
+      "sourceId": "murd:37-1",
+      "enemyId": "murd:source-enemy:253324",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-217",
+      "sourceId": "murd:37-2",
+      "enemyId": "murd:source-enemy:253324",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-218",
+      "sourceId": "murd:38-1",
+      "enemyId": "murd:source-enemy:255050",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-219",
+      "sourceId": "murd:39-1",
+      "enemyId": "murd:source-enemy:255604",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-220",
+      "sourceId": "murd:40-1",
+      "enemyId": "murd:source-enemy:263940",
+      "floorId": "murd:default"
+    },
+    {
+      "stableId": "spawn-221",
+      "sourceId": "murd:41-1",
+      "enemyId": "murd:source-enemy:272246",
+      "floorId": "murd:default"
+    }
+  ]
+}

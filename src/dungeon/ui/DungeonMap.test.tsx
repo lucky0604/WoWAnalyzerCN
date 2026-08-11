@@ -61,4 +61,21 @@ describe('DungeonMap', () => {
     expect(container.querySelector('svg')).toHaveAttribute('viewBox', '6 16 28 28');
     expect(screen.getByRole('button', { name: 'spawn-1 位置' })).toBeInTheDocument();
   });
+
+  it('renders patrol paths as a separate spatial layer', () => {
+    const patrolSpawn = {
+      ...spawns[0]!,
+      patrol: { points: [[20, 30] as [number, number], [25, 35] as [number, number]] },
+    };
+    const { container } = render(
+      <DungeonMap
+        asset={{ kind: 'placeholder', assetKey: 'map', reason: 'test' }}
+        floor={floor}
+        selectedSpawnIds={[]}
+        spawns={[patrolSpawn]}
+      />,
+    );
+    expect(container.querySelector('.dungeon-map__patrol')).toHaveAttribute('d', 'M 20 30 L 25 35');
+    expect(screen.getByText('— 巡逻路径')).toBeInTheDocument();
+  });
 });

@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { phase0FixtureDocuments } from '../../src/dungeon/registry';
+import { season2DungeonCatalog } from '../../src/dungeon/data/season2Catalog';
 import type { DungeonDocument } from '../../src/dungeon/schema/types';
 import {
   coordinateImpact,
@@ -63,6 +64,43 @@ describe('dungeon content operations', () => {
       spawnCount: expect.any(Number),
       affectedKnowledgeIds: [],
     });
+  });
+
+  it('reports S2 coordinate references without mixing them with legacy keys', () => {
+    const report = coordinateImpact('threechest-coordinate-snapshot-2026-08-11-s2-fang-ptr');
+    expect(report).toEqual([
+      expect.objectContaining({
+        dungeonId: 'altar-of-fangs',
+        sourceKey: 's2-fang',
+        spawnCount: 160,
+        affectedKnowledgeIds: [],
+      }),
+    ]);
+  });
+
+  it('reports exactly one isolated impact entry for every S2 snapshot', () => {
+    const expectedCounts: Record<string, number> = {
+      'altar-of-fangs': 160,
+      'murder-row': 221,
+      'den-of-nalorakk': 116,
+      'the-blinding-vale': 276,
+      'voidscar-arena': 218,
+      'ruby-life-pools': 166,
+      'kings-rest': 101,
+      'temple-of-sethraliss': 128,
+    };
+    season2DungeonCatalog.forEach((entry) => {
+      const report = coordinateImpact(entry.coordinateSnapshotId!);
+      expect(report).toHaveLength(1);
+      expect(report[0]).toMatchObject({
+        dungeonId: entry.id,
+        sourceKey: entry.coordinateSnapshotKey,
+        snapshotId: entry.coordinateSnapshotId,
+        spawnCount: expectedCounts[entry.id],
+        affectedKnowledgeIds: entry.id === 'ruby-life-pools' ? expect.any(Array) : [],
+      });
+    });
+    expect(coordinateImpact('unknown-snapshot')).toEqual([]);
   });
 
   it('writes an idempotent stale ledger without deleting facts', async () => {

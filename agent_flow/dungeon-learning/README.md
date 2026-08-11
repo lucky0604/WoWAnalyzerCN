@@ -1,6 +1,6 @@
 # WoWAnalyzerCN 大秘境学习模块规划索引
 
-> 状态：方案已确认，开发分支已完成 Phase 0、Phase 1A 预览、Phase 2 的地图/查询/只读 Route 与 Boss 页面，以及 Phase 3 的主动回忆薄弱项反馈；RLP 当前 S2 坐标参考已接入，但正式攻略内容仍按副本逐本建设，Phase 1B 尚未宣称完成。
+> 状态：方案已确认，开发分支已完成 Phase 0、Phase 1A 预览、Phase 2 的地图/查询/只读 Route 与 Boss 页面，以及 Phase 3 的主动回忆薄弱项反馈；S2 八本只读坐标参考已接入，但正式攻略内容仍按副本逐本建设，Phase 1B 尚未宣称完成。
 >
 > 目标版本：Midnight Season 2。
 >
@@ -56,6 +56,7 @@
 - [16-learning-wave-context-review.md](./16-learning-wave-context-review.md)：学习课节与波次上下文、锚点/forces 门禁、多路线配对与代码 Review。
 - [17-learning-wave-context-browser-qa.md](./17-learning-wave-context-browser-qa.md)：桌面/移动浏览器 smoke、主动回忆和只读 Route 深链证据。
 - [18-s2-fact-and-asset-preflight.md](./18-s2-fact-and-asset-preflight.md)：S2 坐标、NPC/Spell/forces 事实与 Threechest 远程图片的预检和替换契约。
+- [19-s2-coordinate-expansion-review.md](./19-s2-coordinate-expansion-review.md)：S2 八本坐标快照、stable SpawnId、来源 hash 与对抗性 Review 证据。
 
 ## 当前代码审计摘要
 
@@ -63,10 +64,12 @@
 
 - `/dungeons` 已展示官方 Midnight S2 八本覆盖路线；建设中副本只能显示建设状态，不能进入空壳学习页。
 - 当前 S2 轮换来源记录在 `season2RotationSource`，以 Blizzard 公告为目录事实来源；Threechest 克隆里的旧 8 本不再标记为 S2。
-- Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`；旧库存继续作为独立的 `legacyThreechestCoordinateInventory` 保留，当前 S2 RLP 则通过显式 snapshot/key 和 committed identity sidecar 接入，不自动映射其它 S2 副本。
+- Threechest 坐标快照位于 `src/dungeon/data/coordinates/**`，采用 `threechest-yx → normalized-v1`；旧库存继续作为独立的 `legacyThreechestCoordinateInventory` 保留，S2 八本通过显式 snapshot/key 和 committed identity sidecar 接入，不与 legacy source key 混用。
 - 本地开发可从 `/dungeons/legacy/:sourceKey` 打开明确标注为 `DEV ONLY · LEGACY COORDINATE QA` 的只读页面，验证 Threechest 瓦片 manifest、坐标转换和 spawn 层；该 route 在 production 不注册，也不提供路线编辑。
-- 当前 S2 条目只有在显式配置 `coordinateSnapshotId` 后才会开放位置参考；RLP 已接入固定到 Threechest `origin/ptr` 提交的当前 S2 PTR 坐标快照，没有可靠坐标的其它条目仍显示“位置参考待接入”，不会用旧副本数据替代。
-- RLP 本地学习预览已将 166 个稳定 SpawnId 接入独立的只读位置参考平面，并为少量已确认概念提供代表性锚点；未绑定 NPC 仅显示数字占位符，空间层不会推导 forces、技能或路线事实，sidecar 漂移时 fail-closed。
+- 当前 S2 条目只有在显式配置 `coordinateSnapshotId` 后才会开放位置参考；八本均已接入固定到 Threechest `origin/ptr` 提交的 S2 PTR 坐标快照，并通过独立 `s2-*` source/identity key 隔离 legacy 库，不会用旧副本数据替代。
+- RLP 本地学习预览已将 166 个稳定 SpawnId 接入独立的只读位置参考平面，其它七本也已接入只读坐标层（合计 1,220 个位置）；未绑定 NPC 仅显示数字占位符，空间层不会推导 forces、技能或路线事实，sidecar 漂移时 fail-closed。可用的巡逻点会以独立折线呈现，仍不代表路线决策。
+- `dungeon:check` 对每个坐标快照校验规范化 payload digest、字段白名单、source approval 与 identity sidecar digest；legacy aggregate 也改为基于规范化 payload digest。坐标 JSON 随大秘境路由懒加载，当前 dungeon chunk 约 506.5KB raw / 62.6KB gzip（新增数据约 447KB raw），作为本 Phase 的已知预算记录。
+- 其它七本目前只开放只读坐标参考（共 1,220 个来源 spawn），不自动生成 Enemy、forces、技能、波次或学习路线；identity registry 与 snapshot 不匹配时统一 fail-closed。
 - RLP 的 source NPC、Situation 锚点和 snapshot 绑定已外置到版本化 `src/dungeon/data/coordinates/rlp.bindings.json`，后续赛季可替换数据 manifest，不需要修改空间预览代码。
 - `/dungeons/:dungeonId/reference` 仅展示位置、组别、巡逻和快照审计信息，不展示未经批准的 forces、技能或路线事实。
 - 正式学习页目前通过本地预览展示 RLP 的来源化内容草稿；空间数据 pending、forces pending 或缺失 Spell ID 都会保留为 warning，并在 reviewed/published 时强制阻断。Altar fixture 仍仅用于数据合同回归。

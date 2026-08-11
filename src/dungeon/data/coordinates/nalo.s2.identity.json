@@ -1,0 +1,701 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "stableId": "spawn-1",
+      "sourceId": "nalo:1-1",
+      "enemyId": "nalo:source-enemy:245855",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-2",
+      "sourceId": "nalo:1-2",
+      "enemyId": "nalo:source-enemy:245855",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-3",
+      "sourceId": "nalo:1-3",
+      "enemyId": "nalo:source-enemy:245855",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-4",
+      "sourceId": "nalo:1-4",
+      "enemyId": "nalo:source-enemy:245855",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-5",
+      "sourceId": "nalo:1-5",
+      "enemyId": "nalo:source-enemy:245855",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-6",
+      "sourceId": "nalo:1-6",
+      "enemyId": "nalo:source-enemy:245855",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-7",
+      "sourceId": "nalo:1-7",
+      "enemyId": "nalo:source-enemy:245855",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-8",
+      "sourceId": "nalo:2-1",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-9",
+      "sourceId": "nalo:2-2",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-10",
+      "sourceId": "nalo:2-3",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-11",
+      "sourceId": "nalo:2-4",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-12",
+      "sourceId": "nalo:2-5",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-13",
+      "sourceId": "nalo:2-6",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-14",
+      "sourceId": "nalo:2-7",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-15",
+      "sourceId": "nalo:2-8",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-16",
+      "sourceId": "nalo:2-9",
+      "enemyId": "nalo:source-enemy:241814",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-17",
+      "sourceId": "nalo:3-1",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-18",
+      "sourceId": "nalo:3-2",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-19",
+      "sourceId": "nalo:3-3",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-20",
+      "sourceId": "nalo:3-4",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-21",
+      "sourceId": "nalo:3-5",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-22",
+      "sourceId": "nalo:3-6",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-23",
+      "sourceId": "nalo:3-7",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-24",
+      "sourceId": "nalo:3-8",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-25",
+      "sourceId": "nalo:3-9",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-26",
+      "sourceId": "nalo:3-10",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-27",
+      "sourceId": "nalo:3-11",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-28",
+      "sourceId": "nalo:3-12",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-29",
+      "sourceId": "nalo:3-13",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-30",
+      "sourceId": "nalo:3-14",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-31",
+      "sourceId": "nalo:3-15",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-32",
+      "sourceId": "nalo:3-16",
+      "enemyId": "nalo:source-enemy:241813",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-33",
+      "sourceId": "nalo:4-1",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-34",
+      "sourceId": "nalo:4-2",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-35",
+      "sourceId": "nalo:4-3",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-36",
+      "sourceId": "nalo:4-4",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-37",
+      "sourceId": "nalo:4-5",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-38",
+      "sourceId": "nalo:4-6",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-39",
+      "sourceId": "nalo:4-7",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-40",
+      "sourceId": "nalo:4-8",
+      "enemyId": "nalo:source-enemy:241808",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-41",
+      "sourceId": "nalo:5-1",
+      "enemyId": "nalo:source-enemy:250478",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-42",
+      "sourceId": "nalo:6-1",
+      "enemyId": "nalo:source-enemy:241874",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-43",
+      "sourceId": "nalo:7-1",
+      "enemyId": "nalo:source-enemy:241911",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-44",
+      "sourceId": "nalo:8-1",
+      "enemyId": "nalo:source-enemy:241872",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-45",
+      "sourceId": "nalo:9-1",
+      "enemyId": "nalo:source-enemy:241876",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-46",
+      "sourceId": "nalo:10-1",
+      "enemyId": "nalo:source-enemy:241869",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-47",
+      "sourceId": "nalo:11-1",
+      "enemyId": "nalo:source-enemy:245143",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-48",
+      "sourceId": "nalo:11-2",
+      "enemyId": "nalo:source-enemy:245143",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-49",
+      "sourceId": "nalo:11-3",
+      "enemyId": "nalo:source-enemy:245143",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-50",
+      "sourceId": "nalo:11-4",
+      "enemyId": "nalo:source-enemy:245143",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-51",
+      "sourceId": "nalo:11-5",
+      "enemyId": "nalo:source-enemy:245143",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-52",
+      "sourceId": "nalo:12-1",
+      "enemyId": "nalo:source-enemy:245139",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-53",
+      "sourceId": "nalo:12-2",
+      "enemyId": "nalo:source-enemy:245139",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-54",
+      "sourceId": "nalo:12-3",
+      "enemyId": "nalo:source-enemy:245139",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-55",
+      "sourceId": "nalo:12-4",
+      "enemyId": "nalo:source-enemy:245139",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-56",
+      "sourceId": "nalo:12-5",
+      "enemyId": "nalo:source-enemy:245139",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-57",
+      "sourceId": "nalo:13-1",
+      "enemyId": "nalo:source-enemy:245146",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-58",
+      "sourceId": "nalo:13-2",
+      "enemyId": "nalo:source-enemy:245146",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-59",
+      "sourceId": "nalo:13-3",
+      "enemyId": "nalo:source-enemy:245146",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-60",
+      "sourceId": "nalo:14-1",
+      "enemyId": "nalo:source-enemy:245145",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-61",
+      "sourceId": "nalo:14-2",
+      "enemyId": "nalo:source-enemy:245145",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-62",
+      "sourceId": "nalo:14-3",
+      "enemyId": "nalo:source-enemy:245145",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-63",
+      "sourceId": "nalo:14-4",
+      "enemyId": "nalo:source-enemy:245145",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-64",
+      "sourceId": "nalo:15-1",
+      "enemyId": "nalo:source-enemy:241805",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-65",
+      "sourceId": "nalo:16-1",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-66",
+      "sourceId": "nalo:16-2",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-67",
+      "sourceId": "nalo:16-3",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-68",
+      "sourceId": "nalo:16-4",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-69",
+      "sourceId": "nalo:16-5",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-70",
+      "sourceId": "nalo:16-6",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-71",
+      "sourceId": "nalo:16-7",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-72",
+      "sourceId": "nalo:16-8",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-73",
+      "sourceId": "nalo:16-9",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-74",
+      "sourceId": "nalo:16-10",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-75",
+      "sourceId": "nalo:16-11",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-76",
+      "sourceId": "nalo:16-12",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-77",
+      "sourceId": "nalo:16-13",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-78",
+      "sourceId": "nalo:16-14",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-79",
+      "sourceId": "nalo:16-15",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-80",
+      "sourceId": "nalo:16-16",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-81",
+      "sourceId": "nalo:16-17",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-82",
+      "sourceId": "nalo:16-18",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-83",
+      "sourceId": "nalo:16-19",
+      "enemyId": "nalo:source-enemy:241809",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-84",
+      "sourceId": "nalo:17-1",
+      "enemyId": "nalo:source-enemy:241812",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-85",
+      "sourceId": "nalo:18-1",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-86",
+      "sourceId": "nalo:18-2",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-87",
+      "sourceId": "nalo:18-3",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-88",
+      "sourceId": "nalo:18-4",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-89",
+      "sourceId": "nalo:18-5",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-90",
+      "sourceId": "nalo:18-6",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-91",
+      "sourceId": "nalo:18-7",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-92",
+      "sourceId": "nalo:18-8",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-93",
+      "sourceId": "nalo:18-9",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-94",
+      "sourceId": "nalo:18-10",
+      "enemyId": "nalo:source-enemy:241816",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-95",
+      "sourceId": "nalo:19-1",
+      "enemyId": "nalo:source-enemy:244100",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-96",
+      "sourceId": "nalo:20-1",
+      "enemyId": "nalo:source-enemy:244696",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-97",
+      "sourceId": "nalo:21-1",
+      "enemyId": "nalo:source-enemy:244759",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-98",
+      "sourceId": "nalo:22-1",
+      "enemyId": "nalo:source-enemy:244889",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-99",
+      "sourceId": "nalo:23-1",
+      "enemyId": "nalo:source-enemy:245148",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-100",
+      "sourceId": "nalo:23-2",
+      "enemyId": "nalo:source-enemy:245148",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-101",
+      "sourceId": "nalo:23-3",
+      "enemyId": "nalo:source-enemy:245148",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-102",
+      "sourceId": "nalo:24-1",
+      "enemyId": "nalo:source-enemy:245190",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-103",
+      "sourceId": "nalo:24-2",
+      "enemyId": "nalo:source-enemy:245190",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-104",
+      "sourceId": "nalo:24-3",
+      "enemyId": "nalo:source-enemy:245190",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-105",
+      "sourceId": "nalo:24-4",
+      "enemyId": "nalo:source-enemy:245190",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-106",
+      "sourceId": "nalo:25-1",
+      "enemyId": "nalo:source-enemy:245567",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-107",
+      "sourceId": "nalo:26-1",
+      "enemyId": "nalo:source-enemy:246404",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-108",
+      "sourceId": "nalo:27-1",
+      "enemyId": "nalo:source-enemy:246409",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-109",
+      "sourceId": "nalo:28-1",
+      "enemyId": "nalo:source-enemy:247301",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-110",
+      "sourceId": "nalo:29-1",
+      "enemyId": "nalo:source-enemy:251189",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-111",
+      "sourceId": "nalo:30-1",
+      "enemyId": "nalo:source-enemy:252041",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-112",
+      "sourceId": "nalo:31-1",
+      "enemyId": "nalo:source-enemy:272074",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-113",
+      "sourceId": "nalo:32-1",
+      "enemyId": "nalo:source-enemy:245076",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-114",
+      "sourceId": "nalo:33-1",
+      "enemyId": "nalo:source-enemy:245752",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-115",
+      "sourceId": "nalo:34-1",
+      "enemyId": "nalo:source-enemy:246591",
+      "floorId": "nalo:default"
+    },
+    {
+      "stableId": "spawn-116",
+      "sourceId": "nalo:35-1",
+      "enemyId": "nalo:source-enemy:248666",
+      "floorId": "nalo:default"
+    }
+  ]
+}

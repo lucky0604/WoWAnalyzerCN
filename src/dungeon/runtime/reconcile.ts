@@ -46,6 +46,9 @@ export interface ReconciliationResult {
 
 const distanceSquared = (a: Coordinate, b: Coordinate) => (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2;
 
+/** Moves larger than this normalized-map distance require human review. */
+export const SPAWN_DRIFT_DISTANCE_THRESHOLD = 15;
+
 const identityKey = (spawn: Pick<IncomingSpawn, 'enemyId' | 'floorId'>) =>
   `${spawn.enemyId}|${spawn.floorId}`;
 
@@ -85,6 +88,19 @@ export function reconcileSpawns(
         });
         continue;
       }
+      const previousCoordinate = previousCoordinates[exact.stableId];
+      if (
+        previousCoordinate &&
+        distanceSquared(previousCoordinate, spawn.position) > SPAWN_DRIFT_DISTANCE_THRESHOLD ** 2
+      ) {
+        items.push({
+          kind: 'drift',
+          stableId: exact.stableId,
+          sourceId: spawn.sourceId,
+          reason: '来源 ID 的位置发生显著变化，必须人工确认。',
+        });
+        continue;
+      }
       usedStableIds.add(exact.stableId);
       nextEntries.push({ ...exact, enemyId: spawn.enemyId, floorId: spawn.floorId });
       items.push({ kind: 'exact', stableId: exact.stableId, sourceId: spawn.sourceId });
@@ -99,6 +115,19 @@ export function reconcileSpawns(
           stableId: alias.stableId,
           sourceId: spawn.sourceId,
           reason: 'alias 对应的 enemy/floor 事实发生变化，必须人工确认。',
+        });
+        continue;
+      }
+      const previousCoordinate = previousCoordinates[alias.stableId];
+      if (
+        previousCoordinate &&
+        distanceSquared(previousCoordinate, spawn.position) > SPAWN_DRIFT_DISTANCE_THRESHOLD ** 2
+      ) {
+        items.push({
+          kind: 'drift',
+          stableId: alias.stableId,
+          sourceId: spawn.sourceId,
+          reason: 'alias 对应的位置发生显著变化，必须人工确认。',
         });
         continue;
       }
@@ -129,6 +158,15 @@ export function reconcileSpawns(
     const second = sortedCandidates[1];
 
     if (nearest && (!second || nearest.distance < second.distance * 0.25)) {
+      if (nearest.distance > SPAWN_DRIFT_DISTANCE_THRESHOLD ** 2) {
+        items.push({
+          kind: 'drift',
+          stableId: nearest.entry.stableId,
+          sourceId: spawn.sourceId,
+          reason: '自动匹配候选的位置发生显著变化，必须人工确认。',
+        });
+        continue;
+      }
       usedStableIds.add(nearest.entry.stableId);
       nextEntries.push({
         ...nearest.entry,

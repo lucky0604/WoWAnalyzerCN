@@ -21,10 +21,10 @@ describe('season 2 dungeon catalog', () => {
       'kings-rest',
       'temple-of-sethraliss',
     ]);
-    expect(season2DungeonCatalog.filter((entry) => entry.status === 'registered')).toHaveLength(7);
+    expect(season2DungeonCatalog.filter((entry) => entry.status === 'registered')).toHaveLength(0);
     expect(getDungeonCatalogEntry('ruby-life-pools')?.status).toBe('coordinate-ready');
-    expect(season2DungeonCatalog.every((entry) => entry.updatedAt === '2026-08-10')).toBe(true);
-    expect(season2DungeonCatalog.filter((entry) => entry.coordinateSnapshotId)).toHaveLength(1);
+    expect(season2DungeonCatalog.every((entry) => entry.updatedAt === '2026-08-11')).toBe(true);
+    expect(season2DungeonCatalog.filter((entry) => entry.coordinateSnapshotId)).toHaveLength(8);
     expect(getDungeonCatalogEntry('ruby-life-pools')).toMatchObject({
       coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
       coordinateSnapshotKey: 'rlp',

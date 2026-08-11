@@ -17,12 +17,48 @@ export interface ApprovedSourceSnapshot {
   status: 'approved' | 'revoked' | 'expired';
   evidenceRef: string;
   fieldAllowlist?: string[];
+  /** Digest of the fixed raw source payload, retained separately from normalized hash. */
+  rawSha256?: string;
+  /** Digest of the committed source→stable sidecar, when one exists. */
+  identityHash?: string;
 }
 
 export interface SourceRegistry {
   version: 1;
   snapshots: ApprovedSourceSnapshot[];
 }
+
+const coordinateFieldAllowlist = [
+  'sourceId',
+  'floorId',
+  'position',
+  'patrol',
+  'groupId',
+  'coordinateSpace',
+  'sourceEnemyId',
+  'sourceEnemyIndex',
+];
+
+const approvedCoordinateSnapshot = (
+  snapshotId: string,
+  hash: string,
+  evidenceRef: string,
+  approvedAt: string,
+  identityHash?: string,
+  rawSha256?: string,
+): ApprovedSourceSnapshot => ({
+  sourceId: 'threechest',
+  snapshotId,
+  hash: `sha256:${hash}`,
+  allowedUses: ['local-research', 'commit-derived-data', 'redistribute'],
+  approvedBy: 'project-owner',
+  approvedAt,
+  status: 'approved',
+  evidenceRef,
+  fieldAllowlist: [...coordinateFieldAllowlist],
+  ...(identityHash ? { identityHash: `sha256:${identityHash}` } : {}),
+  ...(rawSha256 ? { rawSha256 } : {}),
+});
 
 export interface SourceUseCheck {
   ok: boolean;
@@ -75,49 +111,75 @@ export function provenanceFromSnapshot(
 export const dungeonSourceRegistry: SourceRegistry = {
   version: 1,
   snapshots: [
-    {
-      sourceId: 'threechest',
-      snapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
-      // sha256 of the coordinate-source key and raw payload hash. The
-      // normalized snapshot contains positions/group identity only; forces,
-      // abilities, and route decisions remain WoWAnalyzerCN-owned fields.
-      hash: 'sha256:65f33abb4bf1855746c6fff7ccb7731729004194ace0f412fb78c041fdf5b331',
-      allowedUses: ['local-research', 'commit-derived-data', 'redistribute'],
-      approvedBy: 'project-owner',
-      approvedAt: '2026-08-11',
-      status: 'approved',
-      evidenceRef: 'agent_flow/dungeon-learning/15-rlp-s2-coordinate-import-review.md',
-      fieldAllowlist: [
-        'floorId',
-        'position',
-        'patrol',
-        'groupId',
-        'coordinateSpace',
-        'sourceEnemyId',
-        'sourceEnemyIndex',
-      ],
-    },
-    {
-      sourceId: 'threechest',
-      snapshotId: 'threechest-coordinate-snapshot-2026-08-10',
-      // sha256 of the sorted `sourceKey:rawSha256` lines for the eight
-      // committed legacy coordinate snapshots. These snapshots are not the
-      // current Midnight S2 rotation; recompute when the inventory changes.
-      hash: 'sha256:dd24df43ea1426dd0dddd9bc770f9b3d7cbdbcd2300589a3c5b90a4f6ad8bc09',
-      allowedUses: ['local-research', 'commit-derived-data', 'redistribute'],
-      approvedBy: 'project-owner',
-      approvedAt: '2026-08-10',
-      status: 'approved',
-      evidenceRef: 'agent_flow/dungeon-learning/08-confirmed-development-source-decisions.md',
-      fieldAllowlist: [
-        'floorId',
-        'position',
-        'patrol',
-        'groupId',
-        'coordinateSpace',
-        'sourceEnemyId',
-        'sourceEnemyIndex',
-      ],
-    },
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-s2-fang-ptr',
+      '45c87b37dbf155ecda50b78cf3318fee4c1958f19d8e774231a863d55154df8a',
+      'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',
+      '2026-08-11',
+      '2936511b39c756434286158624dfb620e21f5ce1cfbcaacb8e14dc8e45583883',
+      'd78b7c86052d28f26849abc8784ebdba678d029844693c2b61307bab73cfa86c',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-s2-kr-ptr',
+      '43923bf6ee7c39252802234580f4581379905b13001aa45b7cbc83fcc4a1fb57',
+      'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',
+      '2026-08-11',
+      'c261f60e458f9f38e5d72a9b41a49489d1babf7f19d6587cb03abf64c4eaba40',
+      '1336443887b5621f5253e427fcf5fc5e00ccc4e9e676a71f55ddb57ec8c0807d',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-s2-murd-ptr',
+      'c4fc5d5f8810c3ede0fa7e525bcc8c37121a65c50f8446e2363f48d40a99eba5',
+      'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',
+      '2026-08-11',
+      '39fe7cbcffeb229acc13eb67ecab46ef2061604e69fb086235150a19afb34359',
+      '941862fbb05bb5fb2eae488dbee7ce2b9fdd56b84f35c760e9209e5ed127507b',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-s2-nalo-ptr',
+      '69ba60e311c94a50278f415c8770f7eee6ad21a165b61d7eb108cb9c08b8d758',
+      'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',
+      '2026-08-11',
+      '1a10e704ebc49acce9db09853ed389e13a5774d29f6d7bfb999a99820382cdd8',
+      '5371292d3fb4e68a6031556b8fec866003f45873ce57d60560f6f94af6a1dd94',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+      '0b4e156ae5f84d490fa1f000823a233776b6c50fa9df4b03c51f55a82e270ecd',
+      'agent_flow/dungeon-learning/15-rlp-s2-coordinate-import-review.md',
+      '2026-08-11',
+      '8c7cc69dad716d50e2b9fa426916d59ff731ca249db44aa139b24df8f8a1284b',
+      '2f0736b96608b8899b823a902c755563de245f484ebf2c8c439b9d08d226c60a',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-s2-tos-ptr',
+      '76a379c38f2fe1c1031f8abd5d1e4700ee3fde01eea2b05357d4d8e8bae75900',
+      'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',
+      '2026-08-11',
+      '9c2f2586345bf838ef6eae1e5c552cf0b7dca874a82526a02efc7021aaabd8f5',
+      '4a9282f3053a5b7f24a13cf793426be593758d9f7d046afa31521e9640645713',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-s2-vale-ptr',
+      '6904372f5245324b505c66ecbe0b81cc24de653c4eb8f8e8599dd036574ae2d6',
+      'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',
+      '2026-08-11',
+      '933dfc91a882838a0b7ccc0ea641ef41bc709dcd22ba2272a49496e218e9e044',
+      '51e9901bb6df9f55632a9e50279773c7c2d1a7ee761a89e032608960a76e257b',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-11-s2-void-ptr',
+      'e691dd8df1f0207e08c41a219517b79037aebccd30aeca6e99dd1899766c5659',
+      'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',
+      '2026-08-11',
+      '132e414899929355512bb8351dc3faa99183b04484657b8176919fb7eada3cfe',
+      '95b315b5ffde21f819ff382ff0e1a353f53bd3f0972a632887c09c807e83256f',
+    ),
+    approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-10',
+      '983bf234e029516ed1e0c90de75b8b2bca82ecc06b54a59326d97976d8578612',
+      'agent_flow/dungeon-learning/08-confirmed-development-source-decisions.md',
+      '2026-08-10',
+    ),
   ],
 };

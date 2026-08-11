@@ -30,9 +30,10 @@ rlp_mdt.json   tos_mdt.json vale_mdt.json  void_mdt.json
 - 路线顺序、跳怪选择、学习文字；
 - 图片 URL 或 Threechest 的组件/编辑器代码。
 
-当前垂直切片只提交了 RLP 的 S2 PTR 坐标快照和稳定 SpawnId registry。其它七本保持
-catalog 的 `registered` 状态，后续按相同 importer + reconciliation 流程逐本接入，不能
-用 legacy 八本的同名/相似地图回退。
+当前垂直切片先完成了 RLP 学习平面；随后其它七本也按相同 importer + reconciliation 流程
+提交了独立的 S2 snapshot 与 stable SpawnId registry。八本现在都处于
+`coordinate-ready`，但只有 RLP 有学习草稿，不能因此开放其它七本的空壳学习页，也不能用
+legacy 八本的同名/相似地图回退。
 
 ## 2. 事实导入门
 
@@ -100,5 +101,5 @@ URL 不得出现在 `src/**`、`public/**`、坐标 JSON、Situation/Route 数�
 ## 5. 本轮退出判断
 
 本轮没有把 404 的 S2 图片地址写进代码，也没有用 Threechest 的旧地图替代 S2 地图。
-RLP 的位置锚点可以用于学习上下文展示，但当前 `forces 待核验`、完整 Pull、作者自测和
-第二审校仍是明确的未完成项；release gate 继续保持关闭。
+八本的位置参考可以用于坐标理解，但当前 `forces 待核验`、完整 Pull、作者自测和第二审校
+仍是明确的未完成项；release gate 继续保持关闭。

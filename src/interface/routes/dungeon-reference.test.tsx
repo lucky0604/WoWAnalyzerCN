@@ -10,7 +10,7 @@ vi.mock('interface/NavigationBar', () => ({
 }));
 
 describe('dungeon coordinate reference route', () => {
-  it('keeps a current S2 dungeon visible while its coordinate reference is pending', () => {
+  it('renders an S2 coordinate reference without treating it as a learning release', () => {
     render(
       <MemoryRouter initialEntries={['/dungeons/kings-rest/reference']}>
         <Routes>
@@ -19,13 +19,15 @@ describe('dungeon coordinate reference route', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { name: '位置参考还在建设中' })).toBeInTheDocument();
-    expect(screen.getByText(/可靠的地图\/坐标来源尚未接入/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '诸王之眠' })).toBeInTheDocument();
+    expect(screen.getByText('101')).toBeInTheDocument();
+    expect(screen.getByText(/它不是 MDT 编辑器/)).toBeInTheDocument();
     expect(screen.queryByText('开始学习')).not.toBeInTheDocument();
-    expect(screen.getByRole('link', { name: '返回副本覆盖路线' })).toHaveAttribute(
-      'href',
-      '/dungeons',
-    );
+    expect(
+      screen
+        .getAllByRole('link', { name: '大秘境学习' })
+        .some((link) => link.getAttribute('href') === '/dungeons'),
+    ).toBe(true);
   });
 
   it('renders the current RLP coordinate reference without treating it as a learning release', () => {

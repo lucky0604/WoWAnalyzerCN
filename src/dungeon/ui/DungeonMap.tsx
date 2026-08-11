@@ -32,6 +32,22 @@ export function DungeonMap({
   const [imageFailed, setImageFailed] = useState(false);
   const viewBox = useMemo(() => getMapViewBox(viewBounds), [viewBounds]);
   const hullPath = useMemo(() => pointsToSvgPath(getConvexHull(hullSpawns)), [hullSpawns]);
+  const patrolPaths = useMemo(
+    () =>
+      spawns.flatMap((spawn) => {
+        const points = spawn.patrol?.points.map(coordinateToMapPoint) ?? [];
+        if (points.length < 2) return [];
+        return [
+          {
+            id: spawn.id,
+            path: points
+              .map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`)
+              .join(' '),
+          },
+        ];
+      }),
+    [spawns],
+  );
   const selected = new Set(selectedSpawnIds);
   const assetIdentity =
     asset.kind === 'remote'
@@ -107,6 +123,14 @@ export function DungeonMap({
             />
           ))}
         {hullPath && <path className="dungeon-map__hull" d={hullPath} />}
+        {patrolPaths.map((patrol) => (
+          <path
+            aria-label={`${patrol.id} 巡逻路径`}
+            className="dungeon-map__patrol"
+            d={patrol.path}
+            key={patrol.id}
+          />
+        ))}
         {spawns.map((spawn) => {
           const point = coordinateToMapPoint(spawn.position);
           const isSelected = selected.has(spawn.id);
@@ -146,6 +170,7 @@ export function DungeonMap({
         <span>
           <i className="dungeon-map__legend-dot" /> spawn
         </span>
+        {patrolPaths.length > 0 && <span>— 巡逻路径</span>}
         <span>{spawns.length} 个位置</span>
       </div>
     </div>
