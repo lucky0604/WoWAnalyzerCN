@@ -15,6 +15,7 @@ export * from './runtime/formalAccess';
 export * from './runtime/factSnapshot';
 export * from './runtime/factBinding';
 export * from './runtime/factBindingPlan';
+export * from './runtime/wclFactSnapshot';
 export * from './runtime/query';
 export * from './runtime/progress';
 export * from './runtime/map';

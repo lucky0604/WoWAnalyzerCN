@@ -121,6 +121,7 @@
     "dungeon:import-threechest": "tsx scripts/dungeons/import-threechest.ts",
     "dungeon:reconcile": "tsx scripts/dungeons/reconcile-threechest.ts",
     "dungeon:fact-check": "tsx scripts/dungeons/fact-preflight.ts",
+    "dungeon:fact-from-wcl": "tsx scripts/dungeons/fact-from-wcl.ts",
     "dungeon:fact-bind": "tsx scripts/dungeons/fact-bind.ts",
     "dungeon:fact-binding-plan": "tsx scripts/dungeons/fact-binding-plan.ts",
     "spell-lists:create": "node --experimental-strip-types scripts/spell-lists/generate-list.ts",

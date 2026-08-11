@@ -66,6 +66,8 @@ export interface FactSnapshotValidationOptions {
   expectedGameBuild?: string;
 }
 
+export type FactSnapshotDraft = Omit<FactSnapshot, 'digest'>;
+
 type ShapeValidationOptions = FactSnapshotValidationOptions & {
   /** Internal only: digest produced independently by Web Crypto. */
   expectedDigest?: FactSnapshot['digest'];
@@ -731,6 +733,47 @@ export async function validateFactSnapshot(
     };
   }
   return validateFactSnapshotShape(value, { ...options, expectedDigest });
+}
+
+/**
+ * Create a snapshot from source facts while computing its canonical digest
+ * exactly once. Callers still receive the same full structural, catalog,
+ * build, source and release validation as validateFactSnapshot.
+ */
+export async function createFactSnapshot(
+  value: FactSnapshotDraft,
+  options: FactSnapshotValidationOptions = {},
+): Promise<FactSnapshotValidation> {
+  const candidate = {
+    ...value,
+    digest: `sha256:${'0'.repeat(64)}`,
+  } satisfies FactSnapshot;
+  const structural = validateFactSnapshotShape(candidate, { ...options, requireApproved: false });
+  if (!structural.snapshot || structural.errors.length > 0) return structural;
+  let expectedDigest: FactSnapshot['digest'];
+  try {
+    expectedDigest = await computeFactSnapshotDigest(structural.snapshot);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return {
+      ...structural,
+      ok: false,
+      releaseReady: false,
+      errors: [
+        ...structural.errors,
+        diagnostic(
+          'error',
+          'FACT_SNAPSHOT_DIGEST_UNAVAILABLE',
+          'digest',
+          `无法执行 canonical digest 校验：${message}`,
+        ),
+      ],
+    };
+  }
+  return validateFactSnapshotShape(
+    { ...candidate, digest: expectedDigest },
+    { ...options, expectedDigest },
+  );
 }
 
 /** Explicit name for callers that want to signal the full integrity pass. */
