@@ -95,6 +95,19 @@ pnpm dungeon:import-threechest -- \
 
 如果输出要进入 tracked 坐标目录，必须追加 `--redact-source-url`；含真实 URL 的审计输出只保留在 ignored 本地快照中。
 
+拿到新的 snapshot 后，先只读执行 identity reconciliation：
+
+```bash
+pnpm dungeon:reconcile -- \
+  --snapshot=.tmp/dungeons/ruby-life-pools.json \
+  --previous-snapshot=.tmp/dungeons/ruby-life-pools.previous.json \
+  --registry=src/dungeon/data/coordinates/identity.json \
+  --json
+```
+
+只有没有 `ambiguous` 项时，才显式追加 `--write-registry`。该命令不会自动把
+legacy Threechest snapshot 映射到 S2 目录，也不会替路线生成或改写攻略内容。
+
 `.env.local` 仍必须 gitignored；`.env.example` 中的 Threechest 地址是公开的开发期示例，不属于业务代码或生产资源承诺。部署前应把该 manifest 替换为 OSS/placeholder 配置，并由 dist 门禁确认没有 dev-only 地址进入产物。
 
 ## 4. 强制门禁
