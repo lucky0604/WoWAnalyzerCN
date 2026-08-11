@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "dungeonId": "ruby-life-pools",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr",
+  "sourceFloorId": "default",
+  "previewFloorId": "rlp-source-plane",
+  "enemyBindings": [
+    {
+      "sourceEnemyId": 188244,
+      "enemyId": "rlp-primal-juggernaut"
+    },
+    {
+      "sourceEnemyId": 188067,
+      "enemyId": "rlp-flashfrost-chillweaver"
+    },
+    {
+      "sourceEnemyId": 188252,
+      "enemyId": "rlp-melidrussa"
+    },
+    {
+      "sourceEnemyId": 189232,
+      "enemyId": "rlp-kokia"
+    },
+    {
+      "sourceEnemyId": 190484,
+      "enemyId": "rlp-kyrakka-erkhart"
+    },
+    {
+      "sourceEnemyId": 190485,
+      "enemyId": "rlp-kyrakka-erkhart"
+    }
+  ],
+  "situationAnchors": [
+    {
+      "situationId": "rlp-situation-first-caster-pack",
+      "sourceEnemyIds": [188244, 188067],
+      "maxSpawns": 6
+    },
+    {
+      "situationId": "rlp-situation-hatchery-transition",
+      "sourceEnemyIds": [187894],
+      "maxSpawns": 6
+    },
+    {
+      "situationId": "rlp-situation-melidrussa-intermission",
+      "sourceEnemyIds": [187894, 188067],
+      "maxSpawns": 6
+    },
+    {
+      "situationId": "rlp-situation-kokia-ritual",
+      "sourceEnemyIds": [189232],
+      "maxSpawns": 6
+    },
+    {
+      "situationId": "rlp-situation-melidrussa-boss",
+      "sourceEnemyIds": [188252],
+      "maxSpawns": 6
+    },
+    {
+      "situationId": "rlp-situation-kokia-boss",
+      "sourceEnemyIds": [189232],
+      "maxSpawns": 6
+    },
+    {
+      "situationId": "rlp-situation-kyrakka-erkhart-boss",
+      "sourceEnemyIds": [190484, 190485],
+      "maxSpawns": 6
+    }
+  ]
+}

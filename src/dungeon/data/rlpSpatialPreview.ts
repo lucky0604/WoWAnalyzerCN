@@ -1,4 +1,5 @@
 import rlpCoordinateSnapshot from './coordinates/rlp.json';
+import rlpBindingManifest from './coordinates/rlp.bindings.json';
 import rlpIdentityRegistry from './coordinates/rlp.identity.json';
 import { rubyLifePoolsPhase1Draft } from './phase1Prototypes';
 import type {
@@ -32,9 +33,67 @@ interface RlpIdentityRegistry {
   }>;
 }
 
-const snapshot = rlpCoordinateSnapshot as unknown as RlpCoordinateSnapshot;
-const identityRegistry = rlpIdentityRegistry as unknown as RlpIdentityRegistry;
+interface RlpBindingManifest {
+  version: number;
+  dungeonId: string;
+  snapshotId: string;
+  sourceFloorId: string;
+  previewFloorId: string;
+  enemyBindings: Array<{
+    sourceEnemyId: number;
+    enemyId: string;
+  }>;
+  situationAnchors: Array<{
+    situationId: string;
+    sourceEnemyIds: number[];
+    maxSpawns: number;
+  }>;
+}
+
+const isObject = (value: unknown): value is object => typeof value === 'object' && value !== null;
+const snapshot = isObject(rlpCoordinateSnapshot)
+  ? (rlpCoordinateSnapshot as unknown as RlpCoordinateSnapshot)
+  : ({} as RlpCoordinateSnapshot);
+const bindingManifest = isObject(rlpBindingManifest)
+  ? (rlpBindingManifest as unknown as RlpBindingManifest)
+  : ({} as RlpBindingManifest);
+const identityRegistry = isObject(rlpIdentityRegistry)
+  ? (rlpIdentityRegistry as unknown as RlpIdentityRegistry)
+  : ({} as RlpIdentityRegistry);
 const sourcePlaneFloorId = 'rlp-source-plane';
+const sourceFloorId = 'default';
+const isCoordinate = (value: unknown): value is [number, number] =>
+  Array.isArray(value) &&
+  value.length === 2 &&
+  value.every((coordinate) => typeof coordinate === 'number' && Number.isFinite(coordinate));
+const isCoordinateSpawn = (value: unknown): value is RlpCoordinateSnapshot['spawns'][number] => {
+  if (!isObject(value)) return false;
+  const candidate = value as Partial<RlpCoordinateSnapshot['spawns'][number]>;
+  const patrolIsValid =
+    candidate.patrol === undefined ||
+    (Array.isArray(candidate.patrol) && candidate.patrol.every((point) => isCoordinate(point)));
+  return (
+    typeof candidate.sourceId === 'string' &&
+    typeof candidate.sourceEnemyId === 'number' &&
+    Number.isInteger(candidate.sourceEnemyId) &&
+    candidate.sourceEnemyId > 0 &&
+    isCoordinate(candidate.position) &&
+    (candidate.groupId === undefined || typeof candidate.groupId === 'string') &&
+    patrolIsValid
+  );
+};
+const snapshotSpawns = Array.isArray(snapshot.spawns)
+  ? snapshot.spawns.filter(isCoordinateSpawn)
+  : ([] as RlpCoordinateSnapshot['spawns']);
+const identityEntries = Array.isArray(identityRegistry.entries)
+  ? identityRegistry.entries.filter(isObject)
+  : [];
+const enemyBindings = Array.isArray(bindingManifest.enemyBindings)
+  ? bindingManifest.enemyBindings.filter(isObject)
+  : [];
+const situationAnchors = Array.isArray(bindingManifest.situationAnchors)
+  ? bindingManifest.situationAnchors.filter(isObject)
+  : [];
 
 const text = (zhCN: string, enUS?: string): LocalizedText => ({ zhCN, enUS });
 
@@ -57,22 +116,68 @@ const coordinateProvenance: Provenance = {
  * in the RLP learning draft.  The remaining IDs stay explicitly source-owned
  * placeholders until current-build facts are reviewed.
  */
-const ownedEnemyIdByNpc: Record<number, string> = {
-  188244: 'rlp-primal-juggernaut',
-  188067: 'rlp-flashfrost-chillweaver',
-  188252: 'rlp-melidrussa',
-  189232: 'rlp-kokia',
-  190484: 'rlp-kyrakka-erkhart',
-  190485: 'rlp-kyrakka-erkhart',
-};
-
 const sourceEnemyId = (npcId: number): string => `rlp-source-enemy-${npcId}`;
 
-const identityBySource = new Map(identityRegistry.entries.map((entry) => [entry.sourceId, entry]));
+const identityBySource = new Map(identityEntries.map((entry) => [entry.sourceId, entry]));
+const ownedEnemyIdByNpc = new Map(
+  enemyBindings.map((binding) => [binding.sourceEnemyId, binding.enemyId]),
+);
+const anchorBindingsBySituation = new Map(
+  situationAnchors.map((binding) => [binding.situationId, binding]),
+);
 const identityShapeIsValid =
-  identityBySource.size !== snapshot.spawns.length ||
-  new Set(identityRegistry.entries.map((entry) => entry.stableId)).size !==
-    identityRegistry.entries.length;
+  snapshotSpawns.length === 0 ||
+  identityBySource.size !== snapshotSpawns.length ||
+  new Set(identityEntries.map((entry) => entry.stableId)).size !== identityEntries.length;
+const bindingManifestIsValid = (() => {
+  const sourceEnemyIds = new Set(snapshotSpawns.map((spawn) => spawn.sourceEnemyId));
+  const authoredEnemyIds = new Set(rubyLifePoolsPhase1Draft.enemies.map((enemy) => enemy.id));
+  const authoredNpcEnemyIds = new Set(
+    rubyLifePoolsPhase1Draft.enemies
+      .filter((enemy) => enemy.npcId !== undefined)
+      .map((enemy) => enemy.id),
+  );
+  const identityFloorIsValid = identityEntries.every(
+    (entry) => entry.floorId === `rlp:${sourceFloorId}`,
+  );
+  const enemyBindingsAreValid =
+    enemyBindings.length > 0 &&
+    new Set(enemyBindings.map((binding) => binding.sourceEnemyId)).size === enemyBindings.length &&
+    enemyBindings.every(
+      (binding) =>
+        sourceEnemyIds.has(binding.sourceEnemyId) && authoredEnemyIds.has(binding.enemyId),
+    ) &&
+    [...authoredNpcEnemyIds].every((enemyId) =>
+      enemyBindings.some((binding) => binding.enemyId === enemyId),
+    );
+  const situationIds = new Set(
+    rubyLifePoolsPhase1Draft.situations.map((situation) => situation.id),
+  );
+  const situationAnchorsAreValid =
+    situationAnchors.length === situationIds.size &&
+    new Set(situationAnchors.map((binding) => binding.situationId)).size ===
+      situationAnchors.length &&
+    situationAnchors.every(
+      (binding) =>
+        situationIds.has(binding.situationId) &&
+        Number.isInteger(binding.maxSpawns) &&
+        binding.maxSpawns > 0 &&
+        Array.isArray(binding.sourceEnemyIds) &&
+        binding.sourceEnemyIds.length > 0 &&
+        binding.sourceEnemyIds.every((sourceEnemyId) => sourceEnemyIds.has(sourceEnemyId)),
+    );
+  return (
+    bindingManifest.version === 1 &&
+    bindingManifest.dungeonId === rubyLifePoolsPhase1Draft.id &&
+    bindingManifest.snapshotId === snapshot.snapshotId &&
+    bindingManifest.sourceFloorId === sourceFloorId &&
+    bindingManifest.previewFloorId === sourcePlaneFloorId &&
+    snapshotSpawns.length > 0 &&
+    identityFloorIsValid &&
+    enemyBindingsAreValid &&
+    situationAnchorsAreValid
+  );
+})();
 
 function getBounds(spawns: RlpCoordinateSnapshot['spawns']): Floor['bounds'] {
   const xValues = spawns.map((spawn) => spawn.position[0]);
@@ -93,14 +198,14 @@ const sourceFloor: Floor = {
   id: sourcePlaneFloorId,
   name: text('位置参考平面（区域语义待核验）', 'Coordinate reference plane (area mapping pending)'),
   coordinateSpace: 'normalized-v1',
-  bounds: getBounds(snapshot.spawns),
+  bounds: getBounds(snapshotSpawns),
   mapAssetKey: 'midnight-s2:ruby-life-pools',
 };
 
 function buildSpawns(): Spawn[] | undefined {
-  if (identityShapeIsValid) return undefined;
+  if (identityShapeIsValid || !bindingManifestIsValid) return undefined;
   const spawns: Spawn[] = [];
-  for (const sourceSpawn of snapshot.spawns) {
+  for (const sourceSpawn of snapshotSpawns) {
     const identity = identityBySource.get(sourceSpawn.sourceId);
     if (!identity || identity.enemyId !== `rlp:source-enemy:${sourceSpawn.sourceEnemyId}`) {
       return undefined;
@@ -108,7 +213,8 @@ function buildSpawns(): Spawn[] | undefined {
     spawns.push({
       id: identity.stableId,
       enemyId:
-        ownedEnemyIdByNpc[sourceSpawn.sourceEnemyId] ?? sourceEnemyId(sourceSpawn.sourceEnemyId),
+        ownedEnemyIdByNpc.get(sourceSpawn.sourceEnemyId) ??
+        sourceEnemyId(sourceSpawn.sourceEnemyId),
       floorId: sourcePlaneFloorId,
       position: sourceSpawn.position,
       sourceId: sourceSpawn.sourceId,
@@ -135,15 +241,6 @@ function withSpatialAnchors(document: DungeonDocument): DungeonDocument {
   const spatialSpawns = buildSpawns();
   if (!spatialSpawns) return document;
 
-  const anchorNpcIds: Record<string, number[]> = {
-    'rlp-situation-first-caster-pack': [188244, 188067],
-    'rlp-situation-hatchery-transition': [187894],
-    'rlp-situation-melidrussa-intermission': [187894, 188067],
-    'rlp-situation-kokia-ritual': [189232],
-    'rlp-situation-melidrussa-boss': [188252],
-    'rlp-situation-kokia-boss': [189232],
-    'rlp-situation-kyrakka-erkhart-boss': [190484, 190485],
-  };
   return {
     ...document,
     floors: [sourceFloor, ...document.floors],
@@ -178,8 +275,12 @@ function withSpatialAnchors(document: DungeonDocument): DungeonDocument {
     situations: document.situations.map((situation) => ({
       ...situation,
       floorIds: [...new Set([...situation.floorIds, sourcePlaneFloorId])],
-      anchorSpawnIds: anchorNpcIds[situation.id]
-        ? spawnIdsForNpc(spatialSpawns, anchorNpcIds[situation.id]!)
+      anchorSpawnIds: anchorBindingsBySituation.has(situation.id)
+        ? spawnIdsForNpc(
+            spatialSpawns,
+            anchorBindingsBySituation.get(situation.id)!.sourceEnemyIds,
+            anchorBindingsBySituation.get(situation.id)!.maxSpawns,
+          )
         : situation.anchorSpawnIds,
     })),
     routes: document.routes.map((route) => ({

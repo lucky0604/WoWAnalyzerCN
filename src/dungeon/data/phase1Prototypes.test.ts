@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { buildLearningPlan } from '../runtime/learning';
 import { getDungeonDocument } from '../registry';
 import { validateDungeonDocument } from '../schema/validate';
+import rlpBindingManifest from './coordinates/rlp.bindings.json';
 import { rubyLifePoolsPhase1Draft } from './phase1Prototypes';
 import { rubyLifePoolsSpatialPreview } from './rlpSpatialPreview';
 
@@ -67,5 +68,23 @@ describe('phase 1 learning prototypes', () => {
         (situation) => situation.id === 'rlp-situation-kokia-boss',
       )?.anchorSpawnIds,
     ).toEqual(['spawn-127']);
+  });
+
+  it('keeps the versioned binding manifest aligned with the draft contract', () => {
+    expect(rlpBindingManifest.snapshotId).toBe(
+      'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+    );
+    expect(rlpBindingManifest.previewFloorId).toBe('rlp-source-plane');
+    expect(rlpBindingManifest.enemyBindings).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ sourceEnemyId: 188244, enemyId: 'rlp-primal-juggernaut' }),
+        expect.objectContaining({ sourceEnemyId: 188067, enemyId: 'rlp-flashfrost-chillweaver' }),
+        expect.objectContaining({ sourceEnemyId: 188252, enemyId: 'rlp-melidrussa' }),
+        expect.objectContaining({ sourceEnemyId: 189232, enemyId: 'rlp-kokia' }),
+      ]),
+    );
+    expect(rlpBindingManifest.situationAnchors).toHaveLength(
+      rubyLifePoolsPhase1Draft.situations.length,
+    );
   });
 });
