@@ -55,6 +55,7 @@
 - [15-rlp-s2-coordinate-import-review.md](./15-rlp-s2-coordinate-import-review.md)：RLP 当前 S2 PTR 坐标快照、来源 hash、字段白名单与门禁 Review。
 - [16-learning-wave-context-review.md](./16-learning-wave-context-review.md)：学习课节与波次上下文、锚点/forces 门禁、多路线配对与代码 Review。
 - [17-learning-wave-context-browser-qa.md](./17-learning-wave-context-browser-qa.md)：桌面/移动浏览器 smoke、主动回忆和只读 Route 深链证据。
+- [18-s2-fact-and-asset-preflight.md](./18-s2-fact-and-asset-preflight.md)：S2 坐标、NPC/Spell/forces 事实与 Threechest 远程图片的预检和替换契约。
 
 ## 当前代码审计摘要
 
