@@ -10,6 +10,7 @@ import type {
   Provenance,
   Spawn,
 } from '../schema/types';
+import { getCoordinateBindingIdentity } from '../runtime/coordinates';
 
 interface RlpCoordinateSnapshot {
   snapshotId: string;
@@ -243,6 +244,7 @@ function withSpatialAnchors(document: DungeonDocument): DungeonDocument {
 
   return {
     ...document,
+    coordinateBinding: getCoordinateBindingIdentity('rlp'),
     floors: [sourceFloor, ...document.floors],
     spawns: spatialSpawns,
     enemies: document.enemies

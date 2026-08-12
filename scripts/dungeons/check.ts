@@ -20,8 +20,10 @@ import {
 } from '../../src/dungeon/runtime/coordinates';
 import {
   checkSourceUse,
+  dungeonFactBindingRegistry,
   dungeonForcesSnapshotRegistry,
   dungeonSourceRegistry,
+  validateFactBindingRegistry,
   validateForcesSnapshotRegistry,
 } from '../../src/dungeon/runtime/sourceRegistry';
 import { getDungeonScopedLearningAccess } from '../../src/dungeon/runtime/formalAccess';
@@ -157,6 +159,11 @@ function runGlobalDungeonCheck(): void {
 
   errors.push(
     ...validateForcesSnapshotRegistry(dungeonForcesSnapshotRegistry).map(
+      (diagnostic) => `source registry: ${diagnostic}`,
+    ),
+  );
+  errors.push(
+    ...validateFactBindingRegistry(dungeonFactBindingRegistry).map(
       (diagnostic) => `source registry: ${diagnostic}`,
     ),
   );

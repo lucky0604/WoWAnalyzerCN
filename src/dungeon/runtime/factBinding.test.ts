@@ -1,6 +1,8 @@
 import { computeFactSnapshotDigest, type FactSnapshot } from './factSnapshot';
 import {
   bindFactSnapshotToDocument,
+  factBindingIdentityDigestMatches,
+  factBindingIdentityMatchesDocument,
   validateFactBindingManifest,
   type FactBindingManifest,
 } from './factBinding';
@@ -154,6 +156,22 @@ describe('fact snapshot authoring binding', () => {
       totalEnemyForcesPoints: 7,
     });
     expect(result.document?.review).toBeUndefined();
+    expect(result.document?.factBinding).toMatchObject({
+      snapshotId: snapshot.snapshotId,
+      snapshotDigest: snapshot.digest,
+      dungeonId: document.id,
+      season: document.season,
+      gameBuild: snapshot.gameBuild,
+      enemies: [{ sourceKey: 'source-enemy-1', documentEnemyId: 'enemy-1' }],
+      abilities: [{ sourceKey: 'source-ability-1', documentAbilityId: 'ability-1' }],
+    });
+    expect(await factBindingIdentityDigestMatches(result.document?.factBinding)).toBe(true);
+    expect(factBindingIdentityMatchesDocument(result.document!, result.document?.factBinding)).toBe(
+      true,
+    );
+    const tamperedIdentity = structuredClone(result.document!.factBinding!);
+    tamperedIdentity.enemies[0]!.documentEnemyId = 'other-enemy';
+    expect(await factBindingIdentityDigestMatches(tamperedIdentity)).toBe(false);
     expect(result.document?.enemies[0]).toMatchObject({
       npcId: 1001,
       factBuild: snapshot.gameBuild,

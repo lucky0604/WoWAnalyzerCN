@@ -364,6 +364,20 @@ describe('Dungeon document validation', () => {
     );
   });
 
+  it('requires both artifact identities on a formal document', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'DUNGEON_RELEASE_FACT_BINDING_INVALID' }),
+        expect.objectContaining({ code: 'DUNGEON_RELEASE_COORDINATE_BINDING_INVALID' }),
+      ]),
+    );
+  });
+
   it('blocks a release when nested knowledge keeps a reference-only source', () => {
     const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
     document.dataStatus = 'reviewed';

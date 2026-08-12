@@ -99,6 +99,44 @@ export interface ForcesSnapshot {
   notes?: string;
 }
 
+/**
+ * The exact source→owned entity mapping used to produce a DungeonDocument.
+ * This is embedded in the document so a release artifact remains auditable
+ * without relying on an untracked sidecar file.
+ */
+export interface FactBindingIdentity {
+  version: 1;
+  /** Key into the reviewed fact-binding registry. */
+  registryKey: string;
+  snapshotId: string;
+  snapshotDigest: `sha256:${string}`;
+  manifestDigest: `sha256:${string}`;
+  dungeonId: DungeonId;
+  season: string;
+  gameBuild: string;
+  enemies: Array<{
+    sourceKey: string;
+    documentEnemyId: EnemyId;
+    npcId: number;
+    isBoss: boolean;
+    forcesPoints: number;
+  }>;
+  abilities: Array<{
+    sourceKey: string;
+    documentAbilityId: AbilityId;
+    spellId: number;
+    casterEnemyKeys: string[];
+  }>;
+}
+
+/** Exact identity of the normalized coordinate snapshot and stable-ID sidecar. */
+export interface CoordinateBindingIdentity {
+  sourceId: 'threechest';
+  snapshotId: string;
+  rawSha256: string;
+  identityHash?: `sha256:${string}`;
+}
+
 export interface CoordinateBounds {
   xMin: number;
   xMax: number;
@@ -269,6 +307,10 @@ export interface DungeonDocument {
   totalEnemyForcesPoints: number;
   /** Forces numbers are not releasable without an independent snapshot record. */
   forcesSnapshot?: ForcesSnapshot;
+  /** Fact snapshot + binding manifest identity used to populate this document. */
+  factBinding?: FactBindingIdentity;
+  /** Coordinate snapshot + stable SpawnId sidecar used by this document. */
+  coordinateBinding?: CoordinateBindingIdentity;
   floors: Floor[];
   spawns: Spawn[];
   enemies: Enemy[];

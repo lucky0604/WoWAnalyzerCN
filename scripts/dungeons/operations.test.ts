@@ -7,6 +7,9 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { phase0FixtureDocuments } from '../../src/dungeon/registry';
 import { season2DungeonCatalog } from '../../src/dungeon/data/season2Catalog';
 import type { DungeonDocument } from '../../src/dungeon/schema/types';
+import { computeFactBindingManifestDigest } from '../../src/dungeon/runtime/factBinding';
+import { getCoordinateBindingIdentity } from '../../src/dungeon/runtime/coordinates';
+import { dungeonFactBindingRegistry } from '../../src/dungeon/runtime/sourceRegistry';
 import {
   coordinateImpact,
   markStale,
@@ -21,9 +24,10 @@ afterEach(async () => {
   await Promise.all(
     temporaryRoots.splice(0).map((root) => rm(root, { recursive: true, force: true })),
   );
+  dungeonFactBindingRegistry.splice(0);
 });
 
-function releaseReadyFixture(): DungeonDocument {
+async function releaseReadyFixture(): Promise<DungeonDocument> {
   const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
   document.dataStatus = 'draft';
   document.version.status = 'draft';
@@ -52,7 +56,74 @@ function releaseReadyFixture(): DungeonDocument {
       evidence: 'test fixture only',
     },
   };
+  const factBinding = {
+    version: 1 as const,
+    registryKey: 'fact-binding:fixture-fact-snapshot',
+    snapshotId: 'fixture-fact-snapshot',
+    snapshotDigest: `sha256:${'a'.repeat(64)}` as `sha256:${string}`,
+    dungeonId: document.id,
+    season: document.season,
+    gameBuild: document.version.build,
+    enemies: document.enemies.map((enemy) => ({
+      sourceKey: `fixture:${enemy.id}`,
+      documentEnemyId: enemy.id,
+      npcId: enemy.npcId ?? 1001,
+      isBoss: enemy.isBoss,
+      forcesPoints: enemy.forcesPoints,
+    })),
+    abilities: document.abilities.map((ability) => ({
+      sourceKey: `fixture:${ability.id}`,
+      documentAbilityId: ability.id,
+      spellId: ability.spellId ?? 2001,
+      casterEnemyKeys: ability.casterEnemyIds.map((enemyId) => `fixture:${enemyId}`),
+    })),
+  };
+  document.factBinding = {
+    ...factBinding,
+    manifestDigest: await computeFactBindingManifestDigest(factBinding),
+  };
+  document.coordinateBinding = getCoordinateBindingIdentity('rlp');
   return document;
+}
+
+function registerFixtureBinding(document: DungeonDocument): void {
+  const binding = document.factBinding!;
+  dungeonFactBindingRegistry.push({
+    registryKey: binding.registryKey,
+    dungeonId: binding.dungeonId,
+    season: binding.season,
+    gameBuild: binding.gameBuild,
+    snapshotId: binding.snapshotId,
+    snapshotDigest: binding.snapshotDigest,
+    manifestDigest: binding.manifestDigest,
+    enemyDocumentIds: binding.enemies.map((row) => row.documentEnemyId),
+    abilityDocumentIds: binding.abilities.map((row) => row.documentAbilityId),
+    enemySourceKeys: binding.enemies.map((row) => row.sourceKey),
+    abilitySourceKeys: binding.abilities.map((row) => row.sourceKey),
+    enemyFacts: binding.enemies.map((row) => ({
+      ...row,
+      npcId:
+        binding.enemies.find((candidate) => candidate.documentEnemyId === row.documentEnemyId) &&
+        document.enemies.find((enemy) => enemy.id === row.documentEnemyId)?.npcId,
+      isBoss: document.enemies.find((enemy) => enemy.id === row.documentEnemyId)?.isBoss,
+      forcesPoints: document.enemies.find((enemy) => enemy.id === row.documentEnemyId)
+        ?.forcesPoints,
+    })),
+    abilityFacts: binding.abilities.map((row) => ({
+      ...row,
+      spellId: document.abilities.find((ability) => ability.id === row.documentAbilityId)?.spellId,
+      casterEnemyKeys:
+        document.abilities
+          .find((ability) => ability.id === row.documentAbilityId)
+          ?.casterEnemyIds.map(
+            (enemyId) =>
+              binding.enemies.find((enemy) => enemy.documentEnemyId === enemyId)?.sourceKey,
+          )
+          .filter((key): key is string => Boolean(key)) ?? [],
+    })),
+    evidenceRef: 'test fixture only',
+    status: 'approved',
+  });
 }
 
 describe('dungeon content operations', () => {
@@ -128,7 +199,8 @@ describe('dungeon content operations', () => {
   it('previews, publishes and rolls back only a validated release candidate', async () => {
     const root = await mkdtemp(join(tmpdir(), 'wowa-dungeon-release-'));
     temporaryRoots.push(root);
-    const document = releaseReadyFixture();
+    const document = await releaseReadyFixture();
+    registerFixtureBinding(document);
     expect((await previewDocument(document)).ok).toBe(true);
     const first = await publishDocument(document, 7, root);
     expect(first.revision).toBe(7);
@@ -146,7 +218,8 @@ describe('dungeon content operations', () => {
     await expect(publishDocument(phase0FixtureDocuments.rubyLifePools, 1, root)).rejects.toThrow(
       'DUNGEON_PUBLISH_FIXTURE_FORBIDDEN',
     );
-    const document = releaseReadyFixture();
+    const document = await releaseReadyFixture();
+    registerFixtureBinding(document);
     await publishDocument(document, 2, root);
     await expect(publishDocument(document, 2, root)).rejects.toThrow('DUNGEON_RELEASE_EXISTS');
   });
@@ -154,7 +227,8 @@ describe('dungeon content operations', () => {
   it('refuses publishing a stale source without a fresh authoring pass', async () => {
     const root = await mkdtemp(join(tmpdir(), 'wowa-dungeon-stale-guard-'));
     temporaryRoots.push(root);
-    const document = releaseReadyFixture();
+    const document = await releaseReadyFixture();
+    registerFixtureBinding(document);
     document.version.status = 'stale';
     await expect(publishDocument(document, 3, root)).rejects.toThrow(
       'DUNGEON_PUBLISH_STALE_FORBIDDEN',
@@ -164,7 +238,8 @@ describe('dungeon content operations', () => {
   it('refuses publishing when only a non-learning route has Pull coverage', async () => {
     const root = await mkdtemp(join(tmpdir(), 'wowa-dungeon-learning-release-'));
     temporaryRoots.push(root);
-    const document = releaseReadyFixture();
+    const document = await releaseReadyFixture();
+    registerFixtureBinding(document);
     const learningRoute = document.routes[0]!;
     const referenceRoute = structuredClone(learningRoute);
     referenceRoute.id = 'rlp-pug-reference-route';

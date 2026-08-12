@@ -2,6 +2,7 @@ import type {
   AbilityKnowledge,
   DungeonDocument,
   Enemy,
+  FactBindingIdentity,
   Provenance,
   RouteKnowledge,
 } from '../schema/types';
@@ -36,6 +37,192 @@ export interface FactBindingManifest {
   gameBuild: string;
   enemies: FactBindingEnemy[];
   abilities: FactBindingAbility[];
+}
+
+const sha256DigestPattern = /^sha256:[a-f0-9]{64}$/;
+
+function stableSort(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(stableSort);
+  if (!isRecord(value)) return value;
+  return Object.fromEntries(
+    Object.keys(value)
+      .sort()
+      .map((key) => [key, stableSort(value[key])]),
+  );
+}
+
+/** Canonical manifest payload used for the document's auditable identity. */
+export function serializeFactBindingManifestPayload(
+  manifest: Pick<
+    FactBindingManifest,
+    | 'version'
+    | 'snapshotId'
+    | 'snapshotDigest'
+    | 'dungeonId'
+    | 'season'
+    | 'gameBuild'
+    | 'enemies'
+    | 'abilities'
+  >,
+): string {
+  return JSON.stringify(
+    stableSort({
+      version: manifest.version,
+      snapshotId: manifest.snapshotId,
+      snapshotDigest: manifest.snapshotDigest,
+      dungeonId: manifest.dungeonId,
+      season: manifest.season,
+      gameBuild: manifest.gameBuild,
+      enemies: manifest.enemies.map((row) => ({
+        sourceKey: row.sourceKey,
+        documentEnemyId: row.documentEnemyId,
+      })),
+      abilities: manifest.abilities.map((row) => ({
+        sourceKey: row.sourceKey,
+        documentAbilityId: row.documentAbilityId,
+      })),
+    }),
+  );
+}
+
+export async function computeFactBindingManifestDigest(
+  manifest: Pick<
+    FactBindingManifest,
+    | 'version'
+    | 'snapshotId'
+    | 'snapshotDigest'
+    | 'dungeonId'
+    | 'season'
+    | 'gameBuild'
+    | 'enemies'
+    | 'abilities'
+  >,
+): Promise<FactBindingIdentity['manifestDigest']> {
+  const subtle = globalThis.crypto?.subtle;
+  if (!subtle) throw new Error('FACT_BINDING_CRYPTO_UNAVAILABLE: Web Crypto is required.');
+  const hash = await subtle.digest(
+    'SHA-256',
+    new TextEncoder().encode(serializeFactBindingManifestPayload(manifest)),
+  );
+  const hex = Array.from(new Uint8Array(hash), (byte) => byte.toString(16).padStart(2, '0')).join(
+    '',
+  );
+  return `sha256:${hex}`;
+}
+
+export async function factBindingIdentityDigestMatches(
+  identity: FactBindingIdentity | undefined,
+): Promise<boolean> {
+  if (!identity) return false;
+  try {
+    const digest = await computeFactBindingManifestDigest(identity);
+    return digest === identity.manifestDigest;
+  } catch {
+    return false;
+  }
+}
+
+export function factBindingIdentityMatchesDocument(
+  document: DungeonDocument,
+  identity: FactBindingIdentity | undefined,
+): boolean {
+  if (
+    !identity ||
+    identity.version !== factBindingSchemaVersion ||
+    !isNonEmptyString(identity.registryKey) ||
+    !isNonEmptyString(identity.snapshotId) ||
+    !sha256DigestPattern.test(identity.snapshotDigest) ||
+    !sha256DigestPattern.test(identity.manifestDigest) ||
+    identity.dungeonId !== document.id ||
+    identity.season !== document.season ||
+    identity.gameBuild !== document.version.build ||
+    !Array.isArray(identity.enemies) ||
+    !Array.isArray(identity.abilities)
+  ) {
+    return false;
+  }
+  const enemyIds = new Set(document.enemies.map((enemy) => enemy.id));
+  const abilityIds = new Set(document.abilities.map((ability) => ability.id));
+  const enemyTargets = new Set<string>();
+  const abilityTargets = new Set<string>();
+  const enemySources = new Set<string>();
+  const abilitySources = new Set<string>();
+  const sameIds = (left: readonly string[], right: readonly string[]) => {
+    const rightSet = new Set(right);
+    return left.length === rightSet.size && left.every((id) => rightSet.has(id));
+  };
+  const validRows = (
+    rows: readonly { sourceKey: string; documentEnemyId?: string; documentAbilityId?: string }[],
+    targets: Set<string>,
+    sources: Set<string>,
+    validTargetIds: Set<string>,
+    targetKey: 'documentEnemyId' | 'documentAbilityId',
+  ) =>
+    rows.length > 0 &&
+    rows.every((row) => {
+      if (!row || typeof row !== 'object') return false;
+      const target = row[targetKey];
+      if (
+        !isNonEmptyString(row.sourceKey) ||
+        !isNonEmptyString(target) ||
+        !validTargetIds.has(target)
+      ) {
+        return false;
+      }
+      if (sources.has(row.sourceKey)) return false;
+      sources.add(row.sourceKey);
+      if (targets.has(target)) return false;
+      targets.add(target);
+      return true;
+    });
+  return (
+    identity.enemies.length === document.enemies.length &&
+    identity.abilities.length === document.abilities.length &&
+    validRows(identity.enemies, enemyTargets, enemySources, enemyIds, 'documentEnemyId') &&
+    validRows(
+      identity.abilities,
+      abilityTargets,
+      abilitySources,
+      abilityIds,
+      'documentAbilityId',
+    ) &&
+    enemyTargets.size === enemyIds.size &&
+    abilityTargets.size === abilityIds.size &&
+    identity.enemies.every((row) => {
+      const enemy = document.enemies.find((candidate) => candidate.id === row.documentEnemyId);
+      return (
+        enemy &&
+        row.npcId === enemy.npcId &&
+        row.isBoss === enemy.isBoss &&
+        row.forcesPoints === enemy.forcesPoints
+      );
+    }) &&
+    identity.abilities.every((row) => {
+      const ability = document.abilities.find(
+        (candidate) => candidate.id === row.documentAbilityId,
+      );
+      return (
+        ability &&
+        row.spellId === ability.spellId &&
+        Array.isArray(row.casterEnemyKeys) &&
+        row.casterEnemyKeys.length > 0 &&
+        new Set(row.casterEnemyKeys).size === row.casterEnemyKeys.length &&
+        row.casterEnemyKeys.every(
+          (sourceKey) =>
+            typeof sourceKey === 'string' &&
+            identity.enemies.some((enemy) => enemy.sourceKey === sourceKey),
+        ) &&
+        sameIds(
+          row.casterEnemyKeys.map(
+            (sourceKey) =>
+              identity.enemies.find((enemy) => enemy.sourceKey === sourceKey)?.documentEnemyId ??
+              '',
+          ),
+          ability.casterEnemyIds,
+        )
+      );
+    })
+  );
 }
 
 export interface FactBindingDiagnostic {
@@ -625,6 +812,26 @@ export async function bindFactSnapshotToDocument(
     return { ...validation, ok: false, errors, document: undefined };
   }
   const allDocumentEnemiesMapped = validation.unmappedDocumentEnemyIds.length === 0;
+  let manifestDigest: FactBindingIdentity['manifestDigest'];
+  try {
+    manifestDigest = await computeFactBindingManifestDigest(validatedManifest);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return {
+      ...validation,
+      ok: false,
+      errors: [
+        ...errors,
+        diagnostic(
+          'error',
+          'FACT_BINDING_MANIFEST_DIGEST_UNAVAILABLE',
+          'manifestDigest',
+          `无法计算 binding manifest digest：${message}`,
+        ),
+      ],
+      document: undefined,
+    };
+  }
   const nextDocument: DungeonDocument = {
     ...document,
     dataStatus: 'draft',
@@ -641,6 +848,38 @@ export async function bindFactSnapshotToDocument(
         ? validatedSnapshot.totalEnemyForcesPoints
         : 0,
     forcesSnapshot: undefined,
+    factBinding: {
+      version: factBindingSchemaVersion,
+      registryKey: `fact-binding:${validatedSnapshot.snapshotId}`,
+      snapshotId: validatedSnapshot.snapshotId,
+      snapshotDigest: validatedSnapshot.digest,
+      manifestDigest,
+      dungeonId: validatedManifest.dungeonId,
+      season: validatedManifest.season,
+      gameBuild: validatedManifest.gameBuild,
+      enemies: validatedManifest.enemies.map((row) => {
+        const fact = validatedSnapshot.enemies.find(
+          (candidate) => candidate.enemyKey === row.sourceKey,
+        )!;
+        const enemy = enemies.find((candidate) => candidate.id === row.documentEnemyId)!;
+        return {
+          ...row,
+          npcId: fact.npcId,
+          isBoss: fact.isBoss,
+          forcesPoints: enemy.forcesPoints,
+        };
+      }),
+      abilities: validatedManifest.abilities.map((row) => {
+        const fact = validatedSnapshot.abilities.find(
+          (candidate) => candidate.abilityKey === row.sourceKey,
+        )!;
+        return {
+          ...row,
+          spellId: fact.spellId,
+          casterEnemyKeys: [...fact.casterEnemyKeys],
+        };
+      }),
+    },
     provenance: appendProvenance(document.provenance, provenance),
     enemies,
     abilities,

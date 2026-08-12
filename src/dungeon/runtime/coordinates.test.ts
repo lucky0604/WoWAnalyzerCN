@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  coordinateBindingMatchesEntry,
+  getCoordinateBindingIdentity,
   getCoordinateReference,
   getCoordinateSnapshot,
   validateCoordinateIdentityRegistry,
@@ -44,6 +46,30 @@ describe('coordinate references', () => {
     expect(
       getCoordinateReference({ ...entry, coordinateIdentityRegistryKey: 'missing-registry' }),
     ).toBeUndefined();
+  });
+
+  it('binds a document only to the approved coordinate snapshot and sidecar', () => {
+    const entry = season2DungeonCatalog.find((candidate) => candidate.id === 'ruby-life-pools')!;
+    const binding = getCoordinateBindingIdentity('rlp');
+    expect(binding).toMatchObject({
+      sourceId: 'threechest',
+      snapshotId: entry.coordinateSnapshotId,
+      rawSha256: expect.stringMatching(/^[a-f0-9]{64}$/),
+      identityHash: expect.stringMatching(/^sha256:[a-f0-9]{64}$/),
+    });
+    expect(coordinateBindingMatchesEntry(entry, binding)).toBe(true);
+    expect(
+      coordinateBindingMatchesEntry(entry, {
+        ...binding!,
+        snapshotId: 'other-snapshot',
+      }),
+    ).toBe(false);
+    expect(
+      coordinateBindingMatchesEntry(entry, {
+        ...binding!,
+        rawSha256: 'f'.repeat(64),
+      }),
+    ).toBe(false);
   });
 
   it('resolves a stable, read-only coordinate reference for every S2 catalog entry', () => {

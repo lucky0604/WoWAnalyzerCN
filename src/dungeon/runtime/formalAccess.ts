@@ -66,7 +66,12 @@ export function getDungeonScopedLearningAccess(
   const isFormal =
     access.isFormal && isLearningPublished(entry.status) && readiness.state === 'ready';
   const pendingGate = firstBlockingGate(readiness);
-  const blockedByCatalog = access.isFormal && !isLearningPublished(entry.status);
+  const blockedByCatalog =
+    !isLearningPublished(entry.status) &&
+    (access.isFormal ||
+      access.state === 'stale' ||
+      document.dataStatus === 'reviewed' ||
+      document.dataStatus === 'published');
   const canOpen = isPreview || isFormal;
 
   return {

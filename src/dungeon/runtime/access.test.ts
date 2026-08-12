@@ -23,7 +23,7 @@ describe('dungeon learning access gates', () => {
     expect(access).toMatchObject({ state: 'stale', canOpen: false, isFormal: false });
   });
 
-  it('requires release validation for formal learning', () => {
+  it('requires release validation and artifact identities for formal learning', () => {
     const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
     document.dataStatus = 'reviewed';
     document.version.status = 'reviewed';
@@ -46,7 +46,13 @@ describe('dungeon learning access gates', () => {
       },
     };
     const access = getDungeonLearningAccess(document);
-    expect(access).toMatchObject({ state: 'available', canOpen: true, isFormal: true });
+    expect(access).toMatchObject({ state: 'blocked', canOpen: false, isFormal: false });
+    expect(access.validation.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'DUNGEON_RELEASE_FACT_BINDING_INVALID' }),
+        expect.objectContaining({ code: 'DUNGEON_RELEASE_COORDINATE_BINDING_INVALID' }),
+      ]),
+    );
   });
 
   it('does not treat a reviewed document with reference-only sources as formal', () => {

@@ -41,6 +41,36 @@ export interface ApprovedForcesSnapshot {
   status: 'approved' | 'revoked' | 'expired';
 }
 
+/** Reviewed identity for a complete fact snapshot + source→owned mapping. */
+export interface ApprovedFactBinding {
+  registryKey: string;
+  dungeonId: string;
+  season: string;
+  gameBuild: string;
+  snapshotId: string;
+  snapshotDigest: `sha256:${string}`;
+  manifestDigest: `sha256:${string}`;
+  enemyDocumentIds: string[];
+  abilityDocumentIds: string[];
+  enemySourceKeys: string[];
+  abilitySourceKeys: string[];
+  enemyFacts: Array<{
+    sourceKey: string;
+    documentEnemyId: string;
+    npcId: number;
+    isBoss: boolean;
+    forcesPoints: number;
+  }>;
+  abilityFacts: Array<{
+    sourceKey: string;
+    documentAbilityId: string;
+    spellId: number;
+    casterEnemyKeys: string[];
+  }>;
+  evidenceRef: string;
+  status: 'approved' | 'revoked' | 'expired';
+}
+
 export interface SourceRegistry {
   version: 1;
   snapshots: ApprovedSourceSnapshot[];
@@ -209,6 +239,13 @@ export const dungeonSourceRegistry: SourceRegistry = {
  */
 export const dungeonForcesSnapshotRegistry: readonly ApprovedForcesSnapshot[] = [];
 
+/**
+ * Intentionally empty until a maintainer reviews a real current-build fact
+ * snapshot and its mapping manifest. Draft binding output is not a release
+ * credential merely because its digest is well-formed.
+ */
+export const dungeonFactBindingRegistry: ApprovedFactBinding[] = [];
+
 export function getForcesSnapshotRegistryEntry(
   registryKey: string,
 ): ApprovedForcesSnapshot | undefined {
@@ -216,6 +253,142 @@ export function getForcesSnapshotRegistryEntry(
     (entry) => entry.registryKey === registryKey,
   );
   return matches.length === 1 ? matches[0] : undefined;
+}
+
+export function getFactBindingRegistryEntry(
+  registryKey: string,
+  registry: readonly ApprovedFactBinding[] = dungeonFactBindingRegistry,
+): ApprovedFactBinding | undefined {
+  if (!Array.isArray(registry)) return undefined;
+  const matches = registry.filter(
+    (entry) => entry && typeof entry === 'object' && entry.registryKey === registryKey,
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+}
+
+export function validateFactBindingRegistry(
+  registry: readonly ApprovedFactBinding[] = dungeonFactBindingRegistry,
+): string[] {
+  const errors: string[] = [];
+  if (!Array.isArray(registry)) return ['FACT_BINDING_REGISTRY_INVALID_SHAPE'];
+  const keys = new Set<string>();
+  registry.forEach((entry, index) => {
+    if (!entry || typeof entry !== 'object') {
+      errors.push(`FACT_BINDING_REGISTRY_INVALID_ENTRY #${index}`);
+      return;
+    }
+    const candidate = entry as Partial<ApprovedFactBinding>;
+    if (
+      typeof candidate.registryKey !== 'string' ||
+      !candidate.registryKey.trim() ||
+      keys.has(candidate.registryKey)
+    ) {
+      errors.push(`FACT_BINDING_REGISTRY_DUPLICATE_KEY ${candidate.registryKey || `#${index}`}`);
+    }
+    if (typeof candidate.registryKey === 'string' && candidate.registryKey.trim()) {
+      keys.add(candidate.registryKey);
+    }
+    if (
+      typeof candidate.dungeonId !== 'string' ||
+      !candidate.dungeonId.trim() ||
+      typeof candidate.season !== 'string' ||
+      !candidate.season.trim() ||
+      typeof candidate.gameBuild !== 'string' ||
+      !candidate.gameBuild.trim() ||
+      typeof candidate.snapshotId !== 'string' ||
+      !candidate.snapshotId.trim() ||
+      typeof candidate.evidenceRef !== 'string' ||
+      !candidate.evidenceRef.trim() ||
+      !/^sha256:[a-f0-9]{64}$/.test(candidate.snapshotDigest ?? '') ||
+      !/^sha256:[a-f0-9]{64}$/.test(candidate.manifestDigest ?? '') ||
+      !['approved', 'revoked', 'expired'].includes(candidate.status ?? '')
+    ) {
+      errors.push(`FACT_BINDING_REGISTRY_INVALID_METADATA ${candidate.registryKey ?? `#${index}`}`);
+    }
+    if (
+      !Array.isArray(candidate.enemyDocumentIds) ||
+      !Array.isArray(candidate.abilityDocumentIds) ||
+      !Array.isArray(candidate.enemySourceKeys) ||
+      !Array.isArray(candidate.abilitySourceKeys) ||
+      !Array.isArray(candidate.enemyFacts) ||
+      !Array.isArray(candidate.abilityFacts) ||
+      candidate.enemyDocumentIds.some((id) => typeof id !== 'string' || !id.trim()) ||
+      candidate.abilityDocumentIds.some((id) => typeof id !== 'string' || !id.trim()) ||
+      candidate.enemySourceKeys.some((key) => typeof key !== 'string' || !key.trim()) ||
+      candidate.abilitySourceKeys.some((key) => typeof key !== 'string' || !key.trim()) ||
+      new Set(candidate.enemyDocumentIds).size !== candidate.enemyDocumentIds.length ||
+      new Set(candidate.abilityDocumentIds).size !== candidate.abilityDocumentIds.length ||
+      new Set(candidate.enemySourceKeys).size !== candidate.enemySourceKeys.length ||
+      new Set(candidate.abilitySourceKeys).size !== candidate.abilitySourceKeys.length
+    ) {
+      errors.push(`FACT_BINDING_REGISTRY_INVALID_MAPPING ${candidate.registryKey ?? `#${index}`}`);
+    }
+    const enemyFacts = candidate.enemyFacts;
+    const abilityFacts = candidate.abilityFacts;
+    if (
+      !Array.isArray(enemyFacts) ||
+      !Array.isArray(abilityFacts) ||
+      enemyFacts.length !== candidate.enemyDocumentIds?.length ||
+      abilityFacts.length !== candidate.abilityDocumentIds?.length ||
+      enemyFacts.some(
+        (fact) =>
+          !fact ||
+          typeof fact !== 'object' ||
+          typeof fact.sourceKey !== 'string' ||
+          !fact.sourceKey.trim() ||
+          typeof fact.documentEnemyId !== 'string' ||
+          !fact.documentEnemyId.trim() ||
+          typeof fact.npcId !== 'number' ||
+          !Number.isInteger(fact.npcId) ||
+          fact.npcId < 1 ||
+          typeof fact.isBoss !== 'boolean' ||
+          typeof fact.forcesPoints !== 'number' ||
+          !Number.isInteger(fact.forcesPoints) ||
+          fact.forcesPoints < 0,
+      ) ||
+      abilityFacts.some(
+        (fact) =>
+          !fact ||
+          typeof fact !== 'object' ||
+          typeof fact.sourceKey !== 'string' ||
+          !fact.sourceKey.trim() ||
+          typeof fact.documentAbilityId !== 'string' ||
+          !fact.documentAbilityId.trim() ||
+          typeof fact.spellId !== 'number' ||
+          !Number.isInteger(fact.spellId) ||
+          fact.spellId < 1 ||
+          !Array.isArray(fact.casterEnemyKeys) ||
+          fact.casterEnemyKeys.length === 0 ||
+          new Set(fact.casterEnemyKeys).size !== fact.casterEnemyKeys.length ||
+          fact.casterEnemyKeys.some((key) => typeof key !== 'string' || !key.trim()),
+      )
+    ) {
+      errors.push(`FACT_BINDING_REGISTRY_INVALID_FACTS ${candidate.registryKey ?? `#${index}`}`);
+    }
+    if (
+      Array.isArray(enemyFacts) &&
+      Array.isArray(abilityFacts) &&
+      (enemyFacts.some(
+        (fact, factIndex) =>
+          !fact ||
+          typeof fact !== 'object' ||
+          fact.sourceKey !== candidate.enemySourceKeys?.[factIndex] ||
+          fact.documentEnemyId !== candidate.enemyDocumentIds?.[factIndex],
+      ) ||
+        abilityFacts.some(
+          (fact, factIndex) =>
+            !fact ||
+            typeof fact !== 'object' ||
+            fact.sourceKey !== candidate.abilitySourceKeys?.[factIndex] ||
+            fact.documentAbilityId !== candidate.abilityDocumentIds?.[factIndex],
+        ))
+    ) {
+      errors.push(
+        `FACT_BINDING_REGISTRY_FACT_MAPPING_MISMATCH ${candidate.registryKey ?? `#${index}`}`,
+      );
+    }
+  });
+  return errors;
 }
 
 export function validateForcesSnapshotRegistry(

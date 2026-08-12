@@ -1,11 +1,15 @@
 import { isLearningPublished, type DungeonCatalogEntry } from '../data/season2Catalog';
 import { getDungeonContentCoverage } from '../schema/coverage';
-import type { DungeonDocument, PullStep, Provenance } from '../schema/types';
+import type { DungeonDocument, FactBindingIdentity, PullStep, Provenance } from '../schema/types';
 import { getDungeonLearningAccess, type DungeonLearningAccess } from './access';
-import { getCoordinateReference } from './coordinates';
+import { coordinateBindingMatchesEntry, getCoordinateReference } from './coordinates';
+import { factBindingIdentityMatchesDocument } from './factBinding';
 import {
   getForcesSnapshotRegistryEntry,
+  getFactBindingRegistryEntry,
   type ApprovedForcesSnapshot,
+  type ApprovedFactBinding,
+  validateFactBindingRegistry,
   validateForcesSnapshotRegistry,
 } from './sourceRegistry';
 
@@ -65,12 +69,21 @@ const emptyCounts: DungeonContentReadiness['counts'] = {
   bosses: 0,
 };
 
-const hasApprovedFactProvenance = (provenance: readonly Provenance[], gameBuild: string): boolean =>
+const hasApprovedFactProvenance = (
+  provenance: readonly Provenance[],
+  gameBuild: string,
+  snapshotId?: string,
+  snapshotDigest?: string,
+): boolean =>
   provenance.some(
     (source) =>
       source.licenseStatus === 'approved' &&
       source.gameBuild === gameBuild &&
-      (source.type === 'official' || source.type === 'game-data' || source.type === 'wcl'),
+      (source.type === 'official' || source.type === 'game-data' || source.type === 'wcl') &&
+      (!snapshotId ||
+        (snapshotDigest !== undefined
+          ? source.snapshot === `${snapshotId}:${snapshotDigest}`
+          : source.snapshot === snapshotId)),
   );
 
 const gate = (
@@ -102,6 +115,84 @@ export function forcesSnapshotMatchesRegistry(
   );
 }
 
+export function factBindingMatchesRegistry(
+  document: DungeonDocument,
+  identity: FactBindingIdentity | undefined,
+  registryEntry: ApprovedFactBinding | undefined,
+): boolean {
+  if (
+    !identity ||
+    !Array.isArray(identity.enemies) ||
+    !Array.isArray(identity.abilities) ||
+    !registryEntry ||
+    !factBindingIdentityMatchesDocument(document, identity) ||
+    validateFactBindingRegistry([registryEntry]).length > 0
+  ) {
+    return false;
+  }
+  if (registryEntry.status !== 'approved') return false;
+  const sameIds = (left: readonly string[], right: readonly string[]) => {
+    const rightSet = new Set(right);
+    return left.length === rightSet.size && left.every((id) => rightSet.has(id));
+  };
+  return Boolean(
+    registryEntry.registryKey === identity.registryKey &&
+    registryEntry.dungeonId === document.id &&
+    registryEntry.season === document.season &&
+    registryEntry.gameBuild === document.version.build &&
+    registryEntry.snapshotId === identity.snapshotId &&
+    registryEntry.snapshotDigest === identity.snapshotDigest &&
+    registryEntry.manifestDigest === identity.manifestDigest &&
+    sameIds(
+      identity.enemies.map((row) => row.documentEnemyId),
+      registryEntry.enemyDocumentIds,
+    ) &&
+    sameIds(
+      identity.enemies.map((row) => row.sourceKey),
+      registryEntry.enemySourceKeys,
+    ) &&
+    sameIds(
+      identity.abilities.map((row) => row.documentAbilityId),
+      registryEntry.abilityDocumentIds,
+    ) &&
+    sameIds(
+      identity.abilities.map((row) => row.sourceKey),
+      registryEntry.abilitySourceKeys,
+    ) &&
+    identity.enemies.every(
+      (row, index) =>
+        row.sourceKey === registryEntry.enemySourceKeys[index] &&
+        row.documentEnemyId === registryEntry.enemyDocumentIds[index],
+    ) &&
+    identity.abilities.every(
+      (row, index) =>
+        row.sourceKey === registryEntry.abilitySourceKeys[index] &&
+        row.documentAbilityId === registryEntry.abilityDocumentIds[index],
+    ) &&
+    identity.enemies.every((row, index) => {
+      const reviewed = registryEntry.enemyFacts[index];
+      return Boolean(
+        reviewed &&
+        reviewed.sourceKey === row.sourceKey &&
+        reviewed.documentEnemyId === row.documentEnemyId &&
+        reviewed.npcId === row.npcId &&
+        reviewed.isBoss === row.isBoss &&
+        reviewed.forcesPoints === row.forcesPoints,
+      );
+    }) &&
+    identity.abilities.every((row, index) => {
+      const reviewed = registryEntry.abilityFacts[index];
+      return Boolean(
+        reviewed &&
+        reviewed.sourceKey === row.sourceKey &&
+        reviewed.documentAbilityId === row.documentAbilityId &&
+        reviewed.spellId === row.spellId &&
+        JSON.stringify(reviewed.casterEnemyKeys) === JSON.stringify(row.casterEnemyKeys),
+      );
+    }),
+  );
+}
+
 /**
  * Builds the single readiness view shared by the catalog UI and CLI report.
  *
@@ -117,7 +208,13 @@ export function getDungeonContentReadiness(
   // Registry fixtures are intentionally available to the Inspector and
   // contract tests, but must never count as S2 learning content.
   const contentDocument = document?.dataStatus === 'fixture' ? undefined : document;
-  const coordinateReady = Boolean(entry.coordinateSnapshotId && getCoordinateReference(entry));
+  const coordinateReferenceReady = Boolean(
+    entry.coordinateSnapshotId && getCoordinateReference(entry),
+  );
+  const coordinateReady = Boolean(
+    coordinateReferenceReady &&
+    (!contentDocument || coordinateBindingMatchesEntry(entry, contentDocument.coordinateBinding)),
+  );
   const coordinates = coordinateReady
     ? gate('coordinates', 'ready', '来源快照、stable SpawnId 和 local-research 用途校验通过。')
     : gate(
@@ -162,15 +259,32 @@ export function getDungeonContentReadiness(
     routes: contentDocument.routes.length,
     bosses: contentDocument.bosses.length,
   };
+  const factBindingRegistry = contentDocument.factBinding?.registryKey
+    ? getFactBindingRegistryEntry(contentDocument.factBinding.registryKey)
+    : undefined;
+  const factArtifactReady = factBindingMatchesRegistry(
+    contentDocument,
+    contentDocument.factBinding,
+    factBindingRegistry,
+  );
+  const factSnapshotId = contentDocument.factBinding?.snapshotId;
+  const factSnapshotDigest = contentDocument.factBinding?.snapshotDigest;
   const enemiesWithFacts = contentDocument.enemies.filter(
     (enemy) =>
+      factArtifactReady &&
       Number.isInteger(enemy.npcId) &&
       (enemy.npcId ?? 0) > 0 &&
       enemy.factBuild === contentDocument.version.build &&
-      hasApprovedFactProvenance(enemy.provenance, contentDocument.version.build),
+      hasApprovedFactProvenance(
+        enemy.provenance,
+        contentDocument.version.build,
+        factSnapshotId,
+        factSnapshotDigest,
+      ),
   ).length;
   const abilitiesWithFacts = contentDocument.abilities.filter(
     (ability) =>
+      factArtifactReady &&
       Number.isInteger(ability.spellId) &&
       (ability.spellId ?? 0) > 0 &&
       typeof ability.action?.zhCN === 'string' &&
@@ -179,31 +293,40 @@ export function getDungeonContentReadiness(
       ability.consequence.zhCN.trim().length > 0 &&
       ability.version.build === contentDocument.version.build &&
       ability.version.status === contentDocument.version.status &&
-      hasApprovedFactProvenance(ability.provenance, contentDocument.version.build),
+      hasApprovedFactProvenance(
+        ability.provenance,
+        contentDocument.version.build,
+        factSnapshotId,
+        factSnapshotDigest,
+      ),
   ).length;
   const enemyFacts =
     contentDocument.enemies.length > 0 && enemiesWithFacts === contentDocument.enemies.length
       ? gate(
           'enemy-facts',
           'ready',
-          `已核验 ${enemiesWithFacts}/${contentDocument.enemies.length} 个敌人。`,
+          `已核验 ${enemiesWithFacts}/${contentDocument.enemies.length} 个敌人，且事实绑定 identity 已通过。`,
         )
       : gate(
           'enemy-facts',
           'pending',
-          `当前仅 ${enemiesWithFacts}/${contentDocument.enemies.length} 个敌人具备当前 build 的 NPC 与批准来源。`,
+          factArtifactReady
+            ? `当前仅 ${enemiesWithFacts}/${contentDocument.enemies.length} 个敌人具备当前 build 的绑定事实与批准来源。`
+            : 'DungeonDocument 尚未绑定可审计的事实快照与 manifest；禁止把同 build ID 当作来源证据。',
         );
   const abilityFacts =
     contentDocument.abilities.length > 0 && abilitiesWithFacts === contentDocument.abilities.length
       ? gate(
           'ability-facts',
           'ready',
-          `已核验 ${abilitiesWithFacts}/${contentDocument.abilities.length} 个技能。`,
+          `已核验 ${abilitiesWithFacts}/${contentDocument.abilities.length} 个技能，且事实绑定 identity 已通过。`,
         )
       : gate(
           'ability-facts',
           'pending',
-          `当前仅 ${abilitiesWithFacts}/${contentDocument.abilities.length} 个技能具备 Spell ID、动作、后果与批准来源。`,
+          factArtifactReady
+            ? `当前仅 ${abilitiesWithFacts}/${contentDocument.abilities.length} 个技能具备当前 build 的绑定事实与批准来源。`
+            : 'DungeonDocument 尚未绑定可审计的事实快照与 manifest；禁止把同 build ID 当作来源证据。',
         );
 
   const forcesSnapshot = contentDocument.forcesSnapshot;

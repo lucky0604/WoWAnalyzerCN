@@ -23,7 +23,7 @@ import voidS2Identity from '../data/coordinates/void.s2.identity.json';
 import wind from '../data/coordinates/wind.json';
 import xenas from '../data/coordinates/xenas.json';
 import type { SpawnIdentityRegistry } from './reconcile';
-import type { Floor, Spawn } from '../schema/types';
+import type { CoordinateBindingIdentity, Floor, Spawn } from '../schema/types';
 import { checkSourceUse, dungeonSourceRegistry } from './sourceRegistry';
 
 export interface CoordinateReferenceEntry {
@@ -178,6 +178,55 @@ export function getCoordinateSnapshot(sourceKey: string): CoordinateSnapshot | u
 
 export function getCoordinateIdentityRegistry(key: string): SpawnIdentityRegistry | undefined {
   return identityRegistries[key];
+}
+
+/**
+ * Return the source identity that a DungeonDocument may embed.  The values
+ * come from the committed coordinate snapshot and approved source registry,
+ * never from caller-provided metadata.
+ */
+export function getCoordinateBindingIdentity(
+  sourceKey: string,
+): CoordinateBindingIdentity | undefined {
+  const snapshot = getCoordinateSnapshot(sourceKey);
+  if (!snapshot) return undefined;
+  const sourceCheck = checkSourceUse(
+    dungeonSourceRegistry,
+    snapshot.source,
+    snapshot.snapshotId,
+    'local-research',
+  );
+  if (!sourceCheck.ok || !sourceCheck.snapshot) return undefined;
+  if (sourceCheck.snapshot.rawSha256 && sourceCheck.snapshot.rawSha256 !== snapshot.rawSha256) {
+    return undefined;
+  }
+  const identityHash = sourceCheck.snapshot.identityHash;
+  return {
+    sourceId: snapshot.source,
+    snapshotId: snapshot.snapshotId,
+    rawSha256: snapshot.rawSha256,
+    ...(identityHash ? { identityHash: identityHash as `sha256:${string}` } : {}),
+  };
+}
+
+export function coordinateBindingMatchesEntry(
+  entry: CoordinateReferenceEntry,
+  binding: CoordinateBindingIdentity | undefined,
+): boolean {
+  if (!binding || !entry.coordinateSnapshotId || !entry.coordinateSourceId) return false;
+  // Resolve the catalog entry through the same guarded adapter used by the UI
+  // before accepting embedded metadata. This validates the snapshot key and
+  // the committed source→stable sidecar, rather than trusting binding fields.
+  if (!getCoordinateReference(entry)) return false;
+  const expected = getCoordinateBindingIdentity(entry.coordinateSnapshotKey ?? entry.sourceKey);
+  return Boolean(
+    expected &&
+    binding.sourceId === expected.sourceId &&
+    binding.snapshotId === expected.snapshotId &&
+    binding.rawSha256 === expected.rawSha256 &&
+    binding.identityHash === expected.identityHash &&
+    binding.snapshotId === entry.coordinateSnapshotId,
+  );
 }
 
 function boundsForSnapshot(snapshot: CoordinateSnapshot): Floor['bounds'] {

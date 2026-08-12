@@ -8,8 +8,13 @@ import {
 import { dungeonDocuments } from '../../src/dungeon/registry';
 import {
   getCoordinateSnapshot,
+  coordinateBindingMatchesEntry,
   type CoordinateSnapshot,
 } from '../../src/dungeon/runtime/coordinates';
+import { factBindingIdentityDigestMatches } from '../../src/dungeon/runtime/factBinding';
+import { getDungeonCatalogEntry } from '../../src/dungeon/data/season2Catalog';
+import { factBindingMatchesRegistry } from '../../src/dungeon/runtime/contentReadiness';
+import { getFactBindingRegistryEntry } from '../../src/dungeon/runtime/sourceRegistry';
 import type { Diagnostic, DungeonDocument, ContentVersion } from '../../src/dungeon/schema/types';
 import { validateDungeonDocument } from '../../src/dungeon/schema/validate';
 import { authoringDiagnostics, loadAuthoringDocument } from './authoring';
@@ -175,6 +180,20 @@ export async function publishDocument(
   if (!validation.ok) {
     throw new Error(
       `DUNGEON_PUBLISH_BLOCKED: ${validation.errors.map((diagnostic) => diagnostic.code).join(', ')}`,
+    );
+  }
+  const catalogEntry = getDungeonCatalogEntry(candidate.id);
+  const factBindingRegistryEntry = candidate.factBinding?.registryKey
+    ? getFactBindingRegistryEntry(candidate.factBinding.registryKey)
+    : undefined;
+  if (
+    !catalogEntry ||
+    !coordinateBindingMatchesEntry(catalogEntry, candidate.coordinateBinding) ||
+    !(await factBindingIdentityDigestMatches(candidate.factBinding)) ||
+    !factBindingMatchesRegistry(candidate, candidate.factBinding, factBindingRegistryEntry)
+  ) {
+    throw new Error(
+      'DUNGEON_PUBLISH_BLOCKED: DUNGEON_RELEASE_ARTIFACT_IDENTITY_INVALID (事实 manifest digest 或坐标 snapshot identity 不匹配)。',
     );
   }
   const currentPath = resolve(releaseDir, 'current.json');

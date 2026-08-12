@@ -1,5 +1,19 @@
 import { getDungeonContentCoverage } from './coverage';
-import type { Diagnostic, DungeonDocument, PullStep, RouteStep, ValidationResult } from './types';
+import {
+  getFactBindingRegistryEntry,
+  validateFactBindingRegistry,
+} from '../runtime/sourceRegistry';
+import { getDungeonCatalogEntry } from '../data/season2Catalog';
+import { coordinateBindingMatchesEntry } from '../runtime/coordinates';
+import type {
+  CoordinateBindingIdentity,
+  Diagnostic,
+  DungeonDocument,
+  FactBindingIdentity,
+  PullStep,
+  RouteStep,
+  ValidationResult,
+} from './types';
 
 const diagnostic = (
   severity: Diagnostic['severity'],
@@ -11,6 +25,201 @@ const diagnostic = (
 ): Diagnostic => ({ severity, code, path, message, entityId, candidates });
 
 const isFiniteNumber = (value: number) => Number.isFinite(value);
+const sha256DigestPattern = /^sha256:[a-f0-9]{64}$/;
+
+function hasCompleteFactBindingIdentity(
+  document: DungeonDocument,
+  identity: FactBindingIdentity | undefined,
+): boolean {
+  if (
+    !identity ||
+    identity.version !== 1 ||
+    typeof identity.registryKey !== 'string' ||
+    !identity.registryKey.trim() ||
+    typeof identity.snapshotId !== 'string' ||
+    !identity.snapshotId.trim() ||
+    typeof identity.snapshotDigest !== 'string' ||
+    !sha256DigestPattern.test(identity.snapshotDigest) ||
+    typeof identity.manifestDigest !== 'string' ||
+    !sha256DigestPattern.test(identity.manifestDigest) ||
+    typeof identity.dungeonId !== 'string' ||
+    typeof identity.season !== 'string' ||
+    typeof identity.gameBuild !== 'string' ||
+    identity.dungeonId !== document.id ||
+    identity.season !== document.season ||
+    identity.gameBuild !== document.version.build ||
+    !Array.isArray(identity.enemies) ||
+    !Array.isArray(identity.abilities) ||
+    identity.enemies.length !== document.enemies.length ||
+    identity.abilities.length !== document.abilities.length
+  ) {
+    return false;
+  }
+  const enemyIds = new Set(document.enemies.map((enemy) => enemy.id));
+  const abilityIds = new Set(document.abilities.map((ability) => ability.id));
+  const enemySources = identity.enemies
+    .filter((row) => Boolean(row && typeof row === 'object' && typeof row.sourceKey === 'string'))
+    .map((row) => row.sourceKey);
+  const abilitySources = identity.abilities
+    .filter((row) => Boolean(row && typeof row === 'object' && typeof row.sourceKey === 'string'))
+    .map((row) => row.sourceKey);
+  const enemyTargets = identity.enemies
+    .filter((row) =>
+      Boolean(row && typeof row === 'object' && typeof row.documentEnemyId === 'string'),
+    )
+    .map((row) => row.documentEnemyId);
+  const abilityTargets = identity.abilities
+    .filter((row) =>
+      Boolean(row && typeof row === 'object' && typeof row.documentAbilityId === 'string'),
+    )
+    .map((row) => row.documentAbilityId);
+  const sameIds = (left: readonly string[], right: readonly string[]) => {
+    const rightSet = new Set(right);
+    return left.length === rightSet.size && left.every((id) => rightSet.has(id));
+  };
+  return (
+    identity.enemies.every(
+      (row) =>
+        typeof row?.sourceKey === 'string' &&
+        row.sourceKey.trim().length > 0 &&
+        typeof row.documentEnemyId === 'string' &&
+        enemyIds.has(row.documentEnemyId),
+    ) &&
+    identity.abilities.every(
+      (row) =>
+        typeof row?.sourceKey === 'string' &&
+        row.sourceKey.trim().length > 0 &&
+        typeof row.documentAbilityId === 'string' &&
+        abilityIds.has(row.documentAbilityId),
+    ) &&
+    new Set(enemyTargets).size === enemyTargets.length &&
+    new Set(abilityTargets).size === abilityTargets.length &&
+    new Set(enemySources).size === enemySources.length &&
+    new Set(abilitySources).size === abilitySources.length &&
+    identity.enemies.every((row) => {
+      const enemy = document.enemies.find((candidate) => candidate.id === row.documentEnemyId);
+      return Boolean(
+        enemy &&
+        row.npcId === enemy.npcId &&
+        row.isBoss === enemy.isBoss &&
+        row.forcesPoints === enemy.forcesPoints,
+      );
+    }) &&
+    identity.abilities.every((row) => {
+      const ability = document.abilities.find(
+        (candidate) => candidate.id === row.documentAbilityId,
+      );
+      return Boolean(
+        ability &&
+        row.spellId === ability.spellId &&
+        Array.isArray(row.casterEnemyKeys) &&
+        row.casterEnemyKeys.length > 0 &&
+        new Set(row.casterEnemyKeys).size === row.casterEnemyKeys.length &&
+        row.casterEnemyKeys.every((sourceKey) =>
+          identity.enemies.some((enemy) => enemy.sourceKey === sourceKey),
+        ) &&
+        sameIds(
+          row.casterEnemyKeys.map(
+            (sourceKey) =>
+              identity.enemies.find((enemy) => enemy.sourceKey === sourceKey)?.documentEnemyId ??
+              '',
+          ),
+          ability.casterEnemyIds,
+        ),
+      );
+    })
+  );
+}
+
+function hasCompleteCoordinateBindingIdentity(
+  identity: CoordinateBindingIdentity | undefined,
+): boolean {
+  return Boolean(
+    identity &&
+    identity.sourceId === 'threechest' &&
+    typeof identity.snapshotId === 'string' &&
+    identity.snapshotId.trim() &&
+    typeof identity.rawSha256 === 'string' &&
+    /^[a-f0-9]{64}$/.test(identity.rawSha256) &&
+    (identity.identityHash === undefined || sha256DigestPattern.test(identity.identityHash)),
+  );
+}
+
+function matchesApprovedFactBindingRegistry(document: DungeonDocument): boolean {
+  const identity = document.factBinding;
+  if (!identity) return false;
+  const registryEntry = getFactBindingRegistryEntry(identity.registryKey);
+  if (
+    !registryEntry ||
+    registryEntry.status !== 'approved' ||
+    validateFactBindingRegistry([registryEntry]).length > 0
+  )
+    return false;
+  const sameIds = (left: readonly string[], right: readonly string[]) => {
+    const rightSet = new Set(right);
+    return left.length === rightSet.size && left.every((id) => rightSet.has(id));
+  };
+  return (
+    registryEntry.dungeonId === document.id &&
+    registryEntry.season === document.season &&
+    registryEntry.gameBuild === document.version.build &&
+    registryEntry.snapshotId === identity.snapshotId &&
+    registryEntry.snapshotDigest === identity.snapshotDigest &&
+    registryEntry.manifestDigest === identity.manifestDigest &&
+    sameIds(
+      identity.enemies.map((row) => row.documentEnemyId),
+      registryEntry.enemyDocumentIds,
+    ) &&
+    sameIds(
+      identity.enemies.map((row) => row.sourceKey),
+      registryEntry.enemySourceKeys,
+    ) &&
+    sameIds(
+      identity.abilities.map((row) => row.documentAbilityId),
+      registryEntry.abilityDocumentIds,
+    ) &&
+    sameIds(
+      identity.abilities.map((row) => row.sourceKey),
+      registryEntry.abilitySourceKeys,
+    ) &&
+    identity.enemies.every(
+      (row, index) =>
+        row.sourceKey === registryEntry.enemySourceKeys[index] &&
+        row.documentEnemyId === registryEntry.enemyDocumentIds[index],
+    ) &&
+    identity.abilities.every(
+      (row, index) =>
+        row.sourceKey === registryEntry.abilitySourceKeys[index] &&
+        row.documentAbilityId === registryEntry.abilityDocumentIds[index],
+    ) &&
+    identity.enemies.every((row, index) => {
+      const reviewed = registryEntry.enemyFacts[index];
+      return Boolean(
+        reviewed &&
+        reviewed.sourceKey === row.sourceKey &&
+        reviewed.documentEnemyId === row.documentEnemyId &&
+        reviewed.npcId === row.npcId &&
+        reviewed.isBoss === row.isBoss &&
+        reviewed.forcesPoints === row.forcesPoints,
+      );
+    }) &&
+    identity.abilities.every((row, index) => {
+      const reviewed = registryEntry.abilityFacts[index];
+      return Boolean(
+        reviewed &&
+        reviewed.sourceKey === row.sourceKey &&
+        reviewed.documentAbilityId === row.documentAbilityId &&
+        reviewed.spellId === row.spellId &&
+        JSON.stringify(reviewed.casterEnemyKeys) === JSON.stringify(row.casterEnemyKeys),
+      );
+    })
+  );
+}
+
+function matchesApprovedCoordinateBinding(document: DungeonDocument): boolean {
+  const entry = getDungeonCatalogEntry(document.id);
+  return Boolean(entry && coordinateBindingMatchesEntry(entry, document.coordinateBinding));
+}
 
 function checkUnique(values: string[], path: string, label: string, errors: Diagnostic[]): void {
   const seen = new Set<string>();
@@ -534,6 +743,36 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
         'DUNGEON_RELEASE_SPATIAL_DATA_PENDING',
         'spatialStatus',
         'reviewed/published 内容必须明确标记空间数据已核验。',
+        document.id,
+      ),
+    );
+  }
+  if (
+    releaseStatus &&
+    (!hasCompleteFactBindingIdentity(document, document.factBinding) ||
+      !matchesApprovedFactBindingRegistry(document))
+  ) {
+    errors.push(
+      diagnostic(
+        'error',
+        'DUNGEON_RELEASE_FACT_BINDING_INVALID',
+        'factBinding',
+        'reviewed/published 内容必须绑定完整的事实快照、manifest digest 和 Enemy/Ability 映射。',
+        document.id,
+      ),
+    );
+  }
+  if (
+    releaseStatus &&
+    (!hasCompleteCoordinateBindingIdentity(document.coordinateBinding) ||
+      !matchesApprovedCoordinateBinding(document))
+  ) {
+    errors.push(
+      diagnostic(
+        'error',
+        'DUNGEON_RELEASE_COORDINATE_BINDING_INVALID',
+        'coordinateBinding',
+        'reviewed/published 内容必须绑定经过批准的坐标快照与 stable SpawnId sidecar。',
         document.id,
       ),
     );
