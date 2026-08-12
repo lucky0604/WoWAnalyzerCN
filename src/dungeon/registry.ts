@@ -1,13 +1,25 @@
 import type { DungeonDocument } from './schema/types';
 import { altarOfFangsFixture, rubyLifePoolsFixture } from './data/fixtures';
 import { rubyLifePoolsSpatialPreview } from './data/rlpSpatialPreview';
+import { runtimeReleaseDocuments } from './runtime/releaseRegistry';
 
 /**
  * Documents registered for the local learning preview. The phase-0 fixtures
  * remain available through `phase0FixtureDocuments` but are never treated as
  * current content by the registry.
  */
-export const dungeonDocuments: readonly DungeonDocument[] = [rubyLifePoolsSpatialPreview];
+const authoredDocuments: readonly DungeonDocument[] = [rubyLifePoolsSpatialPreview];
+
+/**
+ * A release-sync artifact is the only supported way for published content to
+ * replace a static preview at runtime.  The map keeps the old draft behavior
+ * when the artifact is empty, while making a synced published revision the
+ * authoritative document for its dungeon ID.
+ */
+const runtimeDocumentsById = new Map(authoredDocuments.map((document) => [document.id, document]));
+runtimeReleaseDocuments.forEach((document) => runtimeDocumentsById.set(document.id, document));
+
+export const dungeonDocuments: readonly DungeonDocument[] = [...runtimeDocumentsById.values()];
 
 /** Internal contract fixtures used by schema/runtime tests and the dev-only inspector. */
 export const phase0FixtureDocuments = {
@@ -17,7 +29,7 @@ export const phase0FixtureDocuments = {
 
 /** Everything that may be opened by the Vite development preview. */
 export const dungeonPreviewDocuments: readonly DungeonDocument[] = [
-  rubyLifePoolsSpatialPreview,
+  ...dungeonDocuments,
   altarOfFangsFixture,
 ];
 

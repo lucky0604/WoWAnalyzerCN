@@ -27,6 +27,7 @@ import {
   validateForcesSnapshotRegistry,
 } from '../../src/dungeon/runtime/sourceRegistry';
 import { getDungeonScopedLearningAccess } from '../../src/dungeon/runtime/formalAccess';
+import { runtimeReleaseArtifactErrors } from '../../src/dungeon/runtime/releaseRegistry';
 import {
   documentKnowledgeIds,
   staleKnowledgeLedger,
@@ -146,12 +147,21 @@ async function runSingleDungeonCheck(dungeonId: string): Promise<void> {
   try {
     const document = registeredDocument ?? (await loadAuthoringDocument(dungeonId, requestedRoot));
     const staleErrors = staleLedgerErrors();
+    const runtimeReleaseErrors = runtimeReleaseArtifactErrors.map(
+      (message) => `runtime release artifact: ${message}`,
+    );
     const ok = printSingleResult(dungeonId, validateDungeonDocument(document), [
       ...(registeredDocument ? [] : authoringDiagnostics(document)),
       ...staleErrors.map((message) => ({
         severity: 'error' as const,
         code: message.split(':')[0] ?? 'DUNGEON_STALE_LEDGER_INVALID',
         path: 'src/dungeon/data/authoring/stale.json',
+        message,
+      })),
+      ...runtimeReleaseErrors.map((message) => ({
+        severity: 'error' as const,
+        code: message.split(':')[0] ?? 'DUNGEON_RUNTIME_RELEASE_INVALID',
+        path: 'src/dungeon/data/releases/current.json',
         message,
       })),
     ]);
@@ -175,6 +185,7 @@ async function runSingleDungeonCheck(dungeonId: string): Promise<void> {
 
 function runGlobalDungeonCheck(): void {
   const errors: string[] = [];
+  errors.push(...runtimeReleaseArtifactErrors);
   const knownKnowledgeIds = new Set(
     dungeonPreviewDocuments.flatMap((document) => [...documentKnowledgeIds(document)]),
   );

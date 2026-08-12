@@ -113,6 +113,7 @@
     "dungeon:status": "tsx scripts/dungeons/operations.ts status",
     "dungeon:preview": "tsx scripts/dungeons/operations.ts preview",
     "dungeon:publish": "tsx scripts/dungeons/operations.ts publish",
+    "dungeon:release-sync": "tsx scripts/dungeons/release-sync.ts",
     "dungeon:rollback": "tsx scripts/dungeons/operations.ts rollback",
     "dungeon:validate": "tsx scripts/dungeons/validate.ts",
     "dungeon:report": "tsx scripts/dungeons/report.ts",

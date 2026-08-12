@@ -23,5 +23,6 @@ export * from './runtime/query';
 export * from './runtime/progress';
 export * from './runtime/map';
 export * from './runtime/coordinates';
+export * from './runtime/releaseRegistry';
 export * from './runtime/wcl';
 export * from './ui/DungeonMap';
