@@ -44,6 +44,7 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run format:check
       - run: pnpm run test
+      - run: pnpm run dungeon:check
 
   build:
     needs: [prepare]
