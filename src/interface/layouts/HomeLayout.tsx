@@ -1,6 +1,8 @@
 import { t } from '@lingui/core/macro';
 import Ad, { AdErrorBoundary, Location } from 'interface/Ad';
 import ErrorBoundary from 'interface/ErrorBoundary';
+import { dungeonRoutesEnabled } from 'interface/dungeonFeatures';
+import DungeonIcon from 'interface/icons/Dungeon';
 import FingerprintFilledIcon from 'interface/icons/FingerprintFilled';
 import HelpWantedIcon from 'interface/icons/Information';
 import NewsIcon from 'interface/icons/Megaphone';
@@ -22,6 +24,15 @@ export function HomeLayout() {
       name: t({ id: 'interface.home.page.news', message: 'News' }),
       url: 'news',
     },
+    ...(dungeonRoutesEnabled
+      ? [
+          {
+            icon: DungeonIcon,
+            name: t({ id: 'interface.home.page.dungeons', message: 'Dungeon Learning' }),
+            url: 'dungeons',
+          },
+        ]
+      : []),
     {
       icon: FingerprintFilledIcon,
       name: t({ id: 'interface.home.page.specs', message: 'Specs' }),

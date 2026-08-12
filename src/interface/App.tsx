@@ -6,14 +6,10 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import { dungeonLegacyRoutesEnabled, dungeonRoutesEnabled } from 'interface/dungeonFeatures';
 import RouterErrorBoundary from 'interface/RouterErrorBoundary';
 import { AppLayout } from 'interface/layouts/AppLayout';
 import { HomeLayout } from 'interface/layouts/HomeLayout';
-
-// Local previews are always available in DEV. Production/preview must opt in
-// only after a published data registry and route QA are part of that deploy.
-const dungeonRoutesEnabled = import.meta.env.DEV || import.meta.env.VITE_DUNGEON_ROUTES === 'true';
-const dungeonLegacyRoutesEnabled = import.meta.env.DEV;
 
 const appRoutes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />} errorElement={<RouterErrorBoundary />}>
