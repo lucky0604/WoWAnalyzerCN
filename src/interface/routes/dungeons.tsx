@@ -57,7 +57,10 @@ function CoverageBadge({ status }: { status: DungeonCoverageStatus }) {
 
 function DungeonCard({ document }: { document: DungeonDocument }) {
   const isSpatialPending = document.spatialStatus === 'pending';
-  const learningAccess = getDungeonLearningAccess(document);
+  const catalogEntry = getDungeonCatalogEntry(document.id);
+  const learningAccess = catalogEntry
+    ? getDungeonScopedLearningAccess(catalogEntry, document)
+    : getDungeonLearningAccess(document);
   return (
     <article className="dungeon-card">
       <div className="dungeon-card__eyebrow">

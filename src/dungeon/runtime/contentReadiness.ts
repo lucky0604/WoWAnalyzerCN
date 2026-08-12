@@ -228,7 +228,8 @@ export function getDungeonContentReadiness(
         Number.isInteger(enemy.forcesPoints) &&
         enemy.forcesPoints >= 0,
     );
-  const routesHaveForces = contentDocument.routes.some((route) => {
+  const learningRoutes = contentDocument.routes.filter((route) => route.intent === 'learning');
+  const routesHaveForces = learningRoutes.some((route) => {
     const pullSteps = route.steps.filter((step) => step.type === 'pull');
     const enemiesById = new Map(contentDocument.enemies.map((enemy) => [enemy.id, enemy]));
     const spawnsById = new Map(contentDocument.spawns.map((spawn) => [spawn.id, spawn]));
@@ -252,10 +253,11 @@ export function getDungeonContentReadiness(
       ? gate('forces', 'ready', '敌人 forces 已核验，且至少一条路线有可推导 Pull forces。')
       : gate('forces', 'pending', 'forces snapshot 或 Pull 绑定仍待核验；禁止把 0 当作事实。');
 
-  const coverage = getDungeonContentCoverage(contentDocument);
+  const coverage = getDungeonContentCoverage(contentDocument, { routeIntent: 'learning' });
   const learningComplete =
     contentDocument.situations.length > 0 &&
-    contentDocument.routes.some((route) => route.intent === 'learning') &&
+    learningRoutes.length > 0 &&
+    coverage.route.pullCount > 0 &&
     coverage.uncoveredSituationIds.length === 0 &&
     coverage.incompleteSituationIds.length === 0 &&
     coverage.uncoveredDecisionCriticalAbilityIds.length === 0 &&

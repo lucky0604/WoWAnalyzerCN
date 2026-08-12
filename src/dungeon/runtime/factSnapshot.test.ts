@@ -150,6 +150,13 @@ describe('fact snapshot preflight contract', () => {
     expect(invalidTimestamp.errors.map((error) => error.code)).toContain(
       'FACT_SNAPSHOT_CAPTURED_AT_INVALID',
     );
+    const impossibleTimestamp = await validateFactSnapshotIntegrity(
+      await makeSnapshot({ capturedAt: '2026-02-31T00:00:00.000Z' }),
+      {},
+    );
+    expect(impossibleTimestamp.errors.map((error) => error.code)).toContain(
+      'FACT_SNAPSHOT_CAPTURED_AT_INVALID',
+    );
 
     const missingTotal = await validateFactSnapshot(
       await makeSnapshot({ totalEnemyForcesPoints: undefined }),

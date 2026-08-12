@@ -59,4 +59,27 @@ describe('dungeon content coverage', () => {
     expect(coverage.uncoveredSituationIds).toEqual([]);
     expect(coverage.incompleteSituationIds).toEqual(['altar-situation-coiled-approach']);
   });
+
+  it('can scope coverage to learning routes without counting reference routes', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    const learningRoute = document.routes[0]!;
+    const referenceRoute = structuredClone(learningRoute);
+    referenceRoute.id = 'rlp-pug-reference-route';
+    referenceRoute.intent = 'pug-safe';
+    learningRoute.steps = learningRoute.steps.map((step) =>
+      step.type === 'pull' ? { ...step, situationRefs: [] } : step,
+    );
+    document.routes = [learningRoute, referenceRoute];
+
+    const allRoutes = getDungeonContentCoverage(document);
+    const learningRoutes = getDungeonContentCoverage(document, { routeIntent: 'learning' });
+
+    expect(allRoutes.uncoveredSituationIds).toEqual([]);
+    expect(learningRoutes.uncoveredSituationIds).toEqual(['rlp-situation-infusion-first-pack']);
+    expect(
+      learningRoutes.situations.find(
+        (entry) => entry.situation.id === 'rlp-situation-melidrussa-entrance',
+      ),
+    ).toMatchObject({ hasRouteCoverage: false });
+  });
 });

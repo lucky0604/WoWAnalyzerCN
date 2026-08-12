@@ -107,10 +107,11 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 const isNonEmptyString = (value: unknown): value is string =>
   typeof value === 'string' && value.trim().length > 0;
 
-const isIsoTimestamp = (value: unknown): value is string =>
+export const isUtcIsoTimestamp = (value: unknown): value is string =>
   typeof value === 'string' &&
   /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value) &&
-  Number.isFinite(Date.parse(value));
+  Number.isFinite(Date.parse(value)) &&
+  new Date(value).toISOString() === (value.includes('.') ? value : value.replace('Z', '.000Z'));
 
 const diagnostic = (
   severity: FactSnapshotDiagnostic['severity'],
@@ -455,7 +456,7 @@ function validateFactSnapshotShape(
       );
     }
   }
-  if (isNonEmptyString(capturedAt) && !isIsoTimestamp(capturedAt)) {
+  if (isNonEmptyString(capturedAt) && !isUtcIsoTimestamp(capturedAt)) {
     errors.push(
       diagnostic(
         'error',

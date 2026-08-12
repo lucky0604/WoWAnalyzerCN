@@ -182,6 +182,20 @@ describe('fact binding decision manifest', () => {
     );
   });
 
+  it('rejects an impossible UTC review timestamp', async () => {
+    const result = await buildFactBindingManifestFromDecisions(
+      plan,
+      await decisions({ reviewedAt: '2026-02-31T12:00:00.000Z' }),
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'FACT_BINDING_DECISION_TIMESTAMP_INVALID' }),
+      ]),
+    );
+  });
+
   it('returns a structured error for a malformed candidate status', async () => {
     const malformed = structuredClone(plan);
     (malformed.enemies[0] as unknown as { status: string }).status = 'bogus';

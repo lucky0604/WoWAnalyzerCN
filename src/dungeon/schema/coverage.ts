@@ -1,4 +1,15 @@
-import type { AbilityKnowledge, DungeonDocument, PullStep, SituationKnowledge } from './types';
+import type {
+  AbilityKnowledge,
+  DungeonDocument,
+  PullStep,
+  RouteKnowledge,
+  SituationKnowledge,
+} from './types';
+
+export interface DungeonContentCoverageOptions {
+  /** Restrict route-backed references to one route intent when a gate needs it. */
+  routeIntent?: RouteKnowledge['intent'];
+}
 
 export interface KnowledgeCoverageReferences {
   routeIds: string[];
@@ -61,8 +72,17 @@ function addReference(
   references.set(id, target);
 }
 
-function getPullSteps(document: DungeonDocument): PullStep[] {
-  return document.routes.flatMap((route) =>
+function getRoutes(
+  document: DungeonDocument,
+  options: DungeonContentCoverageOptions,
+): RouteKnowledge[] {
+  return options.routeIntent
+    ? document.routes.filter((route) => route.intent === options.routeIntent)
+    : [...document.routes];
+}
+
+function getPullSteps(routes: readonly RouteKnowledge[]): PullStep[] {
+  return routes.flatMap((route) =>
     route.steps.filter((step): step is PullStep => step.type === 'pull'),
   );
 }
@@ -72,10 +92,14 @@ function getPullSteps(document: DungeonDocument): PullStep[] {
  * Enemy ownership is recorded separately from learning surfaces so a spell
  * that is merely attached to an NPC cannot accidentally count as taught.
  */
-export function getDungeonContentCoverage(document: DungeonDocument): DungeonContentCoverage {
+export function getDungeonContentCoverage(
+  document: DungeonDocument,
+  options: DungeonContentCoverageOptions = {},
+): DungeonContentCoverage {
   const situationReferences = new Map<string, KnowledgeCoverageReferences>();
   const abilityReferences = new Map<string, KnowledgeCoverageReferences>();
-  const routeSteps = getPullSteps(document);
+  const routes = getRoutes(document, options);
+  const routeSteps = getPullSteps(routes);
   let fullSituationReferenceCount = 0;
   let partialSituationReferenceCount = 0;
 
@@ -85,16 +109,12 @@ export function getDungeonContentCoverage(document: DungeonDocument): DungeonCon
     );
   });
 
-  document.situations.forEach((situation) => {
-    situation.focusAbilityIds.forEach((abilityId) =>
-      addReference(abilityReferences, abilityId, 'situationIds', situation.id),
-    );
-  });
-
-  document.routes.forEach((route) => {
+  const routeSituationIds = options.routeIntent ? new Set<string>() : undefined;
+  routes.forEach((route) => {
     route.steps.forEach((step) => {
       if (step.type !== 'pull' && step.type !== 'event') return;
       step.situationRefs.forEach(({ situationId, coverage }) => {
+        routeSituationIds?.add(situationId);
         addReference(situationReferences, situationId, 'routeIds', route.id);
         if (coverage === 'full') fullSituationReferenceCount += 1;
         else partialSituationReferenceCount += 1;
@@ -105,6 +125,13 @@ export function getDungeonContentCoverage(document: DungeonDocument): DungeonCon
         );
       }
     });
+  });
+
+  document.situations.forEach((situation) => {
+    if (options.routeIntent && !routeSituationIds?.has(situation.id)) return;
+    situation.focusAbilityIds.forEach((abilityId) =>
+      addReference(abilityReferences, abilityId, 'situationIds', situation.id),
+    );
   });
 
   document.bosses.forEach((boss) => {
@@ -122,7 +149,7 @@ export function getDungeonContentCoverage(document: DungeonDocument): DungeonCon
       hasRouteCoverage,
       hasFullRouteCoverage:
         hasRouteCoverage &&
-        document.routes.some((route) =>
+        routes.some((route) =>
           route.steps.some(
             (step) =>
               (step.type === 'pull' || step.type === 'event') &&

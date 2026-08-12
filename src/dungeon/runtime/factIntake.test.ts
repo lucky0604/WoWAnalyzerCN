@@ -246,4 +246,36 @@ describe('WCL fact intake bundle', () => {
       ]),
     );
   });
+
+  it('returns structured diagnostics for malformed runtime options', async () => {
+    const malformedValues = [
+      null,
+      [],
+      { ...options, reportCode: '' },
+      { ...options, fightId: 0 },
+      { ...options, snapshotId: '' },
+      { ...options, evidenceRef: '' },
+      { ...options, capturedAt: '' },
+      { ...options, capturedAt: 'yesterday' },
+      { ...options, capturedAt: '2026-02-31T00:00:00.000Z' },
+      { ...options, reviewer: 1, document },
+      { ...options, reviewedAt: {}, document },
+      { ...options, reviewedAt: 'yesterday', document },
+      { ...options, reviewedAt: '2026-02-31T00:00:00.000Z', document },
+      { ...options, licenseStatus: 'untrusted' },
+      { ...options, requireApproved: 'yes' },
+      { ...options, document: null },
+    ];
+
+    for (const malformedOptions of malformedValues) {
+      const result = await buildFactIntakeBundle(
+        source,
+        malformedOptions as unknown as typeof options,
+      );
+
+      expect(result.ok).toBe(false);
+      expect(result.artifacts).toBeUndefined();
+      expect(result.errors[0]?.code).toBe('FACT_INTAKE_OPTIONS_INVALID');
+    }
+  });
 });

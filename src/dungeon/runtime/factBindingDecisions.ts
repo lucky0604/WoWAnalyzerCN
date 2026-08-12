@@ -13,6 +13,7 @@ import type {
   FactBindingPlanDigest,
 } from './factBindingPlan';
 import { computeFactBindingPlanDigest } from './factBindingPlan';
+import { isUtcIsoTimestamp } from './factSnapshot';
 
 export const factBindingDecisionSchemaVersion = 1 as const;
 
@@ -130,11 +131,7 @@ function unknownKeys(
 }
 
 function validIsoTimestamp(value: unknown): value is string {
-  return (
-    nonEmptyString(value) &&
-    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value) &&
-    Number.isFinite(Date.parse(value))
-  );
+  return isUtcIsoTimestamp(value);
 }
 
 function readPlanIdentity(plan: FactBindingPlan): FactBindingDecisionFile['plan'] {

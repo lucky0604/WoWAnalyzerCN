@@ -948,7 +948,10 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
     });
   });
 
-  const coverage = getDungeonContentCoverage(document);
+  const coverage = getDungeonContentCoverage(
+    document,
+    releaseStatus ? { routeIntent: 'learning' } : undefined,
+  );
   const coverageSeverity = releaseStatus ? 'error' : 'warning';
   coverage.uncoveredSituationIds.forEach((situationId) => {
     (releaseStatus ? errors : warnings).push(
@@ -1002,6 +1005,17 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       ),
     );
   });
+  if (releaseStatus && coverage.route.pullCount === 0) {
+    errors.push(
+      diagnostic(
+        'error',
+        'DUNGEON_LEARNING_ROUTE_EMPTY',
+        'routes',
+        '正式内容至少需要一条包含 Pull 的 learning 路线；pug-safe、push 或 custom-reference 路线不能替代学习路线。',
+        document.id,
+      ),
+    );
+  }
   coverage.bosses.withoutFocusAbilityIds.forEach((bossId) => {
     (releaseStatus ? errors : warnings).push(
       diagnostic(

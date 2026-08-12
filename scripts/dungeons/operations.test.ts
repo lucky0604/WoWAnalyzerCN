@@ -160,4 +160,20 @@ describe('dungeon content operations', () => {
       'DUNGEON_PUBLISH_STALE_FORBIDDEN',
     );
   });
+
+  it('refuses publishing when only a non-learning route has Pull coverage', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'wowa-dungeon-learning-release-'));
+    temporaryRoots.push(root);
+    const document = releaseReadyFixture();
+    const learningRoute = document.routes[0]!;
+    const referenceRoute = structuredClone(learningRoute);
+    referenceRoute.id = 'rlp-pug-reference-route';
+    referenceRoute.intent = 'pug-safe';
+    document.routes = [referenceRoute];
+    document.review!.selfTest!.routeIds = document.routes.map((route) => route.id);
+
+    await expect(publishDocument(document, 4, root)).rejects.toThrow(
+      'DUNGEON_LEARNING_ROUTE_EMPTY',
+    );
+  });
 });

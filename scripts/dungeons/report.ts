@@ -15,6 +15,9 @@ const report = season2DungeonCatalog.map((entry) => {
   const route = document?.routes[0];
   const resolved = document && route ? resolveRoute(document, route) : undefined;
   const coverage = document ? getDungeonContentCoverage(document) : null;
+  const learningCoverage = document
+    ? getDungeonContentCoverage(document, { routeIntent: 'learning' })
+    : null;
   return {
     dungeonId: entry.id,
     catalogStatus: entry.status,
@@ -41,6 +44,7 @@ const report = season2DungeonCatalog.map((entry) => {
     authoringEffort: document?.review?.authoringEffort ?? null,
     coverage: coverage
       ? {
+          routeIntent: 'all',
           situations: coverage.situations.length,
           routeBackedSituations: coverage.situations.filter((entry) => entry.hasRouteCoverage)
             .length,
@@ -51,6 +55,24 @@ const report = season2DungeonCatalog.map((entry) => {
           pulls: coverage.route.pullCount,
           pullsWithoutSituation: coverage.route.pullsWithoutSituation.map((step) => step.id),
           bossesWithoutFocusAbilityIds: coverage.bosses.withoutFocusAbilityIds,
+        }
+      : null,
+    learningCoverage: learningCoverage
+      ? {
+          routeIntent: 'learning',
+          situations: learningCoverage.situations.length,
+          routeBackedSituations: learningCoverage.situations.filter(
+            (entry) => entry.hasRouteCoverage,
+          ).length,
+          uncoveredSituationIds: learningCoverage.uncoveredSituationIds,
+          incompleteSituationIds: learningCoverage.incompleteSituationIds,
+          abilities: learningCoverage.abilities.length,
+          uncoveredDecisionCriticalAbilityIds: learningCoverage.uncoveredDecisionCriticalAbilityIds,
+          pulls: learningCoverage.route.pullCount,
+          pullsWithoutSituation: learningCoverage.route.pullsWithoutSituation.map(
+            (step) => step.id,
+          ),
+          bossesWithoutFocusAbilityIds: learningCoverage.bosses.withoutFocusAbilityIds,
         }
       : null,
   };

@@ -127,6 +127,46 @@ describe('Dungeon document validation', () => {
     );
   });
 
+  it('requires learning-route coverage for formal release', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'reviewed';
+    document.version.status = 'reviewed';
+    const learningRoute = document.routes[0]!;
+    const referenceRoute = structuredClone(learningRoute);
+    referenceRoute.id = 'rlp-pug-reference-route';
+    referenceRoute.intent = 'pug-safe';
+    document.routes = [referenceRoute];
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
+      },
+    };
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'DUNGEON_LEARNING_ROUTE_EMPTY',
+          entityId: document.id,
+        }),
+      ]),
+    );
+  });
+
   it('requires author self-test evidence before formal release', () => {
     const document = structuredClone(phase0FixtureDocuments.altarOfFangs);
     document.dataStatus = 'reviewed';

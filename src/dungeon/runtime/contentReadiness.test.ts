@@ -209,4 +209,25 @@ describe('dungeon content readiness', () => {
 
     expect(second.counts.enemies).toBe(0);
   });
+
+  it('does not let a non-learning route satisfy the learning-surface gate', () => {
+    const entry = season2DungeonCatalogById.get('ruby-life-pools')!;
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'draft';
+    const learningRoute = document.routes[0]!;
+    const referenceRoute = structuredClone(learningRoute);
+    referenceRoute.id = 'rlp-pug-reference-route';
+    referenceRoute.intent = 'pug-safe';
+    learningRoute.steps = learningRoute.steps.map((step) =>
+      step.type === 'pull' ? { ...step, situationRefs: [] } : step,
+    );
+    document.routes = [learningRoute, referenceRoute];
+
+    const readiness = getDungeonContentReadiness(entry, document);
+    expect(readiness.gates).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: 'learning-surfaces', state: 'pending' }),
+      ]),
+    );
+  });
 });

@@ -16,7 +16,7 @@ import {
   type WclFactSnapshotResult,
 } from './wclFactSnapshot';
 import { isValidatedWclFactSource, type WclFactSourceResult } from './wclFactSource';
-import type { FactSnapshot } from './factSnapshot';
+import { isUtcIsoTimestamp, type FactSnapshot } from './factSnapshot';
 
 export const factIntakeBundleSchemaVersion = 1 as const;
 
@@ -142,6 +142,176 @@ const isDiagnostic = (value: unknown): value is FactIntakeDiagnostic =>
 
 const nonEmptyString = (value: unknown): value is string =>
   typeof value === 'string' && value.trim().length > 0;
+
+function validateBundleOptions(value: unknown): FactIntakeDiagnostic[] {
+  if (!isRecord(value)) {
+    return [
+      diagnostic(
+        'error',
+        'FACT_INTAKE_OPTIONS_INVALID',
+        'options',
+        'intake options 必须是普通对象。',
+      ),
+    ];
+  }
+
+  const errors: FactIntakeDiagnostic[] = [];
+  for (const field of [
+    'reportCode',
+    'dungeonId',
+    'season',
+    'gameBuild',
+    'snapshotId',
+    'evidenceRef',
+    'capturedAt',
+  ] as const) {
+    if (!nonEmptyString(value[field])) {
+      errors.push(
+        diagnostic(
+          'error',
+          'FACT_INTAKE_OPTIONS_INVALID',
+          `options.${field}`,
+          `${field} 必须是非空字符串。`,
+        ),
+      );
+    }
+  }
+  if (nonEmptyString(value.capturedAt) && !isUtcIsoTimestamp(value.capturedAt)) {
+    errors.push(
+      diagnostic(
+        'error',
+        'FACT_INTAKE_OPTIONS_INVALID',
+        'options.capturedAt',
+        'capturedAt 必须是可解析的 UTC ISO timestamp。',
+      ),
+    );
+  }
+  for (const field of ['reviewer', 'reviewedAt'] as const) {
+    if (value[field] !== undefined && !nonEmptyString(value[field])) {
+      errors.push(
+        diagnostic(
+          'error',
+          'FACT_INTAKE_OPTIONS_INVALID',
+          `options.${field}`,
+          `${field} 若提供则必须是非空字符串。`,
+        ),
+      );
+    }
+  }
+  if (nonEmptyString(value.reviewedAt) && !isUtcIsoTimestamp(value.reviewedAt)) {
+    errors.push(
+      diagnostic(
+        'error',
+        'FACT_INTAKE_OPTIONS_INVALID',
+        'options.reviewedAt',
+        'reviewedAt 必须是可解析的 UTC ISO timestamp。',
+      ),
+    );
+  }
+  const validLicenseStatuses = new Set(['approved', 'reference-only', 'needs-review']);
+  if (
+    value.licenseStatus !== undefined &&
+    !validLicenseStatuses.has(value.licenseStatus as string)
+  ) {
+    errors.push(
+      diagnostic(
+        'error',
+        'FACT_INTAKE_OPTIONS_INVALID',
+        'options.licenseStatus',
+        'licenseStatus 必须是 approved、reference-only 或 needs-review。',
+      ),
+    );
+  }
+  if (value.requireApproved !== undefined && typeof value.requireApproved !== 'boolean') {
+    errors.push(
+      diagnostic(
+        'error',
+        'FACT_INTAKE_OPTIONS_INVALID',
+        'options.requireApproved',
+        'requireApproved 必须是布尔值。',
+      ),
+    );
+  }
+  if (
+    value.fightId !== undefined &&
+    (!Number.isInteger(value.fightId) || (value.fightId as number) <= 0)
+  ) {
+    errors.push(
+      diagnostic(
+        'error',
+        'FACT_INTAKE_OPTIONS_INVALID',
+        'options.fightId',
+        'fightId 必须是正整数。',
+      ),
+    );
+  }
+  if (value.document !== undefined) {
+    if (!isRecord(value.document)) {
+      errors.push(
+        diagnostic(
+          'error',
+          'FACT_INTAKE_OPTIONS_INVALID',
+          'options.document',
+          'document 若提供则必须是对象。',
+        ),
+      );
+    } else {
+      for (const field of ['id', 'season'] as const) {
+        if (!nonEmptyString(value.document[field])) {
+          errors.push(
+            diagnostic(
+              'error',
+              'FACT_INTAKE_OPTIONS_INVALID',
+              `options.document.${field}`,
+              `document.${field} 必须是非空字符串。`,
+            ),
+          );
+        }
+      }
+      const version = value.document.version;
+      const revision = isRecord(version) ? version.revision : undefined;
+      if (
+        !isRecord(version) ||
+        !nonEmptyString(version.season) ||
+        !nonEmptyString(version.build) ||
+        typeof revision !== 'number' ||
+        !Number.isInteger(revision) ||
+        revision <= 0 ||
+        !['draft', 'reviewed', 'published', 'stale'].includes(String(version.status))
+      ) {
+        errors.push(
+          diagnostic(
+            'error',
+            'FACT_INTAKE_OPTIONS_INVALID',
+            'options.document.version',
+            'document.version 必须包含 season、build、正整数 revision 和合法 status。',
+          ),
+        );
+      }
+      for (const field of [
+        'floors',
+        'spawns',
+        'enemies',
+        'abilities',
+        'situations',
+        'routes',
+        'bosses',
+      ] as const) {
+        if (!Array.isArray(value.document[field])) {
+          errors.push(
+            diagnostic(
+              'error',
+              'FACT_INTAKE_OPTIONS_INVALID',
+              `options.document.${field}`,
+              `document.${field} 必须是数组。`,
+            ),
+          );
+        }
+      }
+    }
+  }
+  return errors;
+}
 
 function readSourceCode(
   value: unknown,
@@ -321,6 +491,10 @@ export async function buildFactIntakeBundle(
 ): Promise<FactIntakeBundleResult> {
   const errors: FactIntakeDiagnostic[] = [];
   const warnings: FactIntakeDiagnostic[] = [];
+  const optionsValidationErrors = validateBundleOptions(options);
+  if (optionsValidationErrors.length > 0) {
+    return { ok: false, errors: optionsValidationErrors, warnings };
+  }
   const sourceValidationErrors = validateSource(source, options.reportCode, options.fightId);
   if (sourceValidationErrors.length > 0) {
     if (isRecord(source) && Array.isArray(source.errors))
