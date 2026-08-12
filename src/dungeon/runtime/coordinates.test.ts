@@ -36,13 +36,13 @@ describe('coordinate references', () => {
     const entry = season2DungeonCatalog.find((candidate) => candidate.id === 'ruby-life-pools')!;
     const reference = getCoordinateReference(entry)!;
     expect(reference.snapshot.snapshotId).toBe(
-      'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+      'threechest-coordinate-snapshot-2026-08-12-rlp-s2',
     );
     expect(reference.snapshot.dungeonKey).toBe('rlp');
-    expect(reference.spawns).toHaveLength(166);
+    expect(reference.spawns).toHaveLength(150);
     expect(reference.floor.id).toBe('ruby-life-pools:default');
     expect(reference.spawns[0]?.id).toBe('spawn-1');
-    expect(reference.spawns[165]?.id).toBe('spawn-166');
+    expect(reference.spawns[149]?.id).toBe('spawn-150');
     expect(
       getCoordinateReference({ ...entry, coordinateIdentityRegistryKey: 'missing-registry' }),
     ).toBeUndefined();
@@ -79,7 +79,7 @@ describe('coordinate references', () => {
       'den-of-nalorakk': 116,
       'the-blinding-vale': 276,
       'voidscar-arena': 218,
-      'ruby-life-pools': 166,
+      'ruby-life-pools': 150,
       'kings-rest': 101,
       'temple-of-sethraliss': 128,
     };

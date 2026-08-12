@@ -157,7 +157,7 @@ describe('dungeon content operations', () => {
       'den-of-nalorakk': 116,
       'the-blinding-vale': 276,
       'voidscar-arena': 218,
-      'ruby-life-pools': 166,
+      'ruby-life-pools': 150,
       'kings-rest': 101,
       'temple-of-sethraliss': 128,
     };

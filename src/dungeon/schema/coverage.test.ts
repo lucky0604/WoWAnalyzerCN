@@ -12,7 +12,22 @@ describe('dungeon content coverage', () => {
     expect(coverage.route.pullsWithSituation).toBe(5);
     expect(coverage.uncoveredSituationIds).toEqual(['rlp-situation-hatchery-transition']);
     expect(coverage.incompleteSituationIds).toEqual([]);
-    expect(coverage.uncoveredDecisionCriticalAbilityIds).toEqual([]);
+    expect(coverage.uncoveredDecisionCriticalAbilityIds).toEqual(
+      expect.arrayContaining([
+        'rlp-ability-steel-barrage',
+        'rlp-ability-living-bomb',
+        'rlp-ability-fire-maw',
+        'rlp-ability-lightning-rod',
+      ]),
+    );
+    expect(coverage.uncoveredDecisionCriticalAbilityIds).not.toEqual(
+      expect.arrayContaining([
+        'rlp-ability-ice-bulwark',
+        'rlp-ability-roaring-firebreath',
+        'rlp-ability-scorched-earth',
+        'rlp-ability-interrupting-cloudburst',
+      ]),
+    );
     expect(
       coverage.abilities.find((entry) => entry.ability.id === 'rlp-ability-hailbombs'),
     ).toMatchObject({ hasLearningSurface: true });

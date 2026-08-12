@@ -1,8 +1,8 @@
 {
   "source": "threechest",
-  "snapshotId": "threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr",
-  "retrievedAt": "2026-08-11",
-  "rawSha256": "2f0736b96608b8899b823a902c755563de245f484ebf2c8c439b9d08d226c60a",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-12-rlp-s2",
+  "retrievedAt": "2026-08-12",
+  "rawSha256": "2dd1303529cba98420fc9c0114125458249e7721d0b2ff0bec7c754d799e18b6",
   "transformVersion": "threechest-yx-to-normalized-v1",
   "dungeonKey": "rlp",
   "dungeonIndex": 42,
@@ -14,7 +14,10 @@
       "sourceEnemyId": 188244,
       "sourceEnemyIndex": 1,
       "floorId": "default",
-      "position": [46.13, -211.78],
+      "position": [
+        46.13,
+        -211.78
+      ],
       "groupId": "rlp:group:32"
     },
     {
@@ -22,14 +25,20 @@
       "sourceEnemyId": 188244,
       "sourceEnemyIndex": 1,
       "floorId": "default",
-      "position": [63.22, -85.29]
+      "position": [
+        63.22,
+        -85.29
+      ]
     },
     {
       "sourceId": "rlp:2-1",
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [59.91, -171.33],
+      "position": [
+        59.91,
+        -171.33
+      ],
       "groupId": "rlp:group:1"
     },
     {
@@ -37,7 +46,10 @@
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [47.77, -159.05],
+      "position": [
+        47.77,
+        -159.05
+      ],
       "groupId": "rlp:group:2"
     },
     {
@@ -45,7 +57,10 @@
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [53.63, -154.99],
+      "position": [
+        53.63,
+        -154.99
+      ],
       "groupId": "rlp:group:2"
     },
     {
@@ -53,7 +68,10 @@
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [28.73, -123.42],
+      "position": [
+        28.73,
+        -123.42
+      ],
       "groupId": "rlp:group:6"
     },
     {
@@ -61,7 +79,10 @@
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [56.87, -66.07],
+      "position": [
+        56.87,
+        -66.07
+      ],
       "groupId": "rlp:group:12"
     },
     {
@@ -69,7 +90,10 @@
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [68.53, -58.9],
+      "position": [
+        68.53,
+        -58.9
+      ],
       "groupId": "rlp:group:34"
     },
     {
@@ -77,7 +101,10 @@
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [91.81, -60.7],
+      "position": [
+        91.81,
+        -60.7
+      ],
       "groupId": "rlp:group:33"
     },
     {
@@ -85,7 +112,10 @@
       "sourceEnemyId": 187969,
       "sourceEnemyIndex": 2,
       "floorId": "default",
-      "position": [42.66, -218.8],
+      "position": [
+        42.66,
+        -218.8
+      ],
       "groupId": "rlp:group:32"
     },
     {
@@ -93,7 +123,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [63.82, -167.29],
+      "position": [
+        63.82,
+        -167.29
+      ],
       "groupId": "rlp:group:1"
     },
     {
@@ -101,7 +134,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [36.8, -138.7],
+      "position": [
+        36.8,
+        -138.7
+      ],
       "groupId": "rlp:group:3"
     },
     {
@@ -109,7 +145,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [32.73, -134.33],
+      "position": [
+        32.73,
+        -134.33
+      ],
       "groupId": "rlp:group:3"
     },
     {
@@ -117,7 +156,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [21.81, -120.31],
+      "position": [
+        21.81,
+        -120.31
+      ],
       "groupId": "rlp:group:6"
     },
     {
@@ -125,7 +167,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [52.21, -118.49],
+      "position": [
+        52.21,
+        -118.49
+      ],
       "groupId": "rlp:group:7"
     },
     {
@@ -133,7 +178,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [52.4, -123.9],
+      "position": [
+        52.4,
+        -123.9
+      ],
       "groupId": "rlp:group:7"
     },
     {
@@ -141,7 +189,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [53.69, -68.93],
+      "position": [
+        53.69,
+        -68.93
+      ],
       "groupId": "rlp:group:12"
     },
     {
@@ -149,7 +200,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [50.36, -218.63],
+      "position": [
+        50.36,
+        -218.63
+      ],
       "groupId": "rlp:group:32"
     },
     {
@@ -157,7 +211,10 @@
       "sourceEnemyId": 188011,
       "sourceEnemyIndex": 3,
       "floorId": "default",
-      "position": [73, -55.88],
+      "position": [
+        73,
+        -55.88
+      ],
       "groupId": "rlp:group:34"
     },
     {
@@ -165,7 +222,10 @@
       "sourceEnemyId": 188067,
       "sourceEnemyIndex": 4,
       "floorId": "default",
-      "position": [46.95, -152.77],
+      "position": [
+        46.95,
+        -152.77
+      ],
       "groupId": "rlp:group:2"
     },
     {
@@ -173,7 +233,10 @@
       "sourceEnemyId": 188067,
       "sourceEnemyIndex": 4,
       "floorId": "default",
-      "position": [46.77, -122.1],
+      "position": [
+        46.77,
+        -122.1
+      ],
       "groupId": "rlp:group:7"
     },
     {
@@ -181,21 +244,30 @@
       "sourceEnemyId": 188067,
       "sourceEnemyIndex": 4,
       "floorId": "default",
-      "position": [51.74, -90.38]
+      "position": [
+        51.74,
+        -90.38
+      ]
     },
     {
       "sourceId": "rlp:4-7",
       "sourceEnemyId": 188067,
       "sourceEnemyIndex": 4,
       "floorId": "default",
-      "position": [60.4, -95.85]
+      "position": [
+        60.4,
+        -95.85
+      ]
     },
     {
       "sourceId": "rlp:4-8",
       "sourceEnemyId": 188067,
       "sourceEnemyIndex": 4,
       "floorId": "default",
-      "position": [58.64, -71.1],
+      "position": [
+        58.64,
+        -71.1
+      ],
       "groupId": "rlp:group:12"
     },
     {
@@ -203,7 +275,10 @@
       "sourceEnemyId": 188067,
       "sourceEnemyIndex": 4,
       "floorId": "default",
-      "position": [85.48, -59.08],
+      "position": [
+        85.48,
+        -59.08
+      ],
       "groupId": "rlp:group:33",
       "patrol": []
     },
@@ -212,7 +287,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [27.33, -100.28],
+      "position": [
+        27.33,
+        -100.28
+      ],
       "groupId": "rlp:group:8"
     },
     {
@@ -220,7 +298,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [25.62, -103.54],
+      "position": [
+        25.62,
+        -103.54
+      ],
       "groupId": "rlp:group:8"
     },
     {
@@ -228,7 +309,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [29.2, -102.96],
+      "position": [
+        29.2,
+        -102.96
+      ],
       "groupId": "rlp:group:8"
     },
     {
@@ -236,7 +320,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [35.78, -83.91],
+      "position": [
+        35.78,
+        -83.91
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -244,7 +331,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [38.36, -80.82],
+      "position": [
+        38.36,
+        -80.82
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -252,7 +342,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [43.18, -74.45],
+      "position": [
+        43.18,
+        -74.45
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -260,7 +353,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [36.59, -89.61],
+      "position": [
+        36.59,
+        -89.61
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -268,7 +364,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [33.06, -87.32],
+      "position": [
+        33.06,
+        -87.32
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -276,7 +375,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [46.29, -76.89],
+      "position": [
+        46.29,
+        -76.89
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -284,7 +386,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [38.56, -86.09],
+      "position": [
+        38.56,
+        -86.09
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -292,7 +397,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [44.92, -83.76],
+      "position": [
+        44.92,
+        -83.76
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -300,7 +408,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [40.92, -82.97],
+      "position": [
+        40.92,
+        -82.97
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -308,7 +419,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [40.24, -89.33],
+      "position": [
+        40.24,
+        -89.33
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -316,7 +430,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [47.32, -80.68],
+      "position": [
+        47.32,
+        -80.68
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -324,7 +441,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [43.3, -79.81],
+      "position": [
+        43.3,
+        -79.81
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -332,7 +452,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [42.79, -86.3],
+      "position": [
+        42.79,
+        -86.3
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -340,7 +463,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [65.27, -105.37],
+      "position": [
+        65.27,
+        -105.37
+      ],
       "groupId": "rlp:group:11"
     },
     {
@@ -348,7 +474,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [70.68, -96.55],
+      "position": [
+        70.68,
+        -96.55
+      ],
       "groupId": "rlp:group:11"
     },
     {
@@ -356,7 +485,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [67.54, -98.75],
+      "position": [
+        67.54,
+        -98.75
+      ],
       "groupId": "rlp:group:11"
     },
     {
@@ -364,7 +496,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [68.32, -103.01],
+      "position": [
+        68.32,
+        -103.01
+      ],
       "groupId": "rlp:group:11"
     },
     {
@@ -372,7 +507,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [73.92, -98.69],
+      "position": [
+        73.92,
+        -98.69
+      ],
       "groupId": "rlp:group:11"
     },
     {
@@ -380,7 +518,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [64.85, -101.24],
+      "position": [
+        64.85,
+        -101.24
+      ],
       "groupId": "rlp:group:11"
     },
     {
@@ -388,7 +529,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [71.09, -101.04],
+      "position": [
+        71.09,
+        -101.04
+      ],
       "groupId": "rlp:group:11"
     },
     {
@@ -396,7 +540,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [53.33, -135.67],
+      "position": [
+        53.33,
+        -135.67
+      ],
       "groupId": "rlp:group:5"
     },
     {
@@ -404,7 +551,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [57.1, -136.55],
+      "position": [
+        57.1,
+        -136.55
+      ],
       "groupId": "rlp:group:5"
     },
     {
@@ -412,7 +562,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [52.59, -139.46],
+      "position": [
+        52.59,
+        -139.46
+      ],
       "groupId": "rlp:group:5"
     },
     {
@@ -420,7 +573,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [56.22, -140.59],
+      "position": [
+        56.22,
+        -140.59
+      ],
       "groupId": "rlp:group:5"
     },
     {
@@ -428,7 +584,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [58.15, -132.62],
+      "position": [
+        58.15,
+        -132.62
+      ],
       "groupId": "rlp:group:5"
     },
     {
@@ -436,7 +595,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [54.5, -131.8],
+      "position": [
+        54.5,
+        -131.8
+      ],
       "groupId": "rlp:group:5"
     },
     {
@@ -444,7 +606,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [25.7, -151.2],
+      "position": [
+        25.7,
+        -151.2
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -452,7 +617,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [15.07, -150.9],
+      "position": [
+        15.07,
+        -150.9
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -460,7 +628,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [18.86, -146.76],
+      "position": [
+        18.86,
+        -146.76
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -468,7 +639,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [18.85, -151.17],
+      "position": [
+        18.85,
+        -151.17
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -476,7 +650,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [22.33, -146.83],
+      "position": [
+        22.33,
+        -146.83
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -484,7 +661,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [15.1, -146.77],
+      "position": [
+        15.1,
+        -146.77
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -492,7 +672,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [26.14, -147.32],
+      "position": [
+        26.14,
+        -147.32
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -500,7 +683,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [22.82, -143.11],
+      "position": [
+        22.82,
+        -143.11
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -508,7 +694,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [23.03, -138.8],
+      "position": [
+        23.03,
+        -138.8
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -516,7 +705,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [19.18, -138.51],
+      "position": [
+        19.18,
+        -138.51
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -524,7 +716,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [15.23, -142.41],
+      "position": [
+        15.23,
+        -142.41
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -532,7 +727,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [15.56, -138.16],
+      "position": [
+        15.56,
+        -138.16
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -540,7 +738,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [18.97, -142.52],
+      "position": [
+        18.97,
+        -142.52
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -548,7 +749,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [22.3, -150.95],
+      "position": [
+        22.3,
+        -150.95
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -556,7 +760,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [26.32, -143.59],
+      "position": [
+        26.32,
+        -143.59
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -564,7 +771,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [26.73, -139.39],
+      "position": [
+        26.73,
+        -139.39
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -572,7 +782,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [30.1, -145.77],
+      "position": [
+        30.1,
+        -145.77
+      ],
       "groupId": "rlp:group:4"
     },
     {
@@ -580,7 +793,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [40.72, -77.43],
+      "position": [
+        40.72,
+        -77.43
+      ],
       "groupId": "rlp:group:10"
     },
     {
@@ -588,7 +804,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [96.85, -78.25],
+      "position": [
+        96.85,
+        -78.25
+      ],
       "groupId": "rlp:group:13"
     },
     {
@@ -596,7 +815,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [95.32, -74.38],
+      "position": [
+        95.32,
+        -74.38
+      ],
       "groupId": "rlp:group:13"
     },
     {
@@ -604,7 +826,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [93, -77.46],
+      "position": [
+        93,
+        -77.46
+      ],
       "groupId": "rlp:group:13"
     },
     {
@@ -612,7 +837,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [24.3, -106.72],
+      "position": [
+        24.3,
+        -106.72
+      ],
       "groupId": "rlp:group:8"
     },
     {
@@ -620,7 +848,10 @@
       "sourceEnemyId": 187894,
       "sourceEnemyIndex": 5,
       "floorId": "default",
-      "position": [27.77, -105.82],
+      "position": [
+        27.77,
+        -105.82
+      ],
       "groupId": "rlp:group:8"
     },
     {
@@ -628,201 +859,72 @@
       "sourceEnemyId": 187897,
       "sourceEnemyIndex": 6,
       "floorId": "default",
-      "position": [85.9, -87.93]
+      "position": [
+        85.9,
+        -87.93
+      ]
     },
     {
       "sourceId": "rlp:7-1",
       "sourceEnemyId": 188252,
       "sourceEnemyIndex": 7,
       "floorId": "default",
-      "position": [128.72, -132.97]
-    },
-    {
-      "sourceId": "rlp:8-1",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [225.23, -135.23]
-    },
-    {
-      "sourceId": "rlp:8-2",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [228.95, -133.12]
-    },
-    {
-      "sourceId": "rlp:8-3",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [228.7, -138.16]
-    },
-    {
-      "sourceId": "rlp:8-4",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [208.65, -151.85]
-    },
-    {
-      "sourceId": "rlp:8-5",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [212.03, -163.91]
-    },
-    {
-      "sourceId": "rlp:8-6",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [236.17, -184.99]
-    },
-    {
-      "sourceId": "rlp:8-7",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [239.24, -209.95]
-    },
-    {
-      "sourceId": "rlp:8-8",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [243.79, -213.63]
-    },
-    {
-      "sourceId": "rlp:8-9",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [254.93, -198.7]
-    },
-    {
-      "sourceId": "rlp:8-10",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [280.23, -206.1]
-    },
-    {
-      "sourceId": "rlp:8-11",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [287.37, -210.48]
-    },
-    {
-      "sourceId": "rlp:8-12",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [292.59, -204.46]
-    },
-    {
-      "sourceId": "rlp:8-13",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [350.63, -148.27]
-    },
-    {
-      "sourceId": "rlp:8-14",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [354.22, -139.69]
-    },
-    {
-      "sourceId": "rlp:8-15",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [347.97, -138.77]
-    },
-    {
-      "sourceId": "rlp:8-16",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [327.04, -104.17],
-      "groupId": "rlp:group:18"
-    },
-    {
-      "sourceId": "rlp:8-17",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [309.53, -108.87],
-      "groupId": "rlp:group:18"
-    },
-    {
-      "sourceId": "rlp:8-18",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [324.55, -99.77],
-      "groupId": "rlp:group:18"
-    },
-    {
-      "sourceId": "rlp:8-19",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [305.9, -103.62],
-      "groupId": "rlp:group:18"
-    },
-    {
-      "sourceId": "rlp:8-20",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [317.04, -95.56],
-      "groupId": "rlp:group:18"
-    },
-    {
-      "sourceId": "rlp:8-21",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [270.74, -90.14]
+      "position": [
+        128.72,
+        -132.97
+      ]
     },
     {
       "sourceId": "rlp:8-22",
       "sourceEnemyId": 190205,
       "sourceEnemyIndex": 8,
       "floorId": "default",
-      "position": [248.26, -107.88]
-    },
-    {
-      "sourceId": "rlp:8-23",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [254.61, -109.18]
-    },
-    {
-      "sourceId": "rlp:8-24",
-      "sourceEnemyId": 190205,
-      "sourceEnemyIndex": 8,
-      "floorId": "default",
-      "position": [251.36, -114.43]
+      "position": [
+        240.39,
+        -95.12
+      ]
     },
     {
       "sourceId": "rlp:9-1",
       "sourceEnemyId": 197698,
       "sourceEnemyIndex": 9,
       "floorId": "default",
-      "position": [219.37, -142.89]
+      "position": [
+        219.37,
+        -142.89
+      ]
+    },
+    {
+      "sourceId": "rlp:10-1",
+      "sourceEnemyId": 190207,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [
+        335.32,
+        -126.04
+      ],
+      "groupId": "rlp:group:17"
+    },
+    {
+      "sourceId": "rlp:10-2",
+      "sourceEnemyId": 190207,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [
+        360.61,
+        -175.39
+      ],
+      "groupId": "rlp:group:38"
     },
     {
       "sourceId": "rlp:10-3",
       "sourceEnemyId": 190207,
       "sourceEnemyIndex": 10,
       "floorId": "default",
-      "position": [228.02, -193.76],
+      "position": [
+        228.02,
+        -193.76
+      ],
       "groupId": "rlp:group:15"
     },
     {
@@ -830,15 +932,43 @@
       "sourceEnemyId": 190207,
       "sourceEnemyIndex": 10,
       "floorId": "default",
-      "position": [264.63, -215.34],
+      "position": [
+        264.63,
+        -215.34
+      ],
       "groupId": "rlp:group:16"
+    },
+    {
+      "sourceId": "rlp:10-5",
+      "sourceEnemyId": 190207,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [
+        301.15,
+        -229.88
+      ],
+      "groupId": "rlp:group:39"
+    },
+    {
+      "sourceId": "rlp:10-6",
+      "sourceEnemyId": 190207,
+      "sourceEnemyIndex": 10,
+      "floorId": "default",
+      "position": [
+        216.7,
+        -175
+      ],
+      "groupId": "rlp:group:14"
     },
     {
       "sourceId": "rlp:10-7",
       "sourceEnemyId": 190207,
       "sourceEnemyIndex": 10,
       "floorId": "default",
-      "position": [260.94, -104.83],
+      "position": [
+        260.94,
+        -104.83
+      ],
       "groupId": "rlp:group:20"
     },
     {
@@ -846,7 +976,10 @@
       "sourceEnemyId": 190207,
       "sourceEnemyIndex": 10,
       "floorId": "default",
-      "position": [154.46, -39.26],
+      "position": [
+        154.46,
+        -39.26
+      ],
       "groupId": "rlp:group:25"
     },
     {
@@ -854,7 +987,10 @@
       "sourceEnemyId": 190207,
       "sourceEnemyIndex": 10,
       "floorId": "default",
-      "position": [318.66, -101.42],
+      "position": [
+        318.66,
+        -101.42
+      ],
       "groupId": "rlp:group:36"
     },
     {
@@ -862,7 +998,10 @@
       "sourceEnemyId": 190034,
       "sourceEnemyIndex": 11,
       "floorId": "default",
-      "position": [224.11, -176.07],
+      "position": [
+        224.11,
+        -176.07
+      ],
       "groupId": "rlp:group:14"
     },
     {
@@ -870,7 +1009,10 @@
       "sourceEnemyId": 190034,
       "sourceEnemyIndex": 11,
       "floorId": "default",
-      "position": [260.13, -209.33],
+      "position": [
+        261.19,
+        -208.7
+      ],
       "groupId": "rlp:group:16"
     },
     {
@@ -878,7 +1020,10 @@
       "sourceEnemyId": 190034,
       "sourceEnemyIndex": 11,
       "floorId": "default",
-      "position": [328.76, -128.21],
+      "position": [
+        328.76,
+        -128.21
+      ],
       "groupId": "rlp:group:17"
     },
     {
@@ -886,7 +1031,10 @@
       "sourceEnemyId": 190034,
       "sourceEnemyIndex": 11,
       "floorId": "default",
-      "position": [288.83, -92.09],
+      "position": [
+        288.83,
+        -92.09
+      ],
       "groupId": "rlp:group:19"
     },
     {
@@ -894,7 +1042,10 @@
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [229.22, -198.44],
+      "position": [
+        229.22,
+        -198.44
+      ],
       "groupId": "rlp:group:15"
     },
     {
@@ -902,7 +1053,10 @@
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [233.17, -194.89],
+      "position": [
+        233.17,
+        -194.89
+      ],
       "groupId": "rlp:group:15"
     },
     {
@@ -910,7 +1064,10 @@
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [256.93, -215.13],
+      "position": [
+        256.93,
+        -215.13
+      ],
       "groupId": "rlp:group:16"
     },
     {
@@ -918,7 +1075,10 @@
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [335.48, -128.43],
+      "position": [
+        335.08,
+        -131.62
+      ],
       "groupId": "rlp:group:17"
     },
     {
@@ -926,7 +1086,10 @@
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [261.19, -99.68],
+      "position": [
+        261.19,
+        -99.68
+      ],
       "groupId": "rlp:group:20"
     },
     {
@@ -934,7 +1097,10 @@
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [141.95, -53.37],
+      "position": [
+        141.95,
+        -53.37
+      ],
       "groupId": "rlp:group:29"
     },
     {
@@ -942,65 +1108,103 @@
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [333.39, -122.66],
-      "groupId": "rlp:group:17"
+      "position": [
+        355.02,
+        -175.39
+      ],
+      "groupId": "rlp:group:38"
     },
     {
       "sourceId": "rlp:12-9",
       "sourceEnemyId": 190206,
       "sourceEnemyIndex": 12,
       "floorId": "default",
-      "position": [313.61, -104.61],
+      "position": [
+        313.61,
+        -104.61
+      ],
       "groupId": "rlp:group:36"
+    },
+    {
+      "sourceId": "rlp:12-10",
+      "sourceEnemyId": 190206,
+      "sourceEnemyIndex": 12,
+      "floorId": "default",
+      "position": [
+        300.3,
+        -223.93
+      ],
+      "groupId": "rlp:group:39"
     },
     {
       "sourceId": "rlp:13-1",
       "sourceEnemyId": 195119,
       "sourceEnemyIndex": 13,
       "floorId": "default",
-      "position": [241.1, -154.97]
+      "position": [
+        241.1,
+        -154.97
+      ]
     },
     {
       "sourceId": "rlp:13-2",
       "sourceEnemyId": 195119,
       "sourceEnemyIndex": 13,
       "floorId": "default",
-      "position": [262.83, -190.09]
+      "position": [
+        294.21,
+        -200.2
+      ]
     },
     {
       "sourceId": "rlp:13-3",
       "sourceEnemyId": 195119,
       "sourceEnemyIndex": 13,
       "floorId": "default",
-      "position": [311.35, -126.84]
+      "position": [
+        327.44,
+        -163
+      ]
     },
     {
       "sourceId": "rlp:13-4",
       "sourceEnemyId": 195119,
       "sourceEnemyIndex": 13,
       "floorId": "default",
-      "position": [269.71, -118.08]
+      "position": [
+        269.71,
+        -118.08
+      ]
     },
     {
       "sourceId": "rlp:14-1",
       "sourceEnemyId": 197697,
       "sourceEnemyIndex": 14,
       "floorId": "default",
-      "position": [334.71, -183.28]
+      "position": [
+        342.28,
+        -152.7
+      ]
     },
     {
       "sourceId": "rlp:15-1",
       "sourceEnemyId": 189232,
       "sourceEnemyIndex": 15,
       "floorId": "default",
-      "position": [219.62, -106.58]
+      "position": [
+        219.62,
+        -106.58
+      ]
     },
     {
       "sourceId": "rlp:16-1",
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [202.94, -90.94],
+      "position": [
+        202.94,
+        -90.94
+      ],
       "groupId": "rlp:group:21"
     },
     {
@@ -1008,7 +1212,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [198.77, -94.9],
+      "position": [
+        198.77,
+        -94.9
+      ],
       "groupId": "rlp:group:21"
     },
     {
@@ -1016,7 +1223,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [163.06, -64.49],
+      "position": [
+        163.06,
+        -64.49
+      ],
       "groupId": "rlp:group:24",
       "patrol": []
     },
@@ -1025,7 +1235,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [166.44, -61.23],
+      "position": [
+        166.44,
+        -61.23
+      ],
       "groupId": "rlp:group:24"
     },
     {
@@ -1033,7 +1246,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [149.95, -36.26],
+      "position": [
+        149.95,
+        -36.26
+      ],
       "groupId": "rlp:group:25"
     },
     {
@@ -1041,7 +1257,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [131.18, -38.93],
+      "position": [
+        131.18,
+        -38.93
+      ],
       "groupId": "rlp:group:27"
     },
     {
@@ -1049,7 +1268,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [135.13, -35.23],
+      "position": [
+        135.13,
+        -35.23
+      ],
       "groupId": "rlp:group:27"
     },
     {
@@ -1057,7 +1279,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [136.84, -53.58],
+      "position": [
+        136.84,
+        -53.58
+      ],
       "groupId": "rlp:group:29"
     },
     {
@@ -1065,7 +1290,10 @@
       "sourceEnemyId": 197982,
       "sourceEnemyIndex": 16,
       "floorId": "default",
-      "position": [140.02, -58.24],
+      "position": [
+        140.02,
+        -58.24
+      ],
       "groupId": "rlp:group:29"
     },
     {
@@ -1073,7 +1301,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [197.31, -89.56],
+      "position": [
+        197.31,
+        -89.56
+      ],
       "groupId": "rlp:group:21"
     },
     {
@@ -1081,7 +1312,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [184.6, -82.92],
+      "position": [
+        184.6,
+        -82.92
+      ],
       "groupId": "rlp:group:22"
     },
     {
@@ -1089,7 +1323,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [188.04, -79.46],
+      "position": [
+        188.04,
+        -79.46
+      ],
       "groupId": "rlp:group:22"
     },
     {
@@ -1097,7 +1334,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [173.22, -76.99],
+      "position": [
+        173.22,
+        -76.99
+      ],
       "groupId": "rlp:group:23"
     },
     {
@@ -1105,7 +1345,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [180.93, -76.62],
+      "position": [
+        180.93,
+        -76.62
+      ],
       "groupId": "rlp:group:23"
     },
     {
@@ -1113,7 +1356,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [181.35, -69.03],
+      "position": [
+        181.35,
+        -69.03
+      ],
       "groupId": "rlp:group:23"
     },
     {
@@ -1121,7 +1367,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [117.29, -46.67],
+      "position": [
+        117.29,
+        -46.67
+      ],
       "groupId": "rlp:group:26"
     },
     {
@@ -1129,7 +1378,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [115.52, -49.25],
+      "position": [
+        115.52,
+        -49.25
+      ],
       "groupId": "rlp:group:26"
     },
     {
@@ -1137,7 +1389,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [114.68, -44.87],
+      "position": [
+        114.68,
+        -44.87
+      ],
       "groupId": "rlp:group:26"
     },
     {
@@ -1145,7 +1400,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [113.21, -47.58],
+      "position": [
+        113.21,
+        -47.58
+      ],
       "groupId": "rlp:group:26"
     },
     {
@@ -1153,7 +1411,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [135.54, -30.64],
+      "position": [
+        135.54,
+        -30.64
+      ],
       "groupId": "rlp:group:27"
     },
     {
@@ -1161,7 +1422,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [126.4, -38.24],
+      "position": [
+        126.4,
+        -38.24
+      ],
       "groupId": "rlp:group:27"
     },
     {
@@ -1169,7 +1433,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [127.86, -41.6],
+      "position": [
+        127.86,
+        -41.6
+      ],
       "groupId": "rlp:group:27"
     },
     {
@@ -1177,7 +1444,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [163.65, -29.53],
+      "position": [
+        163.65,
+        -29.53
+      ],
       "groupId": "rlp:group:35"
     },
     {
@@ -1185,7 +1455,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [162.91, -32.9],
+      "position": [
+        162.91,
+        -32.9
+      ],
       "groupId": "rlp:group:35"
     },
     {
@@ -1193,7 +1466,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [151.24, -22.7],
+      "position": [
+        151.24,
+        -22.7
+      ],
       "groupId": "rlp:group:28"
     },
     {
@@ -1201,7 +1477,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [159.51, -32.51],
+      "position": [
+        159.51,
+        -32.51
+      ],
       "groupId": "rlp:group:35"
     },
     {
@@ -1209,7 +1488,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [148.17, -22.18],
+      "position": [
+        148.17,
+        -22.18
+      ],
       "groupId": "rlp:group:28"
     },
     {
@@ -1217,7 +1499,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [150.98, -19.6],
+      "position": [
+        150.98,
+        -19.6
+      ],
       "groupId": "rlp:group:28"
     },
     {
@@ -1225,7 +1510,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [139, -32.33],
+      "position": [
+        139,
+        -32.33
+      ],
       "groupId": "rlp:group:27"
     },
     {
@@ -1233,7 +1521,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [146.86, -38.85],
+      "position": [
+        146.86,
+        -38.85
+      ],
       "groupId": "rlp:group:25"
     },
     {
@@ -1241,7 +1532,10 @@
       "sourceEnemyId": 197509,
       "sourceEnemyIndex": 17,
       "floorId": "default",
-      "position": [159.82, -28.99],
+      "position": [
+        159.82,
+        -28.99
+      ],
       "groupId": "rlp:group:35"
     },
     {
@@ -1249,7 +1543,10 @@
       "sourceEnemyId": 198047,
       "sourceEnemyIndex": 18,
       "floorId": "default",
-      "position": [177.18, -72.51],
+      "position": [
+        177.18,
+        -72.51
+      ],
       "groupId": "rlp:group:23"
     },
     {
@@ -1257,7 +1554,10 @@
       "sourceEnemyId": 198047,
       "sourceEnemyIndex": 18,
       "floorId": "default",
-      "position": [150.02, -41.96],
+      "position": [
+        150.02,
+        -41.96
+      ],
       "groupId": "rlp:group:25"
     },
     {
@@ -1265,7 +1565,10 @@
       "sourceEnemyId": 197535,
       "sourceEnemyIndex": 19,
       "floorId": "default",
-      "position": [129, -32.66],
+      "position": [
+        129,
+        -32.66
+      ],
       "groupId": "rlp:group:27"
     },
     {
@@ -1273,7 +1576,10 @@
       "sourceEnemyId": 190485,
       "sourceEnemyIndex": 20,
       "floorId": "default",
-      "position": [116.75, -9.79],
+      "position": [
+        116.75,
+        -9.79
+      ],
       "groupId": "rlp:group:30"
     },
     {
@@ -1281,7 +1587,10 @@
       "sourceEnemyId": 190484,
       "sourceEnemyIndex": 21,
       "floorId": "default",
-      "position": [103.64, -22.54],
+      "position": [
+        103.64,
+        -22.54
+      ],
       "groupId": "rlp:group:30"
     },
     {
@@ -1289,21 +1598,50 @@
       "sourceEnemyId": 189886,
       "sourceEnemyIndex": 22,
       "floorId": "default",
-      "position": [171.95, -125.78]
+      "position": [
+        230.02,
+        -101.32
+      ]
+    },
+    {
+      "sourceId": "rlp:22-2",
+      "sourceEnemyId": 189886,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [
+        230.53,
+        -109.48
+      ]
+    },
+    {
+      "sourceId": "rlp:22-3",
+      "sourceEnemyId": 189886,
+      "sourceEnemyIndex": 22,
+      "floorId": "default",
+      "position": [
+        226.27,
+        -116.71
+      ]
     },
     {
       "sourceId": "rlp:23-1",
       "sourceEnemyId": 189893,
       "sourceEnemyIndex": 23,
       "floorId": "default",
-      "position": [154.72, -110.89]
+      "position": [
+        154.72,
+        -110.89
+      ]
     },
     {
       "sourceId": "rlp:24-1",
       "sourceEnemyId": 194622,
       "sourceEnemyIndex": 24,
       "floorId": "default",
-      "position": [109.84, -91.53]
+      "position": [
+        236.63,
+        -91.53
+      ]
     }
   ]
 }

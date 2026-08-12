@@ -41,7 +41,7 @@ describe('dungeon coordinate reference route', () => {
 
     expect(screen.getByRole('heading', { name: '红玉新生法池' })).toBeInTheDocument();
     expect(screen.getByText('位置数量')).toBeInTheDocument();
-    expect(screen.getByText('166')).toBeInTheDocument();
+    expect(screen.getByText('150')).toBeInTheDocument();
     expect(screen.getByText('正式攻略会在内容审校完成后单独开放。')).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: '开始学习' })).not.toBeInTheDocument();
   });

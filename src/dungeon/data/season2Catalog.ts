@@ -228,7 +228,7 @@ export const season2DungeonCatalog: readonly DungeonCatalogEntry[] = [
     season: 'midnight-s2',
     status: 'coordinate-ready',
     updatedAt: catalogUpdatedAt,
-    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+    coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-12-rlp-s2',
     coordinateSourceId: 'threechest',
     coordinateSnapshotKey: 'rlp',
     coordinateIdentityRegistryKey: 'rlp',

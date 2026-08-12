@@ -477,522 +477,426 @@
     },
     {
       "stableId": "spawn-80",
-      "sourceId": "rlp:8-1",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-81",
-      "sourceId": "rlp:8-2",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-82",
-      "sourceId": "rlp:8-3",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-83",
-      "sourceId": "rlp:8-4",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-84",
-      "sourceId": "rlp:8-5",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-85",
-      "sourceId": "rlp:8-6",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-86",
-      "sourceId": "rlp:8-7",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-87",
-      "sourceId": "rlp:8-8",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-88",
-      "sourceId": "rlp:8-9",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-89",
-      "sourceId": "rlp:8-10",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-90",
-      "sourceId": "rlp:8-11",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-91",
-      "sourceId": "rlp:8-12",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-92",
-      "sourceId": "rlp:8-13",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-93",
-      "sourceId": "rlp:8-14",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-94",
-      "sourceId": "rlp:8-15",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-95",
-      "sourceId": "rlp:8-16",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-96",
-      "sourceId": "rlp:8-17",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-97",
-      "sourceId": "rlp:8-18",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-98",
-      "sourceId": "rlp:8-19",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-99",
-      "sourceId": "rlp:8-20",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-100",
-      "sourceId": "rlp:8-21",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-101",
       "sourceId": "rlp:8-22",
       "enemyId": "rlp:source-enemy:190205",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-102",
-      "sourceId": "rlp:8-23",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-103",
-      "sourceId": "rlp:8-24",
-      "enemyId": "rlp:source-enemy:190205",
-      "floorId": "rlp:default"
-    },
-    {
-      "stableId": "spawn-104",
+      "stableId": "spawn-81",
       "sourceId": "rlp:9-1",
       "enemyId": "rlp:source-enemy:197698",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-105",
+      "stableId": "spawn-82",
+      "sourceId": "rlp:10-1",
+      "enemyId": "rlp:source-enemy:190207",
+      "floorId": "rlp:default"
+    },
+    {
+      "stableId": "spawn-83",
+      "sourceId": "rlp:10-2",
+      "enemyId": "rlp:source-enemy:190207",
+      "floorId": "rlp:default"
+    },
+    {
+      "stableId": "spawn-84",
       "sourceId": "rlp:10-3",
       "enemyId": "rlp:source-enemy:190207",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-106",
+      "stableId": "spawn-85",
       "sourceId": "rlp:10-4",
       "enemyId": "rlp:source-enemy:190207",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-107",
+      "stableId": "spawn-86",
+      "sourceId": "rlp:10-5",
+      "enemyId": "rlp:source-enemy:190207",
+      "floorId": "rlp:default"
+    },
+    {
+      "stableId": "spawn-87",
+      "sourceId": "rlp:10-6",
+      "enemyId": "rlp:source-enemy:190207",
+      "floorId": "rlp:default"
+    },
+    {
+      "stableId": "spawn-88",
       "sourceId": "rlp:10-7",
       "enemyId": "rlp:source-enemy:190207",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-108",
+      "stableId": "spawn-89",
       "sourceId": "rlp:10-9",
       "enemyId": "rlp:source-enemy:190207",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-109",
+      "stableId": "spawn-90",
       "sourceId": "rlp:10-10",
       "enemyId": "rlp:source-enemy:190207",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-110",
+      "stableId": "spawn-91",
       "sourceId": "rlp:11-1",
       "enemyId": "rlp:source-enemy:190034",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-111",
+      "stableId": "spawn-92",
       "sourceId": "rlp:11-2",
       "enemyId": "rlp:source-enemy:190034",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-112",
+      "stableId": "spawn-93",
       "sourceId": "rlp:11-3",
       "enemyId": "rlp:source-enemy:190034",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-113",
+      "stableId": "spawn-94",
       "sourceId": "rlp:11-4",
       "enemyId": "rlp:source-enemy:190034",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-114",
+      "stableId": "spawn-95",
       "sourceId": "rlp:12-1",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-115",
+      "stableId": "spawn-96",
       "sourceId": "rlp:12-2",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-116",
+      "stableId": "spawn-97",
       "sourceId": "rlp:12-3",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-117",
+      "stableId": "spawn-98",
       "sourceId": "rlp:12-4",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-118",
+      "stableId": "spawn-99",
       "sourceId": "rlp:12-6",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-119",
+      "stableId": "spawn-100",
       "sourceId": "rlp:12-7",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-120",
+      "stableId": "spawn-101",
       "sourceId": "rlp:12-8",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-121",
+      "stableId": "spawn-102",
       "sourceId": "rlp:12-9",
       "enemyId": "rlp:source-enemy:190206",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-122",
+      "stableId": "spawn-103",
+      "sourceId": "rlp:12-10",
+      "enemyId": "rlp:source-enemy:190206",
+      "floorId": "rlp:default"
+    },
+    {
+      "stableId": "spawn-104",
       "sourceId": "rlp:13-1",
       "enemyId": "rlp:source-enemy:195119",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-123",
+      "stableId": "spawn-105",
       "sourceId": "rlp:13-2",
       "enemyId": "rlp:source-enemy:195119",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-124",
+      "stableId": "spawn-106",
       "sourceId": "rlp:13-3",
       "enemyId": "rlp:source-enemy:195119",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-125",
+      "stableId": "spawn-107",
       "sourceId": "rlp:13-4",
       "enemyId": "rlp:source-enemy:195119",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-126",
+      "stableId": "spawn-108",
       "sourceId": "rlp:14-1",
       "enemyId": "rlp:source-enemy:197697",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-127",
+      "stableId": "spawn-109",
       "sourceId": "rlp:15-1",
       "enemyId": "rlp:source-enemy:189232",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-128",
+      "stableId": "spawn-110",
       "sourceId": "rlp:16-1",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-129",
+      "stableId": "spawn-111",
       "sourceId": "rlp:16-2",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-130",
+      "stableId": "spawn-112",
       "sourceId": "rlp:16-3",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-131",
+      "stableId": "spawn-113",
       "sourceId": "rlp:16-4",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-132",
+      "stableId": "spawn-114",
       "sourceId": "rlp:16-5",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-133",
+      "stableId": "spawn-115",
       "sourceId": "rlp:16-7",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-134",
+      "stableId": "spawn-116",
       "sourceId": "rlp:16-8",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-135",
+      "stableId": "spawn-117",
       "sourceId": "rlp:16-9",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-136",
+      "stableId": "spawn-118",
       "sourceId": "rlp:16-10",
       "enemyId": "rlp:source-enemy:197982",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-137",
+      "stableId": "spawn-119",
       "sourceId": "rlp:17-1",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-138",
+      "stableId": "spawn-120",
       "sourceId": "rlp:17-2",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-139",
+      "stableId": "spawn-121",
       "sourceId": "rlp:17-3",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-140",
+      "stableId": "spawn-122",
       "sourceId": "rlp:17-4",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-141",
+      "stableId": "spawn-123",
       "sourceId": "rlp:17-5",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-142",
+      "stableId": "spawn-124",
       "sourceId": "rlp:17-6",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-143",
+      "stableId": "spawn-125",
       "sourceId": "rlp:17-7",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-144",
+      "stableId": "spawn-126",
       "sourceId": "rlp:17-8",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-145",
+      "stableId": "spawn-127",
       "sourceId": "rlp:17-9",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-146",
+      "stableId": "spawn-128",
       "sourceId": "rlp:17-10",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-147",
+      "stableId": "spawn-129",
       "sourceId": "rlp:17-11",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-148",
+      "stableId": "spawn-130",
       "sourceId": "rlp:17-12",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-149",
+      "stableId": "spawn-131",
       "sourceId": "rlp:17-13",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-150",
+      "stableId": "spawn-132",
       "sourceId": "rlp:17-14",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-151",
+      "stableId": "spawn-133",
       "sourceId": "rlp:17-15",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-152",
+      "stableId": "spawn-134",
       "sourceId": "rlp:17-16",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-153",
+      "stableId": "spawn-135",
       "sourceId": "rlp:17-18",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-154",
+      "stableId": "spawn-136",
       "sourceId": "rlp:17-19",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-155",
+      "stableId": "spawn-137",
       "sourceId": "rlp:17-20",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-156",
+      "stableId": "spawn-138",
       "sourceId": "rlp:17-21",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-157",
+      "stableId": "spawn-139",
       "sourceId": "rlp:17-22",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-158",
+      "stableId": "spawn-140",
       "sourceId": "rlp:17-23",
       "enemyId": "rlp:source-enemy:197509",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-159",
+      "stableId": "spawn-141",
       "sourceId": "rlp:18-1",
       "enemyId": "rlp:source-enemy:198047",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-160",
+      "stableId": "spawn-142",
       "sourceId": "rlp:18-2",
       "enemyId": "rlp:source-enemy:198047",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-161",
+      "stableId": "spawn-143",
       "sourceId": "rlp:19-1",
       "enemyId": "rlp:source-enemy:197535",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-162",
+      "stableId": "spawn-144",
       "sourceId": "rlp:20-1",
       "enemyId": "rlp:source-enemy:190485",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-163",
+      "stableId": "spawn-145",
       "sourceId": "rlp:21-1",
       "enemyId": "rlp:source-enemy:190484",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-164",
+      "stableId": "spawn-146",
       "sourceId": "rlp:22-1",
       "enemyId": "rlp:source-enemy:189886",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-165",
+      "stableId": "spawn-147",
+      "sourceId": "rlp:22-2",
+      "enemyId": "rlp:source-enemy:189886",
+      "floorId": "rlp:default"
+    },
+    {
+      "stableId": "spawn-148",
+      "sourceId": "rlp:22-3",
+      "enemyId": "rlp:source-enemy:189886",
+      "floorId": "rlp:default"
+    },
+    {
+      "stableId": "spawn-149",
       "sourceId": "rlp:23-1",
       "enemyId": "rlp:source-enemy:189893",
       "floorId": "rlp:default"
     },
     {
-      "stableId": "spawn-166",
+      "stableId": "spawn-150",
       "sourceId": "rlp:24-1",
       "enemyId": "rlp:source-enemy:194622",
       "floorId": "rlp:default"

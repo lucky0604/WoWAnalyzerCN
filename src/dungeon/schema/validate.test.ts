@@ -359,7 +359,7 @@ describe('Dungeon document validation', () => {
       expect.arrayContaining([
         'DUNGEON_RELEASE_SPATIAL_DATA_PENDING',
         'DUNGEON_FORCES_SNAPSHOT_PENDING',
-        'DUNGEON_SPELL_ID_PENDING',
+        'DUNGEON_CRITICAL_ABILITY_UNCOVERED',
       ]),
     );
   });

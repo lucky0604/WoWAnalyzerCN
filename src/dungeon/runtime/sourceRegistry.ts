@@ -200,6 +200,14 @@ export const dungeonSourceRegistry: SourceRegistry = {
       '2f0736b96608b8899b823a902c755563de245f484ebf2c8c439b9d08d226c60a',
     ),
     approvedCoordinateSnapshot(
+      'threechest-coordinate-snapshot-2026-08-12-rlp-s2',
+      '600a49515bee6817d9f202a56644097e4ed40bc5570b953cca16707d7fe0f613',
+      'agent_flow/dungeon-learning/15-rlp-s2-coordinate-import-review.md',
+      '2026-08-12',
+      'b0f1547113d10529c9c7f947f1493c11acfdd8a998e87cd9033a4518513d438a',
+      '2dd1303529cba98420fc9c0114125458249e7721d0b2ff0bec7c754d799e18b6',
+    ),
+    approvedCoordinateSnapshot(
       'threechest-coordinate-snapshot-2026-08-11-s2-tos-ptr',
       '76a379c38f2fe1c1031f8abd5d1e4700ee3fde01eea2b05357d4d8e8bae75900',
       'agent_flow/dungeon-learning/18-s2-fact-and-asset-preflight.md',

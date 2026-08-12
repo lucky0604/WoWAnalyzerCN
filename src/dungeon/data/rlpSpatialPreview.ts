@@ -113,9 +113,11 @@ const coordinateProvenance: Provenance = {
 };
 
 /**
- * These are the only source NPCs that already have an authored enemy concept
- * in the RLP learning draft.  The remaining IDs stay explicitly source-owned
- * placeholders until current-build facts are reviewed.
+ * Every source NPC in the MDT-derived snapshot now has an authored enemy
+ * concept in the RLP learning draft, bound through the enemyBindings sidecar.
+ * The binding guard in this module still fails closed if a future snapshot
+ * introduces an unbound NPC, and that NPC then falls back to a source-owned
+ * placeholder until its facts are reviewed.
  */
 const sourceEnemyId = (npcId: number): string => `rlp-source-enemy-${npcId}`;
 

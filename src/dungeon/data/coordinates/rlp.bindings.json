@@ -1,7 +1,7 @@
 {
   "version": 1,
   "dungeonId": "ruby-life-pools",
-  "snapshotId": "threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr",
+  "snapshotId": "threechest-coordinate-snapshot-2026-08-12-rlp-s2",
   "sourceFloorId": "default",
   "previewFloorId": "rlp-source-plane",
   "enemyBindings": [
@@ -28,6 +28,78 @@
     {
       "sourceEnemyId": 190485,
       "enemyId": "rlp-kyrakka-erkhart"
+    },
+    {
+      "sourceEnemyId": 187969,
+      "enemyId": "rlp-deepstone-earthshaper"
+    },
+    {
+      "sourceEnemyId": 188011,
+      "enemyId": "rlp-earthbound-guardian"
+    },
+    {
+      "sourceEnemyId": 187894,
+      "enemyId": "rlp-infused-whelp"
+    },
+    {
+      "sourceEnemyId": 187897,
+      "enemyId": "rlp-defier-draghar"
+    },
+    {
+      "sourceEnemyId": 190205,
+      "enemyId": "rlp-scorchling"
+    },
+    {
+      "sourceEnemyId": 197698,
+      "enemyId": "rlp-thunderhead"
+    },
+    {
+      "sourceEnemyId": 190207,
+      "enemyId": "rlp-primalist-cinderweaver"
+    },
+    {
+      "sourceEnemyId": 190034,
+      "enemyId": "rlp-blazebound-destroyer"
+    },
+    {
+      "sourceEnemyId": 190206,
+      "enemyId": "rlp-ashseer-flamelasher"
+    },
+    {
+      "sourceEnemyId": 195119,
+      "enemyId": "rlp-ruinous-stormbringer"
+    },
+    {
+      "sourceEnemyId": 197697,
+      "enemyId": "rlp-flamegullet"
+    },
+    {
+      "sourceEnemyId": 197982,
+      "enemyId": "rlp-storm-warrior"
+    },
+    {
+      "sourceEnemyId": 197509,
+      "enemyId": "rlp-primal-thundercloud"
+    },
+    {
+      "sourceEnemyId": 198047,
+      "enemyId": "rlp-tempest-channeler"
+    },
+    {
+      "sourceEnemyId": 197535,
+      "enemyId": "rlp-high-channeler-ryvati"
+    },
+    {
+      "sourceEnemyId": 189886,
+      "enemyId": "rlp-blazebound-firestorm"
+    },
+    {
+      "sourceEnemyId": 189893,
+      "enemyId": "rlp-infused-whelp-kokia"
+    },
+    {
+      "sourceEnemyId": 194622,
+      "enemyId": "rlp-scorchling-kyrakka"
     }
   ],
   "situationAnchors": [

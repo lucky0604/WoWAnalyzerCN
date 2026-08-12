@@ -37,9 +37,15 @@ describe('phase 1 learning prototypes', () => {
         'DUNGEON_SPATIAL_DATA_PENDING',
         'DUNGEON_FORCES_SNAPSHOT_PENDING',
         'DUNGEON_PULL_SPAWN_PENDING',
-        'DUNGEON_SPELL_ID_PENDING',
+        'DUNGEON_CRITICAL_ABILITY_UNCOVERED',
       ]),
     );
+  });
+
+  it('keeps every monster skill bound to real spell data', () => {
+    const spellIds = rubyLifePoolsPhase1Draft.abilities.map((ability) => ability.spellId);
+    expect(spellIds.every((spellId) => typeof spellId === 'number')).toBe(true);
+    expect(rubyLifePoolsPhase1Draft.abilities).toHaveLength(36);
   });
 
   it('uses the content draft for the local RLP preview route', () => {
@@ -48,7 +54,7 @@ describe('phase 1 learning prototypes', () => {
 
   it('adds only a source-plane spatial overlay to the local preview', () => {
     expect(rubyLifePoolsSpatialPreview.spatialStatus).toBe('pending');
-    expect(rubyLifePoolsSpatialPreview.spawns).toHaveLength(166);
+    expect(rubyLifePoolsSpatialPreview.spawns).toHaveLength(150);
     expect(rubyLifePoolsSpatialPreview.floors[0]).toMatchObject({
       id: 'rlp-source-plane',
       mapAssetKey: 'midnight-s2:ruby-life-pools',
@@ -57,7 +63,8 @@ describe('phase 1 learning prototypes', () => {
       expect.arrayContaining([
         expect.objectContaining({ id: 'rlp-melidrussa', spawnIds: ['spawn-79'] }),
         expect.objectContaining({
-          id: 'rlp-source-enemy-187969',
+          id: 'rlp-deepstone-earthshaper',
+          npcId: 187969,
           forcesStatus: 'pending',
           spawnIds: expect.arrayContaining(['spawn-3']),
         }),
@@ -67,12 +74,12 @@ describe('phase 1 learning prototypes', () => {
       rubyLifePoolsSpatialPreview.situations.find(
         (situation) => situation.id === 'rlp-situation-kokia-boss',
       )?.anchorSpawnIds,
-    ).toEqual(['spawn-127']);
+    ).toEqual(['spawn-109']);
   });
 
   it('keeps the versioned binding manifest aligned with the draft contract', () => {
     expect(rlpBindingManifest.snapshotId).toBe(
-      'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+      'threechest-coordinate-snapshot-2026-08-12-rlp-s2',
     );
     expect(rlpBindingManifest.previewFloorId).toBe('rlp-source-plane');
     expect(rlpBindingManifest.enemyBindings).toEqual(

@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const snapshotId = 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr';
+const snapshotId = 'threechest-coordinate-snapshot-2026-08-12-rlp-s2';
 
 describe('RLP spatial preview binding guard', () => {
   beforeEach(() => {

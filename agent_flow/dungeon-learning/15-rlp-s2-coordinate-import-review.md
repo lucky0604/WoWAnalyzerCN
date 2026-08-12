@@ -98,3 +98,22 @@ VITE_DUNGEON_ROUTES=true pnpm build && pnpm dungeon:check-dist
 下一步仍需把已提交的 source identity registry 绑定到 RLP 自有 Floor/Enemy 语义，确认当前
 build 的 NPC/Spell/forces 事实，再补作者自测和真实第二人审校；这些完成前不进入
 `reviewed`/`published`。
+
+## Addendum 2026-08-12 — RLP coordinate refresh from MDT master
+
+The RLP S2 coordinate snapshot was refreshed by running threechest's `mdtDungeons.ts`
+extraction logic (luaparse) directly against the MDT addon master
+`Midnight/RubyLifePools.lua` (dungeonIndex 42, totalCount 553), then importing through
+`scripts/dungeons/import-threechest.ts`.
+
+- snapshotId: `threechest-coordinate-snapshot-2026-08-12-rlp-s2`
+- coordinate digest `sha256:600a49515bee6817d9f202a56644097e4ed40bc5570b953cca16707d7fe0f613`
+- raw payload digest `sha256:2dd1303529cba98420fc9c0114125458249e7721d0b2ff0bec7c754d799e18b6`
+- identity sidecar digest `sha256:b0f1547113d10529c9c7f947f1493c11acfdd8a998e87cd9033a4518513d438a`
+- 150 coordinate spawns (24 enemy indices, 4 bosses), source coordinate space
+  `threechest-yx`, normalized to `normalized-v1`
+- raw source: `https://github.com/Nnoggie/MythicDungeonTools/blob/master/Midnight/RubyLifePools.lua`
+  (redacted from committed snapshot; recorded here for provenance)
+
+The prior PTR-era snapshot (`...-2026-08-11-rlp-s2-ptr`, 166 spawns) remains registered
+and approved; the catalog now points at the refreshed snapshot.

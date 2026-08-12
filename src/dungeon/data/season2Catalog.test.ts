@@ -39,7 +39,7 @@ describe('season 2 dungeon catalog', () => {
     expect(season2DungeonCatalog.every((entry) => entry.wclPtrZoneId === 56)).toBe(true);
     expect(season2DungeonCatalog.filter((entry) => entry.coordinateSnapshotId)).toHaveLength(8);
     expect(getDungeonCatalogEntry('ruby-life-pools')).toMatchObject({
-      coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-11-rlp-s2-ptr',
+      coordinateSnapshotId: 'threechest-coordinate-snapshot-2026-08-12-rlp-s2',
       coordinateSnapshotKey: 'rlp',
       coordinateIdentityRegistryKey: 'rlp',
       coordinateSourceId: 'threechest',
