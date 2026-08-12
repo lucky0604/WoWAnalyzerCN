@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { phase0FixtureDocuments } from '../registry';
 import { rubyLifePoolsPhase1Draft } from '../data/phase1Prototypes';
 import { getDungeonLearningAccess } from './access';
+import type { StaleKnowledgeLedger } from './staleLedger';
 
 describe('dungeon learning access gates', () => {
   it('keeps fixtures out of the learning route', () => {
@@ -21,6 +22,46 @@ describe('dungeon learning access gates', () => {
     document.version.status = 'stale';
     const access = getDungeonLearningAccess(document);
     expect(access).toMatchObject({ state: 'stale', canOpen: false, isFormal: false });
+  });
+
+  it('blocks knowledge IDs marked stale by the runtime ledger', () => {
+    const ledger: StaleKnowledgeLedger = {
+      version: 1,
+      entries: [
+        {
+          knowledgeId: rubyLifePoolsPhase1Draft.situations[0]!.id,
+          reason: 'coordinate snapshot changed',
+          markedAt: '2026-08-12T00:00:00.000Z',
+        },
+      ],
+    };
+    const access = getDungeonLearningAccess(rubyLifePoolsPhase1Draft, ledger);
+    expect(access).toMatchObject({ state: 'stale', canOpen: false, isFormal: false });
+    expect(access.reason).toContain('coordinate snapshot changed');
+  });
+
+  it('fails closed when the runtime stale ledger is malformed', () => {
+    const access = getDungeonLearningAccess(rubyLifePoolsPhase1Draft, null as never);
+    expect(access).toMatchObject({ state: 'blocked', canOpen: false, isFormal: false });
+    expect(access.reason).toContain('stale');
+
+    const malformed = getDungeonLearningAccess(rubyLifePoolsPhase1Draft, {
+      version: 1,
+      entries: [null as never],
+    });
+    expect(malformed).toMatchObject({ state: 'blocked', canOpen: false, isFormal: false });
+
+    const unknown = getDungeonLearningAccess(rubyLifePoolsPhase1Draft, {
+      version: 1,
+      entries: [
+        {
+          knowledgeId: 'typo-not-registered',
+          reason: 'changed',
+          markedAt: '2026-08-12T00:00:00.000Z',
+        },
+      ],
+    });
+    expect(unknown).toMatchObject({ state: 'blocked', canOpen: false, isFormal: false });
   });
 
   it('requires release validation and artifact identities for formal learning', () => {

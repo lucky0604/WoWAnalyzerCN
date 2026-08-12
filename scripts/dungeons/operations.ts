@@ -18,6 +18,12 @@ import { getFactBindingRegistryEntry } from '../../src/dungeon/runtime/sourceReg
 import type { Diagnostic, DungeonDocument, ContentVersion } from '../../src/dungeon/schema/types';
 import { validateDungeonDocument } from '../../src/dungeon/schema/validate';
 import { authoringDiagnostics, loadAuthoringDocument } from './authoring';
+import {
+  getStaleEntriesForDocument,
+  getValidatedStaleKnowledgeLedger,
+  registeredKnowledgeIds,
+  validateStaleLedger,
+} from '../../src/dungeon/runtime/staleLedger';
 
 const DEFAULT_STALE_LEDGER = resolve('src/dungeon/data/authoring/stale.json');
 const DEFAULT_RELEASE_DIR = resolve('.tmp/dungeons/releases');
@@ -150,6 +156,25 @@ export async function previewDocument(document: DungeonDocument): Promise<{
   diagnostics: Diagnostic[];
 }> {
   const diagnostics = diagnosticsForDraft(document);
+  const staleLedger = getValidatedStaleKnowledgeLedger();
+  if (!staleLedger) {
+    diagnostics.push({
+      severity: 'error',
+      code: 'DUNGEON_STALE_LEDGER_INVALID',
+      path: 'src/dungeon/data/authoring/stale.json',
+      message: 'stale ledger 无法通过 runtime 校验，不能预览或发布。',
+    });
+  } else {
+    getStaleEntriesForDocument(document, staleLedger).forEach((entry) => {
+      diagnostics.push({
+        severity: 'error',
+        code: 'DUNGEON_STALE_KNOWLEDGE_BLOCKED',
+        path: `stale.entries.${entry.knowledgeId}`,
+        entityId: entry.knowledgeId,
+        message: `${entry.knowledgeId} 已被 stale ledger 标记：${entry.reason}`,
+      });
+    });
+  }
   return { ok: diagnostics.every((diagnostic) => diagnostic.severity !== 'error'), diagnostics };
 }
 
@@ -238,13 +263,28 @@ export async function markStale(
   if (knowledgeIds.length === 0) {
     throw new Error('DUNGEON_STALE_IDS_REQUIRED: pass at least one knowledge ID.');
   }
-  const ledger = await readJson<StaleLedger>(ledgerPath, { version: 1, entries: [] });
+  const ledger = await readJson<unknown>(ledgerPath, { version: 1, entries: [] });
+  const existingValidation = validateStaleLedger(ledger);
+  if (!existingValidation.ok) {
+    throw new Error(`DUNGEON_STALE_LEDGER_INVALID: ${existingValidation.errors.join(', ')}`);
+  }
+  const validLedger = ledger as StaleLedger;
+  if (knowledgeIds.some((id) => !registeredKnowledgeIds.has(id))) {
+    throw new Error(
+      'DUNGEON_STALE_KNOWLEDGE_UNKNOWN: every ID must belong to a registered document.',
+    );
+  }
   const markedAt = new Date().toISOString();
-  const nextEntries = ledger.entries.filter((entry) => !knowledgeIds.includes(entry.knowledgeId));
+  const requestedIds = new Set(knowledgeIds);
+  const nextEntries = validLedger.entries.filter((entry) => !requestedIds.has(entry.knowledgeId));
   knowledgeIds.forEach((knowledgeId) =>
     nextEntries.push({ knowledgeId, reason, markedAt, ...(snapshotId ? { snapshotId } : {}) }),
   );
   const next: StaleLedger = { version: 1, entries: nextEntries };
+  const validation = validateStaleLedger(next, registeredKnowledgeIds);
+  if (!validation.ok) {
+    throw new Error(`DUNGEON_STALE_LEDGER_WRITE_INVALID: ${validation.errors.join(', ')}`);
+  }
   await writeJsonAtomic(ledgerPath, next);
   return next;
 }

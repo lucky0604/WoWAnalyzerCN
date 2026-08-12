@@ -10,6 +10,7 @@ import type { DungeonDocument } from '../../src/dungeon/schema/types';
 import { computeFactBindingManifestDigest } from '../../src/dungeon/runtime/factBinding';
 import { getCoordinateBindingIdentity } from '../../src/dungeon/runtime/coordinates';
 import { dungeonFactBindingRegistry } from '../../src/dungeon/runtime/sourceRegistry';
+import { rubyLifePoolsPhase1Draft } from '../../src/dungeon/data/phase1Prototypes';
 import {
   coordinateImpact,
   markStale,
@@ -182,18 +183,46 @@ describe('dungeon content operations', () => {
       ledgerPath,
       JSON.stringify({
         version: 1,
-        entries: [{ knowledgeId: 'ability-old', reason: 'old', markedAt: '2026-01-01' }],
+        entries: [
+          {
+            knowledgeId: rubyLifePoolsPhase1Draft.abilities[0]!.id,
+            reason: 'old',
+            markedAt: '2026-01-01T00:00:00.000Z',
+          },
+        ],
       }),
     );
-    await markStale(['ability-old', 'situation-new'], 'snapshot changed', ledgerPath, 'snapshot-2');
+    await markStale(
+      [rubyLifePoolsPhase1Draft.abilities[0]!.id, rubyLifePoolsPhase1Draft.situations[0]!.id],
+      'snapshot changed',
+      ledgerPath,
+      'snapshot-2',
+    );
     const ledger = JSON.parse(await readFile(ledgerPath, 'utf8'));
     expect(ledger.entries).toHaveLength(2);
     expect(ledger.entries).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ knowledgeId: 'ability-old', reason: 'snapshot changed' }),
-        expect.objectContaining({ knowledgeId: 'situation-new', snapshotId: 'snapshot-2' }),
+        expect.objectContaining({
+          knowledgeId: rubyLifePoolsPhase1Draft.abilities[0]!.id,
+          reason: 'snapshot changed',
+        }),
+        expect.objectContaining({
+          knowledgeId: rubyLifePoolsPhase1Draft.situations[0]!.id,
+          snapshotId: 'snapshot-2',
+        }),
       ]),
     );
+  });
+
+  it('rejects malformed or unknown stale writes before touching the ledger', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'wowa-dungeon-stale-invalid-'));
+    temporaryRoots.push(root);
+    const ledgerPath = join(root, 'stale.json');
+    await writeFile(ledgerPath, JSON.stringify({ version: 1, entries: null }));
+    await expect(markStale(['typo-id'], 'changed', ledgerPath)).rejects.toThrow(
+      'DUNGEON_STALE_LEDGER_INVALID',
+    );
+    expect(JSON.parse(await readFile(ledgerPath, 'utf8')).entries).toBeNull();
   });
 
   it('previews, publishes and rolls back only a validated release candidate', async () => {

@@ -27,6 +27,20 @@ import {
   validateForcesSnapshotRegistry,
 } from '../../src/dungeon/runtime/sourceRegistry';
 import { getDungeonScopedLearningAccess } from '../../src/dungeon/runtime/formalAccess';
+import {
+  documentKnowledgeIds,
+  staleKnowledgeLedger,
+  validateStaleLedger,
+} from '../../src/dungeon/runtime/staleLedger';
+
+function staleLedgerErrors(
+  documentIds = new Set(
+    dungeonPreviewDocuments.flatMap((document) => [...documentKnowledgeIds(document)]),
+  ),
+): string[] {
+  const result = validateStaleLedger(staleKnowledgeLedger, documentIds);
+  return result.errors.map((error) => `stale ledger: ${error}`);
+}
 import type {
   ApprovedSourceSnapshot,
   SourceUseCheck,
@@ -131,11 +145,16 @@ async function runSingleDungeonCheck(dungeonId: string): Promise<void> {
     dungeonPreviewDocuments.find((document) => document.id === dungeonId);
   try {
     const document = registeredDocument ?? (await loadAuthoringDocument(dungeonId, requestedRoot));
-    const ok = printSingleResult(
-      dungeonId,
-      validateDungeonDocument(document),
-      registeredDocument ? [] : authoringDiagnostics(document),
-    );
+    const staleErrors = staleLedgerErrors();
+    const ok = printSingleResult(dungeonId, validateDungeonDocument(document), [
+      ...(registeredDocument ? [] : authoringDiagnostics(document)),
+      ...staleErrors.map((message) => ({
+        severity: 'error' as const,
+        code: message.split(':')[0] ?? 'DUNGEON_STALE_LEDGER_INVALID',
+        path: 'src/dungeon/data/authoring/stale.json',
+        message,
+      })),
+    ]);
     process.exitCode = ok ? 0 : 1;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -156,6 +175,10 @@ async function runSingleDungeonCheck(dungeonId: string): Promise<void> {
 
 function runGlobalDungeonCheck(): void {
   const errors: string[] = [];
+  const knownKnowledgeIds = new Set(
+    dungeonPreviewDocuments.flatMap((document) => [...documentKnowledgeIds(document)]),
+  );
+  errors.push(...staleLedgerErrors(knownKnowledgeIds));
 
   errors.push(
     ...validateForcesSnapshotRegistry(dungeonForcesSnapshotRegistry).map(

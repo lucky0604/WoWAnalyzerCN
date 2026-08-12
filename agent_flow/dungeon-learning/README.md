@@ -71,6 +71,7 @@
 - [31-learning-progress-hardening-phase.md](./31-learning-progress-hardening-phase.md)：加固浏览器学习进度的本地存储合同、部分恢复和 fail-closed 行为。
 - [32-readiness-and-intake-contract-phase.md](./32-readiness-and-intake-contract-phase.md)：让正式学习 coverage 只认 learning route，并加固 WCL intake runtime options 的 fail-closed 合同。
 - [33-release-artifact-identity-phase.md](./33-release-artifact-identity-phase.md)：把事实快照/绑定 manifest 与坐标快照/identity sidecar 绑定到 DungeonDocument，阻断同 build 手工事实和空间快照错配。
+- [34-stale-ledger-runtime-gate-phase.md](./34-stale-ledger-runtime-gate-phase.md)：让 `dungeon:status stale` 的知识过期标记进入运行时学习门禁，并对损坏 ledger fail-closed。
 
 ## 当前代码审计摘要
 
@@ -109,6 +110,7 @@
 - 学习进度只接受合法的版本、角色、置信度、UTC 时间和内容指纹；损坏的 localStorage 记录按条丢弃，不会阻断学习页面，也不会把未确认的对象写回浏览器存储。
 - 正式 `learning-surfaces` 门只按 `intent=learning` 路线计算覆盖；pug-safe/custom-reference 路线仍可查询，但不能替代教学路线满足发布门。
 - 正式文档现在必须携带可重算的 `factBinding` 与坐标 `coordinateBinding` identity；事实门要求 Enemy/Ability provenance 指向同一 snapshot，发布会重新校验 manifest digest 与坐标来源 hash。
+- `src/dungeon/data/authoring/stale.json` 是构建时 stale ledger；`dungeon:status stale` 默认写入该文件，runtime 会对命中的 Enemy/Ability/Situation/Boss/Route/RouteStep 统一阻断，ledger 损坏或未知 ID 会在 `dungeon:check` 失败。
 - `validateDungeonDocument` 在 reviewed/published 状态下与 `dungeon:publish` 复用 learning-route 覆盖口径；正式内容至少需要一条包含 Pull 的 learning 路线。`dungeon:report` 同时输出带 `routeIntent=all` 标记的兼容 coverage 与独立 `learningCoverage`。
 - 多 fight WCL report 可额外传 `--fight-id=<id>`，只按可验证的 fight 时间和 actor 归属裁剪；不传时拒绝把全局 roster 与单场 events 拼接。
 - WCL 前置导航已接入：正式副本可从 Inspector 进入现有 report selector；正式报告识别到已发布副本后才显示学习深链。报告侧通过 dynamic import 加载 Dungeon adapter，默认不会影响 parser/analysis 初始路径。

@@ -22,6 +22,12 @@ It never edits generated coordinate snapshots or registers a public dungeon.
 `dungeon:publish` only writes an explicit release manifest after the document
 passes provenance and completeness gates; it does not mutate the runtime registry.
 
+`dungeon:status stale <knowledge-id> --reason "..."` writes the default
+ledger to `src/dungeon/data/authoring/stale.json`. The Vite runtime reads that
+committed ledger at build time and blocks matching learning knowledge until a
+new reviewed document is produced. A custom `--file` is intended for isolated
+CLI tests and is not loaded by the browser runtime.
+
 Before requesting second-person review, record `review.selfTest` with the
 learning modes exercised and every Situation/Route covered by the author pass.
 Also record `review.authoringEffort` with the full-dungeon minutes and one

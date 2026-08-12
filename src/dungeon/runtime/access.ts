@@ -5,6 +5,13 @@ import type {
   ValidationResult,
 } from '../schema/types';
 import { validateDungeonDocument } from '../schema/validate';
+import {
+  getStaleEntriesForDocument,
+  getValidatedStaleKnowledgeLedger,
+  registeredKnowledgeIds,
+  type StaleKnowledgeLedger,
+  validateStaleLedger,
+} from './staleLedger';
 
 /**
  * The learning route has two intentional entry levels:
@@ -38,8 +45,13 @@ const statusLabel: Record<DungeonDataStatus, string> = {
 const firstBlockingDiagnostic = (validation: ValidationResult): Diagnostic | undefined =>
   validation.errors[0];
 
-export function getDungeonLearningAccess(document: DungeonDocument): DungeonLearningAccess {
+export function getDungeonLearningAccess(
+  document: DungeonDocument,
+  staleLedger?: StaleKnowledgeLedger | null,
+): DungeonLearningAccess {
   const validation = validateDungeonDocument(document);
+  const resolvedStaleLedger =
+    staleLedger === undefined ? getValidatedStaleKnowledgeLedger() : staleLedger;
 
   if (document.dataStatus === 'fixture') {
     return {
@@ -49,6 +61,36 @@ export function getDungeonLearningAccess(document: DungeonDocument): DungeonLear
       isFormal: false,
       label: statusLabel.fixture,
       reason: 'fixture 只用于数据合同回归，不能作为攻略学习内容。',
+      validation,
+    };
+  }
+
+  if (
+    !resolvedStaleLedger ||
+    (staleLedger !== undefined &&
+      !validateStaleLedger(resolvedStaleLedger, registeredKnowledgeIds).ok)
+  ) {
+    return {
+      documentId: document.id,
+      state: 'blocked',
+      canOpen: false,
+      isFormal: false,
+      label: 'stale 清单损坏',
+      reason: 'stale 清单无法通过结构校验，已阻断学习入口；请运行 dungeon:check 修复。',
+      validation,
+    };
+  }
+
+  const staleEntries = getStaleEntriesForDocument(document, resolvedStaleLedger);
+  if (staleEntries.length > 0) {
+    const ids = staleEntries.map((entry) => entry.knowledgeId).join('、');
+    return {
+      documentId: document.id,
+      state: 'stale',
+      canOpen: false,
+      isFormal: false,
+      label: '内容已过期',
+      reason: `stale 清单标记了 ${ids}：${staleEntries[0]?.reason}`,
       validation,
     };
   }
