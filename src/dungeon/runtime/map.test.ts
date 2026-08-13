@@ -56,6 +56,39 @@ describe('map coordinate utilities', () => {
     });
   });
 
+  it('lays flipY tiles with row 0 on top like the source screen space', () => {
+    const tiles = getMapTiles(
+      { xMin: 0, xMax: 128, yMin: 0, yMax: 128 },
+      {
+        kind: 'remote-tiles',
+        assetKey: 'map',
+        urlTemplate: 'https://example.test/maps/rlp/{x}_{y}.jpg',
+        tileSize: 64,
+        origin: [0, 0],
+        flipY: true,
+      },
+    );
+    expect(tiles).toHaveLength(4);
+    expect(tiles[0]).toMatchObject({
+      key: '0:0',
+      url: 'https://example.test/maps/rlp/0_0.jpg',
+      x: 0,
+      y: 0,
+    });
+    expect(tiles[2]).toMatchObject({
+      key: '0:1',
+      url: 'https://example.test/maps/rlp/0_1.jpg',
+      x: 0,
+      y: 64,
+    });
+    expect(tiles[3]).toMatchObject({
+      key: '1:1',
+      url: 'https://example.test/maps/rlp/1_1.jpg',
+      x: 64,
+      y: 64,
+    });
+  });
+
   it('computes a stable convex hull for pull highlighting', () => {
     const hull = getConvexHull([
       spawn('a', [0, 0]),

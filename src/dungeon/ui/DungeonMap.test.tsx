@@ -78,4 +78,32 @@ describe('DungeonMap', () => {
     expect(container.querySelector('.dungeon-map__patrol')).toHaveAttribute('d', 'M 20 30 L 25 35');
     expect(screen.getByText('— 巡逻路径')).toBeInTheDocument();
   });
+
+  it('flips the visual Y axis for screen-space tile sources', () => {
+    const { container } = render(
+      <DungeonMap
+        asset={{
+          kind: 'remote-tiles',
+          assetKey: 'map',
+          urlTemplate: 'https://example.test/maps/{x}_{y}.jpg',
+          tileSize: 64,
+          origin: [0, 0],
+          flipY: true,
+        }}
+        floor={{ ...floor, bounds: { xMin: 0, xMax: 128, yMin: -128, yMax: 0 } }}
+        selectedSpawnIds={[]}
+        spawns={[{ ...spawns[0]!, position: [20, -30] }]}
+      />,
+    );
+    expect(container.querySelector('svg')).toHaveAttribute('viewBox', '-4 -4 136 136');
+    const images = Array.from(container.querySelectorAll('image'));
+    expect(images).toHaveLength(4);
+    expect(images.map((img) => img.getAttribute('href'))).toContain(
+      'https://example.test/maps/0_0.jpg',
+    );
+    expect(container.querySelector('[aria-label="spawn-1 位置"] circle')).toHaveAttribute(
+      'cy',
+      '30',
+    );
+  });
 });

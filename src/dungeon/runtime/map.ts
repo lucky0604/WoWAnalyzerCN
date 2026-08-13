@@ -56,15 +56,24 @@ export function coordinateToMapPoint(coordinate: Coordinate): MapPoint {
 export function getMapTiles(bounds: CoordinateBounds, asset: DungeonRemoteTilesAsset): MapTile[] {
   const [originX, originY] = asset.origin;
   const epsilon = 1e-9;
+  // flipY:调用方已把 bounds 翻转到屏幕空间(北/行 0 在上,y' 从顶部向下递增)。
+  // 源瓦片行号与屏幕行一致,故行号随 y' 递增、位置从上往下排;非 flip(归一化负 y)则相反。
+  const flipY = asset.flipY === true;
   const minTileX = Math.floor((bounds.xMin - originX) / asset.tileSize);
   const maxTileX = Math.floor((bounds.xMax - epsilon - originX) / asset.tileSize);
-  const minTileY = Math.floor((originY - bounds.yMax + epsilon) / asset.tileSize);
-  const maxTileY = Math.floor((originY - bounds.yMin - epsilon) / asset.tileSize);
+  const minTileY = flipY
+    ? Math.floor((bounds.yMin - originY) / asset.tileSize)
+    : Math.floor((originY - bounds.yMax + epsilon) / asset.tileSize);
+  const maxTileY = flipY
+    ? Math.floor((bounds.yMax - epsilon - originY) / asset.tileSize)
+    : Math.floor((originY - bounds.yMin - epsilon) / asset.tileSize);
   const tiles: MapTile[] = [];
   for (let tileY = minTileY; tileY <= maxTileY; tileY += 1) {
     for (let tileX = minTileX; tileX <= maxTileX; tileX += 1) {
       const x = originX + tileX * asset.tileSize;
-      const y = originY - (tileY + 1) * asset.tileSize;
+      const y = flipY
+        ? originY + tileY * asset.tileSize
+        : originY - (tileY + 1) * asset.tileSize;
       tiles.push({
         key: `${tileX}:${tileY}`,
         url: asset.urlTemplate.replace('{x}', String(tileX)).replace('{y}', String(tileY)),

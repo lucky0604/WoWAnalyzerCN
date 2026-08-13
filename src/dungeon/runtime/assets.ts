@@ -6,6 +6,7 @@ export interface AssetManifestEntry {
   urlTemplate?: string;
   tileSize?: number;
   origin?: readonly [x: number, y: number];
+  flipY?: boolean;
 }
 
 export interface AssetManifest {
@@ -89,6 +90,7 @@ function resolveAsset(assetKey: string, options: AssetProviderOptions): DungeonA
       urlTemplate: url.urlTemplate,
       tileSize,
       origin: url.origin,
+      ...(url.flipY === true ? { flipY: true } : {}),
     };
   }
   return placeholder(assetKey, 'asset manifest 条目缺少可用的图片或瓦片配置。');

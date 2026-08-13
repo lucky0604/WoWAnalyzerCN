@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import type { CoordinateBounds, Floor, Spawn } from '../schema/types';
+import type { MapPoint } from '../runtime/map';
 import {
   coordinateToMapPoint,
   getConvexHull,
@@ -30,12 +31,32 @@ export function DungeonMap({
   hullSpawns = spawns,
 }: Props) {
   const [imageFailed, setImageFailed] = useState(false);
-  const viewBox = useMemo(() => getMapViewBox(viewBounds), [viewBounds]);
-  const hullPath = useMemo(() => pointsToSvgPath(getConvexHull(hullSpawns)), [hullSpawns]);
+  // threechest 源(RLP)以"屏幕 y 向下为正"定义瓦片行,而 normalized 坐标 y 为负(北在上),
+  // 二者镜像。flipY 时把整个渲染面(瓦片位置、spawn、hull、patrol)一起翻转。
+  const flipY = asset.kind === 'remote-tiles' && asset.flipY === true;
+  const displayBounds = useMemo<CoordinateBounds>(() => {
+    if (!flipY) return viewBounds;
+    return {
+      xMin: viewBounds.xMin,
+      xMax: viewBounds.xMax,
+      yMin: -viewBounds.yMax,
+      yMax: -viewBounds.yMin,
+    };
+  }, [flipY, viewBounds]);
+  const toDisplayPoint = useCallback(
+    (point: MapPoint): MapPoint => (flipY ? { x: point.x, y: -point.y } : point),
+    [flipY],
+  );
+  const viewBox = useMemo(() => getMapViewBox(displayBounds), [displayBounds]);
+  const hullPath = useMemo(
+    () => pointsToSvgPath(getConvexHull(hullSpawns).map(toDisplayPoint)),
+    [hullSpawns, toDisplayPoint],
+  );
   const patrolPaths = useMemo(
     () =>
       spawns.flatMap((spawn) => {
-        const points = spawn.patrol?.points.map(coordinateToMapPoint) ?? [];
+        const points =
+          spawn.patrol?.points.map(coordinateToMapPoint).map(toDisplayPoint) ?? [];
         if (points.length < 2) return [];
         return [
           {
@@ -46,7 +67,7 @@ export function DungeonMap({
           },
         ];
       }),
-    [spawns],
+    [spawns, toDisplayPoint],
   );
   const selected = new Set(selectedSpawnIds);
   const assetIdentity =
@@ -58,8 +79,8 @@ export function DungeonMap({
   const showRemoteImage = asset.kind === 'remote' && !imageFailed;
   const showRemoteTiles = asset.kind === 'remote-tiles' && !imageFailed;
   const tiles = useMemo(
-    () => (asset.kind === 'remote-tiles' ? getMapTiles(viewBounds, asset) : []),
-    [asset, viewBounds],
+    () => (asset.kind === 'remote-tiles' ? getMapTiles(displayBounds, asset) : []),
+    [asset, displayBounds],
   );
 
   useEffect(() => {
@@ -132,7 +153,7 @@ export function DungeonMap({
           />
         ))}
         {spawns.map((spawn) => {
-          const point = coordinateToMapPoint(spawn.position);
+          const point = toDisplayPoint(coordinateToMapPoint(spawn.position));
           const isSelected = selected.has(spawn.id);
           return (
             <g
