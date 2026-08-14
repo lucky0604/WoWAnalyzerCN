@@ -388,11 +388,12 @@ export function Component() {
             <button
               type="button"
               role="tab"
+              id={`learning-mode-tab-${item}`}
               aria-selected={item === mode}
               aria-controls="learning-lesson-panel"
               className={item === mode ? 'is-active' : undefined}
               key={item}
-              onClick={() => go({ mode: item, situation: plan[0]?.situation.id })}
+              onClick={() => go({ mode: item, review: null, situation: plan[0]?.situation.id })}
             >
               <strong>{modeLabels[item].label}</strong>
               <span>{modeLabels[item].detail}</span>
@@ -459,122 +460,125 @@ export function Component() {
           <section
             className="dungeon-learning-panel learning-lesson"
             id="learning-lesson-panel"
-            aria-live="polite"
+            role="tabpanel"
+            aria-labelledby={`learning-mode-tab-${mode}`}
           >
-            <div className="learning-lesson__meta">
-              <span className={`learning-kind learning-kind--${lesson.situation.kind}`}>
-                {lesson.situation.kind === 'boss' ? 'BOSS' : lesson.situation.kind.toUpperCase()}
-              </span>
-              <span>
-                场景 {currentIndex + 1} / {plan.length}
-              </span>
-            </div>
-            <h2>{lesson.situation.title.zhCN}</h2>
-            <p className="learning-lesson__summary">{lesson.situation.summary.zhCN}</p>
-            {lesson.situation.memoryCue && (
-              <div className="learning-memory-cue">
-                <span>今晚先记住</span>
-                <strong>{lesson.situation.memoryCue.zhCN}</strong>
+            <div className="learning-lesson__live" aria-live="polite">
+              <div className="learning-lesson__meta">
+                <span className={`learning-kind learning-kind--${lesson.situation.kind}`}>
+                  {lesson.situation.kind === 'boss' ? 'BOSS' : lesson.situation.kind.toUpperCase()}
+                </span>
+                <span>
+                  场景 {currentIndex + 1} / {plan.length}
+                </span>
               </div>
-            )}
-            <div className="learning-section-heading">
-              <span className="learning-panel-kicker">WHAT TO DO</span>
-              <h3>看到这些技能时，你要做什么</h3>
-            </div>
-            <div className="learning-ability-list">
-              {lesson.abilities.map((ability) => {
-                const roleText = getRoleText(role, lesson.situation, ability);
-                return (
-                  <article className="learning-ability" key={ability.id}>
-                    <div
-                      className={`learning-ability__severity learning-ability__severity--${ability.severity}`}
-                      aria-label={ability.severity}
-                    />
-                    <div className="learning-ability__body">
-                      <div className="learning-ability__title">
-                        <h4>{ability.name.zhCN}</h4>
-                        <span>Spell {ability.spellId ?? '待核验'}</span>
-                      </div>
-                      <div className="learning-action-row">
-                        <strong>动作</strong>
-                        <p>{ability.action.zhCN}</p>
-                      </div>
-                      <div className="learning-action-row learning-action-row--consequence">
-                        <strong>后果</strong>
-                        <p>{ability.consequence.zhCN}</p>
-                      </div>
-                      {roleText && (
-                        <div className="learning-role-advice">
-                          <span>{roleLabels[role]}视角</span>
-                          {roleText}
-                        </div>
-                      )}
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-            {lesson.waveContexts.length > 0 && (
-              <div className="learning-route-context">
-                <div className="learning-section-heading">
-                  <span className="learning-panel-kicker">ROUTE CONTEXT</span>
-                  <h3>这一节对应哪些波次</h3>
+              <h2>{lesson.situation.title.zhCN}</h2>
+              <p className="learning-lesson__summary">{lesson.situation.summary.zhCN}</p>
+              {lesson.situation.memoryCue && (
+                <div className="learning-memory-cue">
+                  <span>今晚先记住</span>
+                  <strong>{lesson.situation.memoryCue.zhCN}</strong>
                 </div>
-                <p className="learning-route-context__intro">
-                  先用动作理解这波的风险，再用位置锚点确认上下文；位置锚点不等于完整 Pull 或 forces
-                  结论。
-                </p>
-                {lesson.waveContexts.map((context) => (
-                  <LearningWaveContextCard
-                    context={context}
-                    documentId={document.id}
-                    key={context.step.id}
-                  />
-                ))}
-              </div>
-            )}
-            <div className="learning-recall">
-              <div className="learning-section-heading">
-                <span className="learning-panel-kicker">RECALL</span>
-                <h3>合上页面，你会怎么处理？</h3>
-              </div>
-              <p>先选择你的把握程度，再揭示参考答案。结果只保存在当前浏览器。</p>
-              <div className="learning-confidence-row">
-                <ConfidenceButton
-                  confidence="ready"
-                  selected={record?.confidence === 'ready'}
-                  onClick={() => onConfidence('ready')}
-                />
-                <ConfidenceButton
-                  confidence="fuzzy"
-                  selected={record?.confidence === 'fuzzy'}
-                  onClick={() => onConfidence('fuzzy')}
-                />
-                <ConfidenceButton
-                  confidence="unknown"
-                  selected={record?.confidence === 'unknown'}
-                  onClick={() => onConfidence('unknown')}
-                />
-              </div>
-              {record?.revealed ? (
-                <div className="learning-answer">
-                  <strong>参考答案</strong>
-                  <p>
-                    {lesson.situation.memoryCue?.zhCN ??
-                      lesson.abilities[0]?.action.zhCN ??
-                      lesson.situation.summary.zhCN}
-                  </p>
-                </div>
-              ) : (
-                <button
-                  className="learning-reveal"
-                  type="button"
-                  onClick={onReveal}
-                  disabled={!record?.confidence}
-                >
-                  {record?.confidence ? '显示参考答案' : '先选择把握程度'}
-                </button>
               )}
+              <div className="learning-section-heading">
+                <span className="learning-panel-kicker">WHAT TO DO</span>
+                <h3>看到这些技能时，你要做什么</h3>
+              </div>
+              <div className="learning-ability-list">
+                {lesson.abilities.map((ability) => {
+                  const roleText = getRoleText(role, lesson.situation, ability);
+                  return (
+                    <article className="learning-ability" key={ability.id}>
+                      <div
+                        className={`learning-ability__severity learning-ability__severity--${ability.severity}`}
+                        aria-label={ability.severity}
+                      />
+                      <div className="learning-ability__body">
+                        <div className="learning-ability__title">
+                          <h4>{ability.name.zhCN}</h4>
+                          <span>Spell {ability.spellId ?? '待核验'}</span>
+                        </div>
+                        <div className="learning-action-row">
+                          <strong>动作</strong>
+                          <p>{ability.action.zhCN}</p>
+                        </div>
+                        <div className="learning-action-row learning-action-row--consequence">
+                          <strong>后果</strong>
+                          <p>{ability.consequence.zhCN}</p>
+                        </div>
+                        {roleText && (
+                          <div className="learning-role-advice">
+                            <span>{roleLabels[role]}视角</span>
+                            {roleText}
+                          </div>
+                        )}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+              {lesson.waveContexts.length > 0 && (
+                <div className="learning-route-context">
+                  <div className="learning-section-heading">
+                    <span className="learning-panel-kicker">ROUTE CONTEXT</span>
+                    <h3>这一节对应哪些波次</h3>
+                  </div>
+                  <p className="learning-route-context__intro">
+                    先用动作理解这波的风险，再用位置锚点确认上下文；位置锚点不等于完整 Pull 或
+                    forces 结论。
+                  </p>
+                  {lesson.waveContexts.map((context) => (
+                    <LearningWaveContextCard
+                      context={context}
+                      documentId={document.id}
+                      key={context.step.id}
+                    />
+                  ))}
+                </div>
+              )}
+              <div className="learning-recall">
+                <div className="learning-section-heading">
+                  <span className="learning-panel-kicker">RECALL</span>
+                  <h3>合上页面，你会怎么处理？</h3>
+                </div>
+                <p>先选择你的把握程度，再揭示参考答案。结果只保存在当前浏览器。</p>
+                <div className="learning-confidence-row">
+                  <ConfidenceButton
+                    confidence="ready"
+                    selected={record?.confidence === 'ready'}
+                    onClick={() => onConfidence('ready')}
+                  />
+                  <ConfidenceButton
+                    confidence="fuzzy"
+                    selected={record?.confidence === 'fuzzy'}
+                    onClick={() => onConfidence('fuzzy')}
+                  />
+                  <ConfidenceButton
+                    confidence="unknown"
+                    selected={record?.confidence === 'unknown'}
+                    onClick={() => onConfidence('unknown')}
+                  />
+                </div>
+                {record?.revealed ? (
+                  <div className="learning-answer">
+                    <strong>参考答案</strong>
+                    <p>
+                      {lesson.situation.memoryCue?.zhCN ??
+                        lesson.abilities[0]?.action.zhCN ??
+                        lesson.situation.summary.zhCN}
+                    </p>
+                  </div>
+                ) : (
+                  <button
+                    className="learning-reveal"
+                    type="button"
+                    onClick={onReveal}
+                    disabled={!record?.confidence}
+                  >
+                    {record?.confidence ? '显示参考答案' : '先选择把握程度'}
+                  </button>
+                )}
+              </div>
             </div>
             <div className="learning-step-navigation">
               <button type="button" onClick={() => moveLesson(-1)} disabled={currentIndex === 0}>
@@ -613,6 +617,9 @@ export function Component() {
                 </button>
               ))}
             </div>
+            <p className="learning-role-switcher__note">
+              回忆进度按场景共享，切换职责不会重置你的复习记录。
+            </p>
             <div className="learning-sidebar__review">
               <strong>进本前 3 条复习</strong>
               <div className="learning-progress-summary" aria-label="学习状态">
