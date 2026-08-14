@@ -73,6 +73,13 @@ export const registeredKnowledgeIds = new Set(
   dungeonPreviewDocuments.flatMap((document) => [...documentKnowledgeIds(document)]),
 );
 
+// The ledger and registered id set are module constants, so validation is
+// memoizable as long as the default id set is used. This keeps the hot path
+// (every learning/route render calls the access gate) from re-validating a
+// static payload on each pass.
+let cachedValidatedLedger: StaleKnowledgeLedger | undefined;
+let cacheValidated = false;
+
 export function getStaleKnowledgeLedger(): StaleKnowledgeLedger | undefined {
   return getValidatedStaleKnowledgeLedger();
 }
@@ -80,6 +87,15 @@ export function getStaleKnowledgeLedger(): StaleKnowledgeLedger | undefined {
 export function getValidatedStaleKnowledgeLedger(
   knownKnowledgeIds: ReadonlySet<string> = registeredKnowledgeIds,
 ): StaleKnowledgeLedger | undefined {
+  if (knownKnowledgeIds === registeredKnowledgeIds) {
+    if (!cacheValidated) {
+      cachedValidatedLedger = validateStaleLedger(staleKnowledgeLedger, knownKnowledgeIds).ok
+        ? (staleKnowledgeLedger as StaleKnowledgeLedger)
+        : undefined;
+      cacheValidated = true;
+    }
+    return cachedValidatedLedger;
+  }
   const validation = validateStaleLedger(staleKnowledgeLedger, knownKnowledgeIds);
   return validation.ok ? (staleKnowledgeLedger as StaleKnowledgeLedger) : undefined;
 }

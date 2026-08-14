@@ -58,55 +58,70 @@ function isIncluded(mode: LearningMode, kind: SituationKind): boolean {
   return quickKinds.has(kind);
 }
 
+interface WaveLookup {
+  spawnsById: Map<string, Spawn>;
+  enemiesById: Map<string, Enemy>;
+}
+
+const buildWaveLookup = (document: DungeonDocument): WaveLookup => ({
+  spawnsById: new Map(document.spawns.map((spawn) => [spawn.id, spawn])),
+  enemiesById: new Map(document.enemies.map((enemy) => [enemy.id, enemy])),
+});
+
+function buildLearningWaveContext(
+  lookup: WaveLookup,
+  document: DungeonDocument,
+  route: RouteKnowledge,
+  step: PullStep,
+): LearningWaveContext {
+  const spawns = step.spawnIds.flatMap((spawnId) => {
+    const spawn = lookup.spawnsById.get(spawnId);
+    return spawn ? [spawn] : [];
+  });
+  const anchorSpawnIds = getRouteStepAnchorSpawnIds(document, step);
+  const contextualSpawns = [
+    ...spawns,
+    ...anchorSpawnIds.flatMap((spawnId) => {
+      const spawn = lookup.spawnsById.get(spawnId);
+      return spawn ? [spawn] : [];
+    }),
+  ];
+  const enemies = [...new Set(contextualSpawns.map((spawn) => spawn.enemyId))].flatMap(
+    (enemyId) => {
+      const enemy = lookup.enemiesById.get(enemyId);
+      return enemy ? [enemy] : [];
+    },
+  );
+  const hasCompletePull =
+    document.spatialStatus === 'verified' &&
+    step.spawnIds.length > 0 &&
+    spawns.length === step.spawnIds.length;
+  const hasVerifiedForces =
+    hasCompletePull &&
+    document.totalEnemyForcesPoints > 0 &&
+    enemies.length > 0 &&
+    enemies.every((enemy) => enemy.forcesStatus === 'verified');
+
+  return {
+    route,
+    step,
+    anchorSpawnIds,
+    spawns,
+    enemies,
+    forcesPoints: getPullStepForces(document, step),
+    hasCompletePull,
+    hasVerifiedForces,
+  };
+}
+
 export function getLearningWaveContexts(
   document: DungeonDocument,
   route: RouteKnowledge | undefined,
   routeSteps: PullStep[],
 ): LearningWaveContext[] {
   if (!route) return [];
-
-  const spawnsById = new Map(document.spawns.map((spawn) => [spawn.id, spawn]));
-  const enemiesById = new Map(document.enemies.map((enemy) => [enemy.id, enemy]));
-  return routeSteps.map((step) => {
-    const spawns = step.spawnIds.flatMap((spawnId) => {
-      const spawn = spawnsById.get(spawnId);
-      return spawn ? [spawn] : [];
-    });
-    const anchorSpawnIds = getRouteStepAnchorSpawnIds(document, step);
-    const contextualSpawns = [
-      ...spawns,
-      ...anchorSpawnIds.flatMap((spawnId) => {
-        const spawn = spawnsById.get(spawnId);
-        return spawn ? [spawn] : [];
-      }),
-    ];
-    const enemies = [...new Set(contextualSpawns.map((spawn) => spawn.enemyId))].flatMap(
-      (enemyId) => {
-        const enemy = enemiesById.get(enemyId);
-        return enemy ? [enemy] : [];
-      },
-    );
-    const hasCompletePull =
-      document.spatialStatus === 'verified' &&
-      step.spawnIds.length > 0 &&
-      spawns.length === step.spawnIds.length;
-    const hasVerifiedForces =
-      hasCompletePull &&
-      document.totalEnemyForcesPoints > 0 &&
-      enemies.length > 0 &&
-      enemies.every((enemy) => enemy.forcesStatus === 'verified');
-
-    return {
-      route,
-      step,
-      anchorSpawnIds,
-      spawns,
-      enemies,
-      forcesPoints: getPullStepForces(document, step),
-      hasCompletePull,
-      hasVerifiedForces,
-    };
-  });
+  const lookup = buildWaveLookup(document);
+  return routeSteps.map((step) => buildLearningWaveContext(lookup, document, route, step));
 }
 
 export function buildLearningPlan(document: DungeonDocument, mode: LearningMode): LearningLesson[] {
@@ -135,6 +150,7 @@ export function buildLearningPlan(document: DungeonDocument, mode: LearningMode)
       return aOrder - bOrder || a.id.localeCompare(b.id);
     });
 
+  const waveLookup = buildWaveLookup(document);
   return sortedSituations.map((situation, index) => {
     const abilities = situation.focusAbilityIds.flatMap((abilityId) => {
       const ability = abilitiesById.get(abilityId);
@@ -143,8 +159,8 @@ export function buildLearningPlan(document: DungeonDocument, mode: LearningMode)
     const routeContexts = routeContextsBySituation.get(situation.id) ?? [];
     const routeSteps = routeContexts.map(({ step }) => step);
     const route = routeContexts[0]?.route;
-    const waveContexts = routeContexts.flatMap(({ route: contextRoute, step }) =>
-      getLearningWaveContexts(document, contextRoute, [step]),
+    const waveContexts = routeContexts.map(({ route: contextRoute, step }) =>
+      buildLearningWaveContext(waveLookup, document, contextRoute, step),
     );
     return {
       situation,
@@ -209,14 +225,19 @@ export function getLearningProgressSummary(
   let masteredCount = 0;
   let fuzzyCount = 0;
   let unknownCount = 0;
+  let weakCount = 0;
 
   plan.forEach((lesson) => {
     const record = getLessonRecallRecord(progress, dungeonId, lesson);
-    if (!record) return;
+    if (!record) {
+      weakCount += 1;
+      return;
+    }
     if (record.revealed) completedCount += 1;
     if (record.revealed && record.confidence === 'ready') masteredCount += 1;
     if (record.confidence === 'fuzzy') fuzzyCount += 1;
     if (record.confidence === 'unknown') unknownCount += 1;
+    if (isLessonWeak(record)) weakCount += 1;
   });
 
   return {
@@ -224,7 +245,7 @@ export function getLearningProgressSummary(
     masteredCount,
     fuzzyCount,
     unknownCount,
-    weakCount: plan.length - masteredCount,
+    weakCount,
   };
 }
 
@@ -254,6 +275,16 @@ export function getDueLessons(
 }
 
 /**
+ * A lesson is weak until the user has revealed it with `ready`. An unrevealed
+ * confidence choice, and any fuzzy/unknown answer, remain reviewable. This is
+ * the single weak predicate shared by `getWeakLessons` and the progress
+ * summary so the two can never drift apart.
+ */
+export function isLessonWeak(record: RecallRecord | undefined): boolean {
+  return !record || !record.revealed || record.confidence !== 'ready';
+}
+
+/**
  * Returns only lessons that still need active recall. A lesson is weak until
  * the user has revealed it with `ready`; fuzzy/unknown answers and an
  * unrevealed confidence choice remain intentionally reviewable.
@@ -263,10 +294,7 @@ export function getWeakLessons(
   progress: LearningProgress,
   dungeonId: string,
 ): LearningLesson[] {
-  return plan.filter((lesson) => {
-    const record = getLessonRecallRecord(progress, dungeonId, lesson);
-    return !record || !record.revealed || record.confidence !== 'ready';
-  });
+  return plan.filter((lesson) => isLessonWeak(getLessonRecallRecord(progress, dungeonId, lesson)));
 }
 
 export function getRoleText(
