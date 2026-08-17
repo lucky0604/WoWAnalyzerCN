@@ -17,11 +17,16 @@ import {
 } from '../runtime/map';
 import type { DungeonAssetResult } from '../runtime/assetsTypes';
 
-/** 地图上怪物头像的边长（viewBox 坐标单位）。 */
-const PORTRAIT_SIZE = 8.5;
-/** 技能浮层的固定尺寸（viewBox 坐标单位）。 */
-const POPOVER_WIDTH = 248;
-const POPOVER_HEIGHT = 216;
+/** 地图上怪物头像的基础边长（viewBox 坐标单位，对应 scale≈1 的小怪）。 */
+const BASE_PORTRAIT_SIZE = 6.5;
+/** Boss 额外放大倍数（threechest 同款语义：boss 图标比同体型普通怪更醒目）。 */
+const BOSS_PORTRAIT_MULTIPLIER = 1.7;
+/** 技能浮层的固定宽度（viewBox 坐标单位），比旧版 248 大幅收紧。 */
+const POPOVER_WIDTH = 132;
+/** 浮层高度只作锚点参考，实际内容由 HTML 撑开（overflow: visible）。 */
+const POPOVER_HEIGHT = 64;
+/** 浮层内最多展示的技能数量，超出部分折叠成“+N 更多技能”。 */
+const MAX_POPOVER_SPELLS = 4;
 
 interface Props {
   floor: Floor;
@@ -43,6 +48,11 @@ interface ResolvedSpawn {
   isSelected: boolean;
   enemy: Enemy | undefined;
   npcId: number | undefined;
+  /**
+   * 图标边长（viewBox 单位）：基础尺寸 × MDT 体型比例 × Boss 系数。
+   * 普通小怪约 5~6.5，法系怪约 8.4，精英 10~16，Boss 约 22。
+   */
+  size: number;
   spells: Array<{ spellId: number; icon: string; name: string; cnName?: string }>;
 }
 
@@ -156,6 +166,10 @@ export function DungeonMap({
           isSelected: selectedSpawnIds.includes(spawn.id),
           enemy,
           npcId,
+          size:
+            BASE_PORTRAIT_SIZE *
+            (spawn.scale ?? 1) *
+            (enemy?.isBoss ? BOSS_PORTRAIT_MULTIPLIER : 1),
           spells,
         };
       }),
@@ -186,6 +200,11 @@ export function DungeonMap({
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          {/* 头像金属边框，参照 threechest MobBorder 的 vertical gradient。 */}
+          <linearGradient id="dungeon-map-rim-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stopColor="#e8e8ec" />
+            <stop offset="1" stopColor="#373738" />
+          </linearGradient>
         </defs>
         <rect
           fill="url(#dungeon-map-grid)"
@@ -196,6 +215,7 @@ export function DungeonMap({
         />
         {showRemoteImage && (
           <image
+            className="dungeon-map__background"
             href={asset.url}
             height={viewBox.height}
             onError={() => setImageFailed(true)}
@@ -208,6 +228,7 @@ export function DungeonMap({
         {showRemoteTiles &&
           tiles.map((tile) => (
             <image
+              className="dungeon-map__tile"
               href={tile.url}
               height={tile.size}
               key={tile.key}
@@ -228,10 +249,23 @@ export function DungeonMap({
           />
         ))}
         {resolvedSpawns.map((resolved) => {
-          const { id, point, isSelected, enemy, npcId, spells } = resolved;
+          const {
+            id,
+            point,
+            isSelected,
+            enemy,
+            npcId,
+            size,
+            spells,
+          } = resolved;
           const portraitBroken = brokenPortraits.has(id);
           const showPortrait = npcId !== undefined && !portraitBroken;
-          // 只有悬停/键盘聚焦或"唯一选中"时显示浮层，避免 pull 多选时铺满地图。
+          // 金属边框粗细与图标同比例（threechest borderWidth = 4%×icon）。
+          const rimStroke = Math.max(0.4, size * 0.08);
+          const rim = size + rimStroke * 2 + 0.4;
+          const visibleSpells = spells.slice(0, MAX_POPOVER_SPELLS);
+          const hiddenSpellCount = spells.length - visibleSpells.length;
+          // 只有悬停/键盘聚焦或“唯一选中”时显示浮层，避免 pull 多选时铺满地图。
           const showPopover =
             (activeSpawnId === id || (isSelected && selectedSpawnIds.length === 1)) &&
             (enemy !== undefined || npcId !== undefined);
@@ -263,18 +297,33 @@ export function DungeonMap({
               tabIndex={onSpawnSelect ? 0 : undefined}
             >
               {showPortrait ? (
-                <image
-                  className="dungeon-map__portrait"
-                  height={PORTRAIT_SIZE}
-                  href={npcPortraitUrl(npcId!)}
-                  onError={() => setBrokenPortraits((current) => new Set(current).add(id))}
-                  preserveAspectRatio="xMidYMid meet"
-                  width={PORTRAIT_SIZE}
-                  x={point.x - PORTRAIT_SIZE / 2}
-                  y={point.y - PORTRAIT_SIZE / 2}
-                />
+                <g className="dungeon-map__icon">
+                  <rect
+                    className="dungeon-map__icon-rim"
+                    height={rim}
+                    rx={1.5}
+                    strokeWidth={rimStroke}
+                    width={rim}
+                    x={point.x - rim / 2}
+                    y={point.y - rim / 2}
+                  />
+                  <image
+                    className="dungeon-map__portrait"
+                    height={size}
+                    href={npcPortraitUrl(npcId!)}
+                    onError={() => setBrokenPortraits((current) => new Set(current).add(id))}
+                    preserveAspectRatio="xMidYMid meet"
+                    width={size}
+                    x={point.x - size / 2}
+                    y={point.y - size / 2}
+                  />
+                </g>
               ) : (
-                <circle cx={point.x} cy={point.y} r={isSelected ? 2.7 : 2} />
+                <circle
+                  cx={point.x}
+                  cy={point.y}
+                  r={isSelected ? Math.max(2.2, size * 0.3) : Math.max(1.6, size * 0.28)}
+                />
               )}
               <title>
                 {enemy ? `${enemy.name.zhCN} (${id})` : `${id} 位置`}
@@ -294,9 +343,9 @@ export function DungeonMap({
                         <img
                           alt=""
                           className="dungeon-map__popover-avatar"
-                          height={34}
+                          height={24}
                           src={npcPortraitUrl(npcId)}
-                          width={34}
+                          width={24}
                         />
                       )}
                       <div>
@@ -307,23 +356,23 @@ export function DungeonMap({
                       </div>
                     </div>
                     <ul className="dungeon-map__popover-spells">
-                      {spells.map((spell) => (
-                        <li key={spell.spellId} title={spell.name}>
+                      {visibleSpells.map((spell) => (
+                        <li key={spell.spellId} title={`${spell.name} · Spell ${spell.spellId}`}>
                           <img
                             alt=""
                             className="dungeon-map__popover-spell-icon"
-                            height={22}
+                            height={16}
                             src={dungeonSpellIconUrl(spell.icon)}
-                            width={22}
+                            width={16}
                           />
-                          <span>
-                            <em>{spell.cnName ?? spell.name}</em>
-                            <small>
-                              {spell.name} · Spell {spell.spellId}
-                            </small>
-                          </span>
+                          <em>{spell.cnName ?? spell.name}</em>
                         </li>
                       ))}
+                      {hiddenSpellCount > 0 && (
+                        <li className="dungeon-map__popover-more">
+                          +{hiddenSpellCount} 更多技能
+                        </li>
+                      )}
                       {spells.length === 0 && (
                         <li className="dungeon-map__popover-empty">技能清单待核验</li>
                       )}

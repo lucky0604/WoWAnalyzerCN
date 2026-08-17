@@ -1,6 +1,7 @@
 import rlpCoordinateSnapshot from './coordinates/rlp.json';
 import rlpBindingManifest from './coordinates/rlp.bindings.json';
 import rlpIdentityRegistry from './coordinates/rlp.identity.json';
+import { getSpawnScale } from './rlpSpawnScales';
 import { rubyLifePoolsPhase1Draft } from './phase1Prototypes';
 import type {
   DungeonDocument,
@@ -221,6 +222,8 @@ function buildSpawns(): Spawn[] | undefined {
       floorId: sourcePlaneFloorId,
       position: sourceSpawn.position,
       sourceId: sourceSpawn.sourceId,
+      // MDT 体型比例(参考数据),地图按怪物类型区分图标大小。
+      scale: getSpawnScale(sourceSpawn.sourceId.replace('rlp:', '')),
       ...(sourceSpawn.groupId ? { groupId: sourceSpawn.groupId } : {}),
       ...(sourceSpawn.patrol ? { patrol: { points: sourceSpawn.patrol } } : {}),
     });

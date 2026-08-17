@@ -161,6 +161,11 @@ export interface Spawn {
   enemyId: EnemyId;
   floorId: FloorId;
   position: Coordinate;
+  /**
+   * 游戏内体型比例（MDT snapshot）。地图用它对同类型怪物区分图标大小：
+   * 普通小怪约 1，精英/大体型约 1.6~2.5，Boss 约 2。缺失时 UI 回退 1。
+   */
+  scale?: number;
   groupId?: string;
   patrol?: PatrolPath;
   sourceId: string;
