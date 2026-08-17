@@ -10,6 +10,9 @@ import {
   getLessonSharePath,
 } from '../../dungeon';
 import type { AbilityKnowledge, BossKnowledge, DungeonDocument, Role } from '../../dungeon';
+import { getEnemySpellIds, RLP_SPELL_FACTS } from '../../dungeon/data/rlpSpellReference';
+
+import { DungeonSpellIcon, NpcPortrait } from './dungeonReference';
 
 import './dungeons.scss';
 
@@ -102,11 +105,14 @@ function MechanismCard({
   return (
     <article className="dungeon-boss-mechanism">
       <div className="dungeon-boss-mechanism__heading">
-        <div>
-          <span className="dungeon-boss__eyebrow">
-            {ability.decisionCritical ? 'DECISION CRITICAL' : 'MECHANIC'}
-          </span>
-          <h3>{ability.name.zhCN}</h3>
+        <div className="dungeon-boss-mechanism__title">
+          <DungeonSpellIcon spellId={ability.spellId} />
+          <div>
+            <span className="dungeon-boss__eyebrow">
+              {ability.decisionCritical ? 'DECISION CRITICAL' : 'MECHANIC'}
+            </span>
+            <h3>{ability.name.zhCN}</h3>
+          </div>
         </div>
         <span className={`dungeon-severity dungeon-severity-${ability.severity}`}>
           {ability.severity === 'critical'
@@ -150,6 +156,7 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
     const ability = document.abilities.find((candidate) => candidate.id === abilityId);
     return ability ? [ability] : [];
   });
+  const bossSpellIds = getEnemySpellIds(enemy?.npcId);
   const linkedSituations = useMemo(() => getLinkedSituations(document, boss), [document, boss]);
   const bossSituations = linkedSituations.filter((situation) => situation.kind === 'boss');
   const primarySituation = bossSituations[0] ?? linkedSituations[0];
@@ -182,8 +189,13 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
               <span>BOSS LEARNING CARD</span>
               <span className="dungeon-status dungeon-status-draft">只读</span>
             </div>
-            <h1>{boss.title.zhCN}</h1>
-            <p>{boss.summary.zhCN}</p>
+            <div className="dungeon-boss-hero-title">
+              <NpcPortrait npcId={enemy?.npcId} name={boss.title.zhCN} size={56} />
+              <div>
+                <h1>{boss.title.zhCN}</h1>
+                <p>{boss.summary.zhCN}</p>
+              </div>
+            </div>
           </div>
           <div className="dungeon-hero__metric">
             <span>核心机制</span>
@@ -288,6 +300,46 @@ function BossDetail({ document, boss }: { document: DungeonDocument; boss: BossK
             </div>
           ) : (
             <p className="dungeon-empty-state">核心机制尚未绑定技能知识。</p>
+          )}
+        </section>
+
+        <section className="dungeon-panel">
+          <div className="dungeon-panel__heading">
+            <div>
+              <span className="dungeon-kicker">FULL SPELLBOOK</span>
+              <h2>完整技能表</h2>
+            </div>
+            <span className="dungeon-panel__hint">threechest 游戏数据快照 · 只读参考</span>
+          </div>
+          <p className="dungeon-coverage-intro">
+            这是 Boss 的完整战斗技能清单（悬停可看官方技能名与 Spell ID），比核心机制索引更全；
+            已登记中文处理结论的技能会额外显示中文名，处理策略仍以核心机制卡片为准。
+          </p>
+          {bossSpellIds.length ? (
+            <div className="dungeon-chip-row">
+              {bossSpellIds.map((spellId) => {
+                const authored = document.abilities.find(
+                  (ability) => ability.spellId === spellId,
+                );
+                const fact = RLP_SPELL_FACTS[spellId];
+                return (
+                  <span
+                    className="dungeon-chip dungeon-chip--spell"
+                    key={spellId}
+                    title={
+                      authored
+                        ? `${fact?.name ?? `Spell ${spellId}`} · ${authored.action.zhCN}`
+                        : `${fact?.name ?? `Spell ${spellId}`} (${spellId})`
+                    }
+                  >
+                    <DungeonSpellIcon spellId={spellId} />
+                    {authored ? authored.name.zhCN : fact?.name}
+                  </span>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="dungeon-empty-state">该 Boss 的技能快照尚未接入。</p>
           )}
         </section>
 

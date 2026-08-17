@@ -686,6 +686,79 @@
   color: #f3ce7d;
   font-size: 0.75rem;
 }
+/* 技能芯片：图标保持 16px，与文字基线对齐 */
+.dungeon-chip--spell {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.dungeon-chip--spell .icon.game,
+.dungeon-chip--spell img {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+.dungeon-chip--spell .dungeon-spell-id {
+  font: 700 0.68rem monospace;
+  color: design.$colors_wowaYellow;
+}
+/* NPC 头像（热链 threechest，后期切 OSS） */
+.dungeon-npc-portrait {
+  border-radius: 4px;
+  object-fit: cover;
+  background: rgba(250, 183, 0, 0.08);
+  border: 1px solid design.$level2_border;
+  flex: none;
+}
+/* Inspector 表格敌人单元格 */
+.dungeon-enemy-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.dungeon-enemy-cell > div {
+  min-width: 0;
+}
+.dungeon-enemy-cell--book {
+  width: 230px;
+  flex: none;
+}
+.dungeon-empty-text {
+  color: design.$colors_unfocusedText;
+  font-size: 0.78rem;
+}
+/* Boss hero 头像行 */
+.dungeon-boss-hero-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.dungeon-boss-hero-title .dungeon-npc-portrait {
+  border-radius: 8px;
+}
+/* 怪物技能全览列表 */
+.dungeon-spellbook-list {
+  display: grid;
+  gap: 0;
+  margin: 14px 0 0;
+}
+.dungeon-spellbook-row {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 10px 0;
+  border-bottom: 1px solid design.$level2_border;
+}
+.dungeon-spellbook-row:last-child {
+  border-bottom: 0;
+}
+.dungeon-spellbook-row .dungeon-chip-row {
+  padding-top: 4px;
+}
 .dungeon-route-name {
   color: design.$colors_wowaYellow;
   font-size: 1rem;
@@ -931,6 +1004,20 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+}
+.dungeon-boss-mechanism__title {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+.dungeon-boss-mechanism__title .icon.game,
+.dungeon-boss-mechanism__title img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex: none;
 }
 .dungeon-boss-mechanism__heading h3 {
   margin: 5px 0 0;

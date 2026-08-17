@@ -20,6 +20,8 @@ import {
 } from '../../dungeon';
 import type { LearningMode, LearningWaveContext, RecallConfidence, Role } from '../../dungeon';
 
+import { DungeonSpellIcon, NpcPortrait } from './dungeonReference';
+
 import './dungeon-learning.scss';
 
 const modeLabels: Record<LearningMode, { label: string; detail: string }> = {
@@ -495,9 +497,36 @@ export function Component() {
                       />
                       <div className="learning-ability__body">
                         <div className="learning-ability__title">
-                          <h4>{ability.name.zhCN}</h4>
-                          <span>Spell {ability.spellId ?? '待核验'}</span>
+                          <DungeonSpellIcon spellId={ability.spellId} />
+                          <div>
+                            <h4>{ability.name.zhCN}</h4>
+                            <span>Spell {ability.spellId ?? '待核验'}</span>
+                          </div>
                         </div>
+                        {ability.casterEnemyIds.length > 0 && (
+                          <div className="learning-ability__casters">
+                            <span>施放者</span>
+                            {ability.casterEnemyIds.map((enemyId) => {
+                              const caster = document.enemies.find(
+                                (enemy) => enemy.id === enemyId,
+                              );
+                              return caster ? (
+                                <span className="learning-ability__caster" key={enemyId}>
+                                  <NpcPortrait
+                                    npcId={caster.npcId}
+                                    name={caster.name.zhCN}
+                                    size={18}
+                                  />
+                                  {caster.name.zhCN}
+                                </span>
+                              ) : (
+                                <span className="learning-ability__caster" key={enemyId}>
+                                  {enemyId}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        )}
                         <div className="learning-action-row">
                           <strong>动作</strong>
                           <p>{ability.action.zhCN}</p>

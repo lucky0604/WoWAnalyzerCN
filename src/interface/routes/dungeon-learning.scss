@@ -351,7 +351,19 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  align-items: baseline;
+  align-items: flex-start;
+}
+.learning-ability__title .icon.game,
+.learning-ability__title img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex: none;
+  margin-top: 2px;
+}
+.learning-ability__title > div {
+  min-width: 0;
 }
 .learning-ability__title h4 {
   margin: 0;
@@ -360,6 +372,28 @@
 .learning-ability__title span {
   color: design.$colors_unfocusedText;
   font: 0.7rem monospace;
+}
+.learning-ability__casters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: 8px;
+}
+.learning-ability__casters > span {
+  color: design.$colors_unfocusedText;
+  font-size: 0.75rem;
+}
+.learning-ability__caster {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: design.$colors_bodyText;
+  font-size: 0.78rem;
+}
+.learning-ability__caster img {
+  border-radius: 2px;
+  object-fit: cover;
 }
 .learning-action-row {
   display: grid;

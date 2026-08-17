@@ -33,6 +33,9 @@ import type {
   DungeonSearchResult,
   RouteStep,
 } from '../../dungeon';
+import { getEnemySpellIds, RLP_SPELL_FACTS } from '../../dungeon/data/rlpSpellReference';
+
+import { DungeonSpellIcon, NpcPortrait } from './dungeonReference';
 
 import './dungeons.scss';
 
@@ -664,12 +667,17 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                     </div>
                     <p>{situation.summary.zhCN}</p>
                     <div className="dungeon-chip-row">
-                      {situation.focusAbilityIds.map((abilityId) => (
-                        <span className="dungeon-chip" key={abilityId}>
-                          {document.abilities.find((ability) => ability.id === abilityId)?.name
-                            .zhCN ?? abilityId}
-                        </span>
-                      ))}
+                      {situation.focusAbilityIds.map((abilityId) => {
+                        const ability = document.abilities.find(
+                          (candidate) => candidate.id === abilityId,
+                        );
+                        return (
+                          <span className="dungeon-chip dungeon-chip--spell" key={abilityId}>
+                            <DungeonSpellIcon spellId={ability?.spellId} />
+                            {ability?.name.zhCN ?? abilityId}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
                 </article>
@@ -758,17 +766,45 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                     return (
                       <tr key={spawn.id}>
                         <td>
-                          <strong>{enemy?.name.zhCN ?? spawn.enemyId}</strong>
-                          <small>{enemy?.npcId}</small>
+                          <div className="dungeon-enemy-cell">
+                            <NpcPortrait npcId={enemy?.npcId} name={enemy?.name.zhCN} size={32} />
+                            <div>
+                              <strong>{enemy?.name.zhCN ?? spawn.enemyId}</strong>
+                              <small>
+                                {enemy?.npcId ? `NPC ${enemy.npcId}` : 'NPC ID 待核验'}
+                              </small>
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          {enemy?.abilityIds
-                            .map(
-                              (abilityId) =>
-                                document.abilities.find((ability) => ability.id === abilityId)?.name
-                                  .zhCN ?? abilityId,
-                            )
-                            .join('、')}
+                          {enemy?.abilityIds.length ? (
+                            <div className="dungeon-chip-row">
+                              {enemy.abilityIds.map((abilityId) => {
+                                const ability = document.abilities.find(
+                                  (candidate) => candidate.id === abilityId,
+                                );
+                                if (!ability) {
+                                  return (
+                                    <span className="dungeon-chip" key={abilityId}>
+                                      {abilityId}
+                                    </span>
+                                  );
+                                }
+                                return (
+                                  <span
+                                    className="dungeon-chip dungeon-chip--spell"
+                                    key={abilityId}
+                                    title={ability.action.zhCN}
+                                  >
+                                    <DungeonSpellIcon spellId={ability.spellId} />
+                                    {ability.name.zhCN}
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <span className="dungeon-empty-text">技能知识待核验</span>
+                          )}
                         </td>
                         <td>{floor?.name.zhCN ?? spawn.floorId}</td>
                         <td className="dungeon-coordinate">
@@ -789,11 +825,78 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
         <section className="dungeon-panel">
           <div className="dungeon-panel__heading">
             <div>
-              <span className="dungeon-kicker">BOSS REFERENCE</span>
-              <h2>Boss 机制索引</h2>
+              <span className="dungeon-kicker">MONSTER SPELLBOOK</span>
+              <h2>怪物技能全览</h2>
             </div>
-            <span className="dungeon-panel__hint">先看核心机制，再进入完整学习</span>
+            <span className="dungeon-panel__hint">threechest 游戏数据快照 · 只读参考层</span>
           </div>
+          <p className="dungeon-coverage-intro">
+            每只怪物的完整技能清单来自 threechest 的 rlp_mdt 快照：悬停图标可看官方技能名与
+            Spell ID；已登记中文处理结论的技能会同时显示中文名。这是参考数据，不等同于已审校攻略。
+          </p>
+          <div className="dungeon-spellbook-list">
+            {document.enemies.map((enemy) => {
+              const spellIds = getEnemySpellIds(enemy.npcId);
+              if (spellIds.length === 0) {
+                return (
+                  <article className="dungeon-spellbook-row" key={enemy.id}>
+                    <div className="dungeon-enemy-cell">
+                      <NpcPortrait npcId={enemy.npcId} name={enemy.name.zhCN} size={36} />
+                      <div>
+                        <strong>{enemy.name.zhCN}</strong>
+                        <small>{enemy.isBoss ? 'Boss' : '怪物'} · 技能快照待接入</small>
+                      </div>
+                    </div>
+                  </article>
+                );
+              }
+              return (
+                <article className="dungeon-spellbook-row" key={enemy.id}>
+                  <div className="dungeon-enemy-cell dungeon-enemy-cell--book">
+                    <NpcPortrait npcId={enemy.npcId} name={enemy.name.zhCN} size={36} />
+                    <div>
+                      <strong>{enemy.name.zhCN}</strong>
+                      <small>
+                        {enemy.isBoss ? 'Boss' : '怪物'} · NPC {enemy.npcId} · {spellIds.length}{' '}
+                        个技能
+                      </small>
+                    </div>
+                  </div>
+                  <div className="dungeon-chip-row">
+                    {spellIds.map((spellId) => {
+                      const authored = document.abilities.find(
+                        (ability) => ability.spellId === spellId,
+                      );
+                      const fact = RLP_SPELL_FACTS[spellId];
+                      return (
+                        <span
+                          className="dungeon-chip dungeon-chip--spell"
+                          key={spellId}
+                          title={
+                            authored
+                              ? `${fact?.name ?? `Spell ${spellId}`} · ${authored.action.zhCN}`
+                              : `${fact?.name ?? `Spell ${spellId}`} (${spellId})`
+                          }
+                        >
+                          <DungeonSpellIcon spellId={spellId} />
+                          {authored ? authored.name.zhCN : fact?.name}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <p className="dungeon-reference-footer">
+            <span>
+              技能与图标来自 threechest / grimoire 快照；NPC 头像先热链 threechest，后续迁移自建
+              OSS（切换时只改 DUNGEON_REFERENCE_ASSET_ORIGIN）。
+            </span>
+          </p>
+        </section>
+
+        <section className="dungeon-panel">
           <div className="dungeon-boss-list">
             {document.bosses.map((boss) => (
               <article className="dungeon-boss" key={boss.id}>
@@ -805,12 +908,17 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                   <p>{boss.summary.zhCN}</p>
                 </div>
                 <div className="dungeon-chip-row">
-                  {boss.focusAbilityIds.map((abilityId) => (
-                    <span className="dungeon-chip" key={abilityId}>
-                      {document.abilities.find((ability) => ability.id === abilityId)?.name.zhCN ??
-                        abilityId}
-                    </span>
-                  ))}
+                  {boss.focusAbilityIds.map((abilityId) => {
+                    const ability = document.abilities.find(
+                      (candidate) => candidate.id === abilityId,
+                    );
+                    return (
+                      <span className="dungeon-chip dungeon-chip--spell" key={abilityId}>
+                        <DungeonSpellIcon spellId={ability?.spellId} />
+                        {ability?.name.zhCN ?? abilityId}
+                      </span>
+                    );
+                  })}
                 </div>
                 <Link
                   className="dungeon-card__reference"
