@@ -625,6 +625,8 @@ function DungeonDetail({ document }: { document: DungeonDocument }) {
                   selectedSpawnId ? [selectedSpawnId] : (selectedPull?.spawnIds ?? [])
                 }
                 asset={assetProvider.getFloorMap(selectedFloor.mapAssetKey ?? '')}
+                abilities={document.abilities}
+                enemies={document.enemies}
                 hullSpawns={mapFocus === 'pull' ? selectedPullSpawns : floorSpawns}
                 onSpawnSelect={setSelectedSpawnId}
                 viewBounds={mapViewBounds}

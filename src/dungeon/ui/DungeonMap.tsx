@@ -1,7 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import type { CoordinateBounds, Floor, Spawn } from '../schema/types';
-import type { MapPoint } from '../runtime/map';
+import {
+  RLP_SPELL_FACTS,
+  dungeonSpellIconUrl,
+  getEnemySpellIds,
+  npcPortraitUrl,
+} from '../data/rlpSpellReference';
+import type { AbilityKnowledge, CoordinateBounds, Enemy, Floor, Spawn } from '../schema/types';
+import type { MapPoint, MapViewBox } from '../runtime/map';
 import {
   coordinateToMapPoint,
   getConvexHull,
@@ -11,14 +17,53 @@ import {
 } from '../runtime/map';
 import type { DungeonAssetResult } from '../runtime/assetsTypes';
 
+/** 地图上怪物头像的边长（viewBox 坐标单位）。 */
+const PORTRAIT_SIZE = 8.5;
+/** 技能浮层的固定尺寸（viewBox 坐标单位）。 */
+const POPOVER_WIDTH = 248;
+const POPOVER_HEIGHT = 216;
+
 interface Props {
   floor: Floor;
   spawns: Spawn[];
   selectedSpawnIds: string[];
   asset: DungeonAssetResult;
+  /** 敌人目录，用于把 spawn.enemyId 解析成 npcId/名字并在地图上渲染头像。 */
+  enemies?: Enemy[];
+  /** 已审校技能知识；浮层里优先显示中文名（按 spellId 匹配）。 */
+  abilities?: AbilityKnowledge[];
   onSpawnSelect?: (spawnId: string) => void;
   viewBounds?: CoordinateBounds;
   hullSpawns?: Spawn[];
+}
+
+interface ResolvedSpawn {
+  id: string;
+  point: MapPoint;
+  isSelected: boolean;
+  enemy: Enemy | undefined;
+  npcId: number | undefined;
+  spells: Array<{ spellId: number; icon: string; name: string; cnName?: string }>;
+}
+
+interface PopoverAnchor {
+  x: number;
+  y: number;
+  flipX: boolean;
+  flipY: boolean;
+}
+
+/** 浮层贴着 spawn 点展开，空间不足时改为朝地图中心一侧。 */
+function anchorPopover(point: MapPoint, viewBox: MapViewBox): PopoverAnchor {
+  const gap = 8;
+  const flipX = point.x + gap + POPOVER_WIDTH > viewBox.x + viewBox.width;
+  const flipY = point.y + gap + POPOVER_HEIGHT > viewBox.y + viewBox.height;
+  return {
+    x: flipX ? point.x - gap - POPOVER_WIDTH : point.x + gap,
+    y: flipY ? point.y - gap - POPOVER_HEIGHT : point.y + gap,
+    flipX,
+    flipY,
+  };
 }
 
 export function DungeonMap({
@@ -26,6 +71,8 @@ export function DungeonMap({
   spawns,
   selectedSpawnIds,
   asset,
+  enemies,
+  abilities,
   onSpawnSelect,
   viewBounds = floor.bounds,
   hullSpawns = spawns,
@@ -69,7 +116,8 @@ export function DungeonMap({
       }),
     [spawns, toDisplayPoint],
   );
-  const selected = new Set(selectedSpawnIds);
+  const [activeSpawnId, setActiveSpawnId] = useState<string>();
+  const [brokenPortraits, setBrokenPortraits] = useState<Set<string>>(() => new Set());
   const assetIdentity =
     asset.kind === 'remote'
       ? asset.url
@@ -86,6 +134,33 @@ export function DungeonMap({
   useEffect(() => {
     setImageFailed(false);
   }, [assetIdentity]);
+
+  const enemiesById = useMemo(() => new Map(enemies?.map((enemy) => [enemy.id, enemy])), [enemies]);
+
+  const resolvedSpawns = useMemo<ResolvedSpawn[]>(
+    () =>
+      spawns.map((spawn) => {
+        const enemy = enemiesById.get(spawn.enemyId);
+        const npcId = enemy?.npcId;
+        const spells = (npcId === undefined ? [] : getEnemySpellIds(npcId))
+          .map((spellId) => {
+            const fact = RLP_SPELL_FACTS[spellId];
+            if (!fact) return undefined;
+            const authored = abilities?.find((ability) => ability.spellId === spellId);
+            return { spellId, icon: fact.icon, name: fact.name, cnName: authored?.name.zhCN };
+          })
+          .filter((entry): entry is NonNullable<typeof entry> => entry !== undefined);
+        return {
+          id: spawn.id,
+          point: toDisplayPoint(coordinateToMapPoint(spawn.position)),
+          isSelected: selectedSpawnIds.includes(spawn.id),
+          enemy,
+          npcId,
+          spells,
+        };
+      }),
+    [spawns, enemiesById, abilities, toDisplayPoint, selectedSpawnIds],
+  );
 
   return (
     <div className="dungeon-map" data-asset-kind={asset.kind}>
@@ -152,27 +227,110 @@ export function DungeonMap({
             key={patrol.id}
           />
         ))}
-        {spawns.map((spawn) => {
-          const point = toDisplayPoint(coordinateToMapPoint(spawn.position));
-          const isSelected = selected.has(spawn.id);
+        {resolvedSpawns.map((resolved) => {
+          const { id, point, isSelected, enemy, npcId, spells } = resolved;
+          const portraitBroken = brokenPortraits.has(id);
+          const showPortrait = npcId !== undefined && !portraitBroken;
+          // 只有悬停/键盘聚焦或"唯一选中"时显示浮层，避免 pull 多选时铺满地图。
+          const showPopover =
+            (activeSpawnId === id || (isSelected && selectedSpawnIds.length === 1)) &&
+            (enemy !== undefined || npcId !== undefined);
+          const anchor = showPopover ? anchorPopover(point, viewBox) : undefined;
           return (
             <g
-              aria-label={`${spawn.id} 位置`}
+              aria-label={`${id} 位置`}
               aria-pressed={isSelected}
-              className={`dungeon-map__spawn ${isSelected ? 'is-selected' : ''}`}
-              key={spawn.id}
-              onClick={() => onSpawnSelect?.(spawn.id)}
-              role={onSpawnSelect ? 'button' : undefined}
-              tabIndex={onSpawnSelect ? 0 : undefined}
+              className={`dungeon-map__spawn ${isSelected ? 'is-selected' : ''} ${
+                showPopover ? 'is-active' : ''
+              }`}
+              key={id}
+              onClick={() => {
+                setActiveSpawnId(id);
+                onSpawnSelect?.(id);
+              }}
+              onBlur={() => setActiveSpawnId(undefined)}
+              onFocus={() => setActiveSpawnId(id)}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
                   event.preventDefault();
-                  onSpawnSelect?.(spawn.id);
+                  setActiveSpawnId(id);
+                  onSpawnSelect?.(id);
                 }
               }}
+              onMouseEnter={() => setActiveSpawnId(id)}
+              onMouseLeave={() => setActiveSpawnId(undefined)}
+              role={onSpawnSelect ? 'button' : undefined}
+              tabIndex={onSpawnSelect ? 0 : undefined}
             >
-              <circle cx={point.x} cy={point.y} r={isSelected ? 2.7 : 2} />
-              <title>{spawn.id}</title>
+              {showPortrait ? (
+                <image
+                  className="dungeon-map__portrait"
+                  height={PORTRAIT_SIZE}
+                  href={npcPortraitUrl(npcId!)}
+                  onError={() => setBrokenPortraits((current) => new Set(current).add(id))}
+                  preserveAspectRatio="xMidYMid meet"
+                  width={PORTRAIT_SIZE}
+                  x={point.x - PORTRAIT_SIZE / 2}
+                  y={point.y - PORTRAIT_SIZE / 2}
+                />
+              ) : (
+                <circle cx={point.x} cy={point.y} r={isSelected ? 2.7 : 2} />
+              )}
+              <title>
+                {enemy ? `${enemy.name.zhCN} (${id})` : `${id} 位置`}
+              </title>
+              {showPopover && anchor && (
+                <foreignObject
+                  className="dungeon-map__popover-fo"
+                  height={POPOVER_HEIGHT}
+                  style={{ transform: anchor.flipX ? 'translateX(-100%)' : undefined }}
+                  width={POPOVER_WIDTH}
+                  x={anchor.x}
+                  y={anchor.y}
+                >
+                  <div className="dungeon-map__popover">
+                    <div className="dungeon-map__popover-head">
+                      {npcId !== undefined && (
+                        <img
+                          alt=""
+                          className="dungeon-map__popover-avatar"
+                          height={34}
+                          src={npcPortraitUrl(npcId)}
+                          width={34}
+                        />
+                      )}
+                      <div>
+                        <strong>{enemy?.name.zhCN ?? `NPC ${npcId ?? ''}`}</strong>
+                        <span>
+                          {npcId !== undefined ? `NPC ${npcId}` : id} · {spells.length} 个技能
+                        </span>
+                      </div>
+                    </div>
+                    <ul className="dungeon-map__popover-spells">
+                      {spells.map((spell) => (
+                        <li key={spell.spellId} title={spell.name}>
+                          <img
+                            alt=""
+                            className="dungeon-map__popover-spell-icon"
+                            height={22}
+                            src={dungeonSpellIconUrl(spell.icon)}
+                            width={22}
+                          />
+                          <span>
+                            <em>{spell.cnName ?? spell.name}</em>
+                            <small>
+                              {spell.name} · Spell {spell.spellId}
+                            </small>
+                          </span>
+                        </li>
+                      ))}
+                      {spells.length === 0 && (
+                        <li className="dungeon-map__popover-empty">技能清单待核验</li>
+                      )}
+                    </ul>
+                  </div>
+                </foreignObject>
+              )}
             </g>
           );
         })}

@@ -157,6 +157,11 @@ export function npcPortraitUrl(npcId: number): string {
   return `${DUNGEON_REFERENCE_ASSET_ORIGIN}/npc_portraits/${npcId}.png`;
 }
 
+/** 技能图标地址(暴雪图标 -> rpglogs CDN,与 interface/Icon 的 iconUrl 同一来源)。 */
+export function dungeonSpellIconUrl(icon: string): string {
+  return `https://assets.rpglogs.com/img/warcraft/abilities/${icon}.jpg`;
+}
+
 /** 返回某个 NPC 的完整技能 ID 清单;npcId 缺失或未收录时返回空数组。 */
 export function getEnemySpellIds(npcId: number | undefined): number[] {
   if (npcId === undefined) return [];
