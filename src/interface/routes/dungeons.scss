@@ -423,19 +423,18 @@
   transform: scale(1.15);
 }
 .dungeon-map__icon-rim {
-  fill: #131313;
-  /* threechest MobBorder 同款金属渐变 + 外阴影。 */
-  stroke: url('#dungeon-map-rim-gradient');
-  filter: drop-shadow(0 0 1.6px rgba(0, 0, 0, 0.9));
-  transition: stroke 120ms ease;
+  /* 金属渐变圆盘底，头像裁剪成圆后盖在上面，露出外圈即 threechest 的 mob border。 */
+  fill: url('#dungeon-map-rim-gradient');
+  filter: drop-shadow(0 0 1.4px rgba(0, 0, 0, 0.9));
+  transition: fill 120ms ease;
 }
 .dungeon-map__spawn:hover .dungeon-map__icon-rim,
 .dungeon-map__spawn:focus .dungeon-map__icon-rim,
 .dungeon-map__spawn.is-selected .dungeon-map__icon-rim {
-  stroke: design.$colors_wowaYellow;
+  fill: design.$colors_wowaYellow;
 }
 .dungeon-map__portrait {
-  border-radius: 1px;
+  border-radius: 50%;
 }
 .dungeon-map__popover-fo {
   overflow: visible;
@@ -443,7 +442,8 @@
 .dungeon-map__popover {
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  /* 高度自适应内容，技能多时也不会撑出滚动条；FO 只是布局视口。 */
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -465,7 +465,7 @@
 }
 .dungeon-map__popover-avatar {
   flex: 0 0 auto;
-  border-radius: 2px;
+  border-radius: 50%;
   object-fit: cover;
 }
 .dungeon-map__popover-head > div {
@@ -476,30 +476,30 @@
 .dungeon-map__popover-head strong {
   overflow: hidden;
   color: design.$colors_bodyText;
-  font-size: 0.78rem;
-  line-height: 1.2;
+  font-size: 0.68rem;
+  line-height: 1.25;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .dungeon-map__popover-head span {
   color: design.$colors_unfocusedText;
-  font-size: 0.6rem;
-  line-height: 1.2;
+  font-size: 0.52rem;
+  line-height: 1.25;
 }
 .dungeon-map__popover-spells {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1px;
   margin: 0;
   padding: 3px;
-  overflow-y: auto;
   list-style: none;
 }
 .dungeon-map__popover-spells li {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   align-items: center;
   min-width: 0;
-  padding: 3px 6px;
+  padding: 2px 6px;
   border-radius: 3px;
 }
 .dungeon-map__popover-spells li:hover {
@@ -507,27 +507,27 @@
 }
 .dungeon-map__popover-spell-icon {
   flex: 0 0 auto;
-  border-radius: 2px;
+  border-radius: 50%;
   object-fit: cover;
 }
 .dungeon-map__popover-spells em {
   overflow: hidden;
   color: design.$colors_bodyText;
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-style: normal;
-  line-height: 1.2;
+  line-height: 1.25;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .dungeon-map__popover-more {
   color: design.$colors_unfocusedText;
-  font-size: 0.68rem;
+  font-size: 0.6rem;
 }
 .dungeon-map__popover-empty {
   display: block !important;
   padding: 8px 6px !important;
   color: design.$colors_unfocusedText;
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   text-align: center;
 }
 .dungeon-map__placeholder {

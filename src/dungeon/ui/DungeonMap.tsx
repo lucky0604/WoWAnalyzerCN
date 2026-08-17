@@ -18,13 +18,13 @@ import {
 import type { DungeonAssetResult } from '../runtime/assetsTypes';
 
 /** 地图上怪物头像的基础边长（viewBox 坐标单位，对应 scale≈1 的小怪）。 */
-const BASE_PORTRAIT_SIZE = 6.5;
+const BASE_PORTRAIT_SIZE = 5.5;
 /** Boss 额外放大倍数（threechest 同款语义：boss 图标比同体型普通怪更醒目）。 */
 const BOSS_PORTRAIT_MULTIPLIER = 1.7;
-/** 技能浮层的固定宽度（viewBox 坐标单位），比旧版 248 大幅收紧。 */
-const POPOVER_WIDTH = 132;
-/** 浮层高度只作锚点参考，实际内容由 HTML 撑开（overflow: visible）。 */
-const POPOVER_HEIGHT = 64;
+/** 技能浮层的固定宽度（viewBox 坐标单位）。 */
+const POPOVER_WIDTH = 168;
+/** 浮层只作布局视口与锚点参考；卡片高度由内容自适应，短内容不留空。 */
+const POPOVER_HEIGHT = 100;
 /** 浮层内最多展示的技能数量，超出部分折叠成“+N 更多技能”。 */
 const MAX_POPOVER_SPELLS = 4;
 
@@ -205,6 +205,10 @@ export function DungeonMap({
             <stop offset="0" stopColor="#e8e8ec" />
             <stop offset="1" stopColor="#373738" />
           </linearGradient>
+          {/* 圆形头像裁剪：objectBoundingBox 下 r=0.5 就是内切圆，适配任意图标尺寸。 */}
+          <clipPath id="dungeon-map-portrait-clip" clipPathUnits="objectBoundingBox">
+            <circle cx="0.5" cy="0.5" r="0.5" />
+          </clipPath>
         </defs>
         <rect
           fill="url(#dungeon-map-grid)"
@@ -260,9 +264,9 @@ export function DungeonMap({
           } = resolved;
           const portraitBroken = brokenPortraits.has(id);
           const showPortrait = npcId !== undefined && !portraitBroken;
-          // 金属边框粗细与图标同比例（threechest borderWidth = 4%×icon）。
-          const rimStroke = Math.max(0.4, size * 0.08);
-          const rim = size + rimStroke * 2 + 0.4;
+          // 金属环厚度与图标同比例（threechest borderWidth = 4%×icon）。
+          const rimWidth = Math.max(0.3, size * 0.07);
+          const rimRadius = size / 2 + rimWidth / 2;
           const visibleSpells = spells.slice(0, MAX_POPOVER_SPELLS);
           const hiddenSpellCount = spells.length - visibleSpells.length;
           // 只有悬停/键盘聚焦或“唯一选中”时显示浮层，避免 pull 多选时铺满地图。
@@ -298,17 +302,15 @@ export function DungeonMap({
             >
               {showPortrait ? (
                 <g className="dungeon-map__icon">
-                  <rect
+                  <circle
                     className="dungeon-map__icon-rim"
-                    height={rim}
-                    rx={1.5}
-                    strokeWidth={rimStroke}
-                    width={rim}
-                    x={point.x - rim / 2}
-                    y={point.y - rim / 2}
+                    cx={point.x}
+                    cy={point.y}
+                    r={rimRadius}
                   />
                   <image
                     className="dungeon-map__portrait"
+                    clipPath="url(#dungeon-map-portrait-clip)"
                     height={size}
                     href={npcPortraitUrl(npcId!)}
                     onError={() => setBrokenPortraits((current) => new Set(current).add(id))}
@@ -343,9 +345,9 @@ export function DungeonMap({
                         <img
                           alt=""
                           className="dungeon-map__popover-avatar"
-                          height={24}
+                          height={22}
                           src={npcPortraitUrl(npcId)}
-                          width={24}
+                          width={22}
                         />
                       )}
                       <div>
@@ -361,9 +363,9 @@ export function DungeonMap({
                           <img
                             alt=""
                             className="dungeon-map__popover-spell-icon"
-                            height={16}
+                            height={14}
                             src={dungeonSpellIconUrl(spell.icon)}
-                            width={16}
+                            width={14}
                           />
                           <em>{spell.cnName ?? spell.name}</em>
                         </li>
