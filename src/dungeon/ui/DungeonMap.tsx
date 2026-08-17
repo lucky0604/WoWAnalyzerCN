@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 import {
   RLP_SPELL_FACTS,
@@ -24,9 +24,8 @@ const BASE_PORTRAIT_SIZE = 5.5;
 const BOSS_PORTRAIT_MULTIPLIER = 1.7;
 /** 技能浮层的固定宽度（viewBox 坐标单位）。 */
 const POPOVER_WIDTH = 168;
-/** 浮层只作布局视口与锚点参考；卡片高度由内容自适应，短内容不留空。
-    比卡片可能的最大高度略大：技能说明(最多 4 行)会让卡片明显变高。 */
-const POPOVER_HEIGHT = 150;
+/** 浮层高度初始估算：卡片实际高度以内容自适应，渲染后由 ResizeObserver 实测覆盖。 */
+const INITIAL_POPOVER_HEIGHT = 150;
 /** 浮层内最多展示的技能数量，超出部分折叠成“+N 更多技能”。 */
 const MAX_POPOVER_SPELLS = 4;
 
@@ -68,20 +67,18 @@ interface ResolvedSpawn {
 interface PopoverAnchor {
   x: number;
   y: number;
-  flipX: boolean;
-  flipY: boolean;
 }
 
-/** 浮层贴着 spawn 点展开，空间不足时改为朝地图中心一侧。 */
-function anchorPopover(point: MapPoint, viewBox: MapViewBox): PopoverAnchor {
+/** 浮层贴着 spawn 点展开，空间不足时改为朝地图中心一侧。
+    翻转已直接算进 x/y：右/下空间不足时整体挪到图标左/上方（右缘/底缘留 8 单位间隙）。
+    height 为卡片实际渲染高度（viewBox 单位），由调用方实测传入。 */
+function anchorPopover(point: MapPoint, viewBox: MapViewBox, height: number): PopoverAnchor {
   const gap = 8;
   const flipX = point.x + gap + POPOVER_WIDTH > viewBox.x + viewBox.width;
-  const flipY = point.y + gap + POPOVER_HEIGHT > viewBox.y + viewBox.height;
+  const flipY = point.y + gap + height > viewBox.y + viewBox.height;
   return {
     x: flipX ? point.x - gap - POPOVER_WIDTH : point.x + gap,
-    y: flipY ? point.y - gap - POPOVER_HEIGHT : point.y + gap,
-    flipX,
-    flipY,
+    y: flipY ? point.y - gap - height : point.y + gap,
   };
 }
 
@@ -139,6 +136,28 @@ export function DungeonMap({
   const [previewSpawnId, setPreviewSpawnId] = useState<string>();
   const tooltipTargetId =
     previewSpawnId ?? (selectedSpawnIds.length === 1 ? selectedSpawnIds[0] : undefined);
+  // 卡片高度实测：overflow 下内容自适应，翻转判定需要真实高度(viewBox 单位)，
+  // 不能依赖固定估算值，否则技能多/说明长时卡片会悬空或压住图标。
+  const popoverRef = useRef<HTMLDivElement>(null);
+  const [popoverHeight, setPopoverHeight] = useState(INITIAL_POPOVER_HEIGHT);
+  useLayoutEffect(() => {
+    const node = popoverRef.current;
+    if (!node) return;
+    const measure = () => {
+      const rect = node.getBoundingClientRect();
+      if (rect.width <= 0) return;
+      // div 宽度恒等于 foreignObject 宽度(POPOVER_WIDTH viewBox 单位)，
+      // 用渲染宽度反推 viewBox→屏幕缩放，再把实测高度换回 viewBox 单位。
+      const scale = rect.width / POPOVER_WIDTH;
+      setPopoverHeight(rect.height / scale);
+    };
+    measure();
+    // 渐进增强：jsdom 等无 ResizeObserver 的环境跳过监听，回退到固定高度估算。
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [tooltipTargetId]);
   const [brokenPortraits, setBrokenPortraits] = useState<Set<string>>(() => new Set());
   const assetIdentity =
     asset.kind === 'remote'
@@ -360,20 +379,19 @@ export function DungeonMap({
             if (!resolved || (resolved.enemy === undefined && resolved.npcId === undefined)) {
               return null;
             }
-            const anchor = anchorPopover(resolved.point, viewBox);
+            const anchor = anchorPopover(resolved.point, viewBox, popoverHeight);
             const visibleSpells = resolved.spells.slice(0, MAX_POPOVER_SPELLS);
             const hiddenSpellCount = resolved.spells.length - visibleSpells.length;
             return (
               <foreignObject
                 className="dungeon-map__popover-fo"
-                height={POPOVER_HEIGHT}
+                height={INITIAL_POPOVER_HEIGHT}
                 key={tooltipTargetId}
-                style={{ transform: anchor.flipX ? 'translateX(-100%)' : undefined }}
                 width={POPOVER_WIDTH}
                 x={anchor.x}
                 y={anchor.y}
               >
-                <div className="dungeon-map__popover">
+                <div className="dungeon-map__popover" ref={popoverRef}>
                   <div className="dungeon-map__popover-head">
                     {resolved.npcId !== undefined && (
                       <img
