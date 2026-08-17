@@ -6,6 +6,7 @@ import {
   getEnemySpellIds,
   npcPortraitUrl,
 } from '../data/rlpSpellReference';
+import { RLP_SPELL_TOOLTIPS } from '../data/rlpSpellTooltips';
 import type { AbilityKnowledge, CoordinateBounds, Enemy, Floor, Spawn } from '../schema/types';
 import type { MapPoint, MapViewBox } from '../runtime/map';
 import {
@@ -23,8 +24,9 @@ const BASE_PORTRAIT_SIZE = 5.5;
 const BOSS_PORTRAIT_MULTIPLIER = 1.7;
 /** 技能浮层的固定宽度（viewBox 坐标单位）。 */
 const POPOVER_WIDTH = 168;
-/** 浮层只作布局视口与锚点参考；卡片高度由内容自适应，短内容不留空。 */
-const POPOVER_HEIGHT = 100;
+/** 浮层只作布局视口与锚点参考；卡片高度由内容自适应，短内容不留空。
+    比卡片可能的最大高度略大：技能说明(最多 4 行)会让卡片明显变高。 */
+const POPOVER_HEIGHT = 150;
 /** 浮层内最多展示的技能数量，超出部分折叠成“+N 更多技能”。 */
 const MAX_POPOVER_SPELLS = 4;
 
@@ -53,7 +55,14 @@ interface ResolvedSpawn {
    * 普通小怪约 5~6.5，法系怪约 8.4，精英 10~16，Boss 约 22。
    */
   size: number;
-  spells: Array<{ spellId: number; icon: string; name: string; cnName?: string }>;
+  spells: Array<{
+    spellId: number;
+    icon: string;
+    name: string;
+    cnName?: string;
+    /** 预渲染技能说明(game-data 快照填充数值);仅在快照含描述时存在。 */
+    description?: string;
+  }>;
 }
 
 interface PopoverAnchor {
@@ -126,7 +135,10 @@ export function DungeonMap({
       }),
     [spawns, toDisplayPoint],
   );
-  const [activeSpawnId, setActiveSpawnId] = useState<string>();
+  // 悬停/聚焦临时预览优先，其次落到“唯一选中”的常驻 tooltip——任何时候只显示一个。
+  const [previewSpawnId, setPreviewSpawnId] = useState<string>();
+  const tooltipTargetId =
+    previewSpawnId ?? (selectedSpawnIds.length === 1 ? selectedSpawnIds[0] : undefined);
   const [brokenPortraits, setBrokenPortraits] = useState<Set<string>>(() => new Set());
   const assetIdentity =
     asset.kind === 'remote'
@@ -157,7 +169,13 @@ export function DungeonMap({
             const fact = RLP_SPELL_FACTS[spellId];
             if (!fact) return undefined;
             const authored = abilities?.find((ability) => ability.spellId === spellId);
-            return { spellId, icon: fact.icon, name: fact.name, cnName: authored?.name.zhCN };
+            return {
+              spellId,
+              icon: fact.icon,
+              name: fact.name,
+              cnName: authored?.name.zhCN,
+              description: RLP_SPELL_TOOLTIPS[spellId]?.zh,
+            };
           })
           .filter((entry): entry is NonNullable<typeof entry> => entry !== undefined);
         return {
@@ -174,6 +192,11 @@ export function DungeonMap({
         };
       }),
     [spawns, enemiesById, abilities, toDisplayPoint, selectedSpawnIds],
+  );
+
+  const resolvedById = useMemo(
+    () => new Map(resolvedSpawns.map((spawn) => [spawn.id, spawn])),
+    [resolvedSpawns],
   );
 
   return (
@@ -260,43 +283,39 @@ export function DungeonMap({
             enemy,
             npcId,
             size,
-            spells,
           } = resolved;
           const portraitBroken = brokenPortraits.has(id);
           const showPortrait = npcId !== undefined && !portraitBroken;
           // 金属环厚度与图标同比例（threechest borderWidth = 4%×icon）。
           const rimWidth = Math.max(0.3, size * 0.07);
           const rimRadius = size / 2 + rimWidth / 2;
-          const visibleSpells = spells.slice(0, MAX_POPOVER_SPELLS);
-          const hiddenSpellCount = spells.length - visibleSpells.length;
-          // 只有悬停/键盘聚焦或“唯一选中”时显示浮层，避免 pull 多选时铺满地图。
-          const showPopover =
-            (activeSpawnId === id || (isSelected && selectedSpawnIds.length === 1)) &&
-            (enemy !== undefined || npcId !== undefined);
-          const anchor = showPopover ? anchorPopover(point, viewBox) : undefined;
           return (
             <g
               aria-label={`${id} 位置`}
               aria-pressed={isSelected}
               className={`dungeon-map__spawn ${isSelected ? 'is-selected' : ''} ${
-                showPopover ? 'is-active' : ''
+                tooltipTargetId === id ? 'is-active' : ''
               }`}
               key={id}
               onClick={() => {
-                setActiveSpawnId(id);
+                setPreviewSpawnId(id);
                 onSpawnSelect?.(id);
               }}
-              onBlur={() => setActiveSpawnId(undefined)}
-              onFocus={() => setActiveSpawnId(id)}
+              onBlur={() =>
+                setPreviewSpawnId((current) => (current === id ? undefined : current))
+              }
+              onFocus={() => setPreviewSpawnId(id)}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
                   event.preventDefault();
-                  setActiveSpawnId(id);
+                  setPreviewSpawnId(id);
                   onSpawnSelect?.(id);
                 }
               }}
-              onMouseEnter={() => setActiveSpawnId(id)}
-              onMouseLeave={() => setActiveSpawnId(undefined)}
+              onMouseEnter={() => setPreviewSpawnId(id)}
+              onMouseLeave={() =>
+                setPreviewSpawnId((current) => (current === id ? undefined : current))
+              }
               role={onSpawnSelect ? 'button' : undefined}
               tabIndex={onSpawnSelect ? 0 : undefined}
             >
@@ -330,36 +349,55 @@ export function DungeonMap({
               <title>
                 {enemy ? `${enemy.name.zhCN} (${id})` : `${id} 位置`}
               </title>
-              {showPopover && anchor && (
-                <foreignObject
-                  className="dungeon-map__popover-fo"
-                  height={POPOVER_HEIGHT}
-                  style={{ transform: anchor.flipX ? 'translateX(-100%)' : undefined }}
-                  width={POPOVER_WIDTH}
-                  x={anchor.x}
-                  y={anchor.y}
-                >
-                  <div className="dungeon-map__popover">
-                    <div className="dungeon-map__popover-head">
-                      {npcId !== undefined && (
-                        <img
-                          alt=""
-                          className="dungeon-map__popover-avatar"
-                          height={22}
-                          src={npcPortraitUrl(npcId)}
-                          width={22}
-                        />
-                      )}
-                      <div>
-                        <strong>{enemy?.name.zhCN ?? `NPC ${npcId ?? ''}`}</strong>
-                        <span>
-                          {npcId !== undefined ? `NPC ${npcId}` : id} · {spells.length} 个技能
-                        </span>
-                      </div>
+            </g>
+          );
+        })}
+        {/* 单一 tooltip 固定在 SVG 顶层渲染：SVG 栈序即文档顺序，最后绘制的永远在最上，
+            任何 spawn 图标都不会再盖住它；悬停/聚焦预览优先，失焦后回退到选中常驻。 */}
+        {tooltipTargetId !== undefined &&
+          (() => {
+            const resolved = resolvedById.get(tooltipTargetId);
+            if (!resolved || (resolved.enemy === undefined && resolved.npcId === undefined)) {
+              return null;
+            }
+            const anchor = anchorPopover(resolved.point, viewBox);
+            const visibleSpells = resolved.spells.slice(0, MAX_POPOVER_SPELLS);
+            const hiddenSpellCount = resolved.spells.length - visibleSpells.length;
+            return (
+              <foreignObject
+                className="dungeon-map__popover-fo"
+                height={POPOVER_HEIGHT}
+                key={tooltipTargetId}
+                style={{ transform: anchor.flipX ? 'translateX(-100%)' : undefined }}
+                width={POPOVER_WIDTH}
+                x={anchor.x}
+                y={anchor.y}
+              >
+                <div className="dungeon-map__popover">
+                  <div className="dungeon-map__popover-head">
+                    {resolved.npcId !== undefined && (
+                      <img
+                        alt=""
+                        className="dungeon-map__popover-avatar"
+                        height={22}
+                        src={npcPortraitUrl(resolved.npcId)}
+                        width={22}
+                      />
+                    )}
+                    <div>
+                      <strong>
+                        {resolved.enemy?.name.zhCN ?? `NPC ${resolved.npcId ?? ''}`}
+                      </strong>
+                      <span>
+                        {resolved.npcId !== undefined ? `NPC ${resolved.npcId}` : resolved.id} ·{' '}
+                        {resolved.spells.length} 个技能
+                      </span>
                     </div>
-                    <ul className="dungeon-map__popover-spells">
-                      {visibleSpells.map((spell) => (
-                        <li key={spell.spellId} title={`${spell.name} · Spell ${spell.spellId}`}>
+                  </div>
+                  <ul className="dungeon-map__popover-spells">
+                    {visibleSpells.map((spell) => (
+                      <li key={spell.spellId} title={`${spell.name} · Spell ${spell.spellId}`}>
+                        <span className="dungeon-map__popover-spell-row">
                           <img
                             alt=""
                             className="dungeon-map__popover-spell-icon"
@@ -368,23 +406,27 @@ export function DungeonMap({
                             width={14}
                           />
                           <em>{spell.cnName ?? spell.name}</em>
-                        </li>
-                      ))}
-                      {hiddenSpellCount > 0 && (
-                        <li className="dungeon-map__popover-more">
-                          +{hiddenSpellCount} 更多技能
-                        </li>
-                      )}
-                      {spells.length === 0 && (
-                        <li className="dungeon-map__popover-empty">技能清单待核验</li>
-                      )}
-                    </ul>
-                  </div>
-                </foreignObject>
-              )}
-            </g>
-          );
-        })}
+                        </span>
+                        {spell.description && (
+                          <p className="dungeon-map__popover-spell-desc">
+                            {spell.description}
+                          </p>
+                        )}
+                      </li>
+                    ))}
+                    {hiddenSpellCount > 0 && (
+                      <li className="dungeon-map__popover-more">
+                        +{hiddenSpellCount} 更多技能
+                      </li>
+                    )}
+                    {resolved.spells.length === 0 && (
+                      <li className="dungeon-map__popover-empty">技能清单待核验</li>
+                    )}
+                  </ul>
+                </div>
+              </foreignObject>
+            );
+          })()}
       </svg>
       {!showRemoteImage && !showRemoteTiles && (
         <div className="dungeon-map__placeholder">
