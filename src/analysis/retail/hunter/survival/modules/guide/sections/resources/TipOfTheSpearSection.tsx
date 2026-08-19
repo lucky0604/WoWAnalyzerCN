@@ -58,17 +58,12 @@ export default function TipOfTheSpearSection(modules: ModulesOf<typeof CombatLog
       </p>
       <p>
         <strong>
-          <>
+<>
             {t({
               id: 'guide.hunter.survival.sections.tipOfTheSpear.note.p1',
               message: "Tip of the Spear does not buff the periodic damage of abilities like ",
             })}
             <SpellLink spell={TALENTS.WILDFIRE_BOMB_TALENT} />
-            {t({
-              id: 'guide.hunter.survival.sections.tipOfTheSpear.note.p2',
-              message: ' or ',
-            })}
-            <SpellLink spell={TALENTS.FLAMEFANG_PITCH_TALENT} />
             {t({ id: 'guide.hunter.survival.sections.tipOfTheSpear.note.p3', message: '.' })}
           </>
         </strong>

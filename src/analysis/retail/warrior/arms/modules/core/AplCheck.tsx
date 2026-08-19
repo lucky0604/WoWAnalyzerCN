@@ -67,33 +67,47 @@ export const buildSlayerApl = (
     {
       spell: SPELLS.MORTAL_STRIKE,
       condition: cnd.and(
-        cnd.or(
-          cnd.debuffStacks(SPELLS.EXECUTIONERS_PRECISION_DEBUFF, { atLeast: 2 }),
-          cnd.debuffPresent(SPELLS.COLOSSUS_SMASH_DEBUFF),
-        ),
+        cnd.buffStacks(SPELLS.EXECUTIONERS_PRECISION_DEBUFF, { atLeast: 2 }),
         cnd.inExecute(executeThreshold),
       ),
       description: (
         <>
           {t({ id: 'warrior.arms.aplCheck.castMSExecuteCS.p1', message:'Cast ' })}
           <SpellLink spell={SPELLS.MORTAL_STRIKE} />
-          {t({ id: 'warrior.arms.aplCheck.castMSExecuteCS.p2', message:' while in execute range during ' })}
-          <SpellLink spell={SPELLS.COLOSSUS_SMASH_DEBUFF} />
-          {t({ id: 'warrior.arms.aplCheck.castMSExecuteCS.p3', message:' or with 2 stacks of ' })}
+          {t({ id: 'warrior.arms.aplCheck.castMSExecuteCS.p2', message:' while in execute range with 2 stacks of ' })}
           <SpellLink spell={SPELLS.EXECUTIONERS_PRECISION_DEBUFF} />
         </>
       ),
     },
 
-    // OP inside execute with low rage
+    // OP inside execute with 2opp
     {
       spell: SPELLS.OVERPOWER,
-      condition: cnd.and(cnd.hasResource(RESOURCE_TYPES.RAGE, { atMost: 800 }), executeUsable),
+      condition: cnd.and(cnd.buffStacks(SPELLS.OPPORTUNIST, { atLeast: 2 }), executeUsable),
       description: (
         <>
-          {t({ id: 'warrior.arms.aplCheck.castOPExecuteLowRage.p1', message:'Cast ' })}
+          {t({ id: 'warrior.arms.aplCheck.castOPExecute.p1', message:'Cast ' })}
           <SpellLink spell={SPELLS.OVERPOWER} />
-          {t({ id: 'warrior.arms.aplCheck.castOPExecuteLowRage.p2', message:' while in execute range with below 80 rage' })}
+          {t({ id: 'warrior.arms.aplCheck.castOPExecute.p2', message:' while in execute range with 2 stacks of ' })}
+          <SpellLink spell={SPELLS.OPPORTUNIST} />
+        </>
+      ),
+    },
+
+    // Exe in execute with SD
+    {
+      spell: executeSpell,
+      condition: cnd.and(
+        executeUsable,
+        cnd.inExecute(executeThreshold),
+        cnd.buffPresent(SPELLS.SUDDEN_DEATH_TALENT_BUFF),
+      ),
+      description: (
+        <>
+          {t({ id: 'warrior.arms.aplCheck.castExecuteSDExecute.p1', message:'Cast ' })}
+          <SpellLink spell={executeSpell} />
+          {t({ id: 'warrior.arms.aplCheck.castExecuteSDExecuteSlayer.p1', message:' while in execute range with ' })}
+          <SpellLink spell={SPELLS.SUDDEN_DEATH_TALENT_BUFF} />
         </>
       ),
     },
@@ -101,12 +115,16 @@ export const buildSlayerApl = (
     // Exe in execute
     {
       spell: executeSpell,
-      condition: cnd.and(executeUsable, cnd.inExecute(executeThreshold)),
+      condition: cnd.and(
+        executeUsable,
+        cnd.inExecute(executeThreshold),
+        cnd.hasResource(RESOURCE_TYPES.RAGE, { atLeast: 400 }),
+      ),
       description: (
         <>
           {t({ id: 'warrior.arms.aplCheck.castExecuteExecute.p1', message:'Cast ' })}
           <SpellLink spell={executeSpell} />
-          {t({ id: 'warrior.arms.aplCheck.castExecuteExecute.p2', message:' while in execute range' })}
+          {t({ id: 'warrior.arms.aplCheck.castExecuteExecute.p2', message:' while in execute range with at least 40 rage' })}
         </>
       ),
     },
@@ -119,7 +137,7 @@ export const buildSlayerApl = (
         <>
           {t({ id: 'warrior.arms.aplCheck.castOPExecute.p1', message:'Cast ' })}
           <SpellLink spell={SPELLS.OVERPOWER} />
-          {t({ id: 'warrior.arms.aplCheck.castOPExecute.p2', message:' while in execute range' })}
+          {t({ id: 'warrior.arms.aplCheck.castOPExecute.p3', message:' while in execute range' })}
         </>
       ),
     },
@@ -134,6 +152,20 @@ export const buildSlayerApl = (
         <>
           {t({ id: 'warrior.arms.aplCheck.castHS.p1', message:'Cast ' })}
           <SpellLink spell={SPELLS.HEROIC_STRIKE} />
+        </>
+      ),
+    },
+
+    // OP with 2opp
+    {
+      spell: SPELLS.OVERPOWER,
+      condition: cnd.buffStacks(SPELLS.OPPORTUNIST, { atLeast: 2 }),
+      description: (
+        <>
+          {t({ id: 'warrior.arms.aplCheck.castOP2opp.p1', message:'Cast ' })}
+          <SpellLink spell={SPELLS.OVERPOWER} />
+          {t({ id: 'warrior.arms.aplCheck.castOP2opp.p2', message:' with 2 stacks of ' })}
+          <SpellLink spell={SPELLS.OPPORTUNIST} />
         </>
       ),
     },
@@ -218,17 +250,18 @@ export const buildColossusApl = (
       condition: cnd.and(
         cnd.inExecute(executeThreshold),
         cnd.or(
-          cnd.debuffStacks(SPELLS.EXECUTIONERS_PRECISION_DEBUFF, { atLeast: 2 }),
-          cnd.not(cnd.hasTalent(TALENTS.EXECUTIONERS_PRECISION_TALENT)),
+          cnd.buffStacks(SPELLS.EXECUTIONERS_PRECISION_DEBUFF, { atLeast: 2 }),
+          cnd.buffStacks(SPELLS.COLOSSAL_MIGHT, { atMost: 9 }),
         ),
       ),
       description: (
         <>
           {t({ id: 'warrior.arms.aplCheck.castMSExecuteEP.p1', message:'Cast ' })}
           <SpellLink spell={SPELLS.MORTAL_STRIKE} />
-          {t({ id: 'warrior.arms.aplCheck.castMSExecuteEP.p2', message:' in execute range, with 2 stacks of ' })}
+          {t({ id: 'warrior.arms.aplCheck.castMSExecuteEP.p2', message:' in execute range with 2 stacks of ' })}
           <SpellLink spell={SPELLS.EXECUTIONERS_PRECISION_DEBUFF} />
-          {t({ id: 'warrior.arms.aplCheck.castMSExecuteEP.p3', message:' if it is talented' })}
+          {t({ id: 'warrior.arms.aplCheck.castMSExecuteEP.p3', message:' or below 10 stacks of ' })}
+          <SpellLink spell={SPELLS.COLOSSAL_MIGHT} />
         </>
       ),
     },
@@ -300,20 +333,24 @@ export const buildColossusApl = (
       ),
     },
 
-    // slam in exe
+    // outside execute prio
+
+    // MS below 10 CM
     {
-      spell: SPELLS.SLAM,
-      condition: cnd.inExecute(executeThreshold),
+      spell: SPELLS.MORTAL_STRIKE,
+      condition: cnd.and(
+        cnd.not(cnd.inExecute(executeThreshold)),
+        cnd.buffStacks(SPELLS.COLOSSAL_MIGHT, { atMost: 9 }),
+      ),
       description: (
         <>
-          {t({ id: 'warrior.arms.aplCheck.castSlamExecute.p1', message:'Cast ' })}
-          <SpellLink spell={SPELLS.SLAM} />
-          {t({ id: 'warrior.arms.aplCheck.castSlamExecute.p2', message:' in execute range' })}
+          {t({ id: 'warrior.arms.aplCheck.castMSBelow10CM.p1', message:'Cast ' })}
+          <SpellLink spell={SPELLS.MORTAL_STRIKE} />
+          {t({ id: 'warrior.arms.aplCheck.castMSBelow10CM.p2', message:' while below 10 stacks of ' })}
+          <SpellLink spell={SPELLS.COLOSSAL_MIGHT} />
         </>
       ),
     },
-
-    // outside execute prio
 
     // HS
     {
@@ -323,6 +360,23 @@ export const buildColossusApl = (
         <>
           {t({ id: 'warrior.arms.aplCheck.castHS.p1', message:'Cast ' })}
           <SpellLink spell={SPELLS.HEROIC_STRIKE} />
+        </>
+      ),
+    },
+
+    // Exe with 2 SD
+    {
+      spell: executeSpell,
+      condition: cnd.and(
+        executeUsable,
+        cnd.buffStacks(SPELLS.SUDDEN_DEATH_TALENT_BUFF, { atLeast: 2 }),
+      ),
+      description: (
+        <>
+          {t({ id: 'warrior.arms.aplCheck.castExecute2SDExe.p1', message:'Cast ' })}
+          <SpellLink spell={executeSpell} />
+          {t({ id: 'warrior.arms.aplCheck.castExecute2SDExe.p2', message:' with 2 stacks of ' })}
+          <SpellLink spell={SPELLS.SUDDEN_DEATH_TALENT_BUFF} />
         </>
       ),
     },
@@ -339,18 +393,6 @@ export const buildColossusApl = (
       ),
     },
 
-    // OP no exe
-    {
-      spell: SPELLS.OVERPOWER,
-      condition: cnd.and(cnd.not(cnd.inExecute(executeThreshold))),
-      description: (
-        <>
-          {t({ id: 'warrior.arms.aplCheck.castOP.p1', message:'Cast ' })}
-          <SpellLink spell={SPELLS.OVERPOWER} />
-        </>
-      ),
-    },
-
     // Exe with SD
     {
       spell: executeSpell,
@@ -359,6 +401,18 @@ export const buildColossusApl = (
         <>
           {t({ id: 'warrior.arms.aplCheck.castExecute.p1', message:'Cast ' })}
           <SpellLink spell={executeSpell} />
+        </>
+      ),
+    },
+
+    // OP no exe
+    {
+      spell: SPELLS.OVERPOWER,
+      condition: cnd.and(cnd.not(cnd.inExecute(executeThreshold))),
+      description: (
+        <>
+          {t({ id: 'warrior.arms.aplCheck.castOP.p1', message:'Cast ' })}
+          <SpellLink spell={SPELLS.OVERPOWER} />
         </>
       ),
     },

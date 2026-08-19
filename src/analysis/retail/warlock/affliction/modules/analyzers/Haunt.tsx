@@ -33,7 +33,7 @@ class Haunt extends Analyzer {
   }
 
   get hauntDamageBonus() {
-    return 0.12 + this.shadowOfNathrezaBonus;
+    return 0.16 + this.shadowOfNathrezaBonus;
   }
 
   get uptime() {
