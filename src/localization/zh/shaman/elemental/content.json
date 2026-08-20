@@ -23,7 +23,7 @@
   "shaman.elemental.maelstrom_details.graph": "漩涡值变化时间轴图表",
   "shaman.elemental.maelstrom_details.overcapped": "溢出的漩涡值",
   "shaman.elemental.maelstrom_details.usage": "漩涡值使用分布",
-  "shaman.elemental.maelstrom_details.tooltip": "共产生了 {total} 漩涡值，其中 {wasted} 被溢出浪费。",
+  "shaman.elemental.maelstrom_details.tooltip": "浪费了 {0} 点漩涡值（共 {1} 点）。",
   "shaman.elemental.spenders.title": "漩涡值消耗技能施放",
   "shaman.elemental.spenders.waste": "上次消耗后溢出的资源",
   "shaman.elemental.spenders.details": "施放详情",

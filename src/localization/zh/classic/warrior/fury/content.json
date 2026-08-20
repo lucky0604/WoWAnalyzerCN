@@ -5,6 +5,6 @@
   "classic.warrior.fury.colossusSmashWindow.optimization": "破甲窗口优化",
   "classic.warrior.fury.colossusSmashWindow.cooldownProc": "冷却/触发类（占机会百分比）：",
   "classic.warrior.fury.colossusSmashWindow.rageBased": "怒气消耗类（占施放次数百分比）：",
-  "classic.warrior.fury.colossusSmashWindow.opportunities": "{casts}/{opportunities} 次机会",
-  "classic.warrior.fury.colossusSmashWindow.casts": "{casts}/{total} 次施放"
+  "classic.warrior.fury.colossusSmashWindow.opportunities": "{0}/{1} 次机会",
+  "classic.warrior.fury.colossusSmashWindow.casts": "{0}/{1} 次施放"
 }

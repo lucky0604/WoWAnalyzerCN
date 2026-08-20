@@ -21,7 +21,7 @@
   "guide.deathknight.unholy.sections.resourceUse.runes.summary1": "符文是邪恶专精的核心资源，用于施放关键技能。最多可以同时恢复三个符文，高效管理它们对于保持平滑的循环至关重要。当你有4个或更多符文时，你就是在溢出并浪费恢复时间。另一方面，没有可用的符文可能意味着在重要的爆发窗口期间资源匮乏。",
   "guide.deathknight.unholy.sections.resourceUse.runes.summary2": "这个图表显示了你在整个战斗中的符文可用性。频繁达到5-6的峰值可能表示溢出，而长期接近0则可能表示资源匮乏或与冷却技能的对齐不佳。",
   "guide.deathknight.unholy.sections.resourceUse.runicPower.title": "符文能量",
-  "guide.deathknight.unholy.sections.resourceUse.runicPower.summary1": "符文能量是你的次要资源，通过使用技能消耗符文来产生。你消耗它的主要方式是通过<0/>（或在AoE情况下使用<1/>），这有助于保持压力并为你的符文腐蚀被动提供能量——提高符文恢复速度。",
+  "guide.deathknight.unholy.sections.resourceUse.runicPower.summary1": "符文能量是你的次要资源，通过使用技能消耗符文来产生。你消耗它的主要方式是通过",
   "guide.deathknight.unholy.sections.resourceUse.runicPower.summary1.p1": "符文能量是你的次要资源，通过使用技能消耗符文来产生。你消耗它的主要方式是通过",
   "guide.deathknight.unholy.sections.resourceUse.runicPower.summary1.p2": "（或",
   "guide.deathknight.unholy.sections.resourceUse.runicPower.summary1.p3": "在AoE情况下），这有助于保持压力并为你的符文腐蚀被动提供能量——提高符文恢复速度。",

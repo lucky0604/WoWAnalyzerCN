@@ -1,0 +1,4 @@
+{
+  "interface.report.results.timeline.casts.tooltip.xSecChannelByAbility": "{0}：{1} 秒引导，来源于 {spellName}",
+  "interface.report.results.timeline.casts.tooltip.xSecGCDByAbility": "{0}：{1} 秒公共冷却，来源于 {spellName}"
+}

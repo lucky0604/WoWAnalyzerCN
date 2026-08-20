@@ -56,7 +56,6 @@
   "shaman.enhancement.doomwinds.ll_priority": "<0/> 在 <1/> 期间优先级更高。",
   "shaman.enhancement.doomwinds.windows_title": "末日之风窗口",
   "shaman.enhancement.elementaltempo.stacks_spent": "消耗层数",
-  "shaman.enhancement.elementaltempo.stacks_consumed_tooltip": "消耗了 <0/> 层，为每个技能提供了 {formatDurationMillisMinSec(totalCdr, 1)} 的冷却缩减。",
   "shaman.enhancement.elementaltempo.effective_total_cdr": "有效 {formatDurationMillisMinSec(cast.stormstrike.effectiveMs, 1)} / 总 {formatDurationMillisMinSec(totalCdr, 1)} 冷却缩减应用于 <2/>。",
   "shaman.enhancement.elementaltempo.effective_total_cdr_ll": "有效 {formatDurationMillisMinSec(cast.lavaLash.effectiveMs, 1)} / 总 {formatDurationMillisMinSec(totalCdr, 1)} 冷却缩减应用于 <2/>。",
   "shaman.enhancement.elementaltempo.total_spenders": "总消耗次数",

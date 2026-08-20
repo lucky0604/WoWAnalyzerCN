@@ -4,25 +4,37 @@ Lingui placeholder consistency checker.
 Compares ZH translations against EN source to detect placeholder mismatches
 that would cause "Can't use element at index 'X' as it is not declared" errors.
 
+The check runs against the EFFECTIVE runtime catalog: zh/**/content.json
+overrides are merged over zh/messages.json (same order as I18nProvider.tsx),
+so content.json values are validated too.
+
 Usage:
   python3 scripts/check-placeholders.py                    # check all
-  python3 scripts/check-placeholders.py --fix              # auto-fix all mismatches
-  python3 scripts/check-placeholders.py --spec=mage.frost  # filter by spec prefix
-  python3 scripts/check-placeholders.py --ci               # exit code 1 if any mismatch (for CI)
+  python3 scripts/check-placeholders.py --fix             # auto-fix mismatches in messages.json
+  python3 scripts/check-placeholders.py --spec=mage.frost # filter by spec prefix
+  python3 scripts/check-placeholders.py --ci              # exit code 1 if any mismatch (for CI)
 """
 
-import json, re, sys, os
+import json, re, sys, os, glob
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EN_PATH = os.path.join(PROJECT_ROOT, 'src/localization/en/messages.json')
 ZH_PATH = os.path.join(PROJECT_ROOT, 'src/localization/zh/messages.json')
 
 
-def load_messages():
+def load_messages(merge_content=True):
     with open(EN_PATH, 'r') as f:
         en = json.load(f)
     with open(ZH_PATH, 'r') as f:
         zh = json.load(f)
+    if merge_content:
+        # content.json overrides messages.json at runtime — merge in the same order.
+        for f in glob.glob(os.path.join(PROJECT_ROOT, 'src/localization/zh/**/content.json'), recursive=True):
+            try:
+                d = json.load(open(f))
+            except Exception:
+                continue
+            zh.update(d)
     return en, zh
 
 
@@ -99,8 +111,7 @@ def check_message(msg_id, en_msg, zh_msg):
     return True, "OK"
 
 
-def scan(spec_filter=None, fix=False):
-    en, zh = load_messages()
+def scan(en, zh, spec_filter=None, fix=False):
     issues = []
     fixed_count = 0
 
@@ -207,16 +218,28 @@ def main():
         if a.startswith('--spec='):
             spec_filter = a.split('=', 1)[1]
 
+    if fix:
+        # --fix edits messages.json only; content.json overrides need manual
+        # decisions (rewrite vs. delete override), so exclude them here.
+        en, zh = load_messages(merge_content=False)
+    else:
+        # Default and CI validate the EFFECTIVE runtime catalog, i.e. with
+        # content.json overrides merged in — that's what actually renders.
+        en, zh = load_messages(merge_content=True)
+
+    if fix:
+        scan(en, zh, spec_filter=spec_filter, fix=True)
+        return
+
+    issues = scan(en, zh, spec_filter=spec_filter)
+
     if ci:
-        issues = scan(spec_filter=spec_filter)
         if issues:
             print(f"\n❌ CI FAILED: {len(issues)} placeholder issues found")
             sys.exit(1)
         else:
             print("\n✅ CI PASSED: all placeholders clean")
             sys.exit(0)
-
-    scan(spec_filter=spec_filter, fix=fix)
 
 
 if __name__ == '__main__':
