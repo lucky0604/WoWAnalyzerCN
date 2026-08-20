@@ -103,6 +103,7 @@
   "deathknight.blood.runeWaste.drwAboutToEnd": "即将结束，刷新",
   "deathknight.blood.runeWaste.drwAboutToEnd.p2": "至满层",
   "deathknight.blood.runeWaste.exterminateAvailable": "可用",
+  "deathknight.blood.runeWaste.additionalTime": "{0, plural, one {# 次额外施放} other {# 次额外施放}}",
   "deathknight.blood.runeWaste.heartStrikePrimaryRp": "应该是你获取符文能量的主要途径。",
   "deathknight.blood.runeforgeSuggestion.apocalypse": "不要使用",
   "deathknight.blood.runeforgeSuggestion.razorice": "不要使用",

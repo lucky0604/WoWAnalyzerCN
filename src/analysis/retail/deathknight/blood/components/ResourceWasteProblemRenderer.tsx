@@ -153,7 +153,11 @@ export function ResourceWasteProblemRenderer({
           <SpellLink spell={talents.DEATH_STRIKE_TALENT} />
           {' '}
           <strong>
-            {extraCasts} additional time{extraCasts === 1 ? '' : 's'}
+            {t({
+              id: 'deathknight.blood.resourceWaste.additionalTime',
+              message: '{0, plural, one {# additional time} other {# additional times}}',
+              values: { 0: extraCasts },
+            })}
           </strong>
           {t({
             id: 'deathknight.blood.resourceWaste.withOssuary.p4',

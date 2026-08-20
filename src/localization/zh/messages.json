@@ -324,6 +324,7 @@
   "deathknight.blood.relishInBlood.statistic.tooltip.healing": "治疗：",
   "deathknight.blood.relishInBlood.statistic.tooltip.overhealing": "过量治疗：",
   "deathknight.blood.relishInBlood.statistic.tooltip.rpWasted": "浪费的符文能量：",
+  "deathknight.blood.resourceWaste.additionalTime": "{0, plural, one {# 次额外施放} other {# 次额外施放}}",
   "deathknight.blood.resourceWaste.castWasted": "本次施放浪费了{0}点符文能量。",
   "deathknight.blood.resourceWaste.fromToWasted.p1": "从{start}到{end}，你浪费了",
   "deathknight.blood.resourceWaste.fromToWasted.p2": "，相当于",

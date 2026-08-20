@@ -324,6 +324,7 @@
   "deathknight.blood.relishInBlood.statistic.tooltip.healing": "Healing: ",
   "deathknight.blood.relishInBlood.statistic.tooltip.overhealing": "Overhealing: ",
   "deathknight.blood.relishInBlood.statistic.tooltip.rpWasted": "RP wasted: ",
+  "deathknight.blood.resourceWaste.additionalTime": "{0, plural, one {# additional time} other {# additional times}}",
   "deathknight.blood.resourceWaste.castWasted": "This cast wasted {0} RP.",
   "deathknight.blood.resourceWaste.fromToWasted.p1": "From {start} to {end}, you wasted ",
   "deathknight.blood.resourceWaste.fromToWasted.p2": ", equivalent to ",
