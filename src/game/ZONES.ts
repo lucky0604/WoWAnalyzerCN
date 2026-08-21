@@ -57,6 +57,7 @@ const VSDRMQD_ZONE: Zone = {
   frozen: false,
   useBetaTooltips: false,
   encounters: Object.values(VSDRMQD.bosses),
+  partition: 3,
 };
 
 const SPOREFALL_ZONE: Zone = {

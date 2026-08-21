@@ -67,7 +67,6 @@
   "druid.shared.convoke.form": "形态",
   "druid.shared.convoke.damage": "伤害",
   "druid.shared.convoke.spells_in_cast": "施放技能详情",
-  "druid.shared.convoke.tooltip": "万灵之召施放的技能不会触发常规的施法事件；该列表是通过在引导期间追踪相关事件来创建的。万灵之召偶尔施放的技能可能会落空（例如当范围内只有免疫目标时的横扫）。在这些情况下我们无法追踪到该技能，所以列出的技能数量可能会少于 {this.spellsPerCast}。",
   "druid.shared.cotd.ability": "技能",
   "druid.shared.cotd.early_casts": "提前施法",
   "druid.shared.cotd.eff_cdr": "有效 CDR",

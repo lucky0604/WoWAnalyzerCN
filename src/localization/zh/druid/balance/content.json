@@ -34,7 +34,8 @@
   "druid.balance.cooldowns.description": "平衡德的冷却技能强度适中，和大多数DPS专精一样，不应该保留太久。为了在战斗中最大化使用次数，目标是在冷却技能可用时尽快使用（只要你能在其持续期间保持对目标活跃）。",
   "druid.balance.cooldowns.title": "冷却技能",
   "druid.balance.core.title": "核心",
-  "druid.balance.dotUptimes.moonfire_uptime_tooltip": "月火术覆盖率百分比",  "druid.balance.dotUptimes.sunfire_casts": "阳炎术施法次数",
+  "druid.balance.dotUptimes.moonfire_uptime_tooltip": "月火术覆盖率百分比",
+  "druid.balance.dotUptimes.sunfire_casts": "阳炎术施法次数",
   "druid.balance.dotUptimes.sunfire_tooltip": "阳炎术覆盖率",
   "druid.balance.dotUptimes.sunfire_uptime": "阳炎术覆盖率",
   "druid.balance.dotUptimes.sunfire_uptime_tooltip": "阳炎术覆盖率百分比",
@@ -96,6 +97,5 @@
   "druid.balance.totc.ap_pulsar": "计算进万物复苏的星界能量",
   "druid.balance.totc.free_casts": "免费施法次数",
   "druid.balance.twin_moons.extra_mf_pm": "每分钟额外月火术次数",
-  "druid.balance.twin_moons.tooltip": "列出的伤害值仅计算了对月火术的伤害提升，未计入因为产生额外月火术减益而省下的公共冷却时间（GCD）价值。",
-  "druid.balance.twin_moons.extra_mf_pm": "每分钟额外月火术次数"
+  "druid.balance.twin_moons.tooltip": "列出的伤害值仅计算了对月火术的伤害提升，未计入因为产生额外月火术减益而省下的公共冷却时间（GCD）价值。"
 }
