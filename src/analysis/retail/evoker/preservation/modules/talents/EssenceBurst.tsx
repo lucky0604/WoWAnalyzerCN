@@ -1,10 +1,11 @@
-import { t } from '@lingui/core/macro';
 import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
+import { maybeGetSpell } from 'common/SPELLS';
+import { SpellIcon } from 'interface';
 import { ThresholdStyle } from 'parser/core/ParseResults';
 import Events, {
   EventType,
@@ -25,8 +26,7 @@ import DonutChart from 'parser/ui/DonutChart';
 import { SpellLink } from 'interface';
 import ItemManaGained from 'parser/ui/ItemManaGained';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
-import { RoundedPanel } from 'interface/guide/components/GuideDivs';
-import { BoxRowEntry, PerformanceBoxRow } from 'interface/guide/components/PerformanceBoxRow';
+import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
@@ -179,7 +179,6 @@ class EssenceBurst extends Analyzer {
     this.casts.forEach((cast) => {
       sourceCount.set(cast.source, (sourceCount.get(cast.source) ?? 0) + 1);
     });
-    console.log(sourceCount);
     const items = [
       {
         color: SPELL_COLORS.MERITHRAS_BLESSING,
@@ -241,61 +240,91 @@ class EssenceBurst extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />
         </b>{' '}
-        {t({
-          id: 'evoker.preservation.essenceBurst.guideExplanation',
-          message:
-            'is a core buff that you should never let expire or refresh. In general, you should consume all of them with Emerald Blossom unless you already have two stacks of Twin Echoes, in which case you would consume them on Echo instead. If you choose to talent into Energy Loop, then you should use some procs on Disintegrate, but this talent should only be taken on scenarios where extra mana is really needed.',
-        })}
+        is a core buff that you should never let expire or refresh. In general, you should consume
+        all of them with <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> unless you already have two
+        stacks of <SpellLink spell={TALENTS_EVOKER.TWIN_ECHOES_TALENT} />, in which case you would
+        consume them on <SpellLink spell={TALENTS_EVOKER.ECHO_TALENT} /> instead. If you choose to
+        talent into <SpellLink spell={TALENTS_EVOKER.ENERGY_LOOP_TALENT} />, then you should use
+        some procs on <SpellLink spell={SPELLS.DISINTEGRATE} />, but this talent should only be
+        taken on scenarios where extra mana is really needed.
       </p>
     );
 
-    const entries: BoxRowEntry[] = [];
-    this.casts.forEach((info) => {
-      let value = QualitativePerformance.Good;
+    const perCastData: PerCastData[] = this.casts.map((info) => {
+      let performance = QualitativePerformance.Perfect;
+      const twinEchoes =
+        (info.spell === TALENTS_EVOKER.ECHO_TALENT.id ||
+          info.spell === SPELLS.EMERALD_BLOSSOM_CAST.id) &&
+        this.selectedCombatant.hasTalent(TALENTS_EVOKER.TWIN_ECHOES_TALENT)
+          ? this.selectedCombatant.getBuffStacks(SPELLS.TWIN_ECHOES_BUFF.id, info.timestamp)
+          : null;
       if (
         !this.selectedCombatant.hasTalent(TALENTS_EVOKER.ENERGY_LOOP_TALENT) &&
         info.spell === SPELLS.DISINTEGRATE.id
       ) {
-        value = QualitativePerformance.Fail;
+        performance = QualitativePerformance.Fail;
       }
       if (info.spell === TALENTS_EVOKER.ECHO_TALENT.id) {
         if (
           !this.selectedCombatant.hasTalent(TALENTS_EVOKER.TWIN_ECHOES_TALENT) ||
           this.selectedCombatant.getBuffStacks(SPELLS.TWIN_ECHOES_BUFF.id, info.timestamp) !== 2
         ) {
-          value = QualitativePerformance.Ok;
+          performance = QualitativePerformance.Good;
         }
       }
       if (info.spell === 0) {
-        value = QualitativePerformance.Fail;
+        performance = QualitativePerformance.Fail;
       }
-      const spellString =
+
+      const details =
         info.spell === 0 ? (
-          info.expired
-            ? t({ id: 'evoker.preservation.essenceBurst.wastedFromExpiration', message: 'Wasted from expiration' })
-            : t({ id: 'evoker.preservation.essenceBurst.wastedFromRefresh', message: 'Wasted from refresh' })
+          `Wasted from ${info.expired ? 'expiration' : 'refresh'}`
         ) : (
           <>
-            {t({ id: 'evoker.preservation.essenceBurst.consumeAbility', message: 'Consume ability' })}: <SpellLink spell={info.spell} />
+            Consume ability: <SpellLink spell={info.spell} />
           </>
         );
-      const tooltip = (
-        <>
-          <p>{t({ id: 'evoker.preservation.essenceBurst.buffRemoved', message: 'Buff removed @' })} {this.owner.formatTimestamp(info.timestamp)}</p>
-          {spellString}
-        </>
-      );
-      entries.push({ value, tooltip });
+
+      const spell = maybeGetSpell(info.spell) ?? { name: '' };
+      const stats = [
+        {
+          label: 'Usage',
+          value: info.spell === 0 ? 'Wasted' : <SpellIcon spell={info.spell} />,
+          tooltip:
+            info.spell === 0
+              ? `Wasted from ${info.expired ? 'expiration' : 'refresh'}`
+              : `Consumed with ${spell.name}.`,
+        },
+      ];
+
+      if (twinEchoes !== null) {
+        stats.push({
+          label: 'Twin Echoes',
+          value: twinEchoes.toString(),
+          tooltip:
+            info.spell === 0
+              ? `Wasted from ${info.expired ? 'expiration' : 'refresh'}`
+              : `Consumed with ${spell.name}.`,
+        });
+      }
+
+      return {
+        performance,
+        timestamp: this.owner.formatTimestamp(info.timestamp),
+        details,
+        stats,
+        tooltip: (
+          <>
+            <p>Buff removed @ {this.owner.formatTimestamp(info.timestamp)}</p>
+            {details}
+          </>
+        ),
+      };
     });
 
     const data = (
       <div>
-        <RoundedPanel>
-          <strong>
-            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.essenceBurst.consumptions', message: 'consumptions' })}
-          </strong>
-          <PerformanceBoxRow values={entries} />
-        </RoundedPanel>
+        <CastDetail title="Essence Burst consumptions" casts={perCastData} />
       </div>
     );
 
@@ -324,16 +353,15 @@ class EssenceBurst extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.essenceBurst.consumptionBySpell', message: 'consumption by spell' })}
+            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> consumption by
+            spell
           </label>
           {donutChart ? (
             donutChart
           ) : (
             <small>
-              {t({
-                id: 'evoker.preservation.essenceBurst.noBuffs',
-                message: 'You gained no Essence Burst buffs during the encounter',
-              })}
+              You gained no <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />{' '}
+              buffs during the encounter
             </small>
           )}
           <ItemManaGained amount={this.manaSaved} useAbbrev />
@@ -358,16 +386,14 @@ export class EssenceBurstSources extends Analyzer {
       >
         <div className="pad">
           <label>
-            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.essenceBurst.sourceBreakdown', message: 'source breakdown' })}
+            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> source breakdown
           </label>
           {donutChart ? (
             donutChart
           ) : (
             <small>
-              {t({
-                id: 'evoker.preservation.essenceBurst.noBuffs',
-                message: 'You gained no Essence Burst buffs during the encounter',
-              })}
+              You gained no <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />{' '}
+              buffs during the encounter
             </small>
           )}
         </div>
