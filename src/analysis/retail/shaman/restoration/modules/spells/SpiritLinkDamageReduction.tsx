@@ -101,14 +101,14 @@ class SpiritLinkDamageReduction extends Analyzer {
     const items = [
       {
         color: RESTORATION_COLORS.SPIRIT_LINK_TOTEM_BASE,
-        label: <Trans id="shaman.restoration.slt.chart.base">Base</Trans>,
+        label: t({ id: 'shaman.restoration.slt.chart.base', message: 'Base' }),
         spellId: TALENTS.SPIRIT_LINK_TOTEM_TALENT.id,
         value: this.baseDamageReduced,
         valueTooltip: formatThousands(this.baseDamageReduced),
       },
       {
         color: RESTORATION_COLORS.SPOUTING_SPIRITS,
-        label: <Trans id="shaman.restoration.slt.chart.spoutingSpirits">Spouting Spirits</Trans>,
+        label: t({ id: 'shaman.restoration.slt.chart.spoutingSpirits', message: 'Spouting Spirits' }),
         spellId: TALENTS.SPOUTING_SPIRITS_TALENT.id,
         value: this.spoutingSpiritsDamageReduced,
         valueTooltip: formatThousands(this.spoutingSpiritsDamageReduced),
@@ -163,7 +163,7 @@ class SpiritLinkDamageReduction extends Analyzer {
             <hr />
             <header>
               <label>
-                <Trans id="shaman.restoration.slt.chart.header">Damage Reduction Sources</Trans>
+                {t({ id: 'shaman.restoration.slt.chart.header', message: 'Damage Reduction Sources' })}
               </label>
             </header>
             {this.damageReductionSourceChart}

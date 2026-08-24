@@ -6,7 +6,7 @@
  *
  * Disclaimer: This does not respect if Ancestral Virgo (or any other) effect is buffing max. HP as well!
  */
-import { Trans } from '@lingui/react/macro';
+import { t } from '@lingui/core/macro';
 import { formatDuration, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
@@ -69,10 +69,14 @@ class EarthElemental extends MajorDefensiveBuff {
 
   statistic() {
     const tooltip = (
-      <Trans id="shaman.shared.primordialBond.statistic.tooltip.active">
-        The amount of times you would have died without your max health increase from{' '}
+      <>
+        {t({
+          id: 'shaman.shared.primordialBond.statistic.tooltip.active',
+          message:
+            'The amount of times you would have died without your max health increase from ',
+        })}
         <SpellLink spell={TALENTS.PRIMORDIAL_BOND_TALENT} />.
-      </Trans>
+      </>
     );
 
     return (
@@ -90,13 +94,13 @@ class EarthElemental extends MajorDefensiveBuff {
           <thead>
             <tr>
               <th>
-                <Trans id="common.time">Time</Trans>
+                {t({ id: 'common.time', message: 'Time' })}
               </th>
               <th style={{ textAlign: 'center' }}>
-                <Trans id="common.ability">Ability</Trans>
+                {t({ id: 'common.ability', message: 'Ability' })}
               </th>
               <th>
-                <Trans id="common.health">Health</Trans>
+                {t({ id: 'common.health', message: 'Health' })}
               </th>
             </tr>
           </thead>
