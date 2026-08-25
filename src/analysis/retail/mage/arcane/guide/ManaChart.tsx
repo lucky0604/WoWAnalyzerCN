@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/mage';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
@@ -73,16 +74,55 @@ class ManaChart extends Analyzer {
 
     const explanation = (
       <>
-        <b>Mana Management</b> plays a large role in your Arcane rotation, but is relatively simple
-        to manage if you are doing your rotation properly. However, if you are hanging onto your{' '}
-        {arcaneCharge} stacks for too long, you can easily burn through all your mana without
-        realizing it. If you are having trouble managing your mana, focus on the below items first:
+        <p>
+          <b>{t({ id: 'mage.arcane.manaChart.guide.explanation.bold', message: 'Mana Management' })}</b>
+          {t({
+            id: 'mage.arcane.manaChart.guide.explanation.p1',
+            message:
+              ' plays a large role in your Arcane rotation, but is relatively simple to manage if you are doing your rotation properly. However, if you are hanging onto your ',
+          })}
+          {arcaneCharge}
+          {t({
+            id: 'mage.arcane.manaChart.guide.explanation.p2',
+            message:
+              ' stacks for too long, you can easily burn through all your mana without realizing it. If you are having trouble managing your mana, focus on the below items first:',
+          })}
+        </p>
         <ul>
-          <li>Focus on your {arcaneBarrage} usage as that will help regulate your mana.</li>
-          <li>Make sure you are using {arcaneSurge} as quickly as possible.</li>
           <li>
-            If you are still struggling, consider taking {evocation} until you get used to the
-            rotation and no longer need it.
+            {t({
+              id: 'mage.arcane.manaChart.guide.explanation.li1.a',
+              message: 'Focus on your ',
+            })}
+            {arcaneBarrage}
+            {t({
+              id: 'mage.arcane.manaChart.guide.explanation.li1.b',
+              message: ' usage as that will help regulate your mana.',
+            })}
+          </li>
+          <li>
+            {t({
+              id: 'mage.arcane.manaChart.guide.explanation.li2.a',
+              message: 'Make sure you are using ',
+            })}
+            {arcaneSurge}
+            {t({
+              id: 'mage.arcane.manaChart.guide.explanation.li2.b',
+              message: ' as quickly as possible.',
+            })}
+          </li>
+          <li>
+            {t({
+              id: 'mage.arcane.manaChart.guide.explanation.li3.a',
+              message:
+                'If you are still struggling, consider taking ',
+            })}
+            {evocation}
+            {t({
+              id: 'mage.arcane.manaChart.guide.explanation.li3.b',
+              message:
+                ' until you get used to the rotation and no longer need it.',
+            })}
           </li>
         </ul>
       </>
@@ -98,25 +138,37 @@ class ManaChart extends Analyzer {
     return (
       <GuideSection
         spell={TALENTS.EVOCATION_TALENT}
-        title="Mana Management"
+        title={t({
+          id: 'mage.arcane.manaChart.guide.title',
+          message: 'Mana Management',
+        })}
         explanation={explanation}
         verticalLayout
       >
         <TimelineHeatmapGrid
           dataPoints={manaDataPoints}
           brackets={MANA_BRACKETS}
-          valueLabel="Mana"
+          valueLabel={t({
+            id: 'mage.arcane.manaChart.guide.valueLabel',
+            message: 'Mana',
+          })}
           startTime={this.owner.fight.start_time}
           endTime={this.owner.fight.end_time}
           bucketCount={25}
           markerGroups={[
             {
-              label: 'Arcane Surge',
+              label: t({
+                id: 'mage.arcane.manaChart.guide.marker.arcaneSurge',
+                message: 'Arcane Surge',
+              }),
               color: SPELL_COLORS.ARCANE_SURGE,
               timestamps: arcaneSurgeCasts,
             },
             {
-              label: 'Evocation',
+              label: t({
+                id: 'mage.arcane.manaChart.guide.marker.evocation',
+                message: 'Evocation',
+              }),
               color: SPELL_COLORS.EVOCATION,
               timestamps: evocationCasts,
             },

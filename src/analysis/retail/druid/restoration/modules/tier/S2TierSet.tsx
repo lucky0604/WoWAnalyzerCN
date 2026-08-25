@@ -1,4 +1,5 @@
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
+import { t } from '@lingui/core/macro';
 import { TIERS } from 'game/TIERS';
 import SPELLS from 'common/SPELLS';
 import Events, { ApplyBuffEvent, ApplyBuffStackEvent, HealEvent } from 'parser/core/Events';
@@ -187,50 +188,106 @@ class S2TierSet extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <SpellLink spell={SPELLS.RESTO_DRUID_TIER_36_GENESIS_BUFF} /> bonus healing:
-            <br />
-            <strong>Total: {formatNumber(this.totalHealing)}</strong>
-            <br />
-            <strong>Avg Genesis stacks: {this.averageGenesisStacks.toFixed(2)}</strong>
+            <SpellLink spell={SPELLS.RESTO_DRUID_TIER_36_GENESIS_BUFF} />{' '}
+            {t({
+              id: 'druid.restoration.s2Tier.tooltip.bonusHealing',
+              message: 'bonus healing:',
+            })}
             <br />
             <strong>
-              Overhealing: {formatOverhealing(this.totalOverhealing, this.totalHealing)}
+              {t({
+                id: 'druid.restoration.s2Tier.tooltip.total',
+                message: 'Total:',
+              })}{' '}
+              {formatNumber(this.totalHealing)}
+            </strong>
+            <br />
+            <strong>
+              {t({
+                id: 'druid.restoration.s2Tier.tooltip.avgGenesisStacks',
+                message: 'Avg Genesis stacks:',
+              })}{' '}
+              {this.averageGenesisStacks.toFixed(2)}
+            </strong>
+            <br />
+            <strong>
+              {t({
+                id: 'druid.restoration.s2Tier.tooltip.overhealing',
+                message: 'Overhealing:',
+              })}{' '}
+              {formatOverhealing(this.totalOverhealing, this.totalHealing)}
             </strong>
             {this.hasFourPiece && (
               <>
                 <br />
                 <br />
-                <strong>2pc: {formatNumber(this.twoPieceHealing)}</strong>
+                <strong>
+                  {t({
+                    id: 'druid.restoration.s2Tier.tooltip.twoPiece',
+                    message: '2pc:',
+                  })}{' '}
+                  {formatNumber(this.twoPieceHealing)}
+                </strong>
                 <br />
-                <strong>4pc: {formatNumber(this.fourPieceHealing)}</strong>
+                <strong>
+                  {t({
+                    id: 'druid.restoration.s2Tier.tooltip.fourPiece',
+                    message: '4pc:',
+                  })}{' '}
+                  {formatNumber(this.fourPieceHealing)}
+                </strong>
                 <br />
                 <br />
-                The 4pc grants additional{' '}
-                <SpellLink spell={SPELLS.RESTO_DRUID_TIER_36_GENESIS_BUFF} /> stacks from{' '}
+                {t({
+                  id: 'druid.restoration.s2Tier.tooltip.fourPieceDesc.a',
+                  message: 'The 4pc grants additional ',
+                })}
+                <SpellLink spell={SPELLS.RESTO_DRUID_TIER_36_GENESIS_BUFF} />
+                {t({
+                  id: 'druid.restoration.s2Tier.tooltip.fourPieceDesc.b',
+                  message: ' stacks from ',
+                })}
                 <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />,{' '}
-                <SpellLink spell={SPELLS.TRANQUILITY_CAST} />, and Incarnation / Convoke, and
-                extends Genesis duration by 4 sec. The 4pc value is all healing from those granted
-                stacks plus the healing during the final 4 sec of each Rejuvenation-granted stack.
-                Pre-pull stacks always count fully towards the 2pc.
+                <SpellLink spell={SPELLS.TRANQUILITY_CAST} />
+                {t({
+                  id: 'druid.restoration.s2Tier.tooltip.fourPieceDesc.c',
+                  message:
+                    ', and Incarnation / Convoke, and extends Genesis duration by 4 sec. The 4pc value is all healing from those granted stacks plus the healing during the final 4 sec of each Rejuvenation-granted stack. Pre-pull stacks always count fully towards the 2pc.',
+                })}
               </>
             )}
           </>
         }
       >
-        <BoringItemSetValueText setId={DRUID_MID2_ID} title="Restoration Season 2 Tier Set">
+        <BoringItemSetValueText
+          setId={DRUID_MID2_ID}
+          title={t({
+            id: 'druid.restoration.s2Tier.title',
+            message: 'Restoration Season 2 Tier Set',
+          })}
+        >
           {this.hasFourPiece ? (
             <>
-              2pc:
+              {t({
+                id: 'druid.restoration.s2Tier.twoPieceLabel',
+                message: '2pc:',
+              })}
               <br />
               <ItemHealingDone amount={this.twoPieceHealing} />
               <hr />
-              4pc:
+              {t({
+                id: 'druid.restoration.s2Tier.fourPieceLabel',
+                message: '4pc:',
+              })}
               <br />
               <ItemHealingDone amount={this.fourPieceHealing} />
             </>
           ) : (
             <>
-              2pc:
+              {t({
+                id: 'druid.restoration.s2Tier.twoPieceLabel',
+                message: '2pc:',
+              })}
               <br />
               <ItemHealingDone amount={this.twoPieceHealing} />
             </>

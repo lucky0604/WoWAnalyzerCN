@@ -244,5 +244,17 @@
   "restoration.regrowth.health": "生命值",
   "restoration.regrowth.bad_casts": "无谓施法",
   "restoration.regrowth.util_label": "利用率",
-  "restoration.regrowth.statistic_tooltip": "<0/> 相比于 <1/> 非常低效，只有在通过 <2/>、<3/> 或 <4/> 获得免费施法时才能使用{hasAbundance, select, true {，或者在拥有 {abundanceLimit} 层以上 <5/> 叠加层数而便宜时，} other {}} 亦或是为了拯救一个生命值极低的目标。<0/><0/><1>你主动施放了 {totalRegrowths} 次 <6/></1><2><3><4/> <5/> <6/> 免费施法次数：<7>{freeRegrowths}</7></3>{hasAbundance, select, true {<8><9/> 便宜施法次数：<10>{abundanceRegrowths}</10></8>} other {}}<11><12/> 满全额法力救急分流（低于 30% 生命值）施法：<13>{triageRegrowths}</13></11>{hasOkRegrowths, select, true {<14>普通施法：<15>{okRegrowths}</15></14>} other {}}<16><17/> 差强人意的施法次数：<18>{badRegrowths}</18></16></2><0/><2>你获得了 {totalClearcasts} 次 <19/> 节能施法</2><3><4><20/> 已使用：<21>{usedClearcasts}</21></4><5><22/> 被覆盖：<23>{overwrittenClearcasts}</23></5><6><24/> 已过期：<25>{expiredClearcasts}</25></6>{hasEndingClearcasts, select, true {<7>在战斗结束时仍然活跃：<26>{endingClearcasts}</26></7>} other {}}</3>"
+  "restoration.regrowth.statistic_tooltip": "<0/> 相比于 <1/> 非常低效，只有在通过 <2/>、<3/> 或 <4/> 获得免费施法时才能使用{hasAbundance, select, true {，或者在拥有 {abundanceLimit} 层以上 <5/> 叠加层数而便宜时，} other {}} 亦或是为了拯救一个生命值极低的目标。<0/><0/><1>你主动施放了 {totalRegrowths} 次 <6/></1><2><3><4/> <5/> <6/> 免费施法次数：<7>{freeRegrowths}</7></3>{hasAbundance, select, true {<8><9/> 便宜施法次数：<10>{abundanceRegrowths}</10></8>} other {}}<11><12/> 满全额法力救急分流（低于 30% 生命值）施法：<13>{triageRegrowths}</13></11>{hasOkRegrowths, select, true {<14>普通施法：<15>{okRegrowths}</15></14>} other {}}<16><17/> 差强人意的施法次数：<18>{badRegrowths}</18></16></2><0/><2>你获得了 {totalClearcasts} 次 <19/> 节能施法</2><3><4><20/> 已使用：<21>{usedClearcasts}</21></4><5><22/> 被覆盖：<23>{overwrittenClearcasts}</23></5><6><24/> 已过期：<25>{expiredClearcasts}</25></6>{hasEndingClearcasts, select, true {<7>在战斗结束时仍然活跃：<26>{endingClearcasts}</26></7>} other {}}</3>",
+  "druid.restoration.s2Tier.tooltip.bonusHealing": "额外治疗：",
+  "druid.restoration.s2Tier.tooltip.total": "总计：",
+  "druid.restoration.s2Tier.tooltip.avgGenesisStacks": "平均创世层数：",
+  "druid.restoration.s2Tier.tooltip.overhealing": "过量治疗：",
+  "druid.restoration.s2Tier.tooltip.twoPiece": "2件套：",
+  "druid.restoration.s2Tier.tooltip.fourPiece": "4件套：",
+  "druid.restoration.s2Tier.tooltip.fourPieceDesc.a": "4件套会额外获得",
+  "druid.restoration.s2Tier.tooltip.fourPieceDesc.b": "层数，来自",
+  "druid.restoration.s2Tier.tooltip.fourPieceDesc.c": " 以及化身 / 万灵之召，并将创世持续时间延长 4 秒。4件套的价值来自这些授予层数的全部治疗量，加上每个回春术授予层数最后 4 秒内的治疗量。战斗前叠加的层数始终全额计入 2件套。",
+  "druid.restoration.s2Tier.title": "恢复德鲁伊第 2 赛季套装",
+  "druid.restoration.s2Tier.twoPieceLabel": "2件套：",
+  "druid.restoration.s2Tier.fourPieceLabel": "4件套："
 }

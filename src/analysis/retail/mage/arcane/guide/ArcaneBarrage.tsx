@@ -1,4 +1,5 @@
 import { type JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink, SpellIcon } from 'interface';
@@ -218,41 +219,177 @@ class ArcaneBarrageGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneBarrage}</b> is your {arcaneCharge} spender, removing the associated increased
-          mana costs and damage. In order to maintain the damage increase as long as possible, you
-          should only cast {arcaneBarrage} under the below conditions, and should always aim to have
-          4 {arcaneCharge}s before casting {arcaneBarrage}.
+          <b>{arcaneBarrage}</b>
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.p1',
+            message: ' is your ',
+          })}
+          {arcaneCharge}
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.p2',
+            message:
+              ' spender, removing the associated increased mana costs and damage. In order to maintain the damage increase as long as possible, you should only cast ',
+          })}
+          {arcaneBarrage}
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.p3',
+            message: ' under the below conditions, and should always aim to have 4 ',
+          })}
+          {arcaneCharge}
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.p4',
+            message: 's before casting ',
+          })}
+          {arcaneBarrage}
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.p5',
+            message: '.',
+          })}
         </p>
         <p>
-          Regardless of the below, if {touchOfTheMagi} will be available in the next 4-5 seconds,
-          you should hold {arcaneBarrage} for {touchOfTheMagi}.
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.hold.p1',
+            message: 'Regardless of the below, if ',
+          })}
+          {touchOfTheMagi}
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.hold.p2',
+            message: ' will be available in the next 4-5 seconds, you should hold ',
+          })}
+          {arcaneBarrage}
+          {t({
+            id: 'mage.arcane.arcaneBarrage.guide.explanation.hold.p3',
+            message: ' for ',
+          })}
+          {touchOfTheMagi}.
         </p>
         {this.isSpellslinger && (
           <ul>
             <li>
-              You have 20 stacks of {arcaneSalvo} (or 19 stacks with {orbBarrage}).
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.spellslinger.li1.a',
+                message: 'You have 20 stacks of ',
+              })}
+              {arcaneSalvo}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.spellslinger.li1.b',
+                message: ' (or 19 stacks with ',
+              })}
+              {orbBarrage}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.spellslinger.li1.c',
+                message: ').',
+              })}
             </li>
             <li>
-              You have at least 15 stacks of {arcaneSalvo} and {touchOfTheMagi} is ready.
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.spellslinger.li2.a',
+                message: 'You have at least 15 stacks of ',
+              })}
+              {arcaneSalvo}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.spellslinger.li2.b',
+                message: ' and ',
+              })}
+              {touchOfTheMagi}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.spellslinger.li2.c',
+                message: ' is ready.',
+              })}
             </li>
-            <li>You are out of mana.</li>
+            <li>
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.outOfMana',
+                message: 'You are out of mana.',
+              })}
+            </li>
           </ul>
         )}
         {this.isSunfury && (
           <ul>
-            <li>{arcaneSoul} is active.</li>
-            <li>You have 25 stacks of {arcaneSalvo}.</li>
             <li>
-              You have at least 12 stacks of {arcaneSalvo} and a {clearcasting} proc.
+              {arcaneSoul}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li1.b',
+                message: ' is active.',
+              })}
             </li>
             <li>
-              You have at least 8 stacks of {arcaneSalvo} and {touchOfTheMagi} is ready.
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li2.a',
+                message: 'You have 25 stacks of ',
+              })}
+              {arcaneSalvo}.
             </li>
             <li>
-              You have 12 or more stacks of {arcaneSalvo} and can hit 5 or more targets with{' '}
-              {arcaneOrb} or {arcanePulse} (and {arcaneOrb} or {arcanePulse} are available).
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li3.a',
+                message: 'You have at least 12 stacks of ',
+              })}
+              {arcaneSalvo}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li3.b',
+                message: ' and a ',
+              })}
+              {clearcasting}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li3.c',
+                message: ' proc.',
+              })}
             </li>
-            <li>You are out of mana.</li>
+            <li>
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li4.a',
+                message: 'You have at least 8 stacks of ',
+              })}
+              {arcaneSalvo}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li4.b',
+                message: ' and ',
+              })}
+              {touchOfTheMagi}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li4.c',
+                message: ' is ready.',
+              })}
+            </li>
+            <li>
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li5.a',
+                message: 'You have 12 or more stacks of ',
+              })}
+              {arcaneSalvo}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li5.b',
+                message: ' and can hit 5 or more targets with ',
+              })}
+              {arcaneOrb}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li5.c',
+                message: ' or ',
+              })}
+              {arcanePulse}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li5.d',
+                message: ' (and ',
+              })}
+              {arcaneOrb}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li5.e',
+                message: ' or ',
+              })}
+              {arcanePulse}
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.sunfury.li5.f',
+                message: ' are available).',
+              })}
+            </li>
+            <li>
+              {t({
+                id: 'mage.arcane.arcaneBarrage.guide.explanation.outOfMana',
+                message: 'You are out of mana.',
+              })}
+            </li>
           </ul>
         )}
       </>
@@ -262,41 +399,75 @@ class ArcaneBarrageGuide extends Analyzer {
       const evaluation = this.evaluateBarrageCast(cast);
       const stats: PerCastStat[] = [
         {
-          label: 'Arcane Charges',
+          label: t({
+            id: 'mage.arcane.arcaneBarrage.guide.stat.arcaneCharges',
+            message: 'Arcane Charges',
+          }),
           value: `${cast.charges} / ${this.MAX_ARCANE_CHARGES}`,
-          tooltip: `The number of Arcane Charge you had when Arcane Barrage was cast.`,
+          tooltip: t({
+            id: 'mage.arcane.arcaneBarrage.guide.stat.arcaneChargesTooltip',
+            message: 'The number of Arcane Charge you had when Arcane Barrage was cast.',
+          }),
         },
         cast.targetsHit > 0
           ? {
-              label: 'Targets Hit',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.targetsHit',
+                message: 'Targets Hit',
+              }),
               value: `${cast.targetsHit}`,
-              tooltip: `The number of targets hit by the Arcane Barrage cast`,
+              tooltip: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.targetsHitTooltip',
+                message: 'The number of targets hit by the Arcane Barrage cast',
+              }),
             }
           : undefined,
         cast.mana !== undefined
           ? {
-              label: 'Mana',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.mana',
+                message: 'Mana',
+              }),
               value: `${formatPercentage(cast.mana, 0)}%`,
-              tooltip: `The player's mana before Arcane Barrage was cast.`,
+              tooltip: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.manaTooltip',
+                message: "The player's mana before Arcane Barrage was cast.",
+              }),
             }
           : undefined,
         this.hasArcaneSalvo && cast.salvoStacks
           ? {
-              label: 'Arcane Salvo Stacks',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.arcaneSalvoStacks',
+                message: 'Arcane Salvo Stacks',
+              }),
               value: formatNumber(cast.salvoStacks),
-              tooltip: `The number of Arcane Salvo stacks the player had before Arcane Barrage was cast.`,
+              tooltip: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.arcaneSalvoStacksTooltip',
+                message:
+                  'The number of Arcane Salvo stacks the player had before Arcane Barrage was cast.',
+              }),
             }
           : undefined,
         cast.precast
           ? {
-              label: 'Precast Spell',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.precastSpell',
+                message: 'Precast Spell',
+              }),
               value: <SpellIcon spell={cast.precast.ability.guid} />,
-              tooltip: `Precast: ${cast.precast.ability.name}`,
+              tooltip: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.precastSpellTooltip',
+                message: 'Precast: ',
+              }) + `${cast.precast.ability.name}`,
             }
           : undefined,
         cast.activeBuffs.length > 0
           ? {
-              label: 'Active Buffs',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.activeBuffs',
+                message: 'Active Buffs',
+              }),
               value: `${cast.activeBuffs.length}`,
               tooltip: (
                 <>
@@ -309,9 +480,15 @@ class ArcaneBarrageGuide extends Analyzer {
           : undefined,
         cast.touchCD
           ? {
-              label: 'Touch CD',
+              label: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.touchCd',
+                message: 'Touch CD',
+              }),
               value: formatDuration(cast.touchCD, 1),
-              tooltip: `Cooldown Remaining on Touch of the Magi`,
+              tooltip: t({
+                id: 'mage.arcane.arcaneBarrage.guide.stat.touchCdTooltip',
+                message: 'Cooldown Remaining on Touch of the Magi',
+              }),
             }
           : undefined,
       ].filter(Boolean) as PerCastStat[];
@@ -325,8 +502,21 @@ class ArcaneBarrageGuide extends Analyzer {
     });
 
     return (
-      <GuideSection spell={SPELLS.ARCANE_BARRAGE} explanation={explanation} title="Arcane Barrage">
-        <CastDetail title="Arcane Barrage Casts" casts={perCastData} />
+      <GuideSection
+        spell={SPELLS.ARCANE_BARRAGE}
+        explanation={explanation}
+        title={t({
+          id: 'mage.arcane.arcaneBarrage.guide.title',
+          message: 'Arcane Barrage',
+        })}
+      >
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.arcaneBarrage.guide.castDetailTitle',
+            message: 'Arcane Barrage Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

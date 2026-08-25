@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import Analyzer, { Options, SELECTED_PLAYER, SELECTED_PLAYER_PET } from 'parser/core/Analyzer';
 import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
 import Combatants from 'parser/shared/modules/Combatants';
@@ -140,7 +141,7 @@ export default class UndercurrentGraph extends Analyzer {
       scale: {
         nice: false,
       },
-      title: 'Time',
+      title: t({ id: 'shaman.restoration.undercurrentGraph.chart.time', message: 'Time' }),
     };
 
     const spec: VisualizationSpec = {
@@ -174,7 +175,10 @@ export default class UndercurrentGraph extends Analyzer {
             y: {
               field: 'stacks',
               type: 'quantitative' as const,
-              title: 'Stacks',
+              title: t({
+                id: 'shaman.restoration.undercurrentGraph.chart.stacks',
+                message: 'Stacks',
+              }),
               axis: {
                 grid: false,
                 format: '~s',
@@ -184,7 +188,10 @@ export default class UndercurrentGraph extends Analyzer {
               {
                 field: 'stacks',
                 type: 'quantitative' as const,
-                title: 'Stacks',
+                title: t({
+                  id: 'shaman.restoration.undercurrentGraph.chart.stacks',
+                  message: 'Stacks',
+                }),
               },
             ],
           },
@@ -216,7 +223,10 @@ export default class UndercurrentGraph extends Analyzer {
             y: {
               field: 'stacks',
               type: 'quantitative' as const,
-              title: 'Stacks',
+              title: t({
+                id: 'shaman.restoration.undercurrentGraph.chart.stacks',
+                message: 'Stacks',
+              }),
             },
             color: {
               field: 'series',
@@ -226,7 +236,10 @@ export default class UndercurrentGraph extends Analyzer {
                 range: [RESTORATION_COLORS.RIPTIDE, RESTORATION_COLORS.PRIMAL_TIDE_CORE],
               },
               legend: {
-                title: 'Events',
+                title: t({
+                  id: 'shaman.restoration.undercurrentGraph.chart.events',
+                  message: 'Events',
+                }),
                 orient: 'left' as const,
               },
             },
@@ -234,7 +247,10 @@ export default class UndercurrentGraph extends Analyzer {
               {
                 field: 'stacks',
                 type: 'quantitative' as const,
-                title: 'Stacks at Riptide cast',
+                title: t({
+                  id: 'shaman.restoration.undercurrentGraph.chart.stacksAtRiptideCast',
+                  message: 'Stacks at Riptide cast',
+                }),
               },
             ],
           },
@@ -268,7 +284,10 @@ export default class UndercurrentGraph extends Analyzer {
                   y: {
                     field: 'stacks',
                     type: 'quantitative' as const,
-                    title: 'Stacks',
+                    title: t({
+                      id: 'shaman.restoration.undercurrentGraph.chart.stacks',
+                      message: 'Stacks',
+                    }),
                   },
                   color: {
                     field: 'series',
@@ -278,7 +297,10 @@ export default class UndercurrentGraph extends Analyzer {
                       range: [RESTORATION_COLORS.RIPTIDE, RESTORATION_COLORS.PRIMAL_TIDE_CORE],
                     },
                     legend: {
-                      title: 'Events',
+                      title: t({
+                        id: 'shaman.restoration.undercurrentGraph.chart.events',
+                        message: 'Events',
+                      }),
                       orient: 'left' as const,
                     },
                   },
@@ -286,7 +308,10 @@ export default class UndercurrentGraph extends Analyzer {
                     {
                       field: 'stacks',
                       type: 'quantitative' as const,
-                      title: 'Primal Tide Core proc',
+                      title: t({
+                        id: 'shaman.restoration.undercurrentGraph.chart.primalTideCoreProc',
+                        message: 'Primal Tide Core proc',
+                      }),
                     },
                   ],
                 },
@@ -345,15 +370,40 @@ export default class UndercurrentGraph extends Analyzer {
         <strong>
           <SpellLink spell={TALENTS.UNDERCURRENT_TALENT} />
         </strong>{' '}
-        &mdash; this graph shows your <SpellLink spell={TALENTS.UNDERCURRENT_TALENT} /> stacks over
-        the fight, with <SpellLink spell={TALENTS.RIPTIDE_TALENT} /> casts (blue diamonds)
+        &mdash;{' '}
+        {t({
+          id: 'shaman.restoration.undercurrentGraph.guide.p1a',
+          message: 'this graph shows your ',
+        })}
+        <SpellLink spell={TALENTS.UNDERCURRENT_TALENT} />
+        {t({
+          id: 'shaman.restoration.undercurrentGraph.guide.p1b',
+          message: ' stacks over the fight, with ',
+        })}
+        <SpellLink spell={TALENTS.RIPTIDE_TALENT} />
+        {t({
+          id: 'shaman.restoration.undercurrentGraph.guide.p1c',
+          message: ' casts (blue diamonds)',
+        })}
         {this.hasPrimalTideCore && (
           <>
-            {' '}
-            and <SpellLink spell={TALENTS.PRIMAL_TIDE_CORE_TALENT} /> procs (green diamonds)
+            {t({
+              id: 'shaman.restoration.undercurrentGraph.guide.p1d',
+              message: ' and ',
+            })}
+            <SpellLink spell={TALENTS.PRIMAL_TIDE_CORE_TALENT} />
+            {t({
+              id: 'shaman.restoration.undercurrentGraph.guide.p1e',
+              message: ' procs (green diamonds)',
+            })}
           </>
         )}
-        <p>On the graph, this should show up as clear cycles: </p>
+        <p>
+          {t({
+            id: 'shaman.restoration.undercurrentGraph.guide.p2',
+            message: 'On the graph, this should show up as clear cycles: ',
+          })}
+        </p>
         <div style={{ marginTop: 15 }}>{this.plot}</div>
       </>
     );

@@ -1,4 +1,5 @@
 import { type JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink } from 'interface';
@@ -99,21 +100,59 @@ class ArcaneOrbGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneOrb}</b>'s primary purpose is to quickly generate {arcaneCharge}s, generating at
-          least 2 charges per cast with an additional charge per target hit. Refer to the below
-          conditions to determine when to cast {arcaneOrb}.
+          <b>{arcaneOrb}</b>
+          {t({
+            id: 'mage.arcane.arcaneOrb.guide.explanation.p1',
+            message:
+              "'s primary purpose is to quickly generate ",
+          })}
+          {arcaneCharge}
+          {t({
+            id: 'mage.arcane.arcaneOrb.guide.explanation.p2',
+            message:
+              's, generating at least 2 charges per cast with an additional charge per target hit. Refer to the below conditions to determine when to cast ',
+          })}
+          {arcaneOrb}.
         </p>
         {this.isSpellslinger && (
           <ul>
             <li>
-              It will cap your {arcaneCharge}s or you have no {arcaneCharge}s
+              {t({
+                id: 'mage.arcane.arcaneOrb.guide.explanation.spellslinger.li1',
+                message: 'It will cap your ',
+              })}
+              {arcaneCharge}
+              {t({
+                id: 'mage.arcane.arcaneOrb.guide.explanation.spellslinger.li1b',
+                message: 's or you have no ',
+              })}
+              {arcaneCharge}
+              {t({
+                id: 'mage.arcane.arcaneOrb.guide.explanation.spellslinger.li1c',
+                message: 's',
+              })}
             </li>
-            <li>The orb will hit at least 2 targets.</li>
+            <li>
+              {t({
+                id: 'mage.arcane.arcaneOrb.guide.explanation.spellslinger.li2.a',
+                message: 'The orb will hit at least 2 targets.',
+              })}
+            </li>
           </ul>
         )}
         {this.isSunfury && (
           <ul>
-            <li>You have no {arcaneCharge}s.</li>
+            <li>
+              {t({
+                id: 'mage.arcane.arcaneOrb.guide.explanation.sunfury.li1.a',
+                message: 'You have no ',
+              })}
+              {arcaneCharge}
+              {t({
+                id: 'mage.arcane.arcaneOrb.guide.explanation.sunfury.li1.b',
+                message: 's.',
+              })}
+            </li>
           </ul>
         )}
       </>
@@ -124,10 +163,27 @@ class ArcaneOrbGuide extends Analyzer {
         <GuideSection
           spell={TALENTS.ARCANE_MISSILES_TALENT}
           explanation={explanation}
-          title="Arcane Orb"
+          title={t({
+            id: 'mage.arcane.arcaneOrb.guide.title',
+            message: 'Arcane Orb',
+          })}
         >
-          <TipBox type="note" title="No Casts Found">
-            No {arcaneOrb} casts were detected.
+          <TipBox
+            type="note"
+            title={t({
+              id: 'mage.arcane.arcaneOrb.guide.noCastsFound',
+              message: 'No Casts Found',
+            })}
+          >
+            {t({
+              id: 'mage.arcane.arcaneOrb.guide.noCasts.title.a',
+              message: 'No ',
+            })}
+            {arcaneOrb}
+            {t({
+              id: 'mage.arcane.arcaneOrb.guide.noCasts.title.b',
+              message: ' casts were detected.',
+            })}
           </TipBox>
         </GuideSection>
       );
@@ -138,8 +194,18 @@ class ArcaneOrbGuide extends Analyzer {
     const overviewStats = [
       {
         value: averageTargetsHit.toFixed(1),
-        label: 'Avg Targets Hit',
-        tooltip: <>Average number of targets hit per Arcane Orb cast.</>,
+        label: t({
+          id: 'mage.arcane.arcaneOrb.guide.stat.avgTargetsHit',
+          message: 'Avg Targets Hit',
+        }),
+        tooltip: (
+          <>
+            {t({
+              id: 'mage.arcane.arcaneOrb.guide.stat.avgTargetsHitTooltip',
+              message: 'Average number of targets hit per Arcane Orb cast.',
+            })}
+          </>
+        ),
       },
     ];
 
@@ -152,19 +218,49 @@ class ArcaneOrbGuide extends Analyzer {
         stats: [
           {
             value: cast.targetsHit,
-            label: 'Targets Hit',
-            tooltip: <>The number of enemies hit by the Arcane Orb.</>,
+            label: t({
+              id: 'mage.arcane.arcaneOrb.guide.stat.targetsHit',
+              message: 'Targets Hit',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneOrb.guide.stat.targetsHitTooltip',
+                  message: 'The number of enemies hit by the Arcane Orb.',
+                })}
+              </>
+            ),
           },
           {
             value: cast.chargesBefore,
-            label: 'Arcane Charges',
-            tooltip: <>The number of Arcane Charges the player had before Arcane Orb.</>,
+            label: t({
+              id: 'mage.arcane.arcaneOrb.guide.stat.arcaneCharges',
+              message: 'Arcane Charges',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneOrb.guide.stat.arcaneChargesTooltip',
+                  message: 'The number of Arcane Charges the player had before Arcane Orb.',
+                })}
+              </>
+            ),
           },
           this.selectedCombatant.hasTalent(TALENTS.ARCANE_SALVO_TALENT)
             ? {
                 value: cast.salvoStacks,
-                label: 'Arcane Salvo Stacks',
-                tooltip: <>The number of Arcane Salvo stacks the player had.</>,
+                label: t({
+                  id: 'mage.arcane.arcaneOrb.guide.stat.arcaneSalvoStacks',
+                  message: 'Arcane Salvo Stacks',
+                }),
+                tooltip: (
+                  <>
+                    {t({
+                      id: 'mage.arcane.arcaneOrb.guide.stat.arcaneSalvoStacksTooltip',
+                      message: 'The number of Arcane Salvo stacks the player had.',
+                    })}
+                  </>
+                ),
               }
             : undefined,
         ].filter(Boolean) as PerCastStat[],
@@ -173,9 +269,22 @@ class ArcaneOrbGuide extends Analyzer {
     });
 
     return (
-      <GuideSection spell={SPELLS.ARCANE_ORB} explanation={explanation} title="Arcane Orb">
+      <GuideSection
+        spell={SPELLS.ARCANE_ORB}
+        explanation={explanation}
+        title={t({
+          id: 'mage.arcane.arcaneOrb.guide.title',
+          message: 'Arcane Orb',
+        })}
+      >
         <CastOverview spell={SPELLS.ARCANE_ORB} stats={overviewStats} />
-        <CastDetail title="Arcane Orb Casts" casts={perCastData} />
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.arcaneOrb.guide.castDetailTitle',
+            message: 'Arcane Orb Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

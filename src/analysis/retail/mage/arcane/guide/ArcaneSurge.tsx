@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink } from 'interface';
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
@@ -65,15 +66,24 @@ class ArcaneSurgeGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneSurge}</b> is your primary damage cooldown and essentially converts all of your
-          mana into damage and then gives you a massive damage and mana regeneration buff that lasts
-          for 15 seconds. There is not much to play around with this cooldown, but casting it does
-          begin your major burn phase, so you should ensure you are ready to execute that burn phase
-          uninterupted and should spend as much of its duration casting as possible.
+          <b>{arcaneSurge}</b>{' '}
+          {t({
+            id: 'mage.arcane.arcaneSurge.guide.explanation.p1',
+            message:
+              'is your primary damage cooldown and essentially converts all of your mana into damage and then gives you a massive damage and mana regeneration buff that lasts for 15 seconds. There is not much to play around with this cooldown, but casting it does begin your major burn phase, so you should ensure you are ready to execute that burn phase uninterupted and should spend as much of its duration casting as possible.',
+          })}
         </p>
         <TipBox type="info">
-          While it may seem beneficial to have a high amount of mana before casting {arcaneSurge},
-          this is not enough of a meaningful benefit to play around.
+          {t({
+            id: 'mage.arcane.arcaneSurge.guide.manaTip.p1',
+            message:
+              'While it may seem beneficial to have a high amount of mana before casting ',
+          })}
+          {arcaneSurge}
+          {t({
+            id: 'mage.arcane.arcaneSurge.guide.manaTip.p2',
+            message: ', this is not enough of a meaningful benefit to play around.',
+          })}
         </TipBox>
       </>
     );

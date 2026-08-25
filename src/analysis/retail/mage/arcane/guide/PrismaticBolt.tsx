@@ -1,4 +1,5 @@
 import { type JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink } from 'interface';
@@ -134,27 +135,77 @@ class PrismaticBoltGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{prismaticBolt}</b> is Arcane's new apex talent, added in 12.1, and is very strong. It
-          is a large contributor to your DPS and it does not stack, so you should make sure you are
-          spending it as quickly as possible while following the below guidelines to get the most
-          out of each cast.
+          <b>{prismaticBolt}</b>{' '}
+          {t({
+            id: 'mage.arcane.prismaticBolt.guide.explanation.p1',
+            message:
+              'is Arcane’s new apex talent, added in 12.1, and is very strong. It is a large contributor to your DPS and it does not stack, so you should make sure you are spending it as quickly as possible while following the below guidelines to get the most out of each cast.',
+          })}
         </p>
         {this.isSpellslinger && (
           <p>
-            You should cast {prismaticBolt} if it will hit 2 or more targets or if you have at least
-            13 stacks of {arcaneSalvo} and one of the below are true:
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.explanation.spellslinger.a',
+              message:
+                'You should cast ',
+            })}
+            {prismaticBolt}{' '}
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.explanation.spellslinger.b',
+              message:
+                'if it will hit 2 or more targets or if you have at least 13 stacks of ',
+            })}
+            {arcaneSalvo}{' '}
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.explanation.spellslinger.c',
+              message: 'and one of the below are true:',
+            })}
             <ul>
-              <li>You have 6 or more stacks of {cumulativePower}.</li>
-              <li>You do not have {clearcasting}.</li>
-              <li>You do not have your 4pc tier set bonus.</li>
+              <li>
+                {t({
+                  id: 'mage.arcane.prismaticBolt.guide.explanation.li1.a',
+                  message: 'You have 6 or more stacks of ',
+                })}
+                {cumulativePower}.
+              </li>
+              <li>
+                {t({
+                  id: 'mage.arcane.prismaticBolt.guide.explanation.li2.a',
+                  message: 'You do not have ',
+                })}
+                {clearcasting}.
+              </li>
+              <li>
+                {t({
+                  id: 'mage.arcane.prismaticBolt.guide.explanation.li3',
+                  message: 'You do not have your 4pc tier set bonus.',
+                })}
+              </li>
             </ul>
           </p>
         )}
         {this.isSunfury && (
           <p>
-            You should cast {prismaticBolt} if you have 8 or more stacks of {cumulativePower}. If
-            you do not have your 4pc tier set bonus, you can just cast {prismaticBolt} as soon as
-            you get the buff.
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.explanation.sunfury.a',
+              message: 'You should cast ',
+            })}
+            {prismaticBolt}{' '}
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.explanation.sunfury.b',
+              message: 'if you have 8 or more stacks of ',
+            })}
+            {cumulativePower}.{' '}
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.explanation.sunfury.c',
+              message:
+                'If you do not have your 4pc tier set bonus, you can just cast ',
+            })}
+            {prismaticBolt}{' '}
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.explanation.sunfury.d',
+              message: 'as soon as you get the buff.',
+            })}
           </p>
         )}
       </>
@@ -165,10 +216,27 @@ class PrismaticBoltGuide extends Analyzer {
         <GuideSection
           spell={SPELLS.PRISMATIC_BOLT}
           explanation={explanation}
-          title="Prismatic Bolt"
+          title={t({
+            id: 'mage.arcane.prismaticBolt.guide.title',
+            message: 'Prismatic Bolt',
+          })}
         >
-          <TipBox type="note" title="No Casts Found">
-            No {prismaticBolt} casts were detected.
+          <TipBox
+            type="note"
+            title={t({
+              id: 'mage.arcane.prismaticBolt.guide.noCastsFound.title',
+              message: 'No Casts Found',
+            })}
+          >
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.noCastsFound.description',
+              message: 'No ',
+            })}
+            {prismaticBolt}{' '}
+            {t({
+              id: 'mage.arcane.prismaticBolt.guide.noCastsFound.description2',
+              message: 'casts were detected.',
+            })}
           </TipBox>
         </GuideSection>
       );
@@ -183,23 +251,40 @@ class PrismaticBoltGuide extends Analyzer {
         stats: [
           {
             value: formatDurationMillisMinSec(cast.delay || 0, 1),
-            label: 'Delay until Cast',
-            tooltip: (
-              <>
-                The amount of time from when the player got the Prismatic Bolt buff until they cast
-                Prismatic Bolt.
-              </>
-            ),
+            label: t({
+              id: 'mage.arcane.prismaticBolt.guide.stat.delayLabel',
+              message: 'Delay until Cast',
+            }),
+            tooltip:
+              t({
+                id: 'mage.arcane.prismaticBolt.guide.stat.delayTooltip',
+                message:
+                  'The amount of time from when the player got the Prismatic Bolt buff until they cast Prismatic Bolt.',
+              }),
           },
           {
             value: cast.salvoStacks,
-            label: 'Arcane Salvo Stacks',
-            tooltip: <>The number of Arcane Salvo stacks the player had.</>,
+            label: t({
+              id: 'mage.arcane.prismaticBolt.guide.stat.salvoLabel',
+              message: 'Arcane Salvo Stacks',
+            }),
+            tooltip:
+              t({
+                id: 'mage.arcane.prismaticBolt.guide.stat.salvoTooltip',
+                message: 'The number of Arcane Salvo stacks the player had.',
+              }),
           },
           {
             value: cast.cumulativePowerStacks,
-            label: 'Cumulative Power Stacks',
-            tooltip: <>The number of Cumulative Power stacks the player had.</>,
+            label: t({
+              id: 'mage.arcane.prismaticBolt.guide.stat.powerLabel',
+              message: 'Cumulative Power Stacks',
+            }),
+            tooltip:
+              t({
+                id: 'mage.arcane.prismaticBolt.guide.stat.powerTooltip',
+                message: 'The number of Cumulative Power stacks the player had.',
+              }),
           },
         ].filter(Boolean) as PerCastStat[],
         details: evaluation.reason,
@@ -207,8 +292,21 @@ class PrismaticBoltGuide extends Analyzer {
     });
 
     return (
-      <GuideSection spell={SPELLS.PRISMATIC_BOLT} explanation={explanation} title="Prismatic Bolt">
-        <CastDetail title="Prismatic Bolt Casts" casts={perCastData} />
+      <GuideSection
+        spell={SPELLS.PRISMATIC_BOLT}
+        explanation={explanation}
+        title={t({
+          id: 'mage.arcane.prismaticBolt.guide.title',
+          message: 'Prismatic Bolt',
+        })}
+      >
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.prismaticBolt.guide.castDetailTitle',
+            message: 'Prismatic Bolt Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

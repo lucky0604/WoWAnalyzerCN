@@ -61,8 +61,11 @@ class EarthElemental extends MajorDefensiveBuff {
   description(): ReactNode {
     return (
       <p>
-        <SpellLink spell={TALENTS.PRIMORDIAL_BOND_TALENT} /> increases your maximum health by 15%
-        while active.
+        <SpellLink spell={TALENTS.PRIMORDIAL_BOND_TALENT} />{' '}
+        {t({
+          id: 'shaman.shared.primordialBond.description',
+          message: 'increases your maximum health by 15% while active.',
+        })}
       </p>
     );
   }
@@ -75,7 +78,11 @@ class EarthElemental extends MajorDefensiveBuff {
           message:
             'The amount of times you would have died without your max health increase from ',
         })}
-        <SpellLink spell={TALENTS.PRIMORDIAL_BOND_TALENT} />.
+        <SpellLink spell={TALENTS.PRIMORDIAL_BOND_TALENT} />
+        {t({
+          id: 'shaman.shared.primordialBond.statistic.tooltip.activeEnd',
+          message: '.',
+        })}
       </>
     );
 
@@ -88,7 +95,13 @@ class EarthElemental extends MajorDefensiveBuff {
         wide={true}
       >
         <TalentSpellText talent={TALENTS.PRIMORDIAL_BOND_TALENT}>
-          <>Deaths prevented: {this.lifeSavingEvents.length}</>
+          <>
+            {t({
+              id: 'shaman.shared.primordialBond.statistic.deathsPrevented',
+              message: 'Deaths prevented: ',
+            })}
+            {this.lifeSavingEvents.length}
+          </>
         </TalentSpellText>
         <table className="table table-condensed">
           <thead>

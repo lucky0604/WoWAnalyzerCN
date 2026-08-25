@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import { formatPercentage, formatNumber, formatDurationMillisMinSec } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
@@ -100,31 +101,98 @@ class TouchOfTheMagiGuide extends Analyzer {
 
     const explanation = (
       <>
-        <b>{touchOfTheMagi}</b> is a short debuff available for each burn phase, grants you 4{' '}
-        {arcaneCharge}s, and accumulates 20% of your damage for the duration. When the debuff
-        expires it explodes dealing damage to the target and reduced damage to nearby targets. There
-        is not a lot to play or plan around for this, but you should refer to the below for
-        additional things to take into account before using {touchOfTheMagi}.
+        <p>
+          <b>{touchOfTheMagi}</b>
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.p1',
+            message:
+              ' is a short debuff available for each burn phase, grants you 4 ',
+          })}
+          {arcaneCharge}
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.p2',
+            message:
+              's, and accumulates 20% of your damage for the duration. When the debuff expires it explodes dealing damage to the target and reduced damage to nearby targets. There is not a lot to play or plan around for this, but you should refer to the below for additional things to take into account before using ',
+          })}
+          {touchOfTheMagi}.
+        </p>
         <ul>
-          <li>Use {touchOfTheMagi} as quickly as possible once it comes off cooldown.</li>
           <li>
-            Cast {touchOfTheMagi} while {arcaneBarrage} or {prismaticBolt} are in the air.
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation2.use1li1.a',
+              message: 'Use ',
+            })}
+            {touchOfTheMagi}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation2.use1li1.b',
+              message: ' as quickly as possible once it comes off cooldown.',
+            })}
+          </li>
+          <li>
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation2.use2li2.a',
+              message: 'Cast ',
+            })}
+            {touchOfTheMagi}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation2.use2li2.b',
+              message: ' while ',
+            })}
+            {arcaneBarrage}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation2.use2li2.c',
+              message: ' or ',
+            })}
+            {prismaticBolt}
+            {t({
+              id: 'mage.arcane.touchOfTheMagi.guide.explanation2.use2li2.d',
+              message: ' are in the air.',
+            })}
           </li>
         </ul>
         <TipBox type="info">
-          Arcane Mage's burn phases revolve around some specific timing between {arcaneSurge} and{' '}
-          {touchOfTheMagi} that require you to use the two cooldowns as quickly as possible once
-          they come off cooldown to keep the 45 second cooldown of {touchOfTheMagi} and the 90
-          second cooldown of {arcaneSurge} in sync so that every other {touchOfTheMagi} can line up
-          with {arcaneSurge}.
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.tip.p1',
+            message: "Arcane Mage's burn phases revolve around some specific timing between ",
+          })}
+          {arcaneSurge}
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.tip.p2',
+            message: ' and ',
+          })}
+          {touchOfTheMagi}
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.tip.p3',
+            message:
+              ' that require you to use the two cooldowns as quickly as possible once they come off cooldown to keep the 45 second cooldown of ',
+          })}
+          {touchOfTheMagi}
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.tip.p4',
+            message: ' and the 90 second cooldown of ',
+          })}
+          {arcaneSurge}
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.tip.p5',
+            message: ' in sync so that every other ',
+          })}
+          {touchOfTheMagi}
+          {t({
+            id: 'mage.arcane.touchOfTheMagi.guide.explanation2.tip.p6',
+            message: ' can line up with ',
+          })}
+          {arcaneSurge}.
         </TipBox>
       </>
     );
 
     const activeTimeTooltip = (
       <>
-        {formatPercentage(this.touchOfTheMagi.averageActiveTime)}% average Active Time per Touch of
-        the Magi cast.
+        {formatPercentage(this.touchOfTheMagi.averageActiveTime)}%{' '}
+        {t({
+          id: 'mage.arcane.touchOfTheMagi.guide.activeTimeTooltip2',
+          message: 'average Active Time per Touch of the Magi cast.',
+        })}
       </>
     );
 
@@ -134,7 +202,11 @@ class TouchOfTheMagiGuide extends Analyzer {
 
     const averageDamageTooltip = (
       <>
-        {formatNumber(this.touchOfTheMagi.averageDamage)} average damage per Touch of the Magi cast.
+        {formatNumber(this.touchOfTheMagi.averageDamage)}{' '}
+        {t({
+          id: 'mage.arcane.touchOfTheMagi.guide.averageDamageTooltip2',
+          message: 'average damage per Touch of the Magi cast.',
+        })}
       </>
     );
 
@@ -179,29 +251,72 @@ class TouchOfTheMagiGuide extends Analyzer {
         stats: [
           {
             value: `${cast.charges}`,
-            label: 'Charges',
-            tooltip: <>Arcane Charges before Touch of the Magi cast</>,
+            label: t({
+              id: 'mage.arcane.touchOfTheMagi.guide.stat.charges',
+              message: 'Charges',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.touchOfTheMagi.guide.stat.chargesTooltip',
+                  message: 'Arcane Charges before Touch of the Magi cast',
+                })}
+              </>
+            ),
           },
           {
             value: `${formatPercentage(cast.activeTime || 0, 0)}%`,
-            label: 'Active',
-            tooltip: <>Percentage of time spent actively casting during the window</>,
+            label: t({
+              id: 'mage.arcane.touchOfTheMagi.guide.stat.active',
+              message: 'Active',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.touchOfTheMagi.guide.stat.activeTooltip',
+                  message: 'Percentage of time spent actively casting during the window',
+                })}
+              </>
+            ),
           },
           {
             value: formatNumber(cast.totalDamage),
-            label: 'Damage',
-            tooltip: <>Total damage accumulated during this Touch of the Magi</>,
+            label: t({
+              id: 'mage.arcane.touchOfTheMagi.guide.stat.damage',
+              message: 'Damage',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.touchOfTheMagi.guide.stat.damageTooltip',
+                  message: 'Total damage accumulated during this Touch of the Magi',
+                })}
+              </>
+            ),
           },
           {
             value: formatDurationMillisMinSec(cast.surgeCD),
-            label: 'Surge CD',
-            tooltip: <>Arcane Surge Remaining Cooldown.</>,
+            label: t({
+              id: 'mage.arcane.touchOfTheMagi.guide.stat.surgeCd',
+              message: 'Surge CD',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.touchOfTheMagi.guide.stat.surgeCdTooltip',
+                  message: 'Arcane Surge Remaining Cooldown.',
+                })}
+              </>
+            ),
           },
         ],
         details: evaluation.reason,
         additionalContent: sequenceEntry
           ? {
-              title: 'Cast Sequence',
+              title: t({
+                id: 'mage.arcane.touchOfTheMagi.guide.castSequence',
+                message: 'Cast Sequence',
+              }),
               content: <SpellSequence casts={sequenceEntry.casts} iconSize={40} />,
             }
           : undefined,
@@ -215,18 +330,30 @@ class TouchOfTheMagiGuide extends Analyzer {
           stats={[
             {
               value: `${formatPercentage(this.touchOfTheMagi.averageActiveTime)}%`,
-              label: 'Average Active Time',
+              label: t({
+                id: 'mage.arcane.touchOfTheMagi.guide.stat.averageActiveTime',
+                message: 'Average Active Time',
+              }),
               tooltip: activeTimeTooltip,
               performance: activeTimePerf,
             },
             {
               value: formatNumber(this.touchOfTheMagi.averageDamage),
-              label: 'Average Damage',
+              label: t({
+                id: 'mage.arcane.touchOfTheMagi.guide.stat.averageDamage',
+                message: 'Average Damage',
+              }),
               tooltip: averageDamageTooltip,
             },
           ]}
         />
-        <CastDetail title="Touch of the Magi Casts" casts={perCastData} />
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.touchOfTheMagi.guide.castDetailTitle',
+            message: 'Touch of the Magi Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }

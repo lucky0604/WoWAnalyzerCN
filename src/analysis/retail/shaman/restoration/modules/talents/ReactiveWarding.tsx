@@ -2,6 +2,7 @@
  * When refreshing Earth Shield, your target is healed each stack of Earth Shield they are missing.
  * Additionally, Earth Shield and Water Shield can consume charges 1.0 sec faster.
  */
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -122,19 +123,49 @@ export default class ReactiveWarding extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <strong>{this.healCount}</strong> effective healing procs from{' '}
-            <SpellLink spell={TALENTS.REACTIVE_WARDING_TALENT} /> (full overheal not counted).
+            <strong>{this.healCount}</strong>{' '}
+            {t({
+              id: 'shaman.restoration.reactiveWarding.tooltip.p1',
+              message: 'effective healing procs from ',
+            })}
+            <SpellLink spell={TALENTS.REACTIVE_WARDING_TALENT} />{' '}
+            {t({
+              id: 'shaman.restoration.reactiveWarding.tooltip.p1End',
+              message: '(full overheal not counted).',
+            })}
             <p>
-              <strong>{this.earthShieldCasts}</strong> total{' '}
-              <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} /> casts, of which{' '}
-              <strong>{this.recastsWithOverwrittenStacks}</strong> overwrote remaining stacks
-              (averaging <strong>{this.averageStacksOverwritten.toFixed(1)}</strong> stacks wasted
-              per early recast).
+              <strong>{this.earthShieldCasts}</strong>{' '}
+              {t({
+                id: 'shaman.restoration.reactiveWarding.tooltip.p2a',
+                message: 'total ',
+              })}
+              <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} />{' '}
+              {t({
+                id: 'shaman.restoration.reactiveWarding.tooltip.p2b',
+                message: 'casts, of which ',
+              })}
+              <strong>{this.recastsWithOverwrittenStacks}</strong>{' '}
+              {t({
+                id: 'shaman.restoration.reactiveWarding.tooltip.p2c',
+                message: 'overwrote remaining stacks (averaging ',
+              })}
+              <strong>{this.averageStacksOverwritten.toFixed(1)}</strong>{' '}
+              {t({
+                id: 'shaman.restoration.reactiveWarding.tooltip.p2d',
+                message: 'stacks wasted per early recast).',
+              })}
             </p>
             <small>
-              Triggers when refreshing <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} />, healing
-              the target for each stack of Earth Shield they were missing. Recasting before all
-              stacks are consumed overwrites the remaining stacks instead of letting them heal.
+              {t({
+                id: 'shaman.restoration.reactiveWarding.tooltip.p3a',
+                message: 'Triggers when refreshing ',
+              })}
+              <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} />
+              {t({
+                id: 'shaman.restoration.reactiveWarding.tooltip.p3b',
+                message:
+                  ', healing the target for each stack of Earth Shield they were missing. Recasting before all stacks are consumed overwrites the remaining stacks instead of letting them heal.',
+              })}
             </small>
           </>
         }

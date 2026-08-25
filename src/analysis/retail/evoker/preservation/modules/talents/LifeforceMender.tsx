@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { formatNumber } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
@@ -58,8 +59,20 @@ class LifeforceMender extends Analyzer {
         tooltip={
           <>
             <ul>
-              <li>Extra damage from red spells: {formatNumber(this.damageDone)}</li>
-              <li>Extra healing from red spells: {formatNumber(this.healingDone)}</li>
+              <li>
+                {t({
+                  id: 'evoker.preservation.lifeforceMender.extraDamage',
+                  message: 'Extra damage from red spells:',
+                })}{' '}
+                {formatNumber(this.damageDone)}
+              </li>
+              <li>
+                {t({
+                  id: 'evoker.preservation.lifeforceMender.extraHealing',
+                  message: 'Extra healing from red spells:',
+                })}{' '}
+                {formatNumber(this.healingDone)}
+              </li>
             </ul>
           </>
         }

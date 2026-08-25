@@ -1,6 +1,7 @@
 /** EarthenCommunion
  * Earth Shield has an additional 3 charges and heals you for 25% more.
  */
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -69,7 +70,12 @@ export default class EarthenCommunion extends Analyzer {
         <TalentSpellText talent={TALENTS.EARTHEN_COMMUNION_TALENT}>
           {formatNumber(this.bonusHealing)}
           <p>
-            <small>Bonus healing by talent over all</small>
+            <small>
+              {t({
+                id: 'shaman.restoration.earthenCommunion.bonusHealing',
+                message: 'Bonus healing by talent over all',
+              })}
+            </small>
           </p>
         </TalentSpellText>
       </Statistic>

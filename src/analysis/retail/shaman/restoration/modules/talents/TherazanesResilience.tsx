@@ -1,6 +1,7 @@
 /** TherazanesResilience
  * Earth Shield and Water Shield no longer lose charges and are 115% effective.
  */
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/shaman';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
@@ -101,16 +102,43 @@ export default class TherazanesResilience extends Analyzer {
         size="flexible"
         tooltip={
           <>
-            <strong>{this.earthShieldHealTicks}</strong> observed heal ticks and{' '}
-            <strong>{this.earthShieldChargesPerCast}</strong> charges per (re-)cast.{' '}
+            <strong>{this.earthShieldHealTicks}</strong>{' '}
+            {t({
+              id: 'shaman.restoration.therazanesResilience.tooltip.p1a',
+              message: 'observed heal ticks and ',
+            })}
+            <strong>{this.earthShieldChargesPerCast}</strong>{' '}
+            {t({
+              id: 'shaman.restoration.therazanesResilience.tooltip.p1b',
+              message: 'charges per (re-)cast.',
+            })}{' '}
             {this.selectedCombatant.hasTalent(TALENTS.EARTHEN_COMMUNION_TALENT) &&
-              ' (including the +3 from Earthen Communion)'}
-            Actual <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} /> casts this fight:{' '}
+              t({
+                id: 'shaman.restoration.therazanesResilience.tooltip.earthenCommunion',
+                message: ' (including the +3 from Earthen Communion)',
+              })}{' '}
+            {t({
+              id: 'shaman.restoration.therazanesResilience.tooltip.p1c',
+              message: 'Actual ',
+            })}
+            <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} />{' '}
+            {t({
+              id: 'shaman.restoration.therazanesResilience.tooltip.p1d',
+              message: 'casts this fight: ',
+            })}
             <strong>{this.earthShieldCasts}</strong>{' '}
             <small>
-              Without <SpellLink spell={TALENTS.THERAZANES_RESILIENCE_TALENT} />,{' '}
-              <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} /> loses a charges and must be recast
-              once its charges run out. This estimates how many of those recasts were avoided.
+              {t({
+                id: 'shaman.restoration.therazanesResilience.tooltip.p2a',
+                message: 'Without ',
+              })}
+              <SpellLink spell={TALENTS.THERAZANES_RESILIENCE_TALENT} />,{' '}
+              <SpellLink spell={TALENTS.EARTH_SHIELD_TALENT} />{' '}
+              {t({
+                id: 'shaman.restoration.therazanesResilience.tooltip.p2b',
+                message:
+                  'loses a charges and must be recast once its charges run out. This estimates how many of those recasts were avoided.',
+              })}
             </small>
           </>
         }
@@ -119,10 +147,19 @@ export default class TherazanesResilience extends Analyzer {
           <>
             <div className="pad">
               <div className="value">
-                <TooltipElement content="Estimated number of Earth Shield recasts avoided due to Therazane's Resilience.">
+                <TooltipElement
+                  content={t({
+                    id: 'shaman.restoration.therazanesResilience.statistic.tooltip',
+                    message:
+                      "Estimated number of Earth Shield recasts avoided due to Therazane's Resilience.",
+                  })}
+                >
                   {this.gcdsSaved}
                 </TooltipElement>{' '}
-                casts not spend on maintaining Earth Shield
+                {t({
+                  id: 'shaman.restoration.therazanesResilience.castsNotSpentOnEarthShield',
+                  message: 'casts not spend on maintaining Earth Shield',
+                })}
               </div>
             </div>
           </>

@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
 import { SpellLink } from 'interface';
@@ -65,23 +66,58 @@ class InnerFlame extends Analyzer {
     });
 
     return (
-      <SubSection title="Inner Flame">
+      <SubSection
+        title={t({ id: 'evoker.preservation.innerFlame.title', message: 'Inner Flame' })}
+      >
         <Explanation>
           <p>
-            <SpellLink spell={TALENTS_EVOKER.INNER_FLAME_TALENT} /> increases all your healing over
-            time by 50% for the next 15 seconds after using{' '}
-            <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> or 20 seconds after using{' '}
-            <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} />. It also increases the chance
-            of triggering <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} /> by
-            100%.
+            <SpellLink spell={TALENTS_EVOKER.INNER_FLAME_TALENT} />{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p1',
+              message:
+                'increases all your healing over time by 50% for the next 15 seconds after using ',
+            })}
+            <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} />{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p2',
+              message: 'or 20 seconds after using ',
+            })}
+            <SpellLink spell={TALENTS_EVOKER.DREAM_FLIGHT_TALENT} />.{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p3',
+              message: 'It also increases the chance of triggering ',
+            })}
+            <SpellLink spell={TALENTS_EVOKER.ESSENCE_BURST_PRESERVATION_TALENT} />{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p4',
+              message: 'by 100%.',
+            })}
           </p>
           <p>
-            While this effect is active, you should maximize your{' '}
-            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> and{' '}
-            <SpellLink spell={TALENTS_EVOKER.REVERSION_TALENT} /> healing.{' '}
-            <SpellLink spell={SPELLS.EMERALD_BLOSSOM} /> is also a very good cast as{' '}
-            <SpellLink spell={TALENTS_EVOKER.CONSUME_FLAME_TALENT} /> also benefits from the
-            increase.
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p5',
+              message: 'While this effect is active, you should maximize your ',
+            })}
+            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} />{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p6',
+              message: 'and ',
+            })}
+            <SpellLink spell={TALENTS_EVOKER.REVERSION_TALENT} />{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p7',
+              message: 'healing.',
+            })}{' '}
+            <SpellLink spell={SPELLS.EMERALD_BLOSSOM} />{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p8',
+              message: 'is also a very good cast as ',
+            })}
+            <SpellLink spell={TALENTS_EVOKER.CONSUME_FLAME_TALENT} />{' '}
+            {t({
+              id: 'evoker.preservation.innerFlame.explanation.p9',
+              message: 'also benefits from the increase.',
+            })}
           </p>
         </Explanation>
         <CooldownGrid

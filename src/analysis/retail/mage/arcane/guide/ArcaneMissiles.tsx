@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink } from 'interface';
@@ -113,38 +114,130 @@ class ArcaneMissilesGuide extends Analyzer {
     const explanation = (
       <>
         <p>
-          <b>{arcaneMissiles}</b> is a channelled rotational ability that generates {arcaneSalvo}{' '}
-          stacks and also spends your {clearcasting} procs. In order to maximize your {arcaneCharge}{' '}
-          and {arcaneSalvo} generation, use the below to determine when to use {arcaneMissiles}.
+          <b>{arcaneMissiles}</b>
+          {t({
+            id: 'mage.arcane.arcaneMissiles.guide.explanation.p1',
+            message: ' is a channelled rotational ability that generates ',
+          })}
+          {arcaneSalvo}
+          {t({
+            id: 'mage.arcane.arcaneMissiles.guide.explanation.p2',
+            message: ' stacks and also spends your ',
+          })}
+          {clearcasting}
+          {t({
+            id: 'mage.arcane.arcaneMissiles.guide.explanation.p3',
+            message:
+              ' procs. In order to maximize your ',
+          })}
+          {arcaneCharge}
+          {t({
+            id: 'mage.arcane.arcaneMissiles.guide.explanation.p4',
+            message: ' and ',
+          })}
+          {arcaneSalvo}
+          {t({
+            id: 'mage.arcane.arcaneMissiles.guide.explanation.p5',
+            message: ' generation, use the below to determine when to use ',
+          })}
+          {arcaneMissiles}.
         </p>
         {this.isSpellslinger && (
           <ul>
             <li>
-              You have less than 15 {arcaneSalvo} stacks and a {clearcasting} proc.
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.explanation.spellslinger.li1.a',
+                message: 'You have less than 15 ',
+              })}
+              {arcaneSalvo}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.explanation.spellslinger.li1.b',
+                message: ' stacks and a ',
+              })}
+              {clearcasting}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.explanation.spellslinger.li1.c',
+                message: ' proc.',
+              })}
             </li>
           </ul>
         )}
         {this.isSunfury && (
           <ul>
             <li>
-              You have less than 12 {arcaneSalvo} stacks and a {clearcasting} proc.
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.explanation.sunfury.li1.a',
+                message: 'You have less than 12 ',
+              })}
+              {arcaneSalvo}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.explanation.sunfury.li1.b',
+                message: ' stacks and a ',
+              })}
+              {clearcasting}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.explanation.sunfury.li1.c',
+                message: ' proc.',
+              })}
             </li>
           </ul>
         )}
         {this.isSpellslinger && this.hasOverpoweredMissiles && (
           <>
-            <TipBox type="note" title="Missile Clipping">
-              If you don't have an {overpoweredMissiles} proc, you should clip your {arcaneMissiles}{' '}
-              channel once the {arcaneMissiles} GCD ends.
+            <TipBox
+              type="note"
+              title={t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileClipping.title',
+                message: 'Missile Clipping',
+              })}
+            >
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileClipping.p1',
+                message: "If you don't have an ",
+              })}
+              {overpoweredMissiles}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileClipping.p2',
+                message: ' proc, you should clip your ',
+              })}
+              {arcaneMissiles}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileClipping.p3',
+                message: ' channel once the ',
+              })}
+              {arcaneMissiles}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileClipping.p4',
+                message: ' GCD ends.',
+              })}
             </TipBox>
           </>
         )}
         {this.isSunfury && (
           <>
-            <TipBox type="note" title="Missile Chaining">
-              If you are casting {arcaneMissiles} back to back, you can attempt to cast{' '}
-              {arcaneMissiles} just before the last tick of the previous cast. This will chain into
-              the second channel and will still result in the same number of missile waves.
+            <TipBox
+              type="note"
+              title={t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileChaining.title',
+                message: 'Missile Chaining',
+              })}
+            >
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileChaining.p1',
+                message: 'If you are casting ',
+              })}
+              {arcaneMissiles}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileChaining.p2',
+                message:
+                  ' back to back, you can attempt to cast ',
+              })}
+              {arcaneMissiles}
+              {t({
+                id: 'mage.arcane.arcaneMissiles.guide.tipbox.missileChaining.p3',
+                message:
+                  ' just before the last tick of the previous cast. This will chain into the second channel and will still result in the same number of missile waves.',
+              })}
             </TipBox>
           </>
         )}
@@ -156,10 +249,27 @@ class ArcaneMissilesGuide extends Analyzer {
         <GuideSection
           spell={TALENTS.ARCANE_MISSILES_TALENT}
           explanation={explanation}
-          title="Arcane Missiles"
+          title={t({
+            id: 'mage.arcane.arcaneMissiles.guide.title',
+            message: 'Arcane Missiles',
+          })}
         >
-          <TipBox type="note" title="No Casts Found">
-            No {arcaneMissiles} casts were detected.
+          <TipBox
+            type="note"
+            title={t({
+              id: 'mage.arcane.arcaneMissiles.guide.noCastsFound',
+              message: 'No Casts Found',
+            })}
+          >
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.noCasts.title.a',
+              message: 'No ',
+            })}
+            {arcaneMissiles}
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.noCasts.title.b',
+              message: ' casts were detected.',
+            })}
           </TipBox>
         </GuideSection>
       );
@@ -168,11 +278,17 @@ class ArcaneMissilesGuide extends Analyzer {
     const overviewStats = [
       {
         value: formatDurationMillisMinSec(this.arcaneMissiles.averageChannelDelay, 3),
-        label: 'Avg Channel End Delay ',
+        label: t({
+          id: 'mage.arcane.arcaneMissiles.guide.stat.avgChannelEndDelay',
+          message: 'Avg Channel End Delay ',
+        }),
         tooltip: (
           <>
-            {formatDurationMillisMinSec(this.arcaneMissiles.averageChannelDelay, 3)} Average Delay
-            from End Channel to Next Cast.
+            {formatDurationMillisMinSec(this.arcaneMissiles.averageChannelDelay, 3)}
+            {t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.avgChannelEndDelayTooltip',
+              message: ' Average Delay from End Channel to Next Cast.',
+            })}
           </>
         ),
         performance: this.arcaneMissiles.channelDelayUtil(this.arcaneMissiles.averageChannelDelay),
@@ -189,24 +305,64 @@ class ArcaneMissilesGuide extends Analyzer {
         stats: [
           {
             value: cast.salvoStacks,
-            label: 'Arcane Salvo Stacks',
-            tooltip: <>The number of Arcane Salvo stacks at the time of cast.</>,
+            label: t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.arcaneSalvoStacks',
+              message: 'Arcane Salvo Stacks',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.stat.arcaneSalvoStacksTooltip',
+                  message: 'The number of Arcane Salvo stacks at the time of cast.',
+                })}
+              </>
+            ),
           },
           {
             value: cast.clearcastingProcs,
-            label: 'Clearcasting Procs',
-            tooltip: <>The number of Clearcasting procs the player had.</>,
+            label: t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.clearcastingProcs',
+              message: 'Clearcasting Procs',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.stat.clearcastingProcsTooltip',
+                  message: 'The number of Clearcasting procs the player had.',
+                })}
+              </>
+            ),
           },
           {
             value: cast.opMissiles ? 'Yes' : 'No',
-            label: 'Had Overpowered Missiles',
-            tooltip: <>Whether the player had an Overpowered Missiles proc or not.</>,
+            label: t({
+              id: 'mage.arcane.arcaneMissiles.guide.stat.hadOverpoweredMissiles',
+              message: 'Had Overpowered Missiles',
+            }),
+            tooltip: (
+              <>
+                {t({
+                  id: 'mage.arcane.arcaneMissiles.guide.stat.hadOverpoweredMissilesTooltip',
+                  message: 'Whether the player had an Overpowered Missiles proc or not.',
+                })}
+              </>
+            ),
           },
           cast.channelEndDelay !== undefined
             ? {
                 value: formatDurationMillisMinSec(cast.channelEndDelay, 3),
-                label: 'Channel End Delay',
-                tooltip: <>Time between channel end and next cast.</>,
+                label: t({
+                  id: 'mage.arcane.arcaneMissiles.guide.stat.channelEndDelay',
+                  message: 'Channel End Delay',
+                }),
+                tooltip: (
+                  <>
+                    {t({
+                      id: 'mage.arcane.arcaneMissiles.guide.stat.channelEndDelayTooltip',
+                      message: 'Time between channel end and next cast.',
+                    })}
+                  </>
+                ),
                 performance: this.arcaneMissiles.channelDelayUtil(cast.channelEndDelay),
               }
             : undefined,
@@ -217,7 +373,13 @@ class ArcaneMissilesGuide extends Analyzer {
     return (
       <GuideSection spell={TALENTS.ARCANE_MISSILES_TALENT} explanation={explanation}>
         <CastOverview spell={TALENTS.ARCANE_MISSILES_TALENT} stats={overviewStats} />
-        <CastDetail title="Arcane Missiles Casts" casts={perCastData} />
+        <CastDetail
+          title={t({
+            id: 'mage.arcane.arcaneMissiles.guide.castDetailTitle',
+            message: 'Arcane Missiles Casts',
+          })}
+          casts={perCastData}
+        />
       </GuideSection>
     );
   }
