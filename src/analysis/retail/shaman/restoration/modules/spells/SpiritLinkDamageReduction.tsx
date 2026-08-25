@@ -108,7 +108,10 @@ class SpiritLinkDamageReduction extends Analyzer {
       },
       {
         color: RESTORATION_COLORS.SPOUTING_SPIRITS,
-        label: t({ id: 'shaman.restoration.slt.chart.spoutingSpirits', message: 'Spouting Spirits' }),
+        label: t({
+          id: 'shaman.restoration.slt.chart.spoutingSpirits',
+          message: 'Spouting Spirits',
+        }),
         spellId: TALENTS.SPOUTING_SPIRITS_TALENT.id,
         value: this.spoutingSpiritsDamageReduced,
         valueTooltip: formatThousands(this.spoutingSpiritsDamageReduced),
@@ -130,7 +133,9 @@ class SpiritLinkDamageReduction extends Analyzer {
             1: formatNumber(this.drps),
           },
         })}
+        {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression, matches upstream */}
         <br />
+        {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression, matches upstream */}
         <br />
         {t({
           id: 'shaman.restoration.slt.statistic.tooltip.p2',
@@ -163,7 +168,10 @@ class SpiritLinkDamageReduction extends Analyzer {
             <hr />
             <header>
               <label>
-                {t({ id: 'shaman.restoration.slt.chart.header', message: 'Damage Reduction Sources' })}
+                {t({
+                  id: 'shaman.restoration.slt.chart.header',
+                  message: 'Damage Reduction Sources',
+                })}
               </label>
             </header>
             {this.damageReductionSourceChart}

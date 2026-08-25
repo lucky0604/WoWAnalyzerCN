@@ -93,6 +93,7 @@ opencode.jsonc
 
 # AI session run artifacts
 .omo/
+.dsh-tool-vision/
 
 # Redis dump
 dump.rdb

@@ -1,4 +1,3 @@
-import { t } from '@lingui/core/macro';
 import Events, { ApplyBuffEvent, DamageEvent, RemoveBuffEvent } from 'parser/core/Events';
 import { isArmorMitigated } from 'parser/retail/modules/isArmorMitigated';
 import SPELLS from 'common/SPELLS';
