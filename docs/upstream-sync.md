@@ -116,6 +116,38 @@ git branch | grep backup/
 git reset --hard backup/midnight/20260520-173000
 ```
 
+## 同步中的已知坑（先读再动手）
+
+合并和后续 i18n 修复流程中有三个反复踩到的坑，每次同步都对一遍：
+
+### 坑 1：commit 钩子会把 `t()` 自动改成 `defineMessage()`
+
+`.husky/pre-commit` 钩子对暂存的 `.ts/.tsx` 跑 lint-staged 自动修复，规则
+`wowanalyzer/lingui-t-macro-outside-jsx` 会把非 JSX 的 `t(...)` 改成 `defineMessage(...)`，
+导致 `label: t(...)`（`string`）类型不匹配、typecheck 报 `TS2322`，运行时渲染成 `[object Object]`。
+
+**规避：** 同步 commit 一律 `git commit --no-verify`，提交后跑 `pnpm run typecheck` 确认。
+
+### 坑 2：`node scripts/i18n-fix.mjs` 会误伤合并无关的文件
+
+它正则重写整个 `src/` 目录，曾把无关文件（如 druid）的 `{t({...})` 剥掉左花括号、
+顶格写成 `{t({`、注入多余 import。**运行后必须 `git diff`**，只保留合并涉及的文件，
+无关文件被改就 `git checkout HEAD -- <file>` 恢复。
+
+```bash
+# 检查是否有顶格 {t({ 残留（i18n-fix 破坏的典型痕迹）
+grep -rn '^[[:space:]]*{t({' src/analysis
+```
+
+### 坑 3：多个 `t()` fragment（`key.p1`/`key.p2`）翻译后拼接语义
+
+同一 message 拆成多个 fragment 时，`content.json` 里各 fragment 的翻译必须能拼成通顺的一句话
+（`<SpellLink>` 插在中间），并保留英文 fragment 之间承载的空格/标点。曾出现
+`no_hotjs.p1`=“未激活” 与 `no_hotjs.p2`=“处于激活状态” 拼出
+“未激活 [心之青玉] 处于激活状态” 的自相矛盾译文。翻译 fragment 时把占位法术名拼起来读一遍。
+
+> 三个坑的完整版与修复细节见 `docs/i18n-guide.md` 的「已知坑与规避」一节。
+
 ## 已知冲突热点
 
 以下文件/目录在同步时最可能产生冲突：

@@ -1,9 +1,11 @@
-import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_EVOKER } from 'common/TALENTS';
-import { ControlledExpandable, SpellLink, Tooltip } from 'interface';
-import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
+import { SpellLink } from 'interface';
+import { PassFailCheckmark } from 'interface/guide';
+import CastOverview from 'interface/guide/components/CastOverview';
+import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
 import { RoundedPanel } from 'interface/guide/components/GuideDivs';
+import GuideSection from 'interface/guide/components/GuideSection';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, {
   CastEvent,
@@ -13,20 +15,21 @@ import Events, {
 } from 'parser/core/Events';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import { GapHighlight } from 'parser/ui/CooldownBar';
-import { QualitativePerformance, getLowestPerf } from 'parser/ui/QualitativePerformance';
+import {
+  QualitativePerformance,
+  getAveragePerf,
+  getLowestPerf,
+} from 'parser/ui/QualitativePerformance';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
-import { PassFailCheckmark, PerformanceMark, SectionHeader } from 'interface/guide';
-import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
-import { getStasisSpell, isStasisForRamp } from '../../normalizers/EventLinking/helpers';
-import { useState, type JSX } from 'react';
+import { getStasisSpell } from '../../normalizers/EventLinking/helpers';
+import type { JSX } from 'react';
 
 interface StasisInfo {
   castTime: number; // when stasis is originally cast
   consumeTime: number; // when stasis is consumed
   spells: [number, number][]; // spells that player cast with stasis
-  forRamp: boolean;
 }
 
 class Stasis extends Analyzer {
@@ -54,7 +57,7 @@ class Stasis extends Analyzer {
   }
 
   onCast(event: CastEvent) {
-    this.curInfo = { castTime: event.timestamp, consumeTime: 0, spells: [], forRamp: false };
+    this.curInfo = { castTime: event.timestamp, consumeTime: 0, spells: [] };
   }
 
   onStackRemoval(event: RemoveBuffStackEvent | RemoveBuffEvent) {
@@ -67,7 +70,6 @@ class Stasis extends Analyzer {
         castTime: this.owner.fight.start_time,
         consumeTime: 0,
         spells: Array(2 - numStacks).fill([0, 0]),
-        forRamp: false,
       };
     }
     const spell = getStasisSpell(event);
@@ -79,7 +81,6 @@ class Stasis extends Analyzer {
   onBuffRemoval(event: RemoveBuffEvent) {
     if (this.curInfo) {
       this.curInfo!.consumeTime = event.timestamp;
-      this.curInfo!.forRamp = isStasisForRamp(event);
       this.stasisInfos.push(this.curInfo!);
       this.curInfo = null;
     }
@@ -87,7 +88,7 @@ class Stasis extends Analyzer {
 
   getSpellLink(key: number, spellPair: [number, number]) {
     if (spellPair[0] === 0) {
-      return <>{t({ id: 'evoker.preservation.stasis.unknownSpell', message: 'Unknown spell cast before pull' })}</>;
+      return <>Unknown spell cast before pull</>;
     }
     return (
       <div>
@@ -96,213 +97,41 @@ class Stasis extends Analyzer {
     );
   }
 
-  getPerfForSpell(spell: number, forRamp: boolean) {
-    if (spell === TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT.id) {
-      return QualitativePerformance.Good;
-    } else if (spell === SPELLS.EMERALD_BLOSSOM.id) {
-      if (this.selectedCombatant.hasTalent(TALENTS_EVOKER.FIELD_OF_DREAMS_TALENT)) {
-        return QualitativePerformance.Good;
-      } else {
-        return QualitativePerformance.Fail;
-      }
-    } else if (spell === TALENTS_EVOKER.ECHO_TALENT.id) {
-      if (forRamp) {
-        return QualitativePerformance.Good;
-      } else {
-        return QualitativePerformance.Fail;
-      }
-    } else if (spell === TALENTS_EVOKER.CAUTERIZING_FLAME_TALENT.id) {
-      return QualitativePerformance.Fail;
-    } else if (spell === SPELLS.NATURALIZE.id) {
-      return QualitativePerformance.Fail;
-    } else if (spell === TALENTS_EVOKER.REVERSION_TALENT.id) {
-      return QualitativePerformance.Fail;
-    } else if (
+  getPerfForSpell(spell: number) {
+    if (
+      spell === TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT.id ||
+      spell === SPELLS.EMERALD_BLOSSOM_CAST.id ||
+      spell === SPELLS.MERITHRAS_BLESSING_CAST.id ||
       spell === TALENTS_EVOKER.DREAM_BREATH_TALENT.id ||
       spell === SPELLS.DREAM_BREATH_FONT.id
     ) {
-      if (forRamp) {
-        return QualitativePerformance.Fail;
-      } else {
-        return QualitativePerformance.Good;
-      }
-    } else if (spell === TALENTS_EVOKER.VERDANT_EMBRACE_TALENT.id) {
+      return QualitativePerformance.Good;
+    } else {
       return QualitativePerformance.Fail;
     }
-    return QualitativePerformance.Good;
   }
 
-  getAnalysisForSpell(spellPair: [number, number], forRamp: boolean) {
+  getAnalysisForSpell(spellPair: [number, number]) {
     const [spell, timestamp] = spellPair;
-    {
-      if (spell === TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT.id) {
-        return (
-          <>
-            <SpellLink spell={TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT} /> @{' '}
-            {this.owner.formatTimestamp(timestamp)}
-            {'  '}
-            <Tooltip
-              hoverable
-              content={
-                <>
-                  {t({ id: 'evoker.preservation.stasis.taAlwaysGood', message: 'Temporal Anomaly is always good to store regardless of situation' })}
-                </>
-              }
-            >
-              <span>
-                <PassFailCheckmark pass />
-              </span>
-            </Tooltip>
-          </>
-        );
-      } else if (spell === SPELLS.EMERALD_BLOSSOM_CAST.id) {
-        if (this.selectedCombatant.hasTalent(TALENTS_EVOKER.FIELD_OF_DREAMS_TALENT)) {
-          return (
-            <>
-              <SpellLink spell={SPELLS.EMERALD_BLOSSOM_CAST} /> @{' '}
-              {this.owner.formatTimestamp(timestamp)}
-              {'  '}
-              <Tooltip
-                hoverable
-                content={
-                  <>
-                    {t({ id: 'evoker.preservation.stasis.ebGoodWithFod', message: 'Emerald Blossom is always good to store when talented into Field of Dreams' })}
-                  </>
-                }
-              >
-                <span>
-                  <PassFailCheckmark pass />
-                </span>
-              </Tooltip>
-            </>
-          );
-        } else if (!forRamp) {
-          return (
-            <>
-              <SpellLink spell={SPELLS.EMERALD_BLOSSOM_CAST} /> @{' '}
-              {this.owner.formatTimestamp(timestamp)}
-              {'  '}
-              <Tooltip
-                hoverable
-                content={
-                  <>
-                    {t({ id: 'evoker.preservation.stasis.neverStoreEb', message: 'You should never store Emerald Blossom if not talented into Field of Dreams' })}
-                  </>
-                }
-              >
-                <span>
-                  <PassFailCheckmark pass={false} />
-                </span>
-              </Tooltip>
-            </>
-          );
-        }
-      } else if (spell === TALENTS_EVOKER.CAUTERIZING_FLAME_TALENT.id) {
-        return (
-          <>
-            <SpellLink spell={TALENTS_EVOKER.CAUTERIZING_FLAME_TALENT} /> @{' '}
-            {this.owner.formatTimestamp(timestamp)}
-            {'  '}
-            <Tooltip
-              hoverable
-              content={
-                <>
-                  {t({ id: 'evoker.preservation.stasis.cauterizingFlameBad', message: 'Cauterizing Flame is not a good spell to store outside of very niche scenarios' })}
-                </>
-              }
-            >
-              <span>
-                <PassFailCheckmark pass={false} />
-              </span>
-            </Tooltip>
-          </>
-        );
-      } else if (spell === SPELLS.NATURALIZE.id) {
-        return (
-          <>
-            <SpellLink spell={SPELLS.NATURALIZE} /> @ {this.owner.formatTimestamp(timestamp)}
-            {'  '}
-            <Tooltip
-              hoverable
-              content={
-                <>
-                  {t({ id: 'evoker.preservation.stasis.naturalizeBad', message: 'Naturalize is not a good spell to store outside of very niche scenarios' })}
-                </>
-              }
-            >
-              <span>
-                <PassFailCheckmark pass={false} />
-              </span>
-            </Tooltip>
-          </>
-        );
-      } else if (spell === TALENTS_EVOKER.REVERSION_TALENT.id) {
-        return (
-          <>
-            <SpellLink spell={TALENTS_EVOKER.REVERSION_TALENT} /> @{' '}
-            {this.owner.formatTimestamp(timestamp)}
-            {'  '}
-            <Tooltip
-              hoverable
-              content={
-                <>
-                  {t({ id: 'evoker.preservation.stasis.reversionBad', message: 'Reversion is not a good spell to store due to its very low mana cost and CD' })}
-                </>
-              }
-            >
-              <span>
-                <PassFailCheckmark pass={false} />
-              </span>
-            </Tooltip>
-          </>
-        );
-      } else if (
-        spell === TALENTS_EVOKER.DREAM_BREATH_TALENT.id ||
-        spell === SPELLS.DREAM_BREATH_FONT.id
-      ) {
-        return (
-          <>
-            <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} /> @{' '}
-            {this.owner.formatTimestamp(timestamp)}
-            {'  '}
-            <Tooltip
-              hoverable
-              content={
-                <>
-                  {t({ id: 'evoker.preservation.stasis.dbHighValue', message: 'Dream Breath is a very high value spell to store when not in a ramp due to its high mana cost and CD.' })}
-                </>
-              }
-            >
-              <span>
-                <PassFailCheckmark pass />
-              </span>
-            </Tooltip>
-          </>
-        );
-      } else if (spell === TALENTS_EVOKER.VERDANT_EMBRACE_TALENT.id) {
-        return (
-          <>
-            <SpellLink spell={TALENTS_EVOKER.VERDANT_EMBRACE_TALENT} /> @{' '}
-            {this.owner.formatTimestamp(timestamp)}
-            {'  '}
-            <Tooltip
-              hoverable
-              content={
-                <>
-                  {t({ id: 'evoker.preservation.stasis.veNotHighValue', message: 'Verdant Embrace is not a high value spell to store in general compared to other spells. If you are planning to use Dream Breath inside Stasis, then consider using Verdant Embrace prior to Stasis.' })}
-                </>
-              }
-            >
-              <span>
-                <PassFailCheckmark pass={false} />
-              </span>
-            </Tooltip>
-          </>
-        );
-      } else if (spell === 0) {
-        return <>{t({ id: 'evoker.preservation.stasis.unknownSpell', message: 'Unknown spell cast before pull' })}</>;
-      }
+    let passMark = false;
+    if (
+      spell === TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT.id ||
+      spell === SPELLS.EMERALD_BLOSSOM_CAST.id ||
+      spell === SPELLS.MERITHRAS_BLESSING_CAST.id ||
+      spell === TALENTS_EVOKER.DREAM_BREATH_TALENT.id ||
+      spell === SPELLS.DREAM_BREATH_FONT.id
+    ) {
+      passMark = true;
     }
+    return (
+      <>
+        <SpellLink spell={spell} /> @ {this.owner.formatTimestamp(timestamp)}
+        {'  '}
+        <span>
+          <PassFailCheckmark pass={passMark} />
+        </span>
+      </>
+    );
   }
 
   get guideSubsection(): JSX.Element {
@@ -311,68 +140,84 @@ class Stasis extends Analyzer {
         <b>
           <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} />
         </b>{' '}
-        {t({
-          id: 'evoker.preservation.stasis.guideExplanation',
-          message:
-            'is a powerful talent that stores your 3 most recent healing spells that will be released with identical targets. Notably, it can not store Dream Flight or Rewind. In general, you should always store Dream Breath, Temporal Anomaly, and Merithras Blessing.',
-        })}
+        is a powerful healing cooldown that stores up to 3 of your recent healing casts and releases
+        them with the same targets. In general, you should prioritize storing{' '}
+        <SpellLink spell={TALENTS_EVOKER.DREAM_BREATH_TALENT} />,{' '}
+        <SpellLink spell={TALENTS_EVOKER.TEMPORAL_ANOMALY_TALENT} />,{' '}
+        <SpellLink spell={SPELLS.EMERALD_BLOSSOM} />, and{' '}
+        <SpellLink spell={SPELLS.MERITHRAS_BLESSING_CAST} />.
       </p>
     );
-    const data = (
-      <div>
-        <RoundedPanel>
-          <strong>
-            <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> {t({ id: 'evoker.preservation.stasis.castEfficiency', message: 'cast efficiency' })}
-          </strong>
-          <div className="flex-main chart" style={{ padding: 15 }}>
-            {this.subStatistic()}
-          </div>
-          {this.stasisInfos.map((info, idx) => {
-            const header = (
-              <>
-                <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> @{' '}
-                {this.owner.formatTimestamp(info.castTime)}
-              </>
-            );
-            const perfs = info.spells.map((spellPair) => {
-              return this.getPerfForSpell(spellPair[0], info.forRamp);
-            });
 
-            const perf = getLowestPerf(perfs);
-            const spells = info.spells;
-            const [isExpanded, setIsExpanded] = useState(false);
-            const combinedHeader =
-              perf !== undefined ? (
-                <div>
-                  {header} &mdash; <PerformanceMark perf={perf} />
-                </div>
-              ) : (
-                header
-              );
-            while (spells.length < 3) {
-              spells.push([0, 0]);
-            }
-            const spellSequence = spells.map((cast, index) => {
-              return <div key={index}>{this.getAnalysisForSpell(cast, info.forRamp)}</div>;
-            });
-            return (
-              <div className="stasis__container" key={idx}>
-                <ControlledExpandable
-                  header={<SectionHeader>{combinedHeader}</SectionHeader>}
-                  element="section"
-                  expanded={isExpanded}
-                  inverseExpanded={() => setIsExpanded(!isExpanded)}
-                >
-                  <div className="stasis__cast-list">{spellSequence}</div>
-                </ControlledExpandable>
-              </div>
-            );
-          })}
-        </RoundedPanel>
-      </div>
+    const perCastData: PerCastData[] = this.stasisInfos.map((info) => {
+      const perfs = info.spells.map((spellPair) => this.getPerfForSpell(spellPair[0]));
+      const perf = getLowestPerf(perfs);
+      const storedSpells = info.spells.map((spellPair, index) => (
+        <div key={`${info.castTime}-${index}`}>{this.getAnalysisForSpell(spellPair)}</div>
+      ));
+
+      return {
+        performance: perf,
+        timestamp: this.owner.formatTimestamp(info.castTime),
+        stats: [],
+        details:
+          storedSpells.length > 0 ? storedSpells : 'No spells were linked for this Stasis cast.',
+        tooltip: (
+          <>
+            <div>
+              Cast: <strong>{this.owner.formatTimestamp(info.castTime)}</strong>
+            </div>
+            <div>
+              Release: <strong>{this.owner.formatTimestamp(info.consumeTime)}</strong>
+            </div>
+          </>
+        ),
+      };
+    });
+
+    const castPerfs = this.stasisInfos.map((info) =>
+      getLowestPerf(info.spells.map((spellPair) => this.getPerfForSpell(spellPair[0]))),
+    );
+    const overallPerf =
+      this.stasisInfos.length > 0 ? getAveragePerf(castPerfs) : QualitativePerformance.Good;
+
+    const overview = (
+      <CastOverview
+        spell={TALENTS_EVOKER.STASIS_TALENT}
+        stats={[
+          {
+            value: `${this.stasisInfos.length}`,
+            label: 'Casts',
+            tooltip: 'Total number of Stasis casts in this fight.',
+            performance: overallPerf,
+          },
+        ]}
+        additionalContent={{
+          title: 'Cast Efficiency',
+          content: this.subStatistic(),
+        }}
+      />
     );
 
-    return explanationAndDataSubsection(explanation, data, GUIDE_CORE_EXPLANATION_PERCENT);
+    const data =
+      this.stasisInfos.length === 0 ? (
+        <RoundedPanel>
+          <strong>
+            No <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> cast.
+          </strong>
+        </RoundedPanel>
+      ) : (
+        <RoundedPanel>
+          {overview}
+          <CastDetail title="Stasis Casts" casts={perCastData} />
+        </RoundedPanel>
+      );
+
+    return (
+      <GuideSection spell={TALENTS_EVOKER.STASIS_TALENT} explanation={explanation}>
+        {data}
+      </GuideSection>
+    );
   }
 
   subStatistic() {
@@ -395,15 +240,15 @@ class Stasis extends Analyzer {
         category={STATISTIC_CATEGORY.TALENTS}
         wide
       >
-        <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> <small>{t({ id: 'evoker.preservation.stasis.spellBreakdown', message: 'spell breakdown' })}</small>
+        <SpellLink spell={TALENTS_EVOKER.STASIS_TALENT} /> <small>spell breakdown</small>
         <div>
           <table className="table table-condensed">
             <thead>
               <tr>
-                <th>{t({ id: 'evoker.preservation.stasis.castNumber', message: 'Cast #' })}</th>
-                <th>{t({ id: 'evoker.preservation.stasis.castTime', message: 'Cast Time' })}</th>
-                <th>{t({ id: 'evoker.preservation.stasis.consumeTime', message: 'Consume Time' })}</th>
-                <th>{t({ id: 'evoker.preservation.stasis.spells', message: 'Spells' })}</th>
+                <th>Cast #</th>
+                <th>Cast Time</th>
+                <th>Consume Time</th>
+                <th>Spells</th>
               </tr>
             </thead>
             <tbody>

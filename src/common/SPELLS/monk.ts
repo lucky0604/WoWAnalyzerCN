@@ -232,6 +232,11 @@ const spells = {
     name: 'Rushing Wind Kick',
     icon: 'inv12_ability_monk_rushingwindkick',
   },
+  MW_S2_4PC_BUFF: {
+    id: 1296687,
+    name: 'Rising Sun Kick',
+    icon: 'ability_monk_risingsunkick',
+  },
   VIVIFY: {
     id: 116670,
     name: 'Vivify',
@@ -858,6 +863,11 @@ const spells = {
     id: 1272464,
     name: 'Extra Kick',
     icon: 'inv_flaming_splinter',
+  },
+  UNBROKEN_RHYTHM_BUFF: {
+    id: 1297033,
+    name: 'Unbroken Rhythm',
+    icon: 'ability_monk_boughstrike',
   },
 
   // Windwalker Spells

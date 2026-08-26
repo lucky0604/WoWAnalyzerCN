@@ -7,6 +7,7 @@ import ResourceUsage from './modules/guide/ResourceUsage';
 import DefensivesGuide from '../shared/Defensives';
 import UnstableAfflictionGuide from './modules/guide/UnstableAfflictionGuide';
 import { DemonicHealthstoneGuide } from '../shared/DHSGuide';
+import DarkHarvestGuide from './modules/guide/DarkHarvestGuide';
 
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
@@ -33,6 +34,13 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       >
         <CooldownSubsection />
       </Section>
+
+      {/* Dark Harvest Section */}
+      {modules.darkHarvest.active && (
+        <Section title="Dark Harvest">
+          <DarkHarvestGuide />
+        </Section>
+      )}
 
       {/* Defensives Section with Healthstone Tracker */}
       <Section title={t({ id: 'warlock.affliction.section.defensives', message: 'Defensives' })}>

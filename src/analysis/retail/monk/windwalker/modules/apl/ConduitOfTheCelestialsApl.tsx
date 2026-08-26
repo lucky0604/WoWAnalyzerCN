@@ -4,7 +4,6 @@ import RESOURCE_TYPES from 'game/RESOURCE_TYPES';
 import SpellLink from 'interface/SpellLink';
 import Combatant from 'parser/core/Combatant';
 import { Apl } from 'parser/shared/metrics/apl';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import {
   and,
@@ -14,15 +13,16 @@ import {
   describe,
   hasResource,
   hasTalent,
+  inBloodlust,
+  not,
   or,
   spellCooldownRemaining,
 } from 'parser/shared/metrics/apl/conditions';
 import {
   aboutToCapEnergy,
   buildComboStrikesApl,
-  danceOfChiJiExpiring,
-  notAtTwoBlackoutKickStacks,
-  notInZenithWithObsidianSpiral,
+  getZenithDurationMs,
+  notEnoughChiForFistsOfFury,
   optionalTouchOfDeath,
   whirlingDragonPunchReady,
 } from './common';
@@ -46,23 +46,28 @@ const activeHotJSRemaining = (range: { atLeast?: number; atMost?: number }) =>
 
 const celestialConduitCastable = buffPresent(SPELLS.CELESTIAL_CONDUIT_CASTABLE_WW);
 
+const xuenNotReadySoon = or(
+  not(hasTalent(TALENTS.INVOKE_XUEN_THE_WHITE_TIGER_TALENT)),
+  spellCooldownRemaining(TALENTS.INVOKE_XUEN_THE_WHITE_TIGER_TALENT, { atLeast: 10000 }),
+);
+
 export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
   return buildComboStrikesApl([
     {
-      spell: TALENTS.FISTS_OF_FURY_TALENT,
-      condition: describe(activeHotJSRemaining({ atMost: 1000 }), () => (
+      spell: SPELLS.TOUCH_OF_DEATH,
+      condition: optionalTouchOfDeath,
+    },
+    {
+      spell: TALENTS.WHIRLING_DRAGON_PUNCH_TALENT,
+      condition: describe(and(whirlingDragonPunchReady, xuenNotReadySoon), () => (
         <>
-          <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} />
+          <SpellLink spell={TALENTS.INVOKE_XUEN_THE_WHITE_TIGER_TALENT} />
           {t({
-            id: 'monk.windwalker.apl.hotjs_remaining',
-            message: ' has less than 1 second remaining',
+            id: 'monk.windwalker.apl.xuen_not_ready',
+            message: ' will not be available within 10 seconds',
           })}
         </>
       )),
-    },
-    {
-      spell: SPELLS.TOUCH_OF_DEATH,
-      condition: optionalTouchOfDeath,
     },
     {
       spell: TALENTS.CELESTIAL_CONDUIT_WINDWALKER_TALENT,
@@ -81,39 +86,83 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
       )),
     },
     {
-      spell: TALENTS.WHIRLING_DRAGON_PUNCH_TALENT,
-      condition: whirlingDragonPunchReady,
-    },
-    {
-      spell: SPELLS.TIGER_PALM,
+      spell: TALENTS.ZENITH_STOMP_TALENT,
       condition: describe(
-        and(
-          hasResource(RESOURCE_TYPES.CHI, { atMost: 3 }),
-          notAtTwoBlackoutKickStacks,
-          aboutToCapEnergy(combatant),
-          notInZenithWithObsidianSpiral,
+        or(
+          hasResource(RESOURCE_TYPES.CHI, { atMost: 2 }),
+          and(
+            buffPresent(TALENTS.ZENITH_TALENT),
+            buffRemaining(TALENTS.ZENITH_TALENT, getZenithDurationMs(combatant), { atMost: 3000 }),
+          ),
         ),
         () => (
           <>
             {t({
-              id: 'monk.windwalker.apl.tiger_palm_cap.p1',
-              message: 'you have less than 4 ',
+              id: 'monk.windwalker.apl.chi_low.p1',
+              message: 'you are low on ',
             })}
             <SpellLink spell={RESOURCE_TYPES.CHI} />
             {t({
-              id: 'monk.windwalker.apl.tiger_palm_cap.p2',
-              message: ', fewer than 2 stacks of ',
+              id: 'monk.windwalker.apl.chi_low.p2',
+              message: ' or ',
             })}
-            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            <SpellLink spell={TALENTS.ZENITH_TALENT} />
             {t({
-              id: 'monk.windwalker.apl.tiger_palm_cap.p3',
-              message: ', and are about to cap energy',
+              id: 'monk.windwalker.apl.chi_low.p3',
+              message: ' is almost over',
             })}
           </>
         ),
       ),
     },
-    TALENTS.STRIKE_OF_THE_WINDLORD_TALENT,
+    {
+      spell: TALENTS.FISTS_OF_FURY_TALENT,
+      condition: describe(activeHotJSRemaining({ atMost: 1000 }), () => (
+        <>
+          <SpellLink spell={SPELLS.HEART_OF_THE_JADE_SERPENT_BUFF} />
+          {t({
+            id: 'monk.windwalker.apl.hotjs_remaining',
+            message: ' has less than 1 second remaining',
+          })}
+        </>
+      )),
+    },
+    {
+      spell: SPELLS.TIGER_PALM,
+      condition: describe(
+        or(
+          and(
+            hasResource(RESOURCE_TYPES.CHI, { atMost: 3 }),
+            aboutToCapEnergy(combatant),
+            not(buffPresent(TALENTS.ZENITH_TALENT)),
+            not(inBloodlust()),
+          ),
+          and(
+            spellCooldownRemaining(TALENTS.FISTS_OF_FURY_TALENT, { atMost: 1 }),
+            notEnoughChiForFistsOfFury(combatant),
+          ),
+        ),
+        () => (
+          <>
+            {t({
+              id: 'monk.windwalker.apl.tp_cap_energy.p1',
+              message: 'you are about to cap energy outside ',
+            })}
+            <SpellLink spell={TALENTS.ZENITH_TALENT} />
+            {t({
+              id: 'monk.windwalker.apl.tp_cap_energy.p2',
+              message: ' or do not have enough ',
+            })}
+            <SpellLink spell={RESOURCE_TYPES.CHI} />
+            {t({
+              id: 'monk.windwalker.apl.tp_cap_energy.p3',
+              message: ' for ',
+            })}
+            <SpellLink spell={TALENTS.FISTS_OF_FURY_TALENT} />
+          </>
+        ),
+      ),
+    },
     TALENTS.FISTS_OF_FURY_TALENT,
     {
       spell: SPELLS.RUSHING_WIND_KICK_CAST,
@@ -121,73 +170,92 @@ export default function conduitOfTheCelestialsApl(combatant: Combatant): Apl {
     },
     {
       spell: SPELLS.SPINNING_CRANE_KICK,
-      condition: describe(
-        and(danceOfChiJiExpiring, notAtTwoBlackoutKickStacks, notInZenithWithObsidianSpiral),
-        () => (
-          <>
-            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
-            {t({
-              id: 'monk.windwalker.apl.sck_dance.p1',
-              message: ' has less than 4 seconds remaining, and you have fewer than 2 stacks of ',
-            })}
-            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
-          </>
-        ),
-      ),
-    },
-    TALENTS.RISING_SUN_KICK_TALENT,
-    TALENTS.ZENITH_STOMP_TALENT,
-    {
-      spell: SPELLS.TIGER_PALM,
-      condition: describe(
-        or(
-          and(
-            spellCooldownRemaining(TALENTS.STRIKE_OF_THE_WINDLORD_TALENT, { atMost: 1 }),
-            hasResource(RESOURCE_TYPES.CHI, { atMost: 1 }),
-          ),
-          and(
-            spellCooldownRemaining(TALENTS.FISTS_OF_FURY_TALENT, { atMost: 1 }),
-            hasResource(RESOURCE_TYPES.CHI, { atMost: 2 }),
-          ),
-          and(
-            hasTalent(TALENTS.RUSHING_WIND_KICK_WINDWALKER_TALENT),
-            buffPresent(SPELLS.RUSHING_WIND_KICK_BUFF),
-            spellCooldownRemaining(SPELLS.RUSHING_WIND_KICK_CAST, { atMost: 1 }),
-            hasResource(RESOURCE_TYPES.CHI, { atMost: 1 }),
-          ),
-          and(danceOfChiJiExpiring, hasResource(RESOURCE_TYPES.CHI, { atMost: 1 })),
-          and(
-            spellCooldownRemaining(TALENTS.RISING_SUN_KICK_TALENT, { atMost: 1 }),
-            hasResource(RESOURCE_TYPES.CHI, { atMost: 1 }),
-          ),
-        ),
-        () => (
-          <>
-            <Trans id="monk.windwalker.apl.higher_priority_ready">
-              a higher-priority chi spender is ready, and you do not have enough chi for it
-            </Trans>
-          </>
-        ),
-      ),
-    },
-    {
-      spell: SPELLS.BLACKOUT_KICK,
-      condition: describe(buffPresent(SPELLS.COMBO_BREAKER_BUFF), () => (
+      condition: describe(buffPresent(SPELLS.UNBROKEN_RHYTHM_BUFF), () => (
         <>
           {t({
-            id: 'monk.windwalker.apl.has_combo_breaker.p1',
+            id: 'monk.windwalker.apl.unbroken_rhythm.p1',
             message: 'you have ',
           })}
-          <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+          <SpellLink spell={SPELLS.UNBROKEN_RHYTHM_BUFF} />
         </>
       )),
     },
-    TALENTS.SLICING_WINDS_TALENT,
+    TALENTS.RISING_SUN_KICK_TALENT,
+    {
+      spell: SPELLS.BLACKOUT_KICK,
+      condition: describe(
+        or(
+          buffPresent(SPELLS.COMBO_BREAKER_BUFF),
+          and(buffPresent(TALENTS.ZENITH_TALENT), hasTalent(TALENTS.OBSIDIAN_SPIRAL_TALENT)),
+        ),
+        () => (
+          <>
+            {t({
+              id: 'monk.windwalker.apl.cb_zenith_obsidian.p1',
+              message: 'you have ',
+            })}
+            <SpellLink spell={SPELLS.COMBO_BREAKER_BUFF} />
+            {t({
+              id: 'monk.windwalker.apl.cb_zenith_obsidian.p2',
+              message: ' or ',
+            })}
+            <SpellLink spell={TALENTS.ZENITH_TALENT} />
+            {t({
+              id: 'monk.windwalker.apl.cb_zenith_obsidian.p3',
+              message: ' is active with ',
+            })}
+            <SpellLink spell={TALENTS.OBSIDIAN_SPIRAL_TALENT} />
+          </>
+        ),
+      ),
+    },
     {
       spell: SPELLS.SPINNING_CRANE_KICK,
-      condition: buffPresent(SPELLS.DANCE_OF_CHI_JI_BUFF),
+      condition: describe(
+        and(
+          buffPresent(TALENTS.ZENITH_TALENT),
+          or(
+            hasResource(RESOURCE_TYPES.CHI, { atLeast: 5 }),
+            buffPresent(SPELLS.DANCE_OF_CHI_JI_BUFF),
+          ),
+        ),
+        () => (
+          <>
+            <SpellLink spell={TALENTS.ZENITH_TALENT} />
+            {t({
+              id: 'monk.windwalker.apl.zenith_sck.p1',
+              message: ' is active and you either have more than 4 ',
+            })}
+            <SpellLink spell={RESOURCE_TYPES.CHI} />
+            {t({
+              id: 'monk.windwalker.apl.zenith_sck.p2',
+              message: ' or ',
+            })}
+            <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+          </>
+        ),
+      ),
+    },
+    {
+      spell: SPELLS.TIGER_PALM,
+      condition: hasResource(RESOURCE_TYPES.CHI, { atMost: 1 }),
+    },
+    {
+      spell: SPELLS.SPINNING_CRANE_KICK,
+      condition: describe(buffPresent(SPELLS.DANCE_OF_CHI_JI_BUFF), () => (
+        <>
+          {t({
+            id: 'monk.windwalker.apl.dance_of_chi_ji.p1',
+            message: 'you have ',
+          })}
+          <SpellLink spell={SPELLS.DANCE_OF_CHI_JI_BUFF} />
+        </>
+      )),
+    },
+    {
+      spell: SPELLS.TIGER_PALM,
+      condition: hasResource(RESOURCE_TYPES.CHI, { atMost: 4 }),
     },
     SPELLS.BLACKOUT_KICK,
-    SPELLS.TIGER_PALM,
   ]);
 }

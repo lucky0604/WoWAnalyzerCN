@@ -32,7 +32,7 @@
   "warlock.demonology.dreadlash.cleavedDamage": "顺劈额外伤害：{damage}（{percent}）",
   "warlock.demonology.powerSiphon.tooltip": "牺牲了 {count} 个小鬼",
   "warlock.demonology.powerSiphon.castsWithTwoImps": "施放时有2个小鬼",
-  "warlock.demonology.summonVilefiend.totalDamage": "{damage} 总伤害",
+  "warlock.demonology.summonVilefiend.totalDamage": "{dmg} 总伤害",
   "warlock.demonology.summonVilefiend.summonsCast": "{count} 次召唤",
   "warlock.demonology.summonVilefiend.petAbilities": "宠物技能：",
   "warlock.demonology.summonVilefiend.summons": "次召唤",

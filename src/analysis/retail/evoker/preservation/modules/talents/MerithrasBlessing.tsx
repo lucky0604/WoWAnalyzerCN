@@ -1,5 +1,3 @@
-import { t } from '@lingui/core/macro';
-import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { CastEvent, HealEvent, RefreshBuffEvent } from 'parser/core/Events';
@@ -9,17 +7,11 @@ import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import ItemHealingDone from 'parser/ui/ItemHealingDone';
 import { SpellLink } from 'interface';
 import { TALENTS_EVOKER } from 'common/TALENTS';
-import { RoundedPanel } from 'interface/guide/components/GuideDivs';
-import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
-import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
-import { BoxRowEntry, PerformanceBoxRow } from 'interface/guide/components/PerformanceBoxRow';
-import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import {
   getEchoConsumptions,
   getMerithrasGeneratingCast,
   getMerithrasHealing,
 } from '../../normalizers/EventLinking/helpers';
-import { formatPercentage, formatNumber } from 'common/format';
 
 interface MerithrasCastData {
   cast: CastEvent;
@@ -97,97 +89,6 @@ class MerithrasBlessing extends Analyzer {
   }
   onAbsorb(event: HealEvent) {
     this.absorbHealing += event.amount + (event.absorbed || 0);
-  }
-
-  get guideSubsection(): JSX.Element {
-    const explanation = (
-      <div>
-        <p>
-          <b>
-            <SpellLink spell={SPELLS.MERITHRAS_BLESSING_CAST} />
-          </b>{' '}
-          {t({
-            id: 'evoker.preservation.merithrasBlessing.guideExplanation1',
-            message:
-              'is your apex talent and most important spell to consume Echo with. Your aim should be to consume your procs into as many Echoes as possible right as damage hits the group.',
-          })}
-        </p>
-        <p>
-          {t({
-            id: 'evoker.preservation.merithrasBlessing.guideExplanation2',
-            message:
-              'It is important that you use your Merithras Blessing procs before Dream Breath becomes available, as casting it would overwrite the buff with a new one making you miss out on a cast of it.',
-          })}
-        </p>
-      </div>
-    );
-
-    const allEvents = [
-      ...this.castData.map((cast) => ({
-        type: 'cast' as const,
-        timestamp: cast.cast.timestamp,
-        data: cast,
-      })),
-      ...this.badRefreshes.map((timestamp) => ({
-        type: 'refresh' as const,
-        timestamp,
-      })),
-    ].sort((a, b) => a.timestamp - b.timestamp);
-
-    const entries: BoxRowEntry[] = allEvents.map((ev) => {
-      let value = QualitativePerformance.Good;
-      let tooltip = (
-        <>
-          <SpellLink spell={SPELLS.MERITHRAS_BLESSING_CAST} /> @{' '}
-          {this.owner.formatTimestamp(ev.timestamp)}
-        </>
-      );
-
-      if (ev.type === 'refresh') {
-        value = QualitativePerformance.Fail;
-        tooltip = (
-          <>
-            <div>{tooltip}</div>
-            <div>
-              {t({
-                id: 'evoker.preservation.merithrasBlessing.dreamBreathOverwrite',
-                message: 'Dream Breath was used while Merithras Blessing was already active.',
-              })}
-            </div>
-          </>
-        );
-      } else {
-        const castInfo = ev.data!;
-        const totalRawHealing = castInfo.effectiveHealing + castInfo.overhealing;
-        const overhealPercent = totalRawHealing > 0 ? castInfo.overhealing / totalRawHealing : 0;
-        if (overhealPercent > 0.4) value = QualitativePerformance.Ok;
-        tooltip = (
-          <>
-            <div>{tooltip}</div>
-            <div>
-              {t({ id: 'evoker.preservation.merithrasBlessing.echoesConsumed', message: 'Echoes consumed' })}: {castInfo.echoConsumptions}
-            </div>
-            <div>{t({ id: 'evoker.preservation.merithrasBlessing.effectiveHealing', message: 'Effective Healing' })}: {formatNumber(castInfo.effectiveHealing)}</div>
-            <div>{t({ id: 'evoker.preservation.merithrasBlessing.overhealing', message: 'Overhealing' })}: {formatPercentage(overhealPercent, 1)}%</div>
-          </>
-        );
-      }
-
-      return { value, tooltip };
-    });
-
-    const data = (
-      <div>
-        <RoundedPanel>
-          <strong>
-            <SpellLink spell={TALENTS_EVOKER.MERITHRAS_BLESSING_1_PRESERVATION_TALENT} /> {t({ id: 'evoker.preservation.merithrasBlessing.usages', message: 'usages' })}
-          </strong>
-          <PerformanceBoxRow values={entries} />
-        </RoundedPanel>
-      </div>
-    );
-
-    return explanationAndDataSubsection(explanation, data, GUIDE_CORE_EXPLANATION_PERCENT);
   }
 
   statistic() {

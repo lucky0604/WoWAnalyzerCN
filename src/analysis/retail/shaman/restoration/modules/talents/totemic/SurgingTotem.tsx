@@ -3,7 +3,6 @@ import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_SHAMAN } from 'common/TALENTS/shaman';
-import { SpellIcon } from 'interface';
 import { SpellLink } from 'interface';
 import { TooltipElement } from 'interface';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -25,6 +24,7 @@ import {
   HEALING_RAIN_TARGETS,
   WHIRLING_ELEMENTS_MOTES,
 } from '../../../constants';
+import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 
 interface HealingRainTickInfo {
   timestamp: number;
@@ -255,8 +255,7 @@ class SurgingTotem extends Analyzer {
               message:
                 '. Aside from being strong throughput, this spell also buffs',
             })}{' '}
-            <SpellLink spell={SPELLS.HEALING_WAVE} />,{' '}
-            <SpellLink spell={SPELLS.HEALING_SURGE} />
+            <SpellLink spell={SPELLS.HEALING_WAVE} />{' '}
             {t({ id: 'shaman.restoration.st.explanation2.p4', message: ' and ' })}
             <SpellLink spell={TALENTS.CHAIN_HEAL_TALENT} />
             {t({ id: 'shaman.restoration.st.explanation2.p5', message: ' through ' })}
@@ -315,7 +314,7 @@ class SurgingTotem extends Analyzer {
   subStatistic() {
     return (
       <CastEfficiencyBar
-        spell={SPELLS.HEALING_RAIN_TOTEMIC}
+        spell={SPELLS.SURGING_TOTEM}
         gapHighlightMode={GapHighlight.FullCooldown}
         minimizeIcons
         useThresholds
@@ -330,14 +329,15 @@ class SurgingTotem extends Analyzer {
 
     return (
       <StatisticBox
-        icon={<SpellIcon spell={SPELLS.HEALING_RAIN_HEAL} />}
+        category={STATISTIC_CATEGORY.HERO_TALENTS}
+        icon={<SpellLink spell={SPELLS.SURGING_TOTEM} />}
         value={`${this.averageHitsPerTick.toFixed(2)}`}
         position={STATISTIC_ORDER.OPTIONAL()}
         label={
           <TooltipElement
             content={
               <Trans id="shaman.restoration.healingRainTotemic.averageTargets.label.tooltip">
-                The average number of targets healed by Healing Rain out of the maximum amount of{' '}
+                The average number of targets healed by Surging Totem out of the maximum amount of{' '}
                 {HEALING_RAIN_TARGETS}
                 targets.
               </Trans>
@@ -356,7 +356,7 @@ class SurgingTotem extends Analyzer {
     return (
       <>
         <div>
-          <>
+<>
             {t({
               id: 'shaman.restoration.st.casts_breakdown.p1',
               message: 'Over the course of the fight, you cast',
@@ -368,7 +368,7 @@ class SurgingTotem extends Analyzer {
                 values: { 0: this.SurgingTotemCasts.length },
               })}
             </strong>{' '}
-            <SpellLink spell={TALENTS.SURGING_TOTEM_TALENT} />
+            <SpellLink spell={SPELLS.SURGING_TOTEM} />
             {t({
               id: 'shaman.restoration.st.casts_breakdown.p2',
               message: 'and consumed',

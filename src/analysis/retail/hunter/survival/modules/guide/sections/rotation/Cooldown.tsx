@@ -62,12 +62,6 @@ export default function CooldownSection({ modules, info }: GuideProps<typeof Com
           gapHighlightMode={GapHighlight.FullCooldown}
         />
       )}
-      {info.combatant.hasTalent(TALENTS.FLAMEFANG_PITCH_TALENT) && (
-        <CastEfficiencyBar
-          spell={TALENTS.FLAMEFANG_PITCH_TALENT}
-          gapHighlightMode={GapHighlight.FullCooldown}
-        />
-      )}
       <TakedownSection />
     </Section>
   );

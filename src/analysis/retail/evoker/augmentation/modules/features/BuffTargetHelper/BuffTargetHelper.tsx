@@ -572,7 +572,7 @@ class BuffTargetHelper extends Analyzer {
 
   bossFilterToggleButton: JSX.Element = (
     <div className="filter-container">
-      <b><Trans id="evoker.augmentation.buffTargetHelper.onlyBossDamage">Only show boss damage</Trans></b>
+      <b>{t({ id: 'evoker.augmentation.buffTargetHelper.onlyBossDamage', message: 'Only show boss damage' })}</b>
       <div>
         <Toggle
           onClick={() => {

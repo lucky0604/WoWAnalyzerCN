@@ -630,6 +630,57 @@ import { defineMessage } from '@lingui/core/macro';
 
 ---
 
+## 已知坑与规避
+
+以下问题都是在汉化/同步过程中实际踩过的，做任何改动前先对照此清单。
+
+### 坑 1：commit 钩子会把 `t()` 自动改成 `defineMessage()`，破坏 typecheck 与运行时
+
+**现象：** 提交时 `.husky/pre-commit` 会对暂存的 `.ts/.tsx` 跑 lint-staged 自动修复。规则
+`wowanalyzer/lingui-t-macro-outside-jsx` 会把**不在 JSX 里**的 `t(...)` 自动替换为 `defineMessage(...)`。
+
+**影响：** `label: t({...})` 这类模式全仓库有 80+ 处，类型是 `string`；`defineMessage()` 返回
+`MessageDescriptor`（对象），会自动修复成后：
+- `typecheck` 报 `TS2322: Type 'MessageDescriptor' is not assignable to type 'string'`
+- 运行时通过 `<StatCardLabel>` 等渲染为字面 `[object Object]`
+
+**规避：**
+- 涉及大量 `.tsx` 源码改动（同步合并、批量汉化）时，提交用 `git commit --no-verify`
+- 提交后必须跑 `pnpm run typecheck` 确认没有被钩子改坏
+- 已验证：这种自动修复是语言规则与 fork 汉化的冲突，不是运行时 bug，**不要**用 `lint:fix` 去清仓库级报错
+
+### 坑 2：`scripts/i18n-fix.mjs` 用正则重写，会误伤合并无关的文件
+
+**现象：** 同步后运行 `node scripts/i18n-fix.mjs` 时，它会扫描整个 `src/` 目录做正则替换，
+可能破坏**与本次合并无关**的文件：
+- 把 JSX 表达式 `{t({...})}` 的左花括号剥掉（`t({...})}`），或写成顶格 `{t({` 的不规范缩进
+- 给只因注释里出现过 `t({` 的文件注入多余的 import
+
+**规避：**
+- 运行后**必须** `git diff` 检查：只应改动合并涉及的文件（同步脚本会输出冲突文件列表）
+- 无关文件被改动 → `git checkout HEAD -- <file>` 恢复，不要手工修补被重写的输出
+- 顶格 `{t({` 是这类破坏的常见残留，全仓库扫描：
+  ```bash
+  grep -rn '^[[:space:]]*{t({' src/analysis
+  ```
+
+### 坑 3：`content.json` fragment 拆分键必须按拼接语义翻译
+
+**现象：** 一段文案被拆成 `t()` + JSX 的多个 fragment（`key.p1` / `key.p2`…，
+`<SpellLink>` 插在中间）。`content.json` 里分别翻译每段时，若某段的词义与组合后整体语义不符，
+会产生自相矛盾的句子。真实案例：
+`no_hotjs.p1` 翻译成"未激活 "，与 `no_hotjs.p2`"处于激活状态"组合成
+**"未激活 [心之青玉] 处于激活状态"**——英文组合是 "no [HoTJS] is active"。
+
+**规避：**
+- 翻译 fragment 时，把 `<SpellLink>` 占位在脑中拼起来读一遍再定稿
+- fragment 之间的空格/标点是关键：英文 fragment 常以空格开头/结尾作为拼接粘合剂，中文
+  fragment 也要保留对应空格（如 `" 或 "`、`"你即将在 "`），否则拼接会挤在一起
+- fragment 与完整键可并存：同一个 message 既可有组合键 `key` 也可有拆分键 `key.p1`…
+  （`<Trans>` 用组合键，`t()` 用拆分键），两套都能用，按源码实际用哪套填哪套
+
+---
+
 ## 脚本清单
 
 | 脚本                                     | 用途                                     | 何时使用                                         |
