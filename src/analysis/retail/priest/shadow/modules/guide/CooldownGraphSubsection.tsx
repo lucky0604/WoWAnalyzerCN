@@ -71,7 +71,7 @@ const CoreCooldownsGraph = () => {
       <strong>
         <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />
       </strong>{' '}
-{t({
+      {t({
         id: 'priest.shadow.cooldownGraph.mindBlastCore',
         message: 'is a core spell that should be kept on cooldown as much as possible.',
       })}
@@ -121,7 +121,7 @@ const CoreCooldownsGraph = () => {
             {' '}
             <SpellLink spell={SPELLS.VOID_VOLLEY_CAST} />{' '}
           </strong>{' '}
-{t({
+          {t({
             id: 'priest.shadow.cooldownGraph.voidVolleyDescription',
             message:
               'Voidform gives charges of this powerful spell. Make sure you use these charges before Voidform ends so they are not wasted',

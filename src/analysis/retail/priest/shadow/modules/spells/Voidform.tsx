@@ -113,7 +113,7 @@ class Voidform extends Analyzer {
         <div />
         {this.selectedCombatant.hasTalent(TALENTS.ANCIENT_MADNESS_TALENT) && (
           <>
-{t({
+            {t({
               id: 'priest.shadow.voidform.casting',
               message: 'Casting',
             })}{' '}
@@ -149,7 +149,7 @@ class Voidform extends Analyzer {
           </>
         )}
         <div />
-{t({
+        {t({
           id: 'priest.shadow.voidform.use5Casts',
           message: 'Try to use 5 Shadow Word Madness casts to extend Voidform to its maximum duration.',
         })}

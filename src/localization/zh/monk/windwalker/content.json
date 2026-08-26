@@ -32,7 +32,7 @@
   "monk.windwalker.apl.guidance_marker": "APL 引导标记，显示了首次预期施放 <0/> 的位置，或者是实际消耗时优先级仍高于它的技能。",
   "monk.windwalker.apl.hotjs_remaining": "剩余时间少于 1 秒",
   "monk.windwalker.apl.xuen_not_ready": "将在10秒内不可用",
-  "monk.windwalker.apl.no_hotjs.p1": "未激活 ",
+  "monk.windwalker.apl.no_hotjs.p1": "没有 ",
   "monk.windwalker.apl.no_hotjs.p2": "处于激活状态",
   "monk.windwalker.apl.chi_low.p1": "你真气不足",
   "monk.windwalker.apl.chi_low.p2": "或 ",
