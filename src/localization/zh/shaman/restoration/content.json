@@ -57,7 +57,6 @@
   "shaman.restoration.st.explanation3": "由于点出了 <0/>，每次施放都会产生三个微粒，每个微粒提供强力的增益效果：<1/>、<2/> 和 <3/>。你应该始终尝试消耗这些增益。",
   "shaman.restoration.st.efficiency": "施法效率",
   "shaman.restoration.healingRainTotemic.averageTargets.label": "平均治疗雨目标数",
-  "shaman.restoration.st.casts_breakdown": "在整场战斗中，你施放了 <strong>{casts}</strong> 次 <0/> 并消耗了 <strong>{air}</strong> 次 <1/>、<strong>{earth}</strong> 次 <2/> 和 <strong>{water}</strong> 次 <3/>。下方的明细展示了你对这些元素微粒的使用情况。",
   "shaman.restoration.st.motes_consumed": "消耗了所有 3 个微粒",
   "shaman.restoration.st.motes_consumed_2": "消耗了 2 个微粒",
   "shaman.restoration.st.motes_consumed_1": "消耗了 1 个微粒",
