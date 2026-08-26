@@ -71,27 +71,10 @@ const CoreCooldownsGraph = () => {
       <strong>
         <SpellLink spell={TALENTS.MIND_BLAST_TALENT} />
       </strong>{' '}
-      {t({
+{t({
         id: 'priest.shadow.cooldownGraph.mindBlastCore',
         message: 'is a core spell that should be kept on cooldown as much as possible.',
       })}
-      {info!.combatant.hasTalent(TALENTS.POWER_SURGE_TALENT) && (
-        <>
-          {' '}
-          {t({
-            id: 'priest.shadow.cooldownGraph.highPrioritySpells',
-            message: 'High priority spells like',
-          })}{' '}
-          <SpellLink spell={SPELLS.VOID_VOLLEY_CAST} />,{' '}
-          <SpellLink spell={TALENTS.SHADOW_WORD_MADNESS_TALENT} />,{' '}
-          {t({ id: 'priest.shadow.cooldownGraph.or', message: 'or' })}{' '}
-          <SpellLink spell={SPELLS.MIND_FLAY_INSANITY_TALENT_DAMAGE} />{' '}
-          {t({
-            id: 'priest.shadow.cooldownGraph.shouldBeUsedBefore',
-            message: 'should be used before this.',
-          })}
-        </>
-      )}
       <div />
       {/*
       <strong>
@@ -138,10 +121,10 @@ const CoreCooldownsGraph = () => {
             {' '}
             <SpellLink spell={SPELLS.VOID_VOLLEY_CAST} />{' '}
           </strong>{' '}
-          {t({
+{t({
             id: 'priest.shadow.cooldownGraph.voidVolleyDescription',
             message:
-              'is a powerful spell that should be cast on cooldown while you have access to it during',
+              'Voidform gives charges of this powerful spell. Make sure you use these charges before Voidform ends so they are not wasted',
           })}{' '}
           <SpellLink spell={SPELLS.VOIDFORM} />
           <div />

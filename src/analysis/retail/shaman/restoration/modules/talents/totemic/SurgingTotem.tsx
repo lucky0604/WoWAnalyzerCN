@@ -3,7 +3,6 @@ import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS, { TALENTS_SHAMAN } from 'common/TALENTS/shaman';
-import { SpellIcon } from 'interface';
 import { SpellLink } from 'interface';
 import { TooltipElement } from 'interface';
 import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
@@ -315,7 +314,7 @@ class SurgingTotem extends Analyzer {
   subStatistic() {
     return (
       <CastEfficiencyBar
-        spell={SPELLS.HEALING_RAIN_TOTEMIC}
+        spell={SPELLS.SURGING_TOTEM}
         gapHighlightMode={GapHighlight.FullCooldown}
         minimizeIcons
         useThresholds
@@ -331,7 +330,7 @@ class SurgingTotem extends Analyzer {
     return (
       <StatisticBox
         category={STATISTIC_CATEGORY.HERO_TALENTS}
-        icon={<SpellIcon spell={TALENTS.SURGING_TOTEM_TALENT} />}
+        icon={<SpellLink spell={SPELLS.SURGING_TOTEM} />}
         value={`${this.averageHitsPerTick.toFixed(2)}`}
         position={STATISTIC_ORDER.OPTIONAL()}
         label={
@@ -357,7 +356,7 @@ class SurgingTotem extends Analyzer {
     return (
       <>
         <div>
-          <>
+<>
             {t({
               id: 'shaman.restoration.st.casts_breakdown.p1',
               message: 'Over the course of the fight, you cast',
@@ -369,7 +368,7 @@ class SurgingTotem extends Analyzer {
                 values: { 0: this.SurgingTotemCasts.length },
               })}
             </strong>{' '}
-            <SpellLink spell={TALENTS.SURGING_TOTEM_TALENT} />
+            <SpellLink spell={SPELLS.SURGING_TOTEM} />
             {t({
               id: 'shaman.restoration.st.casts_breakdown.p2',
               message: 'and consumed',

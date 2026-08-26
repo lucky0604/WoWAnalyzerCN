@@ -25,7 +25,6 @@ class Voidform extends Analyzer {
   VFExtension: BoxRowEntry[] = [];
   VFExtensionTotal = 0;
   VFtime = 0;
-  mindblast = 0; //number of mindblasts gained by entering voidform
   durationSustainedPotency = 0;
 
   constructor(options: Options) {
@@ -92,10 +91,10 @@ class Voidform extends Analyzer {
       </>
     );
     let value = QualitativePerformance.Good;
-    if (extension <= 75) {
+    if (extension < 7.5) {
       value = QualitativePerformance.Ok;
     }
-    if (extension <= 60) {
+    if (extension < 6) {
       value = QualitativePerformance.Fail;
     }
     this.VFExtension.push({ value, tooltip });
@@ -114,7 +113,7 @@ class Voidform extends Analyzer {
         <div />
         {this.selectedCombatant.hasTalent(TALENTS.ANCIENT_MADNESS_TALENT) && (
           <>
-            {t({
+{t({
               id: 'priest.shadow.voidform.casting',
               message: 'Casting',
             })}{' '}
@@ -123,9 +122,13 @@ class Voidform extends Analyzer {
             <SpellLink spell={SPELLS.VOIDFORM_BUFF} />{' '}
             {t({
               id: 'priest.shadow.voidform.extendsBy',
-              message: 'extends its duration by 2.5 seconds from',
+              message: 'extends its duration by 1.5 seconds from',
             })}{' '}
-            <SpellLink spell={TALENTS.ANCIENT_MADNESS_TALENT} />.
+            <SpellLink spell={TALENTS.ANCIENT_MADNESS_TALENT} />
+            {t({
+              id: 'priest.shadow.voidform.ancientMadnessExtends',
+              message: ', up to 5 times.',
+            })}
           </>
         )}
         {this.selectedCombatant.hasTalent(TALENTS.SUSTAINED_POTENCY_TALENT) && (
@@ -146,9 +149,9 @@ class Voidform extends Analyzer {
           </>
         )}
         <div />
-        {t({
-          id: 'priest.shadow.voidform.extendAsMuchAsPossible',
-          message: 'Try to extend voidform for as much as possible.',
+{t({
+          id: 'priest.shadow.voidform.use5Casts',
+          message: 'Try to use 5 Shadow Word Madness casts to extend Voidform to its maximum duration.',
         })}
       </p>
     );
