@@ -38,7 +38,6 @@ import { useLingui } from '@lingui/react';
 import { appendReportHistory } from 'interface/reducers/reportHistory';
 import FoundationSupportBadge from 'interface/guide/foundation/FoundationSupportBadge';
 import Ad, { Location } from 'interface/Ad';
-import { getPublishedDungeonFromWcl, makeDungeonLearningPath } from '../../../dungeon/runtime/wcl';
 
 import usePremium from 'interface/usePremium';
 import useMediaQueryMatch from 'interface/hooks/useMediaQueryMatch';
@@ -309,8 +308,28 @@ const Results = (props: PassedProps) => {
 };
 
 const DungeonLearningEntry = ({ report, fight }: Pick<PassedProps, 'report' | 'fight'>) => {
-  const dungeon = getPublishedDungeonFromWcl(report, fight);
-  if (!dungeon) {
+  const [entry, setEntry] = useState<{ path: string; name: string }>();
+
+  useEffect(() => {
+    let active = true;
+    void import('../../../dungeon/runtime/wcl')
+      .then(({ getPublishedDungeonFromWcl, makeDungeonLearningPath }) => {
+        if (active) {
+          const dungeon = getPublishedDungeonFromWcl(report, fight);
+          setEntry(
+            dungeon ? { path: makeDungeonLearningPath(dungeon), name: dungeon.name.zhCN } : undefined,
+          );
+        }
+      })
+      .catch(() => {
+        // The report must remain usable when the optional dungeon chunk fails.
+      });
+    return () => {
+      active = false;
+    };
+  }, [fight, report]);
+
+  if (!entry) {
     return null;
   }
 
@@ -318,8 +337,11 @@ const DungeonLearningEntry = ({ report, fight }: Pick<PassedProps, 'report' | 'f
     <div className="dungeon-learning-entry">
       <small>LEARNING COMPANION</small>
       <div className="dungeon-learning-entry__link">
-        <Link to={makeDungeonLearningPath(dungeon)}>
-          查看 {dungeon.name.zhCN} 的副本攻略与波次学习 →
+        <Link to={entry.path}>
+          {t({
+            id: 'interface.report.results.dungeonLearningLink',
+            message: `查看 ${entry.name} 的副本攻略与波次学习 →`,
+          })}
         </Link>
       </div>
     </div>

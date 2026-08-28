@@ -2,6 +2,7 @@ import DocumentTitle from 'interface/DocumentTitle';
 import NavigationBar from 'interface/NavigationBar';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
+import { t } from '@lingui/core/macro';
 
 import {
   createAssetProviderFromEnv,
@@ -17,23 +18,36 @@ import type { DungeonDocument, RouteStep } from '../../dungeon';
 
 import './dungeons.scss';
 
-const intentLabel: Record<NonNullable<DungeonDocument['routes'][number]>['intent'], string> = {
-  learning: '学习路线',
-  'pug-safe': '集合石稳妥路线',
-  push: '冲层路线',
-  'custom-reference': '自定义参考',
-};
+function intentLabel(intent: NonNullable<DungeonDocument['routes'][number]>['intent']): string {
+  switch (intent) {
+    case 'learning':
+      return t({ id: 'dungeon.route.intent.learning', message: '学习路线' });
+    case 'pug-safe':
+      return t({ id: 'dungeon.route.intent.pugSafe', message: '集合石稳妥路线' });
+    case 'push':
+      return t({ id: 'dungeon.route.intent.push', message: '冲层路线' });
+    default:
+      return t({ id: 'dungeon.route.intent.customReference', message: '自定义参考' });
+  }
+}
 
 function RouteNotFound() {
   return (
     <>
-      <DocumentTitle title="路线不存在" />
+      <DocumentTitle title={t({ id: 'dungeon.route.notFoundTitle', message: '路线不存在' })} />
       <NavigationBar style={{ margin: 0, position: 'static' }} />
       <main className="dungeon-shell">
         <section className="dungeon-panel dungeon-panel--error">
-          <h1>找不到这条路线</h1>
-          <p>路线链接尚未注册，或者路线 revision 已经被替换。</p>
-          <Link to="/dungeons">返回副本列表</Link>
+          <h1>{t({ id: 'dungeon.route.notFoundHeading', message: '找不到这条路线' })}</h1>
+          <p>
+            {t({
+              id: 'dungeon.route.notFoundDetail',
+              message: '路线链接尚未注册，或者路线 revision 已经被替换。',
+            })}
+          </p>
+          <Link to="/dungeons">
+            {t({ id: 'dungeon.common.backToList', message: '返回副本列表' })}
+          </Link>
         </section>
       </main>
     </>
@@ -43,13 +57,20 @@ function RouteNotFound() {
 function RouteUnavailable({ dungeonId }: { dungeonId: string }) {
   return (
     <>
-      <DocumentTitle title="路线待审校" />
+      <DocumentTitle title={t({ id: 'dungeon.route.unavailableTitle', message: '路线待审校' })} />
       <NavigationBar style={{ margin: 0, position: 'static' }} />
       <main className="dungeon-shell">
         <section className="dungeon-panel dungeon-panel--error">
-          <h1>路线待审校</h1>
-          <p>当前副本没有可以公开学习的正式路线；草稿只在副本 Inspector 中审阅。</p>
-          <Link to={`/dungeons/${dungeonId}?view=inspector`}>打开 Inspector</Link>
+          <h1>{t({ id: 'dungeon.route.unavailableTitle', message: '路线待审校' })}</h1>
+          <p>
+            {t({
+              id: 'dungeon.route.unavailableDetail',
+              message: '当前副本没有可以公开学习的正式路线；草稿只在副本 Inspector 中审阅。',
+            })}
+          </p>
+          <Link to={`/dungeons/${dungeonId}?view=inspector`}>
+            {t({ id: 'dungeon.common.openInspector', message: '打开 Inspector' })}
+          </Link>
         </section>
       </main>
     </>
@@ -87,11 +108,17 @@ function RouteStepCard({
           <small>
             {isPull
               ? document.spatialStatus === 'pending'
-                ? '位置参考锚点 · 完整 Pull 待核验'
-                : `${step.spawnIds.length} spawns · ${forces} forces`
+                ? t({
+                    id: 'dungeon.route.stepAnchorsPending',
+                    message: '位置参考锚点 · 完整 Pull 待核验',
+                  })
+                : t({
+                    id: 'dungeon.route.stepSpawnCount',
+                    message: `${step.spawnIds.length} spawns · ${forces} forces`,
+                  })
               : step.type === 'transition'
-                ? '楼层 / 区域过渡'
-                : '事件步骤'}
+                ? t({ id: 'dungeon.route.stepTransition', message: '楼层 / 区域过渡' })
+                : t({ id: 'dungeon.route.stepEvent', message: '事件步骤' })}
           </small>
           <span>{isPull ? step.rationale.zhCN : step.instruction.zhCN}</span>
         </span>
@@ -144,9 +171,14 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
 
   return (
     <>
-      <DocumentTitle title={`${route.name.zhCN} · 路线参考`} />
+      <DocumentTitle
+        title={t({
+          id: 'dungeon.route.pageTitle',
+          message: `${route.name.zhCN} · 路线参考`,
+        })}
+      />
       <NavigationBar style={{ margin: 0, position: 'static' }}>
-        <Link to="/dungeons">大秘境学习</Link>
+        <Link to="/dungeons">{t({ id: 'dungeon.common.home', message: '大秘境学习' })}</Link>
         <span className="learning-nav-separator">/</span>
         <Link to={`/dungeons/${document.id}?view=inspector`}>{document.name.zhCN}</Link>
       </NavigationBar>
@@ -161,48 +193,79 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
             <div className="dungeon-card__eyebrow">
               <span>READ-ONLY ROUTE</span>
               <span className="dungeon-status dungeon-status-draft">
-                {intentLabel[route.intent]}
+                {intentLabel(route.intent)}
               </span>
             </div>
             <h1>{route.name.zhCN}</h1>
             <p>
-              这条路线用于解释“为什么这样组织 Pull”，不是 MDT 编辑器；它不会导入、保存或修改路线。
+              {t({
+                id: 'dungeon.route.heroDetail',
+                message: '这条路线用于解释“为什么这样组织 Pull”，不是 MDT 编辑器；它不会导入、保存或修改路线。',
+              })}
             </p>
           </div>
           <div className="dungeon-hero__metric">
-            <span>路线 forces</span>
+            <span>{t({ id: 'dungeon.route.metricForces', message: '路线 forces' })}</span>
             <strong>
-              {document.spatialStatus === 'pending' ? '待核验' : resolved.totalForcesPoints}
+              {document.spatialStatus === 'pending'
+                ? t({ id: 'dungeon.route.forcesPending', message: '待核验' })
+                : resolved.totalForcesPoints}
             </strong>
             <small>
-              适用层级{' '}
-              {route.keyRange ? `${route.keyRange.min}–${route.keyRange.max ?? '∞'}` : '未指定'}
+              {route.keyRange
+                ? t({
+                    id: 'dungeon.route.keyRange',
+                    message: `适用层级 ${route.keyRange.min}–${route.keyRange.max ?? '∞'}`,
+                  })
+                : t({ id: 'dungeon.route.keyRangeUnset', message: '适用层级 未指定' })}
             </small>
           </div>
         </header>
 
-        <section className="dungeon-grid dungeon-grid--summary" aria-label="路线摘要">
+        <section
+          className="dungeon-grid dungeon-grid--summary"
+          aria-label={t({ id: 'dungeon.route.summarySectionLabel', message: '路线摘要' })}
+        >
           <article className="dungeon-panel dungeon-summary-card">
-            <span>路线意图</span>
-            <strong>{intentLabel[route.intent]}</strong>
-            <small>{route.keyRange ? '有明确层级假设' : '未指定层级假设'}</small>
-          </article>
-          <article className="dungeon-panel dungeon-summary-card">
-            <span>Pull 数量</span>
-            <strong>{resolved.pulls.length}</strong>
-            <small>Transition / Event 不计入 forces</small>
-          </article>
-          <article className="dungeon-panel dungeon-summary-card">
-            <span>声明 forces</span>
-            <strong>
-              {document.spatialStatus === 'pending' ? '待核验' : route.expectedEnemyForcesPoints}
-            </strong>
+            <span>{t({ id: 'dungeon.route.summaryIntent', message: '路线意图' })}</span>
+            <strong>{intentLabel(route.intent)}</strong>
             <small>
-              {document.spatialStatus === 'pending' ? '位置快照待接入' : '由 spawn 推导复核'}
+              {route.keyRange
+                ? t({
+                    id: 'dungeon.route.summaryKeyRangeSet',
+                    message: '有明确层级假设',
+                  })
+                : t({
+                    id: 'dungeon.route.summaryKeyRangeUnset',
+                    message: '未指定层级假设',
+                  })}
             </small>
           </article>
           <article className="dungeon-panel dungeon-summary-card">
-            <span>来源 revision</span>
+            <span>{t({ id: 'dungeon.route.summaryPullCount', message: 'Pull 数量' })}</span>
+            <strong>{resolved.pulls.length}</strong>
+            <small>
+              {t({
+                id: 'dungeon.route.summaryPullCountHint',
+                message: 'Transition / Event 不计入 forces',
+              })}
+            </small>
+          </article>
+          <article className="dungeon-panel dungeon-summary-card">
+            <span>{t({ id: 'dungeon.route.summaryDeclaredForces', message: '声明 forces' })}</span>
+            <strong>
+              {document.spatialStatus === 'pending'
+                ? t({ id: 'dungeon.route.forcesPending', message: '待核验' })
+                : route.expectedEnemyForcesPoints}
+            </strong>
+            <small>
+              {document.spatialStatus === 'pending'
+                ? t({ id: 'dungeon.route.summaryForcesSnapshotPending', message: '位置快照待接入' })
+                : t({ id: 'dungeon.route.summaryForcesDerived', message: '由 spawn 推导复核' })}
+            </small>
+          </article>
+          <article className="dungeon-panel dungeon-summary-card">
+            <span>{t({ id: 'dungeon.route.summaryRevision', message: '来源 revision' })}</span>
             <strong>{route.version.revision}</strong>
             <small>{route.version.build}</small>
           </article>
@@ -215,15 +278,21 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
             <div className="dungeon-panel__heading">
               <div>
                 <span className="dungeon-kicker">SPATIAL CONTEXT</span>
-                <h2>路线位置</h2>
+                <h2>{t({ id: 'dungeon.route.mapHeading', message: '路线位置' })}</h2>
               </div>
               <div className="dungeon-map-panel__heading-actions">
                 <span className="dungeon-panel__hint">
                   {document.spatialStatus === 'pending'
-                    ? '位置数据待核验'
-                    : '点击步骤切换地图上下文'}
+                    ? t({ id: 'dungeon.route.mapHintPending', message: '位置数据待核验' })
+                    : t({ id: 'dungeon.route.mapHintSelect', message: '点击步骤切换地图上下文' })}
                 </span>
-                <div className="dungeon-map-panel__actions" aria-label="地图显示选项">
+                <div
+                  className="dungeon-map-panel__actions"
+                  aria-label={t({
+                    id: 'dungeon.detail.mapOptionsLabel',
+                    message: '地图显示选项',
+                  })}
+                >
                   <button
                     aria-controls="dungeon-route-map-content"
                     aria-expanded={!mapCollapsed}
@@ -231,7 +300,9 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
                     onClick={() => setMapCollapsed((current) => !current)}
                     type="button"
                   >
-                    {mapCollapsed ? '展开地图' : '收起地图'}
+                    {mapCollapsed
+                      ? t({ id: 'dungeon.route.toggleExpand', message: '展开地图' })
+                      : t({ id: 'dungeon.route.toggleCollapse', message: '收起地图' })}
                   </button>
                   <button
                     aria-pressed={mapExpanded}
@@ -242,7 +313,9 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
                     }}
                     type="button"
                   >
-                    {mapExpanded ? '退出聚焦' : '地图聚焦'}
+                    {mapExpanded
+                      ? t({ id: 'dungeon.route.toggleExitFocus', message: '退出聚焦' })
+                      : t({ id: 'dungeon.route.toggleFocus', message: '地图聚焦' })}
                   </button>
                 </div>
               </div>
@@ -259,7 +332,7 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
                   spawns={floorSpawns}
                 />
               ) : (
-                <p>路线尚未绑定楼层。</p>
+                <p>{t({ id: 'dungeon.route.noFloor', message: '路线尚未绑定楼层。' })}</p>
               )}
             </div>
           </section>
@@ -267,9 +340,11 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
             <div className="dungeon-panel__heading">
               <div>
                 <span className="dungeon-kicker">PULL SEQUENCE</span>
-                <h2>只读步骤</h2>
+                <h2>{t({ id: 'dungeon.route.stepsHeading', message: '只读步骤' })}</h2>
               </div>
-              <span className="dungeon-panel__hint">键盘选择步骤，地图同步高亮</span>
+              <span className="dungeon-panel__hint">
+                {t({ id: 'dungeon.route.stepsHint', message: '键盘选择步骤，地图同步高亮' })}
+              </span>
             </div>
             <ol className="dungeon-route-step-list">
               {route.steps.map((step) => (
@@ -292,7 +367,9 @@ function RouteDetail({ document, routeId }: { document: DungeonDocument; routeId
                 <span className="dungeon-kicker">LEARNING CONTEXT</span>
                 <h2>{selectedPull.title.zhCN}</h2>
               </div>
-              <span className="dungeon-panel__hint">先理解动作，再优化空间</span>
+              <span className="dungeon-panel__hint">
+                {t({ id: 'dungeon.route.learningHint', message: '先理解动作，再优化空间' })}
+              </span>
             </div>
             <p className="dungeon-route-rationale">{selectedPull.rationale.zhCN}</p>
             <div className="dungeon-chip-row">

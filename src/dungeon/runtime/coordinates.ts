@@ -24,6 +24,7 @@ import wind from '../data/coordinates/wind.json';
 import xenas from '../data/coordinates/xenas.json';
 import type { SpawnIdentityRegistry } from './reconcile';
 import type { CoordinateBindingIdentity, Floor, Spawn } from '../schema/types';
+import { RLP_SPAWN_SCALES } from '../data/rlpSpawnScales';
 import { checkSourceUse, dungeonSourceRegistry } from './sourceRegistry';
 
 export interface CoordinateReferenceEntry {
@@ -255,6 +256,15 @@ export interface CoordinateReference {
 }
 
 /**
+ * 各 dungeonKey 的 spawn 级体型表（threechest mob.scale × spawn.scale），把
+ * 文档预览与位置参考页的图标大小对齐。只有 RLP 有此快照；其余 dungeonKey
+ * 在 UI 层回退到 mdtFacts 的 NPC 体型（见 DungeonMap 的 getEnemyScale）。
+ */
+const referenceSpawnScaleTables: Readonly<Record<string, Readonly<Record<string, number>>>> = {
+  rlp: RLP_SPAWN_SCALES,
+};
+
+/**
  * Validate the committed source→stable identity sidecar before it is used to
  * construct Spawn objects. This deliberately rejects duplicate source IDs as
  * well as duplicate stable IDs; a Map alone would silently overwrite a row.
@@ -334,14 +344,25 @@ export function getCoordinateReference(
     bounds: boundsForSnapshot(snapshot),
     mapAssetKey: entry.mapAssetKey,
   };
-  const spawns: Spawn[] = snapshot.spawns.map((spawn) => ({
-    id: identityBySource?.get(spawn.sourceId)?.stableId ?? `${entry.id}:${spawn.sourceId}`,
-    enemyId: `${entry.id}:source-enemy:${spawn.sourceEnemyId}`,
-    floorId,
-    position: spawn.position,
-    sourceId: spawn.sourceId,
-    ...(spawn.groupId ? { groupId: spawn.groupId } : {}),
-    ...(spawn.patrol ? { patrol: { points: spawn.patrol } } : {}),
-  }));
+  const spawnScaleTable = referenceSpawnScaleTables[snapshot.dungeonKey];
+  const spawns: Spawn[] = snapshot.spawns.map((spawn) => {
+    // scale 表按剥离 dungeonKey 前缀后的裸 sourceId 键控；前缀剥离必须
+    // anchored——sourceId 自身含 `:`，非 anchored replace 会误伤中段出现。
+    const keyPrefix = `${snapshot.dungeonKey}:`;
+    const scaleKey = spawn.sourceId.startsWith(keyPrefix)
+      ? spawn.sourceId.slice(keyPrefix.length)
+      : spawn.sourceId;
+    const scale = spawnScaleTable?.[scaleKey];
+    return {
+      id: identityBySource?.get(spawn.sourceId)?.stableId ?? `${entry.id}:${spawn.sourceId}`,
+      enemyId: `${entry.id}:source-enemy:${spawn.sourceEnemyId}`,
+      floorId,
+      position: spawn.position,
+      sourceId: spawn.sourceId,
+      ...(scale !== undefined ? { scale } : {}),
+      ...(spawn.groupId ? { groupId: spawn.groupId } : {}),
+      ...(spawn.patrol ? { patrol: { points: spawn.patrol } } : {}),
+    };
+  });
   return { snapshot, floor, spawns };
 }

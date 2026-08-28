@@ -1,0 +1,117 @@
+{
+  "provider": "oss",
+  "assets": {
+    "midnight-s2:altar-of-fangs": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/fang/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:altar-of-fangs:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/midnight/altar_of_fangs.jpg"
+    },
+    "midnight-s2:den-of-nalorakk": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/nalo/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:den-of-nalorakk:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/midnight/den_of_nalorakk.jpg"
+    },
+    "midnight-s2:kings-rest": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/kr/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:kings-rest:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/bfa/kingsrest.jpg"
+    },
+    "midnight-s2:murder-row": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/murd/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:murder-row:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/midnight/murder_row.jpg"
+    },
+    "midnight-s2:ruby-life-pools": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/rlp/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:ruby-life-pools:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/df/rubylifepools.jpg"
+    },
+    "midnight-s2:temple-of-sethraliss": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/tos/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:temple-of-sethraliss:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/bfa/templeofsethraliss.jpg"
+    },
+    "midnight-s2:the-blinding-vale": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/vale/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:the-blinding-vale:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/midnight/the_blinding_vale.jpg"
+    },
+    "midnight-s2:voidscar-arena": {
+      "type": "tiles",
+      "urlTemplate": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/maps/void/{x}_{y}.jpg",
+      "tileSize": 64,
+      "origin": [
+        0,
+        0
+      ],
+      "flipY": true
+    },
+    "midnight-s2:voidscar-arena:artwork": {
+      "type": "image",
+      "url": "https://wcl-mythic-dungeon.oss-cn-beijing.aliyuncs.com/images/dungeons/midnight/voidscar_arena.jpg"
+    }
+  }
+}

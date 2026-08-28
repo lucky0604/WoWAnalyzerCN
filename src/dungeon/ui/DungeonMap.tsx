@@ -1,11 +1,18 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
+import { t } from '@lingui/core/macro';
+
 import {
-  RLP_SPELL_FACTS,
   dungeonSpellIconUrl,
+  getEnemyNameZh,
+  getEnemyScale,
+  getEnemySpellAttributes,
   getEnemySpellIds,
+  getSpellFact,
+  getSpellTooltipZh,
+  isEnemyBoss,
   npcPortraitUrl,
-} from '../data/rlpSpellReference';
+} from '../data/spellReference';
 import { RLP_SPELL_TOOLTIPS } from '../data/rlpSpellTooltips';
 import type { AbilityKnowledge, CoordinateBounds, Enemy, Floor, Spawn } from '../schema/types';
 import type { MapPoint, MapViewBox } from '../runtime/map';
@@ -59,6 +66,8 @@ interface ResolvedSpawn {
     icon: string;
     name: string;
     cnName?: string;
+    /** MDT 参考层的技能属性：可打断 / 驱散类型等。 */
+    interruptible: boolean;
     /** 预渲染技能说明(game-data 快照填充数值);仅在快照含描述时存在。 */
     description?: string;
   }>;
@@ -177,40 +186,55 @@ export function DungeonMap({
   }, [assetIdentity]);
 
   const enemiesById = useMemo(() => new Map(enemies?.map((enemy) => [enemy.id, enemy])), [enemies]);
+  const abilitiesById = useMemo(
+    () => new Map(abilities?.map((ability) => [ability.spellId, ability])),
+    [abilities],
+  );
+  const selectedSpawnSet = useMemo(() => new Set(selectedSpawnIds), [selectedSpawnIds]);
 
   const resolvedSpawns = useMemo<ResolvedSpawn[]>(
     () =>
       spawns.map((spawn) => {
         const enemy = enemiesById.get(spawn.enemyId);
-        const npcId = enemy?.npcId;
+        // 位置参考只传坐标层（无 enemies prop）：spawn.enemyId 形如
+        // `<dungeon>:source-enemy:<npcId>`，数字后缀就是坐标快照的
+        // sourceEnemyId，据此也能解析出头像与技能浮层。
+        const sourceNpcId = /:source-enemy:(\d+)$/.exec(spawn.enemyId)?.[1];
+        const npcId = enemy?.npcId ?? (sourceNpcId === undefined ? undefined : Number(sourceNpcId));
+        const attributes = getEnemySpellAttributes(npcId);
         const spells = (npcId === undefined ? [] : getEnemySpellIds(npcId))
           .map((spellId) => {
-            const fact = RLP_SPELL_FACTS[spellId];
+            const fact = getSpellFact(spellId);
             if (!fact) return undefined;
-            const authored = abilities?.find((ability) => ability.spellId === spellId);
+            const authored = abilitiesById.get(spellId);
+            // 说明/中文名优先级：已审校 abilities > RLP 金标准快照 >
+            // s2.zhTooltips 离线层（8 本 S2 通用，生成时已填充数值变量）。
+            const tooltipZh = getSpellTooltipZh(spellId);
             return {
               spellId,
               icon: fact.icon,
               name: fact.name,
-              cnName: authored?.name.zhCN,
-              description: RLP_SPELL_TOOLTIPS[spellId]?.zh,
+              cnName: authored?.name.zhCN ?? tooltipZh?.name,
+              interruptible: attributes.get(spellId)?.includes('interruptible') ?? false,
+              description: RLP_SPELL_TOOLTIPS[spellId]?.zh ?? tooltipZh?.desc,
             };
           })
           .filter((entry): entry is NonNullable<typeof entry> => entry !== undefined);
+        // 体型优先级：文档级 spawn.scale（rlp 快照）→ mdtFacts NPC mob.scale → 1。
+        // Boss 判定：文档敌人字段优先，参考页无敌人目录时回退 mdtFacts isBoss。
+        const spawnScale = spawn.scale ?? getEnemyScale(npcId) ?? 1;
+        const isBoss = enemy?.isBoss ?? isEnemyBoss(npcId);
         return {
           id: spawn.id,
           point: toDisplayPoint(coordinateToMapPoint(spawn.position)),
-          isSelected: selectedSpawnIds.includes(spawn.id),
+          isSelected: selectedSpawnSet.has(spawn.id),
           enemy,
           npcId,
-          size:
-            BASE_PORTRAIT_SIZE *
-            (spawn.scale ?? 1) *
-            (enemy?.isBoss ? BOSS_PORTRAIT_MULTIPLIER : 1),
+          size: BASE_PORTRAIT_SIZE * spawnScale * (isBoss ? BOSS_PORTRAIT_MULTIPLIER : 1),
           spells,
         };
       }),
-    [spawns, enemiesById, abilities, toDisplayPoint, selectedSpawnIds],
+    [spawns, enemiesById, abilitiesById, toDisplayPoint, selectedSpawnSet],
   );
 
   const resolvedById = useMemo(
@@ -221,7 +245,10 @@ export function DungeonMap({
   return (
     <div className="dungeon-map" data-asset-kind={asset.kind}>
       <svg
-        aria-label={`${floor.name.zhCN} 地图`}
+        aria-label={t({
+          id: 'dungeon.map.floorMapLabel',
+          message: `${floor.name.zhCN} 地图`,
+        })}
         className="dungeon-map__svg"
         role="group"
         viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`}
@@ -288,7 +315,10 @@ export function DungeonMap({
         {hullPath && <path className="dungeon-map__hull" d={hullPath} />}
         {patrolPaths.map((patrol) => (
           <path
-            aria-label={`${patrol.id} 巡逻路径`}
+            aria-label={t({
+              id: 'dungeon.map.patrolLabel',
+              message: `${patrol.id} 巡逻路径`,
+            })}
             className="dungeon-map__patrol"
             d={patrol.path}
             key={patrol.id}
@@ -310,7 +340,10 @@ export function DungeonMap({
           const rimRadius = size / 2 + rimWidth / 2;
           return (
             <g
-              aria-label={`${id} 位置`}
+              aria-label={t({
+                id: 'dungeon.map.spawnPositionLabel',
+                message: `${id} 位置`,
+              })}
               aria-pressed={isSelected}
               className={`dungeon-map__spawn ${isSelected ? 'is-selected' : ''} ${
                 tooltipTargetId === id ? 'is-active' : ''
@@ -366,7 +399,12 @@ export function DungeonMap({
                 />
               )}
               <title>
-                {enemy ? `${enemy.name.zhCN} (${id})` : `${id} 位置`}
+                {enemy
+                  ? `${enemy.name.zhCN} (${id})`
+                  : t({
+                      id: 'dungeon.map.spawnPositionTitle',
+                      message: `${id} 位置`,
+                    })}
               </title>
             </g>
           );
@@ -382,6 +420,10 @@ export function DungeonMap({
             const anchor = anchorPopover(resolved.point, viewBox, popoverHeight);
             const visibleSpells = resolved.spells.slice(0, MAX_POPOVER_SPELLS);
             const hiddenSpellCount = resolved.spells.length - visibleSpells.length;
+            const interruptibleLabel = t({
+              id: 'dungeon.map.interruptible',
+              message: '可打断',
+            });
             return (
               <foreignObject
                 className="dungeon-map__popover-fo"
@@ -404,11 +446,16 @@ export function DungeonMap({
                     )}
                     <div>
                       <strong>
-                        {resolved.enemy?.name.zhCN ?? `NPC ${resolved.npcId ?? ''}`}
+                        {resolved.enemy?.name.zhCN ??
+                          getEnemyNameZh(resolved.npcId) ??
+                          `NPC ${resolved.npcId ?? ''}`}
                       </strong>
                       <span>
                         {resolved.npcId !== undefined ? `NPC ${resolved.npcId}` : resolved.id} ·{' '}
-                        {resolved.spells.length} 个技能
+                        {t({
+                          id: 'dungeon.map.spellCount',
+                          message: `${resolved.spells.length} 个技能`,
+                        })}
                       </span>
                     </div>
                   </div>
@@ -423,6 +470,14 @@ export function DungeonMap({
                             src={dungeonSpellIconUrl(spell.icon)}
                             width={14}
                           />
+                          {spell.interruptible && (
+                            <span
+                              className="dungeon-map__spell-interrupt"
+                              title={interruptibleLabel}
+                            >
+                              {interruptibleLabel}
+                            </span>
+                          )}
                           <em>{spell.cnName ?? spell.name}</em>
                         </span>
                         {spell.description && (
@@ -434,11 +489,16 @@ export function DungeonMap({
                     ))}
                     {hiddenSpellCount > 0 && (
                       <li className="dungeon-map__popover-more">
-                        +{hiddenSpellCount} 更多技能
+                        {t({
+                          id: 'dungeon.map.moreSpells',
+                          message: `+${hiddenSpellCount} 更多技能`,
+                        })}
                       </li>
                     )}
                     {resolved.spells.length === 0 && (
-                      <li className="dungeon-map__popover-empty">技能清单待核验</li>
+                      <li className="dungeon-map__popover-empty">
+                        {t({ id: 'dungeon.map.spellbookPending', message: '技能清单待核验' })}
+                      </li>
                     )}
                   </ul>
                 </div>
@@ -448,11 +508,22 @@ export function DungeonMap({
       </svg>
       {!showRemoteImage && !showRemoteTiles && (
         <div className="dungeon-map__placeholder">
-          <strong>{imageFailed ? '地图背景加载失败' : '地图背景未配置'}</strong>
+          <strong>
+            {imageFailed
+              ? t({ id: 'dungeon.map.backdropFailed', message: '地图背景加载失败' })
+              : t({ id: 'dungeon.map.backdropMissing', message: '地图背景未配置' })}
+          </strong>
           <span>
             {imageFailed
-              ? '远程资源不可用，仍可使用坐标层。'
-              : (asset.reason ?? '坐标层仍可用于理解位置。')}
+              ? t({
+                  id: 'dungeon.map.backdropFailedDetail',
+                  message: '远程资源不可用，仍可使用坐标层。',
+                })
+              : (asset.reason ??
+                t({
+                  id: 'dungeon.map.backdropMissingDetail',
+                  message: '坐标层仍可用于理解位置。',
+                }))}
           </span>
         </div>
       )}
@@ -460,8 +531,15 @@ export function DungeonMap({
         <span>
           <i className="dungeon-map__legend-dot" /> spawn
         </span>
-        {patrolPaths.length > 0 && <span>— 巡逻路径</span>}
-        <span>{spawns.length} 个位置</span>
+        {patrolPaths.length > 0 && (
+          <span>{t({ id: 'dungeon.map.patrolLegend', message: '— 巡逻路径' })}</span>
+        )}
+        <span>
+          {t({
+            id: 'dungeon.map.spawnCountLabel',
+            message: `${spawns.length} 个位置`,
+          })}
+        </span>
       </div>
     </div>
   );

@@ -328,6 +328,25 @@
   display: grid;
   gap: 10px;
 }
+.learning-spatial {
+  margin: 28px 0 0;
+}
+.learning-spatial__floor {
+  margin: 10px 0 8px;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: design.$colors_unfocusedText;
+}
+.learning-spatial__map {
+  overflow: hidden;
+  border: 1px solid design.$level2_border;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.learning-spatial__map .dungeon-map {
+  min-height: 340px;
+}
 .learning-ability {
   display: grid;
   grid-template-columns: 4px 1fr;

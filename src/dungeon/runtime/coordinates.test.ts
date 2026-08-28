@@ -172,6 +172,23 @@ describe('coordinate references', () => {
     ).toBeUndefined();
   });
 
+  it('merges the RLP spawn-scale snapshot into reference spawns for map parity', () => {
+    const entry = season2DungeonCatalog.find((candidate) => candidate.id === 'ruby-life-pools')!;
+    const reference = getCoordinateReference(entry)!;
+    const scaleBySourceId = Object.fromEntries(
+      reference.spawns.map((spawn) => [spawn.sourceId, spawn.scale]),
+    );
+    // 与 rlpSpatialPreview.buildSpawns 同一张表:Juggernaut 2.2、Kokia 2、龙崽 0.8。
+    expect(scaleBySourceId['rlp:1-1']).toBe(2.2);
+    expect(scaleBySourceId['rlp:7-1']).toBe(2);
+    expect(scaleBySourceId['rlp:17-7']).toBe(0.8);
+    // 其余 S2 快照没有 spawn 级体型表,保持无 scale(UI 回退 mdtFacts NPC 体型)。
+    const otherReference = getCoordinateReference(
+      season2DungeonCatalog.find((candidate) => candidate.id === 'kings-rest')!,
+    )!;
+    expect(otherReference.spawns.every((spawn) => spawn.scale === undefined)).toBe(true);
+  });
+
   it('fails closed when the source approval is revoked at runtime', () => {
     const entry = season2DungeonCatalog.find((candidate) => candidate.id === 'kings-rest')!;
     const source = dungeonSourceRegistry.snapshots.find(
