@@ -5,9 +5,15 @@ const distRoot = resolve(
   process.argv.find((value) => value.startsWith('--dist='))?.slice('--dist='.length) ?? 'dist',
 );
 // Provider guard identifiers may legitimately remain in the shared runtime
-// chunk. The release invariant is that concrete Threechest/source URLs or
-// injected source values must not be embedded in production output.
-const forbiddenMarkers = ['threechest.io', 'DUNGEON_THREECHEST_SOURCE_URL'];
+// chunk. The release invariant is that concrete legacy-source URLs or injected
+// source values must not be embedded in production output. 资产已全部迁到
+// 自建 OSS（maps/{fang,nalo,kr,murd,rlp,tos,vale,void}、npc_portraits、
+// images/dungeons），threechest 与 keystone.guru 两个旧源站一律禁止出现。
+const forbiddenMarkers = [
+  'threechest.io',
+  'keystone.guru',
+  'DUNGEON_THREECHEST_SOURCE_URL',
+];
 
 async function collectFiles(path: string): Promise<string[]> {
   const entries = await readdir(path, { withFileTypes: true });
