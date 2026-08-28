@@ -1,0 +1,4676 @@
+{
+  "version": 1,
+  "source": "grimoire-wow",
+  "packageVersion": "12.1.0-69189.3",
+  "gameBuild": "12.1.0",
+  "capturedAt": "2026-08-26T00:00:00.000Z",
+  "dungeonCount": 8,
+  "enemyCount": 260,
+  "spellCount": 876,
+  "unknownGate": {
+    "1300666": "Could not find spell id 1300666"
+  },
+  "spells": {
+    "5543": {
+      "name": "Fade Out",
+      "icon": "spell_nature_invisibilty",
+      "attributes": []
+    },
+    "44427": {
+      "name": "Enrage",
+      "icon": "spell_shadow_unholyfrenzy",
+      "attributes": []
+    },
+    "110960": {
+      "name": "Greater Invisibility",
+      "icon": "ability_mage_greaterinvisibility",
+      "attributes": []
+    },
+    "181089": {
+      "name": "Encounter Event",
+      "icon": "inv_misc_questionmark",
+      "attributes": []
+    },
+    "262046": {
+      "name": "Melee",
+      "icon": "inv_trilobitemount_yellow",
+      "attributes": []
+    },
+    "263425": {
+      "name": "Arc Dash",
+      "icon": "ability_socererking_arcanewrath",
+      "attributes": []
+    },
+    "263958": {
+      "name": "A Knot of Snakes",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "264172": {
+      "name": "Burrow",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "264763": {
+      "name": "Spark Step",
+      "icon": "spell_shaman_crashlightning",
+      "attributes": []
+    },
+    "265773": {
+      "name": "Spit Gold",
+      "icon": "ability_creature_amber_01",
+      "attributes": []
+    },
+    "265781": {
+      "name": "Serpentine Gust",
+      "icon": "ability_skyreach_four_wind",
+      "attributes": []
+    },
+    "265910": {
+      "name": "Tail Thrash",
+      "icon": "ability_hunter_pet_windserpent",
+      "attributes": []
+    },
+    "265923": {
+      "name": "Lucre's Call",
+      "icon": "spell_holy_purifyingpower",
+      "attributes": []
+    },
+    "265966": {
+      "name": "Ground Pound",
+      "icon": "ability_smash",
+      "attributes": []
+    },
+    "265991": {
+      "name": "Luster",
+      "icon": "inv_misc_gem_pearl_04",
+      "attributes": []
+    },
+    "266191": {
+      "name": "Whirling Axe",
+      "icon": "ability_butcher_whirl",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "266206": {
+      "name": "Whirling Axes",
+      "icon": "ability_butcher_whirl",
+      "attributes": []
+    },
+    "266231": {
+      "name": "Severing Axe",
+      "icon": "ability_hunter_swiftstrike",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "266237": {
+      "name": "Debilitating Backhand",
+      "icon": "inv_relics_totemofrage",
+      "attributes": []
+    },
+    "266951": {
+      "name": "Barrel Through",
+      "icon": "ability_monk_clashingoxcharge",
+      "attributes": []
+    },
+    "267027": {
+      "name": "Poison Spit",
+      "icon": "ability_hunter_cobrastrikes",
+      "attributes": [
+        "interruptible",
+        "poison"
+      ]
+    },
+    "267060": {
+      "name": "Call of the Elements",
+      "icon": "ability_shaman_echooftheelements",
+      "attributes": []
+    },
+    "267077": {
+      "name": "Explode",
+      "icon": "spell_shaman_firenova",
+      "attributes": []
+    },
+    "267105": {
+      "name": "Torrent",
+      "icon": "ability_mage_waterjet",
+      "attributes": []
+    },
+    "267257": {
+      "name": "Disruption",
+      "icon": "ability_thunderking_thunderstruck",
+      "attributes": []
+    },
+    "267273": {
+      "name": "Poison Nova",
+      "icon": "ability_creature_disease_02",
+      "attributes": [
+        "interruptible",
+        "poison"
+      ]
+    },
+    "267483": {
+      "name": "Loose Sparks",
+      "icon": "ability_thunderking_lightningwhip",
+      "attributes": []
+    },
+    "267494": {
+      "name": "Barrel Through",
+      "icon": "ability_monk_clashingoxcharge",
+      "attributes": []
+    },
+    "267618": {
+      "name": "Drain Fluids",
+      "icon": "inv_misc_volatilewater",
+      "attributes": []
+    },
+    "267639": {
+      "name": "Burn Corruption",
+      "icon": "ability_siege_engineer_purification_beam",
+      "attributes": []
+    },
+    "267702": {
+      "name": "Entomb",
+      "icon": "achievement_bg_xkills_avgraveyard",
+      "attributes": []
+    },
+    "267763": {
+      "name": "Wretched Discharge",
+      "icon": "spell_festergutgas",
+      "attributes": [
+        "disease",
+        "interruptible"
+      ]
+    },
+    "267874": {
+      "name": "Burning Ground",
+      "icon": "ability_siege_engineer_purification_beam",
+      "attributes": []
+    },
+    "268013": {
+      "name": "Flame Shock",
+      "icon": "spell_fire_flameshock",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "268586": {
+      "name": "Blade Combo",
+      "icon": "ability_ironmaidens_bladerush",
+      "attributes": []
+    },
+    "268587": {
+      "name": "Blade Combo",
+      "icon": "ability_ironmaidens_bladerush",
+      "attributes": []
+    },
+    "268589": {
+      "name": "Blade Combo",
+      "icon": "ability_ironmaidens_bladerush",
+      "attributes": []
+    },
+    "268590": {
+      "name": "Blade Combo",
+      "icon": "ability_ironmaidens_bladerush",
+      "attributes": []
+    },
+    "268591": {
+      "name": "Blade Combo",
+      "icon": "ability_ironmaidens_bladerush",
+      "attributes": []
+    },
+    "269116": {
+      "name": "Draw Power",
+      "icon": "spell_nature_lightningshield",
+      "attributes": []
+    },
+    "269230": {
+      "name": "Hunting Leap",
+      "icon": "ability_druid_ravage",
+      "attributes": []
+    },
+    "269231": {
+      "name": "Hunting Leap",
+      "icon": "ability_druid_ravage",
+      "attributes": []
+    },
+    "269232": {
+      "name": "Hunting Leap",
+      "icon": "ability_druid_ravage",
+      "attributes": []
+    },
+    "269369": {
+      "name": "Deathly Roar",
+      "icon": "ability_hunter_beastmastery",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "269503": {
+      "name": "Blade Combo",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "269896": {
+      "name": "Embryonic Vigor",
+      "icon": "achievement_halloween_rottenegg_01",
+      "attributes": []
+    },
+    "269928": {
+      "name": "Vigilant Defense",
+      "icon": "creatureportrait_blackrockv2_shieldgong_02",
+      "attributes": []
+    },
+    "269935": {
+      "name": "Bound by Shadow",
+      "icon": "spell_shadow_summonvoidwalker",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "269972": {
+      "name": "Hex Volley",
+      "icon": "warlock_curse_shadow",
+      "attributes": [
+        "curse",
+        "interruptible"
+      ]
+    },
+    "269976": {
+      "name": "Ancestral Fury",
+      "icon": "spell_totem_wardofdraining",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "270003": {
+      "name": "Suppression Slam",
+      "icon": "ability_golemthunderclap",
+      "attributes": []
+    },
+    "270016": {
+      "name": "Released Inihibitors",
+      "icon": "spell_shadow_unholyfrenzy",
+      "attributes": []
+    },
+    "270292": {
+      "name": "Purifying Flame",
+      "icon": "spell_shaman_lavasurge",
+      "attributes": []
+    },
+    "270293": {
+      "name": "Purification Strike",
+      "icon": "spell_shaman_lavasurge",
+      "attributes": []
+    },
+    "270482": {
+      "name": "Violent Lunge",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "270485": {
+      "name": "Violent Lunge",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "270492": {
+      "name": "Hex",
+      "icon": "inv_zandalaribabyraptorred",
+      "attributes": [
+        "curse",
+        "interruptible"
+      ]
+    },
+    "270497": {
+      "name": "Healing Tide Totem",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "270499": {
+      "name": "Frost Shock",
+      "icon": "spell_frost_frostshock",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "270500": {
+      "name": "Hunting Leap",
+      "icon": "ability_druid_ravage",
+      "attributes": []
+    },
+    "270502": {
+      "name": "Hunting Leap",
+      "icon": "inv_ammo_arrow_06",
+      "attributes": []
+    },
+    "270503": {
+      "name": "Hunting Leap",
+      "icon": "ability_druid_ravage",
+      "attributes": []
+    },
+    "270514": {
+      "name": "Seismic Upheaval",
+      "icon": "ability_rogue_kidneyshot",
+      "attributes": []
+    },
+    "270889": {
+      "name": "Overload",
+      "icon": "spell_nature_callstorm",
+      "attributes": []
+    },
+    "270891": {
+      "name": "Overload",
+      "icon": "spell_nature_callstorm",
+      "attributes": []
+    },
+    "270901": {
+      "name": "Unholy Mending",
+      "icon": "spell_nature_regenerate",
+      "attributes": [
+        "interruptible",
+        "magic"
+      ]
+    },
+    "270920": {
+      "name": "Bind Soul",
+      "icon": "ability_warlock_soullink",
+      "attributes": [
+        "interruptible",
+        "magic"
+      ]
+    },
+    "270927": {
+      "name": "Bladestorm",
+      "icon": "ability_fixated_state_red",
+      "attributes": []
+    },
+    "270928": {
+      "name": "Bladestorm",
+      "icon": "ability_warrior_bladestorm",
+      "attributes": []
+    },
+    "270931": {
+      "name": "Shadow Volley",
+      "icon": "ability_hunter_chimerashot2",
+      "attributes": []
+    },
+    "271290": {
+      "name": "Open Coffin",
+      "icon": "achievement_bg_xkills_avgraveyard",
+      "attributes": []
+    },
+    "271555": {
+      "name": "Entomb",
+      "icon": "achievement_bg_xkills_avgraveyard",
+      "attributes": []
+    },
+    "271561": {
+      "name": "Wail of Mourning",
+      "icon": "spell_shadow_deathscream",
+      "attributes": []
+    },
+    "271562": {
+      "name": "Wail of Mourning",
+      "icon": "spell_shadow_deathscream",
+      "attributes": []
+    },
+    "271563": {
+      "name": "Embalming Fluid",
+      "icon": "inv_drink_31_embalmingfluid",
+      "attributes": []
+    },
+    "272654": {
+      "name": "Head Butt",
+      "icon": "inv_trilobitemount_black",
+      "attributes": []
+    },
+    "272655": {
+      "name": "Scouring Sand",
+      "icon": "spell_sandexplosion",
+      "attributes": []
+    },
+    "273225": {
+      "name": "Volley",
+      "icon": "inv_ammo_arrow_04",
+      "attributes": []
+    },
+    "273241": {
+      "name": "Wall of Sparks",
+      "icon": "spell_shadow_deathsembrace",
+      "attributes": []
+    },
+    "371471": {
+      "name": "Shape Earth",
+      "icon": "ability_earthen_pillar",
+      "attributes": []
+    },
+    "371489": {
+      "name": "Numbing Cold",
+      "icon": "spell_frost_arcticwinds",
+      "attributes": []
+    },
+    "371984": {
+      "name": "Frostbolt",
+      "icon": "spell_frost_frostbolt02",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "372047": {
+      "name": "Steel Barrage",
+      "icon": "inv_axe_1h_deathwingraiddw_d_01",
+      "attributes": []
+    },
+    "372087": {
+      "name": "Blazing Rush",
+      "icon": "spell_deathknight_butcher2",
+      "attributes": []
+    },
+    "372107": {
+      "name": "Molten Boulder",
+      "icon": "spell_mage_flameorb",
+      "attributes": []
+    },
+    "372730": {
+      "name": "Crushing Smash",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "372743": {
+      "name": "Ice Shield",
+      "icon": "ability_mage_coldasice",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "372749": {
+      "name": "Ice Shield",
+      "icon": "ability_mage_coldasice",
+      "attributes": []
+    },
+    "372793": {
+      "name": "Excavate",
+      "icon": "ability_gift_of_earth",
+      "attributes": []
+    },
+    "372794": {
+      "name": "Steel Barrage",
+      "icon": "inv_axe_1h_deathwingraiddw_d_01",
+      "attributes": []
+    },
+    "372808": {
+      "name": "Frigid Shard",
+      "icon": "spell_frost_iceshard",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "372811": {
+      "name": "Molten Boulder",
+      "icon": "spell_mage_flameorb",
+      "attributes": []
+    },
+    "372819": {
+      "name": "Molten Boulder",
+      "icon": "spell_mage_flameorb",
+      "attributes": []
+    },
+    "372820": {
+      "name": "Scorched Earth",
+      "icon": "spell_shaman_stormearthfire",
+      "attributes": []
+    },
+    "372851": {
+      "name": "Chillstorm",
+      "icon": "spell_shadow_soulleech_2",
+      "attributes": []
+    },
+    "372858": {
+      "name": "Searing Blows",
+      "icon": "ability_shaman_lavalash",
+      "attributes": []
+    },
+    "372859": {
+      "name": "Searing Blows",
+      "icon": "ability_shaman_lavalash",
+      "attributes": []
+    },
+    "372860": {
+      "name": "Searing Wounds",
+      "icon": "spell_fire_moltenblood",
+      "attributes": []
+    },
+    "372863": {
+      "name": "Ritual of Blazebinding",
+      "icon": "spell_fire_totemofwrath",
+      "attributes": []
+    },
+    "372988": {
+      "name": "Ice Bulwark",
+      "icon": "ability_mage_coldasice",
+      "attributes": []
+    },
+    "373017": {
+      "name": "Blaze Volley",
+      "icon": "spell_fire_flamebolt",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "373046": {
+      "name": "Awaken Whelps",
+      "icon": "inv_dragonwhelp3_gemmed_red",
+      "attributes": []
+    },
+    "373087": {
+      "name": "Burnout",
+      "icon": "spell_fire_selfdestruct",
+      "attributes": []
+    },
+    "373614": {
+      "name": "Burnout",
+      "icon": "spell_fire_selfdestruct",
+      "attributes": []
+    },
+    "373680": {
+      "name": "Frost Overload",
+      "icon": "spell_fire_blueflamering",
+      "attributes": []
+    },
+    "373688": {
+      "name": "Frost Overload",
+      "icon": "spell_fire_blueflamering",
+      "attributes": []
+    },
+    "373692": {
+      "name": "Inferno",
+      "icon": "ability_warlock_inferno",
+      "attributes": []
+    },
+    "373693": {
+      "name": "Living Bomb",
+      "icon": "inv_summerfest_firespirit",
+      "attributes": []
+    },
+    "373727": {
+      "name": "Frost Infusion",
+      "icon": "spell_frost_manarecharge",
+      "attributes": []
+    },
+    "373972": {
+      "name": "Blaze of Glory",
+      "icon": "inv_ember",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "373973": {
+      "name": "Blaze of Glory",
+      "icon": "inv_ember",
+      "attributes": []
+    },
+    "373977": {
+      "name": "Blaze of Glory",
+      "icon": "inv_ember",
+      "attributes": []
+    },
+    "381512": {
+      "name": "Stormslam",
+      "icon": "ability_shaman_stormstrike",
+      "attributes": []
+    },
+    "381513": {
+      "name": "Stormslam",
+      "icon": "ability_shaman_stormstrike",
+      "attributes": []
+    },
+    "381514": {
+      "name": "Stormslam",
+      "icon": "ability_shaman_stormstrike",
+      "attributes": []
+    },
+    "381515": {
+      "name": "Stormslam",
+      "icon": "ability_shaman_stormstrike",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "381516": {
+      "name": "Interrupting Cloudburst",
+      "icon": "spell_nature_cyclone",
+      "attributes": []
+    },
+    "381517": {
+      "name": "Winds of Change",
+      "icon": "spell_nature_purge",
+      "attributes": []
+    },
+    "381518": {
+      "name": "Winds of Change",
+      "icon": "spell_nature_purge",
+      "attributes": []
+    },
+    "381525": {
+      "name": "Roaring Firebreath",
+      "icon": "ability_warlock_inferno",
+      "attributes": []
+    },
+    "381526": {
+      "name": "Roaring Firebreath",
+      "icon": "ability_warlock_inferno",
+      "attributes": []
+    },
+    "381602": {
+      "name": "Inferno Spit",
+      "icon": "spell_fire_firebolt",
+      "attributes": []
+    },
+    "381605": {
+      "name": "Inferno Spit",
+      "icon": "spell_fire_firebolt",
+      "attributes": []
+    },
+    "381862": {
+      "name": "Inferno Spit",
+      "icon": "spell_fire_firebolt",
+      "attributes": []
+    },
+    "381864": {
+      "name": "Inferno Spit",
+      "icon": "spell_fire_firebolt",
+      "attributes": []
+    },
+    "383925": {
+      "name": "Chillstorm",
+      "icon": "spell_shadow_soulleech_2",
+      "attributes": []
+    },
+    "384024": {
+      "name": "Hailbombs",
+      "icon": "inv_10_specialreagentfoozles_primalistrune_frost",
+      "attributes": []
+    },
+    "384139": {
+      "name": "Summon Scorchlings",
+      "icon": "spell_fire_elemental_totem",
+      "attributes": []
+    },
+    "384194": {
+      "name": "Cinderbolt",
+      "icon": "spell_fire_firebolt",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "384773": {
+      "name": "Flaming Embers",
+      "icon": "spell_fire_felflamering_red",
+      "attributes": []
+    },
+    "384823": {
+      "name": "Inferno",
+      "icon": "ability_warlock_inferno",
+      "attributes": []
+    },
+    "384933": {
+      "name": "Ice Shield",
+      "icon": "ability_mage_coldasice",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "385310": {
+      "name": "Storm Bolt",
+      "icon": "spell_lightning_lightningbolt01",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "385311": {
+      "name": "Thunderstorm",
+      "icon": "spell_shaman_thunderstorm",
+      "attributes": []
+    },
+    "385312": {
+      "name": "Gathering Storm",
+      "icon": "spell_shaman_thunderstorm",
+      "attributes": []
+    },
+    "385313": {
+      "name": "Lightning Rod",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "385314": {
+      "name": "Lightning Rod",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "385316": {
+      "name": "Lightning Rod",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "385536": {
+      "name": "Flaming Barrage",
+      "icon": "ability_warlock_burningembers",
+      "attributes": []
+    },
+    "385567": {
+      "name": "Flaming Barrage",
+      "icon": "ability_warlock_burningembers",
+      "attributes": []
+    },
+    "391031": {
+      "name": "Stormcloud Barrier",
+      "icon": "spell_mage_temporalshield",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "391723": {
+      "name": "Flame Breath",
+      "icon": "ability_mage_firestarter",
+      "attributes": []
+    },
+    "391726": {
+      "name": "Storm Breath",
+      "icon": "inv_misc_stormlordsfavor",
+      "attributes": []
+    },
+    "391727": {
+      "name": "Storm Breath",
+      "icon": "inv_misc_stormlordsfavor",
+      "attributes": []
+    },
+    "392394": {
+      "name": "Fire Maw",
+      "icon": "ability_warrior_dragonroar",
+      "attributes": []
+    },
+    "392395": {
+      "name": "Thunder Jaw",
+      "icon": "inv_misc_stormdragonpale",
+      "attributes": []
+    },
+    "392399": {
+      "name": "Stormcloud Detonation",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "392406": {
+      "name": "Thunderous Stomp",
+      "icon": "ability_thunderclap",
+      "attributes": []
+    },
+    "392569": {
+      "name": "Molten Blood",
+      "icon": "spell_nzinsanity_floorislava",
+      "attributes": []
+    },
+    "392570": {
+      "name": "Molten Blood",
+      "icon": "spell_nzinsanity_floorislava",
+      "attributes": []
+    },
+    "392576": {
+      "name": "Thunder Blast",
+      "icon": "inv_misc_stormlordsfavor",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "392640": {
+      "name": "Rolling Thunder",
+      "icon": "spell_nature_lightningoverload",
+      "attributes": []
+    },
+    "392641": {
+      "name": "Rolling Thunder",
+      "icon": "spell_nature_lightningoverload",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "395292": {
+      "name": "Fire Maw",
+      "icon": "ability_warrior_dragonroar",
+      "attributes": []
+    },
+    "395303": {
+      "name": "Thunder Jaw",
+      "icon": "inv_misc_stormdragonpale",
+      "attributes": []
+    },
+    "396044": {
+      "name": "Hailburst",
+      "icon": "spell_frost_frostshock",
+      "attributes": []
+    },
+    "397077": {
+      "name": "Chillstorm",
+      "icon": "spell_shadow_soulleech_2",
+      "attributes": []
+    },
+    "473898": {
+      "name": "Legion Strike",
+      "icon": "inv_axe_09",
+      "attributes": []
+    },
+    "474197": {
+      "name": "Demonic Rage",
+      "icon": "ability_warlock_demonicempowerment",
+      "attributes": []
+    },
+    "474231": {
+      "name": "Burning Steps",
+      "icon": "ability_bossfellord_felfissure",
+      "attributes": []
+    },
+    "474234": {
+      "name": "Burning Steps",
+      "icon": "ability_bossfellord_felfissure",
+      "attributes": []
+    },
+    "474238": {
+      "name": "Illicit Infusion",
+      "icon": "ability_deathknight_deathsiphon",
+      "attributes": []
+    },
+    "474240": {
+      "name": "Fel Nova",
+      "icon": "spell_fire_felflamering",
+      "attributes": []
+    },
+    "474375": {
+      "name": "Chaos Bolt",
+      "icon": "ability_warlock_chaosbolt",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "474408": {
+      "name": "Summon Vilefiend",
+      "icon": "inv_argusfelstalkermount",
+      "attributes": []
+    },
+    "474457": {
+      "name": "Fingers of Gul'dan",
+      "icon": "ability_warlock_handofguldan",
+      "attributes": []
+    },
+    "474462": {
+      "name": "Fingers of Gul'dan",
+      "icon": "ability_warlock_handofguldan",
+      "attributes": []
+    },
+    "474478": {
+      "name": "Killing Spree",
+      "icon": "inv_112_rogue_betweentheeyes",
+      "attributes": []
+    },
+    "474483": {
+      "name": "Killing Spree",
+      "icon": "inv_112_rogue_betweentheeyes",
+      "attributes": []
+    },
+    "474515": {
+      "name": "Heartstop Poison",
+      "icon": "ability_boss_kilrogg_heartseeker",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "474545": {
+      "name": "Murder in a Row",
+      "icon": "inv_legendary_gun",
+      "attributes": []
+    },
+    "474740": {
+      "name": "Murder in a Row",
+      "icon": "ability_deathwing_bloodcorruption_death",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "474763": {
+      "name": "Murder in a Row",
+      "icon": "inv_legendary_gun",
+      "attributes": []
+    },
+    "474766": {
+      "name": "Same-Day Delivery",
+      "icon": "achievement_brewery_2",
+      "attributes": []
+    },
+    "474768": {
+      "name": "Delivery!",
+      "icon": "achievement_brewery_2",
+      "attributes": []
+    },
+    "734276": {
+      "name": "Murder in a Row",
+      "icon": "inv_legendary_gun",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1201554": {
+      "name": "Seduction",
+      "icon": "spell_shadow_seduction",
+      "attributes": [
+        "interruptible",
+        "magic"
+      ]
+    },
+    "1213658": {
+      "name": "Unsatisfied Customer",
+      "icon": "spell_misc_emotionangry",
+      "attributes": [
+        "enrage",
+        "interruptible"
+      ]
+    },
+    "1214260": {
+      "name": "Elated!",
+      "icon": "ui_embercourt-emoji-elated",
+      "attributes": []
+    },
+    "1214352": {
+      "name": "Fire Bomb",
+      "icon": "inv_eng_bombfire",
+      "attributes": []
+    },
+    "1214355": {
+      "name": "Fire Bomb",
+      "icon": "inv_eng_bombfire",
+      "attributes": []
+    },
+    "1214357": {
+      "name": "Fire Bomb",
+      "icon": "inv_eng_bombfire",
+      "attributes": []
+    },
+    "1214487": {
+      "name": "Awaiting Service",
+      "icon": "spell_mage_altertime",
+      "attributes": []
+    },
+    "1214637": {
+      "name": "Axe Toss",
+      "icon": "ability_warrior_titansgrip",
+      "attributes": []
+    },
+    "1214641": {
+      "name": "Axe Toss",
+      "icon": "ability_warrior_titansgrip",
+      "attributes": []
+    },
+    "1214647": {
+      "name": "Axe Toss",
+      "icon": "ability_warrior_titansgrip",
+      "attributes": []
+    },
+    "1214650": {
+      "name": "Fel Lightning",
+      "icon": "ability_monk_cracklingjadelightning",
+      "attributes": []
+    },
+    "1214663": {
+      "name": "Axe Toss",
+      "icon": "ability_warrior_titansgrip",
+      "attributes": []
+    },
+    "1214675": {
+      "name": "Demonic Gateway",
+      "icon": "spell_warlock_demonicportal_purple",
+      "attributes": []
+    },
+    "1214730": {
+      "name": "Demonic Gateway",
+      "icon": "spell_warlock_demonicportal_purple",
+      "attributes": []
+    },
+    "1214740": {
+      "name": "Demonic Gateway",
+      "icon": "spell_warlock_demonicportal_purple",
+      "attributes": []
+    },
+    "1214922": {
+      "name": "Fel Rage",
+      "icon": "ability_creature_felfrenzy",
+      "attributes": [
+        "enrage",
+        "interruptible"
+      ]
+    },
+    "1214959": {
+      "name": "Chaotic Burst",
+      "icon": "ability_demonhunter_chaosnova",
+      "attributes": []
+    },
+    "1214966": {
+      "name": "Fel Infused",
+      "icon": "inv_ember_fel",
+      "attributes": []
+    },
+    "1214980": {
+      "name": "Health Funnel",
+      "icon": "spell_shadow_lifedrain",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1215872": {
+      "name": "Fel Beam",
+      "icon": "spell_fire_felflamestrike",
+      "attributes": []
+    },
+    "1215961": {
+      "name": "Fel Beam",
+      "icon": "spell_fire_felflamestrike",
+      "attributes": []
+    },
+    "1215985": {
+      "name": "Fel Beam",
+      "icon": "spell_fire_felflamestrike",
+      "attributes": []
+    },
+    "1216074": {
+      "name": "Spill Zone",
+      "icon": "inv_ability_poison_groundstate",
+      "attributes": []
+    },
+    "1216076": {
+      "name": "Nauseous",
+      "icon": "ability_creature_poison_06",
+      "attributes": []
+    },
+    "1216284": {
+      "name": "Stealth",
+      "icon": "ability_stealth",
+      "attributes": []
+    },
+    "1216300": {
+      "name": "Cutpurse",
+      "icon": "ability_warrior_deepcuts",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1216529": {
+      "name": "Shield Bash",
+      "icon": "ability_warrior_shieldbash",
+      "attributes": []
+    },
+    "1216538": {
+      "name": "Fel Detonation",
+      "icon": "spell_fel_elementaldevastation",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1216570": {
+      "name": "Fel Missiles",
+      "icon": "spell_fire_felrainoffire",
+      "attributes": []
+    },
+    "1216571": {
+      "name": "Fel Missiles",
+      "icon": "spell_fire_felrainoffire",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1216589": {
+      "name": "Heartstop Poison",
+      "icon": "ability_boss_kilrogg_heartseeker",
+      "attributes": []
+    },
+    "1216590": {
+      "name": "Heartstop Poison",
+      "icon": "ability_boss_kilrogg_heartseeker",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1216945": {
+      "name": "Searing Fel Flame",
+      "icon": "spell_fire_felfirenova",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1216954": {
+      "name": "Eye Beam",
+      "icon": "ability_demonhunter_eyebeam",
+      "attributes": []
+    },
+    "1216955": {
+      "name": "Eye Beam",
+      "icon": "ability_demonhunter_eyebeam",
+      "attributes": []
+    },
+    "1216970": {
+      "name": "Back to Work!",
+      "icon": "warrior_disruptingshout",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1217099": {
+      "name": "Fel-Infused Freight",
+      "icon": "inv_ember_fel",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1217123": {
+      "name": "Fire Bomb",
+      "icon": "inv_eng_bombfire",
+      "attributes": []
+    },
+    "1217345": {
+      "name": "Malefic Wave",
+      "icon": "ability_felarakkoa_feldetonation_green",
+      "attributes": []
+    },
+    "1217384": {
+      "name": "Malefic Wave",
+      "icon": "ability_felarakkoa_feldetonation_green",
+      "attributes": []
+    },
+    "1217415": {
+      "name": "Felshield",
+      "icon": "spell_fire_felfireward",
+      "attributes": []
+    },
+    "1217464": {
+      "name": "Illicit Infusion",
+      "icon": "ability_deathknight_deathsiphon",
+      "attributes": []
+    },
+    "1217633": {
+      "name": "Corroding Spittle",
+      "icon": "inv_fabric_felcloth_ebon",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1217881": {
+      "name": "Shadow Bite",
+      "icon": "spell_shadow_soulleech_3",
+      "attributes": []
+    },
+    "1217930": {
+      "name": "Imprison",
+      "icon": "ability_demonhunter_imprison",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1217937": {
+      "name": "Release Demon",
+      "icon": "ability_demonhunter_imprison",
+      "attributes": []
+    },
+    "1217973": {
+      "name": "Curse of Doom",
+      "icon": "spell_shadow_auraofdarkness",
+      "attributes": [
+        "curse"
+      ]
+    },
+    "1217989": {
+      "name": "Felshield",
+      "icon": "spell_fire_felfireward",
+      "attributes": []
+    },
+    "1217992": {
+      "name": "Workplace Accident",
+      "icon": "ability_warrior_throwdown",
+      "attributes": []
+    },
+    "1218187": {
+      "name": "Fel Beam",
+      "icon": "ability_hunter_snipershot",
+      "attributes": []
+    },
+    "1218347": {
+      "name": "Murder in a Row",
+      "icon": "inv_legendary_gun",
+      "attributes": []
+    },
+    "1218465": {
+      "name": "Server",
+      "icon": "inv_misc_clipboard01",
+      "attributes": []
+    },
+    "1218466": {
+      "name": "Cleaner",
+      "icon": "inv_pet_broom",
+      "attributes": []
+    },
+    "1218467": {
+      "name": "Entertainer",
+      "icon": "inv_misc_discoball_01",
+      "attributes": []
+    },
+    "1218468": {
+      "name": "Bouncer",
+      "icon": "ability_kick",
+      "attributes": []
+    },
+    "1218508": {
+      "name": "Disguised",
+      "icon": "ability_rogue_disguise",
+      "attributes": []
+    },
+    "1219468": {
+      "name": "Enchanted Party Mask",
+      "icon": "inv_helm_mask_fittedalpha_b_01_nightborne_01",
+      "attributes": []
+    },
+    "1219631": {
+      "name": "Fel-Infused Freight",
+      "icon": "inv_ember_fel",
+      "attributes": []
+    },
+    "1221063": {
+      "name": "Xal'atath's Gift",
+      "icon": "spell_shadow_shadowembrace",
+      "attributes": []
+    },
+    "1222100": {
+      "name": "Nether Dash",
+      "icon": "ability_mount_voidelfstridermount",
+      "attributes": []
+    },
+    "1222103": {
+      "name": "Nether Dash",
+      "icon": "ability_mount_voidelfstridermount",
+      "attributes": []
+    },
+    "1222105": {
+      "name": "Nether Dash",
+      "icon": "ability_mount_voidelfstridermount",
+      "attributes": []
+    },
+    "1222484": {
+      "name": "Poison Pool",
+      "icon": "ability_creature_poison_06",
+      "attributes": []
+    },
+    "1222519": {
+      "name": "Provoke Creeper",
+      "icon": "inv_voidcreepermount_yellow",
+      "attributes": []
+    },
+    "1222598": {
+      "name": "Murder in a Row",
+      "icon": "inv_legendary_gun",
+      "attributes": []
+    },
+    "1222642": {
+      "name": "Hulking Claw",
+      "icon": "ability_creature_poison_03",
+      "attributes": []
+    },
+    "1222692": {
+      "name": "Toxic Aura",
+      "icon": "spell_shadow_plaguecloud",
+      "attributes": []
+    },
+    "1222693": {
+      "name": "Toxic Aura",
+      "icon": "spell_shadow_plaguecloud",
+      "attributes": []
+    },
+    "1222721": {
+      "name": "Noxious Breath",
+      "icon": "ability_creature_poison_05",
+      "attributes": []
+    },
+    "1222724": {
+      "name": "Noxious Breath",
+      "icon": "ability_creature_poison_05",
+      "attributes": []
+    },
+    "1222755": {
+      "name": "Void Cascade",
+      "icon": "inv_cosmicvoid_missile",
+      "attributes": []
+    },
+    "1222795": {
+      "name": "Envenom",
+      "icon": "ability_rogue_disembowel",
+      "attributes": []
+    },
+    "1223204": {
+      "name": "Felfire Burst",
+      "icon": "spell_fire_felflamebolt",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1223906": {
+      "name": "Fel Nova",
+      "icon": "spell_fire_felflamering",
+      "attributes": []
+    },
+    "1223939": {
+      "name": "Envenom",
+      "icon": "ability_rogue_disembowel",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1225638": {
+      "name": "Loose Sparks",
+      "icon": "ability_thunderking_lightningwhip",
+      "attributes": []
+    },
+    "1226031": {
+      "name": "Poison Splash",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1226120": {
+      "name": "Poison Splash",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1226469": {
+      "name": "Malefic Empowerment",
+      "icon": "ability_felarakkoa_feldetonation_green",
+      "attributes": []
+    },
+    "1227020": {
+      "name": "Dimensional Shred",
+      "icon": "ability_rogue_masterofsubtlety",
+      "attributes": []
+    },
+    "1227197": {
+      "name": "Cosmic Crash",
+      "icon": "inv_cosmicvoid_groundsate",
+      "attributes": []
+    },
+    "1227247": {
+      "name": "Void Cascade",
+      "icon": "inv_cosmicvoid_missile",
+      "attributes": []
+    },
+    "1228126": {
+      "name": "Macestorm",
+      "icon": "ability_paladin_enlightenedjudgements",
+      "attributes": []
+    },
+    "1228127": {
+      "name": "Macestorm",
+      "icon": "ability_paladin_enlightenedjudgements",
+      "attributes": []
+    },
+    "1228176": {
+      "name": "Lava Bolt",
+      "icon": "spell_shaman_lavaburst",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1228198": {
+      "name": "Corroding Spittle",
+      "icon": "inv_fabric_felcloth_ebon",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1229433": {
+      "name": "Fel Crazed",
+      "icon": "spell_fire_felimmolation",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1230289": {
+      "name": "Illicit Infusion",
+      "icon": "ability_deathknight_deathsiphon",
+      "attributes": []
+    },
+    "1230298": {
+      "name": "Chaos Barrage",
+      "icon": "spell_fire_felrainoffire",
+      "attributes": []
+    },
+    "1230304": {
+      "name": "Light Infusion",
+      "icon": "spell_paladin_lightofdawn",
+      "attributes": []
+    },
+    "1231256": {
+      "name": "Infernal Rage",
+      "icon": "inv_infernalmount",
+      "attributes": []
+    },
+    "1231262": {
+      "name": "Felfire Core",
+      "icon": "spell_fire_felimmolation",
+      "attributes": []
+    },
+    "1231353": {
+      "name": "Felfire Core",
+      "icon": "spell_fire_felimmolation",
+      "attributes": []
+    },
+    "1232012": {
+      "name": "Serrated Fists",
+      "icon": "inv_archaeology_80_witch_bonescythe",
+      "attributes": []
+    },
+    "1233264": {
+      "name": "Blisterburst",
+      "icon": "ability_evoker_essenceburst4",
+      "attributes": []
+    },
+    "1233398": {
+      "name": "Mad Shriek",
+      "icon": "spell_shadow_psychicscream",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1233472": {
+      "name": "Rip and Slice",
+      "icon": "inv_10_specialreagentfoozles_tuskclaw-black",
+      "attributes": []
+    },
+    "1233485": {
+      "name": "Rip and Slice",
+      "icon": "inv_10_specialreagentfoozles_tuskclaw-black",
+      "attributes": []
+    },
+    "1233535": {
+      "name": "Shred Defense",
+      "icon": "ability_druid_ravage",
+      "attributes": []
+    },
+    "1234021": {
+      "name": "Earthshatter Slam",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1234233": {
+      "name": "Spoiled Supplies",
+      "icon": "ability_creature_disease_01",
+      "attributes": []
+    },
+    "1234314": {
+      "name": "Snowdrift",
+      "icon": "spell_hunter_icetrap",
+      "attributes": []
+    },
+    "1234681": {
+      "name": "Ravenous Bellow",
+      "icon": "ability_druid_challangingroar",
+      "attributes": []
+    },
+    "1234734": {
+      "name": "Spoiled Supplies",
+      "icon": "ability_creature_disease_01",
+      "attributes": []
+    },
+    "1234753": {
+      "name": "Bedrock Slam",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1234773": {
+      "name": "Bedrock Slam",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1234802": {
+      "name": "Fertile Loam",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1234833": {
+      "name": "Ravenous Swarm",
+      "icon": "inv_ability_druid_adaptiveswarm",
+      "attributes": []
+    },
+    "1234846": {
+      "name": "Toxic Spores",
+      "icon": "ability_creature_poison_06",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1234850": {
+      "name": "Lightsower Dash",
+      "icon": "rogue_burstofspeed",
+      "attributes": []
+    },
+    "1234855": {
+      "name": "Insidious Aura",
+      "icon": "ability_warlock_burningembersgreen",
+      "attributes": []
+    },
+    "1234890": {
+      "name": "Smashing Charge",
+      "icon": "inv_fellessergronnmount",
+      "attributes": []
+    },
+    "1234917": {
+      "name": "Smashing Charge",
+      "icon": "inv_fellessergronnmount",
+      "attributes": []
+    },
+    "1235072": {
+      "name": "Resourceful Measures",
+      "icon": "inv_crate_08",
+      "attributes": []
+    },
+    "1235075": {
+      "name": "Resourceful Measures",
+      "icon": "inv_crate_08",
+      "attributes": []
+    },
+    "1235076": {
+      "name": "Resourceful Measures",
+      "icon": "inv_crate_08",
+      "attributes": []
+    },
+    "1235079": {
+      "name": "Satiated",
+      "icon": "inv_misc_food_legion_heartyfeast",
+      "attributes": []
+    },
+    "1235105": {
+      "name": "Overflowing Supplies",
+      "icon": "druid_ability_wildmushroom_b",
+      "attributes": []
+    },
+    "1235125": {
+      "name": "Hearty Bellow",
+      "icon": "ability_warrior_battleshout",
+      "attributes": []
+    },
+    "1235129": {
+      "name": "Bonespike Slam",
+      "icon": "ability_deathknight_bonegrinder",
+      "attributes": []
+    },
+    "1235405": {
+      "name": "Bonespiked",
+      "icon": "ability_deathknight_brittlebones",
+      "attributes": []
+    },
+    "1235546": {
+      "name": "Lightsower Dash",
+      "icon": "rogue_burstofspeed",
+      "attributes": []
+    },
+    "1235548": {
+      "name": "Glacial Torment",
+      "icon": "inv12_apextalent_mage_handoffrost",
+      "attributes": []
+    },
+    "1235549": {
+      "name": "Glacial Torment",
+      "icon": "inv12_apextalent_mage_handoffrost",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1235564": {
+      "name": "Lightblossom Beam",
+      "icon": "ability_paladin_infusionoflight",
+      "attributes": []
+    },
+    "1235574": {
+      "name": "Lightblossom Beam",
+      "icon": "ability_paladin_infusionoflight",
+      "attributes": []
+    },
+    "1235616": {
+      "name": "Light Bolt",
+      "icon": "spell_holy_holybolt",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1235623": {
+      "name": "Raging Squall",
+      "icon": "ability_deathknight_frozencenter",
+      "attributes": []
+    },
+    "1235635": {
+      "name": "Raging Squall",
+      "icon": "ability_deathknight_frozencenter",
+      "attributes": []
+    },
+    "1235638": {
+      "name": "Raging Squall",
+      "icon": "ability_deathknight_frozencenter",
+      "attributes": []
+    },
+    "1235640": {
+      "name": "Thornblade",
+      "icon": "spell_nature_thorns",
+      "attributes": []
+    },
+    "1235641": {
+      "name": "Raging Squall",
+      "icon": "ability_deathknight_frozencenter",
+      "attributes": []
+    },
+    "1235642": {
+      "name": "Thornblade",
+      "icon": "spell_nature_thorns",
+      "attributes": []
+    },
+    "1235656": {
+      "name": "Frozen Tempest",
+      "icon": "spell_frost_ring-of frost",
+      "attributes": []
+    },
+    "1235658": {
+      "name": "Frozen Tempest",
+      "icon": "spell_frost_ring-of frost",
+      "attributes": []
+    },
+    "1235752": {
+      "name": "Lightbloom Overgrowth",
+      "icon": "inv_misc_herb_dreamingglory",
+      "attributes": []
+    },
+    "1235783": {
+      "name": "Shattering Frostspike",
+      "icon": "ability_deathknight_pillaroffrost",
+      "attributes": []
+    },
+    "1235795": {
+      "name": "Shattering Frostspike",
+      "icon": "ability_deathknight_pillaroffrost",
+      "attributes": []
+    },
+    "1235828": {
+      "name": "Light-Scorched Earth",
+      "icon": "inv_ability_holyfire_groundstate",
+      "attributes": []
+    },
+    "1235829": {
+      "name": "Winter's Shroud",
+      "icon": "ability_deathknight_icygrip",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1235865": {
+      "name": "Thornblade",
+      "icon": "spell_nature_thorns",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1236289": {
+      "name": "Blizzard's Wrath",
+      "icon": "ability_mage_deepfreeze",
+      "attributes": []
+    },
+    "1236709": {
+      "name": "Thorncaller Roar",
+      "icon": "inv_misc_herb_nightmarevine",
+      "attributes": []
+    },
+    "1236731": {
+      "name": "Thorncaller Roar",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "1236746": {
+      "name": "Verdant Stomp",
+      "icon": "inv_raptortravelform",
+      "attributes": []
+    },
+    "1236747": {
+      "name": "Verdant Stomp",
+      "icon": "inv_raptortravelform",
+      "attributes": []
+    },
+    "1237073": {
+      "name": "Lightcrazed Frenzy",
+      "icon": "ability_monk_explodingjadeblossom",
+      "attributes": []
+    },
+    "1237093": {
+      "name": "Crushing Footfalls",
+      "icon": "shaman_pvp_rockshield",
+      "attributes": []
+    },
+    "1237166": {
+      "name": "Incise",
+      "icon": "inv_misc_monsterfang_02",
+      "attributes": []
+    },
+    "1237267": {
+      "name": "Incise",
+      "icon": "inv_misc_monsterfang_02",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1237330": {
+      "name": "Bloodthorn Roots",
+      "icon": "inv_-misc_herb_marrowroot_leaf",
+      "attributes": []
+    },
+    "1237855": {
+      "name": "Earthrupture Strike",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1237858": {
+      "name": "Ruptured Earth",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1238053": {
+      "name": "Mother's Wrath",
+      "icon": "spell_misc_emotionangry",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1238063": {
+      "name": "Light Bolt",
+      "icon": "inv_ability_holyfire_missile",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1238066": {
+      "name": "Thornblade",
+      "icon": "spell_nature_thorns",
+      "attributes": []
+    },
+    "1238071": {
+      "name": "Thornblade",
+      "icon": "spell_nature_thorns",
+      "attributes": []
+    },
+    "1238076": {
+      "name": "Thornblade",
+      "icon": "spell_nature_thorns",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1238084": {
+      "name": "Spore Spines",
+      "icon": "inv_misc_herb_04",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1238158": {
+      "name": "Lightbloom Pollination",
+      "icon": "spell_holy_surgeoflight",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1238173": {
+      "name": "Pollen Surge",
+      "icon": "inv_misc_herb_dreamingglory",
+      "attributes": []
+    },
+    "1238200": {
+      "name": "Frantic Blooming",
+      "icon": "inv_desertlasherorchid_yellow",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1238232": {
+      "name": "Seed Shot",
+      "icon": "inv_herbalism_70_yserallineseed",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1238294": {
+      "name": "Disorienting Screech",
+      "icon": "inv_111_hunter_ability_harrierscall",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1238368": {
+      "name": "Lightmaw Beams",
+      "icon": "inv_ability_holyfire_beam",
+      "attributes": []
+    },
+    "1238439": {
+      "name": "Razor Dive",
+      "icon": "inv_10_specialreagentfoozles_tuskclaw_fire",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1238440": {
+      "name": "Razor Dive",
+      "icon": "inv_10_specialreagentfoozles_tuskclaw_fire",
+      "attributes": []
+    },
+    "1238463": {
+      "name": "Lightmaw Beams",
+      "icon": "inv_ability_holyfire_beam",
+      "attributes": []
+    },
+    "1238581": {
+      "name": "Spiny Shield",
+      "icon": "inv_beetleprimal_purple",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1238588": {
+      "name": "Spiny Shield",
+      "icon": "inv_beetleprimal_purple",
+      "attributes": []
+    },
+    "1238638": {
+      "name": "Bullet Seeds",
+      "icon": "spell_shaman_convection",
+      "attributes": []
+    },
+    "1238642": {
+      "name": "Bullet Seeds",
+      "icon": "spell_shaman_convection",
+      "attributes": []
+    },
+    "1238687": {
+      "name": "Feast of Misery",
+      "icon": "spell_shadow_lifedrain02_purple",
+      "attributes": []
+    },
+    "1238725": {
+      "name": "Feast of Misery",
+      "icon": "spell_shadow_lifedrain02_purple",
+      "attributes": []
+    },
+    "1238760": {
+      "name": "Starvation Effigy",
+      "icon": "inv_archaeology_80_zandalari_sanguinetotem",
+      "attributes": []
+    },
+    "1238801": {
+      "name": "Insatiable Hunger",
+      "icon": "ability_warlock_improvedsoulleech",
+      "attributes": [
+        "curse"
+      ]
+    },
+    "1239394": {
+      "name": "Scavenge",
+      "icon": "inv_vulturemount_black",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1239821": {
+      "name": "Warden's Wrath",
+      "icon": "spell_nature_wispsplodegreen",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1239824": {
+      "name": "Lightfire",
+      "icon": "inv_ability_holyfire_buff",
+      "attributes": []
+    },
+    "1239825": {
+      "name": "Lightfire",
+      "icon": "inv_ability_holyfire_buff",
+      "attributes": []
+    },
+    "1239855": {
+      "name": "Sky Strike",
+      "icon": "ability_racial_wingbuffet",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1239856": {
+      "name": "Sky Strike",
+      "icon": "ability_racial_wingbuffet",
+      "attributes": []
+    },
+    "1239860": {
+      "name": "Cryo Surge",
+      "icon": "spell_mage_frostbomb",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1239871": {
+      "name": "Cryo Surge",
+      "icon": "spell_mage_frostbomb",
+      "attributes": []
+    },
+    "1239882": {
+      "name": "Shapeshift: Moonkin",
+      "icon": "talentspec_druid_balance",
+      "attributes": []
+    },
+    "1239883": {
+      "name": "Shapeshift: Haranir",
+      "icon": "talentspec_druid_restoration",
+      "attributes": []
+    },
+    "1239885": {
+      "name": "Shapeshift: Bear",
+      "icon": "ability_racial_bearform",
+      "attributes": []
+    },
+    "1239919": {
+      "name": "Lightfire Beams",
+      "icon": "inv_ability_holyfire_beam",
+      "attributes": []
+    },
+    "1240100": {
+      "name": "Lightfall",
+      "icon": "inv_ability_holyfire_missile",
+      "attributes": []
+    },
+    "1240152": {
+      "name": "Lightfall",
+      "icon": "inv_ability_holyfire_missile",
+      "attributes": []
+    },
+    "1240210": {
+      "name": "Pulverizing Strikes",
+      "icon": "ability_druid_swipe",
+      "attributes": []
+    },
+    "1240257": {
+      "name": "Pulverizing Strikes",
+      "icon": "ability_druid_swipe",
+      "attributes": []
+    },
+    "1240280": {
+      "name": "Pulverize",
+      "icon": "ability_smash",
+      "attributes": []
+    },
+    "1241058": {
+      "name": "Grievous Thrash",
+      "icon": "spell_druid_bloodythrash",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1241067": {
+      "name": "Spirits of the Vale",
+      "icon": "inv_ability_druid_convokethespirits",
+      "attributes": []
+    },
+    "1241214": {
+      "name": "Earth Bolt",
+      "icon": "inv_10_elementalshardfoozles_earth",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1241217": {
+      "name": "Shredding Claws",
+      "icon": "inv_misc_monsterclaw_03",
+      "attributes": []
+    },
+    "1241219": {
+      "name": "Matriarch's Vigil",
+      "icon": "ability_evoker_discerningeye",
+      "attributes": []
+    },
+    "1241226": {
+      "name": "Bloodrush",
+      "icon": "spell_shadow_unholyfrenzy",
+      "attributes": []
+    },
+    "1241463": {
+      "name": "Glacial Tomb",
+      "icon": "ability_mage_coldasice",
+      "attributes": []
+    },
+    "1241464": {
+      "name": "Glacial Tomb",
+      "icon": "ability_mage_coldasice",
+      "attributes": []
+    },
+    "1242135": {
+      "name": "Grievous Gash",
+      "icon": "inv_ability_druidoftheclawdruid_ravage",
+      "attributes": []
+    },
+    "1242138": {
+      "name": "Solar Breath",
+      "icon": "ability_skyreach_solar_burst",
+      "attributes": []
+    },
+    "1242180": {
+      "name": "Lightwarden's Blight",
+      "icon": "inv_ability_holyfire_debuff",
+      "attributes": []
+    },
+    "1242200": {
+      "name": "Lightwarden's Blight",
+      "icon": "inv_ability_holyfire_debuff",
+      "attributes": []
+    },
+    "1242244": {
+      "name": "Blight Propagation",
+      "icon": "inv_ability_holyfire_orb",
+      "attributes": []
+    },
+    "1242860": {
+      "name": "Echoing Maul",
+      "icon": "inv_ability_druidoftheclawdruid_ravage",
+      "attributes": []
+    },
+    "1242869": {
+      "name": "Echoing Maul",
+      "icon": "inv_ability_druidoftheclawdruid_ravage",
+      "attributes": []
+    },
+    "1242887": {
+      "name": "Echoing Maul",
+      "icon": "inv_ability_druidoftheclawdruid_ravage",
+      "attributes": []
+    },
+    "1242976": {
+      "name": "Echoing Maul",
+      "icon": "inv_ability_druidoftheclawdruid_ravage",
+      "attributes": []
+    },
+    "1243002": {
+      "name": "Fury of the War God",
+      "icon": "spell_nature_shamanrage",
+      "attributes": []
+    },
+    "1243011": {
+      "name": "Fury of the War God",
+      "icon": "ability_warrior_charge",
+      "attributes": []
+    },
+    "1243018": {
+      "name": "Concussive Shock",
+      "icon": "spell_frost_stun",
+      "attributes": []
+    },
+    "1243078": {
+      "name": "Burden of War",
+      "icon": "ability_demonhunter_infernalchains",
+      "attributes": []
+    },
+    "1243273": {
+      "name": "Fury of the War God",
+      "icon": "ability_warrior_charge",
+      "attributes": []
+    },
+    "1243408": {
+      "name": "Echoing Fury",
+      "icon": "ability_xavius_tormentingswipe",
+      "attributes": []
+    },
+    "1243569": {
+      "name": "Overwhelming Onslaught",
+      "icon": "spell_druid_thrash",
+      "attributes": []
+    },
+    "1243856": {
+      "name": "Defensive Stance",
+      "icon": "ability_warrior_safeguard",
+      "attributes": []
+    },
+    "1245186": {
+      "name": "Head Bash",
+      "icon": "inv_fellessergronnmount",
+      "attributes": []
+    },
+    "1245593": {
+      "name": "Putrid Burst",
+      "icon": "inv_ability_poison_groundstate",
+      "attributes": []
+    },
+    "1246372": {
+      "name": "Awaken the Lightbloom",
+      "icon": "inv_desertlasherorchid_yellow",
+      "attributes": []
+    },
+    "1246527": {
+      "name": "Awaken the Lightbloom",
+      "icon": "inv_desertlasherorchid_yellow",
+      "attributes": []
+    },
+    "1246607": {
+      "name": "Concentrated Lightbeam",
+      "icon": "ability_priest_flashoflight",
+      "attributes": []
+    },
+    "1246687": {
+      "name": "Lightning Bolt",
+      "icon": "spell_nature_lightning",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1246751": {
+      "name": "Concentrated Lightbeam",
+      "icon": "ability_priest_flashoflight",
+      "attributes": []
+    },
+    "1246753": {
+      "name": "Lightsap",
+      "icon": "inv_misc_food_legion_goochocovanilla_pool",
+      "attributes": []
+    },
+    "1246820": {
+      "name": "Magma Totem",
+      "icon": "spell_fire_selfdestruct",
+      "attributes": []
+    },
+    "1246821": {
+      "name": "Searing Magma",
+      "icon": "spell_fire_selfdestruct",
+      "attributes": []
+    },
+    "1246825": {
+      "name": "Searing Magma",
+      "icon": "spell_fire_selfdestruct",
+      "attributes": []
+    },
+    "1246847": {
+      "name": "Shoot",
+      "icon": "ability_marksmanship",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1246858": {
+      "name": "Lightbloom's Essence",
+      "icon": "inv_ability_holyfire_orb",
+      "attributes": []
+    },
+    "1246860": {
+      "name": "Bestial Wrath",
+      "icon": "ability_druid_ferociousbite",
+      "attributes": []
+    },
+    "1246865": {
+      "name": "Bestial Wrath",
+      "icon": "ability_druid_ferociousbite",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1246877": {
+      "name": "Overwhelm Prey",
+      "icon": "ability_hunter_killcommand",
+      "attributes": []
+    },
+    "1246882": {
+      "name": "Fixate",
+      "icon": "ability_fixated_state_red",
+      "attributes": []
+    },
+    "1246957": {
+      "name": "Primal Echo",
+      "icon": "spell_druid_stamedingroar",
+      "attributes": []
+    },
+    "1246986": {
+      "name": "Poison Spear Volley",
+      "icon": "inv_spear_02",
+      "attributes": []
+    },
+    "1247030": {
+      "name": "Poison Spear Volley",
+      "icon": "inv_spear_02",
+      "attributes": []
+    },
+    "1247039": {
+      "name": "Fluorescent Outburst",
+      "icon": "spell_nature_wrathv2",
+      "attributes": []
+    },
+    "1247050": {
+      "name": "Fluorescent Shield",
+      "icon": "spell_nature_healingway",
+      "attributes": []
+    },
+    "1247366": {
+      "name": "Earthquake",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1247367": {
+      "name": "Earthquake",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1247377": {
+      "name": "Oozing Xylem",
+      "icon": "inv_ability_holyfire_nova",
+      "attributes": []
+    },
+    "1247395": {
+      "name": "Poison Splash",
+      "icon": "ability_creature_poison_03",
+      "attributes": []
+    },
+    "1247644": {
+      "name": "Oozing Xylem",
+      "icon": "inv_ability_holyfire_nova",
+      "attributes": []
+    },
+    "1247669": {
+      "name": "Lightspore Shot",
+      "icon": "inv_orange_sporecreature2",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1247685": {
+      "name": "Thornspike",
+      "icon": "inv_misc_herb_goldthorn_bramble",
+      "attributes": []
+    },
+    "1247746": {
+      "name": "Thornspike",
+      "icon": "inv_misc_herb_goldthorn_bramble",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1248112": {
+      "name": "Unstable Singularity",
+      "icon": "inv_ability_voidweaverpriest_entropicrift",
+      "attributes": []
+    },
+    "1248121": {
+      "name": "Unstable Singularity",
+      "icon": "inv_ability_voidweaverpriest_entropicrift",
+      "attributes": []
+    },
+    "1249186": {
+      "name": "Charge",
+      "icon": "ability_warrior_charge",
+      "attributes": []
+    },
+    "1249236": {
+      "name": "Fire Spit",
+      "icon": "spell_fire_firebolt",
+      "attributes": []
+    },
+    "1249238": {
+      "name": "Fire Spit",
+      "icon": "spell_fire_firebolt",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1249621": {
+      "name": "Violent Sand",
+      "icon": "spell_sandexplosion",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1249661": {
+      "name": "Feral Rage",
+      "icon": "ability_hunter_pet_raptor",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1249737": {
+      "name": "Feast of Misery",
+      "icon": "spell_shadow_lifedrain02_purple",
+      "attributes": []
+    },
+    "1250021": {
+      "name": "Shell Guard",
+      "icon": "inv_cape_special_turtleshell_c_01",
+      "attributes": []
+    },
+    "1250023": {
+      "name": "Protected",
+      "icon": "ability_vehicle_shellshieldgenerator_green",
+      "attributes": []
+    },
+    "1250043": {
+      "name": "Melt Armor",
+      "icon": "spell_fire_firebolt02",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1250079": {
+      "name": "Ravenous Swarm",
+      "icon": "inv_ability_druid_adaptiveswarm",
+      "attributes": []
+    },
+    "1250100": {
+      "name": "Tongue Toss",
+      "icon": "ability_vehicle_launchplayer",
+      "attributes": []
+    },
+    "1250199": {
+      "name": "Toadspawn",
+      "icon": "inv_egg_08",
+      "attributes": []
+    },
+    "1250200": {
+      "name": "Toadspawn",
+      "icon": "inv_egg_08",
+      "attributes": []
+    },
+    "1250203": {
+      "name": "Hatch",
+      "icon": "inv_babypotadpole_pink",
+      "attributes": []
+    },
+    "1250640": {
+      "name": "Venomous Spit",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1250695": {
+      "name": "Insidious Aura",
+      "icon": "ability_warlock_burningembersgreen",
+      "attributes": []
+    },
+    "1250805": {
+      "name": "Summoning Ritual",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "1250813": {
+      "name": "Hatch",
+      "icon": "inv_babypotadpole_pink",
+      "attributes": []
+    },
+    "1250829": {
+      "name": "Potad-Toss",
+      "icon": "ability_skyreach_dismount",
+      "attributes": []
+    },
+    "1250831": {
+      "name": "Potad-Toss",
+      "icon": "ability_skyreach_dismount",
+      "attributes": []
+    },
+    "1250937": {
+      "name": "Toxic Spew",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1251027": {
+      "name": "Gravely Wounded",
+      "icon": "ability_deathwing_bloodcorruption_death",
+      "attributes": []
+    },
+    "1252406": {
+      "name": "Dreadbellow",
+      "icon": "spell_shadow_ragingscream",
+      "attributes": []
+    },
+    "1253028": {
+      "name": "Thicket's Trinity",
+      "icon": "inv_herbalism_70_dreamleaf",
+      "attributes": []
+    },
+    "1253083": {
+      "name": "Create Bonfire",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "1253320": {
+      "name": "Vicious Regrowth",
+      "icon": "spell_holy_excorcism_02",
+      "attributes": []
+    },
+    "1253410": {
+      "name": "Bloodthirsty Gaze",
+      "icon": "ability_fixated_state_red",
+      "attributes": []
+    },
+    "1253811": {
+      "name": "Fel Spray",
+      "icon": "spell_fire_felflamebreath",
+      "attributes": []
+    },
+    "1253813": {
+      "name": "Fel Spray",
+      "icon": "spell_fire_felflamebreath",
+      "attributes": []
+    },
+    "1254622": {
+      "name": "Watchful Gaze",
+      "icon": "ability_evoker_discerningeye",
+      "attributes": []
+    },
+    "1254826": {
+      "name": "Bloodsurge",
+      "icon": "spell_nature_bloodlust",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1255205": {
+      "name": "Uproot",
+      "icon": "inv_herb_earthroot",
+      "attributes": []
+    },
+    "1255570": {
+      "name": "Spectral Slash",
+      "icon": "ability_druid_rake",
+      "attributes": []
+    },
+    "1255577": {
+      "name": "Spectral Slash",
+      "icon": "ability_druid_supriseattack",
+      "attributes": []
+    },
+    "1255881": {
+      "name": "Netherwalk",
+      "icon": "spell_warlock_demonsoul",
+      "attributes": []
+    },
+    "1256276": {
+      "name": "Deep Corruption",
+      "icon": "spell_shadow_charm",
+      "attributes": []
+    },
+    "1256299": {
+      "name": "Over-infused",
+      "icon": "inv_ore_feliron",
+      "attributes": []
+    },
+    "1256300": {
+      "name": "Massive Fel Detonation",
+      "icon": "spell_fel_elementaldevastation",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1257094": {
+      "name": "Pulverized",
+      "icon": "spell_shadow_lifedrain",
+      "attributes": []
+    },
+    "1257877": {
+      "name": "Scathing Review",
+      "icon": "inv_misc_notepicture1c",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1258537": {
+      "name": "Summon Wyrms",
+      "icon": "inv_babymanawyrm_green",
+      "attributes": []
+    },
+    "1259365": {
+      "name": "Bloodthorn Roots",
+      "icon": "inv_-misc_herb_marrowroot_leaf",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1261011": {
+      "name": "Fan Of Thorns",
+      "icon": "inv_misc_herb_04",
+      "attributes": []
+    },
+    "1261013": {
+      "name": "Fan Of Thorns",
+      "icon": "inv_misc_herb_04",
+      "attributes": []
+    },
+    "1261645": {
+      "name": "Macestorm",
+      "icon": "ability_paladin_enlightenedjudgements",
+      "attributes": []
+    },
+    "1261776": {
+      "name": "Defensive Stance",
+      "icon": "ability_warrior_safeguard",
+      "attributes": []
+    },
+    "1261976": {
+      "name": "Echoing Fury",
+      "icon": "ability_xavius_tormentingswipe",
+      "attributes": []
+    },
+    "1262253": {
+      "name": "Demoralizing Scream",
+      "icon": "spell_shadow_painandsuffering",
+      "attributes": []
+    },
+    "1262497": {
+      "name": "Monstrous Roar",
+      "icon": "ability_racial_darkflight",
+      "attributes": []
+    },
+    "1262577": {
+      "name": "Spectral Slash",
+      "icon": "ability_druid_rake",
+      "attributes": []
+    },
+    "1263420": {
+      "name": "Lightcrazed Frenzy",
+      "icon": "ability_monk_explodingjadeblossom",
+      "attributes": []
+    },
+    "1263590": {
+      "name": "Rimeshatter",
+      "icon": "spell_frost_icestorm",
+      "attributes": []
+    },
+    "1263597": {
+      "name": "Rime Detonation",
+      "icon": "spell_fire_blueflamestrike",
+      "attributes": []
+    },
+    "1263628": {
+      "name": "Spouting Floret",
+      "icon": "inv_enchant_essenceastrallarge",
+      "attributes": []
+    },
+    "1263636": {
+      "name": "Belch Spores",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1263642": {
+      "name": "Belch Spores",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1263971": {
+      "name": "Mind-Numbing Poison",
+      "icon": "ability_creature_poison_02",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1263983": {
+      "name": "Condensed Mass",
+      "icon": "inv_everburningignition_blue",
+      "attributes": []
+    },
+    "1263984": {
+      "name": "Unstable Singularity",
+      "icon": "inv_ability_voidweaverpriest_entropicrift",
+      "attributes": []
+    },
+    "1264095": {
+      "name": "Mirror Images",
+      "icon": "spell_magic_lesserinvisibilty",
+      "attributes": []
+    },
+    "1264106": {
+      "name": "Felstorm",
+      "icon": "spell_fire_felcano",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1264110": {
+      "name": "Felstorm",
+      "icon": "spell_fire_felcano",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1264188": {
+      "name": "Unstable Singularity",
+      "icon": "inv_cosmicvoid_groundstate",
+      "attributes": []
+    },
+    "1264753": {
+      "name": "Heal",
+      "icon": "spell_holy_heal02",
+      "attributes": []
+    },
+    "1265400": {
+      "name": "Frostbite",
+      "icon": "ability_mage_frostjaw",
+      "attributes": []
+    },
+    "1265402": {
+      "name": "Frostbite",
+      "icon": "ability_mage_frostjaw",
+      "attributes": []
+    },
+    "1266178": {
+      "name": "Snowdrift",
+      "icon": "spell_hunter_icetrap",
+      "attributes": []
+    },
+    "1266207": {
+      "name": "Reposition",
+      "icon": "ability_demonhunter_doublejump",
+      "attributes": []
+    },
+    "1266241": {
+      "name": "Freight Explosion",
+      "icon": "spell_fire_felflamering",
+      "attributes": []
+    },
+    "1267029": {
+      "name": "Call The Grove",
+      "icon": "achievment_raid_houroftwilight",
+      "attributes": []
+    },
+    "1267754": {
+      "name": "Savage Leap",
+      "icon": "ability_druid_tigersroar",
+      "attributes": []
+    },
+    "1267894": {
+      "name": "Savage Leap",
+      "icon": "ability_druid_tigersroar",
+      "attributes": []
+    },
+    "1268707": {
+      "name": "Venomous Spit",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1269284": {
+      "name": "Fel Steps",
+      "icon": "ability_bossfellord_felfissure",
+      "attributes": []
+    },
+    "1269866": {
+      "name": "Void Tentacles",
+      "icon": "inv12_ability_priest_tentacleslam",
+      "attributes": []
+    },
+    "1269878": {
+      "name": "Void Tentacles",
+      "icon": "inv12_ability_priest_tentacleslam",
+      "attributes": []
+    },
+    "1270826": {
+      "name": "Defensive Stance",
+      "icon": "inv_shield_06",
+      "attributes": []
+    },
+    "1271385": {
+      "name": "Spouting Floret",
+      "icon": "inv_enchant_essenceastrallarge",
+      "attributes": []
+    },
+    "1272265": {
+      "name": "Mangling Claws",
+      "icon": "ability_druid_mangle2",
+      "attributes": []
+    },
+    "1272290": {
+      "name": "Crunched",
+      "icon": "spell_frost_stun",
+      "attributes": []
+    },
+    "1276586": {
+      "name": "Bedrock Surge",
+      "icon": "spell_sandexplosion",
+      "attributes": []
+    },
+    "1282892": {
+      "name": "Sickening Bite",
+      "icon": "ability_creature_poison_01",
+      "attributes": []
+    },
+    "1282959": {
+      "name": "Gatekeeper",
+      "icon": "inv_cosmicvoid_orb",
+      "attributes": []
+    },
+    "1287544": {
+      "name": "Stunned",
+      "icon": "spell_frost_stun",
+      "attributes": []
+    },
+    "1287627": {
+      "name": "Searing Fel Flame",
+      "icon": "spell_fire_felfirenova",
+      "attributes": []
+    },
+    "1287798": {
+      "name": "Vine Grip",
+      "icon": "spell_shaman_earthlivingweapon",
+      "attributes": []
+    },
+    "1287811": {
+      "name": "Uncoil",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "1288092": {
+      "name": "Thunder and Lightning",
+      "icon": "warrior_talent_icon_thunderstruck",
+      "attributes": []
+    },
+    "1288235": {
+      "name": "Thunder and Lightning",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "1288428": {
+      "name": "Overload",
+      "icon": "ability_thunderking_overcharge",
+      "attributes": []
+    },
+    "1288457": {
+      "name": "Gust",
+      "icon": "ability_skyreach_wind",
+      "attributes": []
+    },
+    "1288864": {
+      "name": "Tempest Winds",
+      "icon": "achievement_raidprimalist_windelemental",
+      "attributes": []
+    },
+    "1288885": {
+      "name": "Tempest Winds",
+      "icon": "achievement_raidprimalist_windelemental",
+      "attributes": []
+    },
+    "1289062": {
+      "name": "Gale Force",
+      "icon": "ability_skyreach_four_wind",
+      "attributes": []
+    },
+    "1289063": {
+      "name": "Rune of Echoes",
+      "icon": "spell_rogue_shadow_reflection",
+      "attributes": []
+    },
+    "1289205": {
+      "name": "Hatch",
+      "icon": "inv_egg_03",
+      "attributes": []
+    },
+    "1289208": {
+      "name": "[DNT]Summon Sand egg",
+      "icon": "inv_cloudserpent_egg_yellow",
+      "attributes": []
+    },
+    "1289229": {
+      "name": "Storm Blessed",
+      "icon": "spell_nature_lightningshield",
+      "attributes": []
+    },
+    "1289258": {
+      "name": "Corrosive Essence",
+      "icon": "inv_ability_poison_orb",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1289265": {
+      "name": "Corrosive Essence",
+      "icon": "inv_ability_poison_orb",
+      "attributes": []
+    },
+    "1289416": {
+      "name": "Envenom",
+      "icon": "inv_ability_poison_missile",
+      "attributes": [
+        "interruptible",
+        "poison"
+      ]
+    },
+    "1289589": {
+      "name": "Lingering Storm",
+      "icon": "spell_nature_stormreach",
+      "attributes": []
+    },
+    "1289602": {
+      "name": "Thunder Spit",
+      "icon": "ability_thunderking_thunderstruck",
+      "attributes": []
+    },
+    "1290031": {
+      "name": "A Knot of Snakes",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "1290205": {
+      "name": "Lightning Bolt",
+      "icon": "spell_nature_lightning",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1290531": {
+      "name": "Induction",
+      "icon": "ability_thunderking_overcharge",
+      "attributes": []
+    },
+    "1290797": {
+      "name": "Lightning Bite",
+      "icon": "ability_thunderking_balllightning",
+      "attributes": []
+    },
+    "1291262": {
+      "name": "Lightning Bolt",
+      "icon": "spell_nature_lightning",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1291399": {
+      "name": "Serrated Charge",
+      "icon": "inv_artifact_bloodoftheassassinated",
+      "attributes": []
+    },
+    "1291468": {
+      "name": "Sunder Slam",
+      "icon": "ability_warrior_shieldbreak",
+      "attributes": []
+    },
+    "1291622": {
+      "name": "Storm Catalyst",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "1291734": {
+      "name": "Thunder Spit",
+      "icon": "ability_thunderking_thunderstruck",
+      "attributes": []
+    },
+    "1291815": {
+      "name": "Induction Field",
+      "icon": "ability_vehicle_electrocharge",
+      "attributes": []
+    },
+    "1292035": {
+      "name": "Frenzy",
+      "icon": "ability_fixated_state_red",
+      "attributes": []
+    },
+    "1292585": {
+      "name": "Sandburst Arrow",
+      "icon": "spell_sandexplosion",
+      "attributes": []
+    },
+    "1292623": {
+      "name": "Sandburst Arrow",
+      "icon": "spell_sandexplosion",
+      "attributes": []
+    },
+    "1292892": {
+      "name": "Control Venom",
+      "icon": "spell_deathvortex",
+      "attributes": []
+    },
+    "1292904": {
+      "name": "Incubate",
+      "icon": "spell_deathvortex",
+      "attributes": []
+    },
+    "1292990": {
+      "name": "Swarming Krolusks",
+      "icon": "achievement_dungeon_thesandqueen",
+      "attributes": []
+    },
+    "1293022": {
+      "name": "Fel Dash",
+      "icon": "ability_felarakkoa_feldetonation_green",
+      "attributes": []
+    },
+    "1293048": {
+      "name": "Serpentstorm",
+      "icon": "spell_nature_lightningoverload",
+      "attributes": []
+    },
+    "1293059": {
+      "name": "Hatch",
+      "icon": "inv_10_worlddroplevelingoptionalreagent_egg_color2",
+      "attributes": []
+    },
+    "1293079": {
+      "name": "Hatch",
+      "icon": "inv_10_worlddroplevelingoptionalreagent_egg_color2",
+      "attributes": []
+    },
+    "1293101": {
+      "name": "Shadow Bite",
+      "icon": "spell_shadow_soulleech_3",
+      "attributes": []
+    },
+    "1293133": {
+      "name": "Lingering Storm",
+      "icon": "spell_nature_stormreach",
+      "attributes": []
+    },
+    "1293307": {
+      "name": "Addle Mind",
+      "icon": "spell_shadow_mindflay",
+      "attributes": [
+        "curse",
+        "interruptible"
+      ]
+    },
+    "1293420": {
+      "name": "Evolution Ritual",
+      "icon": "inv_venomserpentmount_white",
+      "attributes": []
+    },
+    "1293464": {
+      "name": "Accumulate Charge",
+      "icon": "spell_chargepositive",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1293475": {
+      "name": "Release Charge",
+      "icon": "spell_chargenegative",
+      "attributes": []
+    },
+    "1293650": {
+      "name": "Call Lightning",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "1293652": {
+      "name": "Call Lightning",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "1294432": {
+      "name": "Septic Spatter",
+      "icon": "ability_deathknight_roilingblood",
+      "attributes": []
+    },
+    "1294557": {
+      "name": "Piercing Hiss",
+      "icon": "inv_sonic_wave",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1294567": {
+      "name": "Paralyzing Shots",
+      "icon": "ability_poisonsting",
+      "attributes": []
+    },
+    "1294568": {
+      "name": "Paralyzing Shots",
+      "icon": "ability_poisonsting",
+      "attributes": []
+    },
+    "1294569": {
+      "name": "Paralyzing Shots",
+      "icon": "ability_poisonsting",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1294570": {
+      "name": "Paralyzing Shots",
+      "icon": "ability_poisonsting",
+      "attributes": []
+    },
+    "1294572": {
+      "name": "Duostrike",
+      "icon": "inv_flyingserpentmount",
+      "attributes": []
+    },
+    "1294770": {
+      "name": "Demonic Frenzy",
+      "icon": "spell_fel_incinerate",
+      "attributes": []
+    },
+    "1294774": {
+      "name": "Demonic Frenzy",
+      "icon": "spell_fel_incinerate",
+      "attributes": []
+    },
+    "1294789": {
+      "name": "Curse of Doom",
+      "icon": "spell_shadow_auraofdarkness",
+      "attributes": []
+    },
+    "1294815": {
+      "name": "Shadowfrost Bolt",
+      "icon": "artifactability_frostmage_ebonbolt",
+      "attributes": [
+        "interruptible",
+        "magic"
+      ]
+    },
+    "1294824": {
+      "name": "Defiled Slam",
+      "icon": "spell_fire_felimmolation",
+      "attributes": []
+    },
+    "1294827": {
+      "name": "Defiled Slam",
+      "icon": "spell_fire_felimmolation",
+      "attributes": []
+    },
+    "1294836": {
+      "name": "Defiled Detonation",
+      "icon": "ability_bossfellord_felfissure",
+      "attributes": []
+    },
+    "1294845": {
+      "name": "Corrosive Fangs",
+      "icon": "spell_nature_nullifypoison",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1294849": {
+      "name": "Rattle",
+      "icon": "inv_sonic_wave",
+      "attributes": []
+    },
+    "1294859": {
+      "name": "Rattle",
+      "icon": "inv_sonic_wave",
+      "attributes": []
+    },
+    "1294870": {
+      "name": "Fel-Scarred Earth",
+      "icon": "ability_bossfellord_felfissure",
+      "attributes": []
+    },
+    "1294883": {
+      "name": "Shoot",
+      "icon": "ability_marksmanship",
+      "attributes": []
+    },
+    "1294934": {
+      "name": "Noxious Spray",
+      "icon": "inv_ability_poison_beam",
+      "attributes": []
+    },
+    "1294958": {
+      "name": "Noxious Spray",
+      "icon": "inv_ability_poison_beam",
+      "attributes": []
+    },
+    "1294972": {
+      "name": "Soul Bolt",
+      "icon": "spell_shadow_soulleech_2",
+      "attributes": [
+        "interruptible",
+        "magic"
+      ]
+    },
+    "1295035": {
+      "name": "Glaive Toss",
+      "icon": "ability_upgrademoonglaive",
+      "attributes": []
+    },
+    "1295055": {
+      "name": "Virulent Whirl",
+      "icon": "inv_ability_poison_groundstate",
+      "attributes": []
+    },
+    "1295073": {
+      "name": "Virulent Whirl",
+      "icon": "inv_ability_poison_beam",
+      "attributes": []
+    },
+    "1295125": {
+      "name": "Spectral Bolt",
+      "icon": "spell_fire_twilightflamebolt",
+      "attributes": [
+        "interruptible",
+        "magic"
+      ]
+    },
+    "1295426": {
+      "name": "Flay",
+      "icon": "inv_archaeology_70_demon_flayedskinchronicle",
+      "attributes": []
+    },
+    "1295427": {
+      "name": "Flay",
+      "icon": "inv_archaeology_70_demon_flayedskinchronicle",
+      "attributes": []
+    },
+    "1295453": {
+      "name": "Infernal Crush",
+      "icon": "ability_bossfellord_felspike",
+      "attributes": []
+    },
+    "1295455": {
+      "name": "Infernal Crush",
+      "icon": "ability_bossfellord_felspike",
+      "attributes": []
+    },
+    "1295610": {
+      "name": "Slither Strike",
+      "icon": "inv_knife_1h_snakeman_c_01",
+      "attributes": []
+    },
+    "1295635": {
+      "name": "Slither Strike",
+      "icon": "inv_knife_1h_snakeman_c_01",
+      "attributes": []
+    },
+    "1296045": {
+      "name": "Imbued Conduction",
+      "icon": "spell_nature_lightning",
+      "attributes": []
+    },
+    "1296050": {
+      "name": "Regurgitate",
+      "icon": "inv_ability_poison_wave",
+      "attributes": []
+    },
+    "1296052": {
+      "name": "Imbued Conduction",
+      "icon": "spell_nature_stormreach",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1296058": {
+      "name": "Regurgitate",
+      "icon": "inv_ability_poison_wave",
+      "attributes": []
+    },
+    "1296069": {
+      "name": "Regurgitate",
+      "icon": "inv_ability_poison_wave",
+      "attributes": [
+        "disease"
+      ]
+    },
+    "1296216": {
+      "name": "Ssscavenging",
+      "icon": "trade_archaeology_bones-of transformation",
+      "attributes": []
+    },
+    "1296219": {
+      "name": "Fetid Roar",
+      "icon": "ability_monk_jadeserpentbreath",
+      "attributes": []
+    },
+    "1296220": {
+      "name": "Triple Shot",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1296518": {
+      "name": "Rumbling Ward",
+      "icon": "ability_gift_of_earth",
+      "attributes": []
+    },
+    "1296519": {
+      "name": "Rumbling Ward",
+      "icon": "ability_gift_of_earth",
+      "attributes": []
+    },
+    "1296671": {
+      "name": "Captain's Bulwark",
+      "icon": "inv_shield_1h_warfrontsforsaken_d_01",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1296719": {
+      "name": "Forked Lightning",
+      "icon": "spell_lightning_lightningbolt01",
+      "attributes": []
+    },
+    "1296722": {
+      "name": "Earthquake",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1296738": {
+      "name": "Hatch",
+      "icon": "inv_egg_03",
+      "attributes": []
+    },
+    "1296889": {
+      "name": "Ethereal Shades",
+      "icon": "ability_racial_etherealconnection",
+      "attributes": []
+    },
+    "1296912": {
+      "name": "Storm Strikes",
+      "icon": "spell_shaman_thunderstorm",
+      "attributes": []
+    },
+    "1296963": {
+      "name": "Umbral Rupture",
+      "icon": "inv_cosmicvoid_groundstate",
+      "attributes": []
+    },
+    "1296967": {
+      "name": "Void Fissure",
+      "icon": "inv_1205_voidforge_sovereignvoidcores_cosmicvoid",
+      "attributes": []
+    },
+    "1297017": {
+      "name": "Void Blast",
+      "icon": "inv_cosmicvoid_orb",
+      "attributes": []
+    },
+    "1297034": {
+      "name": "Electrified Ground",
+      "icon": "spell_nature_stormreach",
+      "attributes": []
+    },
+    "1297326": {
+      "name": "Eternal Bond",
+      "icon": "inv_12_tailoring_spellthread_pink_spellthread",
+      "attributes": []
+    },
+    "1297667": {
+      "name": "Burning Fel",
+      "icon": "spell_fire_felfire",
+      "attributes": []
+    },
+    "1297676": {
+      "name": "Punishing Might",
+      "icon": "inv_sword_1h_artifactfelomelorn_d_03dual",
+      "attributes": []
+    },
+    "1297682": {
+      "name": "Drain Life",
+      "icon": "spell_shadow_lifedrain02",
+      "attributes": []
+    },
+    "1297683": {
+      "name": "Drain Life",
+      "icon": "spell_shadow_lifedrain02",
+      "attributes": []
+    },
+    "1297684": {
+      "name": "Dark Pact",
+      "icon": "spell_shadow_deathpact",
+      "attributes": []
+    },
+    "1297686": {
+      "name": "Dark Pact",
+      "icon": "spell_shadow_deathpact",
+      "attributes": []
+    },
+    "1297691": {
+      "name": "Whirlwind",
+      "icon": "ability_whirlwind",
+      "attributes": []
+    },
+    "1297693": {
+      "name": "Felfire Bombardment",
+      "icon": "spell_fire_felfire",
+      "attributes": []
+    },
+    "1297695": {
+      "name": "Felfire Bombardment",
+      "icon": "spell_fire_felfire",
+      "attributes": []
+    },
+    "1297696": {
+      "name": "Healing Breeze",
+      "icon": "spell_frost_windwalkon",
+      "attributes": [
+        "interruptible",
+        "magic"
+      ]
+    },
+    "1297699": {
+      "name": "Rotten Supplies",
+      "icon": "inv_misc_food_91",
+      "attributes": [
+        "disease"
+      ]
+    },
+    "1297701": {
+      "name": "Rotten Ground",
+      "icon": "inv_misc_food_91",
+      "attributes": []
+    },
+    "1297749": {
+      "name": "Frozen Tempest",
+      "icon": "spell_frost_ring-of frost",
+      "attributes": []
+    },
+    "1297763": {
+      "name": "Bestial Berserk",
+      "icon": "racial_troll_berserk",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1297778": {
+      "name": "Arc Lightning",
+      "icon": "spell_nature_chainlightning",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1297781": {
+      "name": "Sudden Rupture",
+      "icon": "ability_skeer_bloodletting",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1297792": {
+      "name": "Overwhelming Onslaught",
+      "icon": "spell_druid_thrash",
+      "attributes": []
+    },
+    "1297793": {
+      "name": "Overwhelming Onslaught",
+      "icon": "spell_druid_thrash",
+      "attributes": []
+    },
+    "1297796": {
+      "name": "Stunned",
+      "icon": "spell_frost_stun",
+      "attributes": []
+    },
+    "1297797": {
+      "name": "Forceful Slam",
+      "icon": "inv_misc_bearpaw_red",
+      "attributes": []
+    },
+    "1297876": {
+      "name": "Triple Shot",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1297918": {
+      "name": "Mortal Bleed",
+      "icon": "inv_artifact_bloodoftheassassinated",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1297970": {
+      "name": "Blood Drain",
+      "icon": "ability_warrior_bloodfrenzy",
+      "attributes": []
+    },
+    "1298104": {
+      "name": "Putrid Seekers",
+      "icon": "inv_misc_slime_01",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1298221": {
+      "name": "Ssscavenging",
+      "icon": "trade_archaeology_bones-of transformation",
+      "attributes": []
+    },
+    "1298223": {
+      "name": "Ssscavenging",
+      "icon": "trade_archaeology_bones-of transformation",
+      "attributes": []
+    },
+    "1298329": {
+      "name": "Thunder Spit",
+      "icon": "ability_thunderking_thunderstruck",
+      "attributes": []
+    },
+    "1298683": {
+      "name": "Hydrastrike",
+      "icon": "trade_archaeology_whitehydrafigurine",
+      "attributes": []
+    },
+    "1298899": {
+      "name": "Demoralizing Shout",
+      "icon": "ability_warrior_warcry",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1298900": {
+      "name": "Brutal Slams",
+      "icon": "ability_warrior_decisivestrike",
+      "attributes": []
+    },
+    "1298901": {
+      "name": "Brutal Slams",
+      "icon": "ability_warrior_decisivestrike",
+      "attributes": []
+    },
+    "1298902": {
+      "name": "Proof of Mastery",
+      "icon": "inv_sword_1h_domanaar_b_01",
+      "attributes": []
+    },
+    "1298903": {
+      "name": "Proof of Endurance",
+      "icon": "inv_helm_armor_domanaar_d_01",
+      "attributes": []
+    },
+    "1298908": {
+      "name": "Champion's Spear",
+      "icon": "inv_ability_warrior_championsspear",
+      "attributes": []
+    },
+    "1298922": {
+      "name": "Savage Smash",
+      "icon": "ability_smash",
+      "attributes": []
+    },
+    "1298924": {
+      "name": "Savage Smash",
+      "icon": "ability_smash",
+      "attributes": []
+    },
+    "1298933": {
+      "name": "Savage Smash",
+      "icon": "ability_smash",
+      "attributes": []
+    },
+    "1298949": {
+      "name": "Tail Scythe",
+      "icon": "inv_knife_1h_felfireraid_d_04",
+      "attributes": []
+    },
+    "1299053": {
+      "name": "Death Rattle",
+      "icon": "inv_sonic_debuff",
+      "attributes": []
+    },
+    "1299080": {
+      "name": "Death Rattle",
+      "icon": "inv_sonic_debuff",
+      "attributes": []
+    },
+    "1299125": {
+      "name": "Ferocious Leap",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "1299130": {
+      "name": "Burrowing Charge",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1299133": {
+      "name": "Ferocious Leap",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "1299135": {
+      "name": "Burrowing Charge",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1299145": {
+      "name": "Earthsplitter",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1299154": {
+      "name": "Synchronized Venom",
+      "icon": "inv_ability_poison_missile",
+      "attributes": []
+    },
+    "1299189": {
+      "name": "Synchronized Venom",
+      "icon": "inv_ability_poison_missile",
+      "attributes": []
+    },
+    "1299210": {
+      "name": "Aftershock",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1299240": {
+      "name": "Raging Typhoon",
+      "icon": "shaman_pvp_ripplingwaters",
+      "attributes": []
+    },
+    "1299244": {
+      "name": "Raging Typhoon",
+      "icon": "shaman_pvp_ripplingwaters",
+      "attributes": []
+    },
+    "1299257": {
+      "name": "Crashing Wave",
+      "icon": "ability_shawaterelemental_split",
+      "attributes": []
+    },
+    "1299270": {
+      "name": "Thundering Storm",
+      "icon": "spell_shaman_thunderstorm",
+      "attributes": []
+    },
+    "1299273": {
+      "name": "Thundering Storm",
+      "icon": "spell_shaman_thunderstorm",
+      "attributes": []
+    },
+    "1299902": {
+      "name": "Venom Jet",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1299913": {
+      "name": "Null Eruption",
+      "icon": "inv_cosmicvoid_orb",
+      "attributes": []
+    },
+    "1299938": {
+      "name": "Shadowbolt Volley",
+      "icon": "spell_fire_twilightflamestrike",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1299940": {
+      "name": "Vindictive Onslaught",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1300044": {
+      "name": "Venom Jet",
+      "icon": "ability_creature_poison_02",
+      "attributes": []
+    },
+    "1300083": {
+      "name": "Burrowing Charge",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1300116": {
+      "name": "Whirling Gust",
+      "icon": "ability_skyreach_four_wind",
+      "attributes": []
+    },
+    "1300138": {
+      "name": "Void Beam",
+      "icon": "inv_cosmicvoid_beam",
+      "attributes": []
+    },
+    "1300156": {
+      "name": "Void Beam",
+      "icon": "inv_cosmicvoid_beam",
+      "attributes": []
+    },
+    "1300243": {
+      "name": "Brutalize",
+      "icon": "ability_warrior_devastate",
+      "attributes": []
+    },
+    "1300244": {
+      "name": "Brutalize",
+      "icon": "ability_warrior_devastate",
+      "attributes": []
+    },
+    "1300248": {
+      "name": "Devour",
+      "icon": "inv_12_dh_void_ability_devourerbite",
+      "attributes": []
+    },
+    "1300249": {
+      "name": "Devour",
+      "icon": "inv_12_dh_void_ability_devourerbite",
+      "attributes": []
+    },
+    "1300250": {
+      "name": "Devouring Might",
+      "icon": "inv_helm_armor_domanaar_d_01",
+      "attributes": []
+    },
+    "1300259": {
+      "name": "Dark Bloom",
+      "icon": "inv_ability_voidweaverpriest_entropicrift",
+      "attributes": []
+    },
+    "1300262": {
+      "name": "Dark Bloom",
+      "icon": "inv_ability_voidweaverpriest_entropicrift",
+      "attributes": []
+    },
+    "1300351": {
+      "name": "Poison Splash",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1300372": {
+      "name": "Cosmic Crash",
+      "icon": "inv_cosmicvoid_groundsate",
+      "attributes": []
+    },
+    "1300503": {
+      "name": "Spiteful Hunt",
+      "icon": "ability_fixated_state_green",
+      "attributes": []
+    },
+    "1300612": {
+      "name": "Uncoiled",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "1300618": {
+      "name": "Assimilation",
+      "icon": "inv_121_trinket_dungeon_ulatek_writhe",
+      "attributes": []
+    },
+    "1300684": {
+      "name": "Hex Muck",
+      "icon": "spell_shaman_hex",
+      "attributes": []
+    },
+    "1300686": {
+      "name": "Assimilation",
+      "icon": "inv_121_trinket_dungeon_ulatek_writhe",
+      "attributes": []
+    },
+    "1300698": {
+      "name": "Assimilation",
+      "icon": "inv_121_trinket_dungeon_ulatek_writhe",
+      "attributes": []
+    },
+    "1300704": {
+      "name": "Fixate",
+      "icon": "ability_fixated_state_purple",
+      "attributes": []
+    },
+    "1300714": {
+      "name": "Shadowlash",
+      "icon": "ability_rogue_focusedattacks",
+      "attributes": []
+    },
+    "1300803": {
+      "name": "Tainted Strike",
+      "icon": "ability_ironmaidens_convulsiveshadows",
+      "attributes": []
+    },
+    "1300871": {
+      "name": "Corrupted Lifeforce",
+      "icon": "inv_nullstone_shadow",
+      "attributes": []
+    },
+    "1300876": {
+      "name": "Ritual of the Fang",
+      "icon": "inv_achievement_dungeon_altaroffangs",
+      "attributes": []
+    },
+    "1300885": {
+      "name": "Ritual of the Fang",
+      "icon": "inv_achievement_dungeon_altaroffangs",
+      "attributes": []
+    },
+    "1300886": {
+      "name": "Ritual of the Fang",
+      "icon": "inv_achievement_dungeon_altaroffangs",
+      "attributes": []
+    },
+    "1300888": {
+      "name": "Fang Empowered",
+      "icon": "inv_knife_1h_ulatekfang_d_01_poison",
+      "attributes": []
+    },
+    "1300892": {
+      "name": "Fang Empowered",
+      "icon": "inv_knife_1h_ulatekfang_d_01_poison",
+      "attributes": []
+    },
+    "1300894": {
+      "name": "Ritual Venom",
+      "icon": "inv_ability_poison_beam",
+      "attributes": []
+    },
+    "1300901": {
+      "name": "Ritual Venom",
+      "icon": "inv_ability_poison_beam",
+      "attributes": []
+    },
+    "1301111": {
+      "name": "Axegrinder",
+      "icon": "ability_warrior_bladestorm",
+      "attributes": []
+    },
+    "1301114": {
+      "name": "Axegrinder",
+      "icon": "ability_warrior_bladestorm",
+      "attributes": []
+    },
+    "1301199": {
+      "name": "Defiling Taint",
+      "icon": "ability_creature_disease_05",
+      "attributes": []
+    },
+    "1301217": {
+      "name": "Bloodletting",
+      "icon": "ability_demonhunter_bloodlet",
+      "attributes": []
+    },
+    "1301350": {
+      "name": "Chop Down",
+      "icon": "ability_criticalstrike",
+      "attributes": []
+    },
+    "1301353": {
+      "name": "Chop Down",
+      "icon": "ability_criticalstrike",
+      "attributes": []
+    },
+    "1301413": {
+      "name": "Boneslicer",
+      "icon": "ability_hunter_swiftstrike",
+      "attributes": []
+    },
+    "1301508": {
+      "name": "Boneslicer",
+      "icon": "ability_hunter_swiftstrike",
+      "attributes": []
+    },
+    "1301834": {
+      "name": "Light Bolt Volley",
+      "icon": "ability_priest_flashoflight",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1301851": {
+      "name": "Bloodthirsty Axe",
+      "icon": "spell_druid_bloodythrash",
+      "attributes": [
+        "bleed"
+      ]
+    },
+    "1302007": {
+      "name": "Blade Dance",
+      "icon": "ability_demonhunter_bladedance",
+      "attributes": []
+    },
+    "1302010": {
+      "name": "Blade Dance",
+      "icon": "ability_demonhunter_bladedance",
+      "attributes": []
+    },
+    "1302028": {
+      "name": "Soul Crush",
+      "icon": "inv_ability_warlock_soulrot",
+      "attributes": []
+    },
+    "1302153": {
+      "name": "Latent Hex",
+      "icon": "inv_shoulder_armor_hextroll_d_01",
+      "attributes": []
+    },
+    "1302158": {
+      "name": "Flame Shock",
+      "icon": "spell_fire_flameshock",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1302616": {
+      "name": "Vile Charge",
+      "icon": "ability_rogue_shadowstep",
+      "attributes": []
+    },
+    "1302618": {
+      "name": "Vile Charge",
+      "icon": "ability_rogue_shadowstep",
+      "attributes": []
+    },
+    "1302761": {
+      "name": "Unstable Corruption",
+      "icon": "spell_mage_supernova_nightborne",
+      "attributes": []
+    },
+    "1302826": {
+      "name": "Corruption Burst",
+      "icon": "spell_fire_twilightnova",
+      "attributes": []
+    },
+    "1302897": {
+      "name": "Consume Lifeforce",
+      "icon": "ability_druid_replenish",
+      "attributes": []
+    },
+    "1302945": {
+      "name": "Impaling Spear",
+      "icon": "inv_spear_08",
+      "attributes": []
+    },
+    "1303039": {
+      "name": "Hunting Leap",
+      "icon": "ability_druid_ravage",
+      "attributes": []
+    },
+    "1303105": {
+      "name": "Aerial Smash",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "1303111": {
+      "name": "Aerial Smash",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "1303115": {
+      "name": "Aerial Smash",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "1303267": {
+      "name": "Gilded Destruction",
+      "icon": "inv_sword_2h_zandalarquest_b_01",
+      "attributes": []
+    },
+    "1303324": {
+      "name": "Quaking Leap",
+      "icon": "inv_raptortravelform",
+      "attributes": []
+    },
+    "1303326": {
+      "name": "Quaking Leap",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "1303327": {
+      "name": "Quaking Leap",
+      "icon": "ability_heroicleap",
+      "attributes": []
+    },
+    "1303366": {
+      "name": "Venom Burst",
+      "icon": "inv_ability_poison_groundstate",
+      "attributes": []
+    },
+    "1303372": {
+      "name": "Searing Gold",
+      "icon": "ability_creature_amber_01",
+      "attributes": []
+    },
+    "1303374": {
+      "name": "Searing Gold",
+      "icon": "ability_creature_amber_01",
+      "attributes": []
+    },
+    "1303396": {
+      "name": "Liquid Gold",
+      "icon": "ability_creature_amber_02",
+      "attributes": []
+    },
+    "1303399": {
+      "name": "Liquid Gold",
+      "icon": "ability_creature_amber_02",
+      "attributes": []
+    },
+    "1303443": {
+      "name": "Venomous Slash",
+      "icon": "ability_rogue_disembowel",
+      "attributes": []
+    },
+    "1303446": {
+      "name": "Tainted Strike",
+      "icon": "ability_ironmaidens_convulsiveshadows",
+      "attributes": []
+    },
+    "1303452": {
+      "name": "Venom Shrapnel",
+      "icon": "inv_ability_poison_missile",
+      "attributes": []
+    },
+    "1303486": {
+      "name": "Caustic Stomp",
+      "icon": "inv_ability_poison_nova",
+      "attributes": []
+    },
+    "1303488": {
+      "name": "Savage Maul",
+      "icon": "inv_misc_raptorfoot_white",
+      "attributes": []
+    },
+    "1303490": {
+      "name": "Savage Maul",
+      "icon": "inv_misc_raptorfoot_white",
+      "attributes": []
+    },
+    "1303596": {
+      "name": "Siphon Energy",
+      "icon": "inv_nature_beam",
+      "attributes": []
+    },
+    "1305201": {
+      "name": "Excavating Blast",
+      "icon": "spell_nature_earthquake",
+      "attributes": []
+    },
+    "1305213": {
+      "name": "Crushing Smash",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1305225": {
+      "name": "Tectonic Strike",
+      "icon": "inv_axe_2h_earthendungeon_c_01",
+      "attributes": []
+    },
+    "1305234": {
+      "name": "Cold Claws",
+      "icon": "ability_mage_wintersgrasp",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1305368": {
+      "name": "Spiteful Venom",
+      "icon": "ability_rogue_venomouswounds",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1305393": {
+      "name": "Undermining",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1305637": {
+      "name": "Septic Spatter",
+      "icon": "ability_deathknight_roilingblood",
+      "attributes": []
+    },
+    "1305810": {
+      "name": "Arc Lightning",
+      "icon": "spell_nature_chainlightning",
+      "attributes": []
+    },
+    "1305865": {
+      "name": "Flaming Barrage",
+      "icon": "ability_warlock_burningembers",
+      "attributes": []
+    },
+    "1305945": {
+      "name": "Shadow Whirlwind",
+      "icon": "spell_necro_deathsknell",
+      "attributes": []
+    },
+    "1305955": {
+      "name": "Fiery Blast",
+      "icon": "ability_mage_greaterpyroblast",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1305982": {
+      "name": "Shadow Volley",
+      "icon": "inv12_ability_priest_voidvolley",
+      "attributes": []
+    },
+    "1306049": {
+      "name": "Erupting Slam",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1306056": {
+      "name": "Erupting Slam",
+      "icon": "spell_shaman_earthquake",
+      "attributes": []
+    },
+    "1306230": {
+      "name": "Venom Burst",
+      "icon": "inv_ability_poison_groundstate",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1306232": {
+      "name": "Septic Spatter",
+      "icon": "ability_deathknight_roilingblood",
+      "attributes": []
+    },
+    "1306235": {
+      "name": "Septic Spatter",
+      "icon": "ability_deathknight_roilingblood",
+      "attributes": []
+    },
+    "1306272": {
+      "name": "Molten Boulder",
+      "icon": "spell_mage_flameorb",
+      "attributes": []
+    },
+    "1306308": {
+      "name": "Ravenous",
+      "icon": "ability_evoker_dragonrage2",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1306333": {
+      "name": "Ravenous Claws",
+      "icon": "ability_xavius_tormentingswipe",
+      "attributes": []
+    },
+    "1306338": {
+      "name": "Ravenous Claws",
+      "icon": "ability_xavius_tormentingswipe",
+      "attributes": []
+    },
+    "1306345": {
+      "name": "Messy Eater",
+      "icon": "inv_misc_food_83_talbuksteak",
+      "attributes": []
+    },
+    "1306366": {
+      "name": "Lightning Torrent",
+      "icon": "spell_shaman_thunderstorm",
+      "attributes": []
+    },
+    "1306381": {
+      "name": "Fetid Spit",
+      "icon": "ability_creature_poison_02",
+      "attributes": []
+    },
+    "1306383": {
+      "name": "Nascent Hunger",
+      "icon": "ability_racial_cannibalize",
+      "attributes": []
+    },
+    "1306385": {
+      "name": "Evolve",
+      "icon": "inv_121_trinket_raid_ulatek_heart",
+      "attributes": []
+    },
+    "1306517": {
+      "name": "Blood Sacrifice",
+      "icon": "ability_warrior_bloodfrenzy",
+      "attributes": []
+    },
+    "1306550": {
+      "name": "Blood Sacrifice",
+      "icon": "ability_warrior_bloodfrenzy",
+      "attributes": []
+    },
+    "1306641": {
+      "name": "Blood Sacrifice",
+      "icon": "ability_warrior_bloodfrenzy",
+      "attributes": []
+    },
+    "1306657": {
+      "name": "Blood Sacrifice",
+      "icon": "ability_warrior_bloodfrenzy",
+      "attributes": []
+    },
+    "1306668": {
+      "name": "Toxic Breath",
+      "icon": "spell_fire_felflamebreath",
+      "attributes": []
+    },
+    "1306669": {
+      "name": "Toxic Breath",
+      "icon": "spell_fire_felflamebreath",
+      "attributes": []
+    },
+    "1306736": {
+      "name": "Spit Gold",
+      "icon": "ability_creature_amber_01",
+      "attributes": []
+    },
+    "1306761": {
+      "name": "Serpent Strike",
+      "icon": "inv_jewelcrafting_jadeserpent",
+      "attributes": []
+    },
+    "1306763": {
+      "name": "Serpent Strike",
+      "icon": "inv_jewelcrafting_jadeserpent",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1306844": {
+      "name": "Totemic Ritual",
+      "icon": "spell_nature_poisoncleansingtotem",
+      "attributes": []
+    },
+    "1306852": {
+      "name": "Toxic Surge",
+      "icon": "inv_ability_poison_wave",
+      "attributes": []
+    },
+    "1306853": {
+      "name": "Toxic Surge",
+      "icon": "inv_ability_poison_wave",
+      "attributes": []
+    },
+    "1306856": {
+      "name": "Toxic Beam",
+      "icon": "inv_ability_poison_beam",
+      "attributes": []
+    },
+    "1306893": {
+      "name": "Unstable Totem",
+      "icon": "ability_shaman_stoneskintotem",
+      "attributes": []
+    },
+    "1306911": {
+      "name": "Dismember",
+      "icon": "ability_criticalstrike",
+      "attributes": []
+    },
+    "1307098": {
+      "name": "Gorge",
+      "icon": "ability_racial_cannibalize",
+      "attributes": []
+    },
+    "1307144": {
+      "name": "Gorge",
+      "icon": "ability_racial_cannibalize",
+      "attributes": []
+    },
+    "1307205": {
+      "name": "Earthbound's Imprint",
+      "icon": "inv_ore_blackrock_ore",
+      "attributes": []
+    },
+    "1307269": {
+      "name": "Paralyzing Shots",
+      "icon": "ability_poisonsting",
+      "attributes": []
+    },
+    "1307372": {
+      "name": "Fiery Demise",
+      "icon": "spell_shaman_lavasurge",
+      "attributes": []
+    },
+    "1307488": {
+      "name": "Lightning Torrent",
+      "icon": "spell_shaman_thunderstorm",
+      "attributes": []
+    },
+    "1307502": {
+      "name": "Summon Primal Thunderclouds",
+      "icon": "ability_vehicle_electrocharge",
+      "attributes": []
+    },
+    "1307511": {
+      "name": "Summon Primal Thunderclouds",
+      "icon": "ability_vehicle_electrocharge",
+      "attributes": []
+    },
+    "1307526": {
+      "name": "Bloodletting",
+      "icon": "ability_demonhunter_bloodlet",
+      "attributes": []
+    },
+    "1307567": {
+      "name": "Mass Envenom",
+      "icon": "inv_ability_poison_missile",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1307571": {
+      "name": "Envenom",
+      "icon": "inv_ability_poison_missile",
+      "attributes": [
+        "poison"
+      ]
+    },
+    "1307573": {
+      "name": "Triple Shot",
+      "icon": "spell_nature_corrosivebreath",
+      "attributes": []
+    },
+    "1307602": {
+      "name": "Evolved",
+      "icon": "inv_121_trinket_raid_ulatek_heart",
+      "attributes": []
+    },
+    "1307700": {
+      "name": "Carrion Burst",
+      "icon": "ability_creature_disease_02",
+      "attributes": []
+    },
+    "1307703": {
+      "name": "Fresh Meat",
+      "icon": "inv_misc_food_meat_raw_03",
+      "attributes": []
+    },
+    "1307765": {
+      "name": "Feeding Frenzy",
+      "icon": "ability_racial_cannibalize",
+      "attributes": []
+    },
+    "1307768": {
+      "name": "Feeding Frenzy",
+      "icon": "ability_racial_cannibalize",
+      "attributes": []
+    },
+    "1307894": {
+      "name": "Ravenous Stomp",
+      "icon": "ability_earthen_pillar",
+      "attributes": []
+    },
+    "1307915": {
+      "name": "Ravenous Stomp",
+      "icon": "ability_earthen_pillar",
+      "attributes": []
+    },
+    "1307921": {
+      "name": "Fresh Meat",
+      "icon": "inv_misc_food_meat_raw_03",
+      "attributes": []
+    },
+    "1308100": {
+      "name": "Poisoned Cheap Shot",
+      "icon": "ability_cheapshot",
+      "attributes": [
+        "interruptible",
+        "poison"
+      ]
+    },
+    "1308113": {
+      "name": "Arrow Barrage",
+      "icon": "inv_misc_ammo_arrow_05",
+      "attributes": []
+    },
+    "1308116": {
+      "name": "Arrow Barrage",
+      "icon": "inv_misc_ammo_arrow_05",
+      "attributes": []
+    },
+    "1308148": {
+      "name": "Cytotoxin",
+      "icon": "ability_hunter_cobrastrikes",
+      "attributes": [
+        "interruptible",
+        "poison"
+      ]
+    },
+    "1308518": {
+      "name": "Laced Edge",
+      "icon": "inv_sword_2h_ulatek_d_01",
+      "attributes": []
+    },
+    "1308546": {
+      "name": "Venomous Slash",
+      "icon": "ability_rogue_disembowel",
+      "attributes": []
+    },
+    "1308738": {
+      "name": "Overload",
+      "icon": "ability_thunderking_overcharge",
+      "attributes": []
+    },
+    "1308740": {
+      "name": "Overload",
+      "icon": "ability_thunderking_overcharge",
+      "attributes": []
+    },
+    "1308838": {
+      "name": "Lightning Bite",
+      "icon": "ability_thunderking_balllightning",
+      "attributes": []
+    },
+    "1308864": {
+      "name": "Infest",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "1308865": {
+      "name": "Infest",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "1309382": {
+      "name": "Infest",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "1309398": {
+      "name": "Infest",
+      "icon": "ability_hunter_snaketrap",
+      "attributes": []
+    },
+    "1309415": {
+      "name": "Virulent Twister",
+      "icon": "inv_ability_poison_wave",
+      "attributes": []
+    },
+    "1309416": {
+      "name": "Virulent Twister",
+      "icon": "inv_ability_poison_wave",
+      "attributes": []
+    },
+    "1309499": {
+      "name": "Reinforced",
+      "icon": "ability_vehicle_shellshieldgenerator_green",
+      "attributes": []
+    },
+    "1309522": {
+      "name": "Ssscavenging",
+      "icon": "trade_archaeology_bones-of transformation",
+      "attributes": []
+    },
+    "1309540": {
+      "name": "Ritual of Blazebinding",
+      "icon": "spell_fire_totemofwrath",
+      "attributes": []
+    },
+    "1309705": {
+      "name": "Steel Barrage",
+      "icon": "inv_axe_1h_deathwingraiddw_d_01",
+      "attributes": []
+    },
+    "1309919": {
+      "name": "Frigid Roar",
+      "icon": "inv_amanibearmount_witherbark",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1309924": {
+      "name": "Volatile Totem",
+      "icon": "spell_fire_totemofwrath",
+      "attributes": []
+    },
+    "1309925": {
+      "name": "Volatile Totem",
+      "icon": "spell_fire_totemofwrath",
+      "attributes": []
+    },
+    "1309931": {
+      "name": "Volatile Flames",
+      "icon": "spell_fire_totemofwrath",
+      "attributes": []
+    },
+    "1309947": {
+      "name": "Harsh Winter",
+      "icon": "spell_frost_arcticwinds",
+      "attributes": []
+    },
+    "1309964": {
+      "name": "Harsh Winter",
+      "icon": "spell_frost_arcticwinds",
+      "attributes": []
+    },
+    "1309970": {
+      "name": "Health Funnel",
+      "icon": "spell_shadow_lifedrain",
+      "attributes": []
+    },
+    "1310025": {
+      "name": "Gravitic Orbs",
+      "icon": "inv_enchant_voidsphere",
+      "attributes": []
+    },
+    "1310309": {
+      "name": "Macestorm",
+      "icon": "ability_paladin_enlightenedjudgements",
+      "attributes": []
+    },
+    "1310311": {
+      "name": "Storm Blessed",
+      "icon": "spell_nature_lightningshield",
+      "attributes": []
+    },
+    "1310319": {
+      "name": "Bolster",
+      "icon": "ability_druid_enrage",
+      "attributes": [
+        "enrage"
+      ]
+    },
+    "1310320": {
+      "name": "Exhausted",
+      "icon": "spell_frost_stun",
+      "attributes": []
+    },
+    "1310321": {
+      "name": "Concussion",
+      "icon": "spell_frost_stun",
+      "attributes": []
+    },
+    "1310324": {
+      "name": "Mending Void",
+      "icon": "inv_cosmicvoid_buff",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1310355": {
+      "name": "Tempest Stormshield",
+      "icon": "inv_10_worlddroplevelingoptionalreagent_misc_orb_air",
+      "attributes": []
+    },
+    "1310357": {
+      "name": "Toxic Barrage",
+      "icon": "spell_shadow_requiem",
+      "attributes": []
+    },
+    "1310361": {
+      "name": "Tempest Stormshield",
+      "icon": "inv_10_worlddroplevelingoptionalreagent_misc_orb_air",
+      "attributes": []
+    },
+    "1310363": {
+      "name": "Tempest Stormshield",
+      "icon": "inv_10_worlddroplevelingoptionalreagent_misc_orb_air",
+      "attributes": []
+    },
+    "1310378": {
+      "name": "Scent of Blood",
+      "icon": "sha_ability_rogue_bloodyeye_nightmare",
+      "attributes": []
+    },
+    "1310396": {
+      "name": "Serpent's Stormcall",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "1310402": {
+      "name": "Serpent's Stormcall",
+      "icon": "spell_nature_unrelentingstorm",
+      "attributes": []
+    },
+    "1310413": {
+      "name": "Ravenous Stomp",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "1310489": {
+      "name": "Blast Chunks",
+      "icon": "inv_10_elementalcombinedfoozles_earth",
+      "attributes": []
+    },
+    "1310547": {
+      "name": "Toxic Atrophy",
+      "icon": "spell_shadow_requiem",
+      "attributes": []
+    },
+    "1310599": {
+      "name": "Electrical Discharge",
+      "icon": "inv_misc_stormlordsfavor",
+      "attributes": []
+    },
+    "1310666": {
+      "name": "Toxic Atrophy",
+      "icon": "spell_shadow_requiem",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1310683": {
+      "name": "Venom Bolt",
+      "icon": "inv_ability_poison_missile",
+      "attributes": [
+        "interruptible"
+      ]
+    },
+    "1310693": {
+      "name": "Static Shocks",
+      "icon": "spell_shaman_crashlightning",
+      "attributes": []
+    },
+    "1310712": {
+      "name": "Gale Force",
+      "icon": "ability_skyreach_four_wind",
+      "attributes": []
+    },
+    "1310739": {
+      "name": "Accumulate Charge",
+      "icon": "spell_chargepositive",
+      "attributes": [
+        "magic"
+      ]
+    },
+    "1310755": {
+      "name": "Heavy Slams",
+      "icon": "inv_11_arenaboss_conductionslam",
+      "attributes": []
+    },
+    "1310758": {
+      "name": "Necrotic Energy",
+      "icon": "spell_necro_chillofdeath",
+      "attributes": []
+    },
+    "1310761": {
+      "name": "Barrel Through",
+      "icon": "ability_monk_clashingoxcharge",
+      "attributes": []
+    },
+    "1310974": {
+      "name": "Toxic Atrophy",
+      "icon": "spell_shadow_requiem",
+      "attributes": []
+    },
+    "1311136": {
+      "name": "Sharp Nail",
+      "icon": "ability_hunter_quickshot",
+      "attributes": []
+    },
+    "1311572": {
+      "name": "Melee",
+      "icon": "trade_engineering",
+      "attributes": []
+    },
+    "1311712": {
+      "name": "Lightning Strike",
+      "icon": "ability_thunderking_lightningwhip",
+      "attributes": []
+    },
+    "1311747": {
+      "name": "Orb of Disruption",
+      "icon": "ability_monk_forcesphere",
+      "attributes": []
+    },
+    "1311754": {
+      "name": "Forked Lightning",
+      "icon": "spell_lightning_lightningbolt01",
+      "attributes": []
+    },
+    "1311778": {
+      "name": "Rip and Slice",
+      "icon": "inv_10_specialreagentfoozles_tuskclaw-black",
+      "attributes": []
+    },
+    "1311808": {
+      "name": "Tempest Winds",
+      "icon": "achievement_raidprimalist_windelemental",
+      "attributes": []
+    },
+    "1311923": {
+      "name": "Dark Waves",
+      "icon": "inv_cosmicvoid_wave",
+      "attributes": []
+    },
+    "1311942": {
+      "name": "Shadow Slash",
+      "icon": "ability_ironmaidens_convulsiveshadows",
+      "attributes": []
+    },
+    "1311964": {
+      "name": "Latent Hex",
+      "icon": "inv_shoulder_armor_hextroll_d_01",
+      "attributes": []
+    },
+    "1311979": {
+      "name": "Latent Hex",
+      "icon": "inv_shoulder_armor_hextroll_d_01",
+      "attributes": []
+    },
+    "1311980": {
+      "name": "Latent Hex",
+      "icon": "inv_shoulder_armor_hextroll_d_01",
+      "attributes": []
+    },
+    "1311981": {
+      "name": "Latent Hex",
+      "icon": "inv_shoulder_armor_hextroll_d_01",
+      "attributes": []
+    },
+    "1311987": {
+      "name": "Serpentine Gust",
+      "icon": "ability_skyreach_four_wind",
+      "attributes": []
+    },
+    "1311988": {
+      "name": "Serpentine Gust",
+      "icon": "ability_skyreach_four_wind",
+      "attributes": []
+    },
+    "1312104": {
+      "name": "Spit Gold",
+      "icon": "ability_creature_amber_01",
+      "attributes": []
+    },
+    "1312146": {
+      "name": "Awakening Slam",
+      "icon": "spell_necro_deathsdoor",
+      "attributes": []
+    },
+    "1312214": {
+      "name": "Corruption",
+      "icon": "inv_nullstone_shadow",
+      "attributes": []
+    },
+    "1312569": {
+      "name": "Embalm",
+      "icon": "inv_10_elementalshardfoozles_decay",
+      "attributes": []
+    },
+    "1312669": {
+      "name": "Flaming Embers",
+      "icon": "spell_fire_felflamering_red",
+      "attributes": []
+    },
+    "1312684": {
+      "name": "Roaring Firebreath",
+      "icon": "ability_warlock_inferno",
+      "attributes": []
+    },
+    "1312848": {
+      "name": "Command Constructs",
+      "icon": "inv_sonic_debuff",
+      "attributes": []
+    }
+  }
+}

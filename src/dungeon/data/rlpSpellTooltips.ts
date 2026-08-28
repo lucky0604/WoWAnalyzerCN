@@ -6,7 +6,7 @@
  * 中文优先。数值变量($s1/$t1/$d/$A1/$o1…)已按 wago.tools Journal tooltip 算法
  * (难度 All、multiplier 1)在生成时填好——本文件由 scripts 生成,勿手改。
  *
- * Provenance: game-data snapshot, reference-only;与 [[rlpSpellReference]] 的
+ * Provenance: game-data snapshot, reference-only;与 [[spellReference]] 的
  * 技能名/图标同源(blizzard Grimoire)。
  *
  * NOTE: Don't edit by hand — regenerate from /tmp/rlp_fetch/spell_full2.json.
