@@ -1,0 +1,1245 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-murder-row-2026-08-26",
+  "dungeonId": "murder-row",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "source": "game-data",
+  "licenseStatus": "approved",
+  "evidenceRef": "agent_flow/mdt-snapshots/s2/README.md",
+  "capturedAt": "2026-08-26T00:00:00.000Z",
+  "digest": "sha256:24a42f0d0b3cfea9cb758c2fd4628b3b55121f0c9b060e69eba0459e34f7c811",
+  "enemies": [
+    {
+      "enemyKey": "Felwyrm",
+      "npcId": 236085,
+      "isBoss": false,
+      "forcesPoints": 1
+    },
+    {
+      "enemyKey": "Row Hooligan",
+      "npcId": 236073,
+      "isBoss": false,
+      "forcesPoints": 3
+    },
+    {
+      "enemyKey": "Felonious Mage",
+      "npcId": 236084,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Bribed Guard",
+      "npcId": 236071,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Bribed Captain",
+      "npcId": 252529,
+      "isBoss": false,
+      "forcesPoints": 35
+    },
+    {
+      "enemyKey": "Seductive Sayaad [236082]",
+      "npcId": 236082,
+      "isBoss": false,
+      "forcesPoints": 6
+    },
+    {
+      "enemyKey": "Massive Felwyrm",
+      "npcId": 236902,
+      "isBoss": false,
+      "forcesPoints": 12
+    },
+    {
+      "enemyKey": "Street Sneak",
+      "npcId": 236091,
+      "isBoss": false,
+      "forcesPoints": 3
+    },
+    {
+      "enemyKey": "Warehouse Worker",
+      "npcId": 236893,
+      "isBoss": false,
+      "forcesPoints": 2
+    },
+    {
+      "enemyKey": "Keen Taskmaster",
+      "npcId": 236897,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Unleashed Imp",
+      "npcId": 234849,
+      "isBoss": false,
+      "forcesPoints": 2
+    },
+    {
+      "enemyKey": "Trained Felhunter [235261]",
+      "npcId": 235261,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Fel Invoker",
+      "npcId": 235268,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Wrathguard Flayer",
+      "npcId": 235267,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Corrupted Warlock",
+      "npcId": 235265,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Demon Fly",
+      "npcId": 235257,
+      "isBoss": false,
+      "forcesPoints": 1
+    },
+    {
+      "enemyKey": "Shivan Punisher",
+      "npcId": 235465,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Felmaster Lucsei",
+      "npcId": 236905,
+      "isBoss": false,
+      "forcesPoints": 30
+    },
+    {
+      "enemyKey": "Defiled Golem",
+      "npcId": 235322,
+      "isBoss": false,
+      "forcesPoints": 35
+    },
+    {
+      "enemyKey": "Xathuux the Annihilator",
+      "npcId": 234647,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Kystia Manaheart [234648]",
+      "npcId": 234648,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Zaen Bladesorrow",
+      "npcId": 234649,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Nibbles",
+      "npcId": 234660,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Lithiel Cinderfury",
+      "npcId": 234763,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Furious Vilefiend",
+      "npcId": 234799,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Forbidden Freight",
+      "npcId": 234852,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Crate Loader",
+      "npcId": 234860,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Silvermoon Patron",
+      "npcId": 234984,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Legion Axe",
+      "npcId": 235520,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Selenar Sunshy",
+      "npcId": 235841,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Masked Noble",
+      "npcId": 236088,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Rowdy Patron",
+      "npcId": 236525,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Wild Imp",
+      "npcId": 237626,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Infernal",
+      "npcId": 238414,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Nauseous Patron",
+      "npcId": 240289,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Influentual Reviewer",
+      "npcId": 253081,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Tiny Felwyrm",
+      "npcId": 253324,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Kystia Manaheart [255050]",
+      "npcId": 255050,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Seductive Sayaad [255604]",
+      "npcId": 255604,
+      "isBoss": false,
+      "forcesPoints": 6
+    },
+    {
+      "enemyKey": "Belath Dawnblade",
+      "npcId": 263940,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Trained Felhunter [272246]",
+      "npcId": 272246,
+      "isBoss": false,
+      "forcesPoints": 0
+    }
+  ],
+  "abilities": [
+    {
+      "abilityKey": "spell-5543",
+      "spellId": 5543,
+      "casterEnemyKeys": [
+        "Legion Axe"
+      ]
+    },
+    {
+      "abilityKey": "spell-44427",
+      "spellId": 44427,
+      "casterEnemyKeys": [
+        "Silvermoon Patron"
+      ]
+    },
+    {
+      "abilityKey": "spell-473898",
+      "spellId": 473898,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-474197",
+      "spellId": 474197,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-474231",
+      "spellId": 474231,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-474234",
+      "spellId": 474234,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-474238",
+      "spellId": 474238,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ]
+    },
+    {
+      "abilityKey": "spell-474240",
+      "spellId": 474240,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ]
+    },
+    {
+      "abilityKey": "spell-474375",
+      "spellId": 474375,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-474408",
+      "spellId": 474408,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-474457",
+      "spellId": 474457,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-474462",
+      "spellId": 474462,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-474478",
+      "spellId": 474478,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-474483",
+      "spellId": 474483,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-474515",
+      "spellId": 474515,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-474545",
+      "spellId": 474545,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-474740",
+      "spellId": 474740,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-474763",
+      "spellId": 474763,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-474766",
+      "spellId": 474766,
+      "casterEnemyKeys": [
+        "Crate Loader"
+      ]
+    },
+    {
+      "abilityKey": "spell-474768",
+      "spellId": 474768,
+      "casterEnemyKeys": [
+        "Crate Loader"
+      ]
+    },
+    {
+      "abilityKey": "spell-734276",
+      "spellId": 734276,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1201554",
+      "spellId": 1201554,
+      "casterEnemyKeys": [
+        "Seductive Sayaad [236082]",
+        "Seductive Sayaad [255604]"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1213658",
+      "spellId": 1213658,
+      "casterEnemyKeys": [
+        "Rowdy Patron"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1214260",
+      "spellId": 1214260,
+      "casterEnemyKeys": [
+        "Silvermoon Patron"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214352",
+      "spellId": 1214352,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214355",
+      "spellId": 1214355,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214357",
+      "spellId": 1214357,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214487",
+      "spellId": 1214487,
+      "casterEnemyKeys": [
+        "Silvermoon Patron"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214637",
+      "spellId": 1214637,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214641",
+      "spellId": 1214641,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214647",
+      "spellId": 1214647,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214650",
+      "spellId": 1214650,
+      "casterEnemyKeys": [
+        "Legion Axe"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214663",
+      "spellId": 1214663,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214675",
+      "spellId": 1214675,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214730",
+      "spellId": 1214730,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214740",
+      "spellId": 1214740,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214922",
+      "spellId": 1214922,
+      "casterEnemyKeys": [
+        "Wrathguard Flayer"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1214959",
+      "spellId": 1214959,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214966",
+      "spellId": 1214966,
+      "casterEnemyKeys": [
+        "Felwyrm",
+        "Tiny Felwyrm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1214980",
+      "spellId": 1214980,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1215872",
+      "spellId": 1215872,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1215961",
+      "spellId": 1215961,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1215985",
+      "spellId": 1215985,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216074",
+      "spellId": 1216074,
+      "casterEnemyKeys": [
+        "Selenar Sunshy"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216076",
+      "spellId": 1216076,
+      "casterEnemyKeys": [
+        "Nauseous Patron"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216284",
+      "spellId": 1216284,
+      "casterEnemyKeys": [
+        "Street Sneak"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216300",
+      "spellId": 1216300,
+      "casterEnemyKeys": [
+        "Row Hooligan"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216529",
+      "spellId": 1216529,
+      "casterEnemyKeys": [
+        "Bribed Guard",
+        "Bribed Captain"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216538",
+      "spellId": 1216538,
+      "casterEnemyKeys": [
+        "Felwyrm",
+        "Tiny Felwyrm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216570",
+      "spellId": 1216570,
+      "casterEnemyKeys": [
+        "Felonious Mage"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216571",
+      "spellId": 1216571,
+      "casterEnemyKeys": [
+        "Felonious Mage"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1216589",
+      "spellId": 1216589,
+      "casterEnemyKeys": [
+        "Street Sneak"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216590",
+      "spellId": 1216590,
+      "casterEnemyKeys": [
+        "Street Sneak"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216945",
+      "spellId": 1216945,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1216954",
+      "spellId": 1216954,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216955",
+      "spellId": 1216955,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ]
+    },
+    {
+      "abilityKey": "spell-1216970",
+      "spellId": 1216970,
+      "casterEnemyKeys": [
+        "Warehouse Worker",
+        "Keen Taskmaster"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217099",
+      "spellId": 1217099,
+      "casterEnemyKeys": [
+        "Forbidden Freight"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1217123",
+      "spellId": 1217123,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217345",
+      "spellId": 1217345,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217384",
+      "spellId": 1217384,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217415",
+      "spellId": 1217415,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217464",
+      "spellId": 1217464,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]",
+        "Nibbles"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217633",
+      "spellId": 1217633,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217881",
+      "spellId": 1217881,
+      "casterEnemyKeys": [
+        "Trained Felhunter [235261]",
+        "Lithiel Cinderfury",
+        "Furious Vilefiend"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217930",
+      "spellId": 1217930,
+      "casterEnemyKeys": [
+        "Trained Felhunter [235261]",
+        "Felmaster Lucsei"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217937",
+      "spellId": 1217937,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217973",
+      "spellId": 1217973,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217989",
+      "spellId": 1217989,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1217992",
+      "spellId": 1217992,
+      "casterEnemyKeys": [
+        "Warehouse Worker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1218187",
+      "spellId": 1218187,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1218347",
+      "spellId": 1218347,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-1218465",
+      "spellId": 1218465,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1218466",
+      "spellId": 1218466,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1218467",
+      "spellId": 1218467,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1218468",
+      "spellId": 1218468,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1218508",
+      "spellId": 1218508,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1219468",
+      "spellId": 1219468,
+      "casterEnemyKeys": [
+        "Masked Noble"
+      ]
+    },
+    {
+      "abilityKey": "spell-1219631",
+      "spellId": 1219631,
+      "casterEnemyKeys": [
+        "Forbidden Freight"
+      ]
+    },
+    {
+      "abilityKey": "spell-1221063",
+      "spellId": 1221063,
+      "casterEnemyKeys": [
+        "Felwyrm",
+        "Row Hooligan",
+        "Felonious Mage",
+        "Bribed Guard",
+        "Bribed Captain",
+        "Street Sneak",
+        "Trained Felhunter [235261]",
+        "Fel Invoker",
+        "Wrathguard Flayer",
+        "Corrupted Warlock",
+        "Demon Fly",
+        "Defiled Golem",
+        "Kystia Manaheart [234648]",
+        "Zaen Bladesorrow",
+        "Nibbles",
+        "Wild Imp",
+        "Infernal"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222598",
+      "spellId": 1222598,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow",
+        "Forbidden Freight"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222795",
+      "spellId": 1222795,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-1223204",
+      "spellId": 1223204,
+      "casterEnemyKeys": [
+        "Unleashed Imp",
+        "Wild Imp"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1223906",
+      "spellId": 1223906,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1223939",
+      "spellId": 1223939,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ]
+    },
+    {
+      "abilityKey": "spell-1226469",
+      "spellId": 1226469,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury",
+        "Wild Imp"
+      ]
+    },
+    {
+      "abilityKey": "spell-1228198",
+      "spellId": 1228198,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ]
+    },
+    {
+      "abilityKey": "spell-1229433",
+      "spellId": 1229433,
+      "casterEnemyKeys": [
+        "Felonious Mage"
+      ]
+    },
+    {
+      "abilityKey": "spell-1230289",
+      "spellId": 1230289,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ]
+    },
+    {
+      "abilityKey": "spell-1230298",
+      "spellId": 1230298,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1230304",
+      "spellId": 1230304,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ]
+    },
+    {
+      "abilityKey": "spell-1231256",
+      "spellId": 1231256,
+      "casterEnemyKeys": [
+        "Infernal"
+      ]
+    },
+    {
+      "abilityKey": "spell-1231262",
+      "spellId": 1231262,
+      "casterEnemyKeys": [
+        "Infernal"
+      ]
+    },
+    {
+      "abilityKey": "spell-1231353",
+      "spellId": 1231353,
+      "casterEnemyKeys": [
+        "Infernal"
+      ]
+    },
+    {
+      "abilityKey": "spell-1253811",
+      "spellId": 1253811,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ]
+    },
+    {
+      "abilityKey": "spell-1253813",
+      "spellId": 1253813,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ]
+    },
+    {
+      "abilityKey": "spell-1255881",
+      "spellId": 1255881,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1256276",
+      "spellId": 1256276,
+      "casterEnemyKeys": [
+        "Bribed Captain"
+      ]
+    },
+    {
+      "abilityKey": "spell-1256299",
+      "spellId": 1256299,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1256300",
+      "spellId": 1256300,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1257877",
+      "spellId": 1257877,
+      "casterEnemyKeys": [
+        "Influentual Reviewer"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1258537",
+      "spellId": 1258537,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1264095",
+      "spellId": 1264095,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1264106",
+      "spellId": 1264106,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [255050]"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1264110",
+      "spellId": 1264110,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [255050]"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1266241",
+      "spellId": 1266241,
+      "casterEnemyKeys": [
+        "Forbidden Freight"
+      ]
+    },
+    {
+      "abilityKey": "spell-1287627",
+      "spellId": 1287627,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ]
+    },
+    {
+      "abilityKey": "spell-1293022",
+      "spellId": 1293022,
+      "casterEnemyKeys": [
+        "Demon Fly"
+      ]
+    },
+    {
+      "abilityKey": "spell-1293101",
+      "spellId": 1293101,
+      "casterEnemyKeys": [
+        "Trained Felhunter [235261]",
+        "Furious Vilefiend",
+        "Trained Felhunter [272246]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1294770",
+      "spellId": 1294770,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1294774",
+      "spellId": 1294774,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1294789",
+      "spellId": 1294789,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ]
+    },
+    {
+      "abilityKey": "spell-1294824",
+      "spellId": 1294824,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1294827",
+      "spellId": 1294827,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1294836",
+      "spellId": 1294836,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1294870",
+      "spellId": 1294870,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1295035",
+      "spellId": 1295035,
+      "casterEnemyKeys": [
+        "Bribed Guard",
+        "Bribed Captain"
+      ]
+    },
+    {
+      "abilityKey": "spell-1295426",
+      "spellId": 1295426,
+      "casterEnemyKeys": [
+        "Wrathguard Flayer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1295427",
+      "spellId": 1295427,
+      "casterEnemyKeys": [
+        "Wrathguard Flayer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1295453",
+      "spellId": 1295453,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-1295455",
+      "spellId": 1295455,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297667",
+      "spellId": 1297667,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297676",
+      "spellId": 1297676,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297682",
+      "spellId": 1297682,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297683",
+      "spellId": 1297683,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297684",
+      "spellId": 1297684,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297686",
+      "spellId": 1297686,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297691",
+      "spellId": 1297691,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297693",
+      "spellId": 1297693,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297695",
+      "spellId": 1297695,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1302007",
+      "spellId": 1302007,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ]
+    },
+    {
+      "abilityKey": "spell-1302010",
+      "spellId": 1302010,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ]
+    },
+    {
+      "abilityKey": "spell-1309970",
+      "spellId": 1309970,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1311136",
+      "spellId": 1311136,
+      "casterEnemyKeys": [
+        "Warehouse Worker"
+      ]
+    }
+  ],
+  "totalEnemyForcesPoints": 242
+}

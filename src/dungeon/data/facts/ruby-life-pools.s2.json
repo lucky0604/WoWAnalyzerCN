@@ -1,0 +1,882 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-ruby-life-pools-2026-08-26",
+  "dungeonId": "ruby-life-pools",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "source": "game-data",
+  "licenseStatus": "approved",
+  "evidenceRef": "agent_flow/mdt-snapshots/s2/README.md",
+  "capturedAt": "2026-08-26T00:00:00.000Z",
+  "digest": "sha256:d2f3c4a15367078be80831fa886744c135b91d88331e70158152f4305c9db1c8",
+  "enemies": [
+    {
+      "enemyKey": "Primal Juggernaut",
+      "npcId": 188244,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Deepstone Earthshaper",
+      "npcId": 187969,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Earthbound Guardian",
+      "npcId": 188011,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Flashfrost Chillweaver",
+      "npcId": 188067,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Infused Whelp [187894]",
+      "npcId": 187894,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Defier Draghar",
+      "npcId": 187897,
+      "isBoss": false,
+      "forcesPoints": 30
+    },
+    {
+      "enemyKey": "Melidrussa Chillworn",
+      "npcId": 188252,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Scorchling [190205]",
+      "npcId": 190205,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Thunderhead",
+      "npcId": 197698,
+      "isBoss": false,
+      "forcesPoints": 48
+    },
+    {
+      "enemyKey": "Primalist Cinderweaver",
+      "npcId": 190207,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Blazebound Destroyer",
+      "npcId": 190034,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Ashseer Flamelasher",
+      "npcId": 190206,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Ruinous Stormbringer",
+      "npcId": 195119,
+      "isBoss": false,
+      "forcesPoints": 10
+    },
+    {
+      "enemyKey": "Flamegullet",
+      "npcId": 197697,
+      "isBoss": false,
+      "forcesPoints": 40
+    },
+    {
+      "enemyKey": "Kokia Blazehoof",
+      "npcId": 189232,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Storm Warrior",
+      "npcId": 197982,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Primal Thundercloud",
+      "npcId": 197509,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Tempest Channeler",
+      "npcId": 198047,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "High Channeler Ryvati",
+      "npcId": 197535,
+      "isBoss": false,
+      "forcesPoints": 30
+    },
+    {
+      "enemyKey": "Erkhart Stormvein",
+      "npcId": 190485,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Kyrakka",
+      "npcId": 190484,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Blazebound Firestorm",
+      "npcId": 189886,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Infused Whelp [189893]",
+      "npcId": 189893,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Scorchling [194622]",
+      "npcId": 194622,
+      "isBoss": false,
+      "forcesPoints": 0
+    }
+  ],
+  "abilities": [
+    {
+      "abilityKey": "spell-181089",
+      "spellId": 181089,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-371471",
+      "spellId": 371471,
+      "casterEnemyKeys": [
+        "Deepstone Earthshaper"
+      ]
+    },
+    {
+      "abilityKey": "spell-371489",
+      "spellId": 371489,
+      "casterEnemyKeys": [
+        "Flashfrost Chillweaver"
+      ]
+    },
+    {
+      "abilityKey": "spell-371984",
+      "spellId": 371984,
+      "casterEnemyKeys": [
+        "Flashfrost Chillweaver"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-372047",
+      "spellId": 372047,
+      "casterEnemyKeys": [
+        "Defier Draghar"
+      ]
+    },
+    {
+      "abilityKey": "spell-372087",
+      "spellId": 372087,
+      "casterEnemyKeys": [
+        "Defier Draghar"
+      ]
+    },
+    {
+      "abilityKey": "spell-372107",
+      "spellId": 372107,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372730",
+      "spellId": 372730,
+      "casterEnemyKeys": [
+        "Primal Juggernaut"
+      ]
+    },
+    {
+      "abilityKey": "spell-372743",
+      "spellId": 372743,
+      "casterEnemyKeys": [
+        "Flashfrost Chillweaver"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-372749",
+      "spellId": 372749,
+      "casterEnemyKeys": [
+        "Flashfrost Chillweaver"
+      ]
+    },
+    {
+      "abilityKey": "spell-372793",
+      "spellId": 372793,
+      "casterEnemyKeys": [
+        "Primal Juggernaut"
+      ]
+    },
+    {
+      "abilityKey": "spell-372794",
+      "spellId": 372794,
+      "casterEnemyKeys": [
+        "Defier Draghar"
+      ]
+    },
+    {
+      "abilityKey": "spell-372808",
+      "spellId": 372808,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-372811",
+      "spellId": 372811,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372819",
+      "spellId": 372819,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372820",
+      "spellId": 372820,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372851",
+      "spellId": 372851,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-372858",
+      "spellId": 372858,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372859",
+      "spellId": 372859,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372860",
+      "spellId": 372860,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372863",
+      "spellId": 372863,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-372988",
+      "spellId": 372988,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-373017",
+      "spellId": 373017,
+      "casterEnemyKeys": [
+        "Blazebound Firestorm"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-373046",
+      "spellId": 373046,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-373087",
+      "spellId": 373087,
+      "casterEnemyKeys": [
+        "Blazebound Firestorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-373614",
+      "spellId": 373614,
+      "casterEnemyKeys": [
+        "Blazebound Destroyer"
+      ]
+    },
+    {
+      "abilityKey": "spell-373680",
+      "spellId": 373680,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-373688",
+      "spellId": 373688,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-373692",
+      "spellId": 373692,
+      "casterEnemyKeys": [
+        "Blazebound Destroyer"
+      ]
+    },
+    {
+      "abilityKey": "spell-373693",
+      "spellId": 373693,
+      "casterEnemyKeys": [
+        "Primalist Cinderweaver"
+      ]
+    },
+    {
+      "abilityKey": "spell-373727",
+      "spellId": 373727,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-373972",
+      "spellId": 373972,
+      "casterEnemyKeys": [
+        "Ashseer Flamelasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-373973",
+      "spellId": 373973,
+      "casterEnemyKeys": [
+        "Ashseer Flamelasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-373977",
+      "spellId": 373977,
+      "casterEnemyKeys": [
+        "Ashseer Flamelasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-381512",
+      "spellId": 381512,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-381513",
+      "spellId": 381513,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-381514",
+      "spellId": 381514,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-381515",
+      "spellId": 381515,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-381516",
+      "spellId": 381516,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-381517",
+      "spellId": 381517,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-381518",
+      "spellId": 381518,
+      "casterEnemyKeys": [
+        "Erkhart Stormvein"
+      ]
+    },
+    {
+      "abilityKey": "spell-381525",
+      "spellId": 381525,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-381526",
+      "spellId": 381526,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-381602",
+      "spellId": 381602,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-381605",
+      "spellId": 381605,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-381862",
+      "spellId": 381862,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-381864",
+      "spellId": 381864,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-383925",
+      "spellId": 383925,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-384024",
+      "spellId": 384024,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-384139",
+      "spellId": 384139,
+      "casterEnemyKeys": [
+        "Blazebound Destroyer"
+      ]
+    },
+    {
+      "abilityKey": "spell-384194",
+      "spellId": 384194,
+      "casterEnemyKeys": [
+        "Primalist Cinderweaver"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-384773",
+      "spellId": 384773,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-384823",
+      "spellId": 384823,
+      "casterEnemyKeys": [
+        "Blazebound Firestorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-384933",
+      "spellId": 384933,
+      "casterEnemyKeys": [
+        "Earthbound Guardian",
+        "Flashfrost Chillweaver"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-385310",
+      "spellId": 385310,
+      "casterEnemyKeys": [
+        "Ruinous Stormbringer"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-385311",
+      "spellId": 385311,
+      "casterEnemyKeys": [
+        "Ruinous Stormbringer"
+      ]
+    },
+    {
+      "abilityKey": "spell-385312",
+      "spellId": 385312,
+      "casterEnemyKeys": [
+        "Ruinous Stormbringer"
+      ]
+    },
+    {
+      "abilityKey": "spell-385313",
+      "spellId": 385313,
+      "casterEnemyKeys": [
+        "Ruinous Stormbringer"
+      ]
+    },
+    {
+      "abilityKey": "spell-385314",
+      "spellId": 385314,
+      "casterEnemyKeys": [
+        "Ruinous Stormbringer"
+      ]
+    },
+    {
+      "abilityKey": "spell-385316",
+      "spellId": 385316,
+      "casterEnemyKeys": [
+        "Ruinous Stormbringer"
+      ]
+    },
+    {
+      "abilityKey": "spell-385536",
+      "spellId": 385536,
+      "casterEnemyKeys": [
+        "Ashseer Flamelasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-385567",
+      "spellId": 385567,
+      "casterEnemyKeys": [
+        "Ashseer Flamelasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-391031",
+      "spellId": 391031,
+      "casterEnemyKeys": [
+        "Primal Thundercloud"
+      ]
+    },
+    {
+      "abilityKey": "spell-391723",
+      "spellId": 391723,
+      "casterEnemyKeys": [
+        "Flamegullet"
+      ]
+    },
+    {
+      "abilityKey": "spell-391726",
+      "spellId": 391726,
+      "casterEnemyKeys": [
+        "Thunderhead"
+      ]
+    },
+    {
+      "abilityKey": "spell-391727",
+      "spellId": 391727,
+      "casterEnemyKeys": [
+        "Thunderhead"
+      ]
+    },
+    {
+      "abilityKey": "spell-392394",
+      "spellId": 392394,
+      "casterEnemyKeys": [
+        "Flamegullet"
+      ]
+    },
+    {
+      "abilityKey": "spell-392395",
+      "spellId": 392395,
+      "casterEnemyKeys": [
+        "Thunderhead"
+      ]
+    },
+    {
+      "abilityKey": "spell-392399",
+      "spellId": 392399,
+      "casterEnemyKeys": [
+        "Primal Thundercloud"
+      ]
+    },
+    {
+      "abilityKey": "spell-392406",
+      "spellId": 392406,
+      "casterEnemyKeys": [
+        "Storm Warrior"
+      ]
+    },
+    {
+      "abilityKey": "spell-392569",
+      "spellId": 392569,
+      "casterEnemyKeys": [
+        "Flamegullet"
+      ]
+    },
+    {
+      "abilityKey": "spell-392570",
+      "spellId": 392570,
+      "casterEnemyKeys": [
+        "Flamegullet"
+      ]
+    },
+    {
+      "abilityKey": "spell-392576",
+      "spellId": 392576,
+      "casterEnemyKeys": [
+        "Tempest Channeler"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-392640",
+      "spellId": 392640,
+      "casterEnemyKeys": [
+        "Thunderhead"
+      ]
+    },
+    {
+      "abilityKey": "spell-392641",
+      "spellId": 392641,
+      "casterEnemyKeys": [
+        "Thunderhead"
+      ]
+    },
+    {
+      "abilityKey": "spell-395292",
+      "spellId": 395292,
+      "casterEnemyKeys": [
+        "Flamegullet"
+      ]
+    },
+    {
+      "abilityKey": "spell-395303",
+      "spellId": 395303,
+      "casterEnemyKeys": [
+        "Thunderhead"
+      ]
+    },
+    {
+      "abilityKey": "spell-396044",
+      "spellId": 396044,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-397077",
+      "spellId": 397077,
+      "casterEnemyKeys": [
+        "Melidrussa Chillworn"
+      ]
+    },
+    {
+      "abilityKey": "spell-1305201",
+      "spellId": 1305201,
+      "casterEnemyKeys": [
+        "Primal Juggernaut"
+      ]
+    },
+    {
+      "abilityKey": "spell-1305213",
+      "spellId": 1305213,
+      "casterEnemyKeys": [
+        "Primal Juggernaut"
+      ]
+    },
+    {
+      "abilityKey": "spell-1305225",
+      "spellId": 1305225,
+      "casterEnemyKeys": [
+        "Deepstone Earthshaper"
+      ]
+    },
+    {
+      "abilityKey": "spell-1305234",
+      "spellId": 1305234,
+      "casterEnemyKeys": [
+        "Infused Whelp [187894]",
+        "Infused Whelp [189893]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1305865",
+      "spellId": 1305865,
+      "casterEnemyKeys": [
+        "Ashseer Flamelasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1305955",
+      "spellId": 1305955,
+      "casterEnemyKeys": [
+        "Blazebound Destroyer"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1306272",
+      "spellId": 1306272,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-1306366",
+      "spellId": 1306366,
+      "casterEnemyKeys": [
+        "Tempest Channeler",
+        "High Channeler Ryvati"
+      ]
+    },
+    {
+      "abilityKey": "spell-1307205",
+      "spellId": 1307205,
+      "casterEnemyKeys": [
+        "Earthbound Guardian"
+      ]
+    },
+    {
+      "abilityKey": "spell-1307372",
+      "spellId": 1307372,
+      "casterEnemyKeys": [
+        "Scorchling [190205]",
+        "Scorchling [194622]"
+      ]
+    },
+    {
+      "abilityKey": "spell-1307488",
+      "spellId": 1307488,
+      "casterEnemyKeys": [
+        "Tempest Channeler",
+        "High Channeler Ryvati"
+      ]
+    },
+    {
+      "abilityKey": "spell-1307502",
+      "spellId": 1307502,
+      "casterEnemyKeys": [
+        "Tempest Channeler"
+      ]
+    },
+    {
+      "abilityKey": "spell-1307511",
+      "spellId": 1307511,
+      "casterEnemyKeys": [
+        "High Channeler Ryvati"
+      ]
+    },
+    {
+      "abilityKey": "spell-1309540",
+      "spellId": 1309540,
+      "casterEnemyKeys": [
+        "Kokia Blazehoof"
+      ]
+    },
+    {
+      "abilityKey": "spell-1309705",
+      "spellId": 1309705,
+      "casterEnemyKeys": [
+        "Defier Draghar"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310355",
+      "spellId": 1310355,
+      "casterEnemyKeys": [
+        "High Channeler Ryvati"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310361",
+      "spellId": 1310361,
+      "casterEnemyKeys": [
+        "High Channeler Ryvati"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310363",
+      "spellId": 1310363,
+      "casterEnemyKeys": [
+        "High Channeler Ryvati"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310489",
+      "spellId": 1310489,
+      "casterEnemyKeys": [
+        "Primal Juggernaut"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310599",
+      "spellId": 1310599,
+      "casterEnemyKeys": [
+        "Thunderhead"
+      ]
+    },
+    {
+      "abilityKey": "spell-1312669",
+      "spellId": 1312669,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    },
+    {
+      "abilityKey": "spell-1312684",
+      "spellId": 1312684,
+      "casterEnemyKeys": [
+        "Kyrakka"
+      ]
+    }
+  ],
+  "totalEnemyForcesPoints": 269
+}

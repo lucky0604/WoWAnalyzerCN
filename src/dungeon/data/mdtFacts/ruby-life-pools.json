@@ -1,0 +1,1040 @@
+{
+  "version": 1,
+  "slug": "ruby-life-pools",
+  "sourceKey": "rlp",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "2dd1303529cba98420fc9c0114125458249e7721d0b2ff0bec7c754d799e18b6",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "full",
+  "dungeonIndex": 42,
+  "mdtDungeonTotalCount": 553,
+  "totalEnemyForcesPoints": 269,
+  "enemies": [
+    {
+      "npcId": 188244,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Primal Juggernaut",
+        "zhCN": "原始主宰"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 372730,
+          "attributes": []
+        },
+        {
+          "id": 372793,
+          "attributes": []
+        },
+        {
+          "id": 1305201,
+          "attributes": []
+        },
+        {
+          "id": 1305213,
+          "attributes": []
+        },
+        {
+          "id": 1310489,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 187969,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Deepstone Earthshaper",
+        "zhCN": "深石塑地者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Repentance",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow",
+        "Sleep Walk",
+        "Mind Soothe"
+      ],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 371471,
+          "attributes": []
+        },
+        {
+          "id": 1305225,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 188011,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "Earthbound Guardian",
+        "zhCN": "缚地守护者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Root",
+        "Fear",
+        "Banish",
+        "Disorient",
+        "Stun",
+        "Slow",
+        "Sleep Walk"
+      ],
+      "spawnCount": 9,
+      "spells": [
+        {
+          "id": 384933,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1307205,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 188067,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Flashfrost Chillweaver",
+        "zhCN": "闪霜织寒者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Repentance",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow",
+        "Sleep Walk",
+        "Mind Soothe"
+      ],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 371489,
+          "attributes": []
+        },
+        {
+          "id": 371984,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 372743,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 372749,
+          "attributes": []
+        },
+        {
+          "id": 384933,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 187894,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "Infused Whelp",
+        "zhCN": "注能龙崽"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Dragonkin",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Repentance",
+        "Sap",
+        "Stun",
+        "Slow",
+        "Sleep Walk",
+        "Hibernate",
+        "Mind Soothe"
+      ],
+      "spawnCount": 52,
+      "spells": [
+        {
+          "id": 1305234,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 187897,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "Defier Draghar",
+        "zhCN": "亵渎者德拉加尔"
+      },
+      "count": 30,
+      "isBoss": false,
+      "creatureType": "Dragonkin",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 372047,
+          "attributes": []
+        },
+        {
+          "id": 372087,
+          "attributes": []
+        },
+        {
+          "id": 372794,
+          "attributes": []
+        },
+        {
+          "id": 1309705,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 188252,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Melidrussa Chillworn",
+        "zhCN": "梅莉杜莎·寒妆"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 372808,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 372851,
+          "attributes": []
+        },
+        {
+          "id": 372988,
+          "attributes": []
+        },
+        {
+          "id": 373046,
+          "attributes": []
+        },
+        {
+          "id": 373680,
+          "attributes": []
+        },
+        {
+          "id": 373688,
+          "attributes": []
+        },
+        {
+          "id": 373727,
+          "attributes": []
+        },
+        {
+          "id": 383925,
+          "attributes": []
+        },
+        {
+          "id": 384024,
+          "attributes": []
+        },
+        {
+          "id": 396044,
+          "attributes": []
+        },
+        {
+          "id": 397077,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 190205,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Scorchling",
+        "zhCN": "灼烧元素"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Root",
+        "Fear",
+        "Banish",
+        "Disorient",
+        "Stun",
+        "Slow",
+        "Sleep Walk"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1307372,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 197698,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "Thunderhead",
+        "zhCN": "雷霆之颅"
+      },
+      "count": 48,
+      "isBoss": false,
+      "creatureType": "Dragonkin",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 391726,
+          "attributes": []
+        },
+        {
+          "id": 391727,
+          "attributes": []
+        },
+        {
+          "id": 392395,
+          "attributes": []
+        },
+        {
+          "id": 392640,
+          "attributes": []
+        },
+        {
+          "id": 392641,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 395303,
+          "attributes": []
+        },
+        {
+          "id": 1310599,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 190207,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Primalist Cinderweaver",
+        "zhCN": "拜荒织烬者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Repentance",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow",
+        "Sleep Walk",
+        "Mind Soothe"
+      ],
+      "spawnCount": 9,
+      "spells": [
+        {
+          "id": 373693,
+          "attributes": []
+        },
+        {
+          "id": 384194,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 190034,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Blazebound Destroyer",
+        "zhCN": "炎缚毁灭者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 373614,
+          "attributes": []
+        },
+        {
+          "id": 373692,
+          "attributes": []
+        },
+        {
+          "id": 384139,
+          "attributes": []
+        },
+        {
+          "id": 1305955,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 190206,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Ashseer Flamelasher",
+        "zhCN": "灰烬先知烈焰鞭笞者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Repentance",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow",
+        "Sleep Walk",
+        "Mind Soothe"
+      ],
+      "spawnCount": 9,
+      "spells": [
+        {
+          "id": 373972,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 373973,
+          "attributes": []
+        },
+        {
+          "id": 373977,
+          "attributes": []
+        },
+        {
+          "id": 385536,
+          "attributes": []
+        },
+        {
+          "id": 385567,
+          "attributes": []
+        },
+        {
+          "id": 1305865,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 195119,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "Ruinous Stormbringer",
+        "zhCN": "毁灭唤风者"
+      },
+      "count": 10,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 385310,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 385311,
+          "attributes": []
+        },
+        {
+          "id": 385312,
+          "attributes": []
+        },
+        {
+          "id": 385313,
+          "attributes": []
+        },
+        {
+          "id": 385314,
+          "attributes": []
+        },
+        {
+          "id": 385316,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 197697,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "Flamegullet",
+        "zhCN": "烈焰之咽"
+      },
+      "count": 40,
+      "isBoss": false,
+      "creatureType": "Dragonkin",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 391723,
+          "attributes": []
+        },
+        {
+          "id": 392394,
+          "attributes": []
+        },
+        {
+          "id": 392569,
+          "attributes": []
+        },
+        {
+          "id": 392570,
+          "attributes": []
+        },
+        {
+          "id": 395292,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 189232,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "Kokia Blazehoof",
+        "zhCN": "柯姬雅·焰蹄"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 372107,
+          "attributes": []
+        },
+        {
+          "id": 372811,
+          "attributes": []
+        },
+        {
+          "id": 372819,
+          "attributes": []
+        },
+        {
+          "id": 372820,
+          "attributes": []
+        },
+        {
+          "id": 372858,
+          "attributes": []
+        },
+        {
+          "id": 372859,
+          "attributes": []
+        },
+        {
+          "id": 372860,
+          "attributes": []
+        },
+        {
+          "id": 372863,
+          "attributes": []
+        },
+        {
+          "id": 1306272,
+          "attributes": []
+        },
+        {
+          "id": 1309540,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 197982,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "Storm Warrior",
+        "zhCN": "风暴战士"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Repentance",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow",
+        "Sleep Walk",
+        "Mind Soothe"
+      ],
+      "spawnCount": 9,
+      "spells": [
+        {
+          "id": 392406,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 197509,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Primal Thundercloud",
+        "zhCN": "原始雷云"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Knock",
+        "Grip",
+        "Mind Control",
+        "Root",
+        "Fear",
+        "Banish",
+        "Disorient",
+        "Stun",
+        "Slow",
+        "Sleep Walk"
+      ],
+      "spawnCount": 22,
+      "spells": [
+        {
+          "id": 391031,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 392399,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 198047,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Tempest Channeler",
+        "zhCN": "暴风引导者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 0.8,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 392576,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1306366,
+          "attributes": []
+        },
+        {
+          "id": 1307488,
+          "attributes": []
+        },
+        {
+          "id": 1307502,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 197535,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "High Channeler Ryvati",
+        "zhCN": "大引导者莱瓦迪"
+      },
+      "count": 30,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1306366,
+          "attributes": []
+        },
+        {
+          "id": 1307488,
+          "attributes": []
+        },
+        {
+          "id": 1307511,
+          "attributes": []
+        },
+        {
+          "id": 1310355,
+          "attributes": []
+        },
+        {
+          "id": 1310361,
+          "attributes": []
+        },
+        {
+          "id": 1310363,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 190485,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "Erkhart Stormvein",
+        "zhCN": "厄克哈特·风脉"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 181089,
+          "attributes": []
+        },
+        {
+          "id": 381512,
+          "attributes": []
+        },
+        {
+          "id": 381513,
+          "attributes": []
+        },
+        {
+          "id": 381514,
+          "attributes": []
+        },
+        {
+          "id": 381515,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 381516,
+          "attributes": []
+        },
+        {
+          "id": 381517,
+          "attributes": []
+        },
+        {
+          "id": 381518,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 190484,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Kyrakka",
+        "zhCN": "基拉卡"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Dragonkin",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Mind Soothe"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 381525,
+          "attributes": []
+        },
+        {
+          "id": 381526,
+          "attributes": []
+        },
+        {
+          "id": 381602,
+          "attributes": []
+        },
+        {
+          "id": 381605,
+          "attributes": []
+        },
+        {
+          "id": 381862,
+          "attributes": []
+        },
+        {
+          "id": 381864,
+          "attributes": []
+        },
+        {
+          "id": 384773,
+          "attributes": []
+        },
+        {
+          "id": 1312669,
+          "attributes": []
+        },
+        {
+          "id": 1312684,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 189886,
+      "enemyIndex": 22,
+      "name": {
+        "enUS": "Blazebound Firestorm",
+        "zhCN": "炎缚火焰风暴"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.8,
+      "characteristics": [],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 373017,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 373087,
+          "attributes": []
+        },
+        {
+          "id": 384823,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 189893,
+      "enemyIndex": 23,
+      "name": {
+        "enUS": "Infused Whelp",
+        "zhCN": "注能龙崽"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Dragonkin",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1305234,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 194622,
+      "enemyIndex": 24,
+      "name": {
+        "enUS": "Scorchling",
+        "zhCN": "灼烧元素"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1307372,
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

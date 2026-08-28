@@ -1,0 +1,911 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+  "dungeonId": "the-blinding-vale",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "source": "game-data",
+  "licenseStatus": "approved",
+  "evidenceRef": "agent_flow/mdt-snapshots/s2/README.md",
+  "capturedAt": "2026-08-26T00:00:00.000Z",
+  "digest": "sha256:69262f64a70bd5a989b1b9bc3b7e2343623e2b2d333d708287e8a2a7127e2dd8",
+  "enemies": [
+    {
+      "enemyKey": "Lightgorged Lasher",
+      "npcId": 245345,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Lasher",
+      "npcId": 245410,
+      "isBoss": false,
+      "forcesPoints": 1
+    },
+    {
+      "enemyKey": "Underbrush Stalker",
+      "npcId": 245339,
+      "isBoss": false,
+      "forcesPoints": 6
+    },
+    {
+      "enemyKey": "Virid Grovekeeper",
+      "npcId": 245346,
+      "isBoss": false,
+      "forcesPoints": 20
+    },
+    {
+      "enemyKey": "Sporeblight Belcher",
+      "npcId": 254850,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Radiant Spellsower",
+      "npcId": 245336,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Lightfeather Petalwing",
+      "npcId": 245484,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Thorny Saptor",
+      "npcId": 245473,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Spineshield Beetle",
+      "npcId": 245527,
+      "isBoss": false,
+      "forcesPoints": 1
+    },
+    {
+      "enemyKey": "Leafy Grovecrawler",
+      "npcId": 245460,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Overgrown Hydra",
+      "npcId": 245513,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Luminous Thornmaw",
+      "npcId": 246871,
+      "isBoss": false,
+      "forcesPoints": 22
+    },
+    {
+      "enemyKey": "Meittik",
+      "npcId": 243028,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Kezkitt",
+      "npcId": 243029,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Lekshi",
+      "npcId": 243030,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Lightwarden Ruia",
+      "npcId": 245912,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Ziekket",
+      "npcId": 247676,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Ikuzz the Light Hunter",
+      "npcId": 244887,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Lightblossom",
+      "npcId": 244528,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Spirit Bear",
+      "npcId": 246367,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Spirit Moonkin",
+      "npcId": 246371,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Lightspawn Lasher",
+      "npcId": 247755,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Potatoad Matriarch",
+      "npcId": 249756,
+      "isBoss": false,
+      "forcesPoints": 30
+    },
+    {
+      "enemyKey": "Potadpole Egg",
+      "npcId": 249783,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Newborn Potadpole",
+      "npcId": 250202,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Bloodthorn Roots",
+      "npcId": 253571,
+      "isBoss": false,
+      "forcesPoints": 0
+    }
+  ],
+  "abilities": [
+    {
+      "abilityKey": "spell-269230",
+      "spellId": 269230,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ]
+    },
+    {
+      "abilityKey": "spell-269231",
+      "spellId": 269231,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ]
+    },
+    {
+      "abilityKey": "spell-269232",
+      "spellId": 269232,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234753",
+      "spellId": 1234753,
+      "casterEnemyKeys": [
+        "Meittik"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234773",
+      "spellId": 1234773,
+      "casterEnemyKeys": [
+        "Meittik"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234802",
+      "spellId": 1234802,
+      "casterEnemyKeys": [
+        "Meittik"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234850",
+      "spellId": 1234850,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235546",
+      "spellId": 1235546,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235564",
+      "spellId": 1235564,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235574",
+      "spellId": 1235574,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235616",
+      "spellId": 1235616,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1235640",
+      "spellId": 1235640,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235642",
+      "spellId": 1235642,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235752",
+      "spellId": 1235752,
+      "casterEnemyKeys": [
+        "Lightblossom"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235828",
+      "spellId": 1235828,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ]
+    },
+    {
+      "abilityKey": "spell-1235865",
+      "spellId": 1235865,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1236709",
+      "spellId": 1236709,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1236731",
+      "spellId": 1236731,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1236746",
+      "spellId": 1236746,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1236747",
+      "spellId": 1236747,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1237073",
+      "spellId": 1237073,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1237093",
+      "spellId": 1237093,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1237166",
+      "spellId": 1237166,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1237267",
+      "spellId": 1237267,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1237330",
+      "spellId": 1237330,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1237855",
+      "spellId": 1237855,
+      "casterEnemyKeys": [
+        "Virid Grovekeeper"
+      ]
+    },
+    {
+      "abilityKey": "spell-1237858",
+      "spellId": 1237858,
+      "casterEnemyKeys": [
+        "Virid Grovekeeper"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238063",
+      "spellId": 1238063,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1238066",
+      "spellId": 1238066,
+      "casterEnemyKeys": [
+        "Underbrush Stalker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238071",
+      "spellId": 1238071,
+      "casterEnemyKeys": [
+        "Underbrush Stalker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238076",
+      "spellId": 1238076,
+      "casterEnemyKeys": [
+        "Underbrush Stalker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238084",
+      "spellId": 1238084,
+      "casterEnemyKeys": [
+        "Lasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238158",
+      "spellId": 1238158,
+      "casterEnemyKeys": [
+        "Lightgorged Lasher"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1238173",
+      "spellId": 1238173,
+      "casterEnemyKeys": [
+        "Lightgorged Lasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238200",
+      "spellId": 1238200,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1238232",
+      "spellId": 1238232,
+      "casterEnemyKeys": [
+        "Leafy Grovecrawler"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1238294",
+      "spellId": 1238294,
+      "casterEnemyKeys": [
+        "Lightfeather Petalwing"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1238368",
+      "spellId": 1238368,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238463",
+      "spellId": 1238463,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238581",
+      "spellId": 1238581,
+      "casterEnemyKeys": [
+        "Spineshield Beetle"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238588",
+      "spellId": 1238588,
+      "casterEnemyKeys": [
+        "Spineshield Beetle"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238638",
+      "spellId": 1238638,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ]
+    },
+    {
+      "abilityKey": "spell-1238642",
+      "spellId": 1238642,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239821",
+      "spellId": 1239821,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1239824",
+      "spellId": 1239824,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239825",
+      "spellId": 1239825,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239882",
+      "spellId": 1239882,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239883",
+      "spellId": 1239883,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239885",
+      "spellId": 1239885,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239919",
+      "spellId": 1239919,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1240100",
+      "spellId": 1240100,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ]
+    },
+    {
+      "abilityKey": "spell-1240152",
+      "spellId": 1240152,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ]
+    },
+    {
+      "abilityKey": "spell-1240210",
+      "spellId": 1240210,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ]
+    },
+    {
+      "abilityKey": "spell-1240257",
+      "spellId": 1240257,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ]
+    },
+    {
+      "abilityKey": "spell-1241058",
+      "spellId": 1241058,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ]
+    },
+    {
+      "abilityKey": "spell-1241067",
+      "spellId": 1241067,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1242135",
+      "spellId": 1242135,
+      "casterEnemyKeys": [
+        "Luminous Thornmaw"
+      ]
+    },
+    {
+      "abilityKey": "spell-1242138",
+      "spellId": 1242138,
+      "casterEnemyKeys": [
+        "Luminous Thornmaw"
+      ]
+    },
+    {
+      "abilityKey": "spell-1242180",
+      "spellId": 1242180,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher",
+        "Lightfeather Petalwing",
+        "Thorny Saptor",
+        "Spineshield Beetle",
+        "Leafy Grovecrawler",
+        "Luminous Thornmaw",
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1242200",
+      "spellId": 1242200,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher",
+        "Lightfeather Petalwing",
+        "Thorny Saptor",
+        "Spineshield Beetle",
+        "Leafy Grovecrawler",
+        "Luminous Thornmaw"
+      ]
+    },
+    {
+      "abilityKey": "spell-1242244",
+      "spellId": 1242244,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246372",
+      "spellId": 1246372,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246527",
+      "spellId": 1246527,
+      "casterEnemyKeys": [
+        "Ziekket",
+        "Lightspawn Lasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246607",
+      "spellId": 1246607,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246751",
+      "spellId": 1246751,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246753",
+      "spellId": 1246753,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246858",
+      "spellId": 1246858,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1247039",
+      "spellId": 1247039,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1247050",
+      "spellId": 1247050,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1247377",
+      "spellId": 1247377,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1247644",
+      "spellId": 1247644,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1247669",
+      "spellId": 1247669,
+      "casterEnemyKeys": [
+        "Lightspawn Lasher"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1247685",
+      "spellId": 1247685,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1247746",
+      "spellId": 1247746,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250100",
+      "spellId": 1250100,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250199",
+      "spellId": 1250199,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250200",
+      "spellId": 1250200,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250203",
+      "spellId": 1250203,
+      "casterEnemyKeys": [
+        "Potadpole Egg"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250813",
+      "spellId": 1250813,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250829",
+      "spellId": 1250829,
+      "casterEnemyKeys": [
+        "Newborn Potadpole"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250831",
+      "spellId": 1250831,
+      "casterEnemyKeys": [
+        "Newborn Potadpole"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250937",
+      "spellId": 1250937,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ]
+    },
+    {
+      "abilityKey": "spell-1253028",
+      "spellId": 1253028,
+      "casterEnemyKeys": [
+        "Meittik",
+        "Kezkitt",
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1253320",
+      "spellId": 1253320,
+      "casterEnemyKeys": [
+        "Lightspawn Lasher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1253410",
+      "spellId": 1253410,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1255205",
+      "spellId": 1255205,
+      "casterEnemyKeys": [
+        "Virid Grovekeeper"
+      ]
+    },
+    {
+      "abilityKey": "spell-1257094",
+      "spellId": 1257094,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ]
+    },
+    {
+      "abilityKey": "spell-1259365",
+      "spellId": 1259365,
+      "casterEnemyKeys": [
+        "Bloodthorn Roots"
+      ]
+    },
+    {
+      "abilityKey": "spell-1261011",
+      "spellId": 1261011,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1261013",
+      "spellId": 1261013,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1263420",
+      "spellId": 1263420,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1263628",
+      "spellId": 1263628,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1263636",
+      "spellId": 1263636,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1263642",
+      "spellId": 1263642,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1267029",
+      "spellId": 1267029,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ]
+    },
+    {
+      "abilityKey": "spell-1271385",
+      "spellId": 1271385,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ]
+    },
+    {
+      "abilityKey": "spell-1272265",
+      "spellId": 1272265,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ]
+    },
+    {
+      "abilityKey": "spell-1272290",
+      "spellId": 1272290,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ]
+    },
+    {
+      "abilityKey": "spell-1276586",
+      "spellId": 1276586,
+      "casterEnemyKeys": [
+        "Meittik"
+      ]
+    },
+    {
+      "abilityKey": "spell-1301834",
+      "spellId": 1301834,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1303039",
+      "spellId": 1303039,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ]
+    }
+  ],
+  "totalEnemyForcesPoints": 163
+}

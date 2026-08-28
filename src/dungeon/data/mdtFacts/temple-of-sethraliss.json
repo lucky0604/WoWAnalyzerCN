@@ -1,0 +1,1311 @@
+{
+  "version": 1,
+  "slug": "temple-of-sethraliss",
+  "sourceKey": "tst",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "4e95019a8425c3dfaf9efe04578d7974326d332b705858459c207312e6489b5d",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "full",
+  "dungeonIndex": 20,
+  "mdtDungeonTotalCount": 649,
+  "totalEnemyForcesPoints": 232,
+  "enemies": [
+    {
+      "npcId": 134600,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Sandswept Hunter",
+        "zhCN": "流沙猎手"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 9,
+      "spells": [
+        {
+          "id": 1292585,
+          "attributes": []
+        },
+        {
+          "id": 1292623,
+          "attributes": []
+        },
+        {
+          "id": 1308113,
+          "attributes": []
+        },
+        {
+          "id": 1308116,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134616,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Barbed Krolusk",
+        "zhCN": "倒刺三叶虫"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.2,
+      "characteristics": [
+        "Silence",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Sap",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1291399,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134990,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "Storm Adept",
+        "zhCN": "风暴能手"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1291262,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134991,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Sandfury Stonefist",
+        "zhCN": "沙怒石拳战士"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.7,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 265966,
+          "attributes": []
+        },
+        {
+          "id": 1291468,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134602,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "Shrouded Fang",
+        "zhCN": "隐秘之牙"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Sap",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 7,
+      "spells": [
+        {
+          "id": 1295610,
+          "attributes": []
+        },
+        {
+          "id": 1295635,
+          "attributes": []
+        },
+        {
+          "id": 1308100,
+          "attributes": [
+            "interruptible",
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134629,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "Sand-Sworn Rider",
+        "zhCN": "砂誓骑兵"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.7,
+      "characteristics": [
+        "Taunt",
+        "Silence",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 262046,
+          "attributes": []
+        },
+        {
+          "id": 272655,
+          "attributes": []
+        },
+        {
+          "id": 1291399,
+          "attributes": []
+        },
+        {
+          "id": 1292990,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135562,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Poisonous Viper",
+        "zhCN": "剧毒蝰蛇"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Sap",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1308148,
+          "attributes": [
+            "interruptible",
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 135846,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Lightning Serpent",
+        "zhCN": "闪电毒蛇"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Root",
+        "Fear",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1293133,
+          "attributes": []
+        },
+        {
+          "id": 1310396,
+          "attributes": []
+        },
+        {
+          "id": 1310402,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 139422,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "Dutiful Tamer",
+        "zhCN": "尽职的驯兽师"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1291399,
+          "attributes": []
+        },
+        {
+          "id": 1292990,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134686,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Krolusk Matriarch",
+        "zhCN": "三叶虫主母"
+      },
+      "count": 16,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.7,
+      "characteristics": [
+        "Fear",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 272654,
+          "attributes": []
+        },
+        {
+          "id": 272655,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134364,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Faithless Subjugator",
+        "zhCN": "无信征服者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Polymorph",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 269896,
+          "attributes": []
+        },
+        {
+          "id": 1293307,
+          "attributes": [
+            "interruptible",
+            "curse"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 139425,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Brood Tender",
+        "zhCN": "育巢者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 1310683,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 133384,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "Merektha",
+        "zhCN": "米利克萨"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 264172,
+          "attributes": []
+        },
+        {
+          "id": 1289205,
+          "attributes": []
+        },
+        {
+          "id": 1289589,
+          "attributes": []
+        },
+        {
+          "id": 1289602,
+          "attributes": []
+        },
+        {
+          "id": 1290031,
+          "attributes": []
+        },
+        {
+          "id": 1290797,
+          "attributes": []
+        },
+        {
+          "id": 1291734,
+          "attributes": []
+        },
+        {
+          "id": 1293048,
+          "attributes": []
+        },
+        {
+          "id": 1296738,
+          "attributes": []
+        },
+        {
+          "id": 1296912,
+          "attributes": []
+        },
+        {
+          "id": 1297034,
+          "attributes": []
+        },
+        {
+          "id": 1298329,
+          "attributes": []
+        },
+        {
+          "id": 1308838,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 136076,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "Agitated Nimbus",
+        "zhCN": "暴怒云气"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.7,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 1293464,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1293475,
+          "attributes": []
+        },
+        {
+          "id": 1293650,
+          "attributes": []
+        },
+        {
+          "id": 1293652,
+          "attributes": []
+        },
+        {
+          "id": 1310739,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134599,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "Imbued Stormcaller",
+        "zhCN": "灌注能量的唤雷者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt",
+        "Silence",
+        "Root",
+        "Fear",
+        "Disorient",
+        "Imprison",
+        "Sap",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 269116,
+          "attributes": []
+        },
+        {
+          "id": 1291262,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1296045,
+          "attributes": []
+        },
+        {
+          "id": 1296052,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1310739,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134691,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "Static Anomaly",
+        "zhCN": "静电异常体"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 264763,
+          "attributes": []
+        },
+        {
+          "id": 1310693,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 136250,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Twisted Hexxer",
+        "zhCN": "扭曲的妖术师"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.7,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 268013,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1300666,
+          "attributes": []
+        },
+        {
+          "id": 1300684,
+          "attributes": []
+        },
+        {
+          "id": 1311964,
+          "attributes": []
+        },
+        {
+          "id": 1311980,
+          "attributes": []
+        },
+        {
+          "id": 1311981,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 133392,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Avatar of Sethraliss",
+        "zhCN": "塞塔里斯的化身"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 265057,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "Spark Channeler",
+        "zhCN": "火花引导者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 134388,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "A Knot of Snakes",
+        "zhCN": "缠绕的蛇群"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 263958,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134389,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Toxic Viper",
+        "zhCN": "剧毒蝰蛇"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 267027,
+          "attributes": [
+            "interruptible",
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134390,
+      "enemyIndex": 22,
+      "name": {
+        "enUS": "Storm Serpent",
+        "zhCN": "风暴飞蛇"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1289589,
+          "attributes": []
+        },
+        {
+          "id": 1291622,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134487,
+      "enemyIndex": 23,
+      "name": {
+        "enUS": "Merektha",
+        "zhCN": "米利克萨"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 135007,
+      "enemyIndex": 24,
+      "name": {
+        "enUS": "Orb Watcher",
+        "zhCN": "宝珠守望者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1303443,
+          "attributes": []
+        },
+        {
+          "id": 1303452,
+          "attributes": []
+        },
+        {
+          "id": 1303486,
+          "attributes": []
+        },
+        {
+          "id": 1308546,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135445,
+      "enemyIndex": 25,
+      "name": {
+        "enUS": "Lightning Spire",
+        "zhCN": "闪电尖塔"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 139097,
+      "enemyIndex": 26,
+      "name": {
+        "enUS": "Sandswept Marksman",
+        "zhCN": "卷沙神射手"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 273225,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 139108,
+      "enemyIndex": 27,
+      "name": {
+        "enUS": "Loose Spark",
+        "zhCN": "不羁的火花"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 267483,
+          "attributes": []
+        },
+        {
+          "id": 273241,
+          "attributes": []
+        },
+        {
+          "id": 1225638,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 139131,
+      "enemyIndex": 28,
+      "name": {
+        "enUS": "Polarized Spire",
+        "zhCN": "极化尖塔"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 240681,
+      "enemyIndex": 29,
+      "name": {
+        "enUS": "Eye of Sethraliss",
+        "zhCN": "塞塔里斯之眼"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1303596,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 262530,
+      "enemyIndex": 30,
+      "name": {
+        "enUS": "Adderis",
+        "zhCN": "阿德里斯"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 263425,
+          "attributes": []
+        },
+        {
+          "id": 1288092,
+          "attributes": []
+        },
+        {
+          "id": 1288235,
+          "attributes": []
+        },
+        {
+          "id": 1288428,
+          "attributes": []
+        },
+        {
+          "id": 1289229,
+          "attributes": []
+        },
+        {
+          "id": 1308738,
+          "attributes": []
+        },
+        {
+          "id": 1308740,
+          "attributes": []
+        },
+        {
+          "id": 1310311,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 262822,
+      "enemyIndex": 31,
+      "name": {
+        "enUS": "Aspix",
+        "zhCN": "阿斯匹克斯"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1288457,
+          "attributes": []
+        },
+        {
+          "id": 1288864,
+          "attributes": []
+        },
+        {
+          "id": 1288885,
+          "attributes": []
+        },
+        {
+          "id": 1289062,
+          "attributes": []
+        },
+        {
+          "id": 1289229,
+          "attributes": []
+        },
+        {
+          "id": 1292035,
+          "attributes": []
+        },
+        {
+          "id": 1310311,
+          "attributes": []
+        },
+        {
+          "id": 1310712,
+          "attributes": []
+        },
+        {
+          "id": 1311808,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 263181,
+      "enemyIndex": 32,
+      "name": {
+        "enUS": "Egg Marker",
+        "zhCN": "卵的标记"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1289208,
+          "attributes": []
+        },
+        {
+          "id": 1296738,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 263658,
+      "enemyIndex": 33,
+      "name": {
+        "enUS": "Galvazzt",
+        "zhCN": "加瓦兹特"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Elemental",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1290531,
+          "attributes": []
+        },
+        {
+          "id": 1291815,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 264785,
+      "enemyIndex": 34,
+      "name": {
+        "enUS": "Swarming Krolusk",
+        "zhCN": "群聚三叶虫"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": []
+    },
+    {
+      "npcId": 268317,
+      "enemyIndex": 35,
+      "name": {
+        "enUS": "Faithless Tormentor",
+        "zhCN": "无信折磨者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1300704,
+          "attributes": []
+        },
+        {
+          "id": 1300714,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 268344,
+      "enemyIndex": 36,
+      "name": {
+        "enUS": "Corrupted Guardian",
+        "zhCN": "堕落的守护者"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1300803,
+          "attributes": []
+        },
+        {
+          "id": 1302616,
+          "attributes": []
+        },
+        {
+          "id": 1302618,
+          "attributes": []
+        },
+        {
+          "id": 1302761,
+          "attributes": []
+        },
+        {
+          "id": 1303446,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 268364,
+      "enemyIndex": 37,
+      "name": {
+        "enUS": "Lifeforce",
+        "zhCN": "生命之力"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1300871,
+          "attributes": []
+        },
+        {
+          "id": 1302826,
+          "attributes": []
+        },
+        {
+          "id": 1302897,
+          "attributes": []
+        },
+        {
+          "id": 1312214,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 268427,
+      "enemyIndex": 38,
+      "name": {
+        "enUS": "Essence Defiler",
+        "zhCN": "精华污染者"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1301199,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 268491,
+      "enemyIndex": 39,
+      "name": {
+        "enUS": "Twisted Hexxer",
+        "zhCN": "扭曲的妖术师"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1300684,
+          "attributes": []
+        },
+        {
+          "id": 1302153,
+          "attributes": []
+        },
+        {
+          "id": 1302158,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1311964,
+          "attributes": []
+        },
+        {
+          "id": 1311979,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 268729,
+      "enemyIndex": 40,
+      "name": {
+        "enUS": "Faithless Tormentor",
+        "zhCN": "无信折磨者"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1300704,
+          "attributes": []
+        },
+        {
+          "id": 1300714,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 139110,
+      "enemyIndex": 41,
+      "name": {
+        "enUS": "Spark Channeler",
+        "zhCN": "火花引导者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 267483,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135971,
+      "enemyIndex": 42,
+      "name": {
+        "enUS": "Faithless Conscript",
+        "zhCN": "无信援兵"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 8,
+      "spells": []
+    },
+    {
+      "npcId": 263383,
+      "enemyIndex": 43,
+      "name": {
+        "enUS": "Snake",
+        "zhCN": "蛇"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 268747,
+      "enemyIndex": 44,
+      "name": {
+        "enUS": "Lesser Lifeforce",
+        "zhCN": "次级生命之力"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 269227,
+      "enemyIndex": 45,
+      "name": {
+        "enUS": "Temple Disruptor",
+        "zhCN": "神庙干扰者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": []
+    }
+  ]
+}

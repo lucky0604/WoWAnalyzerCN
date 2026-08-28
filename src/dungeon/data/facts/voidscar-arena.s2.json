@@ -1,0 +1,1008 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-voidscar-arena-2026-08-26",
+  "dungeonId": "voidscar-arena",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "source": "game-data",
+  "licenseStatus": "approved",
+  "evidenceRef": "agent_flow/mdt-snapshots/s2/README.md",
+  "capturedAt": "2026-08-26T00:00:00.000Z",
+  "digest": "sha256:521ba5720b4cc7c27fa190f9562167e0e3d8c4e5f36426bf456614a164924adc",
+  "enemies": [
+    {
+      "enemyKey": "Lost Sethrak",
+      "npcId": 243996,
+      "isBoss": false,
+      "forcesPoints": 4
+    },
+    {
+      "enemyKey": "Feral Saberon",
+      "npcId": 243988,
+      "isBoss": false,
+      "forcesPoints": 4
+    },
+    {
+      "enemyKey": "Sycophantic Tarasek",
+      "npcId": 243983,
+      "isBoss": false,
+      "forcesPoints": 4
+    },
+    {
+      "enemyKey": "Longtooth Tuskarr",
+      "npcId": 243985,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Dominated Brawler",
+      "npcId": 238883,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Enthralled Shaman",
+      "npcId": 241496,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Voidtouched Magi",
+      "npcId": 252072,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Brutal Overseer",
+      "npcId": 252053,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Aegyra the Unyielding",
+      "npcId": 267545,
+      "isBoss": false,
+      "forcesPoints": 40
+    },
+    {
+      "enemyKey": "Raj'kess the Spellstorm",
+      "npcId": 267546,
+      "isBoss": false,
+      "forcesPoints": 40
+    },
+    {
+      "enemyKey": "Chitigoth",
+      "npcId": 244260,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Raging Raptor",
+      "npcId": 249608,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Protective Turtle",
+      "npcId": 249603,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Brutok",
+      "npcId": 244309,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Abducted Drakonid",
+      "npcId": 249461,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Angry Krolusk",
+      "npcId": 249590,
+      "isBoss": false,
+      "forcesPoints": 8
+    },
+    {
+      "enemyKey": "Savage Shredclaw",
+      "npcId": 243835,
+      "isBoss": false,
+      "forcesPoints": 5
+    },
+    {
+      "enemyKey": "Kilivore Screamer",
+      "npcId": 243766,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Agitated Voidscythe",
+      "npcId": 263228,
+      "isBoss": false,
+      "forcesPoints": 25
+    },
+    {
+      "enemyKey": "Blistercreep",
+      "npcId": 243736,
+      "isBoss": false,
+      "forcesPoints": 1
+    },
+    {
+      "enemyKey": "Watchful Harrower",
+      "npcId": 245950,
+      "isBoss": false,
+      "forcesPoints": 65
+    },
+    {
+      "enemyKey": "Devouring Brutalizer",
+      "npcId": 268184,
+      "isBoss": false,
+      "forcesPoints": 30
+    },
+    {
+      "enemyKey": "Scavenging Siphoid",
+      "npcId": 252508,
+      "isBoss": false,
+      "forcesPoints": 1
+    },
+    {
+      "enemyKey": "Voidminder",
+      "npcId": 244708,
+      "isBoss": false,
+      "forcesPoints": 7
+    },
+    {
+      "enemyKey": "Taz'Rah",
+      "npcId": 238887,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Atroxus",
+      "npcId": 239008,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Charonus",
+      "npcId": 239167,
+      "isBoss": true,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Toxic Creeper",
+      "npcId": 239070,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Magma Totem",
+      "npcId": 248666,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Ethereal Shade",
+      "npcId": 254677,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Targeting Stalker",
+      "npcId": 255000,
+      "isBoss": false,
+      "forcesPoints": 0
+    },
+    {
+      "enemyKey": "Gravitic Orb",
+      "npcId": 255001,
+      "isBoss": false,
+      "forcesPoints": 0
+    }
+  ],
+  "abilities": [
+    {
+      "abilityKey": "spell-1222100",
+      "spellId": 1222100,
+      "casterEnemyKeys": [
+        "Ethereal Shade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222103",
+      "spellId": 1222103,
+      "casterEnemyKeys": [
+        "Ethereal Shade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222105",
+      "spellId": 1222105,
+      "casterEnemyKeys": [
+        "Ethereal Shade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222484",
+      "spellId": 1222484,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222519",
+      "spellId": 1222519,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222642",
+      "spellId": 1222642,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222692",
+      "spellId": 1222692,
+      "casterEnemyKeys": [
+        "Toxic Creeper"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222693",
+      "spellId": 1222693,
+      "casterEnemyKeys": [
+        "Toxic Creeper"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222721",
+      "spellId": 1222721,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222724",
+      "spellId": 1222724,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1222755",
+      "spellId": 1222755,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1226031",
+      "spellId": 1226031,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1226120",
+      "spellId": 1226120,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1227020",
+      "spellId": 1227020,
+      "casterEnemyKeys": [
+        "Voidminder"
+      ]
+    },
+    {
+      "abilityKey": "spell-1227197",
+      "spellId": 1227197,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1227247",
+      "spellId": 1227247,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1228126",
+      "spellId": 1228126,
+      "casterEnemyKeys": [
+        "Brutal Overseer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1228127",
+      "spellId": 1228127,
+      "casterEnemyKeys": [
+        "Brutal Overseer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1228176",
+      "spellId": 1228176,
+      "casterEnemyKeys": [
+        "Enthralled Shaman"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1233264",
+      "spellId": 1233264,
+      "casterEnemyKeys": [
+        "Blistercreep"
+      ]
+    },
+    {
+      "abilityKey": "spell-1233398",
+      "spellId": 1233398,
+      "casterEnemyKeys": [
+        "Kilivore Screamer"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1233472",
+      "spellId": 1233472,
+      "casterEnemyKeys": [
+        "Agitated Voidscythe"
+      ]
+    },
+    {
+      "abilityKey": "spell-1233485",
+      "spellId": 1233485,
+      "casterEnemyKeys": [
+        "Agitated Voidscythe"
+      ]
+    },
+    {
+      "abilityKey": "spell-1233535",
+      "spellId": 1233535,
+      "casterEnemyKeys": [
+        "Savage Shredclaw"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234833",
+      "spellId": 1234833,
+      "casterEnemyKeys": [
+        "Chitigoth"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234855",
+      "spellId": 1234855,
+      "casterEnemyKeys": [
+        "Chitigoth"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234890",
+      "spellId": 1234890,
+      "casterEnemyKeys": [
+        "Brutok"
+      ]
+    },
+    {
+      "abilityKey": "spell-1234917",
+      "spellId": 1234917,
+      "casterEnemyKeys": [
+        "Brutok"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239855",
+      "spellId": 1239855,
+      "casterEnemyKeys": [
+        "Watchful Harrower"
+      ]
+    },
+    {
+      "abilityKey": "spell-1239856",
+      "spellId": 1239856,
+      "casterEnemyKeys": [
+        "Watchful Harrower"
+      ]
+    },
+    {
+      "abilityKey": "spell-1245186",
+      "spellId": 1245186,
+      "casterEnemyKeys": [
+        "Brutok"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246820",
+      "spellId": 1246820,
+      "casterEnemyKeys": [
+        "Enthralled Shaman"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246821",
+      "spellId": 1246821,
+      "casterEnemyKeys": [
+        "Magma Totem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1246825",
+      "spellId": 1246825,
+      "casterEnemyKeys": [
+        "Magma Totem"
+      ]
+    },
+    {
+      "abilityKey": "spell-1247395",
+      "spellId": 1247395,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1248112",
+      "spellId": 1248112,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1248121",
+      "spellId": 1248121,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1249236",
+      "spellId": 1249236,
+      "casterEnemyKeys": [
+        "Abducted Drakonid"
+      ]
+    },
+    {
+      "abilityKey": "spell-1249238",
+      "spellId": 1249238,
+      "casterEnemyKeys": [
+        "Abducted Drakonid"
+      ]
+    },
+    {
+      "abilityKey": "spell-1249621",
+      "spellId": 1249621,
+      "casterEnemyKeys": [
+        "Angry Krolusk"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1249661",
+      "spellId": 1249661,
+      "casterEnemyKeys": [
+        "Feral Saberon",
+        "Sycophantic Tarasek",
+        "Longtooth Tuskarr",
+        "Chitigoth",
+        "Raging Raptor",
+        "Protective Turtle",
+        "Brutok",
+        "Abducted Drakonid"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250021",
+      "spellId": 1250021,
+      "casterEnemyKeys": [
+        "Protective Turtle"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250023",
+      "spellId": 1250023,
+      "casterEnemyKeys": [
+        "Protective Turtle"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250043",
+      "spellId": 1250043,
+      "casterEnemyKeys": [
+        "Sycophantic Tarasek"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250079",
+      "spellId": 1250079,
+      "casterEnemyKeys": [
+        "Chitigoth"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250640",
+      "spellId": 1250640,
+      "casterEnemyKeys": [
+        "Lost Sethrak"
+      ]
+    },
+    {
+      "abilityKey": "spell-1250695",
+      "spellId": 1250695,
+      "casterEnemyKeys": [
+        "Chitigoth"
+      ]
+    },
+    {
+      "abilityKey": "spell-1252406",
+      "spellId": 1252406,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1254826",
+      "spellId": 1254826,
+      "casterEnemyKeys": [
+        "Dominated Brawler"
+      ]
+    },
+    {
+      "abilityKey": "spell-1261645",
+      "spellId": 1261645,
+      "casterEnemyKeys": [
+        "Brutal Overseer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1262497",
+      "spellId": 1262497,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1263971",
+      "spellId": 1263971,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1263983",
+      "spellId": 1263983,
+      "casterEnemyKeys": [
+        "Gravitic Orb"
+      ]
+    },
+    {
+      "abilityKey": "spell-1263984",
+      "spellId": 1263984,
+      "casterEnemyKeys": [
+        "Targeting Stalker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1264188",
+      "spellId": 1264188,
+      "casterEnemyKeys": [
+        "Targeting Stalker"
+      ]
+    },
+    {
+      "abilityKey": "spell-1267754",
+      "spellId": 1267754,
+      "casterEnemyKeys": [
+        "Feral Saberon"
+      ]
+    },
+    {
+      "abilityKey": "spell-1267894",
+      "spellId": 1267894,
+      "casterEnemyKeys": [
+        "Feral Saberon"
+      ]
+    },
+    {
+      "abilityKey": "spell-1268707",
+      "spellId": 1268707,
+      "casterEnemyKeys": [
+        "Lost Sethrak"
+      ]
+    },
+    {
+      "abilityKey": "spell-1269284",
+      "spellId": 1269284,
+      "casterEnemyKeys": [
+        "Brutok"
+      ]
+    },
+    {
+      "abilityKey": "spell-1269866",
+      "spellId": 1269866,
+      "casterEnemyKeys": [
+        "Scavenging Siphoid"
+      ]
+    },
+    {
+      "abilityKey": "spell-1269878",
+      "spellId": 1269878,
+      "casterEnemyKeys": [
+        "Scavenging Siphoid"
+      ]
+    },
+    {
+      "abilityKey": "spell-1282892",
+      "spellId": 1282892,
+      "casterEnemyKeys": [
+        "Toxic Creeper"
+      ]
+    },
+    {
+      "abilityKey": "spell-1282959",
+      "spellId": 1282959,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1289258",
+      "spellId": 1289258,
+      "casterEnemyKeys": [
+        "Agitated Voidscythe"
+      ]
+    },
+    {
+      "abilityKey": "spell-1289265",
+      "spellId": 1289265,
+      "casterEnemyKeys": [
+        "Agitated Voidscythe"
+      ]
+    },
+    {
+      "abilityKey": "spell-1296889",
+      "spellId": 1296889,
+      "casterEnemyKeys": [
+        "Taz'Rah"
+      ]
+    },
+    {
+      "abilityKey": "spell-1296963",
+      "spellId": 1296963,
+      "casterEnemyKeys": [
+        "Taz'Rah",
+        "Ethereal Shade"
+      ]
+    },
+    {
+      "abilityKey": "spell-1296967",
+      "spellId": 1296967,
+      "casterEnemyKeys": [
+        "Taz'Rah"
+      ]
+    },
+    {
+      "abilityKey": "spell-1297017",
+      "spellId": 1297017,
+      "casterEnemyKeys": [
+        "Taz'Rah"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298899",
+      "spellId": 1298899,
+      "casterEnemyKeys": [
+        "Dominated Brawler"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1298900",
+      "spellId": 1298900,
+      "casterEnemyKeys": [
+        "Brutal Overseer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298901",
+      "spellId": 1298901,
+      "casterEnemyKeys": [
+        "Brutal Overseer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298902",
+      "spellId": 1298902,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298903",
+      "spellId": 1298903,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298908",
+      "spellId": 1298908,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298922",
+      "spellId": 1298922,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298924",
+      "spellId": 1298924,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1298933",
+      "spellId": 1298933,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299125",
+      "spellId": 1299125,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299133",
+      "spellId": 1299133,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299145",
+      "spellId": 1299145,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299210",
+      "spellId": 1299210,
+      "casterEnemyKeys": [
+        "Aegyra the Unyielding"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299240",
+      "spellId": 1299240,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299244",
+      "spellId": 1299244,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299257",
+      "spellId": 1299257,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299270",
+      "spellId": 1299270,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299273",
+      "spellId": 1299273,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299913",
+      "spellId": 1299913,
+      "casterEnemyKeys": [
+        "Voidtouched Magi"
+      ]
+    },
+    {
+      "abilityKey": "spell-1299938",
+      "spellId": 1299938,
+      "casterEnemyKeys": [
+        "Voidtouched Magi"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1300116",
+      "spellId": 1300116,
+      "casterEnemyKeys": [
+        "Watchful Harrower"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300138",
+      "spellId": 1300138,
+      "casterEnemyKeys": [
+        "Watchful Harrower"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300156",
+      "spellId": 1300156,
+      "casterEnemyKeys": [
+        "Watchful Harrower"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300243",
+      "spellId": 1300243,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300244",
+      "spellId": 1300244,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300248",
+      "spellId": 1300248,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300249",
+      "spellId": 1300249,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300250",
+      "spellId": 1300250,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300259",
+      "spellId": 1300259,
+      "casterEnemyKeys": [
+        "Taz'Rah"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300262",
+      "spellId": 1300262,
+      "casterEnemyKeys": [
+        "Taz'Rah"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300351",
+      "spellId": 1300351,
+      "casterEnemyKeys": [
+        "Atroxus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1300372",
+      "spellId": 1300372,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310025",
+      "spellId": 1310025,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310309",
+      "spellId": 1310309,
+      "casterEnemyKeys": [
+        "Brutal Overseer"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310319",
+      "spellId": 1310319,
+      "casterEnemyKeys": [
+        "Longtooth Tuskarr"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310320",
+      "spellId": 1310320,
+      "casterEnemyKeys": [
+        "Protective Turtle"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310321",
+      "spellId": 1310321,
+      "casterEnemyKeys": [
+        "Brutok"
+      ]
+    },
+    {
+      "abilityKey": "spell-1310324",
+      "spellId": 1310324,
+      "casterEnemyKeys": [
+        "Devouring Brutalizer",
+        "Voidminder"
+      ],
+      "interruptible": true
+    },
+    {
+      "abilityKey": "spell-1311712",
+      "spellId": 1311712,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1311747",
+      "spellId": 1311747,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1311754",
+      "spellId": 1311754,
+      "casterEnemyKeys": [
+        "Raj'kess the Spellstorm"
+      ]
+    },
+    {
+      "abilityKey": "spell-1311778",
+      "spellId": 1311778,
+      "casterEnemyKeys": [
+        "Agitated Voidscythe"
+      ]
+    },
+    {
+      "abilityKey": "spell-1311923",
+      "spellId": 1311923,
+      "casterEnemyKeys": [
+        "Charonus"
+      ]
+    }
+  ],
+  "totalEnemyForcesPoints": 375
+}

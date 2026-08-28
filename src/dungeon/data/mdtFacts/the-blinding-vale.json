@@ -1,0 +1,937 @@
+{
+  "version": 1,
+  "slug": "the-blinding-vale",
+  "sourceKey": "bvl",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "8a90e1493df268a955ae5570de267ef682c97a1aa41eeab787c02091a65b1c39",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "none",
+  "dungeonIndex": 162,
+  "mdtDungeonTotalCount": 655,
+  "totalEnemyForcesPoints": 163,
+  "enemies": [
+    {
+      "npcId": 245345,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Lightgorged Lasher"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 28,
+      "spells": [
+        {
+          "id": 1238158,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1238173,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245410,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Lasher"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 0.8,
+      "characteristics": [],
+      "spawnCount": 115,
+      "spells": [
+        {
+          "id": 1238084,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 245339,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "Underbrush Stalker"
+      },
+      "count": 6,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 16,
+      "spells": [
+        {
+          "id": 1238066,
+          "attributes": []
+        },
+        {
+          "id": 1238071,
+          "attributes": []
+        },
+        {
+          "id": 1238076,
+          "attributes": [
+            "bleed"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 245346,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Virid Grovekeeper"
+      },
+      "count": 20,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1237855,
+          "attributes": []
+        },
+        {
+          "id": 1237858,
+          "attributes": []
+        },
+        {
+          "id": 1255205,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 254850,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "Sporeblight Belcher"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 11,
+      "spells": [
+        {
+          "id": 1242180,
+          "attributes": []
+        },
+        {
+          "id": 1242200,
+          "attributes": []
+        },
+        {
+          "id": 1263628,
+          "attributes": []
+        },
+        {
+          "id": 1263636,
+          "attributes": []
+        },
+        {
+          "id": 1263642,
+          "attributes": []
+        },
+        {
+          "id": 1271385,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245336,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "Radiant Spellsower"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 14,
+      "spells": [
+        {
+          "id": 1238063,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1238200,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1267029,
+          "attributes": []
+        },
+        {
+          "id": 1301834,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 245484,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Lightfeather Petalwing"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 16,
+      "spells": [
+        {
+          "id": 1238294,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1242180,
+          "attributes": []
+        },
+        {
+          "id": 1242200,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245473,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Thorny Saptor"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 13,
+      "spells": [
+        {
+          "id": 269230,
+          "attributes": []
+        },
+        {
+          "id": 269231,
+          "attributes": []
+        },
+        {
+          "id": 269232,
+          "attributes": []
+        },
+        {
+          "id": 1242180,
+          "attributes": []
+        },
+        {
+          "id": 1242200,
+          "attributes": []
+        },
+        {
+          "id": 1303039,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245527,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "Spineshield Beetle"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 0.8,
+      "characteristics": [],
+      "spawnCount": 22,
+      "spells": [
+        {
+          "id": 1238581,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1238588,
+          "attributes": []
+        },
+        {
+          "id": 1242180,
+          "attributes": []
+        },
+        {
+          "id": 1242200,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245460,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Leafy Grovecrawler"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 10,
+      "spells": [
+        {
+          "id": 1238232,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1242180,
+          "attributes": []
+        },
+        {
+          "id": 1242200,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245513,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Overgrown Hydra"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 7,
+      "spells": [
+        {
+          "id": 1238368,
+          "attributes": []
+        },
+        {
+          "id": 1238463,
+          "attributes": []
+        },
+        {
+          "id": 1238638,
+          "attributes": []
+        },
+        {
+          "id": 1238642,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 246871,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Luminous Thornmaw"
+      },
+      "count": 22,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1242135,
+          "attributes": []
+        },
+        {
+          "id": 1242138,
+          "attributes": []
+        },
+        {
+          "id": 1242180,
+          "attributes": []
+        },
+        {
+          "id": 1242200,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 243028,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "Meittik"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1234753,
+          "attributes": []
+        },
+        {
+          "id": 1234773,
+          "attributes": []
+        },
+        {
+          "id": 1234802,
+          "attributes": []
+        },
+        {
+          "id": 1253028,
+          "attributes": []
+        },
+        {
+          "id": 1276586,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 243029,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "Kezkitt"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1235564,
+          "attributes": []
+        },
+        {
+          "id": 1235574,
+          "attributes": []
+        },
+        {
+          "id": 1235616,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1235828,
+          "attributes": []
+        },
+        {
+          "id": 1253028,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 243030,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "Lekshi"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1234850,
+          "attributes": []
+        },
+        {
+          "id": 1235546,
+          "attributes": []
+        },
+        {
+          "id": 1235640,
+          "attributes": []
+        },
+        {
+          "id": 1235642,
+          "attributes": []
+        },
+        {
+          "id": 1235865,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1253028,
+          "attributes": []
+        },
+        {
+          "id": 1261011,
+          "attributes": []
+        },
+        {
+          "id": 1261013,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245912,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "Lightwarden Ruia"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1239821,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1239824,
+          "attributes": []
+        },
+        {
+          "id": 1239825,
+          "attributes": []
+        },
+        {
+          "id": 1239882,
+          "attributes": []
+        },
+        {
+          "id": 1239883,
+          "attributes": []
+        },
+        {
+          "id": 1239885,
+          "attributes": []
+        },
+        {
+          "id": 1239919,
+          "attributes": []
+        },
+        {
+          "id": 1240100,
+          "attributes": []
+        },
+        {
+          "id": 1240152,
+          "attributes": []
+        },
+        {
+          "id": 1240210,
+          "attributes": []
+        },
+        {
+          "id": 1240257,
+          "attributes": []
+        },
+        {
+          "id": 1241058,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1241067,
+          "attributes": []
+        },
+        {
+          "id": 1242180,
+          "attributes": []
+        },
+        {
+          "id": 1242244,
+          "attributes": []
+        },
+        {
+          "id": 1257094,
+          "attributes": []
+        },
+        {
+          "id": 1272265,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 247676,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Ziekket"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Elemental",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1246372,
+          "attributes": []
+        },
+        {
+          "id": 1246527,
+          "attributes": []
+        },
+        {
+          "id": 1246607,
+          "attributes": []
+        },
+        {
+          "id": 1246751,
+          "attributes": []
+        },
+        {
+          "id": 1246753,
+          "attributes": []
+        },
+        {
+          "id": 1246858,
+          "attributes": []
+        },
+        {
+          "id": 1247039,
+          "attributes": []
+        },
+        {
+          "id": 1247050,
+          "attributes": []
+        },
+        {
+          "id": 1247377,
+          "attributes": []
+        },
+        {
+          "id": 1247644,
+          "attributes": []
+        },
+        {
+          "id": 1247685,
+          "attributes": []
+        },
+        {
+          "id": 1247746,
+          "attributes": [
+            "bleed"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 244887,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Ikuzz the Light Hunter"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Elemental",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1236709,
+          "attributes": []
+        },
+        {
+          "id": 1236731,
+          "attributes": []
+        },
+        {
+          "id": 1236746,
+          "attributes": []
+        },
+        {
+          "id": 1236747,
+          "attributes": []
+        },
+        {
+          "id": 1237073,
+          "attributes": []
+        },
+        {
+          "id": 1237093,
+          "attributes": []
+        },
+        {
+          "id": 1237166,
+          "attributes": []
+        },
+        {
+          "id": 1237267,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1237330,
+          "attributes": []
+        },
+        {
+          "id": 1253410,
+          "attributes": []
+        },
+        {
+          "id": 1263420,
+          "attributes": []
+        },
+        {
+          "id": 1272290,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244528,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "Lightblossom"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1235752,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 246367,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "Spirit Bear"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1240210,
+          "attributes": []
+        },
+        {
+          "id": 1240257,
+          "attributes": []
+        },
+        {
+          "id": 1241058,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1257094,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 246371,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Spirit Moonkin"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1239824,
+          "attributes": []
+        },
+        {
+          "id": 1239825,
+          "attributes": []
+        },
+        {
+          "id": 1240100,
+          "attributes": []
+        },
+        {
+          "id": 1240152,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 247755,
+      "enemyIndex": 22,
+      "name": {
+        "enUS": "Lightspawn Lasher"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1246527,
+          "attributes": []
+        },
+        {
+          "id": 1247669,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1253320,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 249756,
+      "enemyIndex": 23,
+      "name": {
+        "enUS": "Potatoad Matriarch"
+      },
+      "count": 30,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1250100,
+          "attributes": []
+        },
+        {
+          "id": 1250199,
+          "attributes": []
+        },
+        {
+          "id": 1250200,
+          "attributes": []
+        },
+        {
+          "id": 1250813,
+          "attributes": []
+        },
+        {
+          "id": 1250937,
+          "attributes": [
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 249783,
+      "enemyIndex": 24,
+      "name": {
+        "enUS": "Potadpole Egg"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1250203,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 250202,
+      "enemyIndex": 25,
+      "name": {
+        "enUS": "Newborn Potadpole"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1250829,
+          "attributes": []
+        },
+        {
+          "id": 1250831,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 253571,
+      "enemyIndex": 26,
+      "name": {
+        "enUS": "Bloodthorn Roots"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1259365,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    }
+  ]
+}

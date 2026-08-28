@@ -1,0 +1,1399 @@
+{
+  "version": 1,
+  "slug": "murder-row",
+  "sourceKey": "mdr",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "e479dd33f3dcb877fe351477e722321c0d5cbf20c81c582189a6e9a4335c2592",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "full",
+  "dungeonIndex": 160,
+  "mdtDungeonTotalCount": 655,
+  "totalEnemyForcesPoints": 242,
+  "enemies": [
+    {
+      "npcId": 236085,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Felwyrm",
+        "zhCN": "邪能浮龙"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 18,
+      "spells": [
+        {
+          "id": 1214966,
+          "attributes": []
+        },
+        {
+          "id": 1216538,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236073,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Row Hooligan",
+        "zhCN": "径巷流氓"
+      },
+      "count": 3,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.4,
+      "characteristics": [],
+      "spawnCount": 12,
+      "spells": [
+        {
+          "id": 1216300,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236084,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "Felonious Mage",
+        "zhCN": "凶邪的法师"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.4,
+      "characteristics": [],
+      "spawnCount": 9,
+      "spells": [
+        {
+          "id": 1216570,
+          "attributes": []
+        },
+        {
+          "id": 1216571,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1229433,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 236071,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Bribed Guard",
+        "zhCN": "被买通的守卫"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1216529,
+          "attributes": []
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1295035,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 252529,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "Bribed Captain",
+        "zhCN": "受贿的队长"
+      },
+      "count": 35,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1216529,
+          "attributes": []
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1256276,
+          "attributes": []
+        },
+        {
+          "id": 1295035,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236082,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "Seductive Sayaad",
+        "zhCN": "诱惑的萨亚德"
+      },
+      "count": 6,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1.4,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1201554,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 236902,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Massive Felwyrm",
+        "zhCN": "巨大的邪能浮龙"
+      },
+      "count": 12,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1217633,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1256299,
+          "attributes": []
+        },
+        {
+          "id": 1256300,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1258537,
+          "attributes": []
+        },
+        {
+          "id": 1297667,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236091,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Street Sneak",
+        "zhCN": "街头扒手"
+      },
+      "count": 3,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.4,
+      "characteristics": [],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1216284,
+          "attributes": []
+        },
+        {
+          "id": 1216589,
+          "attributes": []
+        },
+        {
+          "id": 1216590,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236893,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "Warehouse Worker",
+        "zhCN": "仓库工人"
+      },
+      "count": 2,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1216970,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1217992,
+          "attributes": []
+        },
+        {
+          "id": 1311136,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236897,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Keen Taskmaster",
+        "zhCN": "敏锐的监工"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1216970,
+          "attributes": [
+            "enrage"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 234849,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Unleashed Imp",
+        "zhCN": "不羁的小鬼"
+      },
+      "count": 2,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 0.7,
+      "characteristics": [],
+      "spawnCount": 58,
+      "spells": [
+        {
+          "id": 1223204,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 235261,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Trained Felhunter",
+        "zhCN": "驯服的地狱猎犬"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 15,
+      "spells": [
+        {
+          "id": 1217881,
+          "attributes": []
+        },
+        {
+          "id": 1217930,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1293101,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235268,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "Fel Invoker",
+        "zhCN": "邪能祈求者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 11,
+      "spells": [
+        {
+          "id": 1214980,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1297693,
+          "attributes": []
+        },
+        {
+          "id": 1297695,
+          "attributes": []
+        },
+        {
+          "id": 1309970,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235267,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "Wrathguard Flayer",
+        "zhCN": "愤怒卫士掠夺者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 13,
+      "spells": [
+        {
+          "id": 1214922,
+          "attributes": [
+            "interruptible",
+            "enrage"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1295426,
+          "attributes": []
+        },
+        {
+          "id": 1295427,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235265,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "Corrupted Warlock",
+        "zhCN": "腐化的术士"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 5,
+      "spells": [
+        {
+          "id": 1217973,
+          "attributes": [
+            "curse"
+          ]
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1294789,
+          "attributes": []
+        },
+        {
+          "id": 1297682,
+          "attributes": []
+        },
+        {
+          "id": 1297683,
+          "attributes": []
+        },
+        {
+          "id": 1297684,
+          "attributes": []
+        },
+        {
+          "id": 1297686,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235257,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "Demon Fly",
+        "zhCN": "魔蝇"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 0.7,
+      "characteristics": [],
+      "spawnCount": 16,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1293022,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235465,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Shivan Punisher",
+        "zhCN": "破坏魔惩罚者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 7,
+      "spells": [
+        {
+          "id": 1294770,
+          "attributes": []
+        },
+        {
+          "id": 1294774,
+          "attributes": []
+        },
+        {
+          "id": 1297676,
+          "attributes": []
+        },
+        {
+          "id": 1297691,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236905,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Felmaster Lucsei",
+        "zhCN": "邪能主宰鲁科西"
+      },
+      "count": 30,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1216954,
+          "attributes": []
+        },
+        {
+          "id": 1216955,
+          "attributes": []
+        },
+        {
+          "id": 1217930,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1217937,
+          "attributes": []
+        },
+        {
+          "id": 1302007,
+          "attributes": []
+        },
+        {
+          "id": 1302010,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235322,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "Defiled Golem",
+        "zhCN": "亵渎傀儡"
+      },
+      "count": 35,
+      "isBoss": false,
+      "creatureType": "Mechanical",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 7,
+      "spells": [
+        {
+          "id": 1215872,
+          "attributes": []
+        },
+        {
+          "id": 1215961,
+          "attributes": []
+        },
+        {
+          "id": 1215985,
+          "attributes": []
+        },
+        {
+          "id": 1218187,
+          "attributes": []
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1294824,
+          "attributes": []
+        },
+        {
+          "id": 1294827,
+          "attributes": []
+        },
+        {
+          "id": 1294836,
+          "attributes": []
+        },
+        {
+          "id": 1294870,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234647,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "Xathuux the Annihilator",
+        "zhCN": "歼灭者萨祖克斯"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Demon",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 473898,
+          "attributes": []
+        },
+        {
+          "id": 474197,
+          "attributes": []
+        },
+        {
+          "id": 474231,
+          "attributes": []
+        },
+        {
+          "id": 474234,
+          "attributes": []
+        },
+        {
+          "id": 1214637,
+          "attributes": []
+        },
+        {
+          "id": 1214641,
+          "attributes": []
+        },
+        {
+          "id": 1214647,
+          "attributes": []
+        },
+        {
+          "id": 1214663,
+          "attributes": []
+        },
+        {
+          "id": 1295453,
+          "attributes": []
+        },
+        {
+          "id": 1295455,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234648,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Kystia Manaheart",
+        "zhCN": "凯斯媞亚·魔力之心"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 474238,
+          "attributes": []
+        },
+        {
+          "id": 474240,
+          "attributes": []
+        },
+        {
+          "id": 1214959,
+          "attributes": []
+        },
+        {
+          "id": 1217464,
+          "attributes": []
+        },
+        {
+          "id": 1217989,
+          "attributes": []
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1223906,
+          "attributes": []
+        },
+        {
+          "id": 1230298,
+          "attributes": []
+        },
+        {
+          "id": 1264095,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234649,
+      "enemyIndex": 22,
+      "name": {
+        "enUS": "Zaen Bladesorrow",
+        "zhCN": "赞恩·刃悲"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 474478,
+          "attributes": []
+        },
+        {
+          "id": 474483,
+          "attributes": []
+        },
+        {
+          "id": 474515,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 474545,
+          "attributes": []
+        },
+        {
+          "id": 474740,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 474763,
+          "attributes": []
+        },
+        {
+          "id": 734276,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1214352,
+          "attributes": []
+        },
+        {
+          "id": 1214355,
+          "attributes": []
+        },
+        {
+          "id": 1214357,
+          "attributes": []
+        },
+        {
+          "id": 1217123,
+          "attributes": []
+        },
+        {
+          "id": 1218347,
+          "attributes": []
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1222598,
+          "attributes": []
+        },
+        {
+          "id": 1222795,
+          "attributes": []
+        },
+        {
+          "id": 1223939,
+          "attributes": [
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 234660,
+      "enemyIndex": 23,
+      "name": {
+        "enUS": "Nibbles",
+        "zhCN": "咬咬"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1217464,
+          "attributes": []
+        },
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1228198,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1230289,
+          "attributes": []
+        },
+        {
+          "id": 1230304,
+          "attributes": []
+        },
+        {
+          "id": 1253811,
+          "attributes": []
+        },
+        {
+          "id": 1253813,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234763,
+      "enemyIndex": 24,
+      "name": {
+        "enUS": "Lithiel Cinderfury",
+        "zhCN": "利希尔·烬怒"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 474375,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 474408,
+          "attributes": []
+        },
+        {
+          "id": 474457,
+          "attributes": []
+        },
+        {
+          "id": 474462,
+          "attributes": []
+        },
+        {
+          "id": 1214675,
+          "attributes": []
+        },
+        {
+          "id": 1214730,
+          "attributes": []
+        },
+        {
+          "id": 1214740,
+          "attributes": []
+        },
+        {
+          "id": 1216945,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1217345,
+          "attributes": []
+        },
+        {
+          "id": 1217384,
+          "attributes": []
+        },
+        {
+          "id": 1217415,
+          "attributes": []
+        },
+        {
+          "id": 1217881,
+          "attributes": []
+        },
+        {
+          "id": 1226469,
+          "attributes": []
+        },
+        {
+          "id": 1287627,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234799,
+      "enemyIndex": 25,
+      "name": {
+        "enUS": "Furious Vilefiend",
+        "zhCN": "狂怒的邪犬"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1217881,
+          "attributes": []
+        },
+        {
+          "id": 1293101,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234852,
+      "enemyIndex": 26,
+      "name": {
+        "enUS": "Forbidden Freight",
+        "zhCN": "违禁的货物"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 5,
+      "spells": [
+        {
+          "id": 1217099,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1219631,
+          "attributes": []
+        },
+        {
+          "id": 1222598,
+          "attributes": []
+        },
+        {
+          "id": 1266241,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234860,
+      "enemyIndex": 27,
+      "name": {
+        "enUS": "Crate Loader",
+        "zhCN": "装箱工"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 474766,
+          "attributes": []
+        },
+        {
+          "id": 474768,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 234984,
+      "enemyIndex": 28,
+      "name": {
+        "enUS": "Silvermoon Patron",
+        "zhCN": "银月城主顾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 44427,
+          "attributes": []
+        },
+        {
+          "id": 1214260,
+          "attributes": []
+        },
+        {
+          "id": 1214487,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235520,
+      "enemyIndex": 29,
+      "name": {
+        "enUS": "Legion Axe",
+        "zhCN": "军团大斧"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 5543,
+          "attributes": []
+        },
+        {
+          "id": 1214650,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 235841,
+      "enemyIndex": 30,
+      "name": {
+        "enUS": "Selenar Sunshy",
+        "zhCN": "赛勒纳·避日"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1216074,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236088,
+      "enemyIndex": 31,
+      "name": {
+        "enUS": "Masked Noble",
+        "zhCN": "蒙面贵族"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1219468,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 236525,
+      "enemyIndex": 32,
+      "name": {
+        "enUS": "Rowdy Patron",
+        "zhCN": "吵闹的主顾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1213658,
+          "attributes": [
+            "interruptible",
+            "enrage"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 237626,
+      "enemyIndex": 33,
+      "name": {
+        "enUS": "Wild Imp",
+        "zhCN": "野生小鬼"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1223204,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1226469,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 238414,
+      "enemyIndex": 34,
+      "name": {
+        "enUS": "Infernal",
+        "zhCN": "地狱火"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1231256,
+          "attributes": []
+        },
+        {
+          "id": 1231262,
+          "attributes": []
+        },
+        {
+          "id": 1231353,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 240289,
+      "enemyIndex": 35,
+      "name": {
+        "enUS": "Nauseous Patron",
+        "zhCN": "作呕的主顾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1216076,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 253081,
+      "enemyIndex": 36,
+      "name": {
+        "enUS": "Influentual Reviewer",
+        "zhCN": "走红的评论家"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1257877,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 253324,
+      "enemyIndex": 37,
+      "name": {
+        "enUS": "Tiny Felwyrm",
+        "zhCN": "小小邪能浮龙"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 0.6,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1214966,
+          "attributes": []
+        },
+        {
+          "id": 1216538,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 255050,
+      "enemyIndex": 38,
+      "name": {
+        "enUS": "Kystia Manaheart",
+        "zhCN": "凯斯媞亚·魔力之心"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1264106,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1264110,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 255604,
+      "enemyIndex": 39,
+      "name": {
+        "enUS": "Seductive Sayaad",
+        "zhCN": "诱惑的萨亚德"
+      },
+      "count": 6,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1.4,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1201554,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 263940,
+      "enemyIndex": 40,
+      "name": {
+        "enUS": "Belath Dawnblade",
+        "zhCN": "贝拉斯·黎明之刃"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.4,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1218465,
+          "attributes": []
+        },
+        {
+          "id": 1218466,
+          "attributes": []
+        },
+        {
+          "id": 1218467,
+          "attributes": []
+        },
+        {
+          "id": 1218468,
+          "attributes": []
+        },
+        {
+          "id": 1218508,
+          "attributes": []
+        },
+        {
+          "id": 1255881,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 272246,
+      "enemyIndex": 41,
+      "name": {
+        "enUS": "Trained Felhunter",
+        "zhCN": "驯服的地狱猎犬"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Demon",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1293101,
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

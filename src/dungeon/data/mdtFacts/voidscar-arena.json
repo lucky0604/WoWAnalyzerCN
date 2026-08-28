@@ -1,0 +1,1059 @@
+{
+  "version": 1,
+  "slug": "voidscar-arena",
+  "sourceKey": "vsa",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "513aa9ce0d36b73af87ebaf642b60fe9633746148602c718136bfdc602bc220d",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "full",
+  "dungeonIndex": 163,
+  "mdtDungeonTotalCount": 738,
+  "totalEnemyForcesPoints": 375,
+  "enemies": [
+    {
+      "npcId": 243996,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Lost Sethrak",
+        "zhCN": "迷失的蛇人"
+      },
+      "count": 4,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 14,
+      "spells": [
+        {
+          "id": 1250640,
+          "attributes": []
+        },
+        {
+          "id": 1268707,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 243988,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Feral Saberon",
+        "zhCN": "狂野的刃牙虎人"
+      },
+      "count": 4,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 13,
+      "spells": [
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1267754,
+          "attributes": []
+        },
+        {
+          "id": 1267894,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 243983,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "Sycophantic Tarasek",
+        "zhCN": "谄媚的塔拉赛"
+      },
+      "count": 4,
+      "isBoss": false,
+      "creatureType": "Dragonkin",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1250043,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 243985,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Longtooth Tuskarr",
+        "zhCN": "长牙海象人"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 7,
+      "spells": [
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1310319,
+          "attributes": [
+            "enrage"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 238883,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "Dominated Brawler",
+        "zhCN": "被统御的斗士"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1254826,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1298899,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 241496,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "Enthralled Shaman",
+        "zhCN": "被奴役的萨满"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 9,
+      "spells": [
+        {
+          "id": 1228176,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1246820,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 252072,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Voidtouched Magi",
+        "zhCN": "虚触法师"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2.52,
+      "characteristics": [],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 1299913,
+          "attributes": []
+        },
+        {
+          "id": 1299938,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 252053,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Brutal Overseer",
+        "zhCN": "鲁莽监督者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2.2,
+      "characteristics": [],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1228126,
+          "attributes": []
+        },
+        {
+          "id": 1228127,
+          "attributes": []
+        },
+        {
+          "id": 1261645,
+          "attributes": []
+        },
+        {
+          "id": 1298900,
+          "attributes": []
+        },
+        {
+          "id": 1298901,
+          "attributes": []
+        },
+        {
+          "id": 1310309,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 267545,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "Aegyra the Unyielding",
+        "zhCN": "不屈的埃吉拉"
+      },
+      "count": 40,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1298903,
+          "attributes": []
+        },
+        {
+          "id": 1298908,
+          "attributes": []
+        },
+        {
+          "id": 1298922,
+          "attributes": []
+        },
+        {
+          "id": 1298924,
+          "attributes": []
+        },
+        {
+          "id": 1298933,
+          "attributes": []
+        },
+        {
+          "id": 1299125,
+          "attributes": []
+        },
+        {
+          "id": 1299133,
+          "attributes": []
+        },
+        {
+          "id": 1299145,
+          "attributes": []
+        },
+        {
+          "id": 1299210,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 267546,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Raj'kess the Spellstorm",
+        "zhCN": "法术风暴拉杰克斯"
+      },
+      "count": 40,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1298902,
+          "attributes": []
+        },
+        {
+          "id": 1299240,
+          "attributes": []
+        },
+        {
+          "id": 1299244,
+          "attributes": []
+        },
+        {
+          "id": 1299257,
+          "attributes": []
+        },
+        {
+          "id": 1299270,
+          "attributes": []
+        },
+        {
+          "id": 1299273,
+          "attributes": []
+        },
+        {
+          "id": 1311712,
+          "attributes": []
+        },
+        {
+          "id": 1311747,
+          "attributes": []
+        },
+        {
+          "id": 1311754,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244260,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Chitigoth",
+        "zhCN": "几丁高斯"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 2.2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1234833,
+          "attributes": []
+        },
+        {
+          "id": 1234855,
+          "attributes": []
+        },
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1250079,
+          "attributes": []
+        },
+        {
+          "id": 1250695,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 249608,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Raging Raptor",
+        "zhCN": "暴怒的迅猛龙"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 249603,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "Protective Turtle",
+        "zhCN": "充满保护欲的乌龟"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1250021,
+          "attributes": []
+        },
+        {
+          "id": 1250023,
+          "attributes": []
+        },
+        {
+          "id": 1310320,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244309,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "Brutok",
+        "zhCN": "布鲁托克"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 2.2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1234890,
+          "attributes": []
+        },
+        {
+          "id": 1234917,
+          "attributes": []
+        },
+        {
+          "id": 1245186,
+          "attributes": []
+        },
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1269284,
+          "attributes": []
+        },
+        {
+          "id": 1310321,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 249461,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "Abducted Drakonid",
+        "zhCN": "被绑架的龙人"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Dragonkin",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1249236,
+          "attributes": []
+        },
+        {
+          "id": 1249238,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1249661,
+          "attributes": [
+            "enrage"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 249590,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "Angry Krolusk",
+        "zhCN": "暴怒的三叶虫"
+      },
+      "count": 8,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1249621,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 243835,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Savage Shredclaw",
+        "zhCN": "野蛮裂爪兽"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 19,
+      "spells": [
+        {
+          "id": 1233535,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 243766,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Kilivore Screamer",
+        "zhCN": "千噬兽尖啸者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 15,
+      "spells": [
+        {
+          "id": 1233398,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 263228,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "Agitated Voidscythe",
+        "zhCN": "焦躁的虚镰"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 2.2,
+      "characteristics": [],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1233472,
+          "attributes": []
+        },
+        {
+          "id": 1233485,
+          "attributes": []
+        },
+        {
+          "id": 1289258,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1289265,
+          "attributes": []
+        },
+        {
+          "id": 1311778,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 243736,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "Blistercreep",
+        "zhCN": "爆爬虫"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 0.9,
+      "characteristics": [],
+      "spawnCount": 12,
+      "spells": [
+        {
+          "id": 1233264,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245950,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Watchful Harrower",
+        "zhCN": "警惕的掠心者"
+      },
+      "count": 65,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 2.2,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1239855,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1239856,
+          "attributes": []
+        },
+        {
+          "id": 1300116,
+          "attributes": []
+        },
+        {
+          "id": 1300138,
+          "attributes": []
+        },
+        {
+          "id": 1300156,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 268184,
+      "enemyIndex": 22,
+      "name": {
+        "enUS": "Devouring Brutalizer",
+        "zhCN": "贪噬残虐者"
+      },
+      "count": 30,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2.2,
+      "characteristics": [],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 1252406,
+          "attributes": []
+        },
+        {
+          "id": 1282959,
+          "attributes": []
+        },
+        {
+          "id": 1300243,
+          "attributes": []
+        },
+        {
+          "id": 1300244,
+          "attributes": []
+        },
+        {
+          "id": 1300248,
+          "attributes": []
+        },
+        {
+          "id": 1300249,
+          "attributes": []
+        },
+        {
+          "id": 1300250,
+          "attributes": []
+        },
+        {
+          "id": 1310324,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 252508,
+      "enemyIndex": 23,
+      "name": {
+        "enUS": "Scavenging Siphoid",
+        "zhCN": "食腐虹虚魔"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Aberration",
+      "scale": 0.6,
+      "characteristics": [],
+      "spawnCount": 60,
+      "spells": [
+        {
+          "id": 1269866,
+          "attributes": []
+        },
+        {
+          "id": 1269878,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244708,
+      "enemyIndex": 24,
+      "name": {
+        "enUS": "Voidminder",
+        "zhCN": "虚空看顾者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Aberration",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1227020,
+          "attributes": []
+        },
+        {
+          "id": 1310324,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 238887,
+      "enemyIndex": 25,
+      "name": {
+        "enUS": "Taz'Rah",
+        "zhCN": "塔兹拉尔"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1296889,
+          "attributes": []
+        },
+        {
+          "id": 1296963,
+          "attributes": []
+        },
+        {
+          "id": 1296967,
+          "attributes": []
+        },
+        {
+          "id": 1297017,
+          "attributes": []
+        },
+        {
+          "id": 1300259,
+          "attributes": []
+        },
+        {
+          "id": 1300262,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 239008,
+      "enemyIndex": 26,
+      "name": {
+        "enUS": "Atroxus",
+        "zhCN": "阿特洛苏斯"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 2.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1222484,
+          "attributes": []
+        },
+        {
+          "id": 1222519,
+          "attributes": []
+        },
+        {
+          "id": 1222642,
+          "attributes": []
+        },
+        {
+          "id": 1222721,
+          "attributes": []
+        },
+        {
+          "id": 1222724,
+          "attributes": []
+        },
+        {
+          "id": 1226031,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1226120,
+          "attributes": []
+        },
+        {
+          "id": 1247395,
+          "attributes": []
+        },
+        {
+          "id": 1262497,
+          "attributes": []
+        },
+        {
+          "id": 1263971,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1300351,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 239167,
+      "enemyIndex": 27,
+      "name": {
+        "enUS": "Charonus",
+        "zhCN": "煞戎努斯"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Aberration",
+      "scale": 2.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1222755,
+          "attributes": []
+        },
+        {
+          "id": 1227197,
+          "attributes": []
+        },
+        {
+          "id": 1227247,
+          "attributes": []
+        },
+        {
+          "id": 1248112,
+          "attributes": []
+        },
+        {
+          "id": 1248121,
+          "attributes": []
+        },
+        {
+          "id": 1300372,
+          "attributes": []
+        },
+        {
+          "id": 1310025,
+          "attributes": []
+        },
+        {
+          "id": 1311923,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 239070,
+      "enemyIndex": 28,
+      "name": {
+        "enUS": "Toxic Creeper",
+        "zhCN": "剧毒蠕行者"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.7,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1222692,
+          "attributes": []
+        },
+        {
+          "id": 1222693,
+          "attributes": []
+        },
+        {
+          "id": 1282892,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 248666,
+      "enemyIndex": 29,
+      "name": {
+        "enUS": "Magma Totem",
+        "zhCN": "熔岩图腾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1246821,
+          "attributes": []
+        },
+        {
+          "id": 1246825,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 254677,
+      "enemyIndex": 30,
+      "name": {
+        "enUS": "Ethereal Shade",
+        "zhCN": "虚灵之影"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1222100,
+          "attributes": []
+        },
+        {
+          "id": 1222103,
+          "attributes": []
+        },
+        {
+          "id": 1222105,
+          "attributes": []
+        },
+        {
+          "id": 1296963,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 255000,
+      "enemyIndex": 31,
+      "name": {
+        "enUS": "Targeting Stalker",
+        "zhCN": "指向追踪者"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1263984,
+          "attributes": []
+        },
+        {
+          "id": 1264188,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 255001,
+      "enemyIndex": 32,
+      "name": {
+        "enUS": "Gravitic Orb",
+        "zhCN": "引力宝珠"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1263983,
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

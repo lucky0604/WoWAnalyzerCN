@@ -1,0 +1,937 @@
+{
+  "version": 1,
+  "slug": "altar-of-fangs",
+  "sourceKey": "aof",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "d3a30433743b0c35d7d3b0e9b875fe7c03b478a83c36fe749a654cb1bb91cdf1",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "full",
+  "dungeonIndex": 164,
+  "mdtDungeonTotalCount": 817,
+  "totalEnemyForcesPoints": 161,
+  "enemies": [
+    {
+      "npcId": 270306,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Ritual Chieftain",
+        "zhCN": "仪式首领"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.8,
+      "characteristics": [],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1306517,
+          "attributes": []
+        },
+        {
+          "id": 1306550,
+          "attributes": []
+        },
+        {
+          "id": 1306641,
+          "attributes": []
+        },
+        {
+          "id": 1306844,
+          "attributes": []
+        },
+        {
+          "id": 1306893,
+          "attributes": []
+        },
+        {
+          "id": 1306911,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 261552,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Bloodletter",
+        "zhCN": "放血者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 16,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1307526,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 261557,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "High Evolutionist",
+        "zhCN": "高阶进化者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 12,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1287544,
+          "attributes": []
+        },
+        {
+          "id": 1289416,
+          "attributes": [
+            "interruptible",
+            "poison"
+          ]
+        },
+        {
+          "id": 1292904,
+          "attributes": []
+        },
+        {
+          "id": 1306385,
+          "attributes": []
+        },
+        {
+          "id": 1307567,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1307571,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1307602,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 261556,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Hatchling",
+        "zhCN": "幼体"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1306383,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 263112,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "Living Venom",
+        "zhCN": "活体毒液"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 18,
+      "spells": [
+        {
+          "id": 1303366,
+          "attributes": []
+        },
+        {
+          "id": 1306230,
+          "attributes": [
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 261560,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "Primal Serpent",
+        "zhCN": "原始毒蛇"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 14,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1294557,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1306381,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 261553,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Ravenous Descendant",
+        "zhCN": "贪婪的后裔"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 19,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1306308,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1306333,
+          "attributes": []
+        },
+        {
+          "id": 1306338,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 263109,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Ula'tek's Chosen",
+        "zhCN": "乌拉特克神选者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.8,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1289416,
+          "attributes": [
+            "interruptible",
+            "poison"
+          ]
+        },
+        {
+          "id": 1292892,
+          "attributes": []
+        },
+        {
+          "id": 1306852,
+          "attributes": []
+        },
+        {
+          "id": 1306853,
+          "attributes": []
+        },
+        {
+          "id": 1306856,
+          "attributes": []
+        },
+        {
+          "id": 1307567,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1307571,
+          "attributes": [
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 261573,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "Ascendant Serpent",
+        "zhCN": "晋升之蛇"
+      },
+      "count": 30,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1293420,
+          "attributes": []
+        },
+        {
+          "id": 1294934,
+          "attributes": []
+        },
+        {
+          "id": 1294958,
+          "attributes": []
+        },
+        {
+          "id": 1295055,
+          "attributes": []
+        },
+        {
+          "id": 1295073,
+          "attributes": []
+        },
+        {
+          "id": 1308864,
+          "attributes": []
+        },
+        {
+          "id": 1308865,
+          "attributes": []
+        },
+        {
+          "id": 1309382,
+          "attributes": []
+        },
+        {
+          "id": 1309398,
+          "attributes": []
+        },
+        {
+          "id": 1309415,
+          "attributes": []
+        },
+        {
+          "id": 1309416,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 261554,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Twinfang Harrower",
+        "zhCN": "双牙蹂躏者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.8,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1294567,
+          "attributes": []
+        },
+        {
+          "id": 1294568,
+          "attributes": []
+        },
+        {
+          "id": 1294569,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1294570,
+          "attributes": []
+        },
+        {
+          "id": 1294572,
+          "attributes": []
+        },
+        {
+          "id": 1306668,
+          "attributes": []
+        },
+        {
+          "id": 1306669,
+          "attributes": []
+        },
+        {
+          "id": 1307269,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 261550,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Venom Leech",
+        "zhCN": "毒液水蛭"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 28,
+      "spells": [
+        {
+          "id": 1294432,
+          "attributes": []
+        },
+        {
+          "id": 1305637,
+          "attributes": []
+        },
+        {
+          "id": 1306232,
+          "attributes": []
+        },
+        {
+          "id": 1306235,
+          "attributes": []
+        },
+        {
+          "id": 1307098,
+          "attributes": []
+        },
+        {
+          "id": 1307144,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 262011,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Rattling Writhe",
+        "zhCN": "振响的扭缠蛇"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.8,
+      "characteristics": [],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1294845,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1294849,
+          "attributes": []
+        },
+        {
+          "id": 1294859,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 271453,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "Blade of the Altar",
+        "zhCN": "祭坛利刃"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.2,
+      "characteristics": [],
+      "spawnCount": 21,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1308518,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 259445,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "Rav'i",
+        "zhCN": "拉维"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1296050,
+          "attributes": []
+        },
+        {
+          "id": 1296058,
+          "attributes": []
+        },
+        {
+          "id": 1296069,
+          "attributes": [
+            "disease"
+          ]
+        },
+        {
+          "id": 1296216,
+          "attributes": []
+        },
+        {
+          "id": 1296219,
+          "attributes": []
+        },
+        {
+          "id": 1296220,
+          "attributes": []
+        },
+        {
+          "id": 1297876,
+          "attributes": []
+        },
+        {
+          "id": 1298221,
+          "attributes": []
+        },
+        {
+          "id": 1298223,
+          "attributes": []
+        },
+        {
+          "id": 1298683,
+          "attributes": []
+        },
+        {
+          "id": 1306345,
+          "attributes": []
+        },
+        {
+          "id": 1307573,
+          "attributes": []
+        },
+        {
+          "id": 1307700,
+          "attributes": []
+        },
+        {
+          "id": 1307703,
+          "attributes": []
+        },
+        {
+          "id": 1307765,
+          "attributes": []
+        },
+        {
+          "id": 1307768,
+          "attributes": []
+        },
+        {
+          "id": 1307894,
+          "attributes": []
+        },
+        {
+          "id": 1307915,
+          "attributes": []
+        },
+        {
+          "id": 1307921,
+          "attributes": []
+        },
+        {
+          "id": 1309522,
+          "attributes": []
+        },
+        {
+          "id": 1310378,
+          "attributes": []
+        },
+        {
+          "id": 1310413,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 259446,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "The Writhing Coil",
+        "zhCN": "扭缠盘蛇"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 1.3,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1287798,
+          "attributes": []
+        },
+        {
+          "id": 1287811,
+          "attributes": []
+        },
+        {
+          "id": 1298949,
+          "attributes": []
+        },
+        {
+          "id": 1299053,
+          "attributes": []
+        },
+        {
+          "id": 1299080,
+          "attributes": []
+        },
+        {
+          "id": 1299130,
+          "attributes": []
+        },
+        {
+          "id": 1299135,
+          "attributes": []
+        },
+        {
+          "id": 1299154,
+          "attributes": []
+        },
+        {
+          "id": 1299189,
+          "attributes": []
+        },
+        {
+          "id": 1299902,
+          "attributes": []
+        },
+        {
+          "id": 1299940,
+          "attributes": []
+        },
+        {
+          "id": 1300044,
+          "attributes": []
+        },
+        {
+          "id": 1300083,
+          "attributes": []
+        },
+        {
+          "id": 1300503,
+          "attributes": []
+        },
+        {
+          "id": 1300612,
+          "attributes": []
+        },
+        {
+          "id": 1300686,
+          "attributes": []
+        },
+        {
+          "id": 1305368,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1305393,
+          "attributes": []
+        },
+        {
+          "id": 1310357,
+          "attributes": []
+        },
+        {
+          "id": 1310547,
+          "attributes": []
+        },
+        {
+          "id": 1310974,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 259447,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "Zul'jan",
+        "zhCN": "祖尔加"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1300876,
+          "attributes": []
+        },
+        {
+          "id": 1300886,
+          "attributes": []
+        },
+        {
+          "id": 1300888,
+          "attributes": []
+        },
+        {
+          "id": 1300892,
+          "attributes": []
+        },
+        {
+          "id": 1300894,
+          "attributes": []
+        },
+        {
+          "id": 1300901,
+          "attributes": []
+        },
+        {
+          "id": 1301111,
+          "attributes": []
+        },
+        {
+          "id": 1301114,
+          "attributes": []
+        },
+        {
+          "id": 1301217,
+          "attributes": []
+        },
+        {
+          "id": 1301350,
+          "attributes": []
+        },
+        {
+          "id": 1301353,
+          "attributes": []
+        },
+        {
+          "id": 1301413,
+          "attributes": []
+        },
+        {
+          "id": 1301508,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 262398,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Uncoiled Writhe",
+        "zhCN": "溃散的扭缠蛇"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1300503,
+          "attributes": []
+        },
+        {
+          "id": 1300618,
+          "attributes": []
+        },
+        {
+          "id": 1300698,
+          "attributes": []
+        },
+        {
+          "id": 1305368,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1305393,
+          "attributes": []
+        },
+        {
+          "id": 1310666,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 264798,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Infused Eggs",
+        "zhCN": "注能之卵"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1293059,
+          "attributes": []
+        },
+        {
+          "id": 1293079,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 268358,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "Ritual Snake",
+        "zhCN": "仪式毒蛇"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1300885,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 270378,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "Ritual Spirit",
+        "zhCN": "仪式精魂"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1306657,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 270417,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Uncoiled Writhe",
+        "zhCN": "溃散的扭缠蛇"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1300618,
+          "attributes": []
+        },
+        {
+          "id": 1300698,
+          "attributes": []
+        },
+        {
+          "id": 1305393,
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

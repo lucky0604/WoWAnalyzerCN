@@ -1,0 +1,1098 @@
+{
+  "version": 1,
+  "slug": "den-of-nalorakk",
+  "sourceKey": "dnl",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "3d51dc1c6ff8aacb85288990a33c206d2dc884346dd3a035fc88bf92481acc83",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "full",
+  "dungeonIndex": 161,
+  "mdtDungeonTotalCount": 729,
+  "totalEnemyForcesPoints": 248,
+  "enemies": [
+    {
+      "npcId": 245855,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Spirit of Hunger",
+        "zhCN": "饥渴之灵"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.6,
+      "characteristics": [],
+      "spawnCount": 7,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1238687,
+          "attributes": []
+        },
+        {
+          "id": 1238725,
+          "attributes": []
+        },
+        {
+          "id": 1238760,
+          "attributes": []
+        },
+        {
+          "id": 1249737,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241814,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Earthwhisper Tender",
+        "zhCN": "地语看护者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 14,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1241214,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1297696,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 241813,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "Thornclaw Gatherer",
+        "zhCN": "棘爪收集者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 23,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1241217,
+          "attributes": []
+        },
+        {
+          "id": 1297699,
+          "attributes": [
+            "disease"
+          ]
+        },
+        {
+          "id": 1297701,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241808,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Territorial Matriarch",
+        "zhCN": "领地主母"
+      },
+      "count": 8,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 16,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1238053,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1241219,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 250478,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "The Winter Squall",
+        "zhCN": "寒冬暴风雪"
+      },
+      "count": 50,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1309947,
+          "attributes": []
+        },
+        {
+          "id": 1309964,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241874,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "Frostfang",
+        "zhCN": "霜牙"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 18,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1241226,
+          "attributes": []
+        },
+        {
+          "id": 1265400,
+          "attributes": []
+        },
+        {
+          "id": 1265402,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241911,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Terra Rumbler",
+        "zhCN": "撼地奔行者"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 10,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1296518,
+          "attributes": []
+        },
+        {
+          "id": 1296519,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241872,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Frigid Mauler",
+        "zhCN": "酷寒重殴者"
+      },
+      "count": 9,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1309919,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 241876,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "Glacial Revenant",
+        "zhCN": "冰川亡魂"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 8,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1239860,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1239871,
+          "attributes": []
+        },
+        {
+          "id": 1266178,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241869,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Avatar of Determination",
+        "zhCN": "决意化身"
+      },
+      "count": 28,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1240280,
+          "attributes": []
+        },
+        {
+          "id": 1241463,
+          "attributes": []
+        },
+        {
+          "id": 1241464,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245143,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Ruthless Totemcaller",
+        "zhCN": "冷酷的图腾召唤者"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 5,
+      "spells": [
+        {
+          "id": 1246820,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245139,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Stormbound Mystic",
+        "zhCN": "雷缚秘法师"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 5,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1246687,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1297778,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 245146,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "Grizzled Warbringer",
+        "zhCN": "老练的战争使者"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1246957,
+          "attributes": []
+        },
+        {
+          "id": 1246986,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245145,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "Bonded Beasttamer",
+        "zhCN": "羁绊驯兽师"
+      },
+      "count": 6,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1246847,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1246860,
+          "attributes": []
+        },
+        {
+          "id": 1246865,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1246877,
+          "attributes": []
+        },
+        {
+          "id": 1266207,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241809,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "Curious Yearling",
+        "zhCN": "好奇的幼崽"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 0.6,
+      "characteristics": [],
+      "spawnCount": 19,
+      "spells": [
+        {
+          "id": 1238053,
+          "attributes": [
+            "enrage"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 241812,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "The Hoardmonger",
+        "zhCN": "囤宝狂人"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1232012,
+          "attributes": []
+        },
+        {
+          "id": 1234021,
+          "attributes": []
+        },
+        {
+          "id": 1234233,
+          "attributes": []
+        },
+        {
+          "id": 1234681,
+          "attributes": []
+        },
+        {
+          "id": 1234734,
+          "attributes": []
+        },
+        {
+          "id": 1234846,
+          "attributes": [
+            "poison"
+          ]
+        },
+        {
+          "id": 1235072,
+          "attributes": []
+        },
+        {
+          "id": 1235075,
+          "attributes": []
+        },
+        {
+          "id": 1235076,
+          "attributes": []
+        },
+        {
+          "id": 1235079,
+          "attributes": []
+        },
+        {
+          "id": 1235105,
+          "attributes": []
+        },
+        {
+          "id": 1235125,
+          "attributes": []
+        },
+        {
+          "id": 1235129,
+          "attributes": []
+        },
+        {
+          "id": 1235405,
+          "attributes": []
+        },
+        {
+          "id": 1245593,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 241816,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Keen-Eyed Striker",
+        "zhCN": "锐眼掠击鹰"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 16,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1238439,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1238440,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244100,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Sentinel of Winter",
+        "zhCN": "寒冬哨兵"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1235548,
+          "attributes": []
+        },
+        {
+          "id": 1235549,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1235623,
+          "attributes": []
+        },
+        {
+          "id": 1235635,
+          "attributes": []
+        },
+        {
+          "id": 1235656,
+          "attributes": []
+        },
+        {
+          "id": 1235658,
+          "attributes": []
+        },
+        {
+          "id": 1235783,
+          "attributes": []
+        },
+        {
+          "id": 1235795,
+          "attributes": []
+        },
+        {
+          "id": 1236289,
+          "attributes": []
+        },
+        {
+          "id": 1297749,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244696,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "Raging Squall",
+        "zhCN": "狂怒的飑风"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1235638,
+          "attributes": []
+        },
+        {
+          "id": 1235641,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244759,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "Fractured Shivercore",
+        "zhCN": "碎裂的震颤核心"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Elemental",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1234314,
+          "attributes": []
+        },
+        {
+          "id": 1235829,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1263590,
+          "attributes": []
+        },
+        {
+          "id": 1263597,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 244889,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Loa Speaker Nanea",
+        "zhCN": "神灵代言人纳尼亚"
+      },
+      "count": 35,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1247366,
+          "attributes": []
+        },
+        {
+          "id": 1247367,
+          "attributes": []
+        },
+        {
+          "id": 1251027,
+          "attributes": []
+        },
+        {
+          "id": 1264753,
+          "attributes": []
+        },
+        {
+          "id": 1290205,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1296722,
+          "attributes": []
+        },
+        {
+          "id": 1309924,
+          "attributes": []
+        },
+        {
+          "id": 1309925,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245148,
+      "enemyIndex": 22,
+      "name": {
+        "enUS": "Grizzled Warbringer",
+        "zhCN": "老练的战争使者"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 1247030,
+          "attributes": []
+        },
+        {
+          "id": 1311572,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245190,
+      "enemyIndex": 23,
+      "name": {
+        "enUS": "Loyal Saberfang",
+        "zhCN": "忠诚的刃牙山猫"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1246865,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1246882,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245567,
+      "enemyIndex": 24,
+      "name": {
+        "enUS": "Starvation Effigy",
+        "zhCN": "饥荒雕像"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 7,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1238801,
+          "attributes": [
+            "curse"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 246404,
+      "enemyIndex": 25,
+      "name": {
+        "enUS": "Nalorakk",
+        "zhCN": "纳洛拉克"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1221063,
+          "attributes": []
+        },
+        {
+          "id": 1242860,
+          "attributes": []
+        },
+        {
+          "id": 1242869,
+          "attributes": []
+        },
+        {
+          "id": 1242887,
+          "attributes": []
+        },
+        {
+          "id": 1243002,
+          "attributes": []
+        },
+        {
+          "id": 1243011,
+          "attributes": []
+        },
+        {
+          "id": 1243273,
+          "attributes": []
+        },
+        {
+          "id": 1243408,
+          "attributes": []
+        },
+        {
+          "id": 1243569,
+          "attributes": []
+        },
+        {
+          "id": 1254622,
+          "attributes": []
+        },
+        {
+          "id": 1261976,
+          "attributes": []
+        },
+        {
+          "id": 1297792,
+          "attributes": []
+        },
+        {
+          "id": 1297793,
+          "attributes": []
+        },
+        {
+          "id": 1297796,
+          "attributes": []
+        },
+        {
+          "id": 1297797,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 246409,
+      "enemyIndex": 26,
+      "name": {
+        "enUS": "Zul'jarra",
+        "zhCN": "祖尔加拉"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1243018,
+          "attributes": []
+        },
+        {
+          "id": 1243078,
+          "attributes": []
+        },
+        {
+          "id": 1243856,
+          "attributes": []
+        },
+        {
+          "id": 1249186,
+          "attributes": []
+        },
+        {
+          "id": 1261776,
+          "attributes": []
+        },
+        {
+          "id": 1262253,
+          "attributes": []
+        },
+        {
+          "id": 1270826,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 247301,
+      "enemyIndex": 27,
+      "name": {
+        "enUS": "Echo of Nalorakk",
+        "zhCN": "纳洛拉克的回响"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1242976,
+          "attributes": []
+        },
+        {
+          "id": 1255570,
+          "attributes": []
+        },
+        {
+          "id": 1255577,
+          "attributes": []
+        },
+        {
+          "id": 1262577,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 251189,
+      "enemyIndex": 28,
+      "name": {
+        "enUS": "Snow Orb Stalker",
+        "zhCN": "冰雪之珠追踪者"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1253083,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 272074,
+      "enemyIndex": 29,
+      "name": {
+        "enUS": "Volatile Totem",
+        "zhCN": "动荡图腾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1309931,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245076,
+      "enemyIndex": 30,
+      "name": {
+        "enUS": "The Pale Eye",
+        "zhCN": "苍白之眼"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1250805,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 245752,
+      "enemyIndex": 31,
+      "name": {
+        "enUS": "Keen-Eyed Striker",
+        "zhCN": "锐眼掠击鹰"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Beast",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 110960,
+          "attributes": []
+        },
+        {
+          "id": 1238439,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1238440,
+          "attributes": []
+        },
+        {
+          "id": 1239394,
+          "attributes": [
+            "interruptible"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 248666,
+      "enemyIndex": 32,
+      "name": {
+        "enUS": "Magma Totem",
+        "zhCN": "熔岩图腾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1246821,
+          "attributes": []
+        },
+        {
+          "id": 1246825,
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

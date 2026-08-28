@@ -108,6 +108,60 @@ const approvedCoordinateSnapshot = (
   ...(rawSha256 ? { rawSha256 } : {}),
 });
 
+/**
+ * MDT 衍生怪物事实（NPC 身份、forces 点数、技能清单、CC 特性）。
+ * 上游 MythicDungeonTools → threechest → wcl-mp-client；授权与更新流程见
+ * agent_flow/mdt-snapshots/s2/README.md。hash 即对应原始 JSON 的 sha256。
+ */
+const approvedMdtFactsSnapshot = (
+  slug: string,
+  sourceKey: string,
+  rawSha256: string,
+): ApprovedSourceSnapshot => ({
+  sourceId: 'mdt',
+  snapshotId: `mdt-facts-s2-${slug}-2026-08-26`,
+  hash: `sha256:${rawSha256}`,
+  allowedUses: ['local-research', 'commit-derived-data', 'redistribute'],
+  approvedBy: 'project-owner',
+  approvedAt: '2026-08-26',
+  status: 'approved',
+  evidenceRef: 'agent_flow/mdt-snapshots/s2/README.md',
+});
+
+/**
+ * 生产资产镜像（wcl-mp-client/downloaded）：8 本 S2 的地图瓦片（192）、NPC
+ * 头像（259）、封面（8），已同步到自建 OSS（wcl-mythic-dungeon）。hash 即镜像
+ * manifest.json 的 sha256；生产注入通道见 scripts/dungeons/generate-oss-manifest.ts
+ * 与 src/dungeon/data/assets/oss.manifest.json。
+ */
+const approvedAssetMirrorSnapshot = (): ApprovedSourceSnapshot => ({
+  sourceId: 'wcl-mp-client-assets',
+  snapshotId: 'oss-asset-mirror-s2-2026-08-26',
+  hash: 'sha256:6e6b5a6d1a90161998031b36408a00340bff4bf59791661ff3baecd38d37505b',
+  allowedUses: ['local-research', 'production-asset'],
+  approvedBy: 'project-owner',
+  approvedAt: '2026-08-26',
+  status: 'approved',
+  evidenceRef: 'agent_flow/dungeon-learning/37-oss-assets-phase.md',
+});
+
+/**
+ * 8 本 S2 技能字典（src/dungeon/data/spellFacts/s2.json）：spellId → 暴雪技能名与
+ * 图标，来自 grimoire-wow@12.1.0-69189.3（DBC 数据）构建期生成；attributes 来自
+ * mdtFacts 参考层跨施法者并集。hash 即已提交 s2.json 自身的 sha256；生成方式与
+ * 门禁见 scripts/dungeons/generate-spell-dictionary.ts 与 38 号阶段文档。
+ */
+const approvedSpellDictionarySnapshot = (): ApprovedSourceSnapshot => ({
+  sourceId: 'grimoire-wow',
+  snapshotId: 'spell-dictionary-s2-2026-08-26',
+  hash: 'sha256:60ed27af85efb74e3d8d65b931bbb13857049aa3b53299c4f641ea0fde454c17',
+  allowedUses: ['local-research', 'commit-derived-data'],
+  approvedBy: 'project-owner',
+  approvedAt: '2026-08-26',
+  status: 'approved',
+  evidenceRef: 'agent_flow/dungeon-learning/38-spell-dictionary-phase.md',
+});
+
 export interface SourceUseCheck {
   ok: boolean;
   reason?: string;
@@ -237,8 +291,68 @@ export const dungeonSourceRegistry: SourceRegistry = {
       'agent_flow/dungeon-learning/08-confirmed-development-source-decisions.md',
       '2026-08-10',
     ),
+    // mdt 批次：8 本 Midnight S2 原始 MDT 事实快照（导入器
+    // scripts/dungeons/import-mdt-facts.ts 消费这些哈希做来源校验）。
+    approvedMdtFactsSnapshot(
+      'altar-of-fangs',
+      'aof',
+      'd3a30433743b0c35d7d3b0e9b875fe7c03b478a83c36fe749a654cb1bb91cdf1',
+    ),
+    approvedMdtFactsSnapshot(
+      'den-of-nalorakk',
+      'dnl',
+      '3d51dc1c6ff8aacb85288990a33c206d2dc884346dd3a035fc88bf92481acc83',
+    ),
+    approvedMdtFactsSnapshot(
+      'kings-rest',
+      'kr',
+      'd105c6589a8a89c7e0a68127af04c9ed4a43f81db06bcf3072b48f8d1b92a040',
+    ),
+    approvedMdtFactsSnapshot(
+      'murder-row',
+      'mdr',
+      'e479dd33f3dcb877fe351477e722321c0d5cbf20c81c582189a6e9a4335c2592',
+    ),
+    approvedMdtFactsSnapshot(
+      'ruby-life-pools',
+      'rlp',
+      '2dd1303529cba98420fc9c0114125458249e7721d0b2ff0bec7c754d799e18b6',
+    ),
+    approvedMdtFactsSnapshot(
+      'temple-of-sethraliss',
+      'tst',
+      '4e95019a8425c3dfaf9efe04578d7974326d332b705858459c207312e6489b5d',
+    ),
+    approvedMdtFactsSnapshot(
+      'the-blinding-vale',
+      'bvl',
+      '8a90e1493df268a955ae5570de267ef682c97a1aa41eeab787c02091a65b1c39',
+    ),
+    approvedMdtFactsSnapshot(
+      'voidscar-arena',
+      'vsa',
+      '513aa9ce0d36b73af87ebaf642b60fe9633746148602c718136bfdc602bc220d',
+    ),
+    // 资产镜像批次：OSS 上的瓦片/头像/封面（Phase B）。
+    approvedAssetMirrorSnapshot(),
+    approvedSpellDictionarySnapshot(),
   ],
 };
+
+/**
+ * 按地城 slug 查找已登记的 mdt 事实批次（snapshotId 由本模块统一拼装）。
+ * 导入器（scripts/dungeons/import-mdt-facts.ts）在导入前用它校验原始 JSON
+ * 哈希；check.ts 门禁用它对账已提交参考层内嵌的 source.sha256。
+ */
+export function getApprovedMdtFactsSnapshot(
+  slug: string,
+): ApprovedSourceSnapshot | undefined {
+  return dungeonSourceRegistry.snapshots.find(
+    (candidate) =>
+      candidate.sourceId === 'mdt' &&
+      candidate.snapshotId === `mdt-facts-s2-${slug}-2026-08-26`,
+  );
+}
 
 /**
  * No S2 forces snapshot is approved yet.  Keeping this registry explicit makes

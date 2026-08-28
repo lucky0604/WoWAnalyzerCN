@@ -1,0 +1,1280 @@
+{
+  "version": 1,
+  "slug": "kings-rest",
+  "sourceKey": "kr",
+  "source": {
+    "kind": "mythic-dungeon-tools",
+    "distribution": "MythicDungeonTools 6.2.4 → threechest → wcl-mp-client",
+    "sha256": "d105c6589a8a89c7e0a68127af04c9ed4a43f81db06bcf3072b48f8d1b92a040",
+    "retrievedAt": "2026-08-26T00:00:00.000Z"
+  },
+  "nameZhCoverage": "full",
+  "dungeonIndex": 17,
+  "mdtDungeonTotalCount": 608,
+  "totalEnemyForcesPoints": 378,
+  "enemies": [
+    {
+      "npcId": 133935,
+      "enemyIndex": 1,
+      "name": {
+        "enUS": "Animated Guardian",
+        "zhCN": "活化守卫"
+      },
+      "count": 22,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 270003,
+          "attributes": []
+        },
+        {
+          "id": 270016,
+          "attributes": []
+        },
+        {
+          "id": 1310755,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 133943,
+      "enemyIndex": 2,
+      "name": {
+        "enUS": "Minion of Zul",
+        "zhCN": "祖尔的爪牙"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Aberration",
+      "scale": 1,
+      "characteristics": [
+        "Taunt",
+        "Slow"
+      ],
+      "spawnCount": 13,
+      "spells": [
+        {
+          "id": 269935,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134174,
+      "enemyIndex": 3,
+      "name": {
+        "enUS": "Risen Hexer",
+        "zhCN": "复活的妖术师"
+      },
+      "count": 20,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 269972,
+          "attributes": [
+            "interruptible",
+            "curse"
+          ]
+        },
+        {
+          "id": 1294815,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134158,
+      "enemyIndex": 4,
+      "name": {
+        "enUS": "Shadow-Borne Champion",
+        "zhCN": "影裔勇士"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 269928,
+          "attributes": []
+        },
+        {
+          "id": 269976,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1305945,
+          "attributes": []
+        },
+        {
+          "id": 1310758,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134157,
+      "enemyIndex": 5,
+      "name": {
+        "enUS": "Umbral Warrior",
+        "zhCN": "黯影战士"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt",
+        "Fear",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 6,
+      "spells": [
+        {
+          "id": 1311942,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135322,
+      "enemyIndex": 6,
+      "name": {
+        "enUS": "The Golden Serpent",
+        "zhCN": "黄金风蛇"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Beast",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 265773,
+          "attributes": []
+        },
+        {
+          "id": 265781,
+          "attributes": []
+        },
+        {
+          "id": 265910,
+          "attributes": []
+        },
+        {
+          "id": 265923,
+          "attributes": []
+        },
+        {
+          "id": 265991,
+          "attributes": []
+        },
+        {
+          "id": 1306736,
+          "attributes": []
+        },
+        {
+          "id": 1311987,
+          "attributes": []
+        },
+        {
+          "id": 1311988,
+          "attributes": []
+        },
+        {
+          "id": 1312104,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 137487,
+      "enemyIndex": 7,
+      "name": {
+        "enUS": "Skeletal Hunting Raptor",
+        "zhCN": "骸骨狩猎迅猛龙"
+      },
+      "count": 10,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270500,
+          "attributes": []
+        },
+        {
+          "id": 270502,
+          "attributes": []
+        },
+        {
+          "id": 270503,
+          "attributes": []
+        },
+        {
+          "id": 1297763,
+          "attributes": [
+            "enrage"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 137486,
+      "enemyIndex": 8,
+      "name": {
+        "enUS": "Queen Patlaa",
+        "zhCN": "帕特拉女王"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270931,
+          "attributes": []
+        },
+        {
+          "id": 1294883,
+          "attributes": []
+        },
+        {
+          "id": 1297763,
+          "attributes": [
+            "enrage"
+          ]
+        },
+        {
+          "id": 1305982,
+          "attributes": []
+        },
+        {
+          "id": 1306761,
+          "attributes": []
+        },
+        {
+          "id": 1306763,
+          "attributes": [
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 137484,
+      "enemyIndex": 9,
+      "name": {
+        "enUS": "King A'akul",
+        "zhCN": "阿库尔大王"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1297918,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 1297970,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 137485,
+      "enemyIndex": 10,
+      "name": {
+        "enUS": "Bloodsworn Assassin",
+        "zhCN": "血誓刺客"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 1297781,
+          "attributes": [
+            "bleed"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134251,
+      "enemyIndex": 11,
+      "name": {
+        "enUS": "Seneschal M'bara",
+        "zhCN": "总管姆巴拉"
+      },
+      "count": 10,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270901,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        },
+        {
+          "id": 1296671,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 137473,
+      "enemyIndex": 12,
+      "name": {
+        "enUS": "Guard Captain Atu",
+        "zhCN": "守卫队长阿图"
+      },
+      "count": 10,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1296671,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 134331,
+      "enemyIndex": 13,
+      "name": {
+        "enUS": "King Rahu'ai",
+        "zhCN": "拉胡艾大王"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270889,
+          "attributes": []
+        },
+        {
+          "id": 270891,
+          "attributes": []
+        },
+        {
+          "id": 1296671,
+          "attributes": [
+            "magic"
+          ]
+        },
+        {
+          "id": 1296719,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 137474,
+      "enemyIndex": 14,
+      "name": {
+        "enUS": "King Timalji",
+        "zhCN": "提玛吉大王"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270927,
+          "attributes": []
+        },
+        {
+          "id": 270928,
+          "attributes": []
+        },
+        {
+          "id": 1297326,
+          "attributes": []
+        },
+        {
+          "id": 1306049,
+          "attributes": []
+        },
+        {
+          "id": 1306056,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 137478,
+      "enemyIndex": 15,
+      "name": {
+        "enUS": "Queen Wasi",
+        "zhCN": "沃希女王"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270920,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        },
+        {
+          "id": 1294972,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        },
+        {
+          "id": 1297326,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134739,
+      "enemyIndex": 16,
+      "name": {
+        "enUS": "Purification Construct",
+        "zhCN": "净化构造体"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270292,
+          "attributes": []
+        },
+        {
+          "id": 270293,
+          "attributes": []
+        },
+        {
+          "id": 1310755,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 137969,
+      "enemyIndex": 17,
+      "name": {
+        "enUS": "Interment Construct",
+        "zhCN": "葬礼构造体"
+      },
+      "count": 15,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.9,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 2,
+      "spells": [
+        {
+          "id": 271555,
+          "attributes": []
+        },
+        {
+          "id": 271561,
+          "attributes": []
+        },
+        {
+          "id": 271562,
+          "attributes": []
+        },
+        {
+          "id": 1310755,
+          "attributes": []
+        },
+        {
+          "id": 1312569,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 134993,
+      "enemyIndex": 18,
+      "name": {
+        "enUS": "Mchimba the Embalmer",
+        "zhCN": "殓尸者姆沁巴"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Mechanical",
+      "scale": 1.7,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 267618,
+          "attributes": []
+        },
+        {
+          "id": 267639,
+          "attributes": []
+        },
+        {
+          "id": 267702,
+          "attributes": []
+        },
+        {
+          "id": 267874,
+          "attributes": []
+        },
+        {
+          "id": 271290,
+          "attributes": []
+        },
+        {
+          "id": 1312146,
+          "attributes": []
+        },
+        {
+          "id": 1312848,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135204,
+      "enemyIndex": 19,
+      "name": {
+        "enUS": "Phantom Hex Priest",
+        "zhCN": "幻影妖术祭司"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Shackle Undead",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 270492,
+          "attributes": [
+            "interruptible",
+            "curse"
+          ]
+        },
+        {
+          "id": 1295125,
+          "attributes": [
+            "interruptible",
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 135167,
+      "enemyIndex": 20,
+      "name": {
+        "enUS": "Royal Berserker",
+        "zhCN": "皇家狂战士"
+      },
+      "count": 22,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt",
+        "Incapacitate",
+        "Silence",
+        "Shackle Undead",
+        "Root",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 3,
+      "spells": [
+        {
+          "id": 270482,
+          "attributes": []
+        },
+        {
+          "id": 270485,
+          "attributes": []
+        },
+        {
+          "id": 1301851,
+          "attributes": [
+            "bleed"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 135239,
+      "enemyIndex": 21,
+      "name": {
+        "enUS": "Spectral Shaman",
+        "zhCN": "幻影萨满祭司"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt",
+        "Silence",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 270497,
+          "attributes": []
+        },
+        {
+          "id": 270499,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 135231,
+      "enemyIndex": 22,
+      "name": {
+        "enUS": "Ghostly Brute",
+        "zhCN": "鬼魂蛮兵"
+      },
+      "count": 25,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 270514,
+          "attributes": []
+        },
+        {
+          "id": 1302028,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135192,
+      "enemyIndex": 23,
+      "name": {
+        "enUS": "Honored Raptor",
+        "zhCN": "荣耀迅猛龙"
+      },
+      "count": 5,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [
+        "Taunt",
+        "Disorient",
+        "Stun"
+      ],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 270500,
+          "attributes": []
+        },
+        {
+          "id": 270502,
+          "attributes": []
+        },
+        {
+          "id": 270503,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 138489,
+      "enemyIndex": 24,
+      "name": {
+        "enUS": "Shadow of Zul",
+        "zhCN": "祖尔之影"
+      },
+      "count": 30,
+      "isBoss": false,
+      "creatureType": "Humanoid",
+      "scale": 2.5,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 136160,
+      "enemyIndex": 25,
+      "name": {
+        "enUS": "King Dazar",
+        "zhCN": "达萨大王"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [
+        "Taunt"
+      ],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 268586,
+          "attributes": []
+        },
+        {
+          "id": 268587,
+          "attributes": []
+        },
+        {
+          "id": 268589,
+          "attributes": []
+        },
+        {
+          "id": 268590,
+          "attributes": []
+        },
+        {
+          "id": 268591,
+          "attributes": []
+        },
+        {
+          "id": 269503,
+          "attributes": []
+        },
+        {
+          "id": 1302945,
+          "attributes": []
+        },
+        {
+          "id": 1303105,
+          "attributes": []
+        },
+        {
+          "id": 1303111,
+          "attributes": []
+        },
+        {
+          "id": 1303115,
+          "attributes": []
+        },
+        {
+          "id": 1303267,
+          "attributes": []
+        },
+        {
+          "id": 1303372,
+          "attributes": []
+        },
+        {
+          "id": 1303374,
+          "attributes": []
+        },
+        {
+          "id": 1303396,
+          "attributes": []
+        },
+        {
+          "id": 1303399,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 137989,
+      "enemyIndex": 26,
+      "name": {
+        "enUS": "Embalming Fluid",
+        "zhCN": "防腐液"
+      },
+      "count": 1,
+      "isBoss": false,
+      "creatureType": "Aberration",
+      "scale": 0.7,
+      "characteristics": [
+        "Taunt",
+        "Silence",
+        "Root",
+        "Disorient",
+        "Stun",
+        "Slow"
+      ],
+      "spawnCount": 17,
+      "spells": [
+        {
+          "id": 271563,
+          "attributes": []
+        },
+        {
+          "id": 1298104,
+          "attributes": [
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 135761,
+      "enemyIndex": 27,
+      "name": {
+        "enUS": "Disruption Totem",
+        "zhCN": "雷鸣图腾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Totem",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 267257,
+          "attributes": []
+        },
+        {
+          "id": 1309499,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135764,
+      "enemyIndex": 28,
+      "name": {
+        "enUS": "Explosive Totem",
+        "zhCN": "爆裂图腾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Totem",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 267077,
+          "attributes": []
+        },
+        {
+          "id": 1309499,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 135765,
+      "enemyIndex": 29,
+      "name": {
+        "enUS": "Torrent Totem",
+        "zhCN": "洪流图腾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Totem",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 267105,
+          "attributes": []
+        },
+        {
+          "id": 1309499,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 136256,
+      "enemyIndex": 30,
+      "name": {
+        "enUS": "Coffin",
+        "zhCN": "棺材"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Not specified",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": []
+    },
+    {
+      "npcId": 136976,
+      "enemyIndex": 31,
+      "name": {
+        "enUS": "T'zala",
+        "zhCN": "提扎拉"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 1303324,
+          "attributes": []
+        },
+        {
+          "id": 1303326,
+          "attributes": []
+        },
+        {
+          "id": 1303327,
+          "attributes": []
+        },
+        {
+          "id": 1303396,
+          "attributes": []
+        },
+        {
+          "id": 1303399,
+          "attributes": []
+        },
+        {
+          "id": 1303488,
+          "attributes": []
+        },
+        {
+          "id": 1303490,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 136984,
+      "enemyIndex": 32,
+      "name": {
+        "enUS": "Reban",
+        "zhCN": "莱班"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 2,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 269230,
+          "attributes": []
+        },
+        {
+          "id": 269231,
+          "attributes": []
+        },
+        {
+          "id": 269232,
+          "attributes": []
+        },
+        {
+          "id": 269369,
+          "attributes": [
+            "interruptible"
+          ]
+        },
+        {
+          "id": 1303039,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 138493,
+      "enemyIndex": 33,
+      "name": {
+        "enUS": "Minion of Zul",
+        "zhCN": "祖尔的爪牙"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Aberration",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 269935,
+          "attributes": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 269808,
+      "enemyIndex": 34,
+      "name": {
+        "enUS": "Aka'ali the Conqueror",
+        "zhCN": "征服者阿卡阿里"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 266237,
+          "attributes": []
+        },
+        {
+          "id": 266951,
+          "attributes": []
+        },
+        {
+          "id": 267494,
+          "attributes": []
+        },
+        {
+          "id": 1310761,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 269810,
+      "enemyIndex": 35,
+      "name": {
+        "enUS": "Zanazal the Wise",
+        "zhCN": "智者扎纳扎尔"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 267060,
+          "attributes": []
+        },
+        {
+          "id": 267273,
+          "attributes": [
+            "interruptible",
+            "poison"
+          ]
+        },
+        {
+          "id": 1305810,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 269811,
+      "enemyIndex": 36,
+      "name": {
+        "enUS": "Kula the Butcher",
+        "zhCN": "屠夫库拉"
+      },
+      "count": 0,
+      "isBoss": true,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 1,
+      "spells": [
+        {
+          "id": 266191,
+          "attributes": [
+            "bleed"
+          ]
+        },
+        {
+          "id": 266206,
+          "attributes": []
+        },
+        {
+          "id": 266231,
+          "attributes": [
+            "bleed"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 270502,
+      "enemyIndex": 37,
+      "name": {
+        "enUS": "Half-Finished Mummy",
+        "zhCN": "未完成的木乃伊"
+      },
+      "count": 7,
+      "isBoss": false,
+      "creatureType": "Undead",
+      "scale": 1.5,
+      "characteristics": [],
+      "spawnCount": 4,
+      "spells": [
+        {
+          "id": 267763,
+          "attributes": [
+            "interruptible",
+            "disease"
+          ]
+        }
+      ]
+    },
+    {
+      "npcId": 135406,
+      "enemyIndex": 38,
+      "name": {
+        "enUS": "Animated Gold",
+        "zhCN": "活性黄金"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Aberration",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 5,
+      "spells": [
+        {
+          "id": 265991,
+          "attributes": []
+        },
+        {
+          "id": 1289063,
+          "attributes": []
+        }
+      ]
+    },
+    {
+      "npcId": 137591,
+      "enemyIndex": 39,
+      "name": {
+        "enUS": "Healing Tide Totem",
+        "zhCN": "治疗之潮图腾"
+      },
+      "count": 0,
+      "isBoss": false,
+      "creatureType": "Totem",
+      "scale": 1,
+      "characteristics": [],
+      "spawnCount": 2,
+      "spells": []
+    }
+  ]
+}
