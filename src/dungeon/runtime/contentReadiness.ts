@@ -3,6 +3,7 @@ import { getDungeonContentCoverage } from '../schema/coverage';
 import type { DungeonDocument, FactBindingIdentity, PullStep, Provenance } from '../schema/types';
 import { getDungeonLearningAccess, type DungeonLearningAccess } from './access';
 import { coordinateBindingMatchesEntry, getCoordinateReference } from './coordinates';
+import { getMdtReferenceSummary } from '../data/spellReference';
 import { factBindingIdentityMatchesDocument } from './factBinding';
 import {
   getForcesSnapshotRegistryEntry,
@@ -228,11 +229,29 @@ export function getDungeonContentReadiness(
   if (!contentDocument) {
     const pending = (id: Exclude<ContentReadinessGateId, 'coordinates'>, detail: string) =>
       gate(id, 'pending', detail);
+    // MDT 参考层已导入的副本，用真实数据统计替代笼统的"待接入"话术；
+    // 门禁本身保持 fail-closed：未登记 DungeonDocument 前一律 pending。
+    const mdt = getMdtReferenceSummary(entry.sourceKey);
     const gates = [
       coordinates,
-      pending('enemy-facts', '尚未登记 DungeonDocument，NPC ID 与来源待接入。'),
-      pending('ability-facts', '尚未登记 DungeonDocument，Spell ID 与技能动作待接入。'),
-      pending('forces', '尚未登记 DungeonDocument，forces snapshot 与 Pull 绑定待接入。'),
+      pending(
+        'enemy-facts',
+        mdt
+          ? `MDT 事实快照已导入：${mdt.enemies} 敌人 · ${mdt.totalForces} forces（来源已批准）；待生成 DungeonDocument 并登记 factBinding。`
+          : '尚未登记 DungeonDocument，NPC ID 与来源待接入。',
+      ),
+      pending(
+        'ability-facts',
+        mdt
+          ? `MDT 技能参考已导入：${mdt.spells} 个技能 ID（含中文词典）；待登记 Spell ID 与中文动作/后果文案。`
+          : '尚未登记 DungeonDocument，Spell ID 与技能动作待接入。',
+      ),
+      pending(
+        'forces',
+        mdt
+          ? `MDT 参考合计 ${mdt.totalForces} forces；待登记核验过的 forces snapshot 与 Pull 绑定。`
+          : '尚未登记 DungeonDocument，forces snapshot 与 Pull 绑定待接入。',
+      ),
       pending('learning-surfaces', '尚未登记 Situation、Boss 或学习友好路线。'),
       pending('review', '尚未有作者自测、第二审校和目标 build 记录。'),
     ];

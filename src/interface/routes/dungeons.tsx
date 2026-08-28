@@ -40,6 +40,7 @@ import type {
 } from '../../dungeon';
 import {
   getEnemySpellIds,
+  getMdtReferenceSummary,
   getSpellFact,
 } from '../../dungeon/data/spellReference';
 
@@ -147,12 +148,16 @@ function DungeonCoverageCard({
     (readinessGate) => readinessGate.id === 'coordinates' && readinessGate.state === 'ready',
   );
   const learningAvailable = isLearningPublished(entry.status) && readiness.state === 'ready';
+  const mdtReference = getMdtReferenceSummary(entry.sourceKey);
   const contentCoverage = learningDocument
     ? t({
         id: 'dungeon.card.contentCoverage',
         message: `${learningDocument.situations.length} Situation · ${learningDocument.abilities.length} 技能 · ${learningDocument.routes.length} 路线 · ${learningDocument.bosses.length} Boss`,
       })
-    : t({ id: 'dungeon.card.contentMissing', message: '尚未登记学习内容文档' });
+    : mdtReference
+      ? // 与清单 gate detail 同为 zh-first 数据层文案，避免新增 JSX 外 t() 的 lint 违规。
+        `MDT 参考：${mdtReference.enemies} 敌人 · ${mdtReference.spells} 技能 · ${mdtReference.totalForces} forces`
+      : t({ id: 'dungeon.card.contentMissing', message: '尚未登记学习内容文档' });
   const artwork = assetProvider.getDungeonArtwork(`${entry.mapAssetKey}:artwork`);
   const [coverFailed, setCoverFailed] = useState(false);
   const plan = useMemo(

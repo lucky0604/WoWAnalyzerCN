@@ -32,6 +32,11 @@ interface MdtReferenceEnemy {
 }
 interface MdtReferenceShape {
   slug: string;
+  sourceKey: string;
+  /** 快照头部：副本总 forces 点数（MDT addCount 之和）。 */
+  totalEnemyForcesPoints?: number;
+  /** MDT 社区汉化覆盖度：full / partial / none。 */
+  nameZhCoverage?: string;
   enemies: MdtReferenceEnemy[];
 }
 
@@ -239,4 +244,36 @@ export function validateSpellDictionaryCoverage(): SpellDictionaryAudit {
     dictionaryFacts: Object.keys(SPELL_DICTIONARY.spells).length,
     dictionaryUnknowns: Object.keys(SPELL_DICTIONARY.unknownGate).length,
   };
+}
+
+export interface MdtReferenceSummary {
+  /** 收录敌人数（含 Boss）。 */
+  enemies: number;
+  /** 跨全部敌人去重后的技能 ID 数。 */
+  spells: number;
+  /** 副本总 forces 点数（快照头部 totalEnemyForcesPoints）。 */
+  totalForces: number;
+  /** MDT 社区汉化覆盖度：full / partial / none。 */
+  zhCoverage: string;
+}
+
+const mdtReferenceSummaryBySourceKey = new Map<string, MdtReferenceSummary>();
+REFERENCE_SOURCES.forEach((dungeon) => {
+  const spells = new Set<number>();
+  dungeon.enemies.forEach((enemy) => enemy.spells.forEach((spell) => spells.add(spell.id)));
+  const summary: MdtReferenceSummary = {
+    enemies: dungeon.enemies.length,
+    spells: spells.size,
+    totalForces: dungeon.totalEnemyForcesPoints ?? 0,
+    zhCoverage: dungeon.nameZhCoverage ?? 'unknown',
+  };
+  // 目录的 sourceKey 是 slug 形态（altar-of-fangs），MDT 快照的 sourceKey 是
+  // 缩写形态（aof）；两把键都注册，查找方无需关心是哪一族。
+  mdtReferenceSummaryBySourceKey.set(dungeon.slug, summary);
+  mdtReferenceSummaryBySourceKey.set(dungeon.sourceKey, summary);
+});
+
+/** 按 sourceKey（aof/mdr/…）返回该副本 MDT 参考层的统计；未收录返回 undefined。 */
+export function getMdtReferenceSummary(sourceKey: string): MdtReferenceSummary | undefined {
+  return mdtReferenceSummaryBySourceKey.get(sourceKey);
 }
