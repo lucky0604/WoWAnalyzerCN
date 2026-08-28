@@ -1,5 +1,6 @@
 import type { DungeonDocument } from './schema/types';
 import { altarOfFangsFixture, rubyLifePoolsFixture } from './data/fixtures';
+import { altarOfFangsDocument } from './data/altarOfFangsDocument';
 import { rubyLifePoolsSpatialPreview } from './data/rlpSpatialPreview';
 import { runtimeReleaseDocuments } from './runtime/releaseRegistry';
 
@@ -8,7 +9,10 @@ import { runtimeReleaseDocuments } from './runtime/releaseRegistry';
  * remain available through `phase0FixtureDocuments` but are never treated as
  * current content by the registry.
  */
-const authoredDocuments: readonly DungeonDocument[] = [rubyLifePoolsSpatialPreview];
+const authoredDocuments: readonly DungeonDocument[] = [
+  rubyLifePoolsSpatialPreview,
+  altarOfFangsDocument,
+];
 
 /**
  * A release-sync artifact is the only supported way for published content to
@@ -27,10 +31,14 @@ export const phase0FixtureDocuments = {
   altarOfFangs: altarOfFangsFixture,
 };
 
-/** Everything that may be opened by the Vite development preview. */
+/**
+ * Everything that may be opened by the Vite development preview.  Authored
+ * documents are spread last so current content wins its dungeon ID over the
+ * phase-0 contract fixtures.
+ */
 export const dungeonPreviewDocuments: readonly DungeonDocument[] = [
-  ...dungeonDocuments,
   altarOfFangsFixture,
+  ...dungeonDocuments,
 ];
 
 export const dungeonDocumentsById = new Map(

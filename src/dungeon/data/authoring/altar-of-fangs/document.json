@@ -1,0 +1,5098 @@
+{
+  "id": "altar-of-fangs",
+  "slug": "altar-of-fangs",
+  "name": {
+    "zhCN": "尖牙祭坛",
+    "enUS": "Altar of Fangs"
+  },
+  "season": "midnight-s2",
+  "dataStatus": "draft",
+  "spatialStatus": "pending",
+  "version": {
+    "season": "midnight-s2",
+    "build": "12.1.0",
+    "revision": 1,
+    "status": "draft"
+  },
+  "totalEnemyForcesPoints": 0,
+  "floors": [
+    {
+      "id": "altar-of-fangs-floor-1",
+      "name": {
+        "zhCN": "尖牙祭坛",
+        "enUS": "Altar of Fangs"
+      },
+      "coordinateSpace": "normalized-v1",
+      "bounds": {
+        "xMin": 0,
+        "xMax": 100,
+        "yMin": -100,
+        "yMax": 0
+      }
+    }
+  ],
+  "spawns": [],
+  "enemies": [
+    {
+      "id": "aof-enemy-270306",
+      "npcId": 270306,
+      "name": {
+        "zhCN": "仪式首领",
+        "enUS": "Ritual Chieftain"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261552",
+      "npcId": 261552,
+      "name": {
+        "zhCN": "放血者",
+        "enUS": "Bloodletter"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261557",
+      "npcId": 261557,
+      "name": {
+        "zhCN": "高阶进化者",
+        "enUS": "High Evolutionist"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261556",
+      "npcId": 261556,
+      "name": {
+        "zhCN": "幼体",
+        "enUS": "Hatchling"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-263112",
+      "npcId": 263112,
+      "name": {
+        "zhCN": "活体毒液",
+        "enUS": "Living Venom"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261560",
+      "npcId": 261560,
+      "name": {
+        "zhCN": "原始毒蛇",
+        "enUS": "Primal Serpent"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261553",
+      "npcId": 261553,
+      "name": {
+        "zhCN": "贪婪的后裔",
+        "enUS": "Ravenous Descendant"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-263109",
+      "npcId": 263109,
+      "name": {
+        "zhCN": "乌拉特克神选者",
+        "enUS": "Ula'tek's Chosen"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261573",
+      "npcId": 261573,
+      "name": {
+        "zhCN": "晋升之蛇",
+        "enUS": "Ascendant Serpent"
+      },
+      "forcesPoints": 30,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261554",
+      "npcId": 261554,
+      "name": {
+        "zhCN": "双牙蹂躏者",
+        "enUS": "Twinfang Harrower"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-261550",
+      "npcId": 261550,
+      "name": {
+        "zhCN": "毒液水蛭",
+        "enUS": "Venom Leech"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-262011",
+      "npcId": 262011,
+      "name": {
+        "zhCN": "振响的扭缠蛇",
+        "enUS": "Rattling Writhe"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-271453",
+      "npcId": 271453,
+      "name": {
+        "zhCN": "祭坛利刃",
+        "enUS": "Blade of the Altar"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-259445",
+      "npcId": 259445,
+      "name": {
+        "zhCN": "拉维",
+        "enUS": "Rav'i"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-259446",
+      "npcId": 259446,
+      "name": {
+        "zhCN": "扭缠盘蛇",
+        "enUS": "The Writhing Coil"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-259447",
+      "npcId": 259447,
+      "name": {
+        "zhCN": "祖尔加",
+        "enUS": "Zul'jan"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-262398",
+      "npcId": 262398,
+      "name": {
+        "zhCN": "溃散的扭缠蛇",
+        "enUS": "Uncoiled Writhe"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-264798",
+      "npcId": 264798,
+      "name": {
+        "zhCN": "注能之卵",
+        "enUS": "Infused Eggs"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-268358",
+      "npcId": 268358,
+      "name": {
+        "zhCN": "仪式毒蛇",
+        "enUS": "Ritual Snake"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-270378",
+      "npcId": 270378,
+      "name": {
+        "zhCN": "仪式精魂",
+        "enUS": "Ritual Spirit"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-enemy-270417",
+      "npcId": 270417,
+      "name": {
+        "zhCN": "溃散的扭缠蛇",
+        "enUS": "Uncoiled Writhe"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "id": "aof-ability-1221063",
+      "spellId": 1221063,
+      "name": {
+        "zhCN": "萨拉塔斯的赠礼",
+        "enUS": "Xal'atath's Gift"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270306",
+        "aof-enemy-261552",
+        "aof-enemy-261557",
+        "aof-enemy-261556",
+        "aof-enemy-261560",
+        "aof-enemy-261553",
+        "aof-enemy-261573",
+        "aof-enemy-261554",
+        "aof-enemy-262011",
+        "aof-enemy-271453",
+        "aof-enemy-262398"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1287544",
+      "spellId": 1287544,
+      "name": {
+        "zhCN": "昏迷",
+        "enUS": "Stunned"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261557"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1287798",
+      "spellId": 1287798,
+      "name": {
+        "zhCN": "藤蔓之握",
+        "enUS": "Vine Grip"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1287811",
+      "spellId": 1287811,
+      "name": {
+        "zhCN": "解除盘卷",
+        "enUS": "Uncoil"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1289416",
+      "spellId": 1289416,
+      "name": {
+        "zhCN": "毒伤",
+        "enUS": "Envenom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261557",
+        "aof-enemy-263109"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1292892",
+      "spellId": 1292892,
+      "name": {
+        "zhCN": "控制毒液",
+        "enUS": "Control Venom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-263109"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1292904",
+      "spellId": 1292904,
+      "name": {
+        "zhCN": "孵化",
+        "enUS": "Incubate"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261557"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1293059",
+      "spellId": 1293059,
+      "name": {
+        "zhCN": "孵化",
+        "enUS": "Hatch"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-264798"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1293079",
+      "spellId": 1293079,
+      "name": {
+        "zhCN": "孵化",
+        "enUS": "Hatch"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-264798"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1293420",
+      "spellId": 1293420,
+      "name": {
+        "zhCN": "进化仪式",
+        "enUS": "Evolution Ritual"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294432",
+      "spellId": 1294432,
+      "name": {
+        "zhCN": "腐脓飞溅",
+        "enUS": "Septic Spatter"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261550"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294557",
+      "spellId": 1294557,
+      "name": {
+        "zhCN": "刺耳嘶鸣",
+        "enUS": "Piercing Hiss"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261560"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294567",
+      "spellId": 1294567,
+      "name": {
+        "zhCN": "麻痹射击",
+        "enUS": "Paralyzing Shots"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294568",
+      "spellId": 1294568,
+      "name": {
+        "zhCN": "麻痹射击",
+        "enUS": "Paralyzing Shots"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294569",
+      "spellId": 1294569,
+      "name": {
+        "zhCN": "麻痹射击",
+        "enUS": "Paralyzing Shots"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294570",
+      "spellId": 1294570,
+      "name": {
+        "zhCN": "麻痹射击",
+        "enUS": "Paralyzing Shots"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294572",
+      "spellId": 1294572,
+      "name": {
+        "zhCN": "双重打击",
+        "enUS": "Duostrike"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294845",
+      "spellId": 1294845,
+      "name": {
+        "zhCN": "腐蚀之牙",
+        "enUS": "Corrosive Fangs"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-262011"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294849",
+      "spellId": 1294849,
+      "name": {
+        "zhCN": "振响",
+        "enUS": "Rattle"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-262011"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294859",
+      "spellId": 1294859,
+      "name": {
+        "zhCN": "振响",
+        "enUS": "Rattle"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-262011"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294934",
+      "spellId": 1294934,
+      "name": {
+        "zhCN": "剧毒喷雾",
+        "enUS": "Noxious Spray"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1294958",
+      "spellId": 1294958,
+      "name": {
+        "zhCN": "剧毒喷雾",
+        "enUS": "Noxious Spray"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1295055",
+      "spellId": 1295055,
+      "name": {
+        "zhCN": "剧毒旋风",
+        "enUS": "Virulent Whirl"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1295073",
+      "spellId": 1295073,
+      "name": {
+        "zhCN": "剧毒旋风",
+        "enUS": "Virulent Whirl"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1296050",
+      "spellId": 1296050,
+      "name": {
+        "zhCN": "反刍",
+        "enUS": "Regurgitate"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1296058",
+      "spellId": 1296058,
+      "name": {
+        "zhCN": "反刍",
+        "enUS": "Regurgitate"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1296069",
+      "spellId": 1296069,
+      "name": {
+        "zhCN": "反刍",
+        "enUS": "Regurgitate"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1296216",
+      "spellId": 1296216,
+      "name": {
+        "zhCN": "嘶嘶食腐",
+        "enUS": "Ssscavenging"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1296219",
+      "spellId": 1296219,
+      "name": {
+        "zhCN": "恶臭咆哮",
+        "enUS": "Fetid Roar"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1296220",
+      "spellId": 1296220,
+      "name": {
+        "zhCN": "三重喷吐",
+        "enUS": "Triple Shot"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1297876",
+      "spellId": 1297876,
+      "name": {
+        "zhCN": "三重喷吐",
+        "enUS": "Triple Shot"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1298221",
+      "spellId": 1298221,
+      "name": {
+        "zhCN": "嘶嘶食腐",
+        "enUS": "Ssscavenging"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1298223",
+      "spellId": 1298223,
+      "name": {
+        "zhCN": "嘶嘶食腐",
+        "enUS": "Ssscavenging"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1298683",
+      "spellId": 1298683,
+      "name": {
+        "zhCN": "多头蛇打击",
+        "enUS": "Hydrastrike"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1298949",
+      "spellId": 1298949,
+      "name": {
+        "zhCN": "镰尾",
+        "enUS": "Tail Scythe"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299053",
+      "spellId": 1299053,
+      "name": {
+        "zhCN": "濒死喘息",
+        "enUS": "Death Rattle"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299080",
+      "spellId": 1299080,
+      "name": {
+        "zhCN": "濒死喘息",
+        "enUS": "Death Rattle"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299130",
+      "spellId": 1299130,
+      "name": {
+        "zhCN": "掘地冲锋",
+        "enUS": "Burrowing Charge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299135",
+      "spellId": 1299135,
+      "name": {
+        "zhCN": "掘地冲锋",
+        "enUS": "Burrowing Charge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299154",
+      "spellId": 1299154,
+      "name": {
+        "zhCN": "同步毒液",
+        "enUS": "Synchronized Venom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299189",
+      "spellId": 1299189,
+      "name": {
+        "zhCN": "同步毒液",
+        "enUS": "Synchronized Venom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299902",
+      "spellId": 1299902,
+      "name": {
+        "zhCN": "毒液喷射",
+        "enUS": "Venom Jet"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1299940",
+      "spellId": 1299940,
+      "name": {
+        "zhCN": "复仇猛攻",
+        "enUS": "Vindictive Onslaught"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300044",
+      "spellId": 1300044,
+      "name": {
+        "zhCN": "毒液喷射",
+        "enUS": "Venom Jet"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300083",
+      "spellId": 1300083,
+      "name": {
+        "zhCN": "掘地冲锋",
+        "enUS": "Burrowing Charge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300503",
+      "spellId": 1300503,
+      "name": {
+        "zhCN": "怨毒狩猎",
+        "enUS": "Spiteful Hunt"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446",
+        "aof-enemy-262398"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300612",
+      "spellId": 1300612,
+      "name": {
+        "zhCN": "解除盘卷",
+        "enUS": "Uncoiled"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300618",
+      "spellId": 1300618,
+      "name": {
+        "zhCN": "同化",
+        "enUS": "Assimilation"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-262398",
+        "aof-enemy-270417"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300686",
+      "spellId": 1300686,
+      "name": {
+        "zhCN": "同化",
+        "enUS": "Assimilation"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300698",
+      "spellId": 1300698,
+      "name": {
+        "zhCN": "同化",
+        "enUS": "Assimilation"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-262398",
+        "aof-enemy-270417"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300876",
+      "spellId": 1300876,
+      "name": {
+        "zhCN": "毒牙仪式",
+        "enUS": "Ritual of the Fang"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300885",
+      "spellId": 1300885,
+      "name": {
+        "zhCN": "毒牙仪式",
+        "enUS": "Ritual of the Fang"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-268358"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300886",
+      "spellId": 1300886,
+      "name": {
+        "zhCN": "毒牙仪式",
+        "enUS": "Ritual of the Fang"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300888",
+      "spellId": 1300888,
+      "name": {
+        "zhCN": "毒牙强化",
+        "enUS": "Fang Empowered"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300892",
+      "spellId": 1300892,
+      "name": {
+        "zhCN": "毒牙强化",
+        "enUS": "Fang Empowered"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300894",
+      "spellId": 1300894,
+      "name": {
+        "zhCN": "仪式毒液",
+        "enUS": "Ritual Venom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1300901",
+      "spellId": 1300901,
+      "name": {
+        "zhCN": "仪式毒液",
+        "enUS": "Ritual Venom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1301111",
+      "spellId": 1301111,
+      "name": {
+        "zhCN": "碎斧",
+        "enUS": "Axegrinder"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1301114",
+      "spellId": 1301114,
+      "name": {
+        "zhCN": "碎斧",
+        "enUS": "Axegrinder"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1301217",
+      "spellId": 1301217,
+      "name": {
+        "zhCN": "放血",
+        "enUS": "Bloodletting"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1301350",
+      "spellId": 1301350,
+      "name": {
+        "zhCN": "砍倒",
+        "enUS": "Chop Down"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1301353",
+      "spellId": 1301353,
+      "name": {
+        "zhCN": "砍倒",
+        "enUS": "Chop Down"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1301413",
+      "spellId": 1301413,
+      "name": {
+        "zhCN": "切骨者",
+        "enUS": "Boneslicer"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1301508",
+      "spellId": 1301508,
+      "name": {
+        "zhCN": "切骨者",
+        "enUS": "Boneslicer"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259447"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1303366",
+      "spellId": 1303366,
+      "name": {
+        "zhCN": "毒液爆裂",
+        "enUS": "Venom Burst"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-263112"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1305368",
+      "spellId": 1305368,
+      "name": {
+        "zhCN": "怨毒毒液",
+        "enUS": "Spiteful Venom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446",
+        "aof-enemy-262398"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1305393",
+      "spellId": 1305393,
+      "name": {
+        "zhCN": "暗掘",
+        "enUS": "Undermining"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446",
+        "aof-enemy-262398",
+        "aof-enemy-270417"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1305637",
+      "spellId": 1305637,
+      "name": {
+        "zhCN": "腐脓飞溅",
+        "enUS": "Septic Spatter"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261550"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306230",
+      "spellId": 1306230,
+      "name": {
+        "zhCN": "毒液爆裂",
+        "enUS": "Venom Burst"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-263112"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306232",
+      "spellId": 1306232,
+      "name": {
+        "zhCN": "腐脓飞溅",
+        "enUS": "Septic Spatter"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261550"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306235",
+      "spellId": 1306235,
+      "name": {
+        "zhCN": "腐脓飞溅",
+        "enUS": "Septic Spatter"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261550"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306308",
+      "spellId": 1306308,
+      "name": {
+        "zhCN": "暴食",
+        "enUS": "Ravenous"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261553"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306333",
+      "spellId": 1306333,
+      "name": {
+        "zhCN": "贪婪爪击",
+        "enUS": "Ravenous Claws"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261553"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306338",
+      "spellId": 1306338,
+      "name": {
+        "zhCN": "贪婪爪击",
+        "enUS": "Ravenous Claws"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261553"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306345",
+      "spellId": 1306345,
+      "name": {
+        "zhCN": "狼吞虎咽",
+        "enUS": "Messy Eater"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306381",
+      "spellId": 1306381,
+      "name": {
+        "zhCN": "恶臭喷吐",
+        "enUS": "Fetid Spit"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261560"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306383",
+      "spellId": 1306383,
+      "name": {
+        "zhCN": "初生饥饿",
+        "enUS": "Nascent Hunger"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261556"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306385",
+      "spellId": 1306385,
+      "name": {
+        "zhCN": "进化",
+        "enUS": "Evolve"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261557"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306517",
+      "spellId": 1306517,
+      "name": {
+        "zhCN": "鲜血献祭",
+        "enUS": "Blood Sacrifice"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270306"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306550",
+      "spellId": 1306550,
+      "name": {
+        "zhCN": "鲜血献祭",
+        "enUS": "Blood Sacrifice"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270306"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306641",
+      "spellId": 1306641,
+      "name": {
+        "zhCN": "鲜血献祭",
+        "enUS": "Blood Sacrifice"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270306"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306657",
+      "spellId": 1306657,
+      "name": {
+        "zhCN": "鲜血献祭",
+        "enUS": "Blood Sacrifice"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270378"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306668",
+      "spellId": 1306668,
+      "name": {
+        "zhCN": "毒素吐息",
+        "enUS": "Toxic Breath"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306669",
+      "spellId": 1306669,
+      "name": {
+        "zhCN": "毒素吐息",
+        "enUS": "Toxic Breath"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306844",
+      "spellId": 1306844,
+      "name": {
+        "zhCN": "图腾仪式",
+        "enUS": "Totemic Ritual"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270306"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306852",
+      "spellId": 1306852,
+      "name": {
+        "zhCN": "剧毒涌动",
+        "enUS": "Toxic Surge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-263109"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306853",
+      "spellId": 1306853,
+      "name": {
+        "zhCN": "剧毒涌动",
+        "enUS": "Toxic Surge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-263109"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306856",
+      "spellId": 1306856,
+      "name": {
+        "zhCN": "剧毒射线",
+        "enUS": "Toxic Beam"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-263109"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306893",
+      "spellId": 1306893,
+      "name": {
+        "zhCN": "不稳定的图腾",
+        "enUS": "Unstable Totem"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270306"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1306911",
+      "spellId": 1306911,
+      "name": {
+        "zhCN": "肢解",
+        "enUS": "Dismember"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-270306"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307098",
+      "spellId": 1307098,
+      "name": {
+        "zhCN": "啃噬",
+        "enUS": "Gorge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261550"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307144",
+      "spellId": 1307144,
+      "name": {
+        "zhCN": "啃噬",
+        "enUS": "Gorge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261550"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307269",
+      "spellId": 1307269,
+      "name": {
+        "zhCN": "麻痹射击",
+        "enUS": "Paralyzing Shots"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261554"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307526",
+      "spellId": 1307526,
+      "name": {
+        "zhCN": "放血",
+        "enUS": "Bloodletting"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261552"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307567",
+      "spellId": 1307567,
+      "name": {
+        "zhCN": "群体毒伤",
+        "enUS": "Mass Envenom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261557",
+        "aof-enemy-263109"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307571",
+      "spellId": 1307571,
+      "name": {
+        "zhCN": "毒伤",
+        "enUS": "Envenom"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261557",
+        "aof-enemy-263109"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307573",
+      "spellId": 1307573,
+      "name": {
+        "zhCN": "三重喷吐",
+        "enUS": "Triple Shot"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307602",
+      "spellId": 1307602,
+      "name": {
+        "zhCN": "进化",
+        "enUS": "Evolved"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261557"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307700",
+      "spellId": 1307700,
+      "name": {
+        "zhCN": "腐肉喷发",
+        "enUS": "Carrion Burst"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307703",
+      "spellId": 1307703,
+      "name": {
+        "zhCN": "鲜肉",
+        "enUS": "Fresh Meat"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307765",
+      "spellId": 1307765,
+      "name": {
+        "zhCN": "进食狂热",
+        "enUS": "Feeding Frenzy"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307768",
+      "spellId": 1307768,
+      "name": {
+        "zhCN": "进食狂热",
+        "enUS": "Feeding Frenzy"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307894",
+      "spellId": 1307894,
+      "name": {
+        "zhCN": "贪婪践踏",
+        "enUS": "Ravenous Stomp"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307915",
+      "spellId": 1307915,
+      "name": {
+        "zhCN": "贪婪践踏",
+        "enUS": "Ravenous Stomp"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1307921",
+      "spellId": 1307921,
+      "name": {
+        "zhCN": "鲜肉",
+        "enUS": "Fresh Meat"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1308518",
+      "spellId": 1308518,
+      "name": {
+        "zhCN": "淬毒之刃",
+        "enUS": "Laced Edge"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-271453"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1308864",
+      "spellId": 1308864,
+      "name": {
+        "zhCN": "感染",
+        "enUS": "Infest"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1308865",
+      "spellId": 1308865,
+      "name": {
+        "zhCN": "感染",
+        "enUS": "Infest"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1309382",
+      "spellId": 1309382,
+      "name": {
+        "zhCN": "感染",
+        "enUS": "Infest"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1309398",
+      "spellId": 1309398,
+      "name": {
+        "zhCN": "感染",
+        "enUS": "Infest"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1309415",
+      "spellId": 1309415,
+      "name": {
+        "zhCN": "烈毒旋风",
+        "enUS": "Virulent Twister"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1309416",
+      "spellId": 1309416,
+      "name": {
+        "zhCN": "烈毒旋风",
+        "enUS": "Virulent Twister"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-261573"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1309522",
+      "spellId": 1309522,
+      "name": {
+        "zhCN": "嘶嘶食腐",
+        "enUS": "Ssscavenging"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1310357",
+      "spellId": 1310357,
+      "name": {
+        "zhCN": "剧毒弹幕",
+        "enUS": "Toxic Barrage"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1310378",
+      "spellId": 1310378,
+      "name": {
+        "zhCN": "血之气息",
+        "enUS": "Scent of Blood"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1310413",
+      "spellId": 1310413,
+      "name": {
+        "zhCN": "贪婪践踏",
+        "enUS": "Ravenous Stomp"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259445"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1310547",
+      "spellId": 1310547,
+      "name": {
+        "zhCN": "剧毒萎缩",
+        "enUS": "Toxic Atrophy"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1310666",
+      "spellId": 1310666,
+      "name": {
+        "zhCN": "剧毒萎缩",
+        "enUS": "Toxic Atrophy"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-262398"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "aof-ability-1310974",
+      "spellId": 1310974,
+      "name": {
+        "zhCN": "剧毒萎缩",
+        "enUS": "Toxic Atrophy"
+      },
+      "casterEnemyIds": [
+        "aof-enemy-259446"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "situations": [],
+  "routes": [],
+  "bosses": [],
+  "provenance": [
+    {
+      "type": "game-data",
+      "title": "MDT 怪物事实快照 mdt-facts-s2-altar-of-fangs-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+      "snapshot": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+      "gameBuild": "12.1.0",
+      "retrievedAt": "2026-08-26",
+      "licenseStatus": "approved",
+      "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+    }
+  ]
+}

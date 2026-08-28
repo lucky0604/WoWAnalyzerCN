@@ -1,0 +1,572 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+  "snapshotDigest": "sha256:81796bb1157ebbe29b8387363073f8ccf977126703e825ce6f1a8c57cf8fa023",
+  "dungeonId": "altar-of-fangs",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "enemies": [
+    {
+      "sourceKey": "Ritual Chieftain",
+      "documentEnemyId": "aof-enemy-270306"
+    },
+    {
+      "sourceKey": "Bloodletter",
+      "documentEnemyId": "aof-enemy-261552"
+    },
+    {
+      "sourceKey": "High Evolutionist",
+      "documentEnemyId": "aof-enemy-261557"
+    },
+    {
+      "sourceKey": "Hatchling",
+      "documentEnemyId": "aof-enemy-261556"
+    },
+    {
+      "sourceKey": "Living Venom",
+      "documentEnemyId": "aof-enemy-263112"
+    },
+    {
+      "sourceKey": "Primal Serpent",
+      "documentEnemyId": "aof-enemy-261560"
+    },
+    {
+      "sourceKey": "Ravenous Descendant",
+      "documentEnemyId": "aof-enemy-261553"
+    },
+    {
+      "sourceKey": "Ula'tek's Chosen",
+      "documentEnemyId": "aof-enemy-263109"
+    },
+    {
+      "sourceKey": "Ascendant Serpent",
+      "documentEnemyId": "aof-enemy-261573"
+    },
+    {
+      "sourceKey": "Twinfang Harrower",
+      "documentEnemyId": "aof-enemy-261554"
+    },
+    {
+      "sourceKey": "Venom Leech",
+      "documentEnemyId": "aof-enemy-261550"
+    },
+    {
+      "sourceKey": "Rattling Writhe",
+      "documentEnemyId": "aof-enemy-262011"
+    },
+    {
+      "sourceKey": "Blade of the Altar",
+      "documentEnemyId": "aof-enemy-271453"
+    },
+    {
+      "sourceKey": "Rav'i",
+      "documentEnemyId": "aof-enemy-259445"
+    },
+    {
+      "sourceKey": "The Writhing Coil",
+      "documentEnemyId": "aof-enemy-259446"
+    },
+    {
+      "sourceKey": "Zul'jan",
+      "documentEnemyId": "aof-enemy-259447"
+    },
+    {
+      "sourceKey": "Uncoiled Writhe [262398]",
+      "documentEnemyId": "aof-enemy-262398"
+    },
+    {
+      "sourceKey": "Infused Eggs",
+      "documentEnemyId": "aof-enemy-264798"
+    },
+    {
+      "sourceKey": "Ritual Snake",
+      "documentEnemyId": "aof-enemy-268358"
+    },
+    {
+      "sourceKey": "Ritual Spirit",
+      "documentEnemyId": "aof-enemy-270378"
+    },
+    {
+      "sourceKey": "Uncoiled Writhe [270417]",
+      "documentEnemyId": "aof-enemy-270417"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-1221063",
+      "documentAbilityId": "aof-ability-1221063"
+    },
+    {
+      "sourceKey": "spell-1287544",
+      "documentAbilityId": "aof-ability-1287544"
+    },
+    {
+      "sourceKey": "spell-1287798",
+      "documentAbilityId": "aof-ability-1287798"
+    },
+    {
+      "sourceKey": "spell-1287811",
+      "documentAbilityId": "aof-ability-1287811"
+    },
+    {
+      "sourceKey": "spell-1289416",
+      "documentAbilityId": "aof-ability-1289416"
+    },
+    {
+      "sourceKey": "spell-1292892",
+      "documentAbilityId": "aof-ability-1292892"
+    },
+    {
+      "sourceKey": "spell-1292904",
+      "documentAbilityId": "aof-ability-1292904"
+    },
+    {
+      "sourceKey": "spell-1293059",
+      "documentAbilityId": "aof-ability-1293059"
+    },
+    {
+      "sourceKey": "spell-1293079",
+      "documentAbilityId": "aof-ability-1293079"
+    },
+    {
+      "sourceKey": "spell-1293420",
+      "documentAbilityId": "aof-ability-1293420"
+    },
+    {
+      "sourceKey": "spell-1294432",
+      "documentAbilityId": "aof-ability-1294432"
+    },
+    {
+      "sourceKey": "spell-1294557",
+      "documentAbilityId": "aof-ability-1294557"
+    },
+    {
+      "sourceKey": "spell-1294567",
+      "documentAbilityId": "aof-ability-1294567"
+    },
+    {
+      "sourceKey": "spell-1294568",
+      "documentAbilityId": "aof-ability-1294568"
+    },
+    {
+      "sourceKey": "spell-1294569",
+      "documentAbilityId": "aof-ability-1294569"
+    },
+    {
+      "sourceKey": "spell-1294570",
+      "documentAbilityId": "aof-ability-1294570"
+    },
+    {
+      "sourceKey": "spell-1294572",
+      "documentAbilityId": "aof-ability-1294572"
+    },
+    {
+      "sourceKey": "spell-1294845",
+      "documentAbilityId": "aof-ability-1294845"
+    },
+    {
+      "sourceKey": "spell-1294849",
+      "documentAbilityId": "aof-ability-1294849"
+    },
+    {
+      "sourceKey": "spell-1294859",
+      "documentAbilityId": "aof-ability-1294859"
+    },
+    {
+      "sourceKey": "spell-1294934",
+      "documentAbilityId": "aof-ability-1294934"
+    },
+    {
+      "sourceKey": "spell-1294958",
+      "documentAbilityId": "aof-ability-1294958"
+    },
+    {
+      "sourceKey": "spell-1295055",
+      "documentAbilityId": "aof-ability-1295055"
+    },
+    {
+      "sourceKey": "spell-1295073",
+      "documentAbilityId": "aof-ability-1295073"
+    },
+    {
+      "sourceKey": "spell-1296050",
+      "documentAbilityId": "aof-ability-1296050"
+    },
+    {
+      "sourceKey": "spell-1296058",
+      "documentAbilityId": "aof-ability-1296058"
+    },
+    {
+      "sourceKey": "spell-1296069",
+      "documentAbilityId": "aof-ability-1296069"
+    },
+    {
+      "sourceKey": "spell-1296216",
+      "documentAbilityId": "aof-ability-1296216"
+    },
+    {
+      "sourceKey": "spell-1296219",
+      "documentAbilityId": "aof-ability-1296219"
+    },
+    {
+      "sourceKey": "spell-1296220",
+      "documentAbilityId": "aof-ability-1296220"
+    },
+    {
+      "sourceKey": "spell-1297876",
+      "documentAbilityId": "aof-ability-1297876"
+    },
+    {
+      "sourceKey": "spell-1298221",
+      "documentAbilityId": "aof-ability-1298221"
+    },
+    {
+      "sourceKey": "spell-1298223",
+      "documentAbilityId": "aof-ability-1298223"
+    },
+    {
+      "sourceKey": "spell-1298683",
+      "documentAbilityId": "aof-ability-1298683"
+    },
+    {
+      "sourceKey": "spell-1298949",
+      "documentAbilityId": "aof-ability-1298949"
+    },
+    {
+      "sourceKey": "spell-1299053",
+      "documentAbilityId": "aof-ability-1299053"
+    },
+    {
+      "sourceKey": "spell-1299080",
+      "documentAbilityId": "aof-ability-1299080"
+    },
+    {
+      "sourceKey": "spell-1299130",
+      "documentAbilityId": "aof-ability-1299130"
+    },
+    {
+      "sourceKey": "spell-1299135",
+      "documentAbilityId": "aof-ability-1299135"
+    },
+    {
+      "sourceKey": "spell-1299154",
+      "documentAbilityId": "aof-ability-1299154"
+    },
+    {
+      "sourceKey": "spell-1299189",
+      "documentAbilityId": "aof-ability-1299189"
+    },
+    {
+      "sourceKey": "spell-1299902",
+      "documentAbilityId": "aof-ability-1299902"
+    },
+    {
+      "sourceKey": "spell-1299940",
+      "documentAbilityId": "aof-ability-1299940"
+    },
+    {
+      "sourceKey": "spell-1300044",
+      "documentAbilityId": "aof-ability-1300044"
+    },
+    {
+      "sourceKey": "spell-1300083",
+      "documentAbilityId": "aof-ability-1300083"
+    },
+    {
+      "sourceKey": "spell-1300503",
+      "documentAbilityId": "aof-ability-1300503"
+    },
+    {
+      "sourceKey": "spell-1300612",
+      "documentAbilityId": "aof-ability-1300612"
+    },
+    {
+      "sourceKey": "spell-1300618",
+      "documentAbilityId": "aof-ability-1300618"
+    },
+    {
+      "sourceKey": "spell-1300686",
+      "documentAbilityId": "aof-ability-1300686"
+    },
+    {
+      "sourceKey": "spell-1300698",
+      "documentAbilityId": "aof-ability-1300698"
+    },
+    {
+      "sourceKey": "spell-1300876",
+      "documentAbilityId": "aof-ability-1300876"
+    },
+    {
+      "sourceKey": "spell-1300885",
+      "documentAbilityId": "aof-ability-1300885"
+    },
+    {
+      "sourceKey": "spell-1300886",
+      "documentAbilityId": "aof-ability-1300886"
+    },
+    {
+      "sourceKey": "spell-1300888",
+      "documentAbilityId": "aof-ability-1300888"
+    },
+    {
+      "sourceKey": "spell-1300892",
+      "documentAbilityId": "aof-ability-1300892"
+    },
+    {
+      "sourceKey": "spell-1300894",
+      "documentAbilityId": "aof-ability-1300894"
+    },
+    {
+      "sourceKey": "spell-1300901",
+      "documentAbilityId": "aof-ability-1300901"
+    },
+    {
+      "sourceKey": "spell-1301111",
+      "documentAbilityId": "aof-ability-1301111"
+    },
+    {
+      "sourceKey": "spell-1301114",
+      "documentAbilityId": "aof-ability-1301114"
+    },
+    {
+      "sourceKey": "spell-1301217",
+      "documentAbilityId": "aof-ability-1301217"
+    },
+    {
+      "sourceKey": "spell-1301350",
+      "documentAbilityId": "aof-ability-1301350"
+    },
+    {
+      "sourceKey": "spell-1301353",
+      "documentAbilityId": "aof-ability-1301353"
+    },
+    {
+      "sourceKey": "spell-1301413",
+      "documentAbilityId": "aof-ability-1301413"
+    },
+    {
+      "sourceKey": "spell-1301508",
+      "documentAbilityId": "aof-ability-1301508"
+    },
+    {
+      "sourceKey": "spell-1303366",
+      "documentAbilityId": "aof-ability-1303366"
+    },
+    {
+      "sourceKey": "spell-1305368",
+      "documentAbilityId": "aof-ability-1305368"
+    },
+    {
+      "sourceKey": "spell-1305393",
+      "documentAbilityId": "aof-ability-1305393"
+    },
+    {
+      "sourceKey": "spell-1305637",
+      "documentAbilityId": "aof-ability-1305637"
+    },
+    {
+      "sourceKey": "spell-1306230",
+      "documentAbilityId": "aof-ability-1306230"
+    },
+    {
+      "sourceKey": "spell-1306232",
+      "documentAbilityId": "aof-ability-1306232"
+    },
+    {
+      "sourceKey": "spell-1306235",
+      "documentAbilityId": "aof-ability-1306235"
+    },
+    {
+      "sourceKey": "spell-1306308",
+      "documentAbilityId": "aof-ability-1306308"
+    },
+    {
+      "sourceKey": "spell-1306333",
+      "documentAbilityId": "aof-ability-1306333"
+    },
+    {
+      "sourceKey": "spell-1306338",
+      "documentAbilityId": "aof-ability-1306338"
+    },
+    {
+      "sourceKey": "spell-1306345",
+      "documentAbilityId": "aof-ability-1306345"
+    },
+    {
+      "sourceKey": "spell-1306381",
+      "documentAbilityId": "aof-ability-1306381"
+    },
+    {
+      "sourceKey": "spell-1306383",
+      "documentAbilityId": "aof-ability-1306383"
+    },
+    {
+      "sourceKey": "spell-1306385",
+      "documentAbilityId": "aof-ability-1306385"
+    },
+    {
+      "sourceKey": "spell-1306517",
+      "documentAbilityId": "aof-ability-1306517"
+    },
+    {
+      "sourceKey": "spell-1306550",
+      "documentAbilityId": "aof-ability-1306550"
+    },
+    {
+      "sourceKey": "spell-1306641",
+      "documentAbilityId": "aof-ability-1306641"
+    },
+    {
+      "sourceKey": "spell-1306657",
+      "documentAbilityId": "aof-ability-1306657"
+    },
+    {
+      "sourceKey": "spell-1306668",
+      "documentAbilityId": "aof-ability-1306668"
+    },
+    {
+      "sourceKey": "spell-1306669",
+      "documentAbilityId": "aof-ability-1306669"
+    },
+    {
+      "sourceKey": "spell-1306844",
+      "documentAbilityId": "aof-ability-1306844"
+    },
+    {
+      "sourceKey": "spell-1306852",
+      "documentAbilityId": "aof-ability-1306852"
+    },
+    {
+      "sourceKey": "spell-1306853",
+      "documentAbilityId": "aof-ability-1306853"
+    },
+    {
+      "sourceKey": "spell-1306856",
+      "documentAbilityId": "aof-ability-1306856"
+    },
+    {
+      "sourceKey": "spell-1306893",
+      "documentAbilityId": "aof-ability-1306893"
+    },
+    {
+      "sourceKey": "spell-1306911",
+      "documentAbilityId": "aof-ability-1306911"
+    },
+    {
+      "sourceKey": "spell-1307098",
+      "documentAbilityId": "aof-ability-1307098"
+    },
+    {
+      "sourceKey": "spell-1307144",
+      "documentAbilityId": "aof-ability-1307144"
+    },
+    {
+      "sourceKey": "spell-1307269",
+      "documentAbilityId": "aof-ability-1307269"
+    },
+    {
+      "sourceKey": "spell-1307526",
+      "documentAbilityId": "aof-ability-1307526"
+    },
+    {
+      "sourceKey": "spell-1307567",
+      "documentAbilityId": "aof-ability-1307567"
+    },
+    {
+      "sourceKey": "spell-1307571",
+      "documentAbilityId": "aof-ability-1307571"
+    },
+    {
+      "sourceKey": "spell-1307573",
+      "documentAbilityId": "aof-ability-1307573"
+    },
+    {
+      "sourceKey": "spell-1307602",
+      "documentAbilityId": "aof-ability-1307602"
+    },
+    {
+      "sourceKey": "spell-1307700",
+      "documentAbilityId": "aof-ability-1307700"
+    },
+    {
+      "sourceKey": "spell-1307703",
+      "documentAbilityId": "aof-ability-1307703"
+    },
+    {
+      "sourceKey": "spell-1307765",
+      "documentAbilityId": "aof-ability-1307765"
+    },
+    {
+      "sourceKey": "spell-1307768",
+      "documentAbilityId": "aof-ability-1307768"
+    },
+    {
+      "sourceKey": "spell-1307894",
+      "documentAbilityId": "aof-ability-1307894"
+    },
+    {
+      "sourceKey": "spell-1307915",
+      "documentAbilityId": "aof-ability-1307915"
+    },
+    {
+      "sourceKey": "spell-1307921",
+      "documentAbilityId": "aof-ability-1307921"
+    },
+    {
+      "sourceKey": "spell-1308518",
+      "documentAbilityId": "aof-ability-1308518"
+    },
+    {
+      "sourceKey": "spell-1308864",
+      "documentAbilityId": "aof-ability-1308864"
+    },
+    {
+      "sourceKey": "spell-1308865",
+      "documentAbilityId": "aof-ability-1308865"
+    },
+    {
+      "sourceKey": "spell-1309382",
+      "documentAbilityId": "aof-ability-1309382"
+    },
+    {
+      "sourceKey": "spell-1309398",
+      "documentAbilityId": "aof-ability-1309398"
+    },
+    {
+      "sourceKey": "spell-1309415",
+      "documentAbilityId": "aof-ability-1309415"
+    },
+    {
+      "sourceKey": "spell-1309416",
+      "documentAbilityId": "aof-ability-1309416"
+    },
+    {
+      "sourceKey": "spell-1309522",
+      "documentAbilityId": "aof-ability-1309522"
+    },
+    {
+      "sourceKey": "spell-1310357",
+      "documentAbilityId": "aof-ability-1310357"
+    },
+    {
+      "sourceKey": "spell-1310378",
+      "documentAbilityId": "aof-ability-1310378"
+    },
+    {
+      "sourceKey": "spell-1310413",
+      "documentAbilityId": "aof-ability-1310413"
+    },
+    {
+      "sourceKey": "spell-1310547",
+      "documentAbilityId": "aof-ability-1310547"
+    },
+    {
+      "sourceKey": "spell-1310666",
+      "documentAbilityId": "aof-ability-1310666"
+    },
+    {
+      "sourceKey": "spell-1310974",
+      "documentAbilityId": "aof-ability-1310974"
+    }
+  ]
+}

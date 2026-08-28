@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { season2DungeonCatalog, season2DungeonCatalogById } from '../data/season2Catalog';
 import { rubyLifePoolsSpatialPreview } from '../data/rlpSpatialPreview';
-import { phase0FixtureDocuments } from '../registry';
+import { getDungeonDocument, phase0FixtureDocuments } from '../registry';
 import type { DungeonDocument } from '../schema/types';
 import {
   factBindingMatchesRegistry,
@@ -44,6 +44,32 @@ describe('dungeon content readiness', () => {
         expect.objectContaining({ id: 'enemy-facts', state: 'pending' }),
         expect.objectContaining({ id: 'forces', state: 'pending' }),
         expect.objectContaining({ id: 'review', state: 'pending' }),
+      ]),
+    );
+  });
+
+  it('reports imported MDT reference stats for dungeons without a document', () => {
+    const entry = season2DungeonCatalogById.get('altar-of-fangs')!;
+    const readiness = getDungeonContentReadiness(entry);
+    const enemyFacts = readiness.gates.find((gateItem) => gateItem.id === 'enemy-facts');
+
+    expect(enemyFacts?.state).toBe('pending');
+    expect(enemyFacts?.detail).toContain('MDT 事实快照已导入');
+    expect(enemyFacts?.detail).toContain('21 敌人');
+  });
+
+  it('lights the enemy-facts gate from the registered altar-of-fangs binding', () => {
+    const entry = season2DungeonCatalogById.get('altar-of-fangs')!;
+    const readiness = getDungeonContentReadiness(entry, getDungeonDocument('altar-of-fangs'));
+
+    expect(readiness.state).toBe('learning-preview');
+    expect(readiness.readyGateCount).toBe(2);
+    expect(readiness.gates).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: 'coordinates', state: 'ready' }),
+        expect.objectContaining({ id: 'enemy-facts', state: 'ready' }),
+        expect.objectContaining({ id: 'ability-facts', state: 'pending' }),
+        expect.objectContaining({ id: 'forces', state: 'pending' }),
       ]),
     );
   });

@@ -1,0 +1,2397 @@
+{
+  "version": 1,
+  "snapshot": {
+    "snapshotId": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+    "digest": "sha256:81796bb1157ebbe29b8387363073f8ccf977126703e825ce6f1a8c57cf8fa023",
+    "dungeonId": "altar-of-fangs",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0"
+  },
+  "document": {
+    "id": "altar-of-fangs",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "revision": 1
+  },
+  "manifestTemplate": {
+    "version": 1,
+    "snapshotId": "mdt-facts-s2-altar-of-fangs-2026-08-26",
+    "snapshotDigest": "sha256:81796bb1157ebbe29b8387363073f8ccf977126703e825ce6f1a8c57cf8fa023",
+    "dungeonId": "altar-of-fangs",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "enemies": [],
+    "abilities": []
+  },
+  "enemies": [
+    {
+      "sourceKey": "Ritual Chieftain",
+      "npcId": 270306,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-270306",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Bloodletter",
+      "npcId": 261552,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261552",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "High Evolutionist",
+      "npcId": 261557,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261557",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Hatchling",
+      "npcId": 261556,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261556",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Living Venom",
+      "npcId": 263112,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-263112",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Primal Serpent",
+      "npcId": 261560,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261560",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ravenous Descendant",
+      "npcId": 261553,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261553",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ula'tek's Chosen",
+      "npcId": 263109,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-263109",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ascendant Serpent",
+      "npcId": 261573,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261573",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Twinfang Harrower",
+      "npcId": 261554,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261554",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Venom Leech",
+      "npcId": 261550,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-261550",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Rattling Writhe",
+      "npcId": 262011,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-262011",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Blade of the Altar",
+      "npcId": 271453,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-271453",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Rav'i",
+      "npcId": 259445,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-259445",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "The Writhing Coil",
+      "npcId": 259446,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-259446",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Zul'jan",
+      "npcId": 259447,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-259447",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Uncoiled Writhe [262398]",
+      "npcId": 262398,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-262398",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Infused Eggs",
+      "npcId": 264798,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-264798",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ritual Snake",
+      "npcId": 268358,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-268358",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ritual Spirit",
+      "npcId": 270378,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-270378",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Uncoiled Writhe [270417]",
+      "npcId": 270417,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "aof-enemy-270417",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-1221063",
+      "spellId": 1221063,
+      "casterEnemyKeys": [
+        "Ritual Chieftain",
+        "Bloodletter",
+        "High Evolutionist",
+        "Hatchling",
+        "Primal Serpent",
+        "Ravenous Descendant",
+        "Ascendant Serpent",
+        "Twinfang Harrower",
+        "Rattling Writhe",
+        "Blade of the Altar",
+        "Uncoiled Writhe [262398]"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1221063",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1287544",
+      "spellId": 1287544,
+      "casterEnemyKeys": [
+        "High Evolutionist"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1287544",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1287798",
+      "spellId": 1287798,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1287798",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1287811",
+      "spellId": 1287811,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1287811",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289416",
+      "spellId": 1289416,
+      "casterEnemyKeys": [
+        "High Evolutionist",
+        "Ula'tek's Chosen"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1289416",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1292892",
+      "spellId": 1292892,
+      "casterEnemyKeys": [
+        "Ula'tek's Chosen"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1292892",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1292904",
+      "spellId": 1292904,
+      "casterEnemyKeys": [
+        "High Evolutionist"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1292904",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293059",
+      "spellId": 1293059,
+      "casterEnemyKeys": [
+        "Infused Eggs"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1293059",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293079",
+      "spellId": 1293079,
+      "casterEnemyKeys": [
+        "Infused Eggs"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1293079",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293420",
+      "spellId": 1293420,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1293420",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294432",
+      "spellId": 1294432,
+      "casterEnemyKeys": [
+        "Venom Leech"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294432",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294557",
+      "spellId": 1294557,
+      "casterEnemyKeys": [
+        "Primal Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294557",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294567",
+      "spellId": 1294567,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294567",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294568",
+      "spellId": 1294568,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294568",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294569",
+      "spellId": 1294569,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294569",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294570",
+      "spellId": 1294570,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294570",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294572",
+      "spellId": 1294572,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294572",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294845",
+      "spellId": 1294845,
+      "casterEnemyKeys": [
+        "Rattling Writhe"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294845",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294849",
+      "spellId": 1294849,
+      "casterEnemyKeys": [
+        "Rattling Writhe"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294849",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294859",
+      "spellId": 1294859,
+      "casterEnemyKeys": [
+        "Rattling Writhe"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294859",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294934",
+      "spellId": 1294934,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294934",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294958",
+      "spellId": 1294958,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1294958",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295055",
+      "spellId": 1295055,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1295055",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295073",
+      "spellId": 1295073,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1295073",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296050",
+      "spellId": 1296050,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1296050",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296058",
+      "spellId": 1296058,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1296058",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296069",
+      "spellId": 1296069,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1296069",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296216",
+      "spellId": 1296216,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1296216",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296219",
+      "spellId": 1296219,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1296219",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296220",
+      "spellId": 1296220,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1296220",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297876",
+      "spellId": 1297876,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1297876",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1298221",
+      "spellId": 1298221,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1298221",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1298223",
+      "spellId": 1298223,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1298223",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1298683",
+      "spellId": 1298683,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1298683",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1298949",
+      "spellId": 1298949,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1298949",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299053",
+      "spellId": 1299053,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299053",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299080",
+      "spellId": 1299080,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299080",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299130",
+      "spellId": 1299130,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299130",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299135",
+      "spellId": 1299135,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299135",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299154",
+      "spellId": 1299154,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299154",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299189",
+      "spellId": 1299189,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299189",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299902",
+      "spellId": 1299902,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299902",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1299940",
+      "spellId": 1299940,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1299940",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300044",
+      "spellId": 1300044,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300044",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300083",
+      "spellId": 1300083,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300083",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300503",
+      "spellId": 1300503,
+      "casterEnemyKeys": [
+        "The Writhing Coil",
+        "Uncoiled Writhe [262398]"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300503",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300612",
+      "spellId": 1300612,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300612",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300618",
+      "spellId": 1300618,
+      "casterEnemyKeys": [
+        "Uncoiled Writhe [262398]",
+        "Uncoiled Writhe [270417]"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300618",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300686",
+      "spellId": 1300686,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300686",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300698",
+      "spellId": 1300698,
+      "casterEnemyKeys": [
+        "Uncoiled Writhe [262398]",
+        "Uncoiled Writhe [270417]"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300698",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300876",
+      "spellId": 1300876,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300876",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300885",
+      "spellId": 1300885,
+      "casterEnemyKeys": [
+        "Ritual Snake"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300885",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300886",
+      "spellId": 1300886,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300886",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300888",
+      "spellId": 1300888,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300888",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300892",
+      "spellId": 1300892,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300892",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300894",
+      "spellId": 1300894,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300894",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300901",
+      "spellId": 1300901,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1300901",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301111",
+      "spellId": 1301111,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1301111",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301114",
+      "spellId": 1301114,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1301114",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301217",
+      "spellId": 1301217,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1301217",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301350",
+      "spellId": 1301350,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1301350",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301353",
+      "spellId": 1301353,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1301353",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301413",
+      "spellId": 1301413,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1301413",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301508",
+      "spellId": 1301508,
+      "casterEnemyKeys": [
+        "Zul'jan"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1301508",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303366",
+      "spellId": 1303366,
+      "casterEnemyKeys": [
+        "Living Venom"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1303366",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1305368",
+      "spellId": 1305368,
+      "casterEnemyKeys": [
+        "The Writhing Coil",
+        "Uncoiled Writhe [262398]"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1305368",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1305393",
+      "spellId": 1305393,
+      "casterEnemyKeys": [
+        "The Writhing Coil",
+        "Uncoiled Writhe [262398]",
+        "Uncoiled Writhe [270417]"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1305393",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1305637",
+      "spellId": 1305637,
+      "casterEnemyKeys": [
+        "Venom Leech"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1305637",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306230",
+      "spellId": 1306230,
+      "casterEnemyKeys": [
+        "Living Venom"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306230",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306232",
+      "spellId": 1306232,
+      "casterEnemyKeys": [
+        "Venom Leech"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306232",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306235",
+      "spellId": 1306235,
+      "casterEnemyKeys": [
+        "Venom Leech"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306235",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306308",
+      "spellId": 1306308,
+      "casterEnemyKeys": [
+        "Ravenous Descendant"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306308",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306333",
+      "spellId": 1306333,
+      "casterEnemyKeys": [
+        "Ravenous Descendant"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306333",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306338",
+      "spellId": 1306338,
+      "casterEnemyKeys": [
+        "Ravenous Descendant"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306338",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306345",
+      "spellId": 1306345,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306345",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306381",
+      "spellId": 1306381,
+      "casterEnemyKeys": [
+        "Primal Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306381",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306383",
+      "spellId": 1306383,
+      "casterEnemyKeys": [
+        "Hatchling"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306383",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306385",
+      "spellId": 1306385,
+      "casterEnemyKeys": [
+        "High Evolutionist"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306385",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306517",
+      "spellId": 1306517,
+      "casterEnemyKeys": [
+        "Ritual Chieftain"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306517",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306550",
+      "spellId": 1306550,
+      "casterEnemyKeys": [
+        "Ritual Chieftain"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306550",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306641",
+      "spellId": 1306641,
+      "casterEnemyKeys": [
+        "Ritual Chieftain"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306641",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306657",
+      "spellId": 1306657,
+      "casterEnemyKeys": [
+        "Ritual Spirit"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306657",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306668",
+      "spellId": 1306668,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306668",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306669",
+      "spellId": 1306669,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306669",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306844",
+      "spellId": 1306844,
+      "casterEnemyKeys": [
+        "Ritual Chieftain"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306844",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306852",
+      "spellId": 1306852,
+      "casterEnemyKeys": [
+        "Ula'tek's Chosen"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306852",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306853",
+      "spellId": 1306853,
+      "casterEnemyKeys": [
+        "Ula'tek's Chosen"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306853",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306856",
+      "spellId": 1306856,
+      "casterEnemyKeys": [
+        "Ula'tek's Chosen"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306856",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306893",
+      "spellId": 1306893,
+      "casterEnemyKeys": [
+        "Ritual Chieftain"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306893",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306911",
+      "spellId": 1306911,
+      "casterEnemyKeys": [
+        "Ritual Chieftain"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1306911",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307098",
+      "spellId": 1307098,
+      "casterEnemyKeys": [
+        "Venom Leech"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307098",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307144",
+      "spellId": 1307144,
+      "casterEnemyKeys": [
+        "Venom Leech"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307144",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307269",
+      "spellId": 1307269,
+      "casterEnemyKeys": [
+        "Twinfang Harrower"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307269",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307526",
+      "spellId": 1307526,
+      "casterEnemyKeys": [
+        "Bloodletter"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307526",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307567",
+      "spellId": 1307567,
+      "casterEnemyKeys": [
+        "High Evolutionist",
+        "Ula'tek's Chosen"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307567",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307571",
+      "spellId": 1307571,
+      "casterEnemyKeys": [
+        "High Evolutionist",
+        "Ula'tek's Chosen"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307571",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307573",
+      "spellId": 1307573,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307573",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307602",
+      "spellId": 1307602,
+      "casterEnemyKeys": [
+        "High Evolutionist"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307602",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307700",
+      "spellId": 1307700,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307700",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307703",
+      "spellId": 1307703,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307703",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307765",
+      "spellId": 1307765,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307765",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307768",
+      "spellId": 1307768,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307768",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307894",
+      "spellId": 1307894,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307894",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307915",
+      "spellId": 1307915,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307915",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1307921",
+      "spellId": 1307921,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1307921",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308518",
+      "spellId": 1308518,
+      "casterEnemyKeys": [
+        "Blade of the Altar"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1308518",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308864",
+      "spellId": 1308864,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1308864",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308865",
+      "spellId": 1308865,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1308865",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309382",
+      "spellId": 1309382,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1309382",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309398",
+      "spellId": 1309398,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1309398",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309415",
+      "spellId": 1309415,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1309415",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309416",
+      "spellId": 1309416,
+      "casterEnemyKeys": [
+        "Ascendant Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1309416",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309522",
+      "spellId": 1309522,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1309522",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310357",
+      "spellId": 1310357,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1310357",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310378",
+      "spellId": 1310378,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1310378",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310413",
+      "spellId": 1310413,
+      "casterEnemyKeys": [
+        "Rav'i"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1310413",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310547",
+      "spellId": 1310547,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1310547",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310666",
+      "spellId": 1310666,
+      "casterEnemyKeys": [
+        "Uncoiled Writhe [262398]"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1310666",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310974",
+      "spellId": 1310974,
+      "casterEnemyKeys": [
+        "The Writhing Coil"
+      ],
+      "candidates": [
+        {
+          "documentId": "aof-ability-1310974",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "coverage": {
+    "snapshotEnemies": 21,
+    "snapshotAbilities": 119,
+    "documentEnemies": 21,
+    "documentAbilities": 119,
+    "unambiguousEnemyCandidates": 21,
+    "unambiguousAbilityCandidates": 119
+  },
+  "status": "ready-for-review",
+  "planDigest": "sha256:7fa7ca355d7e9314a9fe1551980fdb70d65bda8015b6c6c9ecfd5314728729fb"
+}
