@@ -27,6 +27,15 @@ const diagnostic = (
 const isFiniteNumber = (value: number) => Number.isFinite(value);
 const sha256DigestPattern = /^sha256:[a-f0-9]{64}$/;
 
+/** 来源 URL 只允许 http/https，杜绝 javascript:/data: 等可执行协议进入 <a href>。 */
+export function isAllowedProvenanceUrl(url: string): boolean {
+  try {
+    return ['http:', 'https:'].includes(new URL(url).protocol);
+  } catch {
+    return false;
+  }
+}
+
 function hasCompleteFactBindingIdentity(
   document: DungeonDocument,
   identity: FactBindingIdentity | undefined,
@@ -669,6 +678,10 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
   const documentSourceUnapproved = document.provenance.some(
     (source) => source.licenseStatus !== 'approved',
   );
+  // 来源 URL 承诺经过法验证后才渲染进 <a href>，拒绝 javascript:/data: 等可执行协议。
+  const documentSourceUnsafeUrl = document.provenance.some(
+    (source) => source.url && !isAllowedProvenanceUrl(source.url),
+  );
   if (releaseStatus && (documentSourceMissing || documentSourceUnapproved)) {
     errors.push(
       diagnostic(
@@ -697,6 +710,17 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       ),
     );
   }
+  if (documentSourceUnsafeUrl) {
+    (releaseStatus ? errors : warnings).push(
+      diagnostic(
+        releaseStatus ? 'error' : 'warning',
+        'DUNGEON_PROVENANCE_UNSAFE_URL',
+        'provenance',
+        '来源 URL 只允许 http(s) 协议；可执行协议（javascript: 等）不得渲染为链接。',
+        document.id,
+      ),
+    );
+  }
   const nestedProvenance = [
     ...document.enemies.map((item) => ({ collection: 'enemies', item })),
     ...document.abilities.map((item) => ({ collection: 'abilities', item })),
@@ -721,6 +745,21 @@ export function validateDungeonDocument(document: DungeonDocument): ValidationRe
       return;
     }
     item.provenance.forEach((source, sourceIndex) => {
+      if (source.url && !isAllowedProvenanceUrl(source.url)) {
+        const severity = releaseStatus ? 'error' : 'warning';
+        (severity === 'error' ? errors : warnings).push(
+          diagnostic(
+            severity,
+            'DUNGEON_NESTED_SOURCE_UNSAFE_URL',
+            `${collection}.${item.id}.provenance[${sourceIndex}].url`,
+            releaseStatus
+              ? '正式内容的来源 URL 只允许 http(s) 协议；可执行协议不得渲染为链接。'
+              : '来源 URL 包含非 http(s) 协议；进入 reviewed/published 前必须更换。',
+            item.id,
+          ),
+        );
+        return;
+      }
       if (source.licenseStatus === 'approved') return;
       const severity = releaseStatus ? 'error' : 'warning';
       (severity === 'error' ? errors : warnings).push(

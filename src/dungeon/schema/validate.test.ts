@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
+import { isAllowedProvenanceUrl, getPullStepForces, validateDungeonDocument } from './validate';
+
 import { phase0FixtureDocuments } from '../registry';
 import { rubyLifePoolsPhase1Draft } from '../data/phase1Prototypes';
-import { getPullStepForces, validateDungeonDocument } from './validate';
 
 describe('Dungeon document validation', () => {
   it('accepts both Phase 0 learning fixtures', () => {
@@ -447,6 +448,119 @@ describe('Dungeon document validation', () => {
         expect.objectContaining({
           code: 'DUNGEON_NESTED_SOURCE_MISSING',
           path: 'abilities.rlp-ability-burning-focus.provenance',
+        }),
+      ]),
+    );
+  });
+
+  it('rejects provenance URLs that are not http(s) and accepts well-formed ones', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'published';
+    document.version.status = 'published';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
+      },
+    };
+    expect(isAllowedProvenanceUrl('https://example.com/facts')).toBe(true);
+    expect(isAllowedProvenanceUrl('http://example.com/facts')).toBe(true);
+
+    document.provenance[0]!.url = 'javascript:alert(1)';
+    const blocked = validateDungeonDocument(document);
+    expect(blocked.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'DUNGEON_PROVENANCE_UNSAFE_URL', path: 'provenance' }),
+      ]),
+    );
+    expect(isAllowedProvenanceUrl('javascript:alert(1)')).toBe(false);
+    expect(isAllowedProvenanceUrl('data:text/html,hi')).toBe(false);
+  });
+
+  it('rejects unsafe provenance URLs on nested abilities of formal documents', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.dataStatus = 'published';
+    document.version.status = 'published';
+    document.review = {
+      author: 'author',
+      reviewer: 'reviewer',
+      reviewedAt: '2026-08-10T00:00:00.000Z',
+      gameBuild: document.version.build,
+      selfTest: {
+        completedAt: '2026-08-10T00:00:00.000Z',
+        modes: ['quick', 'overview', 'full'],
+        situationIds: document.situations.map((situation) => situation.id),
+        routeIds: document.routes.map((route) => route.id),
+      },
+      authoringEffort: {
+        totalMinutes: 30,
+        situationMinutes: Object.fromEntries(
+          document.situations.map((situation) => [situation.id, 1]),
+        ),
+      },
+    };
+    document.abilities[0]!.provenance[0]!.url = 'javascript:alert(1)';
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          severity: 'error',
+          code: 'DUNGEON_NESTED_SOURCE_UNSAFE_URL',
+          path: 'abilities.rlp-ability-burning-focus.provenance[0].url',
+          entityId: 'rlp-ability-burning-focus',
+        }),
+      ]),
+    );
+  });
+
+  it('routes nested unsafe provenance URLs to warnings before formal release', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.abilities[0]!.provenance[0]!.url = 'javascript:alert(1)';
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors.map((item) => item.code)).not.toContain(
+      'DUNGEON_NESTED_SOURCE_UNSAFE_URL',
+    );
+    expect(result.warnings).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          severity: 'warning',
+          code: 'DUNGEON_NESTED_SOURCE_UNSAFE_URL',
+          path: 'abilities.rlp-ability-burning-focus.provenance[0].url',
+          entityId: 'rlp-ability-burning-focus',
+        }),
+      ]),
+    );
+  });
+
+  it('routes top-level unsafe provenance URLs to warnings before formal release', () => {
+    const document = structuredClone(phase0FixtureDocuments.rubyLifePools);
+    document.provenance[0]!.url = 'javascript:alert(1)';
+
+    const result = validateDungeonDocument(document);
+
+    expect(result.errors.map((item) => item.code)).not.toContain('DUNGEON_PROVENANCE_UNSAFE_URL');
+    expect(result.warnings).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          severity: 'warning',
+          code: 'DUNGEON_PROVENANCE_UNSAFE_URL',
+          path: 'provenance',
         }),
       ]),
     );
