@@ -67,7 +67,7 @@ describe('season 2 dungeon catalog', () => {
     expect(getDungeonCatalogEntry('missing-dungeon')).toBeUndefined();
   });
 
-  it('reports duplicate and premature published entries', () => {
+  it('reports a synthetic published entry without a registered document', () => {
     // Every S2 catalog entry now has a registered document, so the
     // published-without-document check is exercised with a synthetic entry
     // that has a unique id but no document.
@@ -92,6 +92,27 @@ describe('season 2 dungeon catalog', () => {
       'CATALOG_WCL_SOURCE_CATALOG_PAIR_MISMATCH',
       'CATALOG_COUNT',
       'CATALOG_PUBLISHED_WITHOUT_DOCUMENT',
+    ]);
+  });
+
+  it('reports duplicate catalog entries', () => {
+    // A verbatim copy of a catalog entry still trips the duplicate guards
+    // (id, sourceKey and both WCL encounter ids); appending an entry also
+    // trips the incidental WCL-source/count diagnostics, which this
+    // expected list keeps exact.
+    const diagnostics = validateSeason2DungeonCatalog(
+      [...season2DungeonCatalog, { ...season2DungeonCatalog[0]! }],
+      new Set(dungeonDocuments.map((document) => document.id)),
+    );
+    expect(diagnostics.map((diagnostic) => diagnostic.code)).toEqual([
+      'CATALOG_WCL_SOURCE_IDENTITY_MISMATCH',
+      'CATALOG_WCL_SOURCE_CATALOG_BINDING_MISMATCH',
+      'CATALOG_WCL_SOURCE_CATALOG_PAIR_MISMATCH',
+      'CATALOG_COUNT',
+      'CATALOG_DUPLICATE_ID',
+      'CATALOG_DUPLICATE_SOURCE_KEY',
+      'CATALOG_WCL_ENCOUNTER_DUPLICATE',
+      'CATALOG_WCL_ENCOUNTER_DUPLICATE',
     ]);
   });
 

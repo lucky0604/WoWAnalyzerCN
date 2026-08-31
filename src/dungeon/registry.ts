@@ -1,12 +1,12 @@
 import type { DungeonDocument } from './schema/types';
 import { altarOfFangsFixture, rubyLifePoolsFixture } from './data/fixtures';
 import { altarOfFangsDocument } from './data/altarOfFangsDocument';
-import { templeOfSethralissDocument } from './data/templeOfSethralissDocument';
-import { kingsRestDocument } from './data/kingsRestDocument';
-import { voidscarArenaDocument } from './data/voidscarArenaDocument';
-import { theBlindingValeDocument } from './data/theBlindingValeDocument';
-import { denOfNalorakkDocument } from './data/denOfNalorakkDocument';
 import { murderRowDocument } from './data/murderRowDocument';
+import { denOfNalorakkDocument } from './data/denOfNalorakkDocument';
+import { theBlindingValeDocument } from './data/theBlindingValeDocument';
+import { voidscarArenaDocument } from './data/voidscarArenaDocument';
+import { kingsRestDocument } from './data/kingsRestDocument';
+import { templeOfSethralissDocument } from './data/templeOfSethralissDocument';
 import { rubyLifePoolsSpatialPreview } from './data/rlpSpatialPreview';
 import { runtimeReleaseDocuments } from './runtime/releaseRegistry';
 
