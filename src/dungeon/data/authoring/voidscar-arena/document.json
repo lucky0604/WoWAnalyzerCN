@@ -1,0 +1,5086 @@
+{
+  "id": "voidscar-arena",
+  "slug": "voidscar-arena",
+  "name": {
+    "zhCN": "虚空裂痕竞技场",
+    "enUS": "Voidscar Arena"
+  },
+  "season": "midnight-s2",
+  "dataStatus": "draft",
+  "spatialStatus": "pending",
+  "version": {
+    "season": "midnight-s2",
+    "build": "12.1.0",
+    "revision": 1,
+    "status": "draft"
+  },
+  "totalEnemyForcesPoints": 0,
+  "floors": [
+    {
+      "id": "voidscar-arena-floor-1",
+      "name": {
+        "zhCN": "虚空裂痕竞技场",
+        "enUS": "Voidscar Arena"
+      },
+      "coordinateSpace": "normalized-v1",
+      "bounds": {
+        "xMin": 0,
+        "xMax": 100,
+        "yMin": -100,
+        "yMax": 0
+      }
+    }
+  ],
+  "spawns": [],
+  "enemies": [
+    {
+      "id": "vsa-enemy-243996",
+      "npcId": 243996,
+      "name": {
+        "zhCN": "迷失的蛇人",
+        "enUS": "Lost Sethrak"
+      },
+      "forcesPoints": 4,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-243988",
+      "npcId": 243988,
+      "name": {
+        "zhCN": "狂野的刃牙虎人",
+        "enUS": "Feral Saberon"
+      },
+      "forcesPoints": 4,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-243983",
+      "npcId": 243983,
+      "name": {
+        "zhCN": "谄媚的塔拉赛",
+        "enUS": "Sycophantic Tarasek"
+      },
+      "forcesPoints": 4,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-243985",
+      "npcId": 243985,
+      "name": {
+        "zhCN": "长牙海象人",
+        "enUS": "Longtooth Tuskarr"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-238883",
+      "npcId": 238883,
+      "name": {
+        "zhCN": "被统御的斗士",
+        "enUS": "Dominated Brawler"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-241496",
+      "npcId": 241496,
+      "name": {
+        "zhCN": "被奴役的萨满",
+        "enUS": "Enthralled Shaman"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-252072",
+      "npcId": 252072,
+      "name": {
+        "zhCN": "虚触法师",
+        "enUS": "Voidtouched Magi"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-252053",
+      "npcId": 252053,
+      "name": {
+        "zhCN": "鲁莽监督者",
+        "enUS": "Brutal Overseer"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-267545",
+      "npcId": 267545,
+      "name": {
+        "zhCN": "不屈的埃吉拉",
+        "enUS": "Aegyra the Unyielding"
+      },
+      "forcesPoints": 40,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-267546",
+      "npcId": 267546,
+      "name": {
+        "zhCN": "法术风暴拉杰克斯",
+        "enUS": "Raj'kess the Spellstorm"
+      },
+      "forcesPoints": 40,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-244260",
+      "npcId": 244260,
+      "name": {
+        "zhCN": "几丁高斯",
+        "enUS": "Chitigoth"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-249608",
+      "npcId": 249608,
+      "name": {
+        "zhCN": "暴怒的迅猛龙",
+        "enUS": "Raging Raptor"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-249603",
+      "npcId": 249603,
+      "name": {
+        "zhCN": "充满保护欲的乌龟",
+        "enUS": "Protective Turtle"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-244309",
+      "npcId": 244309,
+      "name": {
+        "zhCN": "布鲁托克",
+        "enUS": "Brutok"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-249461",
+      "npcId": 249461,
+      "name": {
+        "zhCN": "被绑架的龙人",
+        "enUS": "Abducted Drakonid"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-249590",
+      "npcId": 249590,
+      "name": {
+        "zhCN": "暴怒的三叶虫",
+        "enUS": "Angry Krolusk"
+      },
+      "forcesPoints": 8,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-243835",
+      "npcId": 243835,
+      "name": {
+        "zhCN": "野蛮裂爪兽",
+        "enUS": "Savage Shredclaw"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-243766",
+      "npcId": 243766,
+      "name": {
+        "zhCN": "千噬兽尖啸者",
+        "enUS": "Kilivore Screamer"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-263228",
+      "npcId": 263228,
+      "name": {
+        "zhCN": "焦躁的虚镰",
+        "enUS": "Agitated Voidscythe"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-243736",
+      "npcId": 243736,
+      "name": {
+        "zhCN": "爆爬虫",
+        "enUS": "Blistercreep"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-245950",
+      "npcId": 245950,
+      "name": {
+        "zhCN": "警惕的掠心者",
+        "enUS": "Watchful Harrower"
+      },
+      "forcesPoints": 65,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-268184",
+      "npcId": 268184,
+      "name": {
+        "zhCN": "贪噬残虐者",
+        "enUS": "Devouring Brutalizer"
+      },
+      "forcesPoints": 30,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-252508",
+      "npcId": 252508,
+      "name": {
+        "zhCN": "食腐虹虚魔",
+        "enUS": "Scavenging Siphoid"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-244708",
+      "npcId": 244708,
+      "name": {
+        "zhCN": "虚空看顾者",
+        "enUS": "Voidminder"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-238887",
+      "npcId": 238887,
+      "name": {
+        "zhCN": "塔兹拉尔",
+        "enUS": "Taz'Rah"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-239008",
+      "npcId": 239008,
+      "name": {
+        "zhCN": "阿特洛苏斯",
+        "enUS": "Atroxus"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-239167",
+      "npcId": 239167,
+      "name": {
+        "zhCN": "煞戎努斯",
+        "enUS": "Charonus"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-239070",
+      "npcId": 239070,
+      "name": {
+        "zhCN": "剧毒蠕行者",
+        "enUS": "Toxic Creeper"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-248666",
+      "npcId": 248666,
+      "name": {
+        "zhCN": "熔岩图腾",
+        "enUS": "Magma Totem"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-254677",
+      "npcId": 254677,
+      "name": {
+        "zhCN": "虚灵之影",
+        "enUS": "Ethereal Shade"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-255000",
+      "npcId": 255000,
+      "name": {
+        "zhCN": "指向追踪者",
+        "enUS": "Targeting Stalker"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-enemy-255001",
+      "npcId": 255001,
+      "name": {
+        "zhCN": "引力宝珠",
+        "enUS": "Gravitic Orb"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "id": "vsa-ability-1222100",
+      "spellId": 1222100,
+      "name": {
+        "zhCN": "空灵冲刺",
+        "enUS": "Nether Dash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-254677"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222103",
+      "spellId": 1222103,
+      "name": {
+        "zhCN": "空灵冲刺",
+        "enUS": "Nether Dash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-254677"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222105",
+      "spellId": 1222105,
+      "name": {
+        "zhCN": "空灵冲刺",
+        "enUS": "Nether Dash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-254677"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222484",
+      "spellId": 1222484,
+      "name": {
+        "zhCN": "毒池",
+        "enUS": "Poison Pool"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222519",
+      "spellId": 1222519,
+      "name": {
+        "zhCN": "激怒蠕行者",
+        "enUS": "Provoke Creeper"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222642",
+      "spellId": 1222642,
+      "name": {
+        "zhCN": "巨型爪击",
+        "enUS": "Hulking Claw"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222692",
+      "spellId": 1222692,
+      "name": {
+        "zhCN": "剧毒光环",
+        "enUS": "Toxic Aura"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239070"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222693",
+      "spellId": 1222693,
+      "name": {
+        "zhCN": "剧毒光环",
+        "enUS": "Toxic Aura"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239070"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222721",
+      "spellId": 1222721,
+      "name": {
+        "zhCN": "毒性吐息",
+        "enUS": "Noxious Breath"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222724",
+      "spellId": 1222724,
+      "name": {
+        "zhCN": "毒性吐息",
+        "enUS": "Noxious Breath"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1222755",
+      "spellId": 1222755,
+      "name": {
+        "zhCN": "虚空奔涌",
+        "enUS": "Void Cascade"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1226031",
+      "spellId": 1226031,
+      "name": {
+        "zhCN": "毒液喷溅",
+        "enUS": "Poison Splash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1226120",
+      "spellId": 1226120,
+      "name": {
+        "zhCN": "毒液喷溅",
+        "enUS": "Poison Splash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1227020",
+      "spellId": 1227020,
+      "name": {
+        "zhCN": "次元撕裂",
+        "enUS": "Dimensional Shred"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244708"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1227197",
+      "spellId": 1227197,
+      "name": {
+        "zhCN": "星辰坠击",
+        "enUS": "Cosmic Crash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1227247",
+      "spellId": 1227247,
+      "name": {
+        "zhCN": "虚空奔涌",
+        "enUS": "Void Cascade"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1228126",
+      "spellId": 1228126,
+      "name": {
+        "zhCN": "钉锤风暴",
+        "enUS": "Macestorm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252053"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1228127",
+      "spellId": 1228127,
+      "name": {
+        "zhCN": "钉锤风暴",
+        "enUS": "Macestorm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252053"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1228176",
+      "spellId": 1228176,
+      "name": {
+        "zhCN": "熔岩箭",
+        "enUS": "Lava Bolt"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-241496"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1233264",
+      "spellId": 1233264,
+      "name": {
+        "zhCN": "气泡爆裂",
+        "enUS": "Blisterburst"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243736"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1233398",
+      "spellId": 1233398,
+      "name": {
+        "zhCN": "疯狂尖啸",
+        "enUS": "Mad Shriek"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243766"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1233472",
+      "spellId": 1233472,
+      "name": {
+        "zhCN": "撕碎切割",
+        "enUS": "Rip and Slice"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-263228"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1233485",
+      "spellId": 1233485,
+      "name": {
+        "zhCN": "撕碎切割",
+        "enUS": "Rip and Slice"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-263228"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1233535",
+      "spellId": 1233535,
+      "name": {
+        "zhCN": "撕碎防御",
+        "enUS": "Shred Defense"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243835"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1234833",
+      "spellId": 1234833,
+      "name": {
+        "zhCN": "贪婪之虫",
+        "enUS": "Ravenous Swarm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244260"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1234855",
+      "spellId": 1234855,
+      "name": {
+        "zhCN": "险恶光环",
+        "enUS": "Insidious Aura"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244260"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1234890",
+      "spellId": 1234890,
+      "name": {
+        "zhCN": "粉碎冲锋",
+        "enUS": "Smashing Charge"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244309"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1234917",
+      "spellId": 1234917,
+      "name": {
+        "zhCN": "粉碎冲锋",
+        "enUS": "Smashing Charge"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244309"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1239855",
+      "spellId": 1239855,
+      "name": {
+        "zhCN": "天空打击",
+        "enUS": "Sky Strike"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-245950"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1239856",
+      "spellId": 1239856,
+      "name": {
+        "zhCN": "天空打击",
+        "enUS": "Sky Strike"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-245950"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1245186",
+      "spellId": 1245186,
+      "name": {
+        "zhCN": "头槌重击",
+        "enUS": "Head Bash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244309"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1246820",
+      "spellId": 1246820,
+      "name": {
+        "zhCN": "熔岩图腾",
+        "enUS": "Magma Totem"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-241496"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1246821",
+      "spellId": 1246821,
+      "name": {
+        "zhCN": "灼热岩浆",
+        "enUS": "Searing Magma"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-248666"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1246825",
+      "spellId": 1246825,
+      "name": {
+        "zhCN": "灼热岩浆",
+        "enUS": "Searing Magma"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-248666"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1247395",
+      "spellId": 1247395,
+      "name": {
+        "zhCN": "毒液喷溅",
+        "enUS": "Poison Splash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1248112",
+      "spellId": 1248112,
+      "name": {
+        "zhCN": "不稳定的奇点",
+        "enUS": "Unstable Singularity"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1248121",
+      "spellId": 1248121,
+      "name": {
+        "zhCN": "不稳定的奇点",
+        "enUS": "Unstable Singularity"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1249236",
+      "spellId": 1249236,
+      "name": {
+        "zhCN": "火焰吐息",
+        "enUS": "Fire Spit"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-249461"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1249238",
+      "spellId": 1249238,
+      "name": {
+        "zhCN": "火焰吐息",
+        "enUS": "Fire Spit"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-249461"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1249621",
+      "spellId": 1249621,
+      "name": {
+        "zhCN": "狂暴之沙",
+        "enUS": "Violent Sand"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-249590"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1249661",
+      "spellId": 1249661,
+      "name": {
+        "zhCN": "野性之怒",
+        "enUS": "Feral Rage"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243988",
+        "vsa-enemy-243983",
+        "vsa-enemy-243985",
+        "vsa-enemy-244260",
+        "vsa-enemy-249608",
+        "vsa-enemy-249603",
+        "vsa-enemy-244309",
+        "vsa-enemy-249461"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1250021",
+      "spellId": 1250021,
+      "name": {
+        "zhCN": "甲壳守护",
+        "enUS": "Shell Guard"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-249603"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1250023",
+      "spellId": 1250023,
+      "name": {
+        "zhCN": "受保护",
+        "enUS": "Protected"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-249603"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1250043",
+      "spellId": 1250043,
+      "name": {
+        "zhCN": "熔化护甲",
+        "enUS": "Melt Armor"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243983"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1250079",
+      "spellId": 1250079,
+      "name": {
+        "zhCN": "贪婪之虫",
+        "enUS": "Ravenous Swarm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244260"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1250640",
+      "spellId": 1250640,
+      "name": {
+        "zhCN": "毒性喷吐",
+        "enUS": "Venomous Spit"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243996"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1250695",
+      "spellId": 1250695,
+      "name": {
+        "zhCN": "险恶光环",
+        "enUS": "Insidious Aura"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244260"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1252406",
+      "spellId": 1252406,
+      "name": {
+        "zhCN": "恐惧咆哮",
+        "enUS": "Dreadbellow"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1254826",
+      "spellId": 1254826,
+      "name": {
+        "zhCN": "血涌",
+        "enUS": "Bloodsurge"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238883"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1261645",
+      "spellId": 1261645,
+      "name": {
+        "zhCN": "钉锤风暴",
+        "enUS": "Macestorm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252053"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1262497",
+      "spellId": 1262497,
+      "name": {
+        "zhCN": "巨响咆哮",
+        "enUS": "Monstrous Roar"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1263971",
+      "spellId": 1263971,
+      "name": {
+        "zhCN": "麻痹药膏",
+        "enUS": "Mind-Numbing Poison"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1263983",
+      "spellId": 1263983,
+      "name": {
+        "zhCN": "凝缩物质",
+        "enUS": "Condensed Mass"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-255001"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1263984",
+      "spellId": 1263984,
+      "name": {
+        "zhCN": "不稳定的奇点",
+        "enUS": "Unstable Singularity"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-255000"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1264188",
+      "spellId": 1264188,
+      "name": {
+        "zhCN": "不稳定奇点",
+        "enUS": "Unstable Singularity"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-255000"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1267754",
+      "spellId": 1267754,
+      "name": {
+        "zhCN": "野蛮飞跃",
+        "enUS": "Savage Leap"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243988"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1267894",
+      "spellId": 1267894,
+      "name": {
+        "zhCN": "野蛮飞跃",
+        "enUS": "Savage Leap"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243988"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1268707",
+      "spellId": 1268707,
+      "name": {
+        "zhCN": "毒性喷吐",
+        "enUS": "Venomous Spit"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243996"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1269284",
+      "spellId": 1269284,
+      "name": {
+        "zhCN": "邪能步伐",
+        "enUS": "Fel Steps"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244309"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1269866",
+      "spellId": 1269866,
+      "name": {
+        "zhCN": "虚空触手",
+        "enUS": "Void Tentacles"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252508"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1269878",
+      "spellId": 1269878,
+      "name": {
+        "zhCN": "虚空触手",
+        "enUS": "Void Tentacles"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252508"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1282892",
+      "spellId": 1282892,
+      "name": {
+        "zhCN": "致病撕咬",
+        "enUS": "Sickening Bite"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239070"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1282959",
+      "spellId": 1282959,
+      "name": {
+        "zhCN": "看门者",
+        "enUS": "Gatekeeper"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1289258",
+      "spellId": 1289258,
+      "name": {
+        "zhCN": "腐蚀精华",
+        "enUS": "Corrosive Essence"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-263228"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1289265",
+      "spellId": 1289265,
+      "name": {
+        "zhCN": "腐蚀精华",
+        "enUS": "Corrosive Essence"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-263228"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1296889",
+      "spellId": 1296889,
+      "name": {
+        "zhCN": "虚空残影",
+        "enUS": "Ethereal Shades"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1296963",
+      "spellId": 1296963,
+      "name": {
+        "zhCN": "幽影破裂",
+        "enUS": "Umbral Rupture"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238887",
+        "vsa-enemy-254677"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1296967",
+      "spellId": 1296967,
+      "name": {
+        "zhCN": "虚空裂隙",
+        "enUS": "Void Fissure"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1297017",
+      "spellId": 1297017,
+      "name": {
+        "zhCN": "虚空冲击",
+        "enUS": "Void Blast"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298899",
+      "spellId": 1298899,
+      "name": {
+        "zhCN": "挫志怒吼",
+        "enUS": "Demoralizing Shout"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238883"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298900",
+      "spellId": 1298900,
+      "name": {
+        "zhCN": "残暴猛击",
+        "enUS": "Brutal Slams"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252053"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298901",
+      "spellId": 1298901,
+      "name": {
+        "zhCN": "残暴猛击",
+        "enUS": "Brutal Slams"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252053"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298902",
+      "spellId": 1298902,
+      "name": {
+        "zhCN": "精通之证",
+        "enUS": "Proof of Mastery"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298903",
+      "spellId": 1298903,
+      "name": {
+        "zhCN": "坚韧之证",
+        "enUS": "Proof of Endurance"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298908",
+      "spellId": 1298908,
+      "name": {
+        "zhCN": "勇士之矛",
+        "enUS": "Champion's Spear"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298922",
+      "spellId": 1298922,
+      "name": {
+        "zhCN": "野蛮猛击",
+        "enUS": "Savage Smash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298924",
+      "spellId": 1298924,
+      "name": {
+        "zhCN": "野蛮猛击",
+        "enUS": "Savage Smash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1298933",
+      "spellId": 1298933,
+      "name": {
+        "zhCN": "野蛮猛击",
+        "enUS": "Savage Smash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299125",
+      "spellId": 1299125,
+      "name": {
+        "zhCN": "凶猛飞跃",
+        "enUS": "Ferocious Leap"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299133",
+      "spellId": 1299133,
+      "name": {
+        "zhCN": "凶猛飞跃",
+        "enUS": "Ferocious Leap"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299145",
+      "spellId": 1299145,
+      "name": {
+        "zhCN": "劈地者",
+        "enUS": "Earthsplitter"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299210",
+      "spellId": 1299210,
+      "name": {
+        "zhCN": "余震",
+        "enUS": "Aftershock"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267545"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299240",
+      "spellId": 1299240,
+      "name": {
+        "zhCN": "狂暴台风",
+        "enUS": "Raging Typhoon"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299244",
+      "spellId": 1299244,
+      "name": {
+        "zhCN": "狂暴台风",
+        "enUS": "Raging Typhoon"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299257",
+      "spellId": 1299257,
+      "name": {
+        "zhCN": "碎裂波动",
+        "enUS": "Crashing Wave"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299270",
+      "spellId": 1299270,
+      "name": {
+        "zhCN": "雷鸣风暴",
+        "enUS": "Thundering Storm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299273",
+      "spellId": 1299273,
+      "name": {
+        "zhCN": "雷鸣风暴",
+        "enUS": "Thundering Storm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299913",
+      "spellId": 1299913,
+      "name": {
+        "zhCN": "虚无喷发",
+        "enUS": "Null Eruption"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252072"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1299938",
+      "spellId": 1299938,
+      "name": {
+        "zhCN": "暗影箭雨",
+        "enUS": "Shadowbolt Volley"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252072"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300116",
+      "spellId": 1300116,
+      "name": {
+        "zhCN": "回旋阵风",
+        "enUS": "Whirling Gust"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-245950"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300138",
+      "spellId": 1300138,
+      "name": {
+        "zhCN": "虚空光束",
+        "enUS": "Void Beam"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-245950"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300156",
+      "spellId": 1300156,
+      "name": {
+        "zhCN": "虚空光束",
+        "enUS": "Void Beam"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-245950"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300243",
+      "spellId": 1300243,
+      "name": {
+        "zhCN": "残杀",
+        "enUS": "Brutalize"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300244",
+      "spellId": 1300244,
+      "name": {
+        "zhCN": "残杀",
+        "enUS": "Brutalize"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300248",
+      "spellId": 1300248,
+      "name": {
+        "zhCN": "吞噬",
+        "enUS": "Devour"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300249",
+      "spellId": 1300249,
+      "name": {
+        "zhCN": "吞噬",
+        "enUS": "Devour"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300250",
+      "spellId": 1300250,
+      "name": {
+        "zhCN": "吞噬之力",
+        "enUS": "Devouring Might"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300259",
+      "spellId": 1300259,
+      "name": {
+        "zhCN": "黑暗绽放",
+        "enUS": "Dark Bloom"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300262",
+      "spellId": 1300262,
+      "name": {
+        "zhCN": "黑暗绽放",
+        "enUS": "Dark Bloom"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-238887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300351",
+      "spellId": 1300351,
+      "name": {
+        "zhCN": "毒液喷溅",
+        "enUS": "Poison Splash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239008"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1300372",
+      "spellId": 1300372,
+      "name": {
+        "zhCN": "星辰坠击",
+        "enUS": "Cosmic Crash"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1310025",
+      "spellId": 1310025,
+      "name": {
+        "zhCN": "引力宝珠",
+        "enUS": "Gravitic Orbs"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1310309",
+      "spellId": 1310309,
+      "name": {
+        "zhCN": "钉锤风暴",
+        "enUS": "Macestorm"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-252053"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1310319",
+      "spellId": 1310319,
+      "name": {
+        "zhCN": "激励",
+        "enUS": "Bolster"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-243985"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1310320",
+      "spellId": 1310320,
+      "name": {
+        "zhCN": "精疲力竭",
+        "enUS": "Exhausted"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-249603"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1310321",
+      "spellId": 1310321,
+      "name": {
+        "zhCN": "震荡",
+        "enUS": "Concussion"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-244309"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1310324",
+      "spellId": 1310324,
+      "name": {
+        "zhCN": "愈体虚空",
+        "enUS": "Mending Void"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-268184",
+        "vsa-enemy-244708"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1311712",
+      "spellId": 1311712,
+      "name": {
+        "zhCN": "闪电打击",
+        "enUS": "Lightning Strike"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1311747",
+      "spellId": 1311747,
+      "name": {
+        "zhCN": "瓦解宝珠",
+        "enUS": "Orb of Disruption"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1311754",
+      "spellId": 1311754,
+      "name": {
+        "zhCN": "叉状闪电",
+        "enUS": "Forked Lightning"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-267546"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1311778",
+      "spellId": 1311778,
+      "name": {
+        "zhCN": "撕碎切割",
+        "enUS": "Rip and Slice"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-263228"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "vsa-ability-1311923",
+      "spellId": 1311923,
+      "name": {
+        "zhCN": "暗影浪潮",
+        "enUS": "Dark Waves"
+      },
+      "casterEnemyIds": [
+        "vsa-enemy-239167"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "situations": [],
+  "routes": [],
+  "bosses": [],
+  "provenance": [
+    {
+      "type": "game-data",
+      "title": "MDT 怪物事实快照 mdt-facts-s2-voidscar-arena-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+      "snapshot": "mdt-facts-s2-voidscar-arena-2026-08-26",
+      "gameBuild": "12.1.0",
+      "retrievedAt": "2026-08-26",
+      "licenseStatus": "approved",
+      "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+    }
+  ]
+}

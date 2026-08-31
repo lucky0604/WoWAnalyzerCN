@@ -1,0 +1,588 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-voidscar-arena-2026-08-26",
+  "snapshotDigest": "sha256:521ba5720b4cc7c27fa190f9562167e0e3d8c4e5f36426bf456614a164924adc",
+  "dungeonId": "voidscar-arena",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "enemies": [
+    {
+      "sourceKey": "Lost Sethrak",
+      "documentEnemyId": "vsa-enemy-243996"
+    },
+    {
+      "sourceKey": "Feral Saberon",
+      "documentEnemyId": "vsa-enemy-243988"
+    },
+    {
+      "sourceKey": "Sycophantic Tarasek",
+      "documentEnemyId": "vsa-enemy-243983"
+    },
+    {
+      "sourceKey": "Longtooth Tuskarr",
+      "documentEnemyId": "vsa-enemy-243985"
+    },
+    {
+      "sourceKey": "Dominated Brawler",
+      "documentEnemyId": "vsa-enemy-238883"
+    },
+    {
+      "sourceKey": "Enthralled Shaman",
+      "documentEnemyId": "vsa-enemy-241496"
+    },
+    {
+      "sourceKey": "Voidtouched Magi",
+      "documentEnemyId": "vsa-enemy-252072"
+    },
+    {
+      "sourceKey": "Brutal Overseer",
+      "documentEnemyId": "vsa-enemy-252053"
+    },
+    {
+      "sourceKey": "Aegyra the Unyielding",
+      "documentEnemyId": "vsa-enemy-267545"
+    },
+    {
+      "sourceKey": "Raj'kess the Spellstorm",
+      "documentEnemyId": "vsa-enemy-267546"
+    },
+    {
+      "sourceKey": "Chitigoth",
+      "documentEnemyId": "vsa-enemy-244260"
+    },
+    {
+      "sourceKey": "Raging Raptor",
+      "documentEnemyId": "vsa-enemy-249608"
+    },
+    {
+      "sourceKey": "Protective Turtle",
+      "documentEnemyId": "vsa-enemy-249603"
+    },
+    {
+      "sourceKey": "Brutok",
+      "documentEnemyId": "vsa-enemy-244309"
+    },
+    {
+      "sourceKey": "Abducted Drakonid",
+      "documentEnemyId": "vsa-enemy-249461"
+    },
+    {
+      "sourceKey": "Angry Krolusk",
+      "documentEnemyId": "vsa-enemy-249590"
+    },
+    {
+      "sourceKey": "Savage Shredclaw",
+      "documentEnemyId": "vsa-enemy-243835"
+    },
+    {
+      "sourceKey": "Kilivore Screamer",
+      "documentEnemyId": "vsa-enemy-243766"
+    },
+    {
+      "sourceKey": "Agitated Voidscythe",
+      "documentEnemyId": "vsa-enemy-263228"
+    },
+    {
+      "sourceKey": "Blistercreep",
+      "documentEnemyId": "vsa-enemy-243736"
+    },
+    {
+      "sourceKey": "Watchful Harrower",
+      "documentEnemyId": "vsa-enemy-245950"
+    },
+    {
+      "sourceKey": "Devouring Brutalizer",
+      "documentEnemyId": "vsa-enemy-268184"
+    },
+    {
+      "sourceKey": "Scavenging Siphoid",
+      "documentEnemyId": "vsa-enemy-252508"
+    },
+    {
+      "sourceKey": "Voidminder",
+      "documentEnemyId": "vsa-enemy-244708"
+    },
+    {
+      "sourceKey": "Taz'Rah",
+      "documentEnemyId": "vsa-enemy-238887"
+    },
+    {
+      "sourceKey": "Atroxus",
+      "documentEnemyId": "vsa-enemy-239008"
+    },
+    {
+      "sourceKey": "Charonus",
+      "documentEnemyId": "vsa-enemy-239167"
+    },
+    {
+      "sourceKey": "Toxic Creeper",
+      "documentEnemyId": "vsa-enemy-239070"
+    },
+    {
+      "sourceKey": "Magma Totem",
+      "documentEnemyId": "vsa-enemy-248666"
+    },
+    {
+      "sourceKey": "Ethereal Shade",
+      "documentEnemyId": "vsa-enemy-254677"
+    },
+    {
+      "sourceKey": "Targeting Stalker",
+      "documentEnemyId": "vsa-enemy-255000"
+    },
+    {
+      "sourceKey": "Gravitic Orb",
+      "documentEnemyId": "vsa-enemy-255001"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-1222100",
+      "documentAbilityId": "vsa-ability-1222100"
+    },
+    {
+      "sourceKey": "spell-1222103",
+      "documentAbilityId": "vsa-ability-1222103"
+    },
+    {
+      "sourceKey": "spell-1222105",
+      "documentAbilityId": "vsa-ability-1222105"
+    },
+    {
+      "sourceKey": "spell-1222484",
+      "documentAbilityId": "vsa-ability-1222484"
+    },
+    {
+      "sourceKey": "spell-1222519",
+      "documentAbilityId": "vsa-ability-1222519"
+    },
+    {
+      "sourceKey": "spell-1222642",
+      "documentAbilityId": "vsa-ability-1222642"
+    },
+    {
+      "sourceKey": "spell-1222692",
+      "documentAbilityId": "vsa-ability-1222692"
+    },
+    {
+      "sourceKey": "spell-1222693",
+      "documentAbilityId": "vsa-ability-1222693"
+    },
+    {
+      "sourceKey": "spell-1222721",
+      "documentAbilityId": "vsa-ability-1222721"
+    },
+    {
+      "sourceKey": "spell-1222724",
+      "documentAbilityId": "vsa-ability-1222724"
+    },
+    {
+      "sourceKey": "spell-1222755",
+      "documentAbilityId": "vsa-ability-1222755"
+    },
+    {
+      "sourceKey": "spell-1226031",
+      "documentAbilityId": "vsa-ability-1226031"
+    },
+    {
+      "sourceKey": "spell-1226120",
+      "documentAbilityId": "vsa-ability-1226120"
+    },
+    {
+      "sourceKey": "spell-1227020",
+      "documentAbilityId": "vsa-ability-1227020"
+    },
+    {
+      "sourceKey": "spell-1227197",
+      "documentAbilityId": "vsa-ability-1227197"
+    },
+    {
+      "sourceKey": "spell-1227247",
+      "documentAbilityId": "vsa-ability-1227247"
+    },
+    {
+      "sourceKey": "spell-1228126",
+      "documentAbilityId": "vsa-ability-1228126"
+    },
+    {
+      "sourceKey": "spell-1228127",
+      "documentAbilityId": "vsa-ability-1228127"
+    },
+    {
+      "sourceKey": "spell-1228176",
+      "documentAbilityId": "vsa-ability-1228176"
+    },
+    {
+      "sourceKey": "spell-1233264",
+      "documentAbilityId": "vsa-ability-1233264"
+    },
+    {
+      "sourceKey": "spell-1233398",
+      "documentAbilityId": "vsa-ability-1233398"
+    },
+    {
+      "sourceKey": "spell-1233472",
+      "documentAbilityId": "vsa-ability-1233472"
+    },
+    {
+      "sourceKey": "spell-1233485",
+      "documentAbilityId": "vsa-ability-1233485"
+    },
+    {
+      "sourceKey": "spell-1233535",
+      "documentAbilityId": "vsa-ability-1233535"
+    },
+    {
+      "sourceKey": "spell-1234833",
+      "documentAbilityId": "vsa-ability-1234833"
+    },
+    {
+      "sourceKey": "spell-1234855",
+      "documentAbilityId": "vsa-ability-1234855"
+    },
+    {
+      "sourceKey": "spell-1234890",
+      "documentAbilityId": "vsa-ability-1234890"
+    },
+    {
+      "sourceKey": "spell-1234917",
+      "documentAbilityId": "vsa-ability-1234917"
+    },
+    {
+      "sourceKey": "spell-1239855",
+      "documentAbilityId": "vsa-ability-1239855"
+    },
+    {
+      "sourceKey": "spell-1239856",
+      "documentAbilityId": "vsa-ability-1239856"
+    },
+    {
+      "sourceKey": "spell-1245186",
+      "documentAbilityId": "vsa-ability-1245186"
+    },
+    {
+      "sourceKey": "spell-1246820",
+      "documentAbilityId": "vsa-ability-1246820"
+    },
+    {
+      "sourceKey": "spell-1246821",
+      "documentAbilityId": "vsa-ability-1246821"
+    },
+    {
+      "sourceKey": "spell-1246825",
+      "documentAbilityId": "vsa-ability-1246825"
+    },
+    {
+      "sourceKey": "spell-1247395",
+      "documentAbilityId": "vsa-ability-1247395"
+    },
+    {
+      "sourceKey": "spell-1248112",
+      "documentAbilityId": "vsa-ability-1248112"
+    },
+    {
+      "sourceKey": "spell-1248121",
+      "documentAbilityId": "vsa-ability-1248121"
+    },
+    {
+      "sourceKey": "spell-1249236",
+      "documentAbilityId": "vsa-ability-1249236"
+    },
+    {
+      "sourceKey": "spell-1249238",
+      "documentAbilityId": "vsa-ability-1249238"
+    },
+    {
+      "sourceKey": "spell-1249621",
+      "documentAbilityId": "vsa-ability-1249621"
+    },
+    {
+      "sourceKey": "spell-1249661",
+      "documentAbilityId": "vsa-ability-1249661"
+    },
+    {
+      "sourceKey": "spell-1250021",
+      "documentAbilityId": "vsa-ability-1250021"
+    },
+    {
+      "sourceKey": "spell-1250023",
+      "documentAbilityId": "vsa-ability-1250023"
+    },
+    {
+      "sourceKey": "spell-1250043",
+      "documentAbilityId": "vsa-ability-1250043"
+    },
+    {
+      "sourceKey": "spell-1250079",
+      "documentAbilityId": "vsa-ability-1250079"
+    },
+    {
+      "sourceKey": "spell-1250640",
+      "documentAbilityId": "vsa-ability-1250640"
+    },
+    {
+      "sourceKey": "spell-1250695",
+      "documentAbilityId": "vsa-ability-1250695"
+    },
+    {
+      "sourceKey": "spell-1252406",
+      "documentAbilityId": "vsa-ability-1252406"
+    },
+    {
+      "sourceKey": "spell-1254826",
+      "documentAbilityId": "vsa-ability-1254826"
+    },
+    {
+      "sourceKey": "spell-1261645",
+      "documentAbilityId": "vsa-ability-1261645"
+    },
+    {
+      "sourceKey": "spell-1262497",
+      "documentAbilityId": "vsa-ability-1262497"
+    },
+    {
+      "sourceKey": "spell-1263971",
+      "documentAbilityId": "vsa-ability-1263971"
+    },
+    {
+      "sourceKey": "spell-1263983",
+      "documentAbilityId": "vsa-ability-1263983"
+    },
+    {
+      "sourceKey": "spell-1263984",
+      "documentAbilityId": "vsa-ability-1263984"
+    },
+    {
+      "sourceKey": "spell-1264188",
+      "documentAbilityId": "vsa-ability-1264188"
+    },
+    {
+      "sourceKey": "spell-1267754",
+      "documentAbilityId": "vsa-ability-1267754"
+    },
+    {
+      "sourceKey": "spell-1267894",
+      "documentAbilityId": "vsa-ability-1267894"
+    },
+    {
+      "sourceKey": "spell-1268707",
+      "documentAbilityId": "vsa-ability-1268707"
+    },
+    {
+      "sourceKey": "spell-1269284",
+      "documentAbilityId": "vsa-ability-1269284"
+    },
+    {
+      "sourceKey": "spell-1269866",
+      "documentAbilityId": "vsa-ability-1269866"
+    },
+    {
+      "sourceKey": "spell-1269878",
+      "documentAbilityId": "vsa-ability-1269878"
+    },
+    {
+      "sourceKey": "spell-1282892",
+      "documentAbilityId": "vsa-ability-1282892"
+    },
+    {
+      "sourceKey": "spell-1282959",
+      "documentAbilityId": "vsa-ability-1282959"
+    },
+    {
+      "sourceKey": "spell-1289258",
+      "documentAbilityId": "vsa-ability-1289258"
+    },
+    {
+      "sourceKey": "spell-1289265",
+      "documentAbilityId": "vsa-ability-1289265"
+    },
+    {
+      "sourceKey": "spell-1296889",
+      "documentAbilityId": "vsa-ability-1296889"
+    },
+    {
+      "sourceKey": "spell-1296963",
+      "documentAbilityId": "vsa-ability-1296963"
+    },
+    {
+      "sourceKey": "spell-1296967",
+      "documentAbilityId": "vsa-ability-1296967"
+    },
+    {
+      "sourceKey": "spell-1297017",
+      "documentAbilityId": "vsa-ability-1297017"
+    },
+    {
+      "sourceKey": "spell-1298899",
+      "documentAbilityId": "vsa-ability-1298899"
+    },
+    {
+      "sourceKey": "spell-1298900",
+      "documentAbilityId": "vsa-ability-1298900"
+    },
+    {
+      "sourceKey": "spell-1298901",
+      "documentAbilityId": "vsa-ability-1298901"
+    },
+    {
+      "sourceKey": "spell-1298902",
+      "documentAbilityId": "vsa-ability-1298902"
+    },
+    {
+      "sourceKey": "spell-1298903",
+      "documentAbilityId": "vsa-ability-1298903"
+    },
+    {
+      "sourceKey": "spell-1298908",
+      "documentAbilityId": "vsa-ability-1298908"
+    },
+    {
+      "sourceKey": "spell-1298922",
+      "documentAbilityId": "vsa-ability-1298922"
+    },
+    {
+      "sourceKey": "spell-1298924",
+      "documentAbilityId": "vsa-ability-1298924"
+    },
+    {
+      "sourceKey": "spell-1298933",
+      "documentAbilityId": "vsa-ability-1298933"
+    },
+    {
+      "sourceKey": "spell-1299125",
+      "documentAbilityId": "vsa-ability-1299125"
+    },
+    {
+      "sourceKey": "spell-1299133",
+      "documentAbilityId": "vsa-ability-1299133"
+    },
+    {
+      "sourceKey": "spell-1299145",
+      "documentAbilityId": "vsa-ability-1299145"
+    },
+    {
+      "sourceKey": "spell-1299210",
+      "documentAbilityId": "vsa-ability-1299210"
+    },
+    {
+      "sourceKey": "spell-1299240",
+      "documentAbilityId": "vsa-ability-1299240"
+    },
+    {
+      "sourceKey": "spell-1299244",
+      "documentAbilityId": "vsa-ability-1299244"
+    },
+    {
+      "sourceKey": "spell-1299257",
+      "documentAbilityId": "vsa-ability-1299257"
+    },
+    {
+      "sourceKey": "spell-1299270",
+      "documentAbilityId": "vsa-ability-1299270"
+    },
+    {
+      "sourceKey": "spell-1299273",
+      "documentAbilityId": "vsa-ability-1299273"
+    },
+    {
+      "sourceKey": "spell-1299913",
+      "documentAbilityId": "vsa-ability-1299913"
+    },
+    {
+      "sourceKey": "spell-1299938",
+      "documentAbilityId": "vsa-ability-1299938"
+    },
+    {
+      "sourceKey": "spell-1300116",
+      "documentAbilityId": "vsa-ability-1300116"
+    },
+    {
+      "sourceKey": "spell-1300138",
+      "documentAbilityId": "vsa-ability-1300138"
+    },
+    {
+      "sourceKey": "spell-1300156",
+      "documentAbilityId": "vsa-ability-1300156"
+    },
+    {
+      "sourceKey": "spell-1300243",
+      "documentAbilityId": "vsa-ability-1300243"
+    },
+    {
+      "sourceKey": "spell-1300244",
+      "documentAbilityId": "vsa-ability-1300244"
+    },
+    {
+      "sourceKey": "spell-1300248",
+      "documentAbilityId": "vsa-ability-1300248"
+    },
+    {
+      "sourceKey": "spell-1300249",
+      "documentAbilityId": "vsa-ability-1300249"
+    },
+    {
+      "sourceKey": "spell-1300250",
+      "documentAbilityId": "vsa-ability-1300250"
+    },
+    {
+      "sourceKey": "spell-1300259",
+      "documentAbilityId": "vsa-ability-1300259"
+    },
+    {
+      "sourceKey": "spell-1300262",
+      "documentAbilityId": "vsa-ability-1300262"
+    },
+    {
+      "sourceKey": "spell-1300351",
+      "documentAbilityId": "vsa-ability-1300351"
+    },
+    {
+      "sourceKey": "spell-1300372",
+      "documentAbilityId": "vsa-ability-1300372"
+    },
+    {
+      "sourceKey": "spell-1310025",
+      "documentAbilityId": "vsa-ability-1310025"
+    },
+    {
+      "sourceKey": "spell-1310309",
+      "documentAbilityId": "vsa-ability-1310309"
+    },
+    {
+      "sourceKey": "spell-1310319",
+      "documentAbilityId": "vsa-ability-1310319"
+    },
+    {
+      "sourceKey": "spell-1310320",
+      "documentAbilityId": "vsa-ability-1310320"
+    },
+    {
+      "sourceKey": "spell-1310321",
+      "documentAbilityId": "vsa-ability-1310321"
+    },
+    {
+      "sourceKey": "spell-1310324",
+      "documentAbilityId": "vsa-ability-1310324"
+    },
+    {
+      "sourceKey": "spell-1311712",
+      "documentAbilityId": "vsa-ability-1311712"
+    },
+    {
+      "sourceKey": "spell-1311747",
+      "documentAbilityId": "vsa-ability-1311747"
+    },
+    {
+      "sourceKey": "spell-1311754",
+      "documentAbilityId": "vsa-ability-1311754"
+    },
+    {
+      "sourceKey": "spell-1311778",
+      "documentAbilityId": "vsa-ability-1311778"
+    },
+    {
+      "sourceKey": "spell-1311923",
+      "documentAbilityId": "vsa-ability-1311923"
+    }
+  ]
+}
