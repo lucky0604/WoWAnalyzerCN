@@ -1,0 +1,6160 @@
+{
+  "id": "murder-row",
+  "slug": "murder-row",
+  "name": {
+    "zhCN": "谋杀街",
+    "enUS": "Murder Row"
+  },
+  "season": "midnight-s2",
+  "dataStatus": "draft",
+  "spatialStatus": "pending",
+  "version": {
+    "season": "midnight-s2",
+    "build": "12.1.0",
+    "revision": 1,
+    "status": "draft"
+  },
+  "totalEnemyForcesPoints": 0,
+  "floors": [
+    {
+      "id": "murder-row-floor-1",
+      "name": {
+        "zhCN": "谋杀街",
+        "enUS": "Murder Row"
+      },
+      "coordinateSpace": "normalized-v1",
+      "bounds": {
+        "xMin": 0,
+        "xMax": 100,
+        "yMin": -100,
+        "yMax": 0
+      }
+    }
+  ],
+  "spawns": [],
+  "enemies": [
+    {
+      "id": "mdr-enemy-236085",
+      "npcId": 236085,
+      "name": {
+        "zhCN": "邪能浮龙",
+        "enUS": "Felwyrm"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236073",
+      "npcId": 236073,
+      "name": {
+        "zhCN": "径巷流氓",
+        "enUS": "Row Hooligan"
+      },
+      "forcesPoints": 3,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236084",
+      "npcId": 236084,
+      "name": {
+        "zhCN": "凶邪的法师",
+        "enUS": "Felonious Mage"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236071",
+      "npcId": 236071,
+      "name": {
+        "zhCN": "被买通的守卫",
+        "enUS": "Bribed Guard"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-252529",
+      "npcId": 252529,
+      "name": {
+        "zhCN": "受贿的队长",
+        "enUS": "Bribed Captain"
+      },
+      "forcesPoints": 35,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236082",
+      "npcId": 236082,
+      "name": {
+        "zhCN": "诱惑的萨亚德",
+        "enUS": "Seductive Sayaad"
+      },
+      "forcesPoints": 6,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236902",
+      "npcId": 236902,
+      "name": {
+        "zhCN": "巨大的邪能浮龙",
+        "enUS": "Massive Felwyrm"
+      },
+      "forcesPoints": 12,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236091",
+      "npcId": 236091,
+      "name": {
+        "zhCN": "街头扒手",
+        "enUS": "Street Sneak"
+      },
+      "forcesPoints": 3,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236893",
+      "npcId": 236893,
+      "name": {
+        "zhCN": "仓库工人",
+        "enUS": "Warehouse Worker"
+      },
+      "forcesPoints": 2,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236897",
+      "npcId": 236897,
+      "name": {
+        "zhCN": "敏锐的监工",
+        "enUS": "Keen Taskmaster"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234849",
+      "npcId": 234849,
+      "name": {
+        "zhCN": "不羁的小鬼",
+        "enUS": "Unleashed Imp"
+      },
+      "forcesPoints": 2,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235261",
+      "npcId": 235261,
+      "name": {
+        "zhCN": "驯服的地狱猎犬",
+        "enUS": "Trained Felhunter"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235268",
+      "npcId": 235268,
+      "name": {
+        "zhCN": "邪能祈求者",
+        "enUS": "Fel Invoker"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235267",
+      "npcId": 235267,
+      "name": {
+        "zhCN": "愤怒卫士掠夺者",
+        "enUS": "Wrathguard Flayer"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235265",
+      "npcId": 235265,
+      "name": {
+        "zhCN": "腐化的术士",
+        "enUS": "Corrupted Warlock"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235257",
+      "npcId": 235257,
+      "name": {
+        "zhCN": "魔蝇",
+        "enUS": "Demon Fly"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235465",
+      "npcId": 235465,
+      "name": {
+        "zhCN": "破坏魔惩罚者",
+        "enUS": "Shivan Punisher"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236905",
+      "npcId": 236905,
+      "name": {
+        "zhCN": "邪能主宰鲁科西",
+        "enUS": "Felmaster Lucsei"
+      },
+      "forcesPoints": 30,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235322",
+      "npcId": 235322,
+      "name": {
+        "zhCN": "亵渎傀儡",
+        "enUS": "Defiled Golem"
+      },
+      "forcesPoints": 35,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234647",
+      "npcId": 234647,
+      "name": {
+        "zhCN": "歼灭者萨祖克斯",
+        "enUS": "Xathuux the Annihilator"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234648",
+      "npcId": 234648,
+      "name": {
+        "zhCN": "凯斯媞亚·魔力之心",
+        "enUS": "Kystia Manaheart"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234649",
+      "npcId": 234649,
+      "name": {
+        "zhCN": "赞恩·刃悲",
+        "enUS": "Zaen Bladesorrow"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234660",
+      "npcId": 234660,
+      "name": {
+        "zhCN": "咬咬",
+        "enUS": "Nibbles"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234763",
+      "npcId": 234763,
+      "name": {
+        "zhCN": "利希尔·烬怒",
+        "enUS": "Lithiel Cinderfury"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234799",
+      "npcId": 234799,
+      "name": {
+        "zhCN": "狂怒的邪犬",
+        "enUS": "Furious Vilefiend"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234852",
+      "npcId": 234852,
+      "name": {
+        "zhCN": "违禁的货物",
+        "enUS": "Forbidden Freight"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234860",
+      "npcId": 234860,
+      "name": {
+        "zhCN": "装箱工",
+        "enUS": "Crate Loader"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-234984",
+      "npcId": 234984,
+      "name": {
+        "zhCN": "银月城主顾",
+        "enUS": "Silvermoon Patron"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235520",
+      "npcId": 235520,
+      "name": {
+        "zhCN": "军团大斧",
+        "enUS": "Legion Axe"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-235841",
+      "npcId": 235841,
+      "name": {
+        "zhCN": "赛勒纳·避日",
+        "enUS": "Selenar Sunshy"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236088",
+      "npcId": 236088,
+      "name": {
+        "zhCN": "蒙面贵族",
+        "enUS": "Masked Noble"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-236525",
+      "npcId": 236525,
+      "name": {
+        "zhCN": "吵闹的主顾",
+        "enUS": "Rowdy Patron"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-237626",
+      "npcId": 237626,
+      "name": {
+        "zhCN": "野生小鬼",
+        "enUS": "Wild Imp"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-238414",
+      "npcId": 238414,
+      "name": {
+        "zhCN": "地狱火",
+        "enUS": "Infernal"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-240289",
+      "npcId": 240289,
+      "name": {
+        "zhCN": "作呕的主顾",
+        "enUS": "Nauseous Patron"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-253081",
+      "npcId": 253081,
+      "name": {
+        "zhCN": "走红的评论家",
+        "enUS": "Influentual Reviewer"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-253324",
+      "npcId": 253324,
+      "name": {
+        "zhCN": "小小邪能浮龙",
+        "enUS": "Tiny Felwyrm"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-255050",
+      "npcId": 255050,
+      "name": {
+        "zhCN": "凯斯媞亚·魔力之心",
+        "enUS": "Kystia Manaheart"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-255604",
+      "npcId": 255604,
+      "name": {
+        "zhCN": "诱惑的萨亚德",
+        "enUS": "Seductive Sayaad"
+      },
+      "forcesPoints": 6,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-263940",
+      "npcId": 263940,
+      "name": {
+        "zhCN": "贝拉斯·黎明之刃",
+        "enUS": "Belath Dawnblade"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-enemy-272246",
+      "npcId": 272246,
+      "name": {
+        "zhCN": "驯服的地狱猎犬",
+        "enUS": "Trained Felhunter"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "id": "mdr-ability-5543",
+      "spellId": 5543,
+      "name": {
+        "zhCN": "消隐",
+        "enUS": "Fade Out"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235520"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-44427",
+      "spellId": 44427,
+      "name": {
+        "zhCN": "激怒",
+        "enUS": "Enrage"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234984"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-473898",
+      "spellId": 473898,
+      "name": {
+        "zhCN": "军团打击",
+        "enUS": "Legion Strike"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474197",
+      "spellId": 474197,
+      "name": {
+        "zhCN": "魔化狂怒",
+        "enUS": "Demonic Rage"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474231",
+      "spellId": 474231,
+      "name": {
+        "zhCN": "燃烧脚步",
+        "enUS": "Burning Steps"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474234",
+      "spellId": 474234,
+      "name": {
+        "zhCN": "燃烧脚步",
+        "enUS": "Burning Steps"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474238",
+      "spellId": 474238,
+      "name": {
+        "zhCN": "非法灌注",
+        "enUS": "Illicit Infusion"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474240",
+      "spellId": 474240,
+      "name": {
+        "zhCN": "邪能新星",
+        "enUS": "Fel Nova"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474375",
+      "spellId": 474375,
+      "name": {
+        "zhCN": "混乱之箭",
+        "enUS": "Chaos Bolt"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474408",
+      "spellId": 474408,
+      "name": {
+        "zhCN": "召唤邪犬",
+        "enUS": "Summon Vilefiend"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474457",
+      "spellId": 474457,
+      "name": {
+        "zhCN": "古尔丹之指",
+        "enUS": "Fingers of Gul'dan"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474462",
+      "spellId": 474462,
+      "name": {
+        "zhCN": "古尔丹之指",
+        "enUS": "Fingers of Gul'dan"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474478",
+      "spellId": 474478,
+      "name": {
+        "zhCN": "影舞步",
+        "enUS": "Killing Spree"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474483",
+      "spellId": 474483,
+      "name": {
+        "zhCN": "影舞步",
+        "enUS": "Killing Spree"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474515",
+      "spellId": 474515,
+      "name": {
+        "zhCN": "断心药膏",
+        "enUS": "Heartstop Poison"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474545",
+      "spellId": 474545,
+      "name": {
+        "zhCN": "绝命凶径",
+        "enUS": "Murder in a Row"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474740",
+      "spellId": 474740,
+      "name": {
+        "zhCN": "绝命凶径",
+        "enUS": "Murder in a Row"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474763",
+      "spellId": 474763,
+      "name": {
+        "zhCN": "绝命凶径",
+        "enUS": "Murder in a Row"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474766",
+      "spellId": 474766,
+      "name": {
+        "zhCN": "当日送达",
+        "enUS": "Same-Day Delivery"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234860"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-474768",
+      "spellId": 474768,
+      "name": {
+        "zhCN": "送达！",
+        "enUS": "Delivery!"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234860"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-734276",
+      "spellId": 734276,
+      "name": {
+        "zhCN": "绝命凶径",
+        "enUS": "Murder in a Row"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1201554",
+      "spellId": 1201554,
+      "name": {
+        "zhCN": "诱惑",
+        "enUS": "Seduction"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236082",
+        "mdr-enemy-255604"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1213658",
+      "spellId": 1213658,
+      "name": {
+        "zhCN": "不满的顾客",
+        "enUS": "Unsatisfied Customer"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236525"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214260",
+      "spellId": 1214260,
+      "name": {
+        "zhCN": "兴高采烈！",
+        "enUS": "Elated!"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234984"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214352",
+      "spellId": 1214352,
+      "name": {
+        "zhCN": "火焰炸弹",
+        "enUS": "Fire Bomb"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214355",
+      "spellId": 1214355,
+      "name": {
+        "zhCN": "火焰炸弹",
+        "enUS": "Fire Bomb"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214357",
+      "spellId": 1214357,
+      "name": {
+        "zhCN": "火焰炸弹",
+        "enUS": "Fire Bomb"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214487",
+      "spellId": 1214487,
+      "name": {
+        "zhCN": "等待服务",
+        "enUS": "Awaiting Service"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234984"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214637",
+      "spellId": 1214637,
+      "name": {
+        "zhCN": "利斧投掷",
+        "enUS": "Axe Toss"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214641",
+      "spellId": 1214641,
+      "name": {
+        "zhCN": "利斧投掷",
+        "enUS": "Axe Toss"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214647",
+      "spellId": 1214647,
+      "name": {
+        "zhCN": "利斧投掷",
+        "enUS": "Axe Toss"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214650",
+      "spellId": 1214650,
+      "name": {
+        "zhCN": "魔能闪电",
+        "enUS": "Fel Lightning"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235520"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214663",
+      "spellId": 1214663,
+      "name": {
+        "zhCN": "利斧投掷",
+        "enUS": "Axe Toss"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214675",
+      "spellId": 1214675,
+      "name": {
+        "zhCN": "恶魔传送门",
+        "enUS": "Demonic Gateway"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214730",
+      "spellId": 1214730,
+      "name": {
+        "zhCN": "恶魔传送门",
+        "enUS": "Demonic Gateway"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214740",
+      "spellId": 1214740,
+      "name": {
+        "zhCN": "恶魔传送门",
+        "enUS": "Demonic Gateway"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214922",
+      "spellId": 1214922,
+      "name": {
+        "zhCN": "邪能之怒",
+        "enUS": "Fel Rage"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235267"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214959",
+      "spellId": 1214959,
+      "name": {
+        "zhCN": "混沌爆裂",
+        "enUS": "Chaotic Burst"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214966",
+      "spellId": 1214966,
+      "name": {
+        "zhCN": "邪能灌注",
+        "enUS": "Fel Infused"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236085",
+        "mdr-enemy-253324"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1214980",
+      "spellId": 1214980,
+      "name": {
+        "zhCN": "生命通道",
+        "enUS": "Health Funnel"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235268"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1215872",
+      "spellId": 1215872,
+      "name": {
+        "zhCN": "邪能光束",
+        "enUS": "Fel Beam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1215961",
+      "spellId": 1215961,
+      "name": {
+        "zhCN": "邪能光束",
+        "enUS": "Fel Beam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1215985",
+      "spellId": 1215985,
+      "name": {
+        "zhCN": "邪能光束",
+        "enUS": "Fel Beam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216074",
+      "spellId": 1216074,
+      "name": {
+        "zhCN": "洒落物区域",
+        "enUS": "Spill Zone"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235841"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216076",
+      "spellId": 1216076,
+      "name": {
+        "zhCN": "作呕",
+        "enUS": "Nauseous"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-240289"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216284",
+      "spellId": 1216284,
+      "name": {
+        "zhCN": "潜行",
+        "enUS": "Stealth"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236091"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216300",
+      "spellId": 1216300,
+      "name": {
+        "zhCN": "妙手空空",
+        "enUS": "Cutpurse"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236073"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216529",
+      "spellId": 1216529,
+      "name": {
+        "zhCN": "盾击",
+        "enUS": "Shield Bash"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236071",
+        "mdr-enemy-252529"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216538",
+      "spellId": 1216538,
+      "name": {
+        "zhCN": "邪能引爆",
+        "enUS": "Fel Detonation"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236085",
+        "mdr-enemy-253324"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216570",
+      "spellId": 1216570,
+      "name": {
+        "zhCN": "邪能飞弹",
+        "enUS": "Fel Missiles"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236084"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216571",
+      "spellId": 1216571,
+      "name": {
+        "zhCN": "邪能飞弹",
+        "enUS": "Fel Missiles"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236084"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216589",
+      "spellId": 1216589,
+      "name": {
+        "zhCN": "断心药膏",
+        "enUS": "Heartstop Poison"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236091"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216590",
+      "spellId": 1216590,
+      "name": {
+        "zhCN": "断心药膏",
+        "enUS": "Heartstop Poison"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236091"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216945",
+      "spellId": 1216945,
+      "name": {
+        "zhCN": "灼热邪焰",
+        "enUS": "Searing Fel Flame"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216954",
+      "spellId": 1216954,
+      "name": {
+        "zhCN": "眼棱",
+        "enUS": "Eye Beam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236905"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216955",
+      "spellId": 1216955,
+      "name": {
+        "zhCN": "眼棱",
+        "enUS": "Eye Beam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236905"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1216970",
+      "spellId": 1216970,
+      "name": {
+        "zhCN": "回去干活！",
+        "enUS": "Back to Work!"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236893",
+        "mdr-enemy-236897"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217099",
+      "spellId": 1217099,
+      "name": {
+        "zhCN": "邪能灌注货物",
+        "enUS": "Fel-Infused Freight"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234852"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217123",
+      "spellId": 1217123,
+      "name": {
+        "zhCN": "火焰炸弹",
+        "enUS": "Fire Bomb"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217345",
+      "spellId": 1217345,
+      "name": {
+        "zhCN": "灾厄浪潮",
+        "enUS": "Malefic Wave"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217384",
+      "spellId": 1217384,
+      "name": {
+        "zhCN": "灾厄浪潮",
+        "enUS": "Malefic Wave"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217415",
+      "spellId": 1217415,
+      "name": {
+        "zhCN": "邪能护盾",
+        "enUS": "Felshield"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217464",
+      "spellId": 1217464,
+      "name": {
+        "zhCN": "非法灌注",
+        "enUS": "Illicit Infusion"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648",
+        "mdr-enemy-234660"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217633",
+      "spellId": 1217633,
+      "name": {
+        "zhCN": "腐蚀唾液",
+        "enUS": "Corroding Spittle"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236902"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217881",
+      "spellId": 1217881,
+      "name": {
+        "zhCN": "暗影撕咬",
+        "enUS": "Shadow Bite"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235261",
+        "mdr-enemy-234763",
+        "mdr-enemy-234799"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217930",
+      "spellId": 1217930,
+      "name": {
+        "zhCN": "禁锢",
+        "enUS": "Imprison"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235261",
+        "mdr-enemy-236905"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217937",
+      "spellId": 1217937,
+      "name": {
+        "zhCN": "释放恶魔",
+        "enUS": "Release Demon"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236905"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217973",
+      "spellId": 1217973,
+      "name": {
+        "zhCN": "厄运诅咒",
+        "enUS": "Curse of Doom"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235265"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217989",
+      "spellId": 1217989,
+      "name": {
+        "zhCN": "邪能护盾",
+        "enUS": "Felshield"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1217992",
+      "spellId": 1217992,
+      "name": {
+        "zhCN": "工作事故",
+        "enUS": "Workplace Accident"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236893"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1218187",
+      "spellId": 1218187,
+      "name": {
+        "zhCN": "邪能光束",
+        "enUS": "Fel Beam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1218347",
+      "spellId": 1218347,
+      "name": {
+        "zhCN": "绝命凶径",
+        "enUS": "Murder in a Row"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1218465",
+      "spellId": 1218465,
+      "name": {
+        "zhCN": "服务员",
+        "enUS": "Server"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-263940"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1218466",
+      "spellId": 1218466,
+      "name": {
+        "zhCN": "清洁工",
+        "enUS": "Cleaner"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-263940"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1218467",
+      "spellId": 1218467,
+      "name": {
+        "zhCN": "表演者",
+        "enUS": "Entertainer"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-263940"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1218468",
+      "spellId": 1218468,
+      "name": {
+        "zhCN": "保镖",
+        "enUS": "Bouncer"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-263940"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1218508",
+      "spellId": 1218508,
+      "name": {
+        "zhCN": "伪装",
+        "enUS": "Disguised"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-263940"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1219468",
+      "spellId": 1219468,
+      "name": {
+        "zhCN": "魔法宴会面具",
+        "enUS": "Enchanted Party Mask"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236088"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1219631",
+      "spellId": 1219631,
+      "name": {
+        "zhCN": "邪能灌注货物",
+        "enUS": "Fel-Infused Freight"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234852"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1221063",
+      "spellId": 1221063,
+      "name": {
+        "zhCN": "萨拉塔斯的赠礼",
+        "enUS": "Xal'atath's Gift"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236085",
+        "mdr-enemy-236073",
+        "mdr-enemy-236084",
+        "mdr-enemy-236071",
+        "mdr-enemy-252529",
+        "mdr-enemy-236091",
+        "mdr-enemy-235261",
+        "mdr-enemy-235268",
+        "mdr-enemy-235267",
+        "mdr-enemy-235265",
+        "mdr-enemy-235257",
+        "mdr-enemy-235322",
+        "mdr-enemy-234648",
+        "mdr-enemy-234649",
+        "mdr-enemy-234660",
+        "mdr-enemy-237626",
+        "mdr-enemy-238414"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1222598",
+      "spellId": 1222598,
+      "name": {
+        "zhCN": "绝命凶径",
+        "enUS": "Murder in a Row"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649",
+        "mdr-enemy-234852"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1222795",
+      "spellId": 1222795,
+      "name": {
+        "zhCN": "毒伤",
+        "enUS": "Envenom"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1223204",
+      "spellId": 1223204,
+      "name": {
+        "zhCN": "邪火爆裂",
+        "enUS": "Felfire Burst"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234849",
+        "mdr-enemy-237626"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1223906",
+      "spellId": 1223906,
+      "name": {
+        "zhCN": "邪能新星",
+        "enUS": "Fel Nova"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1223939",
+      "spellId": 1223939,
+      "name": {
+        "zhCN": "毒伤",
+        "enUS": "Envenom"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234649"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1226469",
+      "spellId": 1226469,
+      "name": {
+        "zhCN": "灾厄强化",
+        "enUS": "Malefic Empowerment"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763",
+        "mdr-enemy-237626"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1228198",
+      "spellId": 1228198,
+      "name": {
+        "zhCN": "腐蚀唾液",
+        "enUS": "Corroding Spittle"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234660"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1229433",
+      "spellId": 1229433,
+      "name": {
+        "zhCN": "邪能谵狂",
+        "enUS": "Fel Crazed"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236084"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1230289",
+      "spellId": 1230289,
+      "name": {
+        "zhCN": "非法灌注",
+        "enUS": "Illicit Infusion"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234660"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1230298",
+      "spellId": 1230298,
+      "name": {
+        "zhCN": "混沌弹幕",
+        "enUS": "Chaos Barrage"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1230304",
+      "spellId": 1230304,
+      "name": {
+        "zhCN": "光明灌注",
+        "enUS": "Light Infusion"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234660"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1231256",
+      "spellId": 1231256,
+      "name": {
+        "zhCN": "地狱火之怒",
+        "enUS": "Infernal Rage"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-238414"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1231262",
+      "spellId": 1231262,
+      "name": {
+        "zhCN": "邪火核心",
+        "enUS": "Felfire Core"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-238414"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1231353",
+      "spellId": 1231353,
+      "name": {
+        "zhCN": "邪火核心",
+        "enUS": "Felfire Core"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-238414"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1253811",
+      "spellId": 1253811,
+      "name": {
+        "zhCN": "邪能飞溅",
+        "enUS": "Fel Spray"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234660"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1253813",
+      "spellId": 1253813,
+      "name": {
+        "zhCN": "邪能飞溅",
+        "enUS": "Fel Spray"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234660"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1255881",
+      "spellId": 1255881,
+      "name": {
+        "zhCN": "虚空行走",
+        "enUS": "Netherwalk"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-263940"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1256276",
+      "spellId": 1256276,
+      "name": {
+        "zhCN": "深度腐败",
+        "enUS": "Deep Corruption"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-252529"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1256299",
+      "spellId": 1256299,
+      "name": {
+        "zhCN": "过度注入",
+        "enUS": "Over-infused"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236902"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1256300",
+      "spellId": 1256300,
+      "name": {
+        "zhCN": "邪能大爆炸",
+        "enUS": "Massive Fel Detonation"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236902"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1257877",
+      "spellId": 1257877,
+      "name": {
+        "zhCN": "恶意评价",
+        "enUS": "Scathing Review"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-253081"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1258537",
+      "spellId": 1258537,
+      "name": {
+        "zhCN": "召唤浮龙",
+        "enUS": "Summon Wyrms"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236902"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1264095",
+      "spellId": 1264095,
+      "name": {
+        "zhCN": "镜像",
+        "enUS": "Mirror Images"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234648"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1264106",
+      "spellId": 1264106,
+      "name": {
+        "zhCN": "邪能风暴",
+        "enUS": "Felstorm"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-255050"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1264110",
+      "spellId": 1264110,
+      "name": {
+        "zhCN": "邪能风暴",
+        "enUS": "Felstorm"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-255050"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1266241",
+      "spellId": 1266241,
+      "name": {
+        "zhCN": "货物爆炸",
+        "enUS": "Freight Explosion"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234852"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1287627",
+      "spellId": 1287627,
+      "name": {
+        "zhCN": "灼热邪焰",
+        "enUS": "Searing Fel Flame"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234763"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1293022",
+      "spellId": 1293022,
+      "name": {
+        "zhCN": "邪能冲刺",
+        "enUS": "Fel Dash"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235257"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1293101",
+      "spellId": 1293101,
+      "name": {
+        "zhCN": "暗影撕咬",
+        "enUS": "Shadow Bite"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235261",
+        "mdr-enemy-234799",
+        "mdr-enemy-272246"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1294770",
+      "spellId": 1294770,
+      "name": {
+        "zhCN": "魔化狂乱",
+        "enUS": "Demonic Frenzy"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235465"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1294774",
+      "spellId": 1294774,
+      "name": {
+        "zhCN": "魔化狂乱",
+        "enUS": "Demonic Frenzy"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235465"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1294789",
+      "spellId": 1294789,
+      "name": {
+        "zhCN": "厄运诅咒",
+        "enUS": "Curse of Doom"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235265"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1294824",
+      "spellId": 1294824,
+      "name": {
+        "zhCN": "亵渎猛击",
+        "enUS": "Defiled Slam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1294827",
+      "spellId": 1294827,
+      "name": {
+        "zhCN": "亵渎猛击",
+        "enUS": "Defiled Slam"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1294836",
+      "spellId": 1294836,
+      "name": {
+        "zhCN": "亵渎引爆",
+        "enUS": "Defiled Detonation"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1294870",
+      "spellId": 1294870,
+      "name": {
+        "zhCN": "邪痕大地",
+        "enUS": "Fel-Scarred Earth"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235322"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1295035",
+      "spellId": 1295035,
+      "name": {
+        "zhCN": "飞刃",
+        "enUS": "Glaive Toss"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236071",
+        "mdr-enemy-252529"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1295426",
+      "spellId": 1295426,
+      "name": {
+        "zhCN": "剥离",
+        "enUS": "Flay"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235267"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1295427",
+      "spellId": 1295427,
+      "name": {
+        "zhCN": "剥离",
+        "enUS": "Flay"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235267"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1295453",
+      "spellId": 1295453,
+      "name": {
+        "zhCN": "地狱火碾压",
+        "enUS": "Infernal Crush"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1295455",
+      "spellId": 1295455,
+      "name": {
+        "zhCN": "地狱火碾压",
+        "enUS": "Infernal Crush"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-234647"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297667",
+      "spellId": 1297667,
+      "name": {
+        "zhCN": "燃烧邪能",
+        "enUS": "Burning Fel"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236902"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297676",
+      "spellId": 1297676,
+      "name": {
+        "zhCN": "惩罚之力",
+        "enUS": "Punishing Might"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235465"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297682",
+      "spellId": 1297682,
+      "name": {
+        "zhCN": "吸取生命",
+        "enUS": "Drain Life"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235265"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297683",
+      "spellId": 1297683,
+      "name": {
+        "zhCN": "吸取生命",
+        "enUS": "Drain Life"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235265"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297684",
+      "spellId": 1297684,
+      "name": {
+        "zhCN": "黑暗契约",
+        "enUS": "Dark Pact"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235265"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297686",
+      "spellId": 1297686,
+      "name": {
+        "zhCN": "黑暗契约",
+        "enUS": "Dark Pact"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235265"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297691",
+      "spellId": 1297691,
+      "name": {
+        "zhCN": "旋风斩",
+        "enUS": "Whirlwind"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235465"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297693",
+      "spellId": 1297693,
+      "name": {
+        "zhCN": "邪火轰炸",
+        "enUS": "Felfire Bombardment"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235268"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1297695",
+      "spellId": 1297695,
+      "name": {
+        "zhCN": "邪火轰炸",
+        "enUS": "Felfire Bombardment"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235268"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1302007",
+      "spellId": 1302007,
+      "name": {
+        "zhCN": "刃舞",
+        "enUS": "Blade Dance"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236905"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1302010",
+      "spellId": 1302010,
+      "name": {
+        "zhCN": "刃舞",
+        "enUS": "Blade Dance"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236905"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1309970",
+      "spellId": 1309970,
+      "name": {
+        "zhCN": "生命通道",
+        "enUS": "Health Funnel"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-235268"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "mdr-ability-1311136",
+      "spellId": 1311136,
+      "name": {
+        "zhCN": "锋利之甲",
+        "enUS": "Sharp Nail"
+      },
+      "casterEnemyIds": [
+        "mdr-enemy-236893"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "situations": [],
+  "routes": [],
+  "bosses": [],
+  "provenance": [
+    {
+      "type": "game-data",
+      "title": "MDT 怪物事实快照 mdt-facts-s2-murder-row-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+      "snapshot": "mdt-facts-s2-murder-row-2026-08-26",
+      "gameBuild": "12.1.0",
+      "retrievedAt": "2026-08-26",
+      "licenseStatus": "approved",
+      "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+    }
+  ]
+}

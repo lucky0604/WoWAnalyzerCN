@@ -1,0 +1,2964 @@
+{
+  "version": 1,
+  "snapshot": {
+    "snapshotId": "mdt-facts-s2-murder-row-2026-08-26",
+    "digest": "sha256:24a42f0d0b3cfea9cb758c2fd4628b3b55121f0c9b060e69eba0459e34f7c811",
+    "dungeonId": "murder-row",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0"
+  },
+  "document": {
+    "id": "murder-row",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "revision": 1
+  },
+  "manifestTemplate": {
+    "version": 1,
+    "snapshotId": "mdt-facts-s2-murder-row-2026-08-26",
+    "snapshotDigest": "sha256:24a42f0d0b3cfea9cb758c2fd4628b3b55121f0c9b060e69eba0459e34f7c811",
+    "dungeonId": "murder-row",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "enemies": [],
+    "abilities": []
+  },
+  "enemies": [
+    {
+      "sourceKey": "Felwyrm",
+      "npcId": 236085,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236085",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Row Hooligan",
+      "npcId": 236073,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236073",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Felonious Mage",
+      "npcId": 236084,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236084",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Bribed Guard",
+      "npcId": 236071,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236071",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Bribed Captain",
+      "npcId": 252529,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-252529",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Seductive Sayaad [236082]",
+      "npcId": 236082,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236082",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Massive Felwyrm",
+      "npcId": 236902,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236902",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Street Sneak",
+      "npcId": 236091,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236091",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Warehouse Worker",
+      "npcId": 236893,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236893",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Keen Taskmaster",
+      "npcId": 236897,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236897",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Unleashed Imp",
+      "npcId": 234849,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234849",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Trained Felhunter [235261]",
+      "npcId": 235261,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235261",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Fel Invoker",
+      "npcId": 235268,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235268",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Wrathguard Flayer",
+      "npcId": 235267,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235267",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Corrupted Warlock",
+      "npcId": 235265,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235265",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Demon Fly",
+      "npcId": 235257,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235257",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Shivan Punisher",
+      "npcId": 235465,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235465",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Felmaster Lucsei",
+      "npcId": 236905,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236905",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Defiled Golem",
+      "npcId": 235322,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235322",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Xathuux the Annihilator",
+      "npcId": 234647,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234647",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Kystia Manaheart [234648]",
+      "npcId": 234648,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234648",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Zaen Bladesorrow",
+      "npcId": 234649,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234649",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Nibbles",
+      "npcId": 234660,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234660",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lithiel Cinderfury",
+      "npcId": 234763,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234763",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Furious Vilefiend",
+      "npcId": 234799,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234799",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Forbidden Freight",
+      "npcId": 234852,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234852",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Crate Loader",
+      "npcId": 234860,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234860",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Silvermoon Patron",
+      "npcId": 234984,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-234984",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Legion Axe",
+      "npcId": 235520,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235520",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Selenar Sunshy",
+      "npcId": 235841,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-235841",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Masked Noble",
+      "npcId": 236088,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236088",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Rowdy Patron",
+      "npcId": 236525,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-236525",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Wild Imp",
+      "npcId": 237626,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-237626",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Infernal",
+      "npcId": 238414,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-238414",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Nauseous Patron",
+      "npcId": 240289,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-240289",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Influentual Reviewer",
+      "npcId": 253081,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-253081",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Tiny Felwyrm",
+      "npcId": 253324,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-253324",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Kystia Manaheart [255050]",
+      "npcId": 255050,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-255050",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Seductive Sayaad [255604]",
+      "npcId": 255604,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-255604",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Belath Dawnblade",
+      "npcId": 263940,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-263940",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Trained Felhunter [272246]",
+      "npcId": 272246,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "mdr-enemy-272246",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-5543",
+      "spellId": 5543,
+      "casterEnemyKeys": [
+        "Legion Axe"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-5543",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-44427",
+      "spellId": 44427,
+      "casterEnemyKeys": [
+        "Silvermoon Patron"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-44427",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-473898",
+      "spellId": 473898,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-473898",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474197",
+      "spellId": 474197,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474197",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474231",
+      "spellId": 474231,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474231",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474234",
+      "spellId": 474234,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474234",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474238",
+      "spellId": 474238,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474238",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474240",
+      "spellId": 474240,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474240",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474375",
+      "spellId": 474375,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474375",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474408",
+      "spellId": 474408,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474408",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474457",
+      "spellId": 474457,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474457",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474462",
+      "spellId": 474462,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474462",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474478",
+      "spellId": 474478,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474478",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474483",
+      "spellId": 474483,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474483",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474515",
+      "spellId": 474515,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474515",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474545",
+      "spellId": 474545,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474545",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474740",
+      "spellId": 474740,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474740",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474763",
+      "spellId": 474763,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474763",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474766",
+      "spellId": 474766,
+      "casterEnemyKeys": [
+        "Crate Loader"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474766",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-474768",
+      "spellId": 474768,
+      "casterEnemyKeys": [
+        "Crate Loader"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-474768",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-734276",
+      "spellId": 734276,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-734276",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1201554",
+      "spellId": 1201554,
+      "casterEnemyKeys": [
+        "Seductive Sayaad [236082]",
+        "Seductive Sayaad [255604]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1201554",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1213658",
+      "spellId": 1213658,
+      "casterEnemyKeys": [
+        "Rowdy Patron"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1213658",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214260",
+      "spellId": 1214260,
+      "casterEnemyKeys": [
+        "Silvermoon Patron"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214260",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214352",
+      "spellId": 1214352,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214352",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214355",
+      "spellId": 1214355,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214355",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214357",
+      "spellId": 1214357,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214357",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214487",
+      "spellId": 1214487,
+      "casterEnemyKeys": [
+        "Silvermoon Patron"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214487",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214637",
+      "spellId": 1214637,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214637",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214641",
+      "spellId": 1214641,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214641",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214647",
+      "spellId": 1214647,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214647",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214650",
+      "spellId": 1214650,
+      "casterEnemyKeys": [
+        "Legion Axe"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214650",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214663",
+      "spellId": 1214663,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214663",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214675",
+      "spellId": 1214675,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214675",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214730",
+      "spellId": 1214730,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214730",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214740",
+      "spellId": 1214740,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214740",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214922",
+      "spellId": 1214922,
+      "casterEnemyKeys": [
+        "Wrathguard Flayer"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214922",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214959",
+      "spellId": 1214959,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214959",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214966",
+      "spellId": 1214966,
+      "casterEnemyKeys": [
+        "Felwyrm",
+        "Tiny Felwyrm"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214966",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1214980",
+      "spellId": 1214980,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1214980",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1215872",
+      "spellId": 1215872,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1215872",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1215961",
+      "spellId": 1215961,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1215961",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1215985",
+      "spellId": 1215985,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1215985",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216074",
+      "spellId": 1216074,
+      "casterEnemyKeys": [
+        "Selenar Sunshy"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216074",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216076",
+      "spellId": 1216076,
+      "casterEnemyKeys": [
+        "Nauseous Patron"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216076",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216284",
+      "spellId": 1216284,
+      "casterEnemyKeys": [
+        "Street Sneak"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216284",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216300",
+      "spellId": 1216300,
+      "casterEnemyKeys": [
+        "Row Hooligan"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216300",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216529",
+      "spellId": 1216529,
+      "casterEnemyKeys": [
+        "Bribed Guard",
+        "Bribed Captain"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216529",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216538",
+      "spellId": 1216538,
+      "casterEnemyKeys": [
+        "Felwyrm",
+        "Tiny Felwyrm"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216538",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216570",
+      "spellId": 1216570,
+      "casterEnemyKeys": [
+        "Felonious Mage"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216570",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216571",
+      "spellId": 1216571,
+      "casterEnemyKeys": [
+        "Felonious Mage"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216571",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216589",
+      "spellId": 1216589,
+      "casterEnemyKeys": [
+        "Street Sneak"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216589",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216590",
+      "spellId": 1216590,
+      "casterEnemyKeys": [
+        "Street Sneak"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216590",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216945",
+      "spellId": 1216945,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216945",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216954",
+      "spellId": 1216954,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216954",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216955",
+      "spellId": 1216955,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216955",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1216970",
+      "spellId": 1216970,
+      "casterEnemyKeys": [
+        "Warehouse Worker",
+        "Keen Taskmaster"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1216970",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217099",
+      "spellId": 1217099,
+      "casterEnemyKeys": [
+        "Forbidden Freight"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217099",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217123",
+      "spellId": 1217123,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217123",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217345",
+      "spellId": 1217345,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217345",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217384",
+      "spellId": 1217384,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217384",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217415",
+      "spellId": 1217415,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217415",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217464",
+      "spellId": 1217464,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]",
+        "Nibbles"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217464",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217633",
+      "spellId": 1217633,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217633",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217881",
+      "spellId": 1217881,
+      "casterEnemyKeys": [
+        "Trained Felhunter [235261]",
+        "Lithiel Cinderfury",
+        "Furious Vilefiend"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217881",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217930",
+      "spellId": 1217930,
+      "casterEnemyKeys": [
+        "Trained Felhunter [235261]",
+        "Felmaster Lucsei"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217930",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217937",
+      "spellId": 1217937,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217937",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217973",
+      "spellId": 1217973,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217973",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217989",
+      "spellId": 1217989,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217989",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1217992",
+      "spellId": 1217992,
+      "casterEnemyKeys": [
+        "Warehouse Worker"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1217992",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1218187",
+      "spellId": 1218187,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1218187",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1218347",
+      "spellId": 1218347,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1218347",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1218465",
+      "spellId": 1218465,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1218465",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1218466",
+      "spellId": 1218466,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1218466",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1218467",
+      "spellId": 1218467,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1218467",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1218468",
+      "spellId": 1218468,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1218468",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1218508",
+      "spellId": 1218508,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1218508",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1219468",
+      "spellId": 1219468,
+      "casterEnemyKeys": [
+        "Masked Noble"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1219468",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1219631",
+      "spellId": 1219631,
+      "casterEnemyKeys": [
+        "Forbidden Freight"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1219631",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1221063",
+      "spellId": 1221063,
+      "casterEnemyKeys": [
+        "Felwyrm",
+        "Row Hooligan",
+        "Felonious Mage",
+        "Bribed Guard",
+        "Bribed Captain",
+        "Street Sneak",
+        "Trained Felhunter [235261]",
+        "Fel Invoker",
+        "Wrathguard Flayer",
+        "Corrupted Warlock",
+        "Demon Fly",
+        "Defiled Golem",
+        "Kystia Manaheart [234648]",
+        "Zaen Bladesorrow",
+        "Nibbles",
+        "Wild Imp",
+        "Infernal"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1221063",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1222598",
+      "spellId": 1222598,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow",
+        "Forbidden Freight"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1222598",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1222795",
+      "spellId": 1222795,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1222795",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1223204",
+      "spellId": 1223204,
+      "casterEnemyKeys": [
+        "Unleashed Imp",
+        "Wild Imp"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1223204",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1223906",
+      "spellId": 1223906,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1223906",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1223939",
+      "spellId": 1223939,
+      "casterEnemyKeys": [
+        "Zaen Bladesorrow"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1223939",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1226469",
+      "spellId": 1226469,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury",
+        "Wild Imp"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1226469",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1228198",
+      "spellId": 1228198,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1228198",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1229433",
+      "spellId": 1229433,
+      "casterEnemyKeys": [
+        "Felonious Mage"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1229433",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1230289",
+      "spellId": 1230289,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1230289",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1230298",
+      "spellId": 1230298,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1230298",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1230304",
+      "spellId": 1230304,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1230304",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1231256",
+      "spellId": 1231256,
+      "casterEnemyKeys": [
+        "Infernal"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1231256",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1231262",
+      "spellId": 1231262,
+      "casterEnemyKeys": [
+        "Infernal"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1231262",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1231353",
+      "spellId": 1231353,
+      "casterEnemyKeys": [
+        "Infernal"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1231353",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1253811",
+      "spellId": 1253811,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1253811",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1253813",
+      "spellId": 1253813,
+      "casterEnemyKeys": [
+        "Nibbles"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1253813",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1255881",
+      "spellId": 1255881,
+      "casterEnemyKeys": [
+        "Belath Dawnblade"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1255881",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1256276",
+      "spellId": 1256276,
+      "casterEnemyKeys": [
+        "Bribed Captain"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1256276",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1256299",
+      "spellId": 1256299,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1256299",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1256300",
+      "spellId": 1256300,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1256300",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1257877",
+      "spellId": 1257877,
+      "casterEnemyKeys": [
+        "Influentual Reviewer"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1257877",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1258537",
+      "spellId": 1258537,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1258537",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1264095",
+      "spellId": 1264095,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [234648]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1264095",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1264106",
+      "spellId": 1264106,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [255050]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1264106",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1264110",
+      "spellId": 1264110,
+      "casterEnemyKeys": [
+        "Kystia Manaheart [255050]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1264110",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1266241",
+      "spellId": 1266241,
+      "casterEnemyKeys": [
+        "Forbidden Freight"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1266241",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1287627",
+      "spellId": 1287627,
+      "casterEnemyKeys": [
+        "Lithiel Cinderfury"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1287627",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293022",
+      "spellId": 1293022,
+      "casterEnemyKeys": [
+        "Demon Fly"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1293022",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293101",
+      "spellId": 1293101,
+      "casterEnemyKeys": [
+        "Trained Felhunter [235261]",
+        "Furious Vilefiend",
+        "Trained Felhunter [272246]"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1293101",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294770",
+      "spellId": 1294770,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1294770",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294774",
+      "spellId": 1294774,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1294774",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294789",
+      "spellId": 1294789,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1294789",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294824",
+      "spellId": 1294824,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1294824",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294827",
+      "spellId": 1294827,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1294827",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294836",
+      "spellId": 1294836,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1294836",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294870",
+      "spellId": 1294870,
+      "casterEnemyKeys": [
+        "Defiled Golem"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1294870",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295035",
+      "spellId": 1295035,
+      "casterEnemyKeys": [
+        "Bribed Guard",
+        "Bribed Captain"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1295035",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295426",
+      "spellId": 1295426,
+      "casterEnemyKeys": [
+        "Wrathguard Flayer"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1295426",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295427",
+      "spellId": 1295427,
+      "casterEnemyKeys": [
+        "Wrathguard Flayer"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1295427",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295453",
+      "spellId": 1295453,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1295453",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295455",
+      "spellId": 1295455,
+      "casterEnemyKeys": [
+        "Xathuux the Annihilator"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1295455",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297667",
+      "spellId": 1297667,
+      "casterEnemyKeys": [
+        "Massive Felwyrm"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297667",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297676",
+      "spellId": 1297676,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297676",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297682",
+      "spellId": 1297682,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297682",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297683",
+      "spellId": 1297683,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297683",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297684",
+      "spellId": 1297684,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297684",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297686",
+      "spellId": 1297686,
+      "casterEnemyKeys": [
+        "Corrupted Warlock"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297686",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297691",
+      "spellId": 1297691,
+      "casterEnemyKeys": [
+        "Shivan Punisher"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297691",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297693",
+      "spellId": 1297693,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297693",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297695",
+      "spellId": 1297695,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1297695",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302007",
+      "spellId": 1302007,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1302007",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302010",
+      "spellId": 1302010,
+      "casterEnemyKeys": [
+        "Felmaster Lucsei"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1302010",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309970",
+      "spellId": 1309970,
+      "casterEnemyKeys": [
+        "Fel Invoker"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1309970",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311136",
+      "spellId": 1311136,
+      "casterEnemyKeys": [
+        "Warehouse Worker"
+      ],
+      "candidates": [
+        {
+          "documentId": "mdr-ability-1311136",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "coverage": {
+    "snapshotEnemies": 41,
+    "snapshotAbilities": 134,
+    "documentEnemies": 41,
+    "documentAbilities": 134,
+    "unambiguousEnemyCandidates": 41,
+    "unambiguousAbilityCandidates": 134
+  },
+  "status": "ready-for-review",
+  "planDigest": "sha256:d712ee899c0d42a91a74a07ab5a1ca7061f48c0836614759393e9294acb2c839"
+}
