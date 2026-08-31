@@ -223,6 +223,7 @@ class Causality extends Analyzer {
             message: 's CDR wasted whilst an Empower was ready',
           }),
         value: wastedCDR + MIDS24P_wastedCDR,
+      },
     ];
 
     return (
