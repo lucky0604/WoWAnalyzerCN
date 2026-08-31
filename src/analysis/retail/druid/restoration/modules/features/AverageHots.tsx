@@ -1,7 +1,7 @@
 import SPELLS from 'common/SPELLS';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
-import { SpellIcon } from 'interface';
+import { TALENTS_DRUID } from 'common/TALENTS';
+import { SpellIcon, SpellLink } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
 import BoringValue from 'parser/ui/BoringValueText';
 import Statistic from 'parser/ui/Statistic';
@@ -33,25 +33,40 @@ class AverageHots extends Analyzer {
         tooltip={
           <>
             <p>
-              <Trans id="restoration.average_hots.tooltip_p1">
-                This is the average effective multiplier of your mastery your heals benefitted from,
-                weighted by healing done (for example if had 10% mastery and mastery increased your
-                heals by an average of 17%, the listed number would be 1.7).
-              </Trans>
+              {t({
+                id: 'restoration.average_hots.tooltip_p1',
+                message:
+                  'Mastery Multiplier is the average increase to your healing from Mastery, weighted by healing done. For example, if you have 10% Mastery and your healing is increased by an average of 17%, this number would be 1.7.',
+              })}
             </p>
             <p>
-              <Trans id="restoration.average_hots.tooltip_p2">
-                This number should not be read as a performance metric but rather a function of talent
-                choices and healing style. Talents that spread extra HoTs like Cultivation or Spring
-                Blossoms will increase this number, while playing in larger groups will tend to reduce
-                this number.
-              </Trans>
+              {t({
+                id: 'restoration.average_hots.tooltip_p2',
+                message:
+                  'This is not a performance metric. It mostly reflects your talent choices and healing style. Talents that apply more HoTs will generally increase this number, while healing in larger groups will tend to lower it.',
+              })}
             </p>
             <p>
-              <>
-                {t({ id: 'restoration.average_hots.tooltip_p3.part1', message: "This number includes all your healing, even heals that don't benefit from mastery (like Trinkets, potions, Renewal, etc..) Your average mastery multiplier counting only heals that benefit from mastery is" })}{' '}
-                <strong>{avgDruidBenefitMult}</strong>.
-              </>
+              {t({
+                id: 'restoration.average_hots.tooltip_p3.part1',
+                message:
+                  'This number includes all of your healing, including spells that do not benefit from Mastery such as Trinkets, potions, and Renewal. If you only look at healing that can benefit from Mastery, the average multiplier is ',
+              })}
+              <strong>{avgDruidBenefitMult}</strong>
+              .
+            </p>
+            <p>
+              <SpellLink spell={TALENTS_DRUID.EVERBLOOM_2_RESTORATION_TALENT} />
+              {t({
+                id: 'restoration.average_hots.tooltip_p4.a',
+                message: ' splash healing and ',
+              })}
+              <SpellLink spell={TALENTS_DRUID.SYMBIOTIC_RELATIONSHIP_TALENT} />
+              {t({
+                id: 'restoration.average_hots.tooltip_p4.b',
+                message:
+                  ' use the Mastery from HoTs on the target of the original heal. They do not use the HoTs on the ally who receives the resulting heal.',
+              })}
             </p>
           </>
         }

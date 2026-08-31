@@ -3,12 +3,7 @@ import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
 import TALENTS from 'common/TALENTS/mage';
 import { SpellLink, SpellIcon } from 'interface';
-import {
-  formatPercentage,
-  formatDuration,
-  formatNumber,
-  formatDurationMillisMinSec,
-} from 'common/format';
+import { formatPercentage, formatNumber } from 'common/format';
 import GuideSection from 'interface/guide/components/GuideSection';
 import CastDetail, {
   type PerCastData,
@@ -53,13 +48,6 @@ class ArcaneBarrageGuide extends Analyzer {
     }
 
     // FAIL CONDITIONS
-    if (cast.touchCD < 5000 && cast.touchCD > 500) {
-      return {
-        timestamp: cast.cast.timestamp,
-        performance: QualitativePerformance.Fail,
-        reason: `Touch of the Magi available soon (${formatDurationMillisMinSec(cast.touchCD)})`,
-      };
-    }
 
     // PERFECT CONDITIONS
     if (this.isSpellslinger && cast.salvoStacks === 20 && hasMaxCharges) {
@@ -148,11 +136,11 @@ class ArcaneBarrageGuide extends Analyzer {
     }
 
     // OK CONDITIONS
-    if (this.isSpellslinger && cast.salvoStacks < 15 && cast.touchCD > 5000) {
+    if (this.isSpellslinger && cast.salvoStacks < 15) {
       return {
         timestamp: cast.cast.timestamp,
         performance: QualitativePerformance.Ok,
-        reason: `Had ${cast.salvoStacks} Arcane Salvo stacks with ${formatDurationMillisMinSec(cast.touchCD)} CD remaining on Touch of the Magi.`,
+        reason: `Had ${cast.salvoStacks} Arcane Salvo stacks.`,
       };
     }
 
@@ -245,23 +233,6 @@ class ArcaneBarrageGuide extends Analyzer {
             id: 'mage.arcane.arcaneBarrage.guide.explanation.p5',
             message: '.',
           })}
-        </p>
-        <p>
-          {t({
-            id: 'mage.arcane.arcaneBarrage.guide.explanation.hold.p1',
-            message: 'Regardless of the below, if ',
-          })}
-          {touchOfTheMagi}
-          {t({
-            id: 'mage.arcane.arcaneBarrage.guide.explanation.hold.p2',
-            message: ' will be available in the next 4-5 seconds, you should hold ',
-          })}
-          {arcaneBarrage}
-          {t({
-            id: 'mage.arcane.arcaneBarrage.guide.explanation.hold.p3',
-            message: ' for ',
-          })}
-          {touchOfTheMagi}.
         </p>
         {this.isSpellslinger && (
           <ul>
@@ -476,19 +447,6 @@ class ArcaneBarrageGuide extends Analyzer {
                   ))}
                 </>
               ),
-            }
-          : undefined,
-        cast.touchCD
-          ? {
-              label: t({
-                id: 'mage.arcane.arcaneBarrage.guide.stat.touchCd',
-                message: 'Touch CD',
-              }),
-              value: formatDuration(cast.touchCD, 1),
-              tooltip: t({
-                id: 'mage.arcane.arcaneBarrage.guide.stat.touchCdTooltip',
-                message: 'Cooldown Remaining on Touch of the Magi',
-              }),
             }
           : undefined,
       ].filter(Boolean) as PerCastStat[];

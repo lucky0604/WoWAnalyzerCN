@@ -23,13 +23,66 @@ class PrismaticBoltGuide extends Analyzer {
   isSunfury: boolean = this.selectedCombatant.hasTalent(TALENTS.MEMORY_OF_ALAR_TALENT);
   isSpellslinger: boolean = this.selectedCombatant.hasTalent(TALENTS.SPLINTERSTORM_TALENT);
 
+  private getCastStats(cast: PrismaticBoltCast): PerCastStat[] {
+    if (cast.munched) {
+      return [
+        {
+          value: 'Yes',
+          label: t({ id: 'mage.arcane.prismaticBolt.guide.stat.munchedLabel', message: 'Munched Proc' }),
+          tooltip: t({ id: 'mage.arcane.prismaticBolt.guide.stat.munchedTooltip', message: 'Whether the proc was munched (overwritten) or not.' }),
+        },
+      ];
+    }
+
+    if (cast.expired) {
+      return [
+        {
+          value: 'Yes',
+          label: t({ id: 'mage.arcane.prismaticBolt.guide.stat.expiredLabel', message: 'Expired Proc' }),
+          tooltip: t({ id: 'mage.arcane.prismaticBolt.guide.stat.expiredTooltip', message: 'Whether the proc expired (fell off unused) or not.' }),
+        },
+      ];
+    }
+
+    return [
+      {
+        value: formatDurationMillisMinSec(cast.delay || 0, 1),
+        label: t({ id: 'mage.arcane.prismaticBolt.guide.stat.delayLabel', message: 'Delay until Cast' }),
+        tooltip: t({ id: 'mage.arcane.prismaticBolt.guide.stat.delayTooltip', message: 'The amount of time from when the player got the Prismatic Bolt buff until they cast Prismatic Bolt.' }),
+      },
+      {
+        value: cast.salvoStacks,
+        label: t({ id: 'mage.arcane.prismaticBolt.guide.stat.salvoLabel', message: 'Arcane Salvo Stacks' }),
+        tooltip: t({ id: 'mage.arcane.prismaticBolt.guide.stat.salvoTooltip', message: 'The number of Arcane Salvo stacks the player had.' }),
+      },
+      cast.has4pc && {
+        value: cast.cumulativePowerStacks,
+        label: t({ id: 'mage.arcane.prismaticBolt.guide.stat.powerLabel', message: 'Cumulative Power Stacks' }),
+        tooltip: t({ id: 'mage.arcane.prismaticBolt.guide.stat.powerTooltip', message: 'The number of Cumulative Power stacks the player had.' }),
+      },
+      {
+        value: cast.targetsHit,
+        label: t({ id: 'mage.arcane.prismaticBolt.guide.stat.targetsHitLabel', message: 'Targets Hit' }),
+        tooltip: t({ id: 'mage.arcane.prismaticBolt.guide.stat.targetsHitTooltip', message: 'The number of targets hit by Prismatic Bolt.' }),
+      },
+    ].filter(Boolean) as PerCastStat[];
+  }
+
   private evaluatePrismaticBolt(pb: PrismaticBoltCast): CastEvaluation {
     // FAIL CONDITIONS
-    if (!pb.delay) {
+    if (pb.munched && !pb.hasArcaneSoul) {
       return {
         timestamp: pb.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: `No Prismatic Bolt cast found.`,
+        reason: `Prismatic Bolt munched (overwritten) without Arcane Soul.`,
+      };
+    }
+
+    if (pb.expired) {
+      return {
+        timestamp: pb.timestamp,
+        performance: QualitativePerformance.Fail,
+        reason: `Prismatic Bolt expired.`,
       };
     }
 
@@ -79,6 +132,14 @@ class PrismaticBoltGuide extends Analyzer {
       };
     }
 
+    if (pb.munched && pb.hasArcaneSoul) {
+      return {
+        timestamp: pb.timestamp,
+        performance: QualitativePerformance.Good,
+        reason: `Proc was munched (overwritten), but Arcane Soul was active.`,
+      };
+    }
+
     // OK CONDITIONS
     if (this.isSpellslinger && pb.salvoStacks < 13) {
       return {
@@ -114,7 +175,7 @@ class PrismaticBoltGuide extends Analyzer {
       return {
         timestamp: pb.timestamp,
         performance: QualitativePerformance.Ok,
-        reason: `had ${pb.cumulativePowerStacks} targets.`,
+        reason: `Had ${pb.cumulativePowerStacks} Cumulative Power stacks.`,
       };
     }
 
@@ -131,15 +192,28 @@ class PrismaticBoltGuide extends Analyzer {
     const arcaneSalvo = <SpellLink spell={TALENTS.ARCANE_SALVO_TALENT} />;
     const clearcasting = <SpellLink spell={SPELLS.CLEARCASTING_ARCANE} />;
     const cumulativePower = <SpellLink spell={SPELLS.CUMULATIVE_POWER_BUFF} />;
+    const arcaneSoul = <SpellLink spell={SPELLS.ARCANE_SOUL_BUFF} />;
 
     const explanation = (
       <>
         <p>
-          <b>{prismaticBolt}</b>{' '}
+          <b>{prismaticBolt}</b>
           {t({
             id: 'mage.arcane.prismaticBolt.guide.explanation.p1',
             message:
-              'is Arcane’s new apex talent, added in 12.1, and is very strong. It is a large contributor to your DPS and it does not stack, so you should make sure you are spending it as quickly as possible while following the below guidelines to get the most out of each cast.',
+              ' is Arcane\'s new apex talent, added in 12.1, and is very strong. It is a large contributor to your DPS and it does not stack, so',
+          })}
+          {this.isSunfury && (
+            <>
+              {t({ id: 'mage.arcane.prismaticBolt.guide.explanation.p1.sunfury.a', message: ' unless ' })}
+              {arcaneSoul}
+              {t({ id: 'mage.arcane.prismaticBolt.guide.explanation.p1.sunfury.b', message: ' is active' })}
+            </>
+          )}
+          {t({
+            id: 'mage.arcane.prismaticBolt.guide.explanation.p2',
+            message:
+              ' you should make sure you are spending it as quickly as possible to avoid munching (overwritting) it. Follow the below guidelines to get the most out of each cast.',
           })}
         </p>
         {this.isSpellslinger && (
@@ -248,45 +322,7 @@ class PrismaticBoltGuide extends Analyzer {
       return {
         performance: evaluation.performance,
         timestamp: this.owner.formatTimestamp(cast.timestamp),
-        stats: [
-          {
-            value: formatDurationMillisMinSec(cast.delay || 0, 1),
-            label: t({
-              id: 'mage.arcane.prismaticBolt.guide.stat.delayLabel',
-              message: 'Delay until Cast',
-            }),
-            tooltip:
-              t({
-                id: 'mage.arcane.prismaticBolt.guide.stat.delayTooltip',
-                message:
-                  'The amount of time from when the player got the Prismatic Bolt buff until they cast Prismatic Bolt.',
-              }),
-          },
-          {
-            value: cast.salvoStacks,
-            label: t({
-              id: 'mage.arcane.prismaticBolt.guide.stat.salvoLabel',
-              message: 'Arcane Salvo Stacks',
-            }),
-            tooltip:
-              t({
-                id: 'mage.arcane.prismaticBolt.guide.stat.salvoTooltip',
-                message: 'The number of Arcane Salvo stacks the player had.',
-              }),
-          },
-          {
-            value: cast.cumulativePowerStacks,
-            label: t({
-              id: 'mage.arcane.prismaticBolt.guide.stat.powerLabel',
-              message: 'Cumulative Power Stacks',
-            }),
-            tooltip:
-              t({
-                id: 'mage.arcane.prismaticBolt.guide.stat.powerTooltip',
-                message: 'The number of Cumulative Power stacks the player had.',
-              }),
-          },
-        ].filter(Boolean) as PerCastStat[],
+        stats: this.getCastStats(cast),
         details: evaluation.reason,
       };
     });

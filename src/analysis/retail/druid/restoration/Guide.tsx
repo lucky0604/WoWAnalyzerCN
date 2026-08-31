@@ -1,5 +1,4 @@
 import SPELLS from 'common/SPELLS';
-import { t } from '@lingui/core/macro';
 import { SpellLink } from 'interface';
 import { GuideProps, Section, SubSection } from 'interface/guide';
 import { GapHighlight } from 'parser/ui/CooldownBar';
@@ -9,45 +8,65 @@ import { TALENTS_DRUID } from 'common/TALENTS';
 import CastEfficiencyBar from 'parser/ui/CastEfficiencyBar';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
 import FoundationDowntimeSectionV2 from 'interface/guide/foundation/FoundationDowntimeSectionV2';
+import {
+  AdvancedGuideContextProvider,
+  AdvancedGuideToggle,
+  useAdvancedGuide,
+} from './guide/AdvancedGuideContext';
 
 /** Common 'rule line' point for the explanation/data in Core Spells section */
 export const GUIDE_CORE_EXPLANATION_PERCENT = 40;
 
-export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+export default function Guide(props: GuideProps<typeof CombatLogParser>) {
+  return (
+    <AdvancedGuideContextProvider>
+      <GuideContent {...props} />
+    </AdvancedGuideContextProvider>
+  );
+}
+
+function GuideContent({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
+  const { isAdvanced } = useAdvancedGuide();
+
   return (
     <>
-      <Section title={t({ id: 'restoration.guide.alwaysBeCasting', message: 'Always Be Casting' })}>
+      <Section title="Always Be Casting">
         <FoundationDowntimeSectionV2 />
-      </Section>
-      <Section title={t({ id: 'restoration.guide.coreSpells', message: 'Core Spells and Buffs' })}>
-        {modules.swiftmend.guideSubsection}
-        {modules.wildGrowth.guideSubsection}
-        {info.combatant.hasTalent(TALENTS_DRUID.ABUNDANCE_TALENT) && (
-          <SubSection>{modules.abundanceGraph.guideSubsection}</SubSection>
+        {info.combatant.hasTalent(TALENTS_DRUID.MASTER_SHAPESHIFTER_TALENT) && (
+          <p>
+            During real downtime, cast <SpellLink spell={SPELLS.WRATH} /> to regenerate mana via{' '}
+            <SpellLink spell={TALENTS_DRUID.MASTER_SHAPESHIFTER_TALENT} />. That mana funds extra{' '}
+            <SpellLink spell={SPELLS.WILD_GROWTH} />s
+            {info.combatant.hasTalent(TALENTS_DRUID.ABUNDANCE_TALENT) ? (
+              <>
+                . If damage is persistently heavy, wait for{' '}
+                <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} /> to drop before you spam Wrath.
+                Wrath mid-Abundance cycle is much less efficient than spending those GCDs on{' '}
+                <SpellLink spell={SPELLS.REGROWTH} />
+              </>
+            ) : null}
+            .
+          </p>
         )}
-        {info.combatant.hasTalent(TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT) &&
-          modules.soulOfTheForest.guideSubsection}
-        {modules.lifebloom.guideSubsection}
-        {modules.efflorescence.guideSubsection}
-        {modules.rejuvenation.guideSubsection}
-        {modules.regrowthAndClearcasting.guideSubsection}
       </Section>
-      <Section
-        title={t({
-          id: 'restoration.guide.healingCooldowns',
-          message: 'Healing Cooldowns',
-        })}
-      >
+      <Section title="Core Spells and Buffs">
+        <AdvancedGuideToggle />
+        {modules.lifebloom.getGuideSubsection(isAdvanced)}
+        {modules.swiftmend.guideSubsection}
+        {modules.regrowthAndClearcasting.getGuideSubsection(isAdvanced)}
+        {isAdvanced && modules.naturesSwiftness.guideSubsection}
+        {modules.wildGrowth.guideSubsection}
+        {!info.combatant.hasTalent(TALENTS_DRUID.LIFETREADING_TALENT) &&
+          modules.efflorescence.guideSubsection}
+        {isAdvanced && modules.rejuvenation.guideSubsection}
+      </Section>
+      <Section title="Healing Cooldowns">
         <p>
-          {t({ id: 'restoration.guide.healingCooldownsDesc.p1', message: 'Resto Druids have access to a variety of powerful healing cooldowns. These cooldowns are mana efficient and powerful, you should aim to use them frequently.' })}
-          {' '}
-          {t({ id: 'restoration.guide.healingCooldownsDesc.p2', message: 'The power of your cooldowns will be greatly increased by' })}
-          <strong>{t({ id: 'restoration.guide.healingCooldownsDesc.ramping', message: 'ramping' })}</strong>
-          {t({ id: 'restoration.guide.healingCooldownsDesc.p3', message: 'or pre-casting many' })}
-          <SpellLink spell={SPELLS.REJUVENATION} />
-          {t({ id: 'restoration.guide.healingCooldownsDesc.p4', message: 'and a' })}
-          <SpellLink spell={SPELLS.WILD_GROWTH} />
-          {t({ id: 'restoration.guide.healingCooldownsDesc.p5', message: 'in order to maximize the number of HoTs present when you activate your cooldown. Plan ahead by starting your ramp in the seconds before major raid damage hits. You should always have a Wild Growth out before activating one of your cooldowns.' })}
+          Resto Druids have access to a variety of powerful healing cooldowns. Use them frequently
+          on dangerous damage. <SpellLink spell={SPELLS.TRANQUILITY_CAST} /> is your biggest window.
+          Start ramping 15–20 seconds ahead with as many <SpellLink spell={SPELLS.REGROWTH} />s as
+          you can, plus a <SpellLink spell={SPELLS.WILD_GROWTH} />, so Flourish extends those HoTs.
+          You should always have a Wild Growth out before activating a major cooldown.
         </p>
         <HotGraphSubsection modules={modules} events={events} info={info} />
         <CooldownGraphSubsection modules={modules} events={events} info={info} />
@@ -61,8 +80,10 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
 function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>{t({ id: 'restoration.guide.hotGraph.title', message: 'HoT Graph' })}</strong>{' '}
-      {t({ id: 'restoration.guide.hotGraph.desc', message: '- this graph shows how many Rejuvenation and Wild Growths you had active over the course of the encounter, with rule lines showing when you activated your healing cooldowns. Did you have a Wild Growth out before every cooldown? Did you ramp Rejuvenations well before big damage?' })}
+      <strong>HoT Graph</strong> - this graph shows how many Rejuvenation, Regrowth, and Wild
+      Growths you had active over the course of the encounter, with rule lines showing when you
+      activated your healing cooldowns. Did you have a Wild Growth out before every cooldown? For
+      Tranquility, did you ramp a lot of Regrowths (not just Rejuvenations) before the channel?
       {modules.hotCountGraph.plot}
     </SubSection>
   );
@@ -71,8 +92,10 @@ function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatL
 function CooldownGraphSubsection({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>{t({ id: 'restoration.guide.cooldownGraph.title', message: 'Cooldown Graph' })}</strong>{' '}
-      {t({ id: 'restoration.guide.cooldownGraph.desc', message: '- this graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.' })}
+      <strong>Cooldown Graph</strong> - this graph shows when you used your cooldowns and how long
+      you waited to use them again. Grey segments show when the spell was available, yellow segments
+      show when the spell was cooling down. Red segments highlight times when you could have fit a
+      whole extra use of the cooldown.
       {info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
         <CastEfficiencyBar
           spell={SPELLS.CONVOKE_SPIRITS}
@@ -112,9 +135,7 @@ function CooldownBreakdownSubsection({
 }: GuideProps<typeof CombatLogParser>) {
   return (
     <SubSection>
-      <strong>
-        {t({ id: 'restoration.guide.spellBreakdowns', message: 'Spell Breakdowns' })}
-      </strong>
+      <strong>Spell Breakdowns</strong>
       <p />
       {info.combatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) &&
         modules.convokeSpirits.guideCastBreakdown}

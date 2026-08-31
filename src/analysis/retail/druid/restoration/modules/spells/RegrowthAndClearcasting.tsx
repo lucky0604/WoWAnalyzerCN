@@ -1,84 +1,112 @@
 import type { JSX } from 'react';
-import { i18n } from '@lingui/core';
-import { t, defineMessage } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
-import { formatPercentage } from 'common/format';
+import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
 import { SpellIcon, SpellLink } from 'interface';
+import { PerformanceMark } from 'interface/guide';
 import CheckmarkIcon from 'interface/icons/Checkmark';
 import CrossIcon from 'interface/icons/Cross';
 import HealthIcon from 'interface/icons/Health';
 import UptimeIcon from 'interface/icons/Uptime';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import Events, { CastEvent } from 'parser/core/Events';
+import Events, { CastEvent, HealEvent } from 'parser/core/Events';
 import Combatants from 'parser/shared/modules/Combatants';
 import HotTrackerRestoDruid from 'analysis/retail/druid/restoration/modules/core/hottracking/HotTrackerRestoDruid';
+import Mastery from 'analysis/retail/druid/restoration/modules/core/Mastery';
+import Lifebloom from 'analysis/retail/druid/restoration/modules/spells/Lifebloom';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
-import { BoxRowEntry } from 'interface/guide/components/PerformanceBoxRow';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
 import { TALENTS_DRUID } from 'common/TALENTS';
-import { getDirectHeal } from 'analysis/retail/druid/restoration/normalizers/CastLinkNormalizer';
+import {
+  getDirectHeal,
+  getNaturesBountyHeals,
+} from 'analysis/retail/druid/restoration/normalizers/CastLinkNormalizer';
 import { buffedByClearcast } from 'analysis/retail/druid/restoration/normalizers/ClearcastingNormalizer';
-import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import { calculateHealTargetHealthPercent } from 'parser/core/EventCalculateLib';
-import { ABUNDANCE_MANA_REDUCTION } from 'analysis/retail/druid/restoration/modules/spells/Abundance';
-import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
-import CastSummaryAndBreakdown from 'interface/guide/components/CastSummaryAndBreakdown';
+import {
+  QualitativePerformance,
+  evaluateQualitativePerformanceByThreshold,
+} from 'parser/ui/QualitativePerformance';
+import GuideSection from 'interface/guide/components/GuideSection';
+import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
+import CastOverview from 'interface/guide/components/CastOverview';
+import { TipBox } from 'interface/guide/components';
 
-/** Health percent below which we consider a heal to be 'triage' (always Good) */
+/** Health percent below which we consider a heal to be triage (always Good) */
 const TRIAGE_THRESHOLD = 0.3;
-/** Max time from cast to heal event to consider the events linked */
+/** Max time from cast to buff check for Abundance / Nature's Swiftness */
 const MS_BUFFER = 100;
-/** Min stacks required to consider a regrowth efficient */
-const ABUNDANCE_EXCEPTION_STACKS = 6;
-/** Overheal percent at or below which we consider the direct heal effective */
-const LOW_OVERHEAL_THRESHOLD = 0.4;
-const PANDEMIC = 0.3;
+/** Overheal strictly below this counts as low for Good */
+const LOW_OVERHEAL_THRESHOLD = 0.7;
+/** Remaining HoT duration at or below this fraction of fresh duration is pandemic-refreshable */
+const PANDEMIC_THRESHOLD = 0.3;
+/** Mastery stack thresholds for Nature's Bounty target selection (sub-stat only) */
+const PERFECT_MASTERY_STACKS = 3;
+const GOOD_MASTERY_STACKS = 2;
+const OK_MASTERY_STACKS = 1;
+
+interface RegrowthCastRecord {
+  timestamp: number;
+  performance: QualitativePerformance;
+  targetName: string;
+  targetHealthPercent?: number;
+  duringAbundance: boolean;
+  freeNote: string | null;
+  isTriage: boolean;
+  cleaveHits: number;
+  primaryHealing: number;
+  primaryOverhealing: number;
+  cleaveHealing: number;
+  cleaveOverhealing: number;
+  targetHadRegrowth: boolean;
+  isPandemicRefresh: boolean;
+  onLifebloomTarget: boolean;
+  masteryStacks: number;
+  regrowthRemainingMs?: number;
+}
 
 /**
- * Tracks stats relating to Regrowth and the Clearcasting proc
+ * Tracks Regrowth cast quality, Clearcasting, Abundance windows, and Nature's Bounty cleave.
+ * Guide section is shown when Abundance and/or Nature's Bounty is talented.
  */
 class RegrowthAndClearcasting extends Analyzer {
   static dependencies = {
     combatants: Combatants,
     hotTracker: HotTrackerRestoDruid,
+    lifebloom: Lifebloom,
+    mastery: Mastery,
   };
 
   combatants!: Combatants;
   hotTracker!: HotTrackerRestoDruid;
+  lifebloom!: Lifebloom;
+  mastery!: Mastery;
 
-  /** total clearcasting procs */
   totalClearcasts = 0;
-  /** overwritten clearcasting procs */
   overwrittenClearcasts = 0;
-  /** set to 1 iff there is a clearcast active at fight end */
   endingClearcasts = 0;
 
-  /** total regrowth hardcasts */
   totalRegrowths = 0;
-  /** regrowth hardcasts made free by innervate */
-  innervateRegrowths = 0;
-  /** regrowth hardcasts made free by nature's swiftness */
   nsRegrowths = 0;
-  /** regrowth hardcasts made free by clearcasting */
   ccRegrowths = 0;
-  /** regrowth hardcasts that were cheap enough to be efficient due to abundance */
   abundanceRegrowths = 0;
-  /** full price regrowth hardcasts that were on low health targets */
   triageRegrowths = 0;
-  /** full price regrowth hardcasts on healthy targets */
   badRegrowths = 0;
-  /** regrowth hardcasts that were ok but not ideal (high overheal or non-pandemic overwrite) */
+  perfectRegrowths = 0;
   okRegrowths = 0;
 
-  /** Box row entry for each Regrowth cast */
-  castEntries: BoxRowEntry[] = [];
+  casts: RegrowthCastRecord[] = [];
 
   hasAbundance: boolean;
   hasTranquilMind: boolean;
   hasNaturesBounty: boolean;
+  hasImprovedRegrowth: boolean;
+  hasSoulOfTheForest: boolean;
+  hasRampantGrowth: boolean;
+  hasOvergrowth: boolean;
+  showGuide: boolean;
 
   constructor(options: Options) {
     super(options);
@@ -86,6 +114,15 @@ class RegrowthAndClearcasting extends Analyzer {
     this.hasAbundance = this.selectedCombatant.hasTalent(TALENTS_DRUID.ABUNDANCE_TALENT);
     this.hasTranquilMind = this.selectedCombatant.hasTalent(TALENTS_DRUID.TRANQUIL_MIND_TALENT);
     this.hasNaturesBounty = this.selectedCombatant.hasTalent(TALENTS_DRUID.NATURES_BOUNTY_TALENT);
+    this.hasImprovedRegrowth = this.selectedCombatant.hasTalent(
+      TALENTS_DRUID.IMPROVED_REGROWTH_TALENT,
+    );
+    this.hasSoulOfTheForest = this.selectedCombatant.hasTalent(
+      TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT,
+    );
+    this.hasRampantGrowth = this.selectedCombatant.hasTalent(TALENTS_DRUID.RAMPANT_GROWTH_TALENT);
+    this.hasOvergrowth = this.selectedCombatant.hasTalent(TALENTS_DRUID.OVERGROWTH_TALENT);
+    this.showGuide = this.hasAbundance || this.hasNaturesBounty;
 
     this.addEventListener(
       Events.applybuff.by(SELECTED_PLAYER).spell(SPELLS.CLEARCASTING_BUFF),
@@ -116,9 +153,6 @@ class RegrowthAndClearcasting extends Analyzer {
       this.hasTranquilMind &&
       this.selectedCombatant.getBuffStacks(SPELLS.CLEARCASTING_BUFF.id) === 1
     ) {
-      // With Tranquil Mind talent, a refreshbuff occurs when player USES a clearcast at 2 stacks -
-      // we don't want to count that as an overwrite or a clearcast gained.
-      // The refresh happens after the 2nd stack is lost, so we can tell this happened by stack count
       return;
     }
 
@@ -129,241 +163,154 @@ class RegrowthAndClearcasting extends Analyzer {
   onCastRegrowth(event: CastEvent) {
     this.totalRegrowths += 1;
 
-    // Gather info about the cast
     const regrowthHeal = getDirectHeal(event);
     const targetHealthPercent = regrowthHeal
       ? calculateHealTargetHealthPercent(regrowthHeal, true)
       : undefined;
-    const overhealPercent =
-      regrowthHeal && regrowthHeal.amount + (regrowthHeal.overheal || 0) > 0
-        ? (regrowthHeal.overheal || 0) / (regrowthHeal.amount + (regrowthHeal.overheal || 0))
-        : undefined;
-    const isLowOverheal =
-      overhealPercent !== undefined && overhealPercent <= LOW_OVERHEAL_THRESHOLD;
+    const isTriage = targetHealthPercent !== undefined && targetHealthPercent < TRIAGE_THRESHOLD;
 
-    // Determine if cast was free or cheap
-    let isFreeOrCheap = false;
-    let freeNote = '';
-    if (this.selectedCombatant.hasBuff(SPELLS.INNERVATE.id)) {
-      this.innervateRegrowths += 1;
-      isFreeOrCheap = true;
-      freeNote = i18n._(
-        defineMessage({ id: 'restoration.regrowth.free_innervate', message: 'Free (Innervate)' }),
-      );
-    } else if (
-      this.selectedCombatant.hasBuff(SPELLS.NATURES_SWIFTNESS.id, event.timestamp, MS_BUFFER)
-    ) {
+    const primaryHealing = regrowthHeal ? regrowthHeal.amount + (regrowthHeal.absorbed || 0) : 0;
+    const primaryOverhealing = regrowthHeal?.overheal || 0;
+
+    let freeNote: string | null = null;
+    const duringAbundance = this.selectedCombatant.hasBuff(
+      SPELLS.ABUNDANCE_BUFF.id,
+      event.timestamp,
+      MS_BUFFER,
+    );
+
+    if (this.selectedCombatant.hasBuff(SPELLS.NATURES_SWIFTNESS.id, event.timestamp, MS_BUFFER)) {
       this.nsRegrowths += 1;
-      isFreeOrCheap = true;
-      freeNote = i18n._(
-        defineMessage({ id: 'restoration.regrowth.free_ns', message: "Free (Nature's Swiftness)" }),
-      );
+      freeNote = "Free (Nature's Swiftness)";
     } else if (buffedByClearcast(event)) {
       this.ccRegrowths += 1;
-      isFreeOrCheap = true;
-      freeNote = i18n._(
-        defineMessage({ id: 'restoration.regrowth.free_cc', message: 'Free (Clearcasting)' }),
-      );
-    } else if (
-      this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id) >= ABUNDANCE_EXCEPTION_STACKS
-    ) {
+      freeNote = 'Free (Clearcasting)';
+    } else if (duringAbundance) {
       this.abundanceRegrowths += 1;
-      isFreeOrCheap = true;
-      const abundanceStacks = this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id);
-      freeNote =
-        ABUNDANCE_MANA_REDUCTION * abundanceStacks >= 1
-          ? i18n._(
-              defineMessage({
-                id: 'restoration.regrowth.free_abundance_prefix',
-                message: 'Free (',
-              }),
-            ) +
-            abundanceStacks +
-            i18n._(
-              defineMessage({
-                id: 'restoration.regrowth.free_abundance_suffix',
-                message: ' Abundance stacks)',
-              }),
-            )
-          : i18n._(
-              defineMessage({
-                id: 'restoration.regrowth.cheap_abundance_prefix',
-                message: 'Cheap (',
-              }),
-            ) +
-            abundanceStacks +
-            i18n._(
-              defineMessage({
-                id: 'restoration.regrowth.cheap_abundance_suffix',
-                message: ' Abundance stacks)',
-              }),
-            );
+      freeNote = 'Cheap (Abundance)';
     }
 
-    // Check if target already has Regrowth HoT and whether refresh is within pandemic window
-    // (only relevant with Nature's Bounty)
+    const nbHeals = this.hasNaturesBounty ? getNaturesBountyHeals(event) : [];
+    let cleaveHealing = 0;
+    let cleaveOverhealing = 0;
+    nbHeals.forEach((heal: HealEvent) => {
+      cleaveHealing += heal.amount + (heal.absorbed || 0);
+      cleaveOverhealing += heal.overheal || 0;
+    });
+    const cleaveHits = nbHeals.length;
+
     let targetHadRegrowth = false;
     let isPandemicRefresh = false;
-    if (this.hasNaturesBounty && event.targetID !== undefined) {
-      const targetHots = this.hotTracker.hots[event.targetID];
-      const existingRegrowth = targetHots?.[SPELLS.REGROWTH.id];
+    let regrowthRemainingMs: number | undefined;
+    const onLifebloomTarget =
+      event.targetID !== undefined && event.targetID === this.lifebloom.activeLifebloomTarget;
+    if (event.targetID !== undefined) {
+      const existingRegrowth = this.hotTracker.hots[event.targetID]?.[SPELLS.REGROWTH.id];
       if (existingRegrowth) {
         targetHadRegrowth = true;
-        const remaining = existingRegrowth.end - event.timestamp;
+        regrowthRemainingMs = Math.max(0, existingRegrowth.end - event.timestamp);
         const freshDuration = this.hotTracker._getDuration(
           this.hotTracker.hotInfo[SPELLS.REGROWTH.id],
         );
-        isPandemicRefresh = remaining <= freshDuration * PANDEMIC;
+        isPandemicRefresh = regrowthRemainingMs <= freshDuration * PANDEMIC_THRESHOLD;
       }
     }
 
-    const isTriage = targetHealthPercent !== undefined && targetHealthPercent < TRIAGE_THRESHOLD;
+    const target = this.combatants.getEntity(event);
+    const masteryStacks = target ? this.mastery.getHotCount(target) : 0;
 
-    // Classify the cast
-    let performance: QualitativePerformance;
-    let castNote: string;
-
-    if (isTriage) {
-      // Triage is always Good regardless of cost
-      this.triageRegrowths += 1;
-      performance = QualitativePerformance.Good;
-      castNote = isFreeOrCheap
-        ? freeNote +
-          i18n._(
-            defineMessage({
-              id: 'restoration.regrowth.on_critically_low',
-              message: ' on a critically low target',
-            }),
-          )
-        : i18n._(
-            defineMessage({
-              id: 'restoration.regrowth.triage_critically_low',
-              message: 'Triage cast on a critically low target',
-            }),
-          );
-    } else if (isFreeOrCheap) {
-      if (this.hasNaturesBounty) {
-        if (!targetHadRegrowth || isPandemicRefresh) {
-          // Good: free/cheap on a new target or pandemic refresh
-          performance = QualitativePerformance.Good;
-          castNote = isPandemicRefresh
-            ? freeNote +
-              i18n._(
-                defineMessage({
-                  id: 'restoration.regrowth.pandemic_refresh',
-                  message: ' — pandemic refresh of existing Regrowth',
-                }),
-              )
-            : freeNote +
-              i18n._(
-                defineMessage({
-                  id: 'restoration.regrowth.new_target',
-                  message: ' — new Regrowth target',
-                }),
-              );
-        } else {
-          // Ok: free/cheap but early overwrite of existing Regrowth HoT
-          this.okRegrowths += 1;
-          performance = QualitativePerformance.Ok;
-          castNote =
-            freeNote +
-            i18n._(
-              defineMessage({
-                id: 'restoration.regrowth.overwrote_existing',
-                message: ' — overwrote existing Regrowth HoT (not in pandemic window)',
-              }),
-            );
-        }
-      } else {
-        if (isLowOverheal) {
-          // Good: free/cheap with effective healing
-          performance = QualitativePerformance.Good;
-          castNote = freeNote;
-        } else {
-          // Ok: free/cheap but high overheal
-          this.okRegrowths += 1;
-          performance = QualitativePerformance.Ok;
-          castNote =
-            freeNote +
-            i18n._(
-              defineMessage({
-                id: 'restoration.regrowth.high_overheal',
-                message: ' — high overheal',
-              }),
-            );
-        }
-      }
-    } else {
-      // Not free/cheap and not triage = Bad
-      this.badRegrowths += 1;
-      performance = QualitativePerformance.Fail;
-      const currentAbundanceStacks = this.selectedCombatant.getBuffStacks(SPELLS.ABUNDANCE_BUFF.id);
-      if (currentAbundanceStacks > 0) {
-        castNote =
-          i18n._(
-            defineMessage({
-              id: 'restoration.regrowth.no_cc_low_abundance_prefix',
-              message: 'No Clearcasting and only ',
-            }),
-          ) +
-          currentAbundanceStacks +
-          (currentAbundanceStacks > 1
-            ? i18n._(
-                defineMessage({
-                  id: 'restoration.regrowth.abundance_stacks',
-                  message: ' Abundance stacks',
-                }),
-              )
-            : i18n._(
-                defineMessage({
-                  id: 'restoration.regrowth.abundance_stack',
-                  message: ' Abundance stack',
-                }),
-              )) +
-          i18n._(
-            defineMessage({
-              id: 'restoration.regrowth.abundance_stacks_needed',
-              message: ' (need 6+)',
-            }),
-          );
-      } else {
-        castNote = i18n._(
-          defineMessage({
-            id: 'restoration.regrowth.no_cc_or_abundance',
-            message: 'No Clearcasting or Abundance stacks',
-          }),
-        );
-      }
-    }
-
-    const targetHealthString =
-      targetHealthPercent !== undefined
-        ? `${formatPercentage(targetHealthPercent, 0)}`
-        : i18n._(defineMessage({ id: 'restoration.regrowth.unknown_health', message: 'unknown' }));
-    const overhealString =
-      overhealPercent !== undefined
-        ? ' (' +
-          formatPercentage(overhealPercent, 0) +
-          i18n._(
-            defineMessage({ id: 'restoration.regrowth.overheal_suffix', message: '% overheal)' }),
-          )
-        : '';
-
-    this.castEntries.push({
-      value: performance,
-      tooltip: (
-        <>
-          @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> - {castNote}
-          {overhealString}
-          <br />
-          {t({ id: 'restoration.regrowth.targeting', message: 'targeting' })}{' '}
-          <strong>{this.owner.getTargetName(event)}</strong>{' '}
-          {t({ id: 'restoration.regrowth.with_health', message: 'w/' })}{' '}
-          <strong>{targetHealthString}%</strong>{' '}
-          {t({ id: 'restoration.regrowth.health', message: 'health' })}
-        </>
-      ),
+    const { performance } = this.scoreCast({
+      duringAbundance,
+      freeNote,
+      isTriage,
+      targetHadRegrowth,
+      isPandemicRefresh,
+      onLifebloomTarget,
     });
+
+    if (performance === QualitativePerformance.Perfect) {
+      this.perfectRegrowths += 1;
+    } else if (performance === QualitativePerformance.Ok) {
+      this.okRegrowths += 1;
+    } else if (performance === QualitativePerformance.Fail) {
+      this.badRegrowths += 1;
+    } else if (isTriage && !duringAbundance && !freeNote) {
+      this.triageRegrowths += 1;
+    }
+
+    if (duringAbundance && freeNote && !freeNote.includes('Abundance')) {
+      this.abundanceRegrowths += 1;
+    }
+
+    this.casts.push({
+      timestamp: event.timestamp,
+      performance,
+      targetName: this.owner.getTargetName(event) ?? 'unknown',
+      targetHealthPercent,
+      duringAbundance,
+      freeNote,
+      isTriage,
+      cleaveHits,
+      primaryHealing,
+      primaryOverhealing,
+      cleaveHealing,
+      cleaveOverhealing,
+      targetHadRegrowth,
+      isPandemicRefresh,
+      onLifebloomTarget,
+      masteryStacks,
+      regrowthRemainingMs,
+    });
+  }
+
+  private scoreCast({
+    duringAbundance,
+    freeNote,
+    isTriage,
+    targetHadRegrowth,
+    isPandemicRefresh,
+    onLifebloomTarget,
+  }: {
+    duringAbundance: boolean;
+    freeNote: string | null;
+    isTriage: boolean;
+    targetHadRegrowth: boolean;
+    isPandemicRefresh: boolean;
+    onLifebloomTarget: boolean;
+  }): { performance: QualitativePerformance } {
+    const hasCheapCast = duringAbundance || freeNote !== null;
+
+    // Bad: no Abundance / Clearcasting / NS, and not triage
+    if (!hasCheapCast && !isTriage) {
+      return { performance: QualitativePerformance.Fail };
+    }
+
+    // Ok: Rampant Growth already puts Regrowth on the Lifebloom target — don't hardcast it there
+    // (triage still grades Good — the direct heal can matter)
+    // Overgrowth: intentionally Regrowth the LB target to refresh Lifebloom → Good
+    if (this.hasRampantGrowth && onLifebloomTarget && !isTriage) {
+      if (this.hasOvergrowth) {
+        return { performance: QualitativePerformance.Good };
+      }
+      return { performance: QualitativePerformance.Ok };
+    }
+
+    // Perfect: Abundance up and target has pandemic-ready Regrowth
+    if (duringAbundance && isPandemicRefresh) {
+      return { performance: QualitativePerformance.Perfect };
+    }
+
+    // Ok: refreshed a long-duration Regrowth (prefer spreading with Nature's Bounty)
+    if (targetHadRegrowth && !isPandemicRefresh) {
+      return { performance: QualitativePerformance.Ok };
+    }
+
+    // Good: Abundance (any overheal), Clearcasting / NS, or triage
+    if (duringAbundance || freeNote || isTriage) {
+      return { performance: QualitativePerformance.Good };
+    }
+
+    return { performance: QualitativePerformance.Fail };
   }
 
   onFightEnd() {
@@ -385,275 +332,650 @@ class RegrowthAndClearcasting extends Analyzer {
     );
   }
 
-  get wastedClearcasts() {
-    return this.totalClearcasts - this.usedClearcasts;
-  }
-
-  /** Percentage of gained clearcasts that were used */
   get clearcastUtilPercent() {
-    // return 100% when no clearcasts to avoid suggestion
-    // clearcast still active at end shouldn't be counted in util, hence the subtraction from total
     return this.totalClearcasts === 0
       ? 1
       : this.usedClearcasts / (this.totalClearcasts - this.endingClearcasts);
   }
 
   get freeRegrowths() {
-    return this.innervateRegrowths + this.ccRegrowths + this.nsRegrowths;
+    return this.ccRegrowths + this.nsRegrowths;
   }
 
-  /** Guide subsection describing the proper usage of Regrowth */
-  get guideSubsection(): JSX.Element {
-    const hasAbundance = this.selectedCombatant.hasTalent(TALENTS_DRUID.ABUNDANCE_TALENT);
-    const explanation = this.hasNaturesBounty ? (
-      <p>
-        <b>
-          <SpellLink spell={SPELLS.REGROWTH} />
-        </b>{' '}
-        {t({
-          id: 'restoration.regrowth.explanation_nb',
-          message: 'is for spot healing. The HoT is normally very weak, but with',
-        })}{' '}
-        <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />{' '}
-        {t({
-          id: 'restoration.regrowth.explanation_nb_p2',
-          message:
-            'it becomes important to play around. Try to avoid overwriting existing Regrowth HoTs when choosing targets in order to maximize cleave healing from',
-        })}{' '}
-        <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />.{' '}
-        {t({
-          id: 'restoration.regrowth.explanation_nb_p3',
-          message: 'Also be careful not to cast Regrowth without a',
-        })}{' '}
-        <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />{' '}
-        {t({ id: 'restoration.regrowth.explanation_nb_p4', message: 'proc' })}
-        {hasAbundance && (
-          <>
-            {' '}
-            {t({
-              id: 'restoration.regrowth.explanation_nb_p5',
-              message: 'or enough',
-            })}{' '}
-            <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />{' '}
-            {t({ id: 'restoration.regrowth.explanation_nb_p6', message: 'stacks' })}
-          </>
-        )}
-        {t({
-          id: 'restoration.regrowth.explanation_nb_p7',
-          message: ', as it is very mana inefficient otherwise.',
-        })}
-      </p>
-    ) : (
-      <p>
-        <b>
-          <SpellLink spell={SPELLS.REGROWTH} />
-        </b>{' '}
-        {t({
-          id: 'restoration.regrowth.explanation_base',
-          message:
-            'is for spot healing. The HoT is very weak — Regrowth is only efficient when its direct portion is effective. Try to minimize overheal on the direct portion. Exceptions are when Regrowth is free due to',
-        })}{' '}
-        <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> /{' '}
-        <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />
-        {hasAbundance && (
-          <>
-            {' '}
-            {t({
-              id: 'restoration.regrowth.explanation_base_p2',
-              message: 'or cheap due to',
-            })}{' '}
+  get avgCleaveHits() {
+    if (!this.hasNaturesBounty || this.casts.length === 0) {
+      return 0;
+    }
+    return this.casts.reduce((sum, c) => sum + c.cleaveHits, 0) / this.casts.length;
+  }
+
+  get avgMasteryStacks() {
+    if (this.casts.length === 0) {
+      return 0;
+    }
+    return this.casts.reduce((sum, c) => sum + c.masteryStacks, 0) / this.casts.length;
+  }
+
+  get avgOverheal() {
+    const totalHealing = this.casts.reduce((sum, c) => sum + c.primaryHealing + c.cleaveHealing, 0);
+    const totalOverheal = this.casts.reduce(
+      (sum, c) => sum + c.primaryOverhealing + c.cleaveOverhealing,
+      0,
+    );
+    const raw = totalHealing + totalOverheal;
+    return raw > 0 ? totalOverheal / raw : 0;
+  }
+
+  get avgHealingPerCast() {
+    if (this.casts.length === 0) {
+      return 0;
+    }
+    return (
+      this.casts.reduce((sum, c) => sum + c.primaryHealing + c.cleaveHealing, 0) / this.casts.length
+    );
+  }
+
+  get abundanceCastRate() {
+    if (this.casts.length === 0) {
+      return 0;
+    }
+    return this.casts.filter((c) => c.duringAbundance).length / this.casts.length;
+  }
+
+  getPossiblePerformances(isAdvanced: boolean): QualitativePerformance[] {
+    const grades: QualitativePerformance[] = [
+      QualitativePerformance.Good,
+      QualitativePerformance.Fail,
+    ];
+    if (isAdvanced && this.hasAbundance) {
+      grades.unshift(QualitativePerformance.Perfect);
+    }
+    if (
+      this.hasNaturesBounty ||
+      this.hasImprovedRegrowth ||
+      (this.hasRampantGrowth && !this.hasOvergrowth)
+    ) {
+      grades.splice(grades.length - 1, 0, QualitativePerformance.Ok);
+    }
+    return grades;
+  }
+
+  get guideSubsection(): JSX.Element | null {
+    return this.getGuideSubsection(false);
+  }
+
+  getGuideSubsection(isAdvanced: boolean): JSX.Element | null {
+    if (!this.showGuide) {
+      return null;
+    }
+
+    const explanation = (
+      <>
+        <p>
+          <b>
+            <SpellLink spell={SPELLS.REGROWTH} />
+          </b>{' '}
+          {t({
+            id: 'restoration.regrowth.explanation_p1',
+            message: 'is your primary healing spell while ',
+          })}
+          {this.hasAbundance ? (
             <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
-          </>
+          ) : (
+            t({ id: 'restoration.regrowth.explanation_p1_else', message: 'cheap windows are up' })
+          )}
+          {t({
+            id: 'restoration.regrowth.explanation_p2',
+            message:
+              ". You should finish fights with many more Regrowth casts than Rejuvenation casts. Outside of movement, you should only be casting ",
+          })}
+          <SpellLink spell={SPELLS.REJUVENATION} />
+          {t({ id: 'restoration.regrowth.explanation_p3', message: ' when you' })}
+          {this.hasSoulOfTheForest ? (
+            <>
+              {' '}
+              {t({ id: 'restoration.regrowth.explanation_p4', message: 'have ' })}
+              <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} />
+              {this.hasAbundance ? t({ id: 'restoration.regrowth.explanation_or', message: ' or ' }) : null}
+            </>
+          ) : null}
+          {this.hasAbundance ? (
+            <>
+              {t({ id: 'restoration.regrowth.explanation_p5', message: 'need to rebuild ' })}
+              <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
+            </>
+          ) : !this.hasSoulOfTheForest ? (
+            <>{t({ id: 'restoration.regrowth.explanation_p5_else', message: 'need more HoT coverage' })}</>
+          ) : null}
+          {t({ id: 'restoration.regrowth.explanation_p6', message: '. Otherwise, keep casting Regrowth' })}
+          {this.hasNaturesBounty ? (
+            <>
+              {' '}
+              {t({
+                id: 'restoration.regrowth.explanation_p7',
+                message: 'to get the most value from ',
+              })}
+              <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />
+            </>
+          ) : null}
+          .
+        </p>
+        {this.hasNaturesBounty && (
+          <p>
+            <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />
+            {t({
+              id: 'restoration.regrowth.explanation_nb_p1',
+              message:
+                ' causes your Regrowths to cleave, so avoid targeting players who already have an active Regrowth whenever possible. This lets the cleave apply new HoTs instead of refreshing existing ones. Prefer targets with higher stacks of ',
+            })}
+            <SpellLink spell={SPELLS.MASTERY_HARMONY} />
+            {t({
+              id: 'restoration.regrowth.explanation_nb_p2',
+              message: ', since the cleave scales from the direct heal.',
+            })}
+          </p>
         )}
-        .
-      </p>
+        {isAdvanced && this.hasImprovedRegrowth && (
+          <p>
+            {t({
+              id: 'restoration.regrowth.explanation_ir_p1',
+              message: 'The main exception is ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.IMPROVED_REGROWTH_TALENT} />
+            {t({
+              id: 'restoration.regrowth.explanation_ir_p2',
+              message:
+                ". If a player's Regrowth is already in its pandemic window, refreshing it is very good. You don't lose any HoT duration while gaining the increased critical strike chance on that target.",
+            })}
+          </p>
+        )}
+        {this.hasRampantGrowth && (
+          <p>
+            {t({ id: 'restoration.regrowth.explanation_rg_p1', message: 'With ' })}
+            <SpellLink spell={TALENTS_DRUID.RAMPANT_GROWTH_TALENT} />
+            {t({
+              id: 'restoration.regrowth.explanation_rg_p2',
+              message: ', you should avoid hardcasting Regrowth on yourself. ',
+            })}
+            {this.hasOvergrowth ? (
+              <>
+                {t({
+                  id: 'restoration.regrowth.explanation_rg_p3',
+                  message: 'The exception is ',
+                })}
+                <SpellLink spell={TALENTS_DRUID.OVERGROWTH_TALENT} />
+                {t({ id: 'restoration.regrowth.explanation_rg_p4', message: ' with ' })}
+                <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />
+                {t({
+                  id: 'restoration.regrowth.explanation_rg_p5',
+                  message:
+                    ': self-cast that during dangerous damage to refresh your HoTs',
+                })}
+              </>
+            ) : null}
+            {t({
+              id: 'restoration.regrowth.explanation_rg_p6',
+              message: '. Prefer other targets',
+            })}
+            {this.hasOvergrowth
+              ? t({
+                  id: 'restoration.regrowth.explanation_rg_p7',
+                  message: ' when you are not refreshing',
+                })
+              : null}
+            .
+          </p>
+        )}
+        <TipBox hideIcon>
+          {isAdvanced && this.hasAbundance && (
+            <div>
+              <PerformanceMark perf={QualitativePerformance.Perfect} />{' '}
+              {t({
+                id: 'restoration.regrowth.legend_perfect',
+                message: 'Perfect - Abundance up and target has a pandemic-ready Regrowth',
+              })}
+            </div>
+          )}
+          <div>
+            <PerformanceMark perf={QualitativePerformance.Good} />{' '}
+            {t({ id: 'restoration.regrowth.legend_good', message: 'Good - ' })}
+            {this.hasAbundance ? (
+              <>{t({ id: 'restoration.regrowth.legend_good_ab', message: "Abundance up, Clearcasting, Nature's Swiftness, or triage" })}</>
+            ) : (
+              <>{t({ id: 'restoration.regrowth.legend_good_else', message: 'Clearcasting or triage' })}</>
+            )}
+            {this.hasRampantGrowth && this.hasOvergrowth && (
+              <>
+                {t({ id: 'restoration.regrowth.legend_good_lb', message: '; on ' })}
+                <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />
+                {t({ id: 'restoration.regrowth.legend_good_og', message: ' target with ' })}
+                <SpellLink spell={TALENTS_DRUID.OVERGROWTH_TALENT} />
+              </>
+            )}
+          </div>
+          {(this.hasNaturesBounty ||
+            this.hasImprovedRegrowth ||
+            (this.hasRampantGrowth && !this.hasOvergrowth)) && (
+            <div>
+              <PerformanceMark perf={QualitativePerformance.Ok} />{' '}
+              {t({ id: 'restoration.regrowth.legend_ok', message: 'Ok - ' })}
+              {this.hasRampantGrowth && !this.hasOvergrowth && (
+                <>
+                  {t({ id: 'restoration.regrowth.legend_ok_rg', message: 'Cast on ' })}
+                  <SpellLink spell={SPELLS.LIFEBLOOM_HOT_HEAL} />
+                  {t({
+                    id: 'restoration.regrowth.legend_ok_rg2',
+                    message: ' target (Rampant Growth)',
+                  })}
+                </>
+              )}
+              {this.hasRampantGrowth &&
+                !this.hasOvergrowth &&
+                (this.hasNaturesBounty || this.hasImprovedRegrowth) &&
+                '; '}
+              {(this.hasNaturesBounty || this.hasImprovedRegrowth) && (
+                <>
+                  {t({
+                    id: 'restoration.regrowth.legend_ok_refresh',
+                    message: 'Refreshed a long-duration Regrowth',
+                  })}
+                  {this.hasNaturesBounty
+                    ? t({
+                        id: 'restoration.regrowth.legend_ok_spread',
+                        message: ' (prefer spreading)',
+                      })
+                    : ''}
+                </>
+              )}
+            </div>
+          )}
+          <div>
+            <PerformanceMark perf={QualitativePerformance.Fail} />{' '}
+            {t({
+              id: 'restoration.regrowth.legend_bad',
+              message: 'Bad - No Abundance or Clearcasting',
+            })}
+          </div>
+        </TipBox>
+      </>
     );
 
-    const data = (
-      <div>
-        <div>
-          <CastSummaryAndBreakdown
-            spell={SPELLS.REGROWTH}
-            castEntries={this.castEntries}
-            badExtraExplanation={
-              <Trans id="restoration.regrowth.bad_extra_explanation">
-                without Clearcasting or low Abundance stacks
-              </Trans>
-            }
-            goodExtraExplanation={
-              this.hasNaturesBounty
-                ? t({
-                    id: 'restoration.regrowth.good_extra_nb',
-                    message:
-                      'free/cheap on a new Regrowth target, or triage on a critically low target',
-                  })
-                : t({
-                    id: 'restoration.regrowth.good_extra_base',
-                    message:
-                      'free/cheap with effective healing, or triage on a critically low target',
-                  })
-            }
-            okExtraExplanation={
-              this.hasNaturesBounty
-                ? t({
-                    id: 'restoration.regrowth.ok_extra_nb',
-                    message:
-                      'free/cheap but overwrote an existing Regrowth HoT outside pandemic window',
-                  })
-                : t({
-                    id: 'restoration.regrowth.ok_extra_base',
-                    message: 'free/cheap but high overheal',
-                  })
-            }
-          />
-        </div>
-      </div>
-    );
+    const stats = [];
+    if (this.hasAbundance) {
+      stats.push({
+        value: `${formatPercentage(this.abundanceCastRate, 0)}%`,
+        label: t({
+          id: 'restoration.regrowth.stat_abundance',
+          message: 'Casts During Abundance',
+        }),
+        tooltip: (
+          <>
+            {t({ id: 'restoration.regrowth.stat_abundance_tt1', message: 'Share of ' })}
+            <SpellLink spell={SPELLS.REGROWTH} />
+            {t({ id: 'restoration.regrowth.stat_abundance_tt2', message: ' hardcasts while ' })}
+            <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
+            {t({ id: 'restoration.regrowth.stat_abundance_tt3', message: ' was active' })}
+          </>
+        ),
+        performance: evaluateQualitativePerformanceByThreshold({
+          actual: this.abundanceCastRate,
+          isGreaterThanOrEqual: { perfect: 0.7, good: 0.5, ok: 0.3 },
+        }),
+      });
+    }
+    if (this.hasNaturesBounty) {
+      stats.push({
+        value: this.avgCleaveHits.toFixed(1),
+        label: t({
+          id: 'restoration.regrowth.stat_nb_cleaves',
+          message: 'Avg NB Cleaves',
+        }),
+        tooltip: (
+          <>
+            {t({
+              id: 'restoration.regrowth.stat_nb_cleaves_tt1',
+              message: 'Average other allies hit by ',
+            })}
+            <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />{' '}
+            {t({
+              id: 'restoration.regrowth.stat_nb_cleaves_tt2',
+              message: ' per Regrowth (primary target is not included)',
+            })}
+          </>
+        ),
+      });
+      stats.push({
+        value: this.avgMasteryStacks.toFixed(1),
+        label: t({
+          id: 'restoration.regrowth.stat_mastery',
+          message: 'Avg Mastery Stacks',
+        }),
+        tooltip: (
+          <>
+            {t({ id: 'restoration.regrowth.stat_mastery_tt1', message: 'Average ' })}
+            <SpellLink spell={SPELLS.MASTERY_HARMONY} />
+            {t({
+              id: 'restoration.regrowth.stat_mastery_tt2',
+              message:
+                " stacks on the Regrowth target at cast. Higher stacks increase the direct heal and Nature's Bounty cleave.",
+            })}
+          </>
+        ),
+        performance: evaluateQualitativePerformanceByThreshold({
+          actual: this.avgMasteryStacks,
+          isGreaterThanOrEqual: {
+            perfect: PERFECT_MASTERY_STACKS,
+            good: GOOD_MASTERY_STACKS,
+            ok: OK_MASTERY_STACKS,
+          },
+        }),
+      });
+    }
+    stats.push({
+      value: `${formatPercentage(this.avgOverheal, 0)}%`,
+      label: t({ id: 'restoration.regrowth.stat_overheal', message: 'Avg Overheal' }),
+      tooltip: (
+        <>
+          {t({
+            id: 'restoration.regrowth.stat_overheal_tt',
+            message: "Average overheal across primary heal and Nature's Bounty cleaves",
+          })}
+        </>
+      ),
+      performance: evaluateQualitativePerformanceByThreshold({
+        actual: this.avgOverheal,
+        isLessThanOrEqual: { perfect: 0.3, good: 0.5, ok: 0.7 },
+      }),
+    });
+    stats.push({
+      value: formatNumber(this.avgHealingPerCast),
+      label: t({
+        id: 'restoration.regrowth.stat_avg_healing',
+        message: 'Avg Healing Per Cast',
+      }),
+      tooltip: (
+        <>
+          {t({
+            id: 'restoration.regrowth.stat_avg_healing_tt',
+            message: "Effective healing from the direct heal and Nature's Bounty cleaves",
+          })}
+        </>
+      ),
+    });
 
-    return explanationAndDataSubsection(explanation, data, GUIDE_CORE_EXPLANATION_PERCENT);
+    return (
+      <GuideSection explanation={explanation} explanationPercent={GUIDE_CORE_EXPLANATION_PERCENT}>
+        <CastOverview
+          spell={SPELLS.REGROWTH}
+          title={
+            <>
+              <SpellLink spell={SPELLS.REGROWTH} />
+              {t({ id: 'restoration.regrowth.overview_title', message: ' Overview' })}
+            </>
+          }
+          stats={stats}
+        />
+        <CastDetail
+          title={t({ id: 'restoration.regrowth.casts_title', message: 'Regrowth Casts' })}
+          casts={this.buildCastDetails(isAdvanced)}
+          possiblePerformances={this.getPossiblePerformances(isAdvanced)}
+        />
+      </GuideSection>
+    );
+  }
+
+  private displayPerformance(
+    performance: QualitativePerformance,
+    isAdvanced: boolean,
+  ): QualitativePerformance {
+    if (!isAdvanced && performance === QualitativePerformance.Perfect) {
+      return QualitativePerformance.Good;
+    }
+    return performance;
+  }
+
+  private buildCastDetails(isAdvanced: boolean): PerCastData[] {
+    return this.casts.map((cast) => {
+      const performance = this.displayPerformance(cast.performance, isAdvanced);
+      const totalHealing = cast.primaryHealing + cast.cleaveHealing;
+      const primaryRaw = cast.primaryHealing + cast.primaryOverhealing;
+      const directOverhealPct = primaryRaw > 0 ? cast.primaryOverhealing / primaryRaw : 0;
+
+      const reasonParts: string[] = [];
+      if (cast.duringAbundance) {
+        reasonParts.push(t({ id: 'restoration.regrowth.reason_abundance', message: 'Abundance' }));
+      }
+      if (cast.freeNote?.includes('Clearcasting') || cast.freeNote?.includes('Swiftness')) {
+        reasonParts.push(cast.freeNote);
+      }
+      if (cast.isTriage) {
+        reasonParts.push(t({ id: 'restoration.regrowth.reason_triage', message: 'Triage' }));
+      }
+      if (this.hasRampantGrowth && cast.onLifebloomTarget) {
+        reasonParts.push(
+          this.hasOvergrowth
+            ? t({
+                id: 'restoration.regrowth.reason_og_lb',
+                message: 'Overgrowth LB refresh',
+              })
+            : t({ id: 'restoration.regrowth.reason_on_lb', message: 'On Lifebloom target' }),
+        );
+      }
+      if (cast.isPandemicRefresh) {
+        reasonParts.push(
+          t({ id: 'restoration.regrowth.reason_pandemic', message: 'Pandemic refresh' }),
+        );
+      } else if (cast.targetHadRegrowth) {
+        reasonParts.push(
+          cast.regrowthRemainingMs !== undefined
+            ? t({ id: 'restoration.regrowth.reason_early_refresh', message: 'Early refresh (' }) +
+              `${(cast.regrowthRemainingMs / 1000).toFixed(1)}` +
+              t({ id: 'restoration.regrowth.reason_early_refresh_end', message: 's left)' })
+            : t({ id: 'restoration.regrowth.reason_early_refresh2', message: 'Early refresh' }),
+        );
+      } else if (performance !== QualitativePerformance.Fail) {
+        reasonParts.push(t({ id: 'restoration.regrowth.reason_new', message: 'New Regrowth' }));
+      }
+      if (performance === QualitativePerformance.Fail) {
+        reasonParts.push(t({ id: 'restoration.regrowth.reason_full_price', message: 'Full price' }));
+      }
+
+      const stats = [];
+      if (this.hasNaturesBounty) {
+        const cleaveRaw = cast.cleaveHealing + cast.cleaveOverhealing;
+        const cleaveOverhealPct = cleaveRaw > 0 ? cast.cleaveOverhealing / cleaveRaw : undefined;
+        stats.push({
+          value: `${cast.cleaveHits}`,
+          label: t({ id: 'restoration.regrowth.stat_nb_cleaves2', message: 'NB Cleaves' }),
+          tooltip:
+            cleaveOverhealPct !== undefined
+              ? `${formatPercentage(cleaveOverhealPct, 0)}` +
+                t({
+                  id: 'restoration.regrowth.stat_nb_cleave_overheal',
+                  message: '% cleave overheal',
+                })
+              : t({
+                  id: 'restoration.regrowth.stat_nb_no_cleaves',
+                  message: "No Nature's Bounty cleaves",
+                }),
+          performance:
+            cleaveOverhealPct === undefined
+              ? undefined
+              : cleaveOverhealPct < LOW_OVERHEAL_THRESHOLD
+                ? QualitativePerformance.Good
+                : QualitativePerformance.Ok,
+        });
+        stats.push({
+          value: `${cast.masteryStacks}`,
+          label: t({ id: 'restoration.regrowth.stat_mastery2', message: 'Mastery Stacks' }),
+          tooltip: (
+            <>
+              <SpellLink spell={SPELLS.MASTERY_HARMONY} />
+              {t({
+                id: 'restoration.regrowth.stat_mastery2_tt',
+                message: ' stacks on the target at cast',
+              })}
+            </>
+          ),
+          performance: evaluateQualitativePerformanceByThreshold({
+            actual: cast.masteryStacks,
+            isGreaterThanOrEqual: {
+              perfect: PERFECT_MASTERY_STACKS,
+              good: GOOD_MASTERY_STACKS,
+              ok: OK_MASTERY_STACKS,
+            },
+          }),
+        });
+      }
+      stats.push({
+        value: `${formatPercentage(directOverhealPct, 0)}%`,
+        label: t({ id: 'restoration.regrowth.stat_direct_overheal', message: 'Direct Overheal' }),
+        performance: evaluateQualitativePerformanceByThreshold({
+          actual: directOverhealPct,
+          isLessThanOrEqual: { perfect: 0.3, good: 0.5, ok: 0.7 },
+        }),
+      });
+      stats.push({
+        value: formatNumber(totalHealing),
+        label: t({ id: 'restoration.regrowth.stat_healing', message: 'Healing' }),
+      });
+
+      return {
+        performance,
+        timestamp: this.owner.formatTimestamp(cast.timestamp),
+        stats,
+        details: (
+          <>
+            {performance}: {reasonParts.join(' · ') || t({ id: 'restoration.regrowth.reason_fallback', message: 'Regrowth' })}
+            {t({ id: 'restoration.regrowth.details_on', message: ' on ' })}
+            <strong>{cast.targetName}</strong>
+            {cast.targetHealthPercent !== undefined && (
+              <>
+                {' '}
+                ({formatPercentage(cast.targetHealthPercent, 0)}
+                {t({ id: 'restoration.regrowth.details_hp', message: '% HP)' })})
+              </>
+            )}
+            {this.hasNaturesBounty && (
+              <>
+                {' '}
+                · <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />
+                {t({ id: 'restoration.regrowth.details_hit', message: ' hit ' })}
+                {cast.cleaveHits}
+              </>
+            )}
+          </>
+        ),
+      };
+    });
   }
 
   statistic() {
     return (
       <Statistic
         size="flexible"
-        position={STATISTIC_ORDER.CORE(20)} // chosen for fixed ordering of general stats
+        position={STATISTIC_ORDER.CORE(20)}
         tooltip={
           <>
-            <SpellLink spell={SPELLS.REGROWTH} />{' '}
+            <SpellLink spell={SPELLS.REGROWTH} />
             {t({
-              id: 'restoration.regrowth.statistic_tooltip_p1',
-              message: 'is mana inefficient relative to',
-            })}{' '}
-            <SpellLink spell={SPELLS.REJUVENATION} />{' '}
-            {t({
-              id: 'restoration.regrowth.statistic_tooltip_p2',
-              message: 'and should only be cast when free due to',
-            })}{' '}
-            <SpellLink spell={SPELLS.INNERVATE} />, <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />{' '}
-            {t({
-              id: 'restoration.regrowth.statistic_tooltip_p3',
-              message: 'or',
-            })}{' '}
-            <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />,{' '}
-            {this.hasAbundance && (
-              <>
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_p4',
-                  message: 'cheap due to',
-                })}{' '}
-                {ABUNDANCE_EXCEPTION_STACKS}+ <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />{' '}
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_p5',
-                  message: 'stacks,',
-                })}
-              </>
-            )}{' '}
-            {t({
-              id: 'restoration.regrowth.statistic_tooltip_p6',
-              message: 'or to save a critically low health target.',
+              id: 'restoration.regrowth.stat_tooltip_p1',
+              message: ' hardcasts should mostly happen during ',
             })}
+            {this.hasAbundance ? (
+              <SpellLink spell={TALENTS_DRUID.ABUNDANCE_TALENT} />
+            ) : (
+              t({ id: 'restoration.regrowth.stat_tooltip_else', message: 'cheap windows' })
+            )}
+            {t({
+              id: 'restoration.regrowth.stat_tooltip_p2',
+              message: ', when free from ',
+            })}
+            <SpellLink spell={SPELLS.CLEARCASTING_BUFF} /> /{' '}
+            <SpellLink spell={SPELLS.NATURES_SWIFTNESS} />
+            {t({ id: 'restoration.regrowth.stat_tooltip_p3', message: ', or as triage.' })}
             <br />
             <br />
             <strong>
-              {t({
-                id: 'restoration.regrowth.statistic_tooltip_p7',
-                message: 'You hardcast',
-              })}{' '}
+              {t({ id: 'restoration.regrowth.stat_tooltip_hardcast', message: 'You hardcast ' })}
               {this.totalRegrowths} <SpellLink spell={SPELLS.REGROWTH} />
             </strong>
             <ul>
+              {this.hasAbundance && (
+                <li>
+                  {t({
+                    id: 'restoration.regrowth.stat_perfect',
+                    message: 'Perfect (pandemic): ',
+                  })}
+                  <strong>{this.perfectRegrowths}</strong>
+                </li>
+              )}
               <li>
-                <SpellIcon spell={SPELLS.INNERVATE} />{' '}
+                {t({
+                  id: 'restoration.regrowth.stat_ok',
+                  message: 'Ok (early refresh): ',
+                })}
+                <strong>{this.okRegrowths}</strong>
+              </li>
+              <li>
                 <SpellIcon spell={SPELLS.CLEARCASTING_BUFF} />{' '}
                 <SpellIcon spell={SPELLS.NATURES_SWIFTNESS} />{' '}
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_free_casts',
-                  message: 'Free Casts:',
-                })}{' '}
+                {t({ id: 'restoration.regrowth.stat_free', message: 'Free Casts: ' })}
                 <strong>{this.freeRegrowths}</strong>
               </li>
               {this.hasAbundance && (
                 <li>
                   <SpellIcon spell={SPELLS.ABUNDANCE_BUFF} />{' '}
                   {t({
-                    id: 'restoration.regrowth.statistic_tooltip_cheap_casts',
-                    message: 'Cheap Casts:',
-                  })}{' '}
+                    id: 'restoration.regrowth.stat_during_ab',
+                    message: 'During Abundance: ',
+                  })}
                   <strong>{this.abundanceRegrowths}</strong>
                 </li>
               )}
               <li>
                 <HealthIcon />{' '}
                 {t({
-                  id: 'restoration.regrowth.statistic_tooltip_triage',
-                  message: 'Full Price Triage',
-                })}{' '}
-                ({'<'}
-                {formatPercentage(TRIAGE_THRESHOLD, 0)}% HP){' '}
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_casts',
-                  message: 'Casts:',
-                })}{' '}
+                  id: 'restoration.regrowth.stat_triage',
+                  message: 'Full Price Triage (<',
+                })}
+                {formatPercentage(TRIAGE_THRESHOLD, 0)}
+                {t({ id: 'restoration.regrowth.stat_triage_end', message: '% HP): ' })}
                 <strong>{this.triageRegrowths}</strong>
               </li>
-              {this.okRegrowths > 0 && (
-                <li>
-                  {t({
-                    id: 'restoration.regrowth.statistic_tooltip_ok_casts',
-                    message: 'Ok Casts:',
-                  })}{' '}
-                  <strong>{this.okRegrowths}</strong>
-                </li>
-              )}
               <li>
                 <CrossIcon />{' '}
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_bad_casts',
-                  message: 'Bad Casts:',
-                })}{' '}
+                {t({ id: 'restoration.regrowth.stat_bad', message: 'Bad Casts: ' })}
                 <strong>{this.badRegrowths}</strong>
               </li>
             </ul>
             <br />
             <strong>
-              {t({
-                id: 'restoration.regrowth.statistic_tooltip_cc_gained',
-                message: 'You gained',
-              })}{' '}
+              {t({ id: 'restoration.regrowth.stat_gained', message: 'You gained ' })}
               {this.totalClearcasts} <SpellLink spell={SPELLS.CLEARCASTING_BUFF} />
             </strong>
             <ul>
               <li>
                 <SpellIcon spell={SPELLS.REGROWTH} />{' '}
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_used',
-                  message: 'Used:',
-                })}{' '}
+                {t({ id: 'restoration.regrowth.stat_used', message: 'Used: ' })}
                 <strong>{this.usedClearcasts}</strong>
               </li>
               <li>
                 <CrossIcon />{' '}
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_overwritten',
-                  message: 'Overwritten:',
-                })}{' '}
+                {t({ id: 'restoration.regrowth.stat_overwritten', message: 'Overwritten: ' })}
                 <strong>{this.overwrittenClearcasts}</strong>
               </li>
               <li>
                 <UptimeIcon />{' '}
-                {t({
-                  id: 'restoration.regrowth.statistic_tooltip_expired',
-                  message: 'Expired:',
-                })}{' '}
+                {t({ id: 'restoration.regrowth.stat_expired', message: 'Expired: ' })}
                 <strong>{this.expiredClearcasts}</strong>
               </li>
               {this.endingClearcasts > 0 && (
                 <li>
                   {t({
-                    id: 'restoration.regrowth.statistic_tooltip_active',
-                    message: 'Still active at fight end:',
-                  })}{' '}
+                    id: 'restoration.regrowth.stat_still_active',
+                    message: 'Still active at fight end: ',
+                  })}
                   <strong>{this.endingClearcasts}</strong>
                 </li>
               )}
@@ -666,12 +988,12 @@ class RegrowthAndClearcasting extends Analyzer {
             {this.badRegrowths === 0 ? <CheckmarkIcon /> : <CrossIcon />}
             {'  '}
             {this.badRegrowths}{' '}
-            <small>{t({ id: 'restoration.regrowth.bad_casts', message: 'bad casts' })}</small>
+            <small>{t({ id: 'restoration.regrowth.stat_bad_casts', message: 'bad casts' })}</small>
             <br />
             <SpellIcon spell={SPELLS.CLEARCASTING_BUFF} />
             {'  '}
             {formatPercentage(this.clearcastUtilPercent, 1)}%{' '}
-            <small>{t({ id: 'restoration.regrowth.util_label', message: 'util' })}</small>
+            <small>{t({ id: 'restoration.regrowth.stat_util', message: 'util' })}</small>
           </>
         </BoringSpellValueText>
       </Statistic>

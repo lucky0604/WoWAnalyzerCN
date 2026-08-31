@@ -1,3 +1,4 @@
+import { formatOverhealing } from 'analysis/retail/druid/restoration/format';
 import { formatNumber } from 'common/format';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
@@ -68,6 +69,10 @@ class Flourish extends Analyzer {
 
   get totalExtensionHealing() {
     return this.extensionAttributions.reduce((acc, flourish) => acc + flourish.healing, 0);
+  }
+
+  get totalExtensionOverhealing() {
+    return this.extensionAttributions.reduce((acc, flourish) => acc + flourish.overheal, 0);
   }
 
   get casts() {
@@ -164,7 +169,7 @@ class Flourish extends Analyzer {
             {t({
               id: 'restoration.flourish.explanation_p2_2',
               message:
-                ', the Convoke should ALWAYS be cast first. This is because the Convoke will produce many HoTs which can be extended.',
+                ', the Convoke should always be cast first. Convoke produces many HoTs that can then be extended.',
             })}
           </p>
         )}
@@ -302,6 +307,10 @@ class Flourish extends Analyzer {
                 <strong>{formatNumber(this.healingPerCast)}</strong>
               </li>
             </ul>
+            <strong>
+              Overhealing:{' '}
+              {formatOverhealing(this.totalExtensionOverhealing, this.totalExtensionHealing)}
+            </strong>
             <br />
             <Trans id="restoration.flourish.tooltip_p3">
               For the included table, note that extension healing for a flourish cast near the end
