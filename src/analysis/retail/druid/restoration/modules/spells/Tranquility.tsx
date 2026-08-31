@@ -1,7 +1,6 @@
 import { formatNumber } from 'common/format';
-import { Trans } from '@lingui/react/macro';
-import { t } from '@lingui/core/macro';
 import SPELLS from 'common/SPELLS';
+import { t } from '@lingui/core/macro';
 import { SpellLink, Tooltip } from 'interface';
 import { PassFailCheckmark } from 'interface/guide';
 import InformationIcon from 'interface/icons/Information';
@@ -19,6 +18,8 @@ import { explanationAndDataSubsection } from 'interface/guide/components/Explana
 import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 
 const MAX_TRANQ_TICKS = 7;
+/** Official 12.1 ramp: extend as many Regrowths as possible into Tranquility */
+const REGROWTH_RAMP_THRESHOLD = 5;
 
 /**
  * Tracks stats relating to Tranquility
@@ -50,6 +51,7 @@ class Tranquility extends Analyzer {
       this.hotTracker.getHotCount(SPELLS.REJUVENATION.id) +
       this.hotTracker.getHotCount(SPELLS.REJUVENATION_GERMINATION.id);
     const wgsOnCast = this.hotTracker.getHotCount(SPELLS.WILD_GROWTH.id);
+    const regrowthsOnCast = this.hotTracker.getHotCount(SPELLS.REGROWTH.id);
     const timestamp = event.timestamp;
     const channeledTicks = getTranquilityTicks(event).length;
     this.tranqCasts.push({
@@ -57,6 +59,7 @@ class Tranquility extends Analyzer {
       directHealing,
       wgsOnCast,
       rejuvsOnCast,
+      regrowthsOnCast,
       channeledTicks,
     });
   }
@@ -85,75 +88,77 @@ class Tranquility extends Analyzer {
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.FLOURISH_TALENT) && (
           <>
             <p>
-              {t({
-                id: 'restoration.tranquility.explanation_p2',
-                message: 'In Midnight, ',
-              })}
+              {t({ id: 'restoration.tranquility.flourish_p1', message: 'In Midnight, ' })}
               <strong>
                 {t({
-                  id: 'restoration.tranquility.explanation_p2_strong',
+                  id: 'restoration.tranquility.flourish_strong',
                   message: 'Flourish is passive on Tranquility',
                 })}
               </strong>
               {t({
-                id: 'restoration.tranquility.explanation_p2_2',
+                id: 'restoration.tranquility.flourish_p2',
                 message:
-                  '. Each Tranquility tick extends active HoTs by 2 seconds (up to 10 seconds overall), so the value of every cast depends heavily on how many HoTs are active when you start channeling.',
-              })}
-            </p>
-            <p>
-              {t({
-                id: 'restoration.tranquility.explanation_p3',
-                message: 'In the lead-up to Tranquility, prioritize setting up as many ',
-              })}
-              <SpellLink spell={SPELLS.REJUVENATION} />
-              {t({
-                id: 'restoration.tranquility.explanation_p3_after_rejuv',
-                message: 's as possible, then cast ',
-              })}
-              <SpellLink spell={SPELLS.SWIFTMEND} />
-              {t({
-                id: 'restoration.tranquility.explanation_p3_after_sm',
-                message: ', one more ',
-              })}
-              <SpellLink spell={SPELLS.REJUVENATION} />
-              {t({
-                id: 'restoration.tranquility.explanation_p3_after_rejuv2',
-                message: ', and a ',
-              })}
-              <SpellLink spell={SPELLS.WILD_GROWTH} />
-              {t({
-                id: 'restoration.tranquility.explanation_p3_after_wg',
-                message:
-                  ' before channeling Tranquility. After the channel starts, use the extended HoT window to cast as many ',
+                  '. Each Tranquility tick extends active HoTs by 2 seconds (up to 10 seconds overall). The most valuable HoT to extend is ',
               })}
               <SpellLink spell={SPELLS.REGROWTH} />
               {t({
-                id: 'restoration.tranquility.explanation_p3_after_regrowth',
-                message: 's as needed.',
+                id: 'restoration.tranquility.flourish_p3',
+                message:
+                  '. Those extended HoTs give you a wide window to keep casting Regrowth afterwards',
+              })}
+              {this.selectedCombatant.hasTalent(TALENTS_DRUID.NATURES_BOUNTY_TALENT) ? (
+                <>
+                  {t({
+                    id: 'restoration.tranquility.flourish_nb',
+                    message: ', and those casts splash via ',
+                  })}
+                  <SpellLink spell={TALENTS_DRUID.NATURES_BOUNTY_TALENT} />
+                </>
+              ) : null}
+              .
+            </p>
+            <p>
+              {t({
+                id: 'restoration.tranquility.ramp_p1',
+                message:
+                  'Start the ramp about 15–20 seconds before Tranquility is assigned: ',
+              })}
+              <SpellLink spell={SPELLS.SWIFTMEND} />
+              {t({ id: 'restoration.tranquility.ramp_p2', message: ', a few ' })}
+              <SpellLink spell={SPELLS.REJUVENATION} />
+              {t({ id: 'restoration.tranquility.ramp_p3', message: 's, as many ' })}
+              <SpellLink spell={SPELLS.REGROWTH} />
+              {t({
+                id: 'restoration.tranquility.ramp_p4',
+                message:
+                  's as you can, Swiftmend again, another Regrowth, ',
+              })}
+              <SpellLink spell={SPELLS.WILD_GROWTH} />
+              {t({
+                id: 'restoration.tranquility.ramp_p5',
+                message:
+                  ', then Tranquility, then Regrowth spam. After the channel, keep spending on Regrowth while the extended HoTs last.',
               })}
             </p>
           </>
         )}
         {this.selectedCombatant.hasTalent(TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT) && (
           <p>
-            {t({
-              id: 'restoration.tranquility.explanation_p4',
-              message: 'If you are talented into ',
-            })}
+            {t({ id: 'restoration.tranquility.incarnation_p1', message: 'If you take ' })}
             <SpellLink spell={TALENTS_DRUID.INCARNATION_TREE_OF_LIFE_TALENT} />
             {t({
-              id: 'restoration.tranquility.explanation_p4_2',
+              id: 'restoration.tranquility.incarnation_p2',
               message:
-                ", it's often worth combining it with Tranquility, since channeling Tranquility pauses the remaining duration of your Tree buff.",
+                ', it is often worth combining it with Tranquility because channeling Tranquility pauses the remaining duration of your Tree buff.',
             })}
           </p>
         )}
         <p>
-          <Trans id="restoration.tranquility.explanation_p5">
-            Watch your positioning before casting so you can complete the full channel without
-            moving and avoid clipping ticks at the end.
-          </Trans>
+          {t({
+            id: 'restoration.tranquility.positioning',
+            message:
+              'Watch your positioning before casting so you can complete the full channel without moving and avoid clipping ticks at the end. In dungeons, Tranquility is used more for the healing it does by itself than for its ramp combo. Press it when the group is in danger.',
+          })}
         </p>
       </>
     );
@@ -163,23 +168,23 @@ class Tranquility extends Analyzer {
         <strong>
           {t({ id: 'restoration.tranquility.per_cast_breakdown', message: 'Per-Cast Breakdown' })}
         </strong>
-        <small>
-          {t({ id: 'restoration.tranquility.click_expand', message: '- click to expand' })}
-        </small>
+        <small>{t({ id: 'restoration.tranquility.click_to_expand', message: ' - click to expand' })}</small>
         {this.tranqCasts.map((cast, ix) => {
           const header = (
             <>
               @ {this.owner.formatTimestamp(cast.timestamp)} &mdash;{' '}
-              <SpellLink spell={SPELLS.TRANQUILITY_CAST} /> ({formatNumber(cast.directHealing)}{' '}
-              {t({ id: 'restoration.tranquility.healing', message: 'healing' })})
+              <SpellLink spell={SPELLS.TRANQUILITY_CAST} /> (
+              {formatNumber(cast.directHealing)}
+              {t({ id: 'restoration.tranquility.header_healing', message: ' healing' })})
             </>
           );
 
           const wgRamp = cast.wgsOnCast > 0;
-          const rejuvRamp = cast.rejuvsOnCast > 10;
+          const rejuvRamp = cast.rejuvsOnCast >= 5;
+          const rgRamp = cast.regrowthsOnCast >= REGROWTH_RAMP_THRESHOLD;
           const channeledMaxTicks = cast.channeledTicks === MAX_TRANQ_TICKS;
           const overallPerf =
-            wgRamp && rejuvRamp && channeledMaxTicks
+            wgRamp && rgRamp && channeledMaxTicks
               ? QualitativePerformance.Good
               : QualitativePerformance.Fail;
 
@@ -187,43 +192,69 @@ class Tranquility extends Analyzer {
           checklistItems.push({
             label: (
               <>
-                <SpellLink spell={SPELLS.WILD_GROWTH} />{' '}
-                {t({ id: 'restoration.tranquility.wg_ramp', message: 'ramp' })}
+                <SpellLink spell={SPELLS.WILD_GROWTH} />
+                {t({ id: 'restoration.tranquility.ramp', message: ' ramp' })}
               </>
             ),
             result: <PassFailCheckmark pass={wgRamp} />,
             details: (
-              <Trans id="restoration.tranquility.wg_active">({cast.wgsOnCast} HoTs active)</Trans>
+              <>
+                ({cast.wgsOnCast}
+                {t({ id: 'restoration.tranquility.hots_active', message: ' HoTs active' })})
+              </>
             ),
           });
           checklistItems.push({
             label: (
               <>
-                <SpellLink spell={SPELLS.REJUVENATION} />{' '}
-                {t({ id: 'restoration.tranquility.rejuv_ramp', message: 'ramp' })}
+                <SpellLink spell={SPELLS.REGROWTH} />
+                {t({ id: 'restoration.tranquility.ramp', message: ' ramp' })}
+              </>
+            ),
+            result: <PassFailCheckmark pass={rgRamp} />,
+            details: (
+              <>
+                ({cast.regrowthsOnCast}
+                {t({
+                  id: 'restoration.tranquility.hots_active_aim',
+                  message: ' HoTs active, aim for ',
+                })}
+                {REGROWTH_RAMP_THRESHOLD}+)
+              </>
+            ),
+          });
+          checklistItems.push({
+            label: (
+              <>
+                <SpellLink spell={SPELLS.REJUVENATION} />
+                {t({ id: 'restoration.tranquility.rejuvs_active', message: 's active' })}
               </>
             ),
             result: <PassFailCheckmark pass={rejuvRamp} />,
             details: (
-              <Trans id="restoration.tranquility.rejuv_active">
-                ({cast.rejuvsOnCast} HoTs active)
-              </Trans>
+              <>
+                ({cast.rejuvsOnCast}
+                {t({ id: 'restoration.tranquility.hots_active', message: ' HoTs active' })})
+              </>
             ),
           });
           checklistItems.push({
             label: (
               <>
-                <Trans id="restoration.tranquility.channeled_full_duration">
-                  Channeled full duration
-                </Trans>{' '}
+                {t({
+                  id: 'restoration.tranquility.channeled_full',
+                  message: 'Channeled full duration ',
+                })}
                 <Tooltip
                   hoverable
                   content={
-                    <Trans id="restoration.tranquility.channeled_full_duration_tooltip">
-                      Every tick of Tranquility is very powerful - plan ahead so you're in a
-                      position to channel it for its full duration, and be careful not to clip ticks
-                      at the end.
-                    </Trans>
+                    <>
+                      {t({
+                        id: 'restoration.tranquility.channeled_tooltip',
+                        message:
+                          "Every tick of Tranquility is very powerful - plan ahead so you're in a position to channel it for its full duration, and be careful not to clip ticks at the end.",
+                      })}
+                    </>
                   }
                 >
                   <span>
@@ -234,18 +265,16 @@ class Tranquility extends Analyzer {
             ),
             result: <PassFailCheckmark pass={channeledMaxTicks} />,
             details: (
-              <Trans id="restoration.tranquility.ticks_count">
-                ({cast.channeledTicks} / {MAX_TRANQ_TICKS} ticks)
-              </Trans>
+              <>
+                ({cast.channeledTicks} / {MAX_TRANQ_TICKS}
+                {t({ id: 'restoration.tranquility.ticks_suffix', message: ' ticks' })})
+              </>
             ),
           });
 
           const detailItems: CooldownExpandableItem[] = [];
           detailItems.push({
-            label: t({
-              id: 'restoration.tranquility.direct_healing_label',
-              message: 'Direct Healing',
-            }),
+            label: t({ id: 'restoration.tranquility.direct_healing', message: 'Direct Healing' }),
             result: '',
             details: <>{formatNumber(cast.directHealing)}</>,
           });
@@ -272,10 +301,12 @@ interface TranquilityCast {
   timestamp: number;
   /** The healing from this cast's direct portion */
   directHealing: number;
-  /** The number of Wild Growths out at the moment this Convoke is cast */
+  /** The number of Wild Growths out at the moment this Tranquility is cast */
   wgsOnCast: number;
-  /** The number of Rejuvs out at the moment this Convoke is cast */
+  /** The number of Rejuvs out at the moment this Tranquility is cast */
   rejuvsOnCast: number;
+  /** The number of Regrowths out at the moment this Tranquility is cast */
+  regrowthsOnCast: number;
   /** The number of ticks that were channeled in this cast */
   channeledTicks: number;
 }

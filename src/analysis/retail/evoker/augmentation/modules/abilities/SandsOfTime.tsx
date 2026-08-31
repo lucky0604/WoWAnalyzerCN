@@ -32,6 +32,7 @@ interface PossibleExtends {
   event: CastEvent | EmpowerEndEvent;
   extendedEbonMight: boolean;
   extendedDuplicate: boolean;
+  allowFailedExtend: boolean;
 }
 
 class SandsOfTime extends Analyzer {
@@ -47,6 +48,7 @@ class SandsOfTime extends Analyzer {
   empowers = [SPELLS.FIRE_BREATH, SPELLS.FIRE_BREATH_FONT, SPELLS.UPHEAVAL, SPELLS.UPHEAVAL_FONT];
   canExtendDuplicate = this.selectedCombatant.hasTalent(TALENTS.DUPLICATE_2_AUGMENTATION_TALENT);
   duplicateActive = false;
+  hasDoubleTime = this.selectedCombatant.hasTalent(TALENTS.DOUBLE_TIME_TALENT);
   constructor(options: Options) {
     super(options);
 
@@ -89,6 +91,9 @@ class SandsOfTime extends Analyzer {
       event: event,
       extendedEbonMight: Boolean(this.ebonMightActive),
       extendedDuplicate: Boolean(this.duplicateActive && this.canExtendDuplicate),
+      // For some reason, attempting to get Double Time info in finalize() throws an error, so this is done here instead.
+      allowFailedExtend:
+        event.ability.guid === TALENTS.BREATH_OF_EONS_TALENT.id && this.hasDoubleTime,
     };
 
     this.extendAttempts.push(extendAttempts);
@@ -102,6 +107,7 @@ class SandsOfTime extends Analyzer {
   private sandOfTimeUsage(possibleExtends: PossibleExtends): SpellUse {
     let extendedEbonMight = possibleExtends.extendedEbonMight;
     let extendedDuplicate = possibleExtends.extendedDuplicate;
+    const allowFailedExtend = possibleExtends.allowFailedExtend;
     if (failedEbonMightExtension(possibleExtends.event)) {
       extendedEbonMight = false;
     }
@@ -114,7 +120,9 @@ class SandsOfTime extends Analyzer {
         ? QualitativePerformance.Perfect
         : extendedEbonMight
           ? QualitativePerformance.Good
-          : QualitativePerformance.Fail;
+          : allowFailedExtend
+            ? QualitativePerformance.Ok
+            : QualitativePerformance.Fail;
     const summary = (
       <div>
         <>{t({id:'guide.augmentation.sandsOfTime.extended.p1',message:'Extended with '})}<SpellLink spell={spell} /></>
@@ -128,6 +136,12 @@ class SandsOfTime extends Analyzer {
       ) : extendedEbonMight ? (
         <div>
           <>{t({id:'guide.augmentation.sandsOfTime.extendedEbon.p1',message:'You extended your '})}<SpellLink spell={TALENTS.EBON_MIGHT_TALENT} />{t({id:'guide.augmentation.sandsOfTime.extendedEbon.p2',message:' buff by casting '})}<SpellLink spell={spell} />{t({id:'guide.augmentation.sandsOfTime.extendedEbon.p3',message:'. Good job!'})}</>
+        </div>
+      ) : allowFailedExtend ? (
+        <div>
+          <SpellLink spell={TALENTS.EBON_MIGHT_TALENT} /> wasn't active, but this is acceptable when
+          using <SpellLink spell={spell} /> to try and proc{' '}
+          <SpellLink spell={TALENTS.DOUBLE_TIME_TALENT} />.
         </div>
       ) : (
         <div>

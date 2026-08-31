@@ -11,6 +11,7 @@ import { VersatilityIcon } from 'interface/icons';
 import { SpellLink } from 'interface';
 import { hasEruptionCastLink } from '../normalizers/CastLinkNormalizer';
 import { t } from '@lingui/core/macro';
+import { OVERLORD_MAX_MOTES } from 'analysis/retail/evoker/augmentation/constants';
 
 /**
  * Triggers an Eruption at the first 3 enemies hit by Breath of Eons / Deep Breath. These Eruptions are guaranteed to spawn a Mote of Possibility.
@@ -67,7 +68,7 @@ class Overlord extends Analyzer {
   }
 
   onApplyDebuff(event: ApplyDebuffEvent) {
-    if (this.motesSinceLastCast < 3) {
+    if (this.motesSinceLastCast < OVERLORD_MAX_MOTES) {
       this.motesSpawned += 1;
       this.motesSinceLastCast += 1;
     }

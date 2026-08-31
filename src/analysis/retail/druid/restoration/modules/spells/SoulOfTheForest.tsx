@@ -1,11 +1,11 @@
-import type { JSX } from 'react';
+import { type ReactNode } from 'react';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import { formatOverhealing } from 'analysis/retail/druid/restoration/format';
 import { formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink } from 'interface';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
-import { calculateEffectiveHealing } from 'parser/core/EventCalculateLib';
+import { calculateEffectiveHealing, calculateOverhealing } from 'parser/core/EventCalculateLib';
 import Events, {
   ApplyBuffEvent,
   CastEvent,
@@ -16,8 +16,6 @@ import Events, {
 } from 'parser/core/Events';
 import BoringSpellValueText from 'parser/ui/BoringSpellValueText';
 import ItemPercentHealingDone from 'parser/ui/ItemPercentHealingDone';
-import { BoxRowEntry } from 'interface/guide/components/PerformanceBoxRow';
-import { QualitativePerformance } from 'parser/ui/QualitativePerformance';
 import Statistic from 'parser/ui/Statistic';
 import STATISTIC_CATEGORY from 'parser/ui/STATISTIC_CATEGORY';
 import STATISTIC_ORDER from 'parser/ui/STATISTIC_ORDER';
@@ -32,11 +30,6 @@ import {
 } from 'analysis/retail/druid/restoration/normalizers/SoulOfTheForestLinkNormalizer';
 import HotTrackerRestoDruid from 'analysis/retail/druid/restoration/modules/core/hottracking/HotTrackerRestoDruid';
 import { TALENTS_DRUID } from 'common/TALENTS';
-import { explanationAndDataSubsection } from 'interface/guide/components/ExplanationRow';
-import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
-import { isConvoking } from 'analysis/retail/druid/shared/spells/ConvokeSpirits';
-import CastSummaryAndBreakdown from 'interface/guide/components/CastSummaryAndBreakdown';
-import PowerOfTheArchdruid from 'analysis/retail/druid/restoration/modules/spells/PowerOfTheArchdruid';
 
 const SOTF_SPELLS = [SPELLS.REJUVENATION, SPELLS.REJUVENATION_GERMINATION, SPELLS.REGROWTH];
 
@@ -47,18 +40,18 @@ const debug = false;
 
 /**
  * **Soul of the Forest**
- * Spec Talent Tier 4
+ * Spec Talent
  *
- * Swiftmend increases the healing of your next Regrowth or Rejuvenation by 60%,
+ * Swiftmend increases the healing of your next Regrowth or Rejuvenation by 60%.
+ *
+ * Guide cast analysis lives in Swiftmend (TFT-style per-cast sequence).
  */
 class SoulOfTheForest extends Analyzer {
   static dependencies = {
     hotTracker: HotTrackerRestoDruid,
-    powerOfTheArchdruid: PowerOfTheArchdruid,
   };
 
   hotTracker!: HotTrackerRestoDruid;
-  powerOfTheArchdruid!: PowerOfTheArchdruid;
 
   sotfRejuvInfo = {
     boost: REJUVENATION_HEALING_INCREASE,
@@ -81,9 +74,6 @@ class SoulOfTheForest extends Analyzer {
   lastTalliedSotF?: RemoveBuffEvent;
   lastBuffFromHardcast = false;
   wastedBuffs = 0;
-
-  /** Box row entry for SotF use */
-  useEntries: BoxRowEntry[] = [];
 
   constructor(options: Options) {
     super(options);
@@ -118,7 +108,7 @@ class SoulOfTheForest extends Analyzer {
     );
   }
 
-  onSwiftmendCast(event: CastEvent) {
+  onSwiftmendCast(_event: CastEvent) {
     this.lastBuffFromHardcast = true;
   }
 
@@ -126,20 +116,16 @@ class SoulOfTheForest extends Analyzer {
    * Updates tracking logic then true iff the given event benefits from SotF
    */
   onSotfConsume(event: ApplyBuffEvent | RefreshBuffEvent | HealEvent) {
-    // check if buffed (link from normalizer)
     const sotf: RemoveBuffEvent | undefined = buffedBySotf(event);
     if (!sotf) {
       return;
     }
 
-    // check source
     const fromHardcast: boolean = isFromHardcast(event);
     const fromConvoke: boolean = isFromConvoke(event);
 
-    // tally healing
     const procInfo = this.sotfSpellInfo[event.ability.guid];
     if (!procInfo) {
-      // should be impossible
       console.error("SoTF: Couldn't find spell info for SotF event!", event);
       return;
     }
@@ -177,6 +163,7 @@ class SoulOfTheForest extends Analyzer {
 
     if (event.type === EventType.Heal) {
       procInfo.attribution.healing += calculateEffectiveHealing(event, procInfo.boost);
+      procInfo.attribution.overheal += calculateOverhealing(event, procInfo.boost);
     } else {
       this.hotTracker.addBoostFromApply(
         procInfo.attribution,
@@ -187,91 +174,26 @@ class SoulOfTheForest extends Analyzer {
   }
 
   onSotfRemove(event: RemoveBuffEvent | RefreshBuffEvent) {
-    // Text to show in tooltip for this SotF usage. Won't be filled for Convoke generated ones!
-    let useText: React.ReactNode;
-    let value: QualitativePerformance = QualitativePerformance.Fail;
-
     if (event.type === EventType.RefreshBuff) {
       if (this.lastBuffFromHardcast) {
-        useText = t({ id: 'restoration.sotf.overwritten', message: 'Overwritten' });
-        value = QualitativePerformance.Fail;
-      }
-      this.lastBuffFromHardcast = false;
-    } else {
-      const buffed = getSotfBuffs(event);
-      const consumedByHardcastOrConvoke =
-        buffed.length > 0 && (isFromHardcast(buffed[0]) || isFromConvoke(buffed[0]));
-      if (!consumedByHardcastOrConvoke && !this.lastBuffFromHardcast) {
-        // SotF procced and consumed entirely within Convoke - don't count it
-        return;
-      }
-
-      if (buffed.length === 0) {
-        useText = t({ id: 'restoration.sotf.expired', message: 'Expired' });
-        value = QualitativePerformance.Fail;
         this.wastedBuffs += 1;
-      } else {
-        // even if generated during Convoke, we count it if consumed by hardcast
-        const firstGuid = buffed[0].ability.guid;
-        const hasPota = this.selectedCombatant.hasTalent(
-          TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT,
-        );
-        const incompletePota =
-          hasPota &&
-          isFromHardcast(buffed[0]) &&
-          this.powerOfTheArchdruid.isIncompleteHardcastProcAt(event.timestamp);
-        if (
-          firstGuid === SPELLS.REJUVENATION.id ||
-          firstGuid === SPELLS.REJUVENATION_GERMINATION.id
-        ) {
-          if (incompletePota) {
-            useText = (
-              <>
-                <SpellLink spell={SPELLS.REJUVENATION} />{' '}
-                {t({
-                  id: 'restoration.sotf.pota_fail_extra_hots',
-                  message: '- fewer than 2 extra HoTs',
-                })}
-              </>
-            );
-            value = QualitativePerformance.Fail;
-          } else {
-            useText = <SpellLink spell={SPELLS.REJUVENATION} />;
-            value = QualitativePerformance.Good;
-          }
-        } else if (firstGuid === SPELLS.REGROWTH.id) {
-          if (incompletePota) {
-            useText = (
-              <>
-                <SpellLink spell={SPELLS.REGROWTH} />{' '}
-                {t({
-                  id: 'restoration.sotf.pota_fail_extra_hots',
-                  message: '- fewer than 2 extra HoTs',
-                })}
-              </>
-            );
-            value = QualitativePerformance.Fail;
-          } else {
-            useText = <SpellLink spell={SPELLS.REGROWTH} />;
-            value = QualitativePerformance.Good;
-          }
-        } else {
-          console.warn('SoTF: SOTF reported as consumed by unexpected spell ID: ' + firstGuid);
-        }
       }
       this.lastBuffFromHardcast = false;
+      return;
     }
 
-    // fill in box entry if needed
-    if (useText !== undefined) {
-      const tooltip = (
-        <>
-          @ <strong>{this.owner.formatTimestamp(event.timestamp)}</strong> -{' '}
-          <strong>{useText}</strong>
-        </>
-      );
-      this.useEntries.push({ value, tooltip });
+    const buffed = getSotfBuffs(event);
+    const consumedByHardcastOrConvoke =
+      buffed.length > 0 && (isFromHardcast(buffed[0]) || isFromConvoke(buffed[0]));
+    if (!consumedByHardcastOrConvoke && !this.lastBuffFromHardcast) {
+      // SotF procced and consumed entirely within Convoke - don't count it
+      return;
     }
+
+    if (buffed.length === 0) {
+      this.wastedBuffs += 1;
+    }
+    this.lastBuffFromHardcast = false;
   }
 
   get rejuvHardcastUses() {
@@ -306,103 +228,28 @@ class SoulOfTheForest extends Analyzer {
     return this.sotfRegrowthInfo.attribution.healing + this.sotfRejuvInfo.attribution.healing;
   }
 
-  /** Guide subsection describing the proper usage of Soul of the Forest */
-  get guideSubsection(): JSX.Element {
-    const hasPota = this.selectedCombatant.hasTalent(TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT);
-
-    const explanation = (
-      <p>
-        <strong>
-          <SpellLink spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT} />
-        </strong>{' '}
-        {t({
-          id: 'restoration.sotf.explanation_p1',
-          message: 'procs should be consumed with',
-        })}{' '}
-        <SpellLink spell={SPELLS.REJUVENATION} />{' '}
-        {t({ id: 'restoration.sotf.explanation_p2', message: 'or' })}{' '}
-        <SpellLink spell={SPELLS.REGROWTH} />.{' '}
-        {this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) && (
-          <>
-            <SpellLink spell={SPELLS.CONVOKE_SPIRITS} />{' '}
-            {t({
-              id: 'restoration.sotf.explanation_convoke',
-              message:
-                'can overwrite procs - always use your proc before casting Convoke. Never let a proc expire.',
-            })}
-          </>
-        )}
-        {hasPota && (
-          <>
-            {' '}
-            {t({
-              id: 'restoration.sotf.explanation_pota',
-              message: 'With',
-            })}{' '}
-            <SpellLink spell={TALENTS_DRUID.POWER_OF_THE_ARCHDRUID_TALENT} />,{' '}
-            {t({
-              id: 'restoration.sotf.explanation_pota_p2',
-              message:
-                'make sure your target is within 20 yards of at least 2 other allies when consuming a proc.',
-            })}
-          </>
-        )}
-      </p>
-    );
-
-    const data = (
-      <div>
-        <CastSummaryAndBreakdown
-          spell={TALENTS_DRUID.SOUL_OF_THE_FOREST_RESTORATION_TALENT}
-          castEntries={this.useEntries}
-          usesInsteadOfCasts
-          goodExtraExplanation={t({
-            id: 'restoration.sotf.good_extra_explanation',
-            message: 'used on Rejuvenation or Regrowth',
-          })}
-          badExtraExplanation={
-            hasPota ? (
-              <Trans id="restoration.sotf.bad_extra_explanation_pota">
-                proc expired, was overwritten, or created less than 2 extra HoTs from Power of the
-                Archdruid
-              </Trans>
-            ) : (
-              t({
-                id: 'restoration.sotf.bad_extra_explanation_base',
-                message: 'proc expired or was overwritten',
-              })
-            )
-          }
-        />
-      </div>
-    );
-
-    return explanationAndDataSubsection(explanation, data, GUIDE_CORE_EXPLANATION_PERCENT);
+  get totalOverhealing() {
+    return this.sotfRegrowthInfo.attribution.overheal + this.sotfRejuvInfo.attribution.overheal;
   }
 
-  _spellReportLine(totalUses: number, hardcastUses: number, healing: number): React.ReactNode {
+  _spellReportLine(totalUses: number, hardcastUses: number, healing: number): ReactNode {
     return this.selectedCombatant.hasTalent(TALENTS_DRUID.CONVOKE_THE_SPIRITS_TALENT) ? (
-      <>{' '}
-        {t({ id: 'restoration.sotf.report_line_convoke.p1', message: 'consumed ' })}
+      <>
+        {t({ id: 'restoration.sotf.report_consumed', message: ' consumed ' })}
         <strong>{hardcastUses}</strong>
-        {t({ id: 'restoration.sotf.report_line_convoke.p2', message: 'hardcast /' })}
-        {' '}
+        {t({ id: 'restoration.sotf.report_hardcast', message: ' hardcast / ' })}
         <strong>{totalUses - hardcastUses}</strong>
-        {t({ id: 'restoration.sotf.report_line_convoke.p3', message: 'convoke :' })}
-        {' '}
-        <strong>{t({ id: 'restoration.sotf.report_line_convoke.strong', message: '%' })}</strong>
-        {' '}
-        {t({ id: 'restoration.sotf.report_line_convoke.p4', message: 'healing' })}
+        {t({ id: 'restoration.sotf.report_convoke', message: ' convoke : ' })}
+        <strong>{formatPercentage(this.owner.getPercentageOfTotalHealingDone(healing), 1)}%</strong>
+        {t({ id: 'restoration.sotf.report_healing', message: ' healing' })}
       </>
     ) : (
-      <>{' '}
-        {t({ id: 'restoration.sotf.report_line_base.p1', message: 'consumed ' })}
+      <>
+        {t({ id: 'restoration.sotf.report_consumed', message: ' consumed ' })}
         <strong>{totalUses}</strong>
-        {t({ id: 'restoration.sotf.report_line_base.p2', message: 'procs :' })}
-        {' '}
-        <strong>{t({ id: 'restoration.sotf.report_line_base.strong', message: '%' })}</strong>
-        {' '}
-        {t({ id: 'restoration.sotf.report_line_base.p3', message: 'healing' })}
+        {t({ id: 'restoration.sotf.report_procs', message: ' procs : ' })}
+        <strong>{formatPercentage(this.owner.getPercentageOfTotalHealingDone(healing), 1)}%</strong>
+        {t({ id: 'restoration.sotf.report_healing', message: ' healing' })}
       </>
     );
   }
@@ -411,18 +258,16 @@ class SoulOfTheForest extends Analyzer {
     return (
       <Statistic
         size="flexible"
-        position={STATISTIC_ORDER.OPTIONAL(6)} // number based on talent row
+        position={STATISTIC_ORDER.OPTIONAL(6)}
         category={STATISTIC_CATEGORY.TALENTS}
         tooltip={
           <>
-            <>{t({ id: 'restoration.sotf.statistic_tooltip_p1.p1', message: 'You used ' })}
-              <strong>{this.totalUses}</strong>
-              {t({ id: 'restoration.sotf.statistic_tooltip_p1.p2', message: 'Soul of the Forest procs.' })}
-            </>
+            {t({ id: 'restoration.sotf.stat_used_p1', message: 'You used ' })}
+            <strong>{this.totalUses}</strong>
+            {t({ id: 'restoration.sotf.stat_used_p2', message: ' Soul of the Forest procs.' })}
             <br />
-            <>{t({ id: 'restoration.sotf.statistic_tooltip_wasted.p1', message: 'Wasted (expired):' })}
-              <strong>{this.wastedBuffs}</strong>
-            </>
+            {t({ id: 'restoration.sotf.stat_wasted', message: 'Wasted (expired): ' })}
+            <strong>{this.wastedBuffs}</strong>
             <ul>
               <li>
                 <SpellLink spell={SPELLS.REJUVENATION} />
@@ -441,6 +286,10 @@ class SoulOfTheForest extends Analyzer {
                 )}
               </li>
             </ul>
+            <strong>
+              {t({ id: 'restoration.sotf.stat_overhealing', message: 'Overhealing: ' })}
+              {formatOverhealing(this.totalOverhealing, this.totalHealing)}
+            </strong>
           </>
         }
       >

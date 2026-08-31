@@ -2,9 +2,10 @@ import SPELLS from 'common/SPELLS';
 import { t } from '@lingui/core/macro';
 
 import SpellLink from 'interface/SpellLink';
-import Events from 'parser/core/Events';
+import Events, { ApplyBuffEvent, ApplyDebuffEvent } from 'parser/core/Events';
 import { Options } from 'parser/core/Module';
 import BuffCountGraph, { GraphedSpellSpec } from 'parser/shared/modules/BuffCountGraph';
+import Combatants from 'parser/shared/modules/Combatants';
 import Panel from 'parser/ui/Panel';
 
 import ConvokeSpiritsResto from 'analysis/retail/druid/restoration/modules/spells/ConvokeSpiritsResto';
@@ -21,8 +22,10 @@ const CONVOKE_WITH_FLOURISH_SPEC_NAME = 'Convoke w/ Flourish Tranquility';
 class HotCountGraph extends BuffCountGraph {
   static dependencies = {
     ...BuffCountGraph.dependencies,
+    combatants: Combatants,
     convokeSpirits: ConvokeSpiritsResto,
   };
+  combatants!: Combatants;
   convokeSpirits!: ConvokeSpiritsResto;
 
   constructor(options: Options) {
@@ -32,6 +35,11 @@ class HotCountGraph extends BuffCountGraph {
     }
   }
 
+  /** Don't count HoTs on pets / NPCs — only raid/party players matter for ramp evaluation */
+  protected shouldCountBuff(event: ApplyBuffEvent | ApplyDebuffEvent): boolean {
+    return this.combatants.getEntity(event) !== null;
+  }
+
   buffSpecs(): GraphedSpellSpec[] {
     const buffSpecs: GraphedSpellSpec[] = [];
     buffSpecs.push({
@@ -39,6 +47,7 @@ class HotCountGraph extends BuffCountGraph {
       color: '#a010a0',
     });
     buffSpecs.push({ spells: SPELLS.WILD_GROWTH, color: '#20b020' });
+    buffSpecs.push({ spells: SPELLS.REGROWTH, color: '#0e7010' });
     if (isWildstalker(this.selectedCombatant)) {
       buffSpecs.push({
         spells: [SPELLS.SYMBIOTIC_BLOOMS_WILDSTALKER],
@@ -93,6 +102,8 @@ class HotCountGraph extends BuffCountGraph {
               message: ' and several ',
             })}
             <SpellLink spell={SPELLS.REJUVENATION} />
+            {t({ id: 'restoration.hotgraph.explanation_p2_2', message: ' / ' })}
+            <SpellLink spell={SPELLS.REGROWTH} />
             {t({
               id: 'restoration.hotgraph.explanation_p3',
               message: ' out before casting ',

@@ -63,7 +63,7 @@ const EVENT_LINKS = createEventLinks(
     links: [
       link(EventType.Damage, {
         id: SPELLS.ARCANE_ORB_DAMAGE.id,
-        forwardBuffer: 2500,
+        forwardBuffer: 1000,
         anyTarget: true,
         condition: (linking, referenced) => !HasRelatedEvent(referenced, EventType.Cast),
       }),
@@ -183,25 +183,51 @@ const EVENT_LINKS = createEventLinks(
   },
   {
     spell: SPELLS.PRISMATIC_BOLT_BUFF.id,
-    parentType: [EventType.ApplyBuff],
-    reverseRelation: EventType.ApplyBuff,
+    parentType: [EventType.ApplyBuff, EventType.RefreshBuff],
     links: [
+      link(EventType.RefreshBuff, {
+        maxLinks: 1,
+        forwardBuffer: 60_000,
+        condition: (linkingEvent, referencedEvent) => linkingEvent !== referencedEvent,
+      }),
+      link(EventType.RemoveBuff, {
+        maxLinks: 1,
+        forwardBuffer: 60_000,
+        condition: (linkingEvent, referencedEvent) => {
+          const refresh = GetRelatedEvent(linkingEvent, EventType.RefreshBuff);
+          return !refresh || referencedEvent.timestamp < refresh.timestamp;
+        },
+      }),
+      link(EventType.BeginCast, { maxLinks: 1, backwardBuffer: 2500 }),
+      link(EventType.Cast, {
+        id: SPELLS.PRISMATIC_BOLT.id,
+        maxLinks: 1,
+        anyTarget: true,
+        forwardBuffer: 60_000,
+        condition: (linkingEvent, referencedEvent) => {
+          const buffEnd = GetRelatedEvent(linkingEvent, EventType.RemoveBuff);
+          const buffRefresh = GetRelatedEvent(linkingEvent, EventType.RefreshBuff);
+          const end =
+            buffEnd && buffRefresh
+              ? Math.min(buffEnd.timestamp, buffRefresh.timestamp)
+              : buffEnd?.timestamp || buffRefresh?.timestamp;
+          return end && referencedEvent.timestamp < end + 10 ? true : false;
+        },
+      }),
       link(EventType.Damage, {
         id: SPELLS.PRISMATIC_BOLT.id,
         anyTarget: true,
         forwardBuffer: 60_000,
         condition: (linkingEvent, referencedEvent) => {
           const buffEnd = GetRelatedEvent(linkingEvent, EventType.RemoveBuff);
-          return buffEnd ? referencedEvent.timestamp < buffEnd.timestamp + 2000 : false;
+          const buffRefresh = GetRelatedEvent(linkingEvent, EventType.RefreshBuff);
+          const end =
+            buffEnd && buffRefresh
+              ? Math.min(buffEnd.timestamp, buffRefresh.timestamp)
+              : buffEnd?.timestamp || buffRefresh?.timestamp;
+          return end && referencedEvent.timestamp < end + 2000 ? true : false;
         },
       }),
-      link(EventType.Cast, {
-        id: SPELLS.PRISMATIC_BOLT.id,
-        maxLinks: 1,
-        anyTarget: true,
-        forwardBuffer: 60_000,
-      }),
-      link(EventType.RemoveBuff, { maxLinks: 1, forwardBuffer: 60_000 }),
     ],
   },
   {

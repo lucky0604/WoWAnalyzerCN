@@ -1,6 +1,7 @@
 import { ConvokeSpirits } from 'analysis/retail/druid/shared';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
+import { formatOverhealing } from 'analysis/retail/druid/restoration/format';
 import { formatNumber, formatPercentage } from 'common/format';
 import SPELLS from 'common/SPELLS';
 import { SpellLink, Tooltip } from 'interface';
@@ -83,6 +84,7 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
         return;
       }
       this.currentConvokeAttribution.healing += event.amount + (event.absorbed || 0);
+      this.currentConvokeAttribution.overheal += event.overheal || 0;
     }
   }
 
@@ -96,13 +98,11 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
     const rejuvsOnCast =
       this.hotTracker.getHotCount(SPELLS.REJUVENATION.id) +
       this.hotTracker.getHotCount(SPELLS.REJUVENATION_GERMINATION.id);
-    const wgsOnCast = this.hotTracker.getHotCount(SPELLS.WILD_GROWTH.id);
 
     this.restoConvokeTracker[this.cast] = {
       totalAttribution,
       flourishExtensionAttribution,
       rejuvsOnCast,
-      wgsOnCast,
     };
   }
 
@@ -118,6 +118,14 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
     return this.restoConvokeTracker.reduce(
       (sum, cast) =>
         sum + cast.totalAttribution.healing + cast.flourishExtensionAttribution.healing,
+      0,
+    );
+  }
+
+  get totalOverhealing(): number {
+    return this.restoConvokeTracker.reduce(
+      (sum, cast) =>
+        sum + cast.totalAttribution.overheal + cast.flourishExtensionAttribution.overheal,
       0,
     );
   }
@@ -233,29 +241,15 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             </>
           );
 
-          const wgRamp = restoCast.wgsOnCast > 0;
           const rejuvRamp = restoCast.rejuvsOnCast > 0;
           const syncWithReforestation = !hasReforestation || cast.form === 'Tree of Life';
-          const overallPerf =
-            !wgRamp || !rejuvRamp
-              ? QualitativePerformance.Fail
-              : syncWithReforestation
-                ? QualitativePerformance.Good
-                : QualitativePerformance.Ok;
+          const overallPerf = !rejuvRamp
+            ? QualitativePerformance.Fail
+            : syncWithReforestation
+              ? QualitativePerformance.Good
+              : QualitativePerformance.Ok;
 
           const checklistItems: CooldownExpandableItem[] = [];
-          checklistItems.push({
-            label: (
-              <>
-                <SpellLink spell={SPELLS.WILD_GROWTH} />{' '}
-                {t({ id: 'restoration.convoke.wg_ramp', message: 'ramp' })}
-              </>
-            ),
-            result: <PassFailCheckmark pass={wgRamp} />,
-            details: (
-              <Trans id="restoration.convoke.wg_active">({restoCast.wgsOnCast} HoTs active)</Trans>
-            ),
-          });
           checklistItems.push({
             label: (
               <>
@@ -343,18 +337,21 @@ class ConvokeSpiritsResto extends ConvokeSpirits {
             {this.baseTooltip}
             <br />
             <br />
-            {hasCenariusGuidance ? (
-              <Trans id="restoration.convoke.tooltip_with_cg">
-                Healing amount is attributed by tracking the healing spells cast by Convoke,
-                including possible Flourish Tranquility procs. This amount includes mastery benefit
-                from the procced HoTs.
-              </Trans>
-            ) : (
-              <Trans id="restoration.convoke.tooltip_without_cg">
-                Healing amount is attributed by tracking the healing spells cast by Convoke. This
-                amount includes mastery benefit from the procced HoTs.
-              </Trans>
-            )}
+            {t({
+              id: 'restoration.convoke.tooltip.p1',
+              message: 'Healing amount is attributed by tracking the healing spells cast by Convoke',
+            })}
+            {hasCenariusGuidance &&
+              t({ id: 'restoration.convoke.tooltip.cg', message: ', including possible Flourish Tranquility procs' })}
+            {t({
+              id: 'restoration.convoke.tooltip.p2',
+              message: '. This amount includes mastery benefit from the proceed HoTs.',
+            })}
+            <br />
+            <strong>
+              {t({ id: 'restoration.convoke.tooltip.overhealing', message: 'Overhealing: ' })}
+              {formatOverhealing(this.totalOverhealing, this.totalHealing)}
+            </strong>
           </>
         }
         dropdown={
@@ -415,8 +412,6 @@ interface RestoConvokeCast {
   totalAttribution: Attribution;
   /** A special tracker for Flourish extension healing due to Tranquility procced by this Convoke cast */
   flourishExtensionAttribution: Attribution;
-  /** The number of Wild Growths out at the moment this Convoke is cast */
-  wgsOnCast: number;
   /** The number of Rejuvs out at the moment this Convoke is cast */
   rejuvsOnCast: number;
 }

@@ -24,10 +24,8 @@ class ArcaneOrbGuide extends Analyzer {
   isSpellslinger: boolean = this.selectedCombatant.hasTalent(TALENTS.SPLINTERSTORM_TALENT);
 
   private evaluateOrbCast(cast: ArcaneOrbCast): CastEvaluation {
-    const hitTargets = cast.targetsHit > 0;
-
     // FAIL CONDITIONS
-    if (!hitTargets) {
+    if (cast.targetsHit === 0) {
       return {
         timestamp: cast.timestamp,
         performance: QualitativePerformance.Fail,
@@ -35,11 +33,11 @@ class ArcaneOrbGuide extends Analyzer {
       };
     }
 
-    if (this.isSunfury && cast.chargesBefore >= 2) {
+    if (this.isSunfury && cast.chargesBefore === 4) {
       return {
         timestamp: cast.timestamp,
         performance: QualitativePerformance.Fail,
-        reason: `Had ${cast.chargesBefore} Arcane Charges before Arcane Orb.`,
+        reason: `Had 4 Arcane Charges before Arcane Orb.`,
       };
     }
 
@@ -68,19 +66,10 @@ class ArcaneOrbGuide extends Analyzer {
       };
     }
 
-    if (this.isSunfury && cast.chargesBefore === 0) {
+    if (this.isSunfury && cast.chargesBefore < 4) {
       return {
         timestamp: cast.timestamp,
         performance: QualitativePerformance.Good,
-        reason: `Had no Arcane Charges before Arcane Orb.`,
-      };
-    }
-
-    // OK CONDITIONS
-    if (this.isSunfury && cast.chargesBefore > 0) {
-      return {
-        timestamp: cast.timestamp,
-        performance: QualitativePerformance.Ok,
         reason: `Had ${cast.chargesBefore} Arcane Charges before Arcane Orb.`,
       };
     }
@@ -145,12 +134,17 @@ class ArcaneOrbGuide extends Analyzer {
             <li>
               {t({
                 id: 'mage.arcane.arcaneOrb.guide.explanation.sunfury.li1.a',
-                message: 'You have no ',
+                message: 'It will cap your ',
               })}
               {arcaneCharge}
               {t({
                 id: 'mage.arcane.arcaneOrb.guide.explanation.sunfury.li1.b',
-                message: 's.',
+                message: 's or you have no ',
+              })}
+              {arcaneCharge}
+              {t({
+                id: 'mage.arcane.arcaneOrb.guide.explanation.sunfury.li1.c',
+                message: 's',
               })}
             </li>
           </ul>

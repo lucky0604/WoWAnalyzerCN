@@ -14,6 +14,7 @@ import ItemDamageDone from 'parser/ui/ItemDamageDone';
 import { getEternitySurgeEventForShatteringStarDamage } from '../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import { t } from '@lingui/core/macro';
+import { TIERS } from 'game/TIERS';
 
 /**
  * Eternity Surge additionally releases a Shattering Star at your target
@@ -22,6 +23,8 @@ import { t } from '@lingui/core/macro';
 class ShatteringStars extends Analyzer {
   baseDamage = 0;
   empowermentLevelDamage = 0;
+
+  hasMIDS22P = this.selectedCombatant.has2PieceByTier(TIERS.MID2);
 
   scintillationExtraHitsDamage = 0;
 
@@ -53,7 +56,7 @@ class ShatteringStars extends Analyzer {
 
   protected getUprankedDamage(event: DamageEvent, empowerLevel: number) {
     const amountOfUprank = empowerLevel - 1;
-    if (amountOfUprank === 0) {
+    if (this.hasMIDS22P || amountOfUprank === 0) {
       return 0;
     }
 
@@ -73,18 +76,19 @@ class ShatteringStars extends Analyzer {
         value: this.baseDamage,
       },
       {
-        color: 'rgb(41,134,204)',
-        label: t({ id: 'evoker.devastation.shatteringStars.empowermentAmp', message: 'Empowerment amp' }),
-        valueTooltip: formatNumber(this.empowermentLevelDamage),
-        value: this.empowermentLevelDamage,
-      },
-      {
         color: 'rgb(183,65,14)',
         label: <SpellLink spell={TALENTS.SCINTILLATION_TALENT} />,
         valueTooltip: formatNumber(this.scintillationExtraHitsDamage),
         value: this.scintillationExtraHitsDamage,
       },
-    ].sort((a, b) => b.value - a.value);
+    ];
+    if (!this.hasMIDS22P)
+      items.push({
+        color: 'rgb(41,134,204)',
+        label: <>{t({ id: 'evoker.devastation.shatteringStars.empowermentAmp', message: 'Empowerment amp' })}</>,
+        valueTooltip: formatNumber(this.empowermentLevelDamage),
+        value: this.empowermentLevelDamage,
+      });
 
     return (
       <>
@@ -95,7 +99,7 @@ class ShatteringStars extends Analyzer {
           <label>
             {t({ id: 'evoker.devastation.shatteringStars.damageSources', message: 'Damage sources' })}
           </label>
-          <DonutChart items={items} />
+          <DonutChart items={items.sort((a, b) => b.value - a.value)} />
         </div>
       </>
     );
