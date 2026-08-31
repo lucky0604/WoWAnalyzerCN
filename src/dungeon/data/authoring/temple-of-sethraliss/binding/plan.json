@@ -1,0 +1,2362 @@
+{
+  "version": 1,
+  "snapshot": {
+    "snapshotId": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+    "digest": "sha256:334eabfa89126589aea16bed753bfa226458ffce3bcde22b81cec085c3289507",
+    "dungeonId": "temple-of-sethraliss",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0"
+  },
+  "document": {
+    "id": "temple-of-sethraliss",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "revision": 1
+  },
+  "manifestTemplate": {
+    "version": 1,
+    "snapshotId": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+    "snapshotDigest": "sha256:334eabfa89126589aea16bed753bfa226458ffce3bcde22b81cec085c3289507",
+    "dungeonId": "temple-of-sethraliss",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "enemies": [],
+    "abilities": []
+  },
+  "enemies": [
+    {
+      "sourceKey": "Sandswept Hunter",
+      "npcId": 134600,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134600",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Barbed Krolusk",
+      "npcId": 134616,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134616",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Storm Adept",
+      "npcId": 134990,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134990",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Sandfury Stonefist",
+      "npcId": 134991,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134991",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Shrouded Fang",
+      "npcId": 134602,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134602",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Sand-Sworn Rider",
+      "npcId": 134629,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134629",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Poisonous Viper",
+      "npcId": 135562,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-135562",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lightning Serpent",
+      "npcId": 135846,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-135846",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Dutiful Tamer",
+      "npcId": 139422,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-139422",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Krolusk Matriarch",
+      "npcId": 134686,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134686",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Faithless Subjugator",
+      "npcId": 134364,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134364",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Brood Tender",
+      "npcId": 139425,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-139425",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Merektha [133384]",
+      "npcId": 133384,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-133384",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Agitated Nimbus",
+      "npcId": 136076,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-136076",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Imbued Stormcaller",
+      "npcId": 134599,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134599",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Static Anomaly",
+      "npcId": 134691,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134691",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Twisted Hexxer [136250]",
+      "npcId": 136250,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-136250",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Avatar of Sethraliss",
+      "npcId": 133392,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-133392",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Spark Channeler [265057]",
+      "npcId": 265057,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-265057",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "A Knot of Snakes",
+      "npcId": 134388,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134388",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Toxic Viper",
+      "npcId": 134389,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134389",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Storm Serpent",
+      "npcId": 134390,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134390",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Merektha [134487]",
+      "npcId": 134487,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-134487",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Orb Watcher",
+      "npcId": 135007,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-135007",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lightning Spire",
+      "npcId": 135445,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-135445",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Sandswept Marksman",
+      "npcId": 139097,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-139097",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Loose Spark",
+      "npcId": 139108,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-139108",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Polarized Spire",
+      "npcId": 139131,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-139131",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Eye of Sethraliss",
+      "npcId": 240681,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-240681",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Adderis",
+      "npcId": 262530,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-262530",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Aspix",
+      "npcId": 262822,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-262822",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Egg Marker",
+      "npcId": 263181,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-263181",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Galvazzt",
+      "npcId": 263658,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-263658",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Swarming Krolusk",
+      "npcId": 264785,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-264785",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Faithless Tormentor [268317]",
+      "npcId": 268317,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-268317",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Corrupted Guardian",
+      "npcId": 268344,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-268344",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lifeforce",
+      "npcId": 268364,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-268364",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Essence Defiler",
+      "npcId": 268427,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-268427",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Twisted Hexxer [268491]",
+      "npcId": 268491,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-268491",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Faithless Tormentor [268729]",
+      "npcId": 268729,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-268729",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Spark Channeler [139110]",
+      "npcId": 139110,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-139110",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Faithless Conscript",
+      "npcId": 135971,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-135971",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Snake",
+      "npcId": 263383,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-263383",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lesser Lifeforce",
+      "npcId": 268747,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-268747",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Temple Disruptor",
+      "npcId": 269227,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "tst-enemy-269227",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-262046",
+      "spellId": 262046,
+      "casterEnemyKeys": [
+        "Sand-Sworn Rider"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-262046",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-263425",
+      "spellId": 263425,
+      "casterEnemyKeys": [
+        "Adderis"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-263425",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-263958",
+      "spellId": 263958,
+      "casterEnemyKeys": [
+        "A Knot of Snakes"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-263958",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-264172",
+      "spellId": 264172,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-264172",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-264763",
+      "spellId": 264763,
+      "casterEnemyKeys": [
+        "Static Anomaly"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-264763",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-265966",
+      "spellId": 265966,
+      "casterEnemyKeys": [
+        "Sandfury Stonefist"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-265966",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267027",
+      "spellId": 267027,
+      "casterEnemyKeys": [
+        "Toxic Viper"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-267027",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267483",
+      "spellId": 267483,
+      "casterEnemyKeys": [
+        "Loose Spark",
+        "Spark Channeler [139110]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-267483",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-268013",
+      "spellId": 268013,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [136250]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-268013",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269116",
+      "spellId": 269116,
+      "casterEnemyKeys": [
+        "Imbued Stormcaller"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-269116",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269896",
+      "spellId": 269896,
+      "casterEnemyKeys": [
+        "Faithless Subjugator"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-269896",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-272654",
+      "spellId": 272654,
+      "casterEnemyKeys": [
+        "Krolusk Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-272654",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-272655",
+      "spellId": 272655,
+      "casterEnemyKeys": [
+        "Sand-Sworn Rider",
+        "Krolusk Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-272655",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-273225",
+      "spellId": 273225,
+      "casterEnemyKeys": [
+        "Sandswept Marksman"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-273225",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-273241",
+      "spellId": 273241,
+      "casterEnemyKeys": [
+        "Loose Spark"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-273241",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1225638",
+      "spellId": 1225638,
+      "casterEnemyKeys": [
+        "Loose Spark"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1225638",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1288092",
+      "spellId": 1288092,
+      "casterEnemyKeys": [
+        "Adderis"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1288092",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1288235",
+      "spellId": 1288235,
+      "casterEnemyKeys": [
+        "Adderis"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1288235",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1288428",
+      "spellId": 1288428,
+      "casterEnemyKeys": [
+        "Adderis"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1288428",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1288457",
+      "spellId": 1288457,
+      "casterEnemyKeys": [
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1288457",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1288864",
+      "spellId": 1288864,
+      "casterEnemyKeys": [
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1288864",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1288885",
+      "spellId": 1288885,
+      "casterEnemyKeys": [
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1288885",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289062",
+      "spellId": 1289062,
+      "casterEnemyKeys": [
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1289062",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289205",
+      "spellId": 1289205,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1289205",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289208",
+      "spellId": 1289208,
+      "casterEnemyKeys": [
+        "Egg Marker"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1289208",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289229",
+      "spellId": 1289229,
+      "casterEnemyKeys": [
+        "Adderis",
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1289229",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289589",
+      "spellId": 1289589,
+      "casterEnemyKeys": [
+        "Merektha [133384]",
+        "Storm Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1289589",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289602",
+      "spellId": 1289602,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1289602",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1290031",
+      "spellId": 1290031,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1290031",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1290531",
+      "spellId": 1290531,
+      "casterEnemyKeys": [
+        "Galvazzt"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1290531",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1290797",
+      "spellId": 1290797,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1290797",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1291262",
+      "spellId": 1291262,
+      "casterEnemyKeys": [
+        "Storm Adept",
+        "Imbued Stormcaller"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1291262",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1291399",
+      "spellId": 1291399,
+      "casterEnemyKeys": [
+        "Barbed Krolusk",
+        "Sand-Sworn Rider",
+        "Dutiful Tamer"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1291399",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1291468",
+      "spellId": 1291468,
+      "casterEnemyKeys": [
+        "Sandfury Stonefist"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1291468",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1291622",
+      "spellId": 1291622,
+      "casterEnemyKeys": [
+        "Storm Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1291622",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1291734",
+      "spellId": 1291734,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1291734",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1291815",
+      "spellId": 1291815,
+      "casterEnemyKeys": [
+        "Galvazzt"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1291815",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1292035",
+      "spellId": 1292035,
+      "casterEnemyKeys": [
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1292035",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1292585",
+      "spellId": 1292585,
+      "casterEnemyKeys": [
+        "Sandswept Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1292585",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1292623",
+      "spellId": 1292623,
+      "casterEnemyKeys": [
+        "Sandswept Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1292623",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1292990",
+      "spellId": 1292990,
+      "casterEnemyKeys": [
+        "Sand-Sworn Rider",
+        "Dutiful Tamer"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1292990",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293048",
+      "spellId": 1293048,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1293048",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293133",
+      "spellId": 1293133,
+      "casterEnemyKeys": [
+        "Lightning Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1293133",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293307",
+      "spellId": 1293307,
+      "casterEnemyKeys": [
+        "Faithless Subjugator"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1293307",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293464",
+      "spellId": 1293464,
+      "casterEnemyKeys": [
+        "Agitated Nimbus"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1293464",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293475",
+      "spellId": 1293475,
+      "casterEnemyKeys": [
+        "Agitated Nimbus"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1293475",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293650",
+      "spellId": 1293650,
+      "casterEnemyKeys": [
+        "Agitated Nimbus"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1293650",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1293652",
+      "spellId": 1293652,
+      "casterEnemyKeys": [
+        "Agitated Nimbus"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1293652",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295610",
+      "spellId": 1295610,
+      "casterEnemyKeys": [
+        "Shrouded Fang"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1295610",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295635",
+      "spellId": 1295635,
+      "casterEnemyKeys": [
+        "Shrouded Fang"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1295635",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296045",
+      "spellId": 1296045,
+      "casterEnemyKeys": [
+        "Imbued Stormcaller"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1296045",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296052",
+      "spellId": 1296052,
+      "casterEnemyKeys": [
+        "Imbued Stormcaller"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1296052",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296738",
+      "spellId": 1296738,
+      "casterEnemyKeys": [
+        "Merektha [133384]",
+        "Egg Marker"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1296738",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296912",
+      "spellId": 1296912,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1296912",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297034",
+      "spellId": 1297034,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1297034",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1298329",
+      "spellId": 1298329,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1298329",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300666",
+      "spellId": 1300666,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [136250]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1300666",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300684",
+      "spellId": 1300684,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [136250]",
+        "Twisted Hexxer [268491]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1300684",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300704",
+      "spellId": 1300704,
+      "casterEnemyKeys": [
+        "Faithless Tormentor [268317]",
+        "Faithless Tormentor [268729]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1300704",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300714",
+      "spellId": 1300714,
+      "casterEnemyKeys": [
+        "Faithless Tormentor [268317]",
+        "Faithless Tormentor [268729]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1300714",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300803",
+      "spellId": 1300803,
+      "casterEnemyKeys": [
+        "Corrupted Guardian"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1300803",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1300871",
+      "spellId": 1300871,
+      "casterEnemyKeys": [
+        "Lifeforce"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1300871",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301199",
+      "spellId": 1301199,
+      "casterEnemyKeys": [
+        "Essence Defiler"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1301199",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302153",
+      "spellId": 1302153,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [268491]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1302153",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302158",
+      "spellId": 1302158,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [268491]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1302158",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302616",
+      "spellId": 1302616,
+      "casterEnemyKeys": [
+        "Corrupted Guardian"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1302616",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302618",
+      "spellId": 1302618,
+      "casterEnemyKeys": [
+        "Corrupted Guardian"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1302618",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302761",
+      "spellId": 1302761,
+      "casterEnemyKeys": [
+        "Corrupted Guardian"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1302761",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302826",
+      "spellId": 1302826,
+      "casterEnemyKeys": [
+        "Lifeforce"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1302826",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302897",
+      "spellId": 1302897,
+      "casterEnemyKeys": [
+        "Lifeforce"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1302897",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303443",
+      "spellId": 1303443,
+      "casterEnemyKeys": [
+        "Orb Watcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1303443",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303446",
+      "spellId": 1303446,
+      "casterEnemyKeys": [
+        "Corrupted Guardian"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1303446",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303452",
+      "spellId": 1303452,
+      "casterEnemyKeys": [
+        "Orb Watcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1303452",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303486",
+      "spellId": 1303486,
+      "casterEnemyKeys": [
+        "Orb Watcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1303486",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303596",
+      "spellId": 1303596,
+      "casterEnemyKeys": [
+        "Eye of Sethraliss"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1303596",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308100",
+      "spellId": 1308100,
+      "casterEnemyKeys": [
+        "Shrouded Fang"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308100",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308113",
+      "spellId": 1308113,
+      "casterEnemyKeys": [
+        "Sandswept Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308113",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308116",
+      "spellId": 1308116,
+      "casterEnemyKeys": [
+        "Sandswept Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308116",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308148",
+      "spellId": 1308148,
+      "casterEnemyKeys": [
+        "Poisonous Viper"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308148",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308546",
+      "spellId": 1308546,
+      "casterEnemyKeys": [
+        "Orb Watcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308546",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308738",
+      "spellId": 1308738,
+      "casterEnemyKeys": [
+        "Adderis"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308738",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308740",
+      "spellId": 1308740,
+      "casterEnemyKeys": [
+        "Adderis"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308740",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1308838",
+      "spellId": 1308838,
+      "casterEnemyKeys": [
+        "Merektha [133384]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1308838",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310311",
+      "spellId": 1310311,
+      "casterEnemyKeys": [
+        "Adderis",
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1310311",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310396",
+      "spellId": 1310396,
+      "casterEnemyKeys": [
+        "Lightning Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1310396",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310402",
+      "spellId": 1310402,
+      "casterEnemyKeys": [
+        "Lightning Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1310402",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310683",
+      "spellId": 1310683,
+      "casterEnemyKeys": [
+        "Brood Tender"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1310683",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310693",
+      "spellId": 1310693,
+      "casterEnemyKeys": [
+        "Static Anomaly"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1310693",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310712",
+      "spellId": 1310712,
+      "casterEnemyKeys": [
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1310712",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310739",
+      "spellId": 1310739,
+      "casterEnemyKeys": [
+        "Agitated Nimbus",
+        "Imbued Stormcaller"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1310739",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311808",
+      "spellId": 1311808,
+      "casterEnemyKeys": [
+        "Aspix"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1311808",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311964",
+      "spellId": 1311964,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [136250]",
+        "Twisted Hexxer [268491]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1311964",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311979",
+      "spellId": 1311979,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [268491]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1311979",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311980",
+      "spellId": 1311980,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [136250]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1311980",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311981",
+      "spellId": 1311981,
+      "casterEnemyKeys": [
+        "Twisted Hexxer [136250]"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1311981",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1312214",
+      "spellId": 1312214,
+      "casterEnemyKeys": [
+        "Lifeforce"
+      ],
+      "candidates": [
+        {
+          "documentId": "tst-ability-1312214",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "coverage": {
+    "snapshotEnemies": 45,
+    "snapshotAbilities": 96,
+    "documentEnemies": 45,
+    "documentAbilities": 96,
+    "unambiguousEnemyCandidates": 45,
+    "unambiguousAbilityCandidates": 96
+  },
+  "status": "ready-for-review",
+  "planDigest": "sha256:28ddb792633ec85c15d0a6386672f1780a22e0663772c3654a0aac363c4a35f3"
+}

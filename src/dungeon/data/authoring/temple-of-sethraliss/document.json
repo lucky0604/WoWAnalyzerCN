@@ -1,0 +1,4796 @@
+{
+  "id": "temple-of-sethraliss",
+  "slug": "temple-of-sethraliss",
+  "name": {
+    "zhCN": "塞塔里斯神庙",
+    "enUS": "Temple of Sethraliss"
+  },
+  "season": "midnight-s2",
+  "dataStatus": "draft",
+  "spatialStatus": "pending",
+  "version": {
+    "season": "midnight-s2",
+    "build": "12.1.0",
+    "revision": 1,
+    "status": "draft"
+  },
+  "totalEnemyForcesPoints": 0,
+  "floors": [
+    {
+      "id": "temple-of-sethraliss-floor-1",
+      "name": {
+        "zhCN": "塞塔里斯神庙",
+        "enUS": "Temple of Sethraliss"
+      },
+      "coordinateSpace": "normalized-v1",
+      "bounds": {
+        "xMin": 0,
+        "xMax": 100,
+        "yMin": -100,
+        "yMax": 0
+      }
+    }
+  ],
+  "spawns": [],
+  "enemies": [
+    {
+      "id": "tst-enemy-134600",
+      "npcId": 134600,
+      "name": {
+        "zhCN": "流沙猎手",
+        "enUS": "Sandswept Hunter"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134616",
+      "npcId": 134616,
+      "name": {
+        "zhCN": "倒刺三叶虫",
+        "enUS": "Barbed Krolusk"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134990",
+      "npcId": 134990,
+      "name": {
+        "zhCN": "风暴能手",
+        "enUS": "Storm Adept"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134991",
+      "npcId": 134991,
+      "name": {
+        "zhCN": "沙怒石拳战士",
+        "enUS": "Sandfury Stonefist"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134602",
+      "npcId": 134602,
+      "name": {
+        "zhCN": "隐秘之牙",
+        "enUS": "Shrouded Fang"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134629",
+      "npcId": 134629,
+      "name": {
+        "zhCN": "砂誓骑兵",
+        "enUS": "Sand-Sworn Rider"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-135562",
+      "npcId": 135562,
+      "name": {
+        "zhCN": "剧毒蝰蛇",
+        "enUS": "Poisonous Viper"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-135846",
+      "npcId": 135846,
+      "name": {
+        "zhCN": "闪电毒蛇",
+        "enUS": "Lightning Serpent"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-139422",
+      "npcId": 139422,
+      "name": {
+        "zhCN": "尽职的驯兽师",
+        "enUS": "Dutiful Tamer"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134686",
+      "npcId": 134686,
+      "name": {
+        "zhCN": "三叶虫主母",
+        "enUS": "Krolusk Matriarch"
+      },
+      "forcesPoints": 16,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134364",
+      "npcId": 134364,
+      "name": {
+        "zhCN": "无信征服者",
+        "enUS": "Faithless Subjugator"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-139425",
+      "npcId": 139425,
+      "name": {
+        "zhCN": "育巢者",
+        "enUS": "Brood Tender"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-133384",
+      "npcId": 133384,
+      "name": {
+        "zhCN": "米利克萨",
+        "enUS": "Merektha"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-136076",
+      "npcId": 136076,
+      "name": {
+        "zhCN": "暴怒云气",
+        "enUS": "Agitated Nimbus"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134599",
+      "npcId": 134599,
+      "name": {
+        "zhCN": "灌注能量的唤雷者",
+        "enUS": "Imbued Stormcaller"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134691",
+      "npcId": 134691,
+      "name": {
+        "zhCN": "静电异常体",
+        "enUS": "Static Anomaly"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-136250",
+      "npcId": 136250,
+      "name": {
+        "zhCN": "扭曲的妖术师",
+        "enUS": "Twisted Hexxer"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-133392",
+      "npcId": 133392,
+      "name": {
+        "zhCN": "塞塔里斯的化身",
+        "enUS": "Avatar of Sethraliss"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-265057",
+      "npcId": 265057,
+      "name": {
+        "zhCN": "火花引导者",
+        "enUS": "Spark Channeler"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134388",
+      "npcId": 134388,
+      "name": {
+        "zhCN": "缠绕的蛇群",
+        "enUS": "A Knot of Snakes"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134389",
+      "npcId": 134389,
+      "name": {
+        "zhCN": "剧毒蝰蛇",
+        "enUS": "Toxic Viper"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134390",
+      "npcId": 134390,
+      "name": {
+        "zhCN": "风暴飞蛇",
+        "enUS": "Storm Serpent"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-134487",
+      "npcId": 134487,
+      "name": {
+        "zhCN": "米利克萨",
+        "enUS": "Merektha"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-135007",
+      "npcId": 135007,
+      "name": {
+        "zhCN": "宝珠守望者",
+        "enUS": "Orb Watcher"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-135445",
+      "npcId": 135445,
+      "name": {
+        "zhCN": "闪电尖塔",
+        "enUS": "Lightning Spire"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-139097",
+      "npcId": 139097,
+      "name": {
+        "zhCN": "卷沙神射手",
+        "enUS": "Sandswept Marksman"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-139108",
+      "npcId": 139108,
+      "name": {
+        "zhCN": "不羁的火花",
+        "enUS": "Loose Spark"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-139131",
+      "npcId": 139131,
+      "name": {
+        "zhCN": "极化尖塔",
+        "enUS": "Polarized Spire"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-240681",
+      "npcId": 240681,
+      "name": {
+        "zhCN": "塞塔里斯之眼",
+        "enUS": "Eye of Sethraliss"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-262530",
+      "npcId": 262530,
+      "name": {
+        "zhCN": "阿德里斯",
+        "enUS": "Adderis"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-262822",
+      "npcId": 262822,
+      "name": {
+        "zhCN": "阿斯匹克斯",
+        "enUS": "Aspix"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-263181",
+      "npcId": 263181,
+      "name": {
+        "zhCN": "卵的标记",
+        "enUS": "Egg Marker"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-263658",
+      "npcId": 263658,
+      "name": {
+        "zhCN": "加瓦兹特",
+        "enUS": "Galvazzt"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-264785",
+      "npcId": 264785,
+      "name": {
+        "zhCN": "群聚三叶虫",
+        "enUS": "Swarming Krolusk"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-268317",
+      "npcId": 268317,
+      "name": {
+        "zhCN": "无信折磨者",
+        "enUS": "Faithless Tormentor"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-268344",
+      "npcId": 268344,
+      "name": {
+        "zhCN": "堕落的守护者",
+        "enUS": "Corrupted Guardian"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-268364",
+      "npcId": 268364,
+      "name": {
+        "zhCN": "生命之力",
+        "enUS": "Lifeforce"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-268427",
+      "npcId": 268427,
+      "name": {
+        "zhCN": "精华污染者",
+        "enUS": "Essence Defiler"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-268491",
+      "npcId": 268491,
+      "name": {
+        "zhCN": "扭曲的妖术师",
+        "enUS": "Twisted Hexxer"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-268729",
+      "npcId": 268729,
+      "name": {
+        "zhCN": "无信折磨者",
+        "enUS": "Faithless Tormentor"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-139110",
+      "npcId": 139110,
+      "name": {
+        "zhCN": "火花引导者",
+        "enUS": "Spark Channeler"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-135971",
+      "npcId": 135971,
+      "name": {
+        "zhCN": "无信援兵",
+        "enUS": "Faithless Conscript"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-263383",
+      "npcId": 263383,
+      "name": {
+        "zhCN": "蛇",
+        "enUS": "Snake"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-268747",
+      "npcId": 268747,
+      "name": {
+        "zhCN": "次级生命之力",
+        "enUS": "Lesser Lifeforce"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-enemy-269227",
+      "npcId": 269227,
+      "name": {
+        "zhCN": "神庙干扰者",
+        "enUS": "Temple Disruptor"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "id": "tst-ability-262046",
+      "spellId": 262046,
+      "name": {
+        "zhCN": "近战",
+        "enUS": "Melee"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134629"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-263425",
+      "spellId": 263425,
+      "name": {
+        "zhCN": "电弧冲刺",
+        "enUS": "Arc Dash"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-263958",
+      "spellId": 263958,
+      "name": {
+        "zhCN": "缠绕的蛇群",
+        "enUS": "A Knot of Snakes"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134388"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-264172",
+      "spellId": 264172,
+      "name": {
+        "zhCN": "钻地",
+        "enUS": "Burrow"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-264763",
+      "spellId": 264763,
+      "name": {
+        "zhCN": "火花步",
+        "enUS": "Spark Step"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134691"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-265966",
+      "spellId": 265966,
+      "name": {
+        "zhCN": "震地",
+        "enUS": "Ground Pound"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134991"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-267027",
+      "spellId": 267027,
+      "name": {
+        "zhCN": "毒素喷吐",
+        "enUS": "Poison Spit"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134389"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-267483",
+      "spellId": 267483,
+      "name": {
+        "zhCN": "不羁的火花",
+        "enUS": "Loose Sparks"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-139108",
+        "tst-enemy-139110"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-268013",
+      "spellId": 268013,
+      "name": {
+        "zhCN": "烈焰震击",
+        "enUS": "Flame Shock"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136250"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-269116",
+      "spellId": 269116,
+      "name": {
+        "zhCN": "吸取能量",
+        "enUS": "Draw Power"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134599"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-269896",
+      "spellId": 269896,
+      "name": {
+        "zhCN": "胚胎精华",
+        "enUS": "Embryonic Vigor"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134364"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-272654",
+      "spellId": 272654,
+      "name": {
+        "zhCN": "撞头",
+        "enUS": "Head Butt"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134686"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-272655",
+      "spellId": 272655,
+      "name": {
+        "zhCN": "黄沙冲刷",
+        "enUS": "Scouring Sand"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134629",
+        "tst-enemy-134686"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-273225",
+      "spellId": 273225,
+      "name": {
+        "zhCN": "乱射",
+        "enUS": "Volley"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-139097"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-273241",
+      "spellId": 273241,
+      "name": {
+        "zhCN": "火花之墙",
+        "enUS": "Wall of Sparks"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-139108"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1225638",
+      "spellId": 1225638,
+      "name": {
+        "zhCN": "不羁的火花",
+        "enUS": "Loose Sparks"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-139108"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1288092",
+      "spellId": 1288092,
+      "name": {
+        "zhCN": "电闪雷鸣",
+        "enUS": "Thunder and Lightning"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1288235",
+      "spellId": 1288235,
+      "name": {
+        "zhCN": "电闪雷鸣",
+        "enUS": "Thunder and Lightning"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1288428",
+      "spellId": 1288428,
+      "name": {
+        "zhCN": "过载",
+        "enUS": "Overload"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1288457",
+      "spellId": 1288457,
+      "name": {
+        "zhCN": "阵风",
+        "enUS": "Gust"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1288864",
+      "spellId": 1288864,
+      "name": {
+        "zhCN": "暴风",
+        "enUS": "Tempest Winds"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1288885",
+      "spellId": 1288885,
+      "name": {
+        "zhCN": "暴风",
+        "enUS": "Tempest Winds"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1289062",
+      "spellId": 1289062,
+      "name": {
+        "zhCN": "狂风之力",
+        "enUS": "Gale Force"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1289205",
+      "spellId": 1289205,
+      "name": {
+        "zhCN": "孵化",
+        "enUS": "Hatch"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1289208",
+      "spellId": 1289208,
+      "name": {
+        "zhCN": "[DNT]Summon Sand egg",
+        "enUS": "[DNT]Summon Sand egg"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-263181"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1289229",
+      "spellId": 1289229,
+      "name": {
+        "zhCN": "风暴祝福",
+        "enUS": "Storm Blessed"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530",
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1289589",
+      "spellId": 1289589,
+      "name": {
+        "zhCN": "萦绕风暴",
+        "enUS": "Lingering Storm"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384",
+        "tst-enemy-134390"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1289602",
+      "spellId": 1289602,
+      "name": {
+        "zhCN": "雷霆喷吐",
+        "enUS": "Thunder Spit"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1290031",
+      "spellId": 1290031,
+      "name": {
+        "zhCN": "缠绕蛇群",
+        "enUS": "A Knot of Snakes"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1290531",
+      "spellId": 1290531,
+      "name": {
+        "zhCN": "诱导",
+        "enUS": "Induction"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-263658"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1290797",
+      "spellId": 1290797,
+      "name": {
+        "zhCN": "闪电撕咬",
+        "enUS": "Lightning Bite"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1291262",
+      "spellId": 1291262,
+      "name": {
+        "zhCN": "闪电箭",
+        "enUS": "Lightning Bolt"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134990",
+        "tst-enemy-134599"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1291399",
+      "spellId": 1291399,
+      "name": {
+        "zhCN": "锯齿冲锋",
+        "enUS": "Serrated Charge"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134616",
+        "tst-enemy-134629",
+        "tst-enemy-139422"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1291468",
+      "spellId": 1291468,
+      "name": {
+        "zhCN": "破甲猛击",
+        "enUS": "Sunder Slam"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134991"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1291622",
+      "spellId": 1291622,
+      "name": {
+        "zhCN": "风暴触媒",
+        "enUS": "Storm Catalyst"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134390"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1291734",
+      "spellId": 1291734,
+      "name": {
+        "zhCN": "雷霆喷吐",
+        "enUS": "Thunder Spit"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1291815",
+      "spellId": 1291815,
+      "name": {
+        "zhCN": "诱导力场",
+        "enUS": "Induction Field"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-263658"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1292035",
+      "spellId": 1292035,
+      "name": {
+        "zhCN": "狂乱",
+        "enUS": "Frenzy"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1292585",
+      "spellId": 1292585,
+      "name": {
+        "zhCN": "沙爆箭",
+        "enUS": "Sandburst Arrow"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134600"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1292623",
+      "spellId": 1292623,
+      "name": {
+        "zhCN": "沙爆箭",
+        "enUS": "Sandburst Arrow"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134600"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1292990",
+      "spellId": 1292990,
+      "name": {
+        "zhCN": "三叶虫群",
+        "enUS": "Swarming Krolusks"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134629",
+        "tst-enemy-139422"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1293048",
+      "spellId": 1293048,
+      "name": {
+        "zhCN": "毒蛇风暴",
+        "enUS": "Serpentstorm"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1293133",
+      "spellId": 1293133,
+      "name": {
+        "zhCN": "萦绕风暴",
+        "enUS": "Lingering Storm"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135846"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1293307",
+      "spellId": 1293307,
+      "name": {
+        "zhCN": "扰乱心智",
+        "enUS": "Addle Mind"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134364"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1293464",
+      "spellId": 1293464,
+      "name": {
+        "zhCN": "积攒电荷",
+        "enUS": "Accumulate Charge"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136076"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1293475",
+      "spellId": 1293475,
+      "name": {
+        "zhCN": "释放电荷",
+        "enUS": "Release Charge"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136076"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1293650",
+      "spellId": 1293650,
+      "name": {
+        "zhCN": "召唤闪电",
+        "enUS": "Call Lightning"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136076"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1293652",
+      "spellId": 1293652,
+      "name": {
+        "zhCN": "召唤闪电",
+        "enUS": "Call Lightning"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136076"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1295610",
+      "spellId": 1295610,
+      "name": {
+        "zhCN": "蜿蜒打击",
+        "enUS": "Slither Strike"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134602"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1295635",
+      "spellId": 1295635,
+      "name": {
+        "zhCN": "蜿蜒打击",
+        "enUS": "Slither Strike"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134602"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1296045",
+      "spellId": 1296045,
+      "name": {
+        "zhCN": "灌能传导",
+        "enUS": "Imbued Conduction"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134599"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1296052",
+      "spellId": 1296052,
+      "name": {
+        "zhCN": "灌能传导",
+        "enUS": "Imbued Conduction"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134599"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1296738",
+      "spellId": 1296738,
+      "name": {
+        "zhCN": "孵化",
+        "enUS": "Hatch"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384",
+        "tst-enemy-263181"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1296912",
+      "spellId": 1296912,
+      "name": {
+        "zhCN": "风暴打击",
+        "enUS": "Storm Strikes"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1297034",
+      "spellId": 1297034,
+      "name": {
+        "zhCN": "电击大地",
+        "enUS": "Electrified Ground"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1298329",
+      "spellId": 1298329,
+      "name": {
+        "zhCN": "雷霆喷吐",
+        "enUS": "Thunder Spit"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1300666",
+      "spellId": 1300666,
+      "name": {
+        "zhCN": "spell-1300666",
+        "enUS": "spell-1300666"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136250"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1300684",
+      "spellId": 1300684,
+      "name": {
+        "zhCN": "妖术淤泥",
+        "enUS": "Hex Muck"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136250",
+        "tst-enemy-268491"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1300704",
+      "spellId": 1300704,
+      "name": {
+        "zhCN": "锁定",
+        "enUS": "Fixate"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268317",
+        "tst-enemy-268729"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1300714",
+      "spellId": 1300714,
+      "name": {
+        "zhCN": "暗影鞭笞",
+        "enUS": "Shadowlash"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268317",
+        "tst-enemy-268729"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1300803",
+      "spellId": 1300803,
+      "name": {
+        "zhCN": "污秽打击",
+        "enUS": "Tainted Strike"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268344"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1300871",
+      "spellId": 1300871,
+      "name": {
+        "zhCN": "腐蚀生命力",
+        "enUS": "Corrupted Lifeforce"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268364"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1301199",
+      "spellId": 1301199,
+      "name": {
+        "zhCN": "污染之秽",
+        "enUS": "Defiling Taint"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268427"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1302153",
+      "spellId": 1302153,
+      "name": {
+        "zhCN": "潜藏妖术",
+        "enUS": "Latent Hex"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268491"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1302158",
+      "spellId": 1302158,
+      "name": {
+        "zhCN": "烈焰震击",
+        "enUS": "Flame Shock"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268491"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1302616",
+      "spellId": 1302616,
+      "name": {
+        "zhCN": "邪恶冲锋",
+        "enUS": "Vile Charge"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268344"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1302618",
+      "spellId": 1302618,
+      "name": {
+        "zhCN": "邪恶冲锋",
+        "enUS": "Vile Charge"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268344"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1302761",
+      "spellId": 1302761,
+      "name": {
+        "zhCN": "不稳定腐化",
+        "enUS": "Unstable Corruption"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268344"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1302826",
+      "spellId": 1302826,
+      "name": {
+        "zhCN": "腐化爆发",
+        "enUS": "Corruption Burst"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268364"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1302897",
+      "spellId": 1302897,
+      "name": {
+        "zhCN": "消耗生命力",
+        "enUS": "Consume Lifeforce"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268364"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1303443",
+      "spellId": 1303443,
+      "name": {
+        "zhCN": "毒刃斩击",
+        "enUS": "Venomous Slash"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135007"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1303446",
+      "spellId": 1303446,
+      "name": {
+        "zhCN": "污秽打击",
+        "enUS": "Tainted Strike"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268344"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1303452",
+      "spellId": 1303452,
+      "name": {
+        "zhCN": "毒液弹片",
+        "enUS": "Venom Shrapnel"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135007"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1303486",
+      "spellId": 1303486,
+      "name": {
+        "zhCN": "蚀骨践踏",
+        "enUS": "Caustic Stomp"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135007"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1303596",
+      "spellId": 1303596,
+      "name": {
+        "zhCN": "能量虹吸",
+        "enUS": "Siphon Energy"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-240681"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308100",
+      "spellId": 1308100,
+      "name": {
+        "zhCN": "涂毒偷袭",
+        "enUS": "Poisoned Cheap Shot"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134602"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308113",
+      "spellId": 1308113,
+      "name": {
+        "zhCN": "箭雨",
+        "enUS": "Arrow Barrage"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134600"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308116",
+      "spellId": 1308116,
+      "name": {
+        "zhCN": "箭雨",
+        "enUS": "Arrow Barrage"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134600"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308148",
+      "spellId": 1308148,
+      "name": {
+        "zhCN": "细胞毒素",
+        "enUS": "Cytotoxin"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135562"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308546",
+      "spellId": 1308546,
+      "name": {
+        "zhCN": "毒刃斩击",
+        "enUS": "Venomous Slash"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135007"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308738",
+      "spellId": 1308738,
+      "name": {
+        "zhCN": "过载",
+        "enUS": "Overload"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308740",
+      "spellId": 1308740,
+      "name": {
+        "zhCN": "过载",
+        "enUS": "Overload"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1308838",
+      "spellId": 1308838,
+      "name": {
+        "zhCN": "闪电撕咬",
+        "enUS": "Lightning Bite"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-133384"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1310311",
+      "spellId": 1310311,
+      "name": {
+        "zhCN": "风暴祝福",
+        "enUS": "Storm Blessed"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262530",
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1310396",
+      "spellId": 1310396,
+      "name": {
+        "zhCN": "毒蛇唤雷",
+        "enUS": "Serpent's Stormcall"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135846"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1310402",
+      "spellId": 1310402,
+      "name": {
+        "zhCN": "毒蛇唤雷",
+        "enUS": "Serpent's Stormcall"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-135846"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1310683",
+      "spellId": 1310683,
+      "name": {
+        "zhCN": "毒箭",
+        "enUS": "Venom Bolt"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-139425"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1310693",
+      "spellId": 1310693,
+      "name": {
+        "zhCN": "静电冲击",
+        "enUS": "Static Shocks"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-134691"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1310712",
+      "spellId": 1310712,
+      "name": {
+        "zhCN": "狂风之力",
+        "enUS": "Gale Force"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1310739",
+      "spellId": 1310739,
+      "name": {
+        "zhCN": "积攒电荷",
+        "enUS": "Accumulate Charge"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136076",
+        "tst-enemy-134599"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1311808",
+      "spellId": 1311808,
+      "name": {
+        "zhCN": "暴风",
+        "enUS": "Tempest Winds"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-262822"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1311964",
+      "spellId": 1311964,
+      "name": {
+        "zhCN": "潜藏妖术",
+        "enUS": "Latent Hex"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136250",
+        "tst-enemy-268491"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1311979",
+      "spellId": 1311979,
+      "name": {
+        "zhCN": "潜藏妖术",
+        "enUS": "Latent Hex"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268491"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1311980",
+      "spellId": 1311980,
+      "name": {
+        "zhCN": "潜藏妖术",
+        "enUS": "Latent Hex"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136250"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1311981",
+      "spellId": 1311981,
+      "name": {
+        "zhCN": "潜藏妖术",
+        "enUS": "Latent Hex"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-136250"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "tst-ability-1312214",
+      "spellId": 1312214,
+      "name": {
+        "zhCN": "腐化",
+        "enUS": "Corruption"
+      },
+      "casterEnemyIds": [
+        "tst-enemy-268364"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "situations": [],
+  "routes": [],
+  "bosses": [],
+  "provenance": [
+    {
+      "type": "game-data",
+      "title": "MDT 怪物事实快照 mdt-facts-s2-temple-of-sethraliss-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+      "snapshot": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+      "gameBuild": "12.1.0",
+      "retrievedAt": "2026-08-26",
+      "licenseStatus": "approved",
+      "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+    }
+  ]
+}

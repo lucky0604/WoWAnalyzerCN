@@ -68,23 +68,29 @@ describe('season 2 dungeon catalog', () => {
   });
 
   it('reports duplicate and premature published entries', () => {
-    // Index 7 (temple-of-sethraliss) still has no registered document, so a
-    // published duplicate of it must keep raising
-    // CATALOG_PUBLISHED_WITHOUT_DOCUMENT.  Registered entries would
-    // legitimately pass that check.
+    // Every S2 catalog entry now has a registered document, so the
+    // published-without-document check is exercised with a synthetic entry
+    // that has a unique id but no document.
     const diagnostics = validateSeason2DungeonCatalog(
-      [...season2DungeonCatalog, { ...season2DungeonCatalog[7]!, status: 'published' }],
+      [
+        ...season2DungeonCatalog,
+        {
+          ...season2DungeonCatalog[0]!,
+          id: 'not-a-real-dungeon',
+          sourceKey: 'not-a-real-dungeon',
+          wclEncounterId: 999901,
+          wclPtrEncounterId: 999902,
+          status: 'published',
+        },
+      ],
       new Set(dungeonDocuments.map((document) => document.id)),
     );
     expect(diagnostics.map((diagnostic) => diagnostic.code)).toEqual([
       'CATALOG_WCL_SOURCE_IDENTITY_MISMATCH',
       'CATALOG_WCL_SOURCE_CATALOG_BINDING_MISMATCH',
       'CATALOG_WCL_SOURCE_CATALOG_PAIR_MISMATCH',
+      'CATALOG_WCL_SOURCE_CATALOG_PAIR_MISMATCH',
       'CATALOG_COUNT',
-      'CATALOG_DUPLICATE_ID',
-      'CATALOG_DUPLICATE_SOURCE_KEY',
-      'CATALOG_WCL_ENCOUNTER_DUPLICATE',
-      'CATALOG_WCL_ENCOUNTER_DUPLICATE',
       'CATALOG_PUBLISHED_WITHOUT_DOCUMENT',
     ]);
   });

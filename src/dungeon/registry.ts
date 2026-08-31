@@ -1,6 +1,7 @@
 import type { DungeonDocument } from './schema/types';
 import { altarOfFangsFixture, rubyLifePoolsFixture } from './data/fixtures';
 import { altarOfFangsDocument } from './data/altarOfFangsDocument';
+import { templeOfSethralissDocument } from './data/templeOfSethralissDocument';
 import { kingsRestDocument } from './data/kingsRestDocument';
 import { voidscarArenaDocument } from './data/voidscarArenaDocument';
 import { theBlindingValeDocument } from './data/theBlindingValeDocument';
@@ -22,6 +23,7 @@ const authoredDocuments: readonly DungeonDocument[] = [
   theBlindingValeDocument,
   voidscarArenaDocument,
   kingsRestDocument,
+  templeOfSethralissDocument,
 ];
 
 /**

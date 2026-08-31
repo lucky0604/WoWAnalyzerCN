@@ -1,0 +1,726 @@
+{
+  "version": 1,
+  "plan": {
+    "planDigest": "sha256:28ddb792633ec85c15d0a6386672f1780a22e0663772c3654a0aac363c4a35f3",
+    "snapshotId": "mdt-facts-s2-temple-of-sethraliss-2026-08-26",
+    "snapshotDigest": "sha256:334eabfa89126589aea16bed753bfa226458ffce3bcde22b81cec085c3289507",
+    "dungeonId": "temple-of-sethraliss",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "documentId": "temple-of-sethraliss",
+    "documentSeason": "midnight-s2",
+    "documentGameBuild": "12.1.0",
+    "documentRevision": 1
+  },
+  "reviewer": "project-owner",
+  "reviewedAt": "2026-08-28T00:00:00.000Z",
+  "enemies": [
+    {
+      "sourceKey": "Sandswept Hunter",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Barbed Krolusk",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Storm Adept",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Sandfury Stonefist",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Shrouded Fang",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Sand-Sworn Rider",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Poisonous Viper",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Lightning Serpent",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Dutiful Tamer",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Krolusk Matriarch",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Faithless Subjugator",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Brood Tender",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Merektha [133384]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Agitated Nimbus",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Imbued Stormcaller",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Static Anomaly",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Twisted Hexxer [136250]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Avatar of Sethraliss",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Spark Channeler [265057]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "A Knot of Snakes",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Toxic Viper",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Storm Serpent",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Merektha [134487]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Orb Watcher",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Lightning Spire",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Sandswept Marksman",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Loose Spark",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Polarized Spire",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Eye of Sethraliss",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Adderis",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Aspix",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Egg Marker",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Galvazzt",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Swarming Krolusk",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Faithless Tormentor [268317]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Corrupted Guardian",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Lifeforce",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Essence Defiler",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Twisted Hexxer [268491]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Faithless Tormentor [268729]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Spark Channeler [139110]",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Faithless Conscript",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Snake",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Lesser Lifeforce",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "Temple Disruptor",
+      "decision": "TODO",
+      "reason": ""
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-262046",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-263425",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-263958",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-264172",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-264763",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-265966",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-267027",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-267483",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-268013",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-269116",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-269896",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-272654",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-272655",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-273225",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-273241",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1225638",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1288092",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1288235",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1288428",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1288457",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1288864",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1288885",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1289062",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1289205",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1289208",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1289229",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1289589",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1289602",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1290031",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1290531",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1290797",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1291262",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1291399",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1291468",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1291622",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1291734",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1291815",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1292035",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1292585",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1292623",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1292990",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1293048",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1293133",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1293307",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1293464",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1293475",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1293650",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1293652",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1295610",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1295635",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1296045",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1296052",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1296738",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1296912",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1297034",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1298329",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1300666",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1300684",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1300704",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1300714",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1300803",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1300871",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1301199",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1302153",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1302158",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1302616",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1302618",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1302761",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1302826",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1302897",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1303443",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1303446",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1303452",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1303486",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1303596",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308100",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308113",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308116",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308148",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308546",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308738",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308740",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1308838",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1310311",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1310396",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1310402",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1310683",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1310693",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1310712",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1310739",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1311808",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1311964",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1311979",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1311980",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1311981",
+      "decision": "TODO",
+      "reason": ""
+    },
+    {
+      "sourceKey": "spell-1312214",
+      "decision": "TODO",
+      "reason": ""
+    }
+  ]
+}
