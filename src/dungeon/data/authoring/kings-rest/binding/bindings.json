@@ -1,0 +1,604 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-kings-rest-2026-08-26",
+  "snapshotDigest": "sha256:13e7f1f0a9fd1de124b5a24b3071a6cf6b02eed052054631ab11ca3ff4b78367",
+  "dungeonId": "kings-rest",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "enemies": [
+    {
+      "sourceKey": "Animated Guardian",
+      "documentEnemyId": "kr-enemy-133935"
+    },
+    {
+      "sourceKey": "Minion of Zul [133943]",
+      "documentEnemyId": "kr-enemy-133943"
+    },
+    {
+      "sourceKey": "Risen Hexer",
+      "documentEnemyId": "kr-enemy-134174"
+    },
+    {
+      "sourceKey": "Shadow-Borne Champion",
+      "documentEnemyId": "kr-enemy-134158"
+    },
+    {
+      "sourceKey": "Umbral Warrior",
+      "documentEnemyId": "kr-enemy-134157"
+    },
+    {
+      "sourceKey": "The Golden Serpent",
+      "documentEnemyId": "kr-enemy-135322"
+    },
+    {
+      "sourceKey": "Skeletal Hunting Raptor",
+      "documentEnemyId": "kr-enemy-137487"
+    },
+    {
+      "sourceKey": "Queen Patlaa",
+      "documentEnemyId": "kr-enemy-137486"
+    },
+    {
+      "sourceKey": "King A'akul",
+      "documentEnemyId": "kr-enemy-137484"
+    },
+    {
+      "sourceKey": "Bloodsworn Assassin",
+      "documentEnemyId": "kr-enemy-137485"
+    },
+    {
+      "sourceKey": "Seneschal M'bara",
+      "documentEnemyId": "kr-enemy-134251"
+    },
+    {
+      "sourceKey": "Guard Captain Atu",
+      "documentEnemyId": "kr-enemy-137473"
+    },
+    {
+      "sourceKey": "King Rahu'ai",
+      "documentEnemyId": "kr-enemy-134331"
+    },
+    {
+      "sourceKey": "King Timalji",
+      "documentEnemyId": "kr-enemy-137474"
+    },
+    {
+      "sourceKey": "Queen Wasi",
+      "documentEnemyId": "kr-enemy-137478"
+    },
+    {
+      "sourceKey": "Purification Construct",
+      "documentEnemyId": "kr-enemy-134739"
+    },
+    {
+      "sourceKey": "Interment Construct",
+      "documentEnemyId": "kr-enemy-137969"
+    },
+    {
+      "sourceKey": "Mchimba the Embalmer",
+      "documentEnemyId": "kr-enemy-134993"
+    },
+    {
+      "sourceKey": "Phantom Hex Priest",
+      "documentEnemyId": "kr-enemy-135204"
+    },
+    {
+      "sourceKey": "Royal Berserker",
+      "documentEnemyId": "kr-enemy-135167"
+    },
+    {
+      "sourceKey": "Spectral Shaman",
+      "documentEnemyId": "kr-enemy-135239"
+    },
+    {
+      "sourceKey": "Ghostly Brute",
+      "documentEnemyId": "kr-enemy-135231"
+    },
+    {
+      "sourceKey": "Honored Raptor",
+      "documentEnemyId": "kr-enemy-135192"
+    },
+    {
+      "sourceKey": "Shadow of Zul",
+      "documentEnemyId": "kr-enemy-138489"
+    },
+    {
+      "sourceKey": "King Dazar",
+      "documentEnemyId": "kr-enemy-136160"
+    },
+    {
+      "sourceKey": "Embalming Fluid",
+      "documentEnemyId": "kr-enemy-137989"
+    },
+    {
+      "sourceKey": "Disruption Totem",
+      "documentEnemyId": "kr-enemy-135761"
+    },
+    {
+      "sourceKey": "Explosive Totem",
+      "documentEnemyId": "kr-enemy-135764"
+    },
+    {
+      "sourceKey": "Torrent Totem",
+      "documentEnemyId": "kr-enemy-135765"
+    },
+    {
+      "sourceKey": "Coffin",
+      "documentEnemyId": "kr-enemy-136256"
+    },
+    {
+      "sourceKey": "T'zala",
+      "documentEnemyId": "kr-enemy-136976"
+    },
+    {
+      "sourceKey": "Reban",
+      "documentEnemyId": "kr-enemy-136984"
+    },
+    {
+      "sourceKey": "Minion of Zul [138493]",
+      "documentEnemyId": "kr-enemy-138493"
+    },
+    {
+      "sourceKey": "Aka'ali the Conqueror",
+      "documentEnemyId": "kr-enemy-269808"
+    },
+    {
+      "sourceKey": "Zanazal the Wise",
+      "documentEnemyId": "kr-enemy-269810"
+    },
+    {
+      "sourceKey": "Kula the Butcher",
+      "documentEnemyId": "kr-enemy-269811"
+    },
+    {
+      "sourceKey": "Half-Finished Mummy",
+      "documentEnemyId": "kr-enemy-270502"
+    },
+    {
+      "sourceKey": "Animated Gold",
+      "documentEnemyId": "kr-enemy-135406"
+    },
+    {
+      "sourceKey": "Healing Tide Totem",
+      "documentEnemyId": "kr-enemy-137591"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-265773",
+      "documentAbilityId": "kr-ability-265773"
+    },
+    {
+      "sourceKey": "spell-265781",
+      "documentAbilityId": "kr-ability-265781"
+    },
+    {
+      "sourceKey": "spell-265910",
+      "documentAbilityId": "kr-ability-265910"
+    },
+    {
+      "sourceKey": "spell-265923",
+      "documentAbilityId": "kr-ability-265923"
+    },
+    {
+      "sourceKey": "spell-265991",
+      "documentAbilityId": "kr-ability-265991"
+    },
+    {
+      "sourceKey": "spell-266191",
+      "documentAbilityId": "kr-ability-266191"
+    },
+    {
+      "sourceKey": "spell-266206",
+      "documentAbilityId": "kr-ability-266206"
+    },
+    {
+      "sourceKey": "spell-266231",
+      "documentAbilityId": "kr-ability-266231"
+    },
+    {
+      "sourceKey": "spell-266237",
+      "documentAbilityId": "kr-ability-266237"
+    },
+    {
+      "sourceKey": "spell-266951",
+      "documentAbilityId": "kr-ability-266951"
+    },
+    {
+      "sourceKey": "spell-267060",
+      "documentAbilityId": "kr-ability-267060"
+    },
+    {
+      "sourceKey": "spell-267077",
+      "documentAbilityId": "kr-ability-267077"
+    },
+    {
+      "sourceKey": "spell-267105",
+      "documentAbilityId": "kr-ability-267105"
+    },
+    {
+      "sourceKey": "spell-267257",
+      "documentAbilityId": "kr-ability-267257"
+    },
+    {
+      "sourceKey": "spell-267273",
+      "documentAbilityId": "kr-ability-267273"
+    },
+    {
+      "sourceKey": "spell-267494",
+      "documentAbilityId": "kr-ability-267494"
+    },
+    {
+      "sourceKey": "spell-267618",
+      "documentAbilityId": "kr-ability-267618"
+    },
+    {
+      "sourceKey": "spell-267639",
+      "documentAbilityId": "kr-ability-267639"
+    },
+    {
+      "sourceKey": "spell-267702",
+      "documentAbilityId": "kr-ability-267702"
+    },
+    {
+      "sourceKey": "spell-267763",
+      "documentAbilityId": "kr-ability-267763"
+    },
+    {
+      "sourceKey": "spell-267874",
+      "documentAbilityId": "kr-ability-267874"
+    },
+    {
+      "sourceKey": "spell-268586",
+      "documentAbilityId": "kr-ability-268586"
+    },
+    {
+      "sourceKey": "spell-268587",
+      "documentAbilityId": "kr-ability-268587"
+    },
+    {
+      "sourceKey": "spell-268589",
+      "documentAbilityId": "kr-ability-268589"
+    },
+    {
+      "sourceKey": "spell-268590",
+      "documentAbilityId": "kr-ability-268590"
+    },
+    {
+      "sourceKey": "spell-268591",
+      "documentAbilityId": "kr-ability-268591"
+    },
+    {
+      "sourceKey": "spell-269230",
+      "documentAbilityId": "kr-ability-269230"
+    },
+    {
+      "sourceKey": "spell-269231",
+      "documentAbilityId": "kr-ability-269231"
+    },
+    {
+      "sourceKey": "spell-269232",
+      "documentAbilityId": "kr-ability-269232"
+    },
+    {
+      "sourceKey": "spell-269369",
+      "documentAbilityId": "kr-ability-269369"
+    },
+    {
+      "sourceKey": "spell-269503",
+      "documentAbilityId": "kr-ability-269503"
+    },
+    {
+      "sourceKey": "spell-269928",
+      "documentAbilityId": "kr-ability-269928"
+    },
+    {
+      "sourceKey": "spell-269935",
+      "documentAbilityId": "kr-ability-269935"
+    },
+    {
+      "sourceKey": "spell-269972",
+      "documentAbilityId": "kr-ability-269972"
+    },
+    {
+      "sourceKey": "spell-269976",
+      "documentAbilityId": "kr-ability-269976"
+    },
+    {
+      "sourceKey": "spell-270003",
+      "documentAbilityId": "kr-ability-270003"
+    },
+    {
+      "sourceKey": "spell-270016",
+      "documentAbilityId": "kr-ability-270016"
+    },
+    {
+      "sourceKey": "spell-270292",
+      "documentAbilityId": "kr-ability-270292"
+    },
+    {
+      "sourceKey": "spell-270293",
+      "documentAbilityId": "kr-ability-270293"
+    },
+    {
+      "sourceKey": "spell-270482",
+      "documentAbilityId": "kr-ability-270482"
+    },
+    {
+      "sourceKey": "spell-270485",
+      "documentAbilityId": "kr-ability-270485"
+    },
+    {
+      "sourceKey": "spell-270492",
+      "documentAbilityId": "kr-ability-270492"
+    },
+    {
+      "sourceKey": "spell-270497",
+      "documentAbilityId": "kr-ability-270497"
+    },
+    {
+      "sourceKey": "spell-270499",
+      "documentAbilityId": "kr-ability-270499"
+    },
+    {
+      "sourceKey": "spell-270500",
+      "documentAbilityId": "kr-ability-270500"
+    },
+    {
+      "sourceKey": "spell-270502",
+      "documentAbilityId": "kr-ability-270502"
+    },
+    {
+      "sourceKey": "spell-270503",
+      "documentAbilityId": "kr-ability-270503"
+    },
+    {
+      "sourceKey": "spell-270514",
+      "documentAbilityId": "kr-ability-270514"
+    },
+    {
+      "sourceKey": "spell-270889",
+      "documentAbilityId": "kr-ability-270889"
+    },
+    {
+      "sourceKey": "spell-270891",
+      "documentAbilityId": "kr-ability-270891"
+    },
+    {
+      "sourceKey": "spell-270901",
+      "documentAbilityId": "kr-ability-270901"
+    },
+    {
+      "sourceKey": "spell-270920",
+      "documentAbilityId": "kr-ability-270920"
+    },
+    {
+      "sourceKey": "spell-270927",
+      "documentAbilityId": "kr-ability-270927"
+    },
+    {
+      "sourceKey": "spell-270928",
+      "documentAbilityId": "kr-ability-270928"
+    },
+    {
+      "sourceKey": "spell-270931",
+      "documentAbilityId": "kr-ability-270931"
+    },
+    {
+      "sourceKey": "spell-271290",
+      "documentAbilityId": "kr-ability-271290"
+    },
+    {
+      "sourceKey": "spell-271555",
+      "documentAbilityId": "kr-ability-271555"
+    },
+    {
+      "sourceKey": "spell-271561",
+      "documentAbilityId": "kr-ability-271561"
+    },
+    {
+      "sourceKey": "spell-271562",
+      "documentAbilityId": "kr-ability-271562"
+    },
+    {
+      "sourceKey": "spell-271563",
+      "documentAbilityId": "kr-ability-271563"
+    },
+    {
+      "sourceKey": "spell-1289063",
+      "documentAbilityId": "kr-ability-1289063"
+    },
+    {
+      "sourceKey": "spell-1294815",
+      "documentAbilityId": "kr-ability-1294815"
+    },
+    {
+      "sourceKey": "spell-1294883",
+      "documentAbilityId": "kr-ability-1294883"
+    },
+    {
+      "sourceKey": "spell-1294972",
+      "documentAbilityId": "kr-ability-1294972"
+    },
+    {
+      "sourceKey": "spell-1295125",
+      "documentAbilityId": "kr-ability-1295125"
+    },
+    {
+      "sourceKey": "spell-1296671",
+      "documentAbilityId": "kr-ability-1296671"
+    },
+    {
+      "sourceKey": "spell-1296719",
+      "documentAbilityId": "kr-ability-1296719"
+    },
+    {
+      "sourceKey": "spell-1297326",
+      "documentAbilityId": "kr-ability-1297326"
+    },
+    {
+      "sourceKey": "spell-1297763",
+      "documentAbilityId": "kr-ability-1297763"
+    },
+    {
+      "sourceKey": "spell-1297781",
+      "documentAbilityId": "kr-ability-1297781"
+    },
+    {
+      "sourceKey": "spell-1297918",
+      "documentAbilityId": "kr-ability-1297918"
+    },
+    {
+      "sourceKey": "spell-1297970",
+      "documentAbilityId": "kr-ability-1297970"
+    },
+    {
+      "sourceKey": "spell-1298104",
+      "documentAbilityId": "kr-ability-1298104"
+    },
+    {
+      "sourceKey": "spell-1301851",
+      "documentAbilityId": "kr-ability-1301851"
+    },
+    {
+      "sourceKey": "spell-1302028",
+      "documentAbilityId": "kr-ability-1302028"
+    },
+    {
+      "sourceKey": "spell-1302945",
+      "documentAbilityId": "kr-ability-1302945"
+    },
+    {
+      "sourceKey": "spell-1303039",
+      "documentAbilityId": "kr-ability-1303039"
+    },
+    {
+      "sourceKey": "spell-1303105",
+      "documentAbilityId": "kr-ability-1303105"
+    },
+    {
+      "sourceKey": "spell-1303111",
+      "documentAbilityId": "kr-ability-1303111"
+    },
+    {
+      "sourceKey": "spell-1303115",
+      "documentAbilityId": "kr-ability-1303115"
+    },
+    {
+      "sourceKey": "spell-1303267",
+      "documentAbilityId": "kr-ability-1303267"
+    },
+    {
+      "sourceKey": "spell-1303324",
+      "documentAbilityId": "kr-ability-1303324"
+    },
+    {
+      "sourceKey": "spell-1303326",
+      "documentAbilityId": "kr-ability-1303326"
+    },
+    {
+      "sourceKey": "spell-1303327",
+      "documentAbilityId": "kr-ability-1303327"
+    },
+    {
+      "sourceKey": "spell-1303372",
+      "documentAbilityId": "kr-ability-1303372"
+    },
+    {
+      "sourceKey": "spell-1303374",
+      "documentAbilityId": "kr-ability-1303374"
+    },
+    {
+      "sourceKey": "spell-1303396",
+      "documentAbilityId": "kr-ability-1303396"
+    },
+    {
+      "sourceKey": "spell-1303399",
+      "documentAbilityId": "kr-ability-1303399"
+    },
+    {
+      "sourceKey": "spell-1303488",
+      "documentAbilityId": "kr-ability-1303488"
+    },
+    {
+      "sourceKey": "spell-1303490",
+      "documentAbilityId": "kr-ability-1303490"
+    },
+    {
+      "sourceKey": "spell-1305810",
+      "documentAbilityId": "kr-ability-1305810"
+    },
+    {
+      "sourceKey": "spell-1305945",
+      "documentAbilityId": "kr-ability-1305945"
+    },
+    {
+      "sourceKey": "spell-1305982",
+      "documentAbilityId": "kr-ability-1305982"
+    },
+    {
+      "sourceKey": "spell-1306049",
+      "documentAbilityId": "kr-ability-1306049"
+    },
+    {
+      "sourceKey": "spell-1306056",
+      "documentAbilityId": "kr-ability-1306056"
+    },
+    {
+      "sourceKey": "spell-1306736",
+      "documentAbilityId": "kr-ability-1306736"
+    },
+    {
+      "sourceKey": "spell-1306761",
+      "documentAbilityId": "kr-ability-1306761"
+    },
+    {
+      "sourceKey": "spell-1306763",
+      "documentAbilityId": "kr-ability-1306763"
+    },
+    {
+      "sourceKey": "spell-1309499",
+      "documentAbilityId": "kr-ability-1309499"
+    },
+    {
+      "sourceKey": "spell-1310755",
+      "documentAbilityId": "kr-ability-1310755"
+    },
+    {
+      "sourceKey": "spell-1310758",
+      "documentAbilityId": "kr-ability-1310758"
+    },
+    {
+      "sourceKey": "spell-1310761",
+      "documentAbilityId": "kr-ability-1310761"
+    },
+    {
+      "sourceKey": "spell-1311942",
+      "documentAbilityId": "kr-ability-1311942"
+    },
+    {
+      "sourceKey": "spell-1311987",
+      "documentAbilityId": "kr-ability-1311987"
+    },
+    {
+      "sourceKey": "spell-1311988",
+      "documentAbilityId": "kr-ability-1311988"
+    },
+    {
+      "sourceKey": "spell-1312104",
+      "documentAbilityId": "kr-ability-1312104"
+    },
+    {
+      "sourceKey": "spell-1312146",
+      "documentAbilityId": "kr-ability-1312146"
+    },
+    {
+      "sourceKey": "spell-1312569",
+      "documentAbilityId": "kr-ability-1312569"
+    },
+    {
+      "sourceKey": "spell-1312848",
+      "documentAbilityId": "kr-ability-1312848"
+    }
+  ]
+}

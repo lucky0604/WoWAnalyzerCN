@@ -1,0 +1,2493 @@
+{
+  "version": 1,
+  "snapshot": {
+    "snapshotId": "mdt-facts-s2-kings-rest-2026-08-26",
+    "digest": "sha256:13e7f1f0a9fd1de124b5a24b3071a6cf6b02eed052054631ab11ca3ff4b78367",
+    "dungeonId": "kings-rest",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0"
+  },
+  "document": {
+    "id": "kings-rest",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "revision": 1
+  },
+  "manifestTemplate": {
+    "version": 1,
+    "snapshotId": "mdt-facts-s2-kings-rest-2026-08-26",
+    "snapshotDigest": "sha256:13e7f1f0a9fd1de124b5a24b3071a6cf6b02eed052054631ab11ca3ff4b78367",
+    "dungeonId": "kings-rest",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "enemies": [],
+    "abilities": []
+  },
+  "enemies": [
+    {
+      "sourceKey": "Animated Guardian",
+      "npcId": 133935,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-133935",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Minion of Zul [133943]",
+      "npcId": 133943,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-133943",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Risen Hexer",
+      "npcId": 134174,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-134174",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Shadow-Borne Champion",
+      "npcId": 134158,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-134158",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Umbral Warrior",
+      "npcId": 134157,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-134157",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "The Golden Serpent",
+      "npcId": 135322,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135322",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Skeletal Hunting Raptor",
+      "npcId": 137487,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137487",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Queen Patlaa",
+      "npcId": 137486,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137486",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "King A'akul",
+      "npcId": 137484,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137484",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Bloodsworn Assassin",
+      "npcId": 137485,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137485",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Seneschal M'bara",
+      "npcId": 134251,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-134251",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Guard Captain Atu",
+      "npcId": 137473,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137473",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "King Rahu'ai",
+      "npcId": 134331,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-134331",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "King Timalji",
+      "npcId": 137474,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137474",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Queen Wasi",
+      "npcId": 137478,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137478",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Purification Construct",
+      "npcId": 134739,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-134739",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Interment Construct",
+      "npcId": 137969,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137969",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Mchimba the Embalmer",
+      "npcId": 134993,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-134993",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Phantom Hex Priest",
+      "npcId": 135204,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135204",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Royal Berserker",
+      "npcId": 135167,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135167",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Spectral Shaman",
+      "npcId": 135239,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135239",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ghostly Brute",
+      "npcId": 135231,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135231",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Honored Raptor",
+      "npcId": 135192,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135192",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Shadow of Zul",
+      "npcId": 138489,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-138489",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "King Dazar",
+      "npcId": 136160,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-136160",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Embalming Fluid",
+      "npcId": 137989,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137989",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Disruption Totem",
+      "npcId": 135761,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135761",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Explosive Totem",
+      "npcId": 135764,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135764",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Torrent Totem",
+      "npcId": 135765,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135765",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Coffin",
+      "npcId": 136256,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-136256",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "T'zala",
+      "npcId": 136976,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-136976",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Reban",
+      "npcId": 136984,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-136984",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Minion of Zul [138493]",
+      "npcId": 138493,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-138493",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Aka'ali the Conqueror",
+      "npcId": 269808,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-269808",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Zanazal the Wise",
+      "npcId": 269810,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-269810",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Kula the Butcher",
+      "npcId": 269811,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-269811",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Half-Finished Mummy",
+      "npcId": 270502,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-270502",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Animated Gold",
+      "npcId": 135406,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-135406",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Healing Tide Totem",
+      "npcId": 137591,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "kr-enemy-137591",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-265773",
+      "spellId": 265773,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-265773",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-265781",
+      "spellId": 265781,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-265781",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-265910",
+      "spellId": 265910,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-265910",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-265923",
+      "spellId": 265923,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-265923",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-265991",
+      "spellId": 265991,
+      "casterEnemyKeys": [
+        "The Golden Serpent",
+        "Animated Gold"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-265991",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-266191",
+      "spellId": 266191,
+      "casterEnemyKeys": [
+        "Kula the Butcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-266191",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-266206",
+      "spellId": 266206,
+      "casterEnemyKeys": [
+        "Kula the Butcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-266206",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-266231",
+      "spellId": 266231,
+      "casterEnemyKeys": [
+        "Kula the Butcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-266231",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-266237",
+      "spellId": 266237,
+      "casterEnemyKeys": [
+        "Aka'ali the Conqueror"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-266237",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-266951",
+      "spellId": 266951,
+      "casterEnemyKeys": [
+        "Aka'ali the Conqueror"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-266951",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267060",
+      "spellId": 267060,
+      "casterEnemyKeys": [
+        "Zanazal the Wise"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267060",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267077",
+      "spellId": 267077,
+      "casterEnemyKeys": [
+        "Explosive Totem"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267077",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267105",
+      "spellId": 267105,
+      "casterEnemyKeys": [
+        "Torrent Totem"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267105",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267257",
+      "spellId": 267257,
+      "casterEnemyKeys": [
+        "Disruption Totem"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267257",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267273",
+      "spellId": 267273,
+      "casterEnemyKeys": [
+        "Zanazal the Wise"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267273",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267494",
+      "spellId": 267494,
+      "casterEnemyKeys": [
+        "Aka'ali the Conqueror"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267494",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267618",
+      "spellId": 267618,
+      "casterEnemyKeys": [
+        "Mchimba the Embalmer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267618",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267639",
+      "spellId": 267639,
+      "casterEnemyKeys": [
+        "Mchimba the Embalmer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267639",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267702",
+      "spellId": 267702,
+      "casterEnemyKeys": [
+        "Mchimba the Embalmer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267702",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267763",
+      "spellId": 267763,
+      "casterEnemyKeys": [
+        "Half-Finished Mummy"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267763",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-267874",
+      "spellId": 267874,
+      "casterEnemyKeys": [
+        "Mchimba the Embalmer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-267874",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-268586",
+      "spellId": 268586,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-268586",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-268587",
+      "spellId": 268587,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-268587",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-268589",
+      "spellId": 268589,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-268589",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-268590",
+      "spellId": 268590,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-268590",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-268591",
+      "spellId": 268591,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-268591",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269230",
+      "spellId": 269230,
+      "casterEnemyKeys": [
+        "Reban"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269230",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269231",
+      "spellId": 269231,
+      "casterEnemyKeys": [
+        "Reban"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269231",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269232",
+      "spellId": 269232,
+      "casterEnemyKeys": [
+        "Reban"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269232",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269369",
+      "spellId": 269369,
+      "casterEnemyKeys": [
+        "Reban"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269369",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269503",
+      "spellId": 269503,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269503",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269928",
+      "spellId": 269928,
+      "casterEnemyKeys": [
+        "Shadow-Borne Champion"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269928",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269935",
+      "spellId": 269935,
+      "casterEnemyKeys": [
+        "Minion of Zul [133943]",
+        "Minion of Zul [138493]"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269935",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269972",
+      "spellId": 269972,
+      "casterEnemyKeys": [
+        "Risen Hexer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269972",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269976",
+      "spellId": 269976,
+      "casterEnemyKeys": [
+        "Shadow-Borne Champion"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-269976",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270003",
+      "spellId": 270003,
+      "casterEnemyKeys": [
+        "Animated Guardian"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270003",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270016",
+      "spellId": 270016,
+      "casterEnemyKeys": [
+        "Animated Guardian"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270016",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270292",
+      "spellId": 270292,
+      "casterEnemyKeys": [
+        "Purification Construct"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270292",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270293",
+      "spellId": 270293,
+      "casterEnemyKeys": [
+        "Purification Construct"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270293",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270482",
+      "spellId": 270482,
+      "casterEnemyKeys": [
+        "Royal Berserker"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270482",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270485",
+      "spellId": 270485,
+      "casterEnemyKeys": [
+        "Royal Berserker"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270485",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270492",
+      "spellId": 270492,
+      "casterEnemyKeys": [
+        "Phantom Hex Priest"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270492",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270497",
+      "spellId": 270497,
+      "casterEnemyKeys": [
+        "Spectral Shaman"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270497",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270499",
+      "spellId": 270499,
+      "casterEnemyKeys": [
+        "Spectral Shaman"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270499",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270500",
+      "spellId": 270500,
+      "casterEnemyKeys": [
+        "Skeletal Hunting Raptor",
+        "Honored Raptor"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270500",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270502",
+      "spellId": 270502,
+      "casterEnemyKeys": [
+        "Skeletal Hunting Raptor",
+        "Honored Raptor"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270502",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270503",
+      "spellId": 270503,
+      "casterEnemyKeys": [
+        "Skeletal Hunting Raptor",
+        "Honored Raptor"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270503",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270514",
+      "spellId": 270514,
+      "casterEnemyKeys": [
+        "Ghostly Brute"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270514",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270889",
+      "spellId": 270889,
+      "casterEnemyKeys": [
+        "King Rahu'ai"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270889",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270891",
+      "spellId": 270891,
+      "casterEnemyKeys": [
+        "King Rahu'ai"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270891",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270901",
+      "spellId": 270901,
+      "casterEnemyKeys": [
+        "Seneschal M'bara"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270901",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270920",
+      "spellId": 270920,
+      "casterEnemyKeys": [
+        "Queen Wasi"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270920",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270927",
+      "spellId": 270927,
+      "casterEnemyKeys": [
+        "King Timalji"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270927",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270928",
+      "spellId": 270928,
+      "casterEnemyKeys": [
+        "King Timalji"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270928",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-270931",
+      "spellId": 270931,
+      "casterEnemyKeys": [
+        "Queen Patlaa"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-270931",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-271290",
+      "spellId": 271290,
+      "casterEnemyKeys": [
+        "Mchimba the Embalmer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-271290",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-271555",
+      "spellId": 271555,
+      "casterEnemyKeys": [
+        "Interment Construct"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-271555",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-271561",
+      "spellId": 271561,
+      "casterEnemyKeys": [
+        "Interment Construct"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-271561",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-271562",
+      "spellId": 271562,
+      "casterEnemyKeys": [
+        "Interment Construct"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-271562",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-271563",
+      "spellId": 271563,
+      "casterEnemyKeys": [
+        "Embalming Fluid"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-271563",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1289063",
+      "spellId": 1289063,
+      "casterEnemyKeys": [
+        "Animated Gold"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1289063",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294815",
+      "spellId": 1294815,
+      "casterEnemyKeys": [
+        "Risen Hexer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1294815",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294883",
+      "spellId": 1294883,
+      "casterEnemyKeys": [
+        "Queen Patlaa"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1294883",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1294972",
+      "spellId": 1294972,
+      "casterEnemyKeys": [
+        "Queen Wasi"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1294972",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1295125",
+      "spellId": 1295125,
+      "casterEnemyKeys": [
+        "Phantom Hex Priest"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1295125",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296671",
+      "spellId": 1296671,
+      "casterEnemyKeys": [
+        "Seneschal M'bara",
+        "Guard Captain Atu",
+        "King Rahu'ai"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1296671",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296719",
+      "spellId": 1296719,
+      "casterEnemyKeys": [
+        "King Rahu'ai"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1296719",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297326",
+      "spellId": 1297326,
+      "casterEnemyKeys": [
+        "King Timalji",
+        "Queen Wasi"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1297326",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297763",
+      "spellId": 1297763,
+      "casterEnemyKeys": [
+        "Skeletal Hunting Raptor",
+        "Queen Patlaa"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1297763",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297781",
+      "spellId": 1297781,
+      "casterEnemyKeys": [
+        "Bloodsworn Assassin"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1297781",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297918",
+      "spellId": 1297918,
+      "casterEnemyKeys": [
+        "King A'akul"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1297918",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297970",
+      "spellId": 1297970,
+      "casterEnemyKeys": [
+        "King A'akul"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1297970",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1298104",
+      "spellId": 1298104,
+      "casterEnemyKeys": [
+        "Embalming Fluid"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1298104",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301851",
+      "spellId": 1301851,
+      "casterEnemyKeys": [
+        "Royal Berserker"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1301851",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302028",
+      "spellId": 1302028,
+      "casterEnemyKeys": [
+        "Ghostly Brute"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1302028",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1302945",
+      "spellId": 1302945,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1302945",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303039",
+      "spellId": 1303039,
+      "casterEnemyKeys": [
+        "Reban"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303039",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303105",
+      "spellId": 1303105,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303105",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303111",
+      "spellId": 1303111,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303111",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303115",
+      "spellId": 1303115,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303115",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303267",
+      "spellId": 1303267,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303267",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303324",
+      "spellId": 1303324,
+      "casterEnemyKeys": [
+        "T'zala"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303324",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303326",
+      "spellId": 1303326,
+      "casterEnemyKeys": [
+        "T'zala"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303326",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303327",
+      "spellId": 1303327,
+      "casterEnemyKeys": [
+        "T'zala"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303327",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303372",
+      "spellId": 1303372,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303372",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303374",
+      "spellId": 1303374,
+      "casterEnemyKeys": [
+        "King Dazar"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303374",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303396",
+      "spellId": 1303396,
+      "casterEnemyKeys": [
+        "King Dazar",
+        "T'zala"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303396",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303399",
+      "spellId": 1303399,
+      "casterEnemyKeys": [
+        "King Dazar",
+        "T'zala"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303399",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303488",
+      "spellId": 1303488,
+      "casterEnemyKeys": [
+        "T'zala"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303488",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303490",
+      "spellId": 1303490,
+      "casterEnemyKeys": [
+        "T'zala"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1303490",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1305810",
+      "spellId": 1305810,
+      "casterEnemyKeys": [
+        "Zanazal the Wise"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1305810",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1305945",
+      "spellId": 1305945,
+      "casterEnemyKeys": [
+        "Shadow-Borne Champion"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1305945",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1305982",
+      "spellId": 1305982,
+      "casterEnemyKeys": [
+        "Queen Patlaa"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1305982",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306049",
+      "spellId": 1306049,
+      "casterEnemyKeys": [
+        "King Timalji"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1306049",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306056",
+      "spellId": 1306056,
+      "casterEnemyKeys": [
+        "King Timalji"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1306056",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306736",
+      "spellId": 1306736,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1306736",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306761",
+      "spellId": 1306761,
+      "casterEnemyKeys": [
+        "Queen Patlaa"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1306761",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1306763",
+      "spellId": 1306763,
+      "casterEnemyKeys": [
+        "Queen Patlaa"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1306763",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309499",
+      "spellId": 1309499,
+      "casterEnemyKeys": [
+        "Disruption Totem",
+        "Explosive Totem",
+        "Torrent Totem"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1309499",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310755",
+      "spellId": 1310755,
+      "casterEnemyKeys": [
+        "Animated Guardian",
+        "Purification Construct",
+        "Interment Construct"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1310755",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310758",
+      "spellId": 1310758,
+      "casterEnemyKeys": [
+        "Shadow-Borne Champion"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1310758",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1310761",
+      "spellId": 1310761,
+      "casterEnemyKeys": [
+        "Aka'ali the Conqueror"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1310761",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311942",
+      "spellId": 1311942,
+      "casterEnemyKeys": [
+        "Umbral Warrior"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1311942",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311987",
+      "spellId": 1311987,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1311987",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311988",
+      "spellId": 1311988,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1311988",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1312104",
+      "spellId": 1312104,
+      "casterEnemyKeys": [
+        "The Golden Serpent"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1312104",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1312146",
+      "spellId": 1312146,
+      "casterEnemyKeys": [
+        "Mchimba the Embalmer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1312146",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1312569",
+      "spellId": 1312569,
+      "casterEnemyKeys": [
+        "Interment Construct"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1312569",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1312848",
+      "spellId": 1312848,
+      "casterEnemyKeys": [
+        "Mchimba the Embalmer"
+      ],
+      "candidates": [
+        {
+          "documentId": "kr-ability-1312848",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "coverage": {
+    "snapshotEnemies": 39,
+    "snapshotAbilities": 109,
+    "documentEnemies": 39,
+    "documentAbilities": 109,
+    "unambiguousEnemyCandidates": 39,
+    "unambiguousAbilityCandidates": 109
+  },
+  "status": "ready-for-review",
+  "planDigest": "sha256:a7232aa7f689b6e8fe2fd62d168ad57364c65b7070e1f9482f35ea57c597b4e1"
+}

@@ -1,0 +1,909 @@
+{
+  "version": 1,
+  "plan": {
+    "planDigest": "sha256:a7232aa7f689b6e8fe2fd62d168ad57364c65b7070e1f9482f35ea57c597b4e1",
+    "snapshotId": "mdt-facts-s2-kings-rest-2026-08-26",
+    "snapshotDigest": "sha256:13e7f1f0a9fd1de124b5a24b3071a6cf6b02eed052054631ab11ca3ff4b78367",
+    "dungeonId": "kings-rest",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "documentId": "kings-rest",
+    "documentSeason": "midnight-s2",
+    "documentGameBuild": "12.1.0",
+    "documentRevision": 1
+  },
+  "reviewer": "project-owner",
+  "reviewedAt": "2026-08-28T00:00:00.000Z",
+  "enemies": [
+    {
+      "sourceKey": "Animated Guardian",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-133935"
+    },
+    {
+      "sourceKey": "Minion of Zul [133943]",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-133943"
+    },
+    {
+      "sourceKey": "Risen Hexer",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-134174"
+    },
+    {
+      "sourceKey": "Shadow-Borne Champion",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-134158"
+    },
+    {
+      "sourceKey": "Umbral Warrior",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-134157"
+    },
+    {
+      "sourceKey": "The Golden Serpent",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135322"
+    },
+    {
+      "sourceKey": "Skeletal Hunting Raptor",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137487"
+    },
+    {
+      "sourceKey": "Queen Patlaa",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137486"
+    },
+    {
+      "sourceKey": "King A'akul",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137484"
+    },
+    {
+      "sourceKey": "Bloodsworn Assassin",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137485"
+    },
+    {
+      "sourceKey": "Seneschal M'bara",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-134251"
+    },
+    {
+      "sourceKey": "Guard Captain Atu",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137473"
+    },
+    {
+      "sourceKey": "King Rahu'ai",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-134331"
+    },
+    {
+      "sourceKey": "King Timalji",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137474"
+    },
+    {
+      "sourceKey": "Queen Wasi",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137478"
+    },
+    {
+      "sourceKey": "Purification Construct",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-134739"
+    },
+    {
+      "sourceKey": "Interment Construct",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137969"
+    },
+    {
+      "sourceKey": "Mchimba the Embalmer",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-134993"
+    },
+    {
+      "sourceKey": "Phantom Hex Priest",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135204"
+    },
+    {
+      "sourceKey": "Royal Berserker",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135167"
+    },
+    {
+      "sourceKey": "Spectral Shaman",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135239"
+    },
+    {
+      "sourceKey": "Ghostly Brute",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135231"
+    },
+    {
+      "sourceKey": "Honored Raptor",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135192"
+    },
+    {
+      "sourceKey": "Shadow of Zul",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-138489"
+    },
+    {
+      "sourceKey": "King Dazar",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-136160"
+    },
+    {
+      "sourceKey": "Embalming Fluid",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137989"
+    },
+    {
+      "sourceKey": "Disruption Totem",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135761"
+    },
+    {
+      "sourceKey": "Explosive Totem",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135764"
+    },
+    {
+      "sourceKey": "Torrent Totem",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135765"
+    },
+    {
+      "sourceKey": "Coffin",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-136256"
+    },
+    {
+      "sourceKey": "T'zala",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-136976"
+    },
+    {
+      "sourceKey": "Reban",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-136984"
+    },
+    {
+      "sourceKey": "Minion of Zul [138493]",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-138493"
+    },
+    {
+      "sourceKey": "Aka'ali the Conqueror",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-269808"
+    },
+    {
+      "sourceKey": "Zanazal the Wise",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-269810"
+    },
+    {
+      "sourceKey": "Kula the Butcher",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-269811"
+    },
+    {
+      "sourceKey": "Half-Finished Mummy",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-270502"
+    },
+    {
+      "sourceKey": "Animated Gold",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-135406"
+    },
+    {
+      "sourceKey": "Healing Tide Totem",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-enemy-137591"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-265773",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-265773"
+    },
+    {
+      "sourceKey": "spell-265781",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-265781"
+    },
+    {
+      "sourceKey": "spell-265910",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-265910"
+    },
+    {
+      "sourceKey": "spell-265923",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-265923"
+    },
+    {
+      "sourceKey": "spell-265991",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-265991"
+    },
+    {
+      "sourceKey": "spell-266191",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-266191"
+    },
+    {
+      "sourceKey": "spell-266206",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-266206"
+    },
+    {
+      "sourceKey": "spell-266231",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-266231"
+    },
+    {
+      "sourceKey": "spell-266237",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-266237"
+    },
+    {
+      "sourceKey": "spell-266951",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-266951"
+    },
+    {
+      "sourceKey": "spell-267060",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267060"
+    },
+    {
+      "sourceKey": "spell-267077",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267077"
+    },
+    {
+      "sourceKey": "spell-267105",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267105"
+    },
+    {
+      "sourceKey": "spell-267257",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267257"
+    },
+    {
+      "sourceKey": "spell-267273",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267273"
+    },
+    {
+      "sourceKey": "spell-267494",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267494"
+    },
+    {
+      "sourceKey": "spell-267618",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267618"
+    },
+    {
+      "sourceKey": "spell-267639",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267639"
+    },
+    {
+      "sourceKey": "spell-267702",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267702"
+    },
+    {
+      "sourceKey": "spell-267763",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267763"
+    },
+    {
+      "sourceKey": "spell-267874",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-267874"
+    },
+    {
+      "sourceKey": "spell-268586",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-268586"
+    },
+    {
+      "sourceKey": "spell-268587",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-268587"
+    },
+    {
+      "sourceKey": "spell-268589",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-268589"
+    },
+    {
+      "sourceKey": "spell-268590",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-268590"
+    },
+    {
+      "sourceKey": "spell-268591",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-268591"
+    },
+    {
+      "sourceKey": "spell-269230",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269230"
+    },
+    {
+      "sourceKey": "spell-269231",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269231"
+    },
+    {
+      "sourceKey": "spell-269232",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269232"
+    },
+    {
+      "sourceKey": "spell-269369",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269369"
+    },
+    {
+      "sourceKey": "spell-269503",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269503"
+    },
+    {
+      "sourceKey": "spell-269928",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269928"
+    },
+    {
+      "sourceKey": "spell-269935",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269935"
+    },
+    {
+      "sourceKey": "spell-269972",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269972"
+    },
+    {
+      "sourceKey": "spell-269976",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-269976"
+    },
+    {
+      "sourceKey": "spell-270003",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270003"
+    },
+    {
+      "sourceKey": "spell-270016",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270016"
+    },
+    {
+      "sourceKey": "spell-270292",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270292"
+    },
+    {
+      "sourceKey": "spell-270293",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270293"
+    },
+    {
+      "sourceKey": "spell-270482",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270482"
+    },
+    {
+      "sourceKey": "spell-270485",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270485"
+    },
+    {
+      "sourceKey": "spell-270492",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270492"
+    },
+    {
+      "sourceKey": "spell-270497",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270497"
+    },
+    {
+      "sourceKey": "spell-270499",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270499"
+    },
+    {
+      "sourceKey": "spell-270500",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270500"
+    },
+    {
+      "sourceKey": "spell-270502",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270502"
+    },
+    {
+      "sourceKey": "spell-270503",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270503"
+    },
+    {
+      "sourceKey": "spell-270514",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270514"
+    },
+    {
+      "sourceKey": "spell-270889",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270889"
+    },
+    {
+      "sourceKey": "spell-270891",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270891"
+    },
+    {
+      "sourceKey": "spell-270901",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270901"
+    },
+    {
+      "sourceKey": "spell-270920",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270920"
+    },
+    {
+      "sourceKey": "spell-270927",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270927"
+    },
+    {
+      "sourceKey": "spell-270928",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270928"
+    },
+    {
+      "sourceKey": "spell-270931",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-270931"
+    },
+    {
+      "sourceKey": "spell-271290",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-271290"
+    },
+    {
+      "sourceKey": "spell-271555",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-271555"
+    },
+    {
+      "sourceKey": "spell-271561",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-271561"
+    },
+    {
+      "sourceKey": "spell-271562",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-271562"
+    },
+    {
+      "sourceKey": "spell-271563",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-271563"
+    },
+    {
+      "sourceKey": "spell-1289063",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1289063"
+    },
+    {
+      "sourceKey": "spell-1294815",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1294815"
+    },
+    {
+      "sourceKey": "spell-1294883",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1294883"
+    },
+    {
+      "sourceKey": "spell-1294972",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1294972"
+    },
+    {
+      "sourceKey": "spell-1295125",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1295125"
+    },
+    {
+      "sourceKey": "spell-1296671",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1296671"
+    },
+    {
+      "sourceKey": "spell-1296719",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1296719"
+    },
+    {
+      "sourceKey": "spell-1297326",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1297326"
+    },
+    {
+      "sourceKey": "spell-1297763",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1297763"
+    },
+    {
+      "sourceKey": "spell-1297781",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1297781"
+    },
+    {
+      "sourceKey": "spell-1297918",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1297918"
+    },
+    {
+      "sourceKey": "spell-1297970",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1297970"
+    },
+    {
+      "sourceKey": "spell-1298104",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1298104"
+    },
+    {
+      "sourceKey": "spell-1301851",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1301851"
+    },
+    {
+      "sourceKey": "spell-1302028",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1302028"
+    },
+    {
+      "sourceKey": "spell-1302945",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1302945"
+    },
+    {
+      "sourceKey": "spell-1303039",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303039"
+    },
+    {
+      "sourceKey": "spell-1303105",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303105"
+    },
+    {
+      "sourceKey": "spell-1303111",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303111"
+    },
+    {
+      "sourceKey": "spell-1303115",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303115"
+    },
+    {
+      "sourceKey": "spell-1303267",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303267"
+    },
+    {
+      "sourceKey": "spell-1303324",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303324"
+    },
+    {
+      "sourceKey": "spell-1303326",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303326"
+    },
+    {
+      "sourceKey": "spell-1303327",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303327"
+    },
+    {
+      "sourceKey": "spell-1303372",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303372"
+    },
+    {
+      "sourceKey": "spell-1303374",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303374"
+    },
+    {
+      "sourceKey": "spell-1303396",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303396"
+    },
+    {
+      "sourceKey": "spell-1303399",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303399"
+    },
+    {
+      "sourceKey": "spell-1303488",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303488"
+    },
+    {
+      "sourceKey": "spell-1303490",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1303490"
+    },
+    {
+      "sourceKey": "spell-1305810",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1305810"
+    },
+    {
+      "sourceKey": "spell-1305945",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1305945"
+    },
+    {
+      "sourceKey": "spell-1305982",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1305982"
+    },
+    {
+      "sourceKey": "spell-1306049",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1306049"
+    },
+    {
+      "sourceKey": "spell-1306056",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1306056"
+    },
+    {
+      "sourceKey": "spell-1306736",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1306736"
+    },
+    {
+      "sourceKey": "spell-1306761",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1306761"
+    },
+    {
+      "sourceKey": "spell-1306763",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1306763"
+    },
+    {
+      "sourceKey": "spell-1309499",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1309499"
+    },
+    {
+      "sourceKey": "spell-1310755",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1310755"
+    },
+    {
+      "sourceKey": "spell-1310758",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1310758"
+    },
+    {
+      "sourceKey": "spell-1310761",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1310761"
+    },
+    {
+      "sourceKey": "spell-1311942",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1311942"
+    },
+    {
+      "sourceKey": "spell-1311987",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1311987"
+    },
+    {
+      "sourceKey": "spell-1311988",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1311988"
+    },
+    {
+      "sourceKey": "spell-1312104",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1312104"
+    },
+    {
+      "sourceKey": "spell-1312146",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1312146"
+    },
+    {
+      "sourceKey": "spell-1312569",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1312569"
+    },
+    {
+      "sourceKey": "spell-1312848",
+      "decision": "accept",
+      "reason": "MDT 快照 1:1 精确匹配（npc-id/spell-id exact），批量流水线审校。",
+      "documentId": "kr-ability-1312848"
+    }
+  ]
+}

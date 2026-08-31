@@ -68,12 +68,12 @@ describe('season 2 dungeon catalog', () => {
   });
 
   it('reports duplicate and premature published entries', () => {
-    // Index 6 (kings-rest) still has no registered document, so a published
-    // duplicate of it must keep raising CATALOG_PUBLISHED_WITHOUT_DOCUMENT.
-    // Registered entries would legitimately pass that check.  The full
-    // catalog is seeded so the duplicate collides with the real entry.
+    // Index 7 (temple-of-sethraliss) still has no registered document, so a
+    // published duplicate of it must keep raising
+    // CATALOG_PUBLISHED_WITHOUT_DOCUMENT.  Registered entries would
+    // legitimately pass that check.
     const diagnostics = validateSeason2DungeonCatalog(
-      [...season2DungeonCatalog, { ...season2DungeonCatalog[6]!, status: 'published' }],
+      [...season2DungeonCatalog, { ...season2DungeonCatalog[7]!, status: 'published' }],
       new Set(dungeonDocuments.map((document) => document.id)),
     );
     expect(diagnostics.map((diagnostic) => diagnostic.code)).toEqual([
