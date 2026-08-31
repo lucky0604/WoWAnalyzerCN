@@ -1,0 +1,4537 @@
+{
+  "id": "the-blinding-vale",
+  "slug": "the-blinding-vale",
+  "name": {
+    "zhCN": "盲谷",
+    "enUS": "The Blinding Vale"
+  },
+  "season": "midnight-s2",
+  "dataStatus": "draft",
+  "spatialStatus": "pending",
+  "version": {
+    "season": "midnight-s2",
+    "build": "12.1.0",
+    "revision": 1,
+    "status": "draft"
+  },
+  "totalEnemyForcesPoints": 0,
+  "floors": [
+    {
+      "id": "the-blinding-vale-floor-1",
+      "name": {
+        "zhCN": "盲谷",
+        "enUS": "The Blinding Vale"
+      },
+      "coordinateSpace": "normalized-v1",
+      "bounds": {
+        "xMin": 0,
+        "xMax": 100,
+        "yMin": -100,
+        "yMax": 0
+      }
+    }
+  ],
+  "spawns": [],
+  "enemies": [
+    {
+      "id": "bvl-enemy-245345",
+      "npcId": 245345,
+      "name": {
+        "zhCN": "Lightgorged Lasher",
+        "enUS": "Lightgorged Lasher"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245410",
+      "npcId": 245410,
+      "name": {
+        "zhCN": "Lasher",
+        "enUS": "Lasher"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245339",
+      "npcId": 245339,
+      "name": {
+        "zhCN": "Underbrush Stalker",
+        "enUS": "Underbrush Stalker"
+      },
+      "forcesPoints": 6,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245346",
+      "npcId": 245346,
+      "name": {
+        "zhCN": "Virid Grovekeeper",
+        "enUS": "Virid Grovekeeper"
+      },
+      "forcesPoints": 20,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-254850",
+      "npcId": 254850,
+      "name": {
+        "zhCN": "Sporeblight Belcher",
+        "enUS": "Sporeblight Belcher"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245336",
+      "npcId": 245336,
+      "name": {
+        "zhCN": "Radiant Spellsower",
+        "enUS": "Radiant Spellsower"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245484",
+      "npcId": 245484,
+      "name": {
+        "zhCN": "Lightfeather Petalwing",
+        "enUS": "Lightfeather Petalwing"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245473",
+      "npcId": 245473,
+      "name": {
+        "zhCN": "Thorny Saptor",
+        "enUS": "Thorny Saptor"
+      },
+      "forcesPoints": 5,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245527",
+      "npcId": 245527,
+      "name": {
+        "zhCN": "Spineshield Beetle",
+        "enUS": "Spineshield Beetle"
+      },
+      "forcesPoints": 1,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245460",
+      "npcId": 245460,
+      "name": {
+        "zhCN": "Leafy Grovecrawler",
+        "enUS": "Leafy Grovecrawler"
+      },
+      "forcesPoints": 7,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245513",
+      "npcId": 245513,
+      "name": {
+        "zhCN": "Overgrown Hydra",
+        "enUS": "Overgrown Hydra"
+      },
+      "forcesPoints": 25,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-246871",
+      "npcId": 246871,
+      "name": {
+        "zhCN": "Luminous Thornmaw",
+        "enUS": "Luminous Thornmaw"
+      },
+      "forcesPoints": 22,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-243028",
+      "npcId": 243028,
+      "name": {
+        "zhCN": "Meittik",
+        "enUS": "Meittik"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-243029",
+      "npcId": 243029,
+      "name": {
+        "zhCN": "Kezkitt",
+        "enUS": "Kezkitt"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-243030",
+      "npcId": 243030,
+      "name": {
+        "zhCN": "Lekshi",
+        "enUS": "Lekshi"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-245912",
+      "npcId": 245912,
+      "name": {
+        "zhCN": "Lightwarden Ruia",
+        "enUS": "Lightwarden Ruia"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-247676",
+      "npcId": 247676,
+      "name": {
+        "zhCN": "Ziekket",
+        "enUS": "Ziekket"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-244887",
+      "npcId": 244887,
+      "name": {
+        "zhCN": "Ikuzz the Light Hunter",
+        "enUS": "Ikuzz the Light Hunter"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": true,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-244528",
+      "npcId": 244528,
+      "name": {
+        "zhCN": "Lightblossom",
+        "enUS": "Lightblossom"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-246367",
+      "npcId": 246367,
+      "name": {
+        "zhCN": "Spirit Bear",
+        "enUS": "Spirit Bear"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-246371",
+      "npcId": 246371,
+      "name": {
+        "zhCN": "Spirit Moonkin",
+        "enUS": "Spirit Moonkin"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-247755",
+      "npcId": 247755,
+      "name": {
+        "zhCN": "Lightspawn Lasher",
+        "enUS": "Lightspawn Lasher"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-249756",
+      "npcId": 249756,
+      "name": {
+        "zhCN": "Potatoad Matriarch",
+        "enUS": "Potatoad Matriarch"
+      },
+      "forcesPoints": 30,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-249783",
+      "npcId": 249783,
+      "name": {
+        "zhCN": "Potadpole Egg",
+        "enUS": "Potadpole Egg"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-250202",
+      "npcId": 250202,
+      "name": {
+        "zhCN": "Newborn Potadpole",
+        "enUS": "Newborn Potadpole"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-enemy-253571",
+      "npcId": 253571,
+      "name": {
+        "zhCN": "Bloodthorn Roots",
+        "enUS": "Bloodthorn Roots"
+      },
+      "forcesPoints": 0,
+      "forcesStatus": "pending",
+      "isBoss": false,
+      "spawnIds": [],
+      "abilityIds": [],
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "id": "bvl-ability-269230",
+      "spellId": 269230,
+      "name": {
+        "zhCN": "狩猎跃击",
+        "enUS": "Hunting Leap"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245473"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-269231",
+      "spellId": 269231,
+      "name": {
+        "zhCN": "狩猎跃击",
+        "enUS": "Hunting Leap"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245473"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-269232",
+      "spellId": 269232,
+      "name": {
+        "zhCN": "狩猎跃击",
+        "enUS": "Hunting Leap"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245473"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1234753",
+      "spellId": 1234753,
+      "name": {
+        "zhCN": "基岩猛击",
+        "enUS": "Bedrock Slam"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243028"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1234773",
+      "spellId": 1234773,
+      "name": {
+        "zhCN": "基岩猛击",
+        "enUS": "Bedrock Slam"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243028"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1234802",
+      "spellId": 1234802,
+      "name": {
+        "zhCN": "肥沃壤土",
+        "enUS": "Fertile Loam"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243028"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1234850",
+      "spellId": 1234850,
+      "name": {
+        "zhCN": "播光急奔",
+        "enUS": "Lightsower Dash"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235546",
+      "spellId": 1235546,
+      "name": {
+        "zhCN": "播光急奔",
+        "enUS": "Lightsower Dash"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235564",
+      "spellId": 1235564,
+      "name": {
+        "zhCN": "光明之花射线",
+        "enUS": "Lightblossom Beam"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243029"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235574",
+      "spellId": 1235574,
+      "name": {
+        "zhCN": "光明之花射线",
+        "enUS": "Lightblossom Beam"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243029"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235616",
+      "spellId": 1235616,
+      "name": {
+        "zhCN": "光芒箭",
+        "enUS": "Light Bolt"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243029"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235640",
+      "spellId": 1235640,
+      "name": {
+        "zhCN": "荆棘之刃",
+        "enUS": "Thornblade"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235642",
+      "spellId": 1235642,
+      "name": {
+        "zhCN": "荆棘之刃",
+        "enUS": "Thornblade"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235752",
+      "spellId": 1235752,
+      "name": {
+        "zhCN": "光绽疯长",
+        "enUS": "Lightbloom Overgrowth"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244528"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235828",
+      "spellId": 1235828,
+      "name": {
+        "zhCN": "光灼大地",
+        "enUS": "Light-Scorched Earth"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243029"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1235865",
+      "spellId": 1235865,
+      "name": {
+        "zhCN": "荆棘之刃",
+        "enUS": "Thornblade"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1236709",
+      "spellId": 1236709,
+      "name": {
+        "zhCN": "唤棘者咆哮",
+        "enUS": "Thorncaller Roar"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1236731",
+      "spellId": 1236731,
+      "name": {
+        "zhCN": "唤棘者咆哮",
+        "enUS": "Thorncaller Roar"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1236746",
+      "spellId": 1236746,
+      "name": {
+        "zhCN": "青翠践踏",
+        "enUS": "Verdant Stomp"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1236747",
+      "spellId": 1236747,
+      "name": {
+        "zhCN": "青翠践踏",
+        "enUS": "Verdant Stomp"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1237073",
+      "spellId": 1237073,
+      "name": {
+        "zhCN": "光狂疯乱",
+        "enUS": "Lightcrazed Frenzy"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1237093",
+      "spellId": 1237093,
+      "name": {
+        "zhCN": "脚步重碾",
+        "enUS": "Crushing Footfalls"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1237166",
+      "spellId": 1237166,
+      "name": {
+        "zhCN": "切裂",
+        "enUS": "Incise"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1237267",
+      "spellId": 1237267,
+      "name": {
+        "zhCN": "切裂",
+        "enUS": "Incise"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1237330",
+      "spellId": 1237330,
+      "name": {
+        "zhCN": "血棘之根",
+        "enUS": "Bloodthorn Roots"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1237855",
+      "spellId": 1237855,
+      "name": {
+        "zhCN": "地裂打击",
+        "enUS": "Earthrupture Strike"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245346"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1237858",
+      "spellId": 1237858,
+      "name": {
+        "zhCN": "破裂大地",
+        "enUS": "Ruptured Earth"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245346"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238063",
+      "spellId": 1238063,
+      "name": {
+        "zhCN": "光芒箭",
+        "enUS": "Light Bolt"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245336"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238066",
+      "spellId": 1238066,
+      "name": {
+        "zhCN": "荆棘之刃",
+        "enUS": "Thornblade"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245339"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238071",
+      "spellId": 1238071,
+      "name": {
+        "zhCN": "荆棘之刃",
+        "enUS": "Thornblade"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245339"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238076",
+      "spellId": 1238076,
+      "name": {
+        "zhCN": "荆棘之刃",
+        "enUS": "Thornblade"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245339"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238084",
+      "spellId": 1238084,
+      "name": {
+        "zhCN": "孢子棘刺",
+        "enUS": "Spore Spines"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245410"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238158",
+      "spellId": 1238158,
+      "name": {
+        "zhCN": "光绽授粉",
+        "enUS": "Lightbloom Pollination"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245345"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238173",
+      "spellId": 1238173,
+      "name": {
+        "zhCN": "花粉涌动",
+        "enUS": "Pollen Surge"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245345"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238200",
+      "spellId": 1238200,
+      "name": {
+        "zhCN": "狂热盛放",
+        "enUS": "Frantic Blooming"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245336"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238232",
+      "spellId": 1238232,
+      "name": {
+        "zhCN": "种子射击",
+        "enUS": "Seed Shot"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245460"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238294",
+      "spellId": 1238294,
+      "name": {
+        "zhCN": "迷乱尖叫",
+        "enUS": "Disorienting Screech"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245484"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238368",
+      "spellId": 1238368,
+      "name": {
+        "zhCN": "光颚射线",
+        "enUS": "Lightmaw Beams"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245513"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238463",
+      "spellId": 1238463,
+      "name": {
+        "zhCN": "光颚射线",
+        "enUS": "Lightmaw Beams"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245513"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238581",
+      "spellId": 1238581,
+      "name": {
+        "zhCN": "尖刺盾牌",
+        "enUS": "Spiny Shield"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245527"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238588",
+      "spellId": 1238588,
+      "name": {
+        "zhCN": "尖刺盾牌",
+        "enUS": "Spiny Shield"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245527"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238638",
+      "spellId": 1238638,
+      "name": {
+        "zhCN": "子弹种子",
+        "enUS": "Bullet Seeds"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245513"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1238642",
+      "spellId": 1238642,
+      "name": {
+        "zhCN": "子弹种子",
+        "enUS": "Bullet Seeds"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245513"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1239821",
+      "spellId": 1239821,
+      "name": {
+        "zhCN": "守卫之怒",
+        "enUS": "Warden's Wrath"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1239824",
+      "spellId": 1239824,
+      "name": {
+        "zhCN": "光明之火",
+        "enUS": "Lightfire"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246371"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1239825",
+      "spellId": 1239825,
+      "name": {
+        "zhCN": "光明之火",
+        "enUS": "Lightfire"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246371"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1239882",
+      "spellId": 1239882,
+      "name": {
+        "zhCN": "变形：枭兽",
+        "enUS": "Shapeshift: Moonkin"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1239883",
+      "spellId": 1239883,
+      "name": {
+        "zhCN": "变形：哈籁尼尔",
+        "enUS": "Shapeshift: Haranir"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1239885",
+      "spellId": 1239885,
+      "name": {
+        "zhCN": "变形：熊",
+        "enUS": "Shapeshift: Bear"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1239919",
+      "spellId": 1239919,
+      "name": {
+        "zhCN": "光明之火射线",
+        "enUS": "Lightfire Beams"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1240100",
+      "spellId": 1240100,
+      "name": {
+        "zhCN": "光明坠落",
+        "enUS": "Lightfall"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246371"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1240152",
+      "spellId": 1240152,
+      "name": {
+        "zhCN": "光明坠落",
+        "enUS": "Lightfall"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246371"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1240210",
+      "spellId": 1240210,
+      "name": {
+        "zhCN": "粉碎打击",
+        "enUS": "Pulverizing Strikes"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246367"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1240257",
+      "spellId": 1240257,
+      "name": {
+        "zhCN": "粉碎打击",
+        "enUS": "Pulverizing Strikes"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246367"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1241058",
+      "spellId": 1241058,
+      "name": {
+        "zhCN": "凶残痛击",
+        "enUS": "Grievous Thrash"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246367"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1241067",
+      "spellId": 1241067,
+      "name": {
+        "zhCN": "峡谷之灵",
+        "enUS": "Spirits of the Vale"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1242135",
+      "spellId": 1242135,
+      "name": {
+        "zhCN": "凶残创裂",
+        "enUS": "Grievous Gash"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-246871"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1242138",
+      "spellId": 1242138,
+      "name": {
+        "zhCN": "炽阳吐息",
+        "enUS": "Solar Breath"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-246871"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1242180",
+      "spellId": 1242180,
+      "name": {
+        "zhCN": "护光者的荒芜",
+        "enUS": "Lightwarden's Blight"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-254850",
+        "bvl-enemy-245484",
+        "bvl-enemy-245473",
+        "bvl-enemy-245527",
+        "bvl-enemy-245460",
+        "bvl-enemy-246871",
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1242200",
+      "spellId": 1242200,
+      "name": {
+        "zhCN": "护光者的荒芜",
+        "enUS": "Lightwarden's Blight"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-254850",
+        "bvl-enemy-245484",
+        "bvl-enemy-245473",
+        "bvl-enemy-245527",
+        "bvl-enemy-245460",
+        "bvl-enemy-246871"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1242244",
+      "spellId": 1242244,
+      "name": {
+        "zhCN": "荒芜弥漫",
+        "enUS": "Blight Propagation"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1246372",
+      "spellId": 1246372,
+      "name": {
+        "zhCN": "唤醒光绽",
+        "enUS": "Awaken the Lightbloom"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1246527",
+      "spellId": 1246527,
+      "name": {
+        "zhCN": "唤醒光绽",
+        "enUS": "Awaken the Lightbloom"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676",
+        "bvl-enemy-247755"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1246607",
+      "spellId": 1246607,
+      "name": {
+        "zhCN": "凝聚光线",
+        "enUS": "Concentrated Lightbeam"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1246751",
+      "spellId": 1246751,
+      "name": {
+        "zhCN": "凝聚光线",
+        "enUS": "Concentrated Lightbeam"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1246753",
+      "spellId": 1246753,
+      "name": {
+        "zhCN": "光明树脂",
+        "enUS": "Lightsap"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1246858",
+      "spellId": 1246858,
+      "name": {
+        "zhCN": "光绽精华",
+        "enUS": "Lightbloom's Essence"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1247039",
+      "spellId": 1247039,
+      "name": {
+        "zhCN": "荧光迸发",
+        "enUS": "Fluorescent Outburst"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1247050",
+      "spellId": 1247050,
+      "name": {
+        "zhCN": "荧光护盾",
+        "enUS": "Fluorescent Shield"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1247377",
+      "spellId": 1247377,
+      "name": {
+        "zhCN": "渗流木质",
+        "enUS": "Oozing Xylem"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1247644",
+      "spellId": 1247644,
+      "name": {
+        "zhCN": "渗流木质",
+        "enUS": "Oozing Xylem"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1247669",
+      "spellId": 1247669,
+      "name": {
+        "zhCN": "光孢射击",
+        "enUS": "Lightspore Shot"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247755"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1247685",
+      "spellId": 1247685,
+      "name": {
+        "zhCN": "棘刺",
+        "enUS": "Thornspike"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1247746",
+      "spellId": 1247746,
+      "name": {
+        "zhCN": "棘刺",
+        "enUS": "Thornspike"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247676"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250100",
+      "spellId": 1250100,
+      "name": {
+        "zhCN": "吐舌攻击",
+        "enUS": "Tongue Toss"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-249756"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250199",
+      "spellId": 1250199,
+      "name": {
+        "zhCN": "蛤蟆卵",
+        "enUS": "Toadspawn"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-249756"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250200",
+      "spellId": 1250200,
+      "name": {
+        "zhCN": "蛤蟆卵",
+        "enUS": "Toadspawn"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-249756"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250203",
+      "spellId": 1250203,
+      "name": {
+        "zhCN": "孵化",
+        "enUS": "Hatch"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-249783"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250813",
+      "spellId": 1250813,
+      "name": {
+        "zhCN": "孵化",
+        "enUS": "Hatch"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-249756"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250829",
+      "spellId": 1250829,
+      "name": {
+        "zhCN": "薯身蟾抽击",
+        "enUS": "Potad-Toss"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-250202"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250831",
+      "spellId": 1250831,
+      "name": {
+        "zhCN": "薯身蟾抽击",
+        "enUS": "Potad-Toss"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-250202"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1250937",
+      "spellId": 1250937,
+      "name": {
+        "zhCN": "喷毒",
+        "enUS": "Toxic Spew"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-249756"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1253028",
+      "spellId": 1253028,
+      "name": {
+        "zhCN": "密林三杰",
+        "enUS": "Thicket's Trinity"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243028",
+        "bvl-enemy-243029",
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1253320",
+      "spellId": 1253320,
+      "name": {
+        "zhCN": "邪恶愈合",
+        "enUS": "Vicious Regrowth"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-247755"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1253410",
+      "spellId": 1253410,
+      "name": {
+        "zhCN": "嗜血注视",
+        "enUS": "Bloodthirsty Gaze"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1255205",
+      "spellId": 1255205,
+      "name": {
+        "zhCN": "拔根而起",
+        "enUS": "Uproot"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245346"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1257094",
+      "spellId": 1257094,
+      "name": {
+        "zhCN": "粉碎",
+        "enUS": "Pulverized"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912",
+        "bvl-enemy-246367"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1259365",
+      "spellId": 1259365,
+      "name": {
+        "zhCN": "血棘之根",
+        "enUS": "Bloodthorn Roots"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-253571"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1261011",
+      "spellId": 1261011,
+      "name": {
+        "zhCN": "荆棘之扇",
+        "enUS": "Fan Of Thorns"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1261013",
+      "spellId": 1261013,
+      "name": {
+        "zhCN": "荆棘之扇",
+        "enUS": "Fan Of Thorns"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243030"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1263420",
+      "spellId": 1263420,
+      "name": {
+        "zhCN": "光狂疯乱",
+        "enUS": "Lightcrazed Frenzy"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1263628",
+      "spellId": 1263628,
+      "name": {
+        "zhCN": "喷涌之花",
+        "enUS": "Spouting Floret"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-254850"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1263636",
+      "spellId": 1263636,
+      "name": {
+        "zhCN": "喷射孢子",
+        "enUS": "Belch Spores"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-254850"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1263642",
+      "spellId": 1263642,
+      "name": {
+        "zhCN": "喷射孢子",
+        "enUS": "Belch Spores"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-254850"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1267029",
+      "spellId": 1267029,
+      "name": {
+        "zhCN": "召唤林地之力",
+        "enUS": "Call The Grove"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245336"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1271385",
+      "spellId": 1271385,
+      "name": {
+        "zhCN": "喷涌之花",
+        "enUS": "Spouting Floret"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-254850"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1272265",
+      "spellId": 1272265,
+      "name": {
+        "zhCN": "撕裂之爪",
+        "enUS": "Mangling Claws"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245912"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1272290",
+      "spellId": 1272290,
+      "name": {
+        "zhCN": "被嚼碎",
+        "enUS": "Crunched"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-244887"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1276586",
+      "spellId": 1276586,
+      "name": {
+        "zhCN": "基岩涌动",
+        "enUS": "Bedrock Surge"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-243028"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1301834",
+      "spellId": 1301834,
+      "name": {
+        "zhCN": "光箭雨",
+        "enUS": "Light Bolt Volley"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245336"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    },
+    {
+      "id": "bvl-ability-1303039",
+      "spellId": 1303039,
+      "name": {
+        "zhCN": "狩猎跃击",
+        "enUS": "Hunting Leap"
+      },
+      "casterEnemyIds": [
+        "bvl-enemy-245473"
+      ],
+      "decisionCritical": false,
+      "severity": "info",
+      "action": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "consequence": {
+        "zhCN": "",
+        "enUS": ""
+      },
+      "version": {
+        "season": "midnight-s2",
+        "build": "12.1.0",
+        "revision": 1,
+        "status": "draft"
+      },
+      "provenance": [
+        {
+          "type": "game-data",
+          "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+          "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+          "gameBuild": "12.1.0",
+          "retrievedAt": "2026-08-26",
+          "licenseStatus": "approved",
+          "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+        }
+      ]
+    }
+  ],
+  "situations": [],
+  "routes": [],
+  "bosses": [],
+  "provenance": [
+    {
+      "type": "game-data",
+      "title": "MDT 怪物事实快照 mdt-facts-s2-the-blinding-vale-2026-08-26（MythicDungeonTools → threechest → wcl-mp-client）",
+      "snapshot": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+      "gameBuild": "12.1.0",
+      "retrievedAt": "2026-08-26",
+      "licenseStatus": "approved",
+      "notes": "证据链：agent_flow/mdt-snapshots/s2/README.md；技能动作/后果文案待单独审校后补齐。"
+    }
+  ]
+}

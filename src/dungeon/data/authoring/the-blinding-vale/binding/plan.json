@@ -1,0 +1,2169 @@
+{
+  "version": 1,
+  "snapshot": {
+    "snapshotId": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+    "digest": "sha256:69262f64a70bd5a989b1b9bc3b7e2343623e2b2d333d708287e8a2a7127e2dd8",
+    "dungeonId": "the-blinding-vale",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0"
+  },
+  "document": {
+    "id": "the-blinding-vale",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "revision": 1
+  },
+  "manifestTemplate": {
+    "version": 1,
+    "snapshotId": "mdt-facts-s2-the-blinding-vale-2026-08-26",
+    "snapshotDigest": "sha256:69262f64a70bd5a989b1b9bc3b7e2343623e2b2d333d708287e8a2a7127e2dd8",
+    "dungeonId": "the-blinding-vale",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "enemies": [],
+    "abilities": []
+  },
+  "enemies": [
+    {
+      "sourceKey": "Lightgorged Lasher",
+      "npcId": 245345,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245345",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lasher",
+      "npcId": 245410,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245410",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Underbrush Stalker",
+      "npcId": 245339,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245339",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Virid Grovekeeper",
+      "npcId": 245346,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245346",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Sporeblight Belcher",
+      "npcId": 254850,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-254850",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Radiant Spellsower",
+      "npcId": 245336,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245336",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lightfeather Petalwing",
+      "npcId": 245484,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245484",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Thorny Saptor",
+      "npcId": 245473,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245473",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Spineshield Beetle",
+      "npcId": 245527,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245527",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Leafy Grovecrawler",
+      "npcId": 245460,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245460",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Overgrown Hydra",
+      "npcId": 245513,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245513",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Luminous Thornmaw",
+      "npcId": 246871,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-246871",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Meittik",
+      "npcId": 243028,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-243028",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Kezkitt",
+      "npcId": 243029,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-243029",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lekshi",
+      "npcId": 243030,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-243030",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lightwarden Ruia",
+      "npcId": 245912,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-245912",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ziekket",
+      "npcId": 247676,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-247676",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ikuzz the Light Hunter",
+      "npcId": 244887,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-244887",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lightblossom",
+      "npcId": 244528,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-244528",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Spirit Bear",
+      "npcId": 246367,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-246367",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Spirit Moonkin",
+      "npcId": 246371,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-246371",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Lightspawn Lasher",
+      "npcId": 247755,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-247755",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Potatoad Matriarch",
+      "npcId": 249756,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-249756",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Potadpole Egg",
+      "npcId": 249783,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-249783",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Newborn Potadpole",
+      "npcId": 250202,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-250202",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Bloodthorn Roots",
+      "npcId": 253571,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "bvl-enemy-253571",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-269230",
+      "spellId": 269230,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-269230",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269231",
+      "spellId": 269231,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-269231",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-269232",
+      "spellId": 269232,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-269232",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234753",
+      "spellId": 1234753,
+      "casterEnemyKeys": [
+        "Meittik"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1234753",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234773",
+      "spellId": 1234773,
+      "casterEnemyKeys": [
+        "Meittik"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1234773",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234802",
+      "spellId": 1234802,
+      "casterEnemyKeys": [
+        "Meittik"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1234802",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234850",
+      "spellId": 1234850,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1234850",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235546",
+      "spellId": 1235546,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235546",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235564",
+      "spellId": 1235564,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235564",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235574",
+      "spellId": 1235574,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235574",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235616",
+      "spellId": 1235616,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235616",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235640",
+      "spellId": 1235640,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235640",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235642",
+      "spellId": 1235642,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235642",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235752",
+      "spellId": 1235752,
+      "casterEnemyKeys": [
+        "Lightblossom"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235752",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235828",
+      "spellId": 1235828,
+      "casterEnemyKeys": [
+        "Kezkitt"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235828",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235865",
+      "spellId": 1235865,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1235865",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1236709",
+      "spellId": 1236709,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1236709",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1236731",
+      "spellId": 1236731,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1236731",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1236746",
+      "spellId": 1236746,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1236746",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1236747",
+      "spellId": 1236747,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1236747",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1237073",
+      "spellId": 1237073,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1237073",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1237093",
+      "spellId": 1237093,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1237093",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1237166",
+      "spellId": 1237166,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1237166",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1237267",
+      "spellId": 1237267,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1237267",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1237330",
+      "spellId": 1237330,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1237330",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1237855",
+      "spellId": 1237855,
+      "casterEnemyKeys": [
+        "Virid Grovekeeper"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1237855",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1237858",
+      "spellId": 1237858,
+      "casterEnemyKeys": [
+        "Virid Grovekeeper"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1237858",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238063",
+      "spellId": 1238063,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238063",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238066",
+      "spellId": 1238066,
+      "casterEnemyKeys": [
+        "Underbrush Stalker"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238066",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238071",
+      "spellId": 1238071,
+      "casterEnemyKeys": [
+        "Underbrush Stalker"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238071",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238076",
+      "spellId": 1238076,
+      "casterEnemyKeys": [
+        "Underbrush Stalker"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238076",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238084",
+      "spellId": 1238084,
+      "casterEnemyKeys": [
+        "Lasher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238084",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238158",
+      "spellId": 1238158,
+      "casterEnemyKeys": [
+        "Lightgorged Lasher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238158",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238173",
+      "spellId": 1238173,
+      "casterEnemyKeys": [
+        "Lightgorged Lasher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238173",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238200",
+      "spellId": 1238200,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238200",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238232",
+      "spellId": 1238232,
+      "casterEnemyKeys": [
+        "Leafy Grovecrawler"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238232",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238294",
+      "spellId": 1238294,
+      "casterEnemyKeys": [
+        "Lightfeather Petalwing"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238294",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238368",
+      "spellId": 1238368,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238368",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238463",
+      "spellId": 1238463,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238463",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238581",
+      "spellId": 1238581,
+      "casterEnemyKeys": [
+        "Spineshield Beetle"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238581",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238588",
+      "spellId": 1238588,
+      "casterEnemyKeys": [
+        "Spineshield Beetle"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238588",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238638",
+      "spellId": 1238638,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238638",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238642",
+      "spellId": 1238642,
+      "casterEnemyKeys": [
+        "Overgrown Hydra"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1238642",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239821",
+      "spellId": 1239821,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1239821",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239824",
+      "spellId": 1239824,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1239824",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239825",
+      "spellId": 1239825,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1239825",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239882",
+      "spellId": 1239882,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1239882",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239883",
+      "spellId": 1239883,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1239883",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239885",
+      "spellId": 1239885,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1239885",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239919",
+      "spellId": 1239919,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1239919",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1240100",
+      "spellId": 1240100,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1240100",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1240152",
+      "spellId": 1240152,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Moonkin"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1240152",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1240210",
+      "spellId": 1240210,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1240210",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1240257",
+      "spellId": 1240257,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1240257",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241058",
+      "spellId": 1241058,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1241058",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241067",
+      "spellId": 1241067,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1241067",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242135",
+      "spellId": 1242135,
+      "casterEnemyKeys": [
+        "Luminous Thornmaw"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1242135",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242138",
+      "spellId": 1242138,
+      "casterEnemyKeys": [
+        "Luminous Thornmaw"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1242138",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242180",
+      "spellId": 1242180,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher",
+        "Lightfeather Petalwing",
+        "Thorny Saptor",
+        "Spineshield Beetle",
+        "Leafy Grovecrawler",
+        "Luminous Thornmaw",
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1242180",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242200",
+      "spellId": 1242200,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher",
+        "Lightfeather Petalwing",
+        "Thorny Saptor",
+        "Spineshield Beetle",
+        "Leafy Grovecrawler",
+        "Luminous Thornmaw"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1242200",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242244",
+      "spellId": 1242244,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1242244",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246372",
+      "spellId": 1246372,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1246372",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246527",
+      "spellId": 1246527,
+      "casterEnemyKeys": [
+        "Ziekket",
+        "Lightspawn Lasher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1246527",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246607",
+      "spellId": 1246607,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1246607",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246751",
+      "spellId": 1246751,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1246751",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246753",
+      "spellId": 1246753,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1246753",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246858",
+      "spellId": 1246858,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1246858",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247039",
+      "spellId": 1247039,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1247039",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247050",
+      "spellId": 1247050,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1247050",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247377",
+      "spellId": 1247377,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1247377",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247644",
+      "spellId": 1247644,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1247644",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247669",
+      "spellId": 1247669,
+      "casterEnemyKeys": [
+        "Lightspawn Lasher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1247669",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247685",
+      "spellId": 1247685,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1247685",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247746",
+      "spellId": 1247746,
+      "casterEnemyKeys": [
+        "Ziekket"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1247746",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250100",
+      "spellId": 1250100,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250100",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250199",
+      "spellId": 1250199,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250199",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250200",
+      "spellId": 1250200,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250200",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250203",
+      "spellId": 1250203,
+      "casterEnemyKeys": [
+        "Potadpole Egg"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250203",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250813",
+      "spellId": 1250813,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250813",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250829",
+      "spellId": 1250829,
+      "casterEnemyKeys": [
+        "Newborn Potadpole"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250829",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250831",
+      "spellId": 1250831,
+      "casterEnemyKeys": [
+        "Newborn Potadpole"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250831",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250937",
+      "spellId": 1250937,
+      "casterEnemyKeys": [
+        "Potatoad Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1250937",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1253028",
+      "spellId": 1253028,
+      "casterEnemyKeys": [
+        "Meittik",
+        "Kezkitt",
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1253028",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1253320",
+      "spellId": 1253320,
+      "casterEnemyKeys": [
+        "Lightspawn Lasher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1253320",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1253410",
+      "spellId": 1253410,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1253410",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1255205",
+      "spellId": 1255205,
+      "casterEnemyKeys": [
+        "Virid Grovekeeper"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1255205",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1257094",
+      "spellId": 1257094,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia",
+        "Spirit Bear"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1257094",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1259365",
+      "spellId": 1259365,
+      "casterEnemyKeys": [
+        "Bloodthorn Roots"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1259365",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1261011",
+      "spellId": 1261011,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1261011",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1261013",
+      "spellId": 1261013,
+      "casterEnemyKeys": [
+        "Lekshi"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1261013",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1263420",
+      "spellId": 1263420,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1263420",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1263628",
+      "spellId": 1263628,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1263628",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1263636",
+      "spellId": 1263636,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1263636",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1263642",
+      "spellId": 1263642,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1263642",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1267029",
+      "spellId": 1267029,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1267029",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1271385",
+      "spellId": 1271385,
+      "casterEnemyKeys": [
+        "Sporeblight Belcher"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1271385",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1272265",
+      "spellId": 1272265,
+      "casterEnemyKeys": [
+        "Lightwarden Ruia"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1272265",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1272290",
+      "spellId": 1272290,
+      "casterEnemyKeys": [
+        "Ikuzz the Light Hunter"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1272290",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1276586",
+      "spellId": 1276586,
+      "casterEnemyKeys": [
+        "Meittik"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1276586",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1301834",
+      "spellId": 1301834,
+      "casterEnemyKeys": [
+        "Radiant Spellsower"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1301834",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1303039",
+      "spellId": 1303039,
+      "casterEnemyKeys": [
+        "Thorny Saptor"
+      ],
+      "candidates": [
+        {
+          "documentId": "bvl-ability-1303039",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "coverage": {
+    "snapshotEnemies": 26,
+    "snapshotAbilities": 101,
+    "documentEnemies": 26,
+    "documentAbilities": 101,
+    "unambiguousEnemyCandidates": 26,
+    "unambiguousAbilityCandidates": 101
+  },
+  "status": "ready-for-review",
+  "planDigest": "sha256:acc4b495f5d89397fda5227d5cfc5271716dffc2b6f6a4f7a9bb4130e83db325"
+}
