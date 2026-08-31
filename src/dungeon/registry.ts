@@ -1,6 +1,7 @@
 import type { DungeonDocument } from './schema/types';
 import { altarOfFangsFixture, rubyLifePoolsFixture } from './data/fixtures';
 import { altarOfFangsDocument } from './data/altarOfFangsDocument';
+import { denOfNalorakkDocument } from './data/denOfNalorakkDocument';
 import { murderRowDocument } from './data/murderRowDocument';
 import { rubyLifePoolsSpatialPreview } from './data/rlpSpatialPreview';
 import { runtimeReleaseDocuments } from './runtime/releaseRegistry';
@@ -14,6 +15,7 @@ const authoredDocuments: readonly DungeonDocument[] = [
   rubyLifePoolsSpatialPreview,
   altarOfFangsDocument,
   murderRowDocument,
+  denOfNalorakkDocument,
 ];
 
 /**

@@ -1,0 +1,592 @@
+{
+  "version": 1,
+  "snapshotId": "mdt-facts-s2-den-of-nalorakk-2026-08-26",
+  "snapshotDigest": "sha256:3901646aecd819578d9e0ff8c295bf49c71269017984661644222a5e153e9c17",
+  "dungeonId": "den-of-nalorakk",
+  "season": "midnight-s2",
+  "gameBuild": "12.1.0",
+  "enemies": [
+    {
+      "sourceKey": "Spirit of Hunger",
+      "documentEnemyId": "dnl-enemy-245855"
+    },
+    {
+      "sourceKey": "Earthwhisper Tender",
+      "documentEnemyId": "dnl-enemy-241814"
+    },
+    {
+      "sourceKey": "Thornclaw Gatherer",
+      "documentEnemyId": "dnl-enemy-241813"
+    },
+    {
+      "sourceKey": "Territorial Matriarch",
+      "documentEnemyId": "dnl-enemy-241808"
+    },
+    {
+      "sourceKey": "The Winter Squall",
+      "documentEnemyId": "dnl-enemy-250478"
+    },
+    {
+      "sourceKey": "Frostfang",
+      "documentEnemyId": "dnl-enemy-241874"
+    },
+    {
+      "sourceKey": "Terra Rumbler",
+      "documentEnemyId": "dnl-enemy-241911"
+    },
+    {
+      "sourceKey": "Frigid Mauler",
+      "documentEnemyId": "dnl-enemy-241872"
+    },
+    {
+      "sourceKey": "Glacial Revenant",
+      "documentEnemyId": "dnl-enemy-241876"
+    },
+    {
+      "sourceKey": "Avatar of Determination",
+      "documentEnemyId": "dnl-enemy-241869"
+    },
+    {
+      "sourceKey": "Ruthless Totemcaller",
+      "documentEnemyId": "dnl-enemy-245143"
+    },
+    {
+      "sourceKey": "Stormbound Mystic",
+      "documentEnemyId": "dnl-enemy-245139"
+    },
+    {
+      "sourceKey": "Grizzled Warbringer [245146]",
+      "documentEnemyId": "dnl-enemy-245146"
+    },
+    {
+      "sourceKey": "Bonded Beasttamer",
+      "documentEnemyId": "dnl-enemy-245145"
+    },
+    {
+      "sourceKey": "Curious Yearling",
+      "documentEnemyId": "dnl-enemy-241809"
+    },
+    {
+      "sourceKey": "The Hoardmonger",
+      "documentEnemyId": "dnl-enemy-241812"
+    },
+    {
+      "sourceKey": "Keen-Eyed Striker [241816]",
+      "documentEnemyId": "dnl-enemy-241816"
+    },
+    {
+      "sourceKey": "Sentinel of Winter",
+      "documentEnemyId": "dnl-enemy-244100"
+    },
+    {
+      "sourceKey": "Raging Squall",
+      "documentEnemyId": "dnl-enemy-244696"
+    },
+    {
+      "sourceKey": "Fractured Shivercore",
+      "documentEnemyId": "dnl-enemy-244759"
+    },
+    {
+      "sourceKey": "Loa Speaker Nanea",
+      "documentEnemyId": "dnl-enemy-244889"
+    },
+    {
+      "sourceKey": "Grizzled Warbringer [245148]",
+      "documentEnemyId": "dnl-enemy-245148"
+    },
+    {
+      "sourceKey": "Loyal Saberfang",
+      "documentEnemyId": "dnl-enemy-245190"
+    },
+    {
+      "sourceKey": "Starvation Effigy",
+      "documentEnemyId": "dnl-enemy-245567"
+    },
+    {
+      "sourceKey": "Nalorakk",
+      "documentEnemyId": "dnl-enemy-246404"
+    },
+    {
+      "sourceKey": "Zul'jarra",
+      "documentEnemyId": "dnl-enemy-246409"
+    },
+    {
+      "sourceKey": "Echo of Nalorakk",
+      "documentEnemyId": "dnl-enemy-247301"
+    },
+    {
+      "sourceKey": "Snow Orb Stalker",
+      "documentEnemyId": "dnl-enemy-251189"
+    },
+    {
+      "sourceKey": "Volatile Totem",
+      "documentEnemyId": "dnl-enemy-272074"
+    },
+    {
+      "sourceKey": "The Pale Eye",
+      "documentEnemyId": "dnl-enemy-245076"
+    },
+    {
+      "sourceKey": "Keen-Eyed Striker [245752]",
+      "documentEnemyId": "dnl-enemy-245752"
+    },
+    {
+      "sourceKey": "Magma Totem",
+      "documentEnemyId": "dnl-enemy-248666"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-110960",
+      "documentAbilityId": "dnl-ability-110960"
+    },
+    {
+      "sourceKey": "spell-1221063",
+      "documentAbilityId": "dnl-ability-1221063"
+    },
+    {
+      "sourceKey": "spell-1232012",
+      "documentAbilityId": "dnl-ability-1232012"
+    },
+    {
+      "sourceKey": "spell-1234021",
+      "documentAbilityId": "dnl-ability-1234021"
+    },
+    {
+      "sourceKey": "spell-1234233",
+      "documentAbilityId": "dnl-ability-1234233"
+    },
+    {
+      "sourceKey": "spell-1234314",
+      "documentAbilityId": "dnl-ability-1234314"
+    },
+    {
+      "sourceKey": "spell-1234681",
+      "documentAbilityId": "dnl-ability-1234681"
+    },
+    {
+      "sourceKey": "spell-1234734",
+      "documentAbilityId": "dnl-ability-1234734"
+    },
+    {
+      "sourceKey": "spell-1234846",
+      "documentAbilityId": "dnl-ability-1234846"
+    },
+    {
+      "sourceKey": "spell-1235072",
+      "documentAbilityId": "dnl-ability-1235072"
+    },
+    {
+      "sourceKey": "spell-1235075",
+      "documentAbilityId": "dnl-ability-1235075"
+    },
+    {
+      "sourceKey": "spell-1235076",
+      "documentAbilityId": "dnl-ability-1235076"
+    },
+    {
+      "sourceKey": "spell-1235079",
+      "documentAbilityId": "dnl-ability-1235079"
+    },
+    {
+      "sourceKey": "spell-1235105",
+      "documentAbilityId": "dnl-ability-1235105"
+    },
+    {
+      "sourceKey": "spell-1235125",
+      "documentAbilityId": "dnl-ability-1235125"
+    },
+    {
+      "sourceKey": "spell-1235129",
+      "documentAbilityId": "dnl-ability-1235129"
+    },
+    {
+      "sourceKey": "spell-1235405",
+      "documentAbilityId": "dnl-ability-1235405"
+    },
+    {
+      "sourceKey": "spell-1235548",
+      "documentAbilityId": "dnl-ability-1235548"
+    },
+    {
+      "sourceKey": "spell-1235549",
+      "documentAbilityId": "dnl-ability-1235549"
+    },
+    {
+      "sourceKey": "spell-1235623",
+      "documentAbilityId": "dnl-ability-1235623"
+    },
+    {
+      "sourceKey": "spell-1235635",
+      "documentAbilityId": "dnl-ability-1235635"
+    },
+    {
+      "sourceKey": "spell-1235638",
+      "documentAbilityId": "dnl-ability-1235638"
+    },
+    {
+      "sourceKey": "spell-1235641",
+      "documentAbilityId": "dnl-ability-1235641"
+    },
+    {
+      "sourceKey": "spell-1235656",
+      "documentAbilityId": "dnl-ability-1235656"
+    },
+    {
+      "sourceKey": "spell-1235658",
+      "documentAbilityId": "dnl-ability-1235658"
+    },
+    {
+      "sourceKey": "spell-1235783",
+      "documentAbilityId": "dnl-ability-1235783"
+    },
+    {
+      "sourceKey": "spell-1235795",
+      "documentAbilityId": "dnl-ability-1235795"
+    },
+    {
+      "sourceKey": "spell-1235829",
+      "documentAbilityId": "dnl-ability-1235829"
+    },
+    {
+      "sourceKey": "spell-1236289",
+      "documentAbilityId": "dnl-ability-1236289"
+    },
+    {
+      "sourceKey": "spell-1238053",
+      "documentAbilityId": "dnl-ability-1238053"
+    },
+    {
+      "sourceKey": "spell-1238439",
+      "documentAbilityId": "dnl-ability-1238439"
+    },
+    {
+      "sourceKey": "spell-1238440",
+      "documentAbilityId": "dnl-ability-1238440"
+    },
+    {
+      "sourceKey": "spell-1238687",
+      "documentAbilityId": "dnl-ability-1238687"
+    },
+    {
+      "sourceKey": "spell-1238725",
+      "documentAbilityId": "dnl-ability-1238725"
+    },
+    {
+      "sourceKey": "spell-1238760",
+      "documentAbilityId": "dnl-ability-1238760"
+    },
+    {
+      "sourceKey": "spell-1238801",
+      "documentAbilityId": "dnl-ability-1238801"
+    },
+    {
+      "sourceKey": "spell-1239394",
+      "documentAbilityId": "dnl-ability-1239394"
+    },
+    {
+      "sourceKey": "spell-1239860",
+      "documentAbilityId": "dnl-ability-1239860"
+    },
+    {
+      "sourceKey": "spell-1239871",
+      "documentAbilityId": "dnl-ability-1239871"
+    },
+    {
+      "sourceKey": "spell-1240280",
+      "documentAbilityId": "dnl-ability-1240280"
+    },
+    {
+      "sourceKey": "spell-1241214",
+      "documentAbilityId": "dnl-ability-1241214"
+    },
+    {
+      "sourceKey": "spell-1241217",
+      "documentAbilityId": "dnl-ability-1241217"
+    },
+    {
+      "sourceKey": "spell-1241219",
+      "documentAbilityId": "dnl-ability-1241219"
+    },
+    {
+      "sourceKey": "spell-1241226",
+      "documentAbilityId": "dnl-ability-1241226"
+    },
+    {
+      "sourceKey": "spell-1241463",
+      "documentAbilityId": "dnl-ability-1241463"
+    },
+    {
+      "sourceKey": "spell-1241464",
+      "documentAbilityId": "dnl-ability-1241464"
+    },
+    {
+      "sourceKey": "spell-1242860",
+      "documentAbilityId": "dnl-ability-1242860"
+    },
+    {
+      "sourceKey": "spell-1242869",
+      "documentAbilityId": "dnl-ability-1242869"
+    },
+    {
+      "sourceKey": "spell-1242887",
+      "documentAbilityId": "dnl-ability-1242887"
+    },
+    {
+      "sourceKey": "spell-1242976",
+      "documentAbilityId": "dnl-ability-1242976"
+    },
+    {
+      "sourceKey": "spell-1243002",
+      "documentAbilityId": "dnl-ability-1243002"
+    },
+    {
+      "sourceKey": "spell-1243011",
+      "documentAbilityId": "dnl-ability-1243011"
+    },
+    {
+      "sourceKey": "spell-1243018",
+      "documentAbilityId": "dnl-ability-1243018"
+    },
+    {
+      "sourceKey": "spell-1243078",
+      "documentAbilityId": "dnl-ability-1243078"
+    },
+    {
+      "sourceKey": "spell-1243273",
+      "documentAbilityId": "dnl-ability-1243273"
+    },
+    {
+      "sourceKey": "spell-1243408",
+      "documentAbilityId": "dnl-ability-1243408"
+    },
+    {
+      "sourceKey": "spell-1243569",
+      "documentAbilityId": "dnl-ability-1243569"
+    },
+    {
+      "sourceKey": "spell-1243856",
+      "documentAbilityId": "dnl-ability-1243856"
+    },
+    {
+      "sourceKey": "spell-1245593",
+      "documentAbilityId": "dnl-ability-1245593"
+    },
+    {
+      "sourceKey": "spell-1246687",
+      "documentAbilityId": "dnl-ability-1246687"
+    },
+    {
+      "sourceKey": "spell-1246820",
+      "documentAbilityId": "dnl-ability-1246820"
+    },
+    {
+      "sourceKey": "spell-1246821",
+      "documentAbilityId": "dnl-ability-1246821"
+    },
+    {
+      "sourceKey": "spell-1246825",
+      "documentAbilityId": "dnl-ability-1246825"
+    },
+    {
+      "sourceKey": "spell-1246847",
+      "documentAbilityId": "dnl-ability-1246847"
+    },
+    {
+      "sourceKey": "spell-1246860",
+      "documentAbilityId": "dnl-ability-1246860"
+    },
+    {
+      "sourceKey": "spell-1246865",
+      "documentAbilityId": "dnl-ability-1246865"
+    },
+    {
+      "sourceKey": "spell-1246877",
+      "documentAbilityId": "dnl-ability-1246877"
+    },
+    {
+      "sourceKey": "spell-1246882",
+      "documentAbilityId": "dnl-ability-1246882"
+    },
+    {
+      "sourceKey": "spell-1246957",
+      "documentAbilityId": "dnl-ability-1246957"
+    },
+    {
+      "sourceKey": "spell-1246986",
+      "documentAbilityId": "dnl-ability-1246986"
+    },
+    {
+      "sourceKey": "spell-1247030",
+      "documentAbilityId": "dnl-ability-1247030"
+    },
+    {
+      "sourceKey": "spell-1247366",
+      "documentAbilityId": "dnl-ability-1247366"
+    },
+    {
+      "sourceKey": "spell-1247367",
+      "documentAbilityId": "dnl-ability-1247367"
+    },
+    {
+      "sourceKey": "spell-1249186",
+      "documentAbilityId": "dnl-ability-1249186"
+    },
+    {
+      "sourceKey": "spell-1249737",
+      "documentAbilityId": "dnl-ability-1249737"
+    },
+    {
+      "sourceKey": "spell-1250805",
+      "documentAbilityId": "dnl-ability-1250805"
+    },
+    {
+      "sourceKey": "spell-1251027",
+      "documentAbilityId": "dnl-ability-1251027"
+    },
+    {
+      "sourceKey": "spell-1253083",
+      "documentAbilityId": "dnl-ability-1253083"
+    },
+    {
+      "sourceKey": "spell-1254622",
+      "documentAbilityId": "dnl-ability-1254622"
+    },
+    {
+      "sourceKey": "spell-1255570",
+      "documentAbilityId": "dnl-ability-1255570"
+    },
+    {
+      "sourceKey": "spell-1255577",
+      "documentAbilityId": "dnl-ability-1255577"
+    },
+    {
+      "sourceKey": "spell-1261776",
+      "documentAbilityId": "dnl-ability-1261776"
+    },
+    {
+      "sourceKey": "spell-1261976",
+      "documentAbilityId": "dnl-ability-1261976"
+    },
+    {
+      "sourceKey": "spell-1262253",
+      "documentAbilityId": "dnl-ability-1262253"
+    },
+    {
+      "sourceKey": "spell-1262577",
+      "documentAbilityId": "dnl-ability-1262577"
+    },
+    {
+      "sourceKey": "spell-1263590",
+      "documentAbilityId": "dnl-ability-1263590"
+    },
+    {
+      "sourceKey": "spell-1263597",
+      "documentAbilityId": "dnl-ability-1263597"
+    },
+    {
+      "sourceKey": "spell-1264753",
+      "documentAbilityId": "dnl-ability-1264753"
+    },
+    {
+      "sourceKey": "spell-1265400",
+      "documentAbilityId": "dnl-ability-1265400"
+    },
+    {
+      "sourceKey": "spell-1265402",
+      "documentAbilityId": "dnl-ability-1265402"
+    },
+    {
+      "sourceKey": "spell-1266178",
+      "documentAbilityId": "dnl-ability-1266178"
+    },
+    {
+      "sourceKey": "spell-1266207",
+      "documentAbilityId": "dnl-ability-1266207"
+    },
+    {
+      "sourceKey": "spell-1270826",
+      "documentAbilityId": "dnl-ability-1270826"
+    },
+    {
+      "sourceKey": "spell-1290205",
+      "documentAbilityId": "dnl-ability-1290205"
+    },
+    {
+      "sourceKey": "spell-1296518",
+      "documentAbilityId": "dnl-ability-1296518"
+    },
+    {
+      "sourceKey": "spell-1296519",
+      "documentAbilityId": "dnl-ability-1296519"
+    },
+    {
+      "sourceKey": "spell-1296722",
+      "documentAbilityId": "dnl-ability-1296722"
+    },
+    {
+      "sourceKey": "spell-1297696",
+      "documentAbilityId": "dnl-ability-1297696"
+    },
+    {
+      "sourceKey": "spell-1297699",
+      "documentAbilityId": "dnl-ability-1297699"
+    },
+    {
+      "sourceKey": "spell-1297701",
+      "documentAbilityId": "dnl-ability-1297701"
+    },
+    {
+      "sourceKey": "spell-1297749",
+      "documentAbilityId": "dnl-ability-1297749"
+    },
+    {
+      "sourceKey": "spell-1297778",
+      "documentAbilityId": "dnl-ability-1297778"
+    },
+    {
+      "sourceKey": "spell-1297792",
+      "documentAbilityId": "dnl-ability-1297792"
+    },
+    {
+      "sourceKey": "spell-1297793",
+      "documentAbilityId": "dnl-ability-1297793"
+    },
+    {
+      "sourceKey": "spell-1297796",
+      "documentAbilityId": "dnl-ability-1297796"
+    },
+    {
+      "sourceKey": "spell-1297797",
+      "documentAbilityId": "dnl-ability-1297797"
+    },
+    {
+      "sourceKey": "spell-1309919",
+      "documentAbilityId": "dnl-ability-1309919"
+    },
+    {
+      "sourceKey": "spell-1309924",
+      "documentAbilityId": "dnl-ability-1309924"
+    },
+    {
+      "sourceKey": "spell-1309925",
+      "documentAbilityId": "dnl-ability-1309925"
+    },
+    {
+      "sourceKey": "spell-1309931",
+      "documentAbilityId": "dnl-ability-1309931"
+    },
+    {
+      "sourceKey": "spell-1309947",
+      "documentAbilityId": "dnl-ability-1309947"
+    },
+    {
+      "sourceKey": "spell-1309964",
+      "documentAbilityId": "dnl-ability-1309964"
+    },
+    {
+      "sourceKey": "spell-1311572",
+      "documentAbilityId": "dnl-ability-1311572"
+    }
+  ]
+}

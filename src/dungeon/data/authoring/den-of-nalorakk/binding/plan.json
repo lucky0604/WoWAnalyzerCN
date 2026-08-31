@@ -1,0 +1,2460 @@
+{
+  "version": 1,
+  "snapshot": {
+    "snapshotId": "mdt-facts-s2-den-of-nalorakk-2026-08-26",
+    "digest": "sha256:3901646aecd819578d9e0ff8c295bf49c71269017984661644222a5e153e9c17",
+    "dungeonId": "den-of-nalorakk",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0"
+  },
+  "document": {
+    "id": "den-of-nalorakk",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "revision": 1
+  },
+  "manifestTemplate": {
+    "version": 1,
+    "snapshotId": "mdt-facts-s2-den-of-nalorakk-2026-08-26",
+    "snapshotDigest": "sha256:3901646aecd819578d9e0ff8c295bf49c71269017984661644222a5e153e9c17",
+    "dungeonId": "den-of-nalorakk",
+    "season": "midnight-s2",
+    "gameBuild": "12.1.0",
+    "enemies": [],
+    "abilities": []
+  },
+  "enemies": [
+    {
+      "sourceKey": "Spirit of Hunger",
+      "npcId": 245855,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245855",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Earthwhisper Tender",
+      "npcId": 241814,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241814",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Thornclaw Gatherer",
+      "npcId": 241813,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241813",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Territorial Matriarch",
+      "npcId": 241808,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241808",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "The Winter Squall",
+      "npcId": 250478,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-250478",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Frostfang",
+      "npcId": 241874,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241874",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Terra Rumbler",
+      "npcId": 241911,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241911",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Frigid Mauler",
+      "npcId": 241872,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241872",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Glacial Revenant",
+      "npcId": 241876,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241876",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Avatar of Determination",
+      "npcId": 241869,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241869",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Ruthless Totemcaller",
+      "npcId": 245143,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245143",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Stormbound Mystic",
+      "npcId": 245139,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245139",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Grizzled Warbringer [245146]",
+      "npcId": 245146,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245146",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Bonded Beasttamer",
+      "npcId": 245145,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245145",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Curious Yearling",
+      "npcId": 241809,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241809",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "The Hoardmonger",
+      "npcId": 241812,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241812",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Keen-Eyed Striker [241816]",
+      "npcId": 241816,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-241816",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Sentinel of Winter",
+      "npcId": 244100,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-244100",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Raging Squall",
+      "npcId": 244696,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-244696",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Fractured Shivercore",
+      "npcId": 244759,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-244759",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Loa Speaker Nanea",
+      "npcId": 244889,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-244889",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Grizzled Warbringer [245148]",
+      "npcId": 245148,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245148",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Loyal Saberfang",
+      "npcId": 245190,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245190",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Starvation Effigy",
+      "npcId": 245567,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245567",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Nalorakk",
+      "npcId": 246404,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-246404",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Zul'jarra",
+      "npcId": 246409,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-246409",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Echo of Nalorakk",
+      "npcId": 247301,
+      "isBoss": true,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-247301",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Snow Orb Stalker",
+      "npcId": 251189,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-251189",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Volatile Totem",
+      "npcId": 272074,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-272074",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "The Pale Eye",
+      "npcId": 245076,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245076",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Keen-Eyed Striker [245752]",
+      "npcId": 245752,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-245752",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "Magma Totem",
+      "npcId": 248666,
+      "isBoss": false,
+      "candidates": [
+        {
+          "documentId": "dnl-enemy-248666",
+          "reasons": [
+            "npc-id-exact",
+            "isBoss-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "abilities": [
+    {
+      "sourceKey": "spell-110960",
+      "spellId": 110960,
+      "casterEnemyKeys": [
+        "Keen-Eyed Striker [245752]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-110960",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1221063",
+      "spellId": 1221063,
+      "casterEnemyKeys": [
+        "Spirit of Hunger",
+        "Earthwhisper Tender",
+        "Thornclaw Gatherer",
+        "Territorial Matriarch",
+        "The Winter Squall",
+        "Frostfang",
+        "Terra Rumbler",
+        "Frigid Mauler",
+        "Glacial Revenant",
+        "Avatar of Determination",
+        "Stormbound Mystic",
+        "Grizzled Warbringer [245146]",
+        "The Hoardmonger",
+        "Keen-Eyed Striker [241816]",
+        "Starvation Effigy",
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1221063",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1232012",
+      "spellId": 1232012,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1232012",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234021",
+      "spellId": 1234021,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1234021",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234233",
+      "spellId": 1234233,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1234233",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234314",
+      "spellId": 1234314,
+      "casterEnemyKeys": [
+        "Fractured Shivercore"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1234314",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234681",
+      "spellId": 1234681,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1234681",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234734",
+      "spellId": 1234734,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1234734",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1234846",
+      "spellId": 1234846,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1234846",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235072",
+      "spellId": 1235072,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235072",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235075",
+      "spellId": 1235075,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235075",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235076",
+      "spellId": 1235076,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235076",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235079",
+      "spellId": 1235079,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235079",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235105",
+      "spellId": 1235105,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235105",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235125",
+      "spellId": 1235125,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235125",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235129",
+      "spellId": 1235129,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235129",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235405",
+      "spellId": 1235405,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235405",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235548",
+      "spellId": 1235548,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235548",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235549",
+      "spellId": 1235549,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235549",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235623",
+      "spellId": 1235623,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235623",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235635",
+      "spellId": 1235635,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235635",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235638",
+      "spellId": 1235638,
+      "casterEnemyKeys": [
+        "Raging Squall"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235638",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235641",
+      "spellId": 1235641,
+      "casterEnemyKeys": [
+        "Raging Squall"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235641",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235656",
+      "spellId": 1235656,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235656",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235658",
+      "spellId": 1235658,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235658",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235783",
+      "spellId": 1235783,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235783",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235795",
+      "spellId": 1235795,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235795",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1235829",
+      "spellId": 1235829,
+      "casterEnemyKeys": [
+        "Fractured Shivercore"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1235829",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1236289",
+      "spellId": 1236289,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1236289",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238053",
+      "spellId": 1238053,
+      "casterEnemyKeys": [
+        "Territorial Matriarch",
+        "Curious Yearling"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1238053",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238439",
+      "spellId": 1238439,
+      "casterEnemyKeys": [
+        "Keen-Eyed Striker [241816]",
+        "Keen-Eyed Striker [245752]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1238439",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238440",
+      "spellId": 1238440,
+      "casterEnemyKeys": [
+        "Keen-Eyed Striker [241816]",
+        "Keen-Eyed Striker [245752]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1238440",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238687",
+      "spellId": 1238687,
+      "casterEnemyKeys": [
+        "Spirit of Hunger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1238687",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238725",
+      "spellId": 1238725,
+      "casterEnemyKeys": [
+        "Spirit of Hunger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1238725",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238760",
+      "spellId": 1238760,
+      "casterEnemyKeys": [
+        "Spirit of Hunger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1238760",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1238801",
+      "spellId": 1238801,
+      "casterEnemyKeys": [
+        "Starvation Effigy"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1238801",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239394",
+      "spellId": 1239394,
+      "casterEnemyKeys": [
+        "Keen-Eyed Striker [245752]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1239394",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239860",
+      "spellId": 1239860,
+      "casterEnemyKeys": [
+        "Glacial Revenant"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1239860",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1239871",
+      "spellId": 1239871,
+      "casterEnemyKeys": [
+        "Glacial Revenant"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1239871",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1240280",
+      "spellId": 1240280,
+      "casterEnemyKeys": [
+        "Avatar of Determination"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1240280",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241214",
+      "spellId": 1241214,
+      "casterEnemyKeys": [
+        "Earthwhisper Tender"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1241214",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241217",
+      "spellId": 1241217,
+      "casterEnemyKeys": [
+        "Thornclaw Gatherer"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1241217",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241219",
+      "spellId": 1241219,
+      "casterEnemyKeys": [
+        "Territorial Matriarch"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1241219",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241226",
+      "spellId": 1241226,
+      "casterEnemyKeys": [
+        "Frostfang"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1241226",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241463",
+      "spellId": 1241463,
+      "casterEnemyKeys": [
+        "Avatar of Determination"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1241463",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1241464",
+      "spellId": 1241464,
+      "casterEnemyKeys": [
+        "Avatar of Determination"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1241464",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242860",
+      "spellId": 1242860,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1242860",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242869",
+      "spellId": 1242869,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1242869",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242887",
+      "spellId": 1242887,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1242887",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1242976",
+      "spellId": 1242976,
+      "casterEnemyKeys": [
+        "Echo of Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1242976",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243002",
+      "spellId": 1243002,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243002",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243011",
+      "spellId": 1243011,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243011",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243018",
+      "spellId": 1243018,
+      "casterEnemyKeys": [
+        "Zul'jarra"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243018",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243078",
+      "spellId": 1243078,
+      "casterEnemyKeys": [
+        "Zul'jarra"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243078",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243273",
+      "spellId": 1243273,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243273",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243408",
+      "spellId": 1243408,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243408",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243569",
+      "spellId": 1243569,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243569",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1243856",
+      "spellId": 1243856,
+      "casterEnemyKeys": [
+        "Zul'jarra"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1243856",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1245593",
+      "spellId": 1245593,
+      "casterEnemyKeys": [
+        "The Hoardmonger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1245593",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246687",
+      "spellId": 1246687,
+      "casterEnemyKeys": [
+        "Stormbound Mystic"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246687",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246820",
+      "spellId": 1246820,
+      "casterEnemyKeys": [
+        "Ruthless Totemcaller"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246820",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246821",
+      "spellId": 1246821,
+      "casterEnemyKeys": [
+        "Magma Totem"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246821",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246825",
+      "spellId": 1246825,
+      "casterEnemyKeys": [
+        "Magma Totem"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246825",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246847",
+      "spellId": 1246847,
+      "casterEnemyKeys": [
+        "Bonded Beasttamer"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246847",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246860",
+      "spellId": 1246860,
+      "casterEnemyKeys": [
+        "Bonded Beasttamer"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246860",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246865",
+      "spellId": 1246865,
+      "casterEnemyKeys": [
+        "Bonded Beasttamer",
+        "Loyal Saberfang"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246865",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246877",
+      "spellId": 1246877,
+      "casterEnemyKeys": [
+        "Bonded Beasttamer"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246877",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246882",
+      "spellId": 1246882,
+      "casterEnemyKeys": [
+        "Loyal Saberfang"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246882",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246957",
+      "spellId": 1246957,
+      "casterEnemyKeys": [
+        "Grizzled Warbringer [245146]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246957",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1246986",
+      "spellId": 1246986,
+      "casterEnemyKeys": [
+        "Grizzled Warbringer [245146]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1246986",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247030",
+      "spellId": 1247030,
+      "casterEnemyKeys": [
+        "Grizzled Warbringer [245148]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1247030",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247366",
+      "spellId": 1247366,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1247366",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1247367",
+      "spellId": 1247367,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1247367",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1249186",
+      "spellId": 1249186,
+      "casterEnemyKeys": [
+        "Zul'jarra"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1249186",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1249737",
+      "spellId": 1249737,
+      "casterEnemyKeys": [
+        "Spirit of Hunger"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1249737",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1250805",
+      "spellId": 1250805,
+      "casterEnemyKeys": [
+        "The Pale Eye"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1250805",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1251027",
+      "spellId": 1251027,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1251027",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1253083",
+      "spellId": 1253083,
+      "casterEnemyKeys": [
+        "Snow Orb Stalker"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1253083",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1254622",
+      "spellId": 1254622,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1254622",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1255570",
+      "spellId": 1255570,
+      "casterEnemyKeys": [
+        "Echo of Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1255570",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1255577",
+      "spellId": 1255577,
+      "casterEnemyKeys": [
+        "Echo of Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1255577",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1261776",
+      "spellId": 1261776,
+      "casterEnemyKeys": [
+        "Zul'jarra"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1261776",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1261976",
+      "spellId": 1261976,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1261976",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1262253",
+      "spellId": 1262253,
+      "casterEnemyKeys": [
+        "Zul'jarra"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1262253",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1262577",
+      "spellId": 1262577,
+      "casterEnemyKeys": [
+        "Echo of Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1262577",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1263590",
+      "spellId": 1263590,
+      "casterEnemyKeys": [
+        "Fractured Shivercore"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1263590",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1263597",
+      "spellId": 1263597,
+      "casterEnemyKeys": [
+        "Fractured Shivercore"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1263597",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1264753",
+      "spellId": 1264753,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1264753",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1265400",
+      "spellId": 1265400,
+      "casterEnemyKeys": [
+        "Frostfang"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1265400",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1265402",
+      "spellId": 1265402,
+      "casterEnemyKeys": [
+        "Frostfang"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1265402",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1266178",
+      "spellId": 1266178,
+      "casterEnemyKeys": [
+        "Glacial Revenant"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1266178",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1266207",
+      "spellId": 1266207,
+      "casterEnemyKeys": [
+        "Bonded Beasttamer"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1266207",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1270826",
+      "spellId": 1270826,
+      "casterEnemyKeys": [
+        "Zul'jarra"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1270826",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1290205",
+      "spellId": 1290205,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1290205",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296518",
+      "spellId": 1296518,
+      "casterEnemyKeys": [
+        "Terra Rumbler"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1296518",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296519",
+      "spellId": 1296519,
+      "casterEnemyKeys": [
+        "Terra Rumbler"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1296519",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1296722",
+      "spellId": 1296722,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1296722",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297696",
+      "spellId": 1297696,
+      "casterEnemyKeys": [
+        "Earthwhisper Tender"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297696",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297699",
+      "spellId": 1297699,
+      "casterEnemyKeys": [
+        "Thornclaw Gatherer"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297699",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297701",
+      "spellId": 1297701,
+      "casterEnemyKeys": [
+        "Thornclaw Gatherer"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297701",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297749",
+      "spellId": 1297749,
+      "casterEnemyKeys": [
+        "Sentinel of Winter"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297749",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297778",
+      "spellId": 1297778,
+      "casterEnemyKeys": [
+        "Stormbound Mystic"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297778",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297792",
+      "spellId": 1297792,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297792",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297793",
+      "spellId": 1297793,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297793",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297796",
+      "spellId": 1297796,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297796",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1297797",
+      "spellId": 1297797,
+      "casterEnemyKeys": [
+        "Nalorakk"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1297797",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309919",
+      "spellId": 1309919,
+      "casterEnemyKeys": [
+        "Frigid Mauler"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1309919",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309924",
+      "spellId": 1309924,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1309924",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309925",
+      "spellId": 1309925,
+      "casterEnemyKeys": [
+        "Loa Speaker Nanea"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1309925",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309931",
+      "spellId": 1309931,
+      "casterEnemyKeys": [
+        "Volatile Totem"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1309931",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309947",
+      "spellId": 1309947,
+      "casterEnemyKeys": [
+        "The Winter Squall"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1309947",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1309964",
+      "spellId": 1309964,
+      "casterEnemyKeys": [
+        "The Winter Squall"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1309964",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    },
+    {
+      "sourceKey": "spell-1311572",
+      "spellId": 1311572,
+      "casterEnemyKeys": [
+        "Grizzled Warbringer [245148]"
+      ],
+      "candidates": [
+        {
+          "documentId": "dnl-ability-1311572",
+          "reasons": [
+            "spell-id-exact",
+            "caster-npc-set-exact"
+          ]
+        }
+      ],
+      "status": "suggested"
+    }
+  ],
+  "coverage": {
+    "snapshotEnemies": 32,
+    "snapshotAbilities": 113,
+    "documentEnemies": 32,
+    "documentAbilities": 113,
+    "unambiguousEnemyCandidates": 32,
+    "unambiguousAbilityCandidates": 113
+  },
+  "status": "ready-for-review",
+  "planDigest": "sha256:d08b8d383e9b9008372ead879203869e5ca09ecd4ba58c2681e6869153cf1fd8"
+}
