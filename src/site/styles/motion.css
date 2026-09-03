@@ -1,0 +1,107 @@
+/* =========================================================
+   Motion（spec §15–18 §42 §55–56）
+   动画解释数据关系：路径先画出来，节点沿线亮起，
+   异常节点脉冲。全部只动 transform / opacity / stroke。
+   ========================================================= */
+
+/* ---- 17/18 战斗路径：进入时描绘（pathLength=1000 归一化） ---- */
+.site .route-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: site-draw-route 1.2s var(--ease-ui) 150ms forwards;
+}
+@keyframes site-draw-route {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 焦点段（当前问题的区间）由组件内联 dasharray/dashoffset 实现逐段叠亮
+   （pathFractionAt 采样换算，见 site/ui/curve.ts）；此处不做整条路径重描 */
+
+/* ---- 节点入场：scale .8→1，节点间隔由 --i 内联变量控制 ---- */
+.site .route-node {
+  opacity: 0;
+  transform: scale(0.8);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: site-node-enter 320ms var(--ease-enter) forwards;
+  animation-delay: calc(700ms + var(--i, 0) * 120ms);
+}
+@keyframes site-node-enter {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---- 42. Pulse：只用于当前异常节点，2.0–2.6s 周期。
+   SVG 上 box-shadow 不渲染，改用脉冲环 circle 的 scale/opacity ---- */
+.site .route-node .node-pulse-ring {
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.site .route-node--problem.is-active .node-pulse-ring {
+  animation: site-pulse-ring 2.3s ease-out infinite;
+}
+@keyframes site-pulse-ring {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.6);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* ---- 面板/卡片进场：轻微上移淡入，不用 scale ---- */
+.site .enter {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: site-fade-up 420ms var(--ease-enter) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+@keyframes site-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- 34 技能快照条：宽度过渡由组件状态驱动 ---- */
+.site .snapshot-bar-fill {
+  transition: width var(--motion-slow) var(--ease-ui);
+}
+
+/* ---- CTA Processing：金→紫的扫描态 ---- */
+.site .btn-primary.is-analyzing {
+  background: linear-gradient(180deg, #8d66df, #573892);
+  border-color: rgba(160, 110, 235, 0.5);
+  color: var(--arcane-100);
+  cursor: progress;
+}
+
+/* 控制台错误态：金 → 暗红（§46） */
+.site .console.is-error {
+  border-color: rgba(201, 96, 96, 0.45);
+}
+.site .console-error-text {
+  color: var(--status-danger);
+}
+
+/* 播放头呼吸（battle thread 当前时间） */
+.site .playhead {
+  animation: site-playhead 2.4s ease-in-out infinite;
+}
+@keyframes site-playhead {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}

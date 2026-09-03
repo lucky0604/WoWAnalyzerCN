@@ -1,0 +1,88 @@
+/* =========================================================
+   战斗观测台 · Design Tokens v1
+   来源：agent_flow/site-refactor/WowAnalyzerCN_UI_UX_IMPLEMENTATION_SPEC_v1.md
+   作用域：全部令牌挂在 .site 上，与旧 interface 样式隔离。
+   纪律：组件只允许引用令牌，禁止裸 hex（数据语义色除外需走 var）。
+   ========================================================= */
+
+.site {
+  /* ---- 4.1 基础背景（黑曜石，禁纯黑/大面积紫渐变） ---- */
+  --bg-0: #080a0e;
+  --bg-1: #0b0e13;
+  --bg-2: #10141b;
+  --bg-3: #151a22;
+
+  /* 页面底：右上一点极弱的奥术晕 + 纵向黑曜石渐变 */
+  --bg-page:
+    radial-gradient(circle at 72% 18%, rgba(74, 54, 110, 0.12), transparent 34%),
+    linear-gradient(180deg, #090b10 0%, #080a0e 100%);
+
+  /* ---- 4.2 金（结构 / 主 CTA / 关键元信息） ---- */
+  --gold-100: #e1c88f;
+  --gold-300: #c7a967;
+  --gold-500: #a9884c;
+  --gold-700: #6e5730;
+  --gold-line: rgba(205, 177, 112, 0.14); /* 普通面板描边 */
+  --gold-line-strong: rgba(199, 169, 103, 0.28); /* 控制台 / 重要面板 */
+  --gold-wash: rgba(199, 169, 103, 0.22); /* 次级按钮描边 */
+
+  /* ---- 4.3 奥术紫（只表示"当前分析焦点"，可视面积 ≤8%） ---- */
+  --arcane-100: #d8c6ff;
+  --arcane-300: #b69aff;
+  --arcane-500: #8d66df;
+  --arcane-700: #573892;
+  --arcane-line: rgba(160, 110, 235, 0.72); /* active 描边 */
+  --arcane-glow: rgba(129, 79, 220, 0.18);
+  --arcane-wash: rgba(141, 102, 223, 0.06); /* active 背景 */
+
+  /* ---- 4.4 语义色（= 是否需要玩家行动，非正负数） ---- */
+  --status-good: #68b985;
+  --status-info: #69aecb;
+  --status-warning: #c69b55;
+  --status-danger: #c96060;
+
+  /* ---- 文本（暖骨白系，AA 达标） ---- */
+  --ink-100: #e9e5dc; /* 主文本，对 bg-0 ≈ 15:1 */
+  --ink-200: #c9c4ba; /* 次强调 */
+  --ink-300: #a39e94; /* 正文次级 ≈ 8:1 */
+  --ink-500: #7d786f; /* metadata ≈ 5:1 */
+
+  /* ---- 字体 ---- */
+  --font-body:
+    'Open Sans', -apple-system, 'PingFang SC', 'HarmonyOS Sans SC', 'MiSans', 'Noto Sans SC',
+    'Microsoft YaHei', system-ui, sans-serif;
+  --font-display: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---- 布局（spec §6） ---- */
+  --rail-width: 176px;
+  --rail-intel-width: 320px;
+  --spine-width: 240px;
+  --toolbox-width: 300px;
+  --page-max: 1600px;
+  --outer-pad: 28px;
+  --section-gap: 24px;
+  --panel-gap: 14px;
+  --panel-pad: 20px;
+
+  /* ---- 形状（§7：4–8px，禁 16px+ 大圆角） ---- */
+  --radius-panel: 6px;
+  --radius-btn: 5px;
+  --radius-icon: 4px;
+
+  /* ---- 描边 / 分隔（§67） ---- */
+  --line-default: 1px;
+  --divider: rgba(255, 255, 255, 0.08);
+  --divider-soft: rgba(255, 255, 255, 0.06);
+
+  /* ---- 动效令牌（§39/40） ---- */
+  --motion-fast: 120ms;
+  --motion-base: 220ms;
+  --motion-slow: 320ms;
+  --motion-analysis: 800ms;
+  --ease-ui: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  color-scheme: dark;
+}

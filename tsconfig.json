@@ -29,6 +29,8 @@
       "localization": ["./src/localization"],
       "parser/*": ["./src/parser/*"],
       "parser": ["./src/parser"],
+      "site/*": ["./src/site/*"],
+      "site": ["./src/site"],
       "CHANGELOG": ["./src/CHANGELOG"],
       "CONTRIBUTORS": ["./src/CONTRIBUTORS"],
       "mergeAllChangelogs": ["./src/mergeAllChangelogs"],

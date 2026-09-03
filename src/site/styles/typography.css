@@ -1,0 +1,92 @@
+/* =========================================================
+   Typography（spec §5）
+   展示标题用衬线（Noto Serif SC / 系统宋体回退），
+   正文系统黑体，数据一律 mono。
+   ========================================================= */
+
+.site {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-100);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.site .t-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Hero：48–60px / 1.18 / 500 */
+.site .t-hero {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 3.4vw, 54px);
+  line-height: 1.18;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* 一级页面标题 32–40px */
+.site .t-page {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 2.4vw, 36px);
+  line-height: 1.25;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Section 20–24px */
+.site .t-section {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Card Title 16–18px */
+.site .t-card {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* metadata 12px / 0.55–0.7 */
+.site .t-meta {
+  font-size: 12px;
+  color: var(--ink-500);
+}
+
+.site .t-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* 眉标：mono 小号加字距，用于面板标签 / 状态行 */
+.site .t-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+/* 强调数字：大号 mono，等宽对齐 */
+.site .t-num {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.site a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 键盘可达：金色外环（全局统一焦点态） */
+.site :focus-visible {
+  outline: 2px solid var(--gold-300);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

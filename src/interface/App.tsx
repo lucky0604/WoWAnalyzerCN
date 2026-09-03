@@ -10,6 +10,7 @@ import { dungeonLegacyRoutesEnabled, dungeonRoutesEnabled } from 'interface/dung
 import RouterErrorBoundary from 'interface/RouterErrorBoundary';
 import { AppLayout } from 'interface/layouts/AppLayout';
 import { HomeLayout } from 'interface/layouts/HomeLayout';
+import { SiteLayout } from 'site/layout/SiteLayout';
 
 const appRoutes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />} errorElement={<RouterErrorBoundary />}>
@@ -55,8 +56,12 @@ const appRoutes = createRoutesFromElements(
     {dungeonRoutesEnabled && (
       <Route path="dungeons/:dungeonId" lazy={() => import('./routes/dungeons')} />
     )}
+    {/* 战斗观测台（site-refactor 视觉稿 v1）：接管首页 + 示例战报 */}
+    <Route element={<SiteLayout />}>
+      <Route index lazy={() => import('site/pages/Home')} />
+      <Route path="report-demo" lazy={() => import('site/pages/ReportDemo')} />
+    </Route>
     <Route element={<HomeLayout />}>
-      <Route index lazy={() => import('./routes/news')} />
       <Route path="news" lazy={() => import('./routes/news')} />
       <Route path="specs" lazy={() => import('./routes/specs')} />
       <Route path="premium" lazy={() => import('./routes/premium')} />
