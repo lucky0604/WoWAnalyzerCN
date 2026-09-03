@@ -299,7 +299,9 @@ class CharacterParses extends Component<CharacterParsesProps, CharacterParsesSta
     const { region, realm, name } = this.props;
 
     // Skip CN-API due to blizzard restrictions (aka there is no API for CN)
-    if (region === 'CN') {
+    // CN fork: 该请求走 wowanalyzer.com `/i/` 后端（battle.net 头像/种族），禁用社交/上游
+    // 功能时与其他非国服区域一并跳过，直接用占位图。
+    if (region === 'CN' || import.meta.env.VITE_DISABLE_SOCIAL_FEATURES === 'true') {
       this.setState(
         {
           characterImage: FALLBACK_PICTURE,

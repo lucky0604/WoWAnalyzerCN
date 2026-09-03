@@ -107,7 +107,7 @@ Redux 通过 `useWaDispatch` / `useWaSelector`（`src/interface/utils/`）提供
 | 服务器 slug | 生成国服服务器名→slug 表 | `src/common/CN_SERVER_SLUG.ts`、`scripts/cn-sn-slug/` |
 | 中文翻译 | 技能/首领/副本/NPC/区域 中文名映射 | `src/common/CN_MAPPING/` |
 | 构建 | `cn-overrides` 插件把 CN Guide 定向到覆盖文件 | `vite-plugins/cn-overrides.ts` |
-| 部署 | nginx 反代三个国服 API、Docker | `default.conf`、`docker-compose.yml` |
+| 部署 | nginx 反代三个国服 API、Docker | `default.conf.template`、`docker-compose.yml` |
 
 详见 [06-cn-localization.md](./06-cn-localization.md) 的完整梳理。
 

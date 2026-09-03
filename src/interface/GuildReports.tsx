@@ -9,6 +9,7 @@ import { WCLGuildReport, WCLGuildReportsResponse } from 'common/WCL_TYPES';
 import RETAIL_ZONES from 'game/ZONES';
 import CLASSIC_ZONES from 'game/classic/ZONES';
 import ActivityIndicator from 'interface/ActivityIndicator';
+import Panel from 'interface/Panel';
 import ArmoryIcon from 'interface/icons/Armory';
 import WarcraftLogsIcon from 'interface/icons/WarcraftLogs';
 import WipefestIcon from 'interface/icons/Wipefest';
@@ -119,6 +120,11 @@ class GuildReports extends Component<Props, State> {
   }
 
   async componentDidMount() {
+    // CN fork: 禁用社交/上游功能时挂载路径也不能发请求（render 已切换到禁用面板），
+    // 否则非 CN 零售服仍会打到已移除的 /i/ 后端，拿到 SPA fallback 的 HTML。
+    if (import.meta.env.VITE_DISABLE_SOCIAL_FEATURES === 'true') {
+      return;
+    }
     this.fetchBattleNetInfo();
   }
 
@@ -296,6 +302,19 @@ class GuildReports extends Component<Props, State> {
   }
 
   render() {
+    // CN fork: 公会报告列表依赖 wowanalyzer.com `/i/` 后端，禁用社交/上游功能时
+    // 快速失败并提示，而不是静默请求第三方。
+    if (import.meta.env.VITE_DISABLE_SOCIAL_FEATURES === 'true') {
+      return (
+        <main className="container offset">
+          <Panel title={t({ id: 'interface.guildReports.guildReports', message: '公会报告' })}>
+            <Trans id="interface.guildReports.cnForkDisabled">
+              国服版暂时不支持公会报告查询（该功能依赖原站后端）。请直接粘贴报告链接进行分析。
+            </Trans>
+          </Panel>
+        </main>
+      );
+    }
     let errorMessage;
     const filteredReports = this.filterReports;
 
@@ -321,36 +340,67 @@ class GuildReports extends Component<Props, State> {
 
     if (this.state.error === ERRORS.GUILD_NOT_FOUND) {
       errorMessage = (
-        <>{t({ id: 'interface.guildReports.errors.guildNotFoundDetails.p1', message: 'Please check your input and make sure that you\'ve selected the correct region and realm. ' })}
+        <>
+          {t({
+            id: 'interface.guildReports.errors.guildNotFoundDetails.p1',
+            message:
+              "Please check your input and make sure that you've selected the correct region and realm. ",
+          })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {t({ id: 'interface.guildReports.errors.guildNotFoundDetails.p2', message: 'If your input was correct, then make sure that someone in your raid logged the fight for you or check out the ' })}
+          {t({
+            id: 'interface.guildReports.errors.guildNotFoundDetails.p2',
+            message:
+              'If your input was correct, then make sure that someone in your raid logged the fight for you or check out the ',
+          })}
           {WCL_GUIDE}
-          {t({ id: 'interface.guildReports.errors.guildNotFoundDetails.p3', message: 'to get started with logging on your own. ' })}
+          {t({
+            id: 'interface.guildReports.errors.guildNotFoundDetails.p3',
+            message: 'to get started with logging on your own. ',
+          })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {t({ id: 'interface.guildReports.errors.guildNotFoundDetails.p4', message: 'When you know for sure that you have logs on Warcraft Logs and you still get this error, please message us on ' })}
+          {t({
+            id: 'interface.guildReports.errors.guildNotFoundDetails.p4',
+            message:
+              'When you know for sure that you have logs on Warcraft Logs and you still get this error, please message us on ',
+          })}
           {DISCORD}
-          {t({ id: 'interface.guildReports.errors.guildNotFoundDetails.p5', message: 'or create an issue on ' })}
+          {t({
+            id: 'interface.guildReports.errors.guildNotFoundDetails.p5',
+            message: 'or create an issue on ',
+          })}
           {GITHUB}
           {t({ id: 'interface.guildReports.errors.guildNotFoundDetails.p6', message: '.' })}
         </>
       );
     } else if (this.state.error === ERRORS.NOT_RESPONDING) {
       errorMessage = (
-        <>{t({ id: 'interface.guildReports.errors.notRespondingDetails.p1', message: 'It looks like we couldn\'t get a response in time from the API, this usually happens when the servers are under heavy load. ' })}
+        <>
+          {t({
+            id: 'interface.guildReports.errors.notRespondingDetails.p1',
+            message:
+              "It looks like we couldn't get a response in time from the API, this usually happens when the servers are under heavy load. ",
+          })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
-          {t({ id: 'interface.guildReports.errors.notRespondingDetails.p2', message: 'You could try and enter your report-code manually ' })}
+          {t({
+            id: 'interface.guildReports.errors.notRespondingDetails.p2',
+            message: 'You could try and enter your report-code manually ',
+          })}
           <Link to="/">here</Link>
           {t({ id: 'interface.guildReports.errors.notRespondingDetails.p3', message: '.' })}
           <br />
-          {t({ id: 'interface.guildReports.errors.notRespondingDetails.p4', message: 'That would bypass the guild lookup and we should be able to analyze your report.' })}
+          {t({
+            id: 'interface.guildReports.errors.notRespondingDetails.p4',
+            message:
+              'That would bypass the guild lookup and we should be able to analyze your report.',
+          })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
         </>
@@ -361,26 +411,41 @@ class GuildReports extends Component<Props, State> {
       this.state.error === ERRORS.UNEXPECTED
     ) {
       errorMessage = (
-        <>{this.state.errorMessage}
+        <>
+          {this.state.errorMessage}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {t({ id: 'interface.guildReports.errors.details.p1', message: 'Please message us on ' })}
           {DISCORD}
           {t({ id: 'interface.guildReports.errors.details.p2', message: 'or create an issue on ' })}
           {GITHUB}
-          {t({ id: 'interface.guildReports.errors.details.p3', message: 'if this issue persists and we will fix it, eventually.' })}
+          {t({
+            id: 'interface.guildReports.errors.details.p3',
+            message: 'if this issue persists and we will fix it, eventually.',
+          })}
         </>
       );
     } else if (this.state.error === ERRORS.NO_REPORTS_FOR_FILTER || filteredReports.length === 0) {
       errorMessage = (
-        <>{t({ id: 'interface.guildReports.errors.noReportsForFilterDetails.p1', message: 'Please check your filters and make sure that you logged those fights on Warcraft Logs. ' })}
+        <>
+          {t({
+            id: 'interface.guildReports.errors.noReportsForFilterDetails.p1',
+            message:
+              'Please check your filters and make sure that you logged those fights on Warcraft Logs. ',
+          })}
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
           {/* oxlint-disable-next-line wowanalyzer/no-br -- Baseline suppression */}
           <br />
-          {t({ id: 'interface.guildReports.errors.noReportsForFilterDetails.p2', message: 'Don\'t know how to log your fights? Check out the ' })}
+          {t({
+            id: 'interface.guildReports.errors.noReportsForFilterDetails.p2',
+            message: "Don't know how to log your fights? Check out the ",
+          })}
           {WCL_GUIDE}
-          {t({ id: 'interface.guildReports.errors.noReportsForFilterDetails.p3', message: 'to get started.' })}
+          {t({
+            id: 'interface.guildReports.errors.noReportsForFilterDetails.p3',
+            message: 'to get started.',
+          })}
         </>
       );
     }

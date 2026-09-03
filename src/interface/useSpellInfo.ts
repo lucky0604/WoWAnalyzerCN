@@ -18,10 +18,16 @@ const useSpellInfo = (spell: number | Spell | undefined) => {
   const argumentAsSpell =
     typeof spell === 'number' ? maybeGetTalentOrSpell(spell, expansion) : spell;
 
-  const { data, error } = useSWR<Spell>(spellId ? makeApiUrl(`spell/${spellId}`) : null, {
-    fetcher,
-    isPaused: () => argumentAsSpell !== undefined,
-  });
+  // CN fork: `/i/spell/{id}` 依赖 wowanalyzer.com 后端，禁用社交/上游功能时不发请求，
+  // 回退到本地 SPELLS 表与 WCL translate 数据。
+  const spellInfoDisabled = import.meta.env.VITE_DISABLE_SOCIAL_FEATURES === 'true';
+  const { data, error } = useSWR<Spell>(
+    spellId && !spellInfoDisabled ? makeApiUrl(`spell/${spellId}`) : null,
+    {
+      fetcher,
+      isPaused: () => argumentAsSpell !== undefined,
+    },
+  );
 
   useEffect(() => {
     // Only cache SWR API data when the spell isn't already in the table.

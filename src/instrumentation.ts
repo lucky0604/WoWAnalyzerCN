@@ -22,7 +22,8 @@ if (import.meta.env.VITE_SENTRY_DSN) {
 
     release: import.meta.env.VITE_VERSION,
     environment: import.meta.env.VITE_ENVIRONMENT_NAME,
-    allowUrls: ['wowanalyzer.com/assets/'],
+    // CN fork: 不再按域名过滤，否则本站自身 bundle 的报错会被全部丢弃
+    // (原值 'wowanalyzer.com/assets/' 会让 Sentry 对本站失效)。
 
     beforeSend(event) {
       // this is *an attempt* to keep sentry from sending up user info that we don't want & don't need
@@ -38,7 +39,9 @@ if (import.meta.env.VITE_SENTRY_DSN) {
     tracesSampleRate: 1.0,
 
     // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
-    tracePropagationTargets: ['localhost', /^https:\/\/wowanalyzer\.com\/i/],
+    // CN fork: 只对本站同源请求传播 trace 头，去掉 wowanalyzer.com 正则，
+    // 也不向 WCL API 等第三方传播。
+    tracePropagationTargets: ['localhost', /^\//],
 
     ignoreErrors: [/TypeError: Failed to fetch/, /Failed to fetch/],
   });

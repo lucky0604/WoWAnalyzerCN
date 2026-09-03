@@ -239,8 +239,9 @@ class EncounterStats extends PureComponent<Props, State> {
       >
         <div className="row" style={{ opacity: '.8', fontSize: '.9em', lineHeight: '2em' }}>
           <div className="flex-column col-md-6">
+            {/* CN fork: 榜单示例链接指到本站分析页，而不是原站 */}
             <a
-              href={`https://wowanalyzer.com/report/${log.report.code}/${log.report.fightID}/${log.name}`}
+              href={`/report/${log.report.code}/${log.report.fightID}/${log.name}`}
               target="_blank"
               rel="noopener noreferrer"
             >

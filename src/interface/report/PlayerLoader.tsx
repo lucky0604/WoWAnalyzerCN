@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { defineMessage, t } from '@lingui/core/macro';
 import { Trans } from '@lingui/react/macro';
 import getFightName from 'common/getFightName';
@@ -22,18 +22,102 @@ import DocumentTitle from 'interface/DocumentTitle';
 import PlayerSelection from './PlayerSelection';
 import { getPlayerIdFromParam } from 'interface/selectors/url/report/getPlayerId';
 import { i18n } from '@lingui/core';
-import useSWR from 'swr';
 import { PlayerDetails } from 'parser/core/Player';
-import makeApiUrl from 'common/makeApiUrl';
+import Report from 'parser/core/Report';
+import { WCLFight } from 'parser/core/Fight';
+import { fetchCombatants } from 'common/fetchWclApi';
+import { uniqueBy } from 'common/uniqueBy';
+import getAverageItemLevel from 'game/getAverageItemLevel';
+import ROLES from 'game/ROLES';
+import SPECS from 'game/SPECS';
+import GameBranch from 'game/GameBranch';
+import { normalizedEncounterId } from 'game/raids';
+import { CombatantInfoEvent } from 'parser/core/Events';
 import { getPlayerNameFromParam } from 'interface/selectors/url/report/getPlayerName';
 
 interface Props {
   children: ReactNode;
 }
 
-interface PlayerDetailsResponse {
-  players: PlayerDetails[];
-}
+// CN fork: 上游的 `v2/report/{code}/fight/{id}/players` 端点托管在 wowanalyzer.com 后端，
+// 其数据源是国际服 WCL v2，无法解析国服报告码（实测返回 500）。不再请求该端点，
+// 改用 WCL v1 数据本地派生玩家列表：combatantinfo 事件携带 specID 与装备（可算 ilvl），
+// fights 响应的 friendlies 携带 name/guid/server/region。
+const matchSpecFromIcon = (icon: string | undefined, branch: GameBranch) => {
+  if (!icon) {
+    return undefined;
+  }
+  const [className, specName] = icon.split('-');
+  if (!specName) {
+    return undefined;
+  }
+  return Object.values(SPECS).find(
+    (spec) =>
+      spec.branch === branch && spec.wclClassName === className && spec.wclSpecName === specName,
+  );
+};
+
+const roleToString = (role: number | undefined): PlayerDetails['role'] => {
+  switch (role) {
+    case ROLES.TANK:
+      return 'tank';
+    case ROLES.HEALER:
+      return 'healer';
+    default:
+      return 'dps';
+  }
+};
+
+export const derivePlayers = async (report: Report, fight: WCLFight): Promise<PlayerDetails[]> => {
+  const branch = wclGameVersionToBranch(report.gameVersion);
+  let combatants = (await fetchCombatants(
+    report.code,
+    fight.start_time,
+    fight.end_time,
+  )) as CombatantInfoEvent[];
+  if (combatants.length === 0 && branch === GameBranch.Classic) {
+    // classic 的 RP 处理有时会把战斗开头拆到前一个 dummy fight，combatantinfo 在那里。
+    // 重复击杀的 BOSS 编号会被 WCL 加上 50000 偏移，比对前必须归一化
+    // （与 report/index.tsx 的同款回退一致）。
+    const prevFight = report.fights.find((other) => other.id === fight.id - 1);
+    if (
+      prevFight &&
+      prevFight.boss === 0 &&
+      prevFight.originalBoss === normalizedEncounterId(fight.boss)
+    ) {
+      combatants = (await fetchCombatants(
+        report.code,
+        prevFight.start_time,
+        prevFight.end_time,
+      )) as CombatantInfoEvent[];
+    }
+  }
+  const players: PlayerDetails[] = [];
+  for (const combatant of uniqueBy(combatants, (combatant) => combatant.sourceID)) {
+    const friendly = report.friendlies.find((friendly) => friendly.id === combatant.sourceID);
+    if (!friendly) {
+      continue;
+    }
+    // specID 为 -1 表示 WCL 未解析出天赋，仍可从 friendly.icon（"Class-Spec"）匹配；
+    // 直接丢弃会让该玩家从选择列表与团队构成里消失。
+    const spec =
+      (combatant.specID !== -1 ? SPECS[combatant.specID] : undefined) ??
+      matchSpecFromIcon(friendly.icon, branch);
+    players.push({
+      id: friendly.id,
+      name: friendly.name,
+      guid: friendly.guid,
+      server: friendly.server ?? '',
+      region: friendly.region ?? '',
+      className: spec?.wclClassName ?? friendly.type ?? '',
+      specName: spec?.wclSpecName,
+      specID: spec?.id ?? 0,
+      role: roleToString(spec?.role),
+      ilvl: combatant.gear ? getAverageItemLevel(combatant.gear) : undefined,
+    });
+  }
+  return players;
+};
 
 const PlayerLoader = ({ children }: Props) => {
   const { report: selectedReport } = useReport();
@@ -42,21 +126,39 @@ const PlayerLoader = ({ children }: Props) => {
   const playerId = getPlayerIdFromParam(playerParam);
   const playerName = getPlayerNameFromParam(playerParam);
   const navigate = useNavigate();
-  const { data, error, isLoading } = useSWR<PlayerDetailsResponse>(
-    makeApiUrl(`v2/report/${selectedReport.code}/fight/${selectedFight.id}/players`),
-    {
-      fetcher: (url) => fetch(url).then((res) => res.json()),
-      isPaused: () => isUnsupportedClassicVersion(selectedReport.gameVersion),
-    },
-  );
+  const [players, setPlayers] = useState<PlayerDetails[] | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    if (isUnsupportedClassicVersion(selectedReport.gameVersion)) {
+      return;
+    }
+    let cancelled = false;
+    setPlayers(null);
+    setError(null);
+    derivePlayers(selectedReport, selectedFight)
+      .then((derived) => {
+        if (!cancelled) {
+          setPlayers(derived);
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          setError(err);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedReport, selectedFight]);
 
   // re-routing for accesses with player name but no id. if exact match, route to id.
   // if no exact match (missing or multiple matches) reroute to player selection.
   //
   // would like everything to have the id, but there are a lot of urls floating around with name only
   useEffect(() => {
-    if (playerName && !playerId && data?.players) {
-      const namedPlayers = data.players.filter((player) => player.name === playerName);
+    if (playerName && !playerId && players) {
+      const namedPlayers = players.filter((player) => player.name === playerName);
 
       if (namedPlayers.length === 1) {
         navigate(makeAnalyzerUrl(selectedReport, selectedFight.id, namedPlayers[0].id), {
@@ -68,16 +170,13 @@ const PlayerLoader = ({ children }: Props) => {
         });
       }
     }
-  }, [playerId, playerName, data?.players, selectedReport, selectedFight, navigate]);
+  }, [playerId, playerName, players, selectedReport, selectedFight, navigate]);
 
   const player = useMemo(
-    () => data?.players.find((player) => player.id === playerId),
-    [data?.players, playerId],
+    () => players?.find((player) => player.id === playerId),
+    [players, playerId],
   );
 
-  // react compiler infers `data` instead of `data?.players` for this.
-  // similar-ish results i think? but easy enough to leave alone
-  // eslint-disable-next-line react-hooks/preserve-manual-memoization
   const composition = useMemo(() => {
     const result = {
       tank: 0,
@@ -86,19 +185,19 @@ const PlayerLoader = ({ children }: Props) => {
       ilvl: 0,
     };
 
-    if (!data?.players) {
+    if (!players) {
       return result;
     }
 
-    for (const player of data.players) {
+    for (const player of players) {
       result.ilvl += player.ilvl ?? 0;
       result[player.role] += 1;
     }
 
-    result.ilvl /= data.players.length;
+    result.ilvl /= players.length;
 
     return result;
-  }, [data?.players]);
+  }, [players]);
 
   if (isUnsupportedClassicVersion(selectedReport.gameVersion)) {
     return (
@@ -126,16 +225,25 @@ const PlayerLoader = ({ children }: Props) => {
     // TODO: i18n
     return (
       <div className="container offset">
-        <Panel title={'Something went wrong'}>
+        <Panel
+          title={t({
+            id: 'interface.report.render.playerListError',
+            message: '出了点问题',
+          })}
+        >
           <div className="flex wrapable">
-            <div className="flex-main">An unexpected error occurred loading the player list.</div>
+            <div className="flex-main">
+              <Trans id="interface.report.render.playerListErrorDetails">
+                加载玩家列表时发生意外错误。
+              </Trans>
+            </div>
           </div>
         </Panel>
       </div>
     );
   }
 
-  if (isLoading || !data) {
+  if (!players) {
     return (
       <ActivityIndicator
         text={t({
@@ -223,16 +331,16 @@ const PlayerLoader = ({ children }: Props) => {
           <ReportDurationWarning duration={reportDuration} />
         )}
 
-        {data.players.length === 0 && <AdvancedLoggingWarning />}
+        {players.length === 0 && <AdvancedLoggingWarning />}
 
         <PlayerSelection
           report={selectedReport}
-          players={data.players}
+          players={players}
           makeUrl={(playerId) =>
             makeAnalyzerUrl(selectedReport, selectedFight.id, playerId, undefined)
           }
         />
-        <ReportRaidBuffList report={selectedReport} players={data.players} />
+        <ReportRaidBuffList report={selectedReport} players={players} />
       </main>
     );
   }
@@ -248,7 +356,7 @@ const PlayerLoader = ({ children }: Props) => {
         })}
       />
 
-      <PlayerProvider player={player} allPlayers={data.players}>
+      <PlayerProvider player={player} allPlayers={players}>
         {children}
       </PlayerProvider>
     </>

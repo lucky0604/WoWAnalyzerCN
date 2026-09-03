@@ -16,7 +16,8 @@ import CharacterProfile from 'parser/core/CharacterProfile';
  *   1. `GET /index?realm_slug=<CN 服>&role_name=<角色名>` 拿 `token` + `character_summary` + `character_media`
  *   2. (可选)`GET /do?token=...&api=specializations` 补全当前专精等
  *
- * 该网关仅用于国服(CN)角色;非 CN 角色仍走上游 wowanalyzer.com `/i/character/{id}`。
+ * 该网关仅用于国服(CN)角色;非 CN 角色资料依赖原站后端，在 VITE_DISABLE_SOCIAL_FEATURES=true
+ * 时直接跳过（不发起任何请求）。
  */
 
 const CN_ARMORY_BASE = import.meta.env.VITE_CN_ARMORY_BASE || '/cn-armory/wow-armory-server/api';

@@ -16,15 +16,6 @@ server {
 		proxy_set_header Accept-Encoding "";
 	}
 
-	location /i/ {
-		proxy_pass ${WOWANALYZER_API_PROXY_TARGET};
-		proxy_ssl_server_name on;
-		proxy_set_header Host ${WOWANALYZER_API_PROXY_HOST};
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_set_header Accept-Encoding "";
-	}
-
 	# CN fork: 角色资料走 CN 英雄榜网关。同源代理以绕过网关 CORS 对 auth 头的限制。
 	# 前端请求 /cn-armory/wow-armory-server/api/... → 去掉 /cn-armory 前缀转发到网关。
 	location /cn-armory/ {
@@ -35,6 +26,12 @@ server {
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header Accept-Encoding "";
+	}
+
+	# CN fork: /i/ 上游反代已移除。显式 404，避免漏网请求落入 SPA fallback
+	# 拿到 200 的 HTML 冒充 API 响应。
+	location /i/ {
+		return 404;
 	}
 
 	location = /user {

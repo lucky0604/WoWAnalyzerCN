@@ -66,7 +66,13 @@ const NameSearch = ({ type }: Props) => {
       }
       setLoading(true);
       // There is no API for CN or Classic
-      if (game === retailExpansion && region !== 'CN') {
+      // CN fork: 该存在性预检走 wowanalyzer.com `/i/` 后端，禁用社交/上游功能时跳过，
+      // 直接导航，由角色/公会页面自己处理"查不到"的情况。
+      if (
+        game === retailExpansion &&
+        region !== 'CN' &&
+        import.meta.env.VITE_DISABLE_SOCIAL_FEATURES !== 'true'
+      ) {
         let response;
         if (type === SearchType.GUILD) {
           response = await fetch(makeGuildApiUrl(region, realm, name));

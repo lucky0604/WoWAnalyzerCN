@@ -26,6 +26,11 @@ export const fetchCharacter = createAsyncThunk<CharacterProfile | null, FetchCha
     if (!isSupportedRegion(arg.region)) {
       throw new Error('Region not supported');
     }
+    // CN fork: 非国服角色资料走 wowanalyzer.com `/i/` 后端，禁用社交/上游功能时跳过
+    // （返回 null 与 404 一致：只显示降级的头像，不发起请求）。
+    if (import.meta.env.VITE_DISABLE_SOCIAL_FEATURES === 'true') {
+      return null;
+    }
     const response = await fetch(
       makeCharacterApiUrl(arg.guid, arg.region, arg.server, arg.name, arg.classic),
     );
