@@ -62,7 +62,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 4px 6px 18px;
+  padding: 4px 6px 6px;
 }
 .rail-brand-logo {
   width: 40px;
@@ -71,15 +71,19 @@
 }
 .rail-brand-name {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.3em;
   line-height: 1.2;
+  color: var(--gold-100);
 }
-.rail-brand-sub {
+.rail-brand-tag {
   display: block;
+  margin: 0 0 12px;
+  padding: 0 6px;
   font-size: 10px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.06em;
+  line-height: 1.55;
   color: var(--ink-500);
 }
 

@@ -11,7 +11,7 @@ const STROKE = {
   strokeLinejoin: 'round',
 } as const;
 
-function RouteIcon() {
+function AnalyzeIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
       <path d="M3 18c5 0 4-9 9-9s5 5 9-4" />
@@ -21,7 +21,46 @@ function RouteIcon() {
   );
 }
 
-function BookIcon() {
+function DungeonsIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
+      <path d="M4.5 20V9.5a7.5 7.5 0 0 1 15 0V20" />
+      <path d="M9.5 20v-5.5a2.5 2.5 0 0 1 5 0V20" />
+      <path d="M2.5 20h19" />
+    </svg>
+  );
+}
+
+function RaidsIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
+      <path d="M12 3l7 2.5v5.6c0 4.5-2.9 7.4-7 8.9-4.1-1.5-7-4.4-7-8.9V5.5z" />
+      <path d="M12 7.5v6" />
+      <path d="M9.5 10.5h5" />
+    </svg>
+  );
+}
+
+function ClassesIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
+      <circle cx="12" cy="7.5" r="3" />
+      <path d="M5.5 19.5c.9-3.8 3.4-5.7 6.5-5.7s5.6 1.9 6.5 5.7" />
+    </svg>
+  );
+}
+
+function IntelIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
+      <path d="M4 10v4h3.5l6.5 4.5v-13L7.5 10H4z" />
+      <path d="M17.5 9.5a4.2 4.2 0 0 1 0 5" />
+      <path d="M19.8 7.5a7.4 7.4 0 0 1 0 9" />
+    </svg>
+  );
+}
+
+function LibraryIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
       <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" />
@@ -30,49 +69,20 @@ function BookIcon() {
   );
 }
 
-function ChartIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
-      <path d="M4 20V4" />
-      <path d="M4 20h16" />
-      <path d="M8.5 16v-5M13 16V8M17.5 16v-8" />
-    </svg>
-  );
-}
-
-function GearIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1" />
-    </svg>
-  );
-}
-
-function TeamIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" {...STROKE} aria-hidden="true">
-      <circle cx="8.5" cy="8" r="3" />
-      <circle cx="16.5" cy="9.5" r="2.4" />
-      <path d="M3 19c.6-3.4 2.9-5 5.5-5s4.9 1.6 5.5 5" />
-      <path d="M15.5 14.5c2.4.1 4.4 1.6 5 4.5" />
-    </svg>
-  );
-}
-
 interface NavItem {
-  label: string;
+  title: string;
   sub: string;
   to: string;
   icon: () => ReactNode;
 }
 
 const NAV: NavItem[] = [
-  { label: '成长地图', sub: '本次战斗路径', to: '/', icon: RouteIcon },
-  { label: '学习宝库', sub: '指南与攻略', to: '#', icon: BookIcon },
-  { label: '数据洞察', sub: '跨场次趋势', to: '#', icon: ChartIcon },
-  { label: '装备模拟', sub: '收益对比', to: '#', icon: GearIcon },
-  { label: '团队管理', sub: '成员与权限', to: '#', icon: TeamIcon },
+  { title: 'Analyze', sub: '分析', to: '/', icon: AnalyzeIcon },
+  { title: 'Dungeons', sub: '大秘境', to: '#', icon: DungeonsIcon },
+  { title: 'Raids', sub: '团本', to: '#', icon: RaidsIcon },
+  { title: 'Classes', sub: '职业', to: '#', icon: ClassesIcon },
+  { title: 'Intel', sub: '版本情报', to: '#', icon: IntelIcon },
+  { title: 'Library', sub: '资料库', to: '#', icon: LibraryIcon },
 ];
 
 /** 左侧导航轨：active = 左缘 2px 紫线 + 紫 6% 底 + icon 微光 */
@@ -81,41 +91,38 @@ export function NavigationRail() {
   const activeIndex = pathname.startsWith('/report') ? 0 : NAV.findIndex((n) => n.to === pathname);
 
   return (
-    <nav className="rail" aria-label="战斗观测台主导航">
+    <nav className="rail" aria-label="ARC 主导航">
       <div className="rail-brand">
         <img src={logoUrl} alt="" className="rail-brand-logo" />
-        <div>
-          <span className="rail-brand-name">WoWAnalyzerCN</span>
-          <span className="rail-brand-sub">观测台</span>
-        </div>
+        <span className="rail-brand-name">ARC</span>
       </div>
+      <span className="rail-brand-tag">World of Warcraft Research Companion</span>
       <div className="rail-nav">
         {NAV.map((item, i) => {
           const Icon = item.icon;
           const isActive = i === activeIndex;
-          return item.to === '#' ? (
-            <a key={item.label} href="#" className="rail-item" onClick={(e) => e.preventDefault()}>
+          const inner = (
+            <>
               <span className="rail-item-icon">
                 <Icon />
               </span>
               <span>
-                <span className="rail-item-title">{item.label}</span>
+                <span className="rail-item-title">{item.title}</span>
                 <span className="rail-item-sub">{item.sub}</span>
               </span>
+            </>
+          );
+          return item.to === '#' ? (
+            <a key={item.title} href="#" className="rail-item" onClick={(e) => e.preventDefault()}>
+              {inner}
             </a>
           ) : (
             <Link
-              key={item.label}
+              key={item.title}
               to={item.to}
               className={`rail-item ${isActive ? 'is-active' : ''}`}
             >
-              <span className="rail-item-icon">
-                <Icon />
-              </span>
-              <span>
-                <span className="rail-item-title">{item.label}</span>
-                <span className="rail-item-sub">{item.sub}</span>
-              </span>
+              {inner}
             </Link>
           );
         })}
@@ -124,7 +131,7 @@ export function NavigationRail() {
         <button type="button" className="btn btn-secondary btn-sm">
           升级专业版
         </button>
-        <span className="t-meta">视觉稿 v1 · CN</span>
+        <span className="t-meta">ARC v1 · 演示预览</span>
       </div>
     </nav>
   );

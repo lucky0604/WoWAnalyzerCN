@@ -42,7 +42,7 @@ export function Component() {
 
   return (
     <>
-      <DocumentTitle title="战报 · 塞塔利斯神庙 M+ 12 · WoWAnalyzerCN" />
+      <DocumentTitle title="战报 · 塞塔利斯神庙 M+ 12 · ARC" />
       <div className="report-topbar">
         <button type="button" className="btn-ghost" onClick={() => navigate('/')}>
           ← 战报档案

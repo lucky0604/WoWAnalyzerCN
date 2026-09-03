@@ -74,19 +74,19 @@ export function Component() {
 
   return (
     <>
-      <DocumentTitle title="战斗观测台 · WoWAnalyzerCN" />
+      <DocumentTitle title="ARC · World of Warcraft Research Companion" />
       <div className="home-grid">
         <section className="home-stage">
           <div className="hero-copy">
-            <span className="t-eyebrow">Combat Observatory · 战斗观测台</span>
+            <span className="t-eyebrow">ARC · World of Warcraft Research Companion</span>
             <h1 className="t-hero">
-              <span className="hero-line">把一次战斗，</span>
+              <span className="hero-line">看见规律，</span>
               <span className="hero-line">
-                变成可探索的<span className="hero-title-accent">成长地图</span>。
+                找到自己的<span className="hero-title-accent">打法</span>。
               </span>
             </h1>
             <p className="hero-sub">
-              基于 Warcraft Logs，AI 解读每一次决策与技能，指引你走向更强的自己。
+              See the pattern. Find your path. 把一场战斗，变成可探索的成长地图。
             </p>
             <Panel corners sunken className={`console ${phase === 'error' ? 'is-error' : ''}`}>
               <div className="console-label">

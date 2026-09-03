@@ -26,8 +26,10 @@ export function SiteLayout() {
         <main className="site-main">
           <Outlet />
           <div className="site-footer-line t-meta">
-            <span>WoWAnalyzerCN · 战斗观测台 视觉稿 v1</span>
-            <span>演示数据 · 纹理与图形均为代码实现，图片素材位待补充</span>
+            <span>ARC · World of Warcraft Research Companion</span>
+            <span>
+              核心分析引擎：WoWAnalyzer · 数据来自 Warcraft Logs（WCL） · ARC v1 视觉稿，演示数据
+            </span>
           </div>
         </main>
       </div>

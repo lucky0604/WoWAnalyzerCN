@@ -1,4 +1,10 @@
-# src/site — 战斗观测台（site-refactor 视觉稿 v1）
+# src/site — ARC（site-refactor 视觉稿 v1）
+
+ARC — World of Warcraft Research Companion（品牌名）。
+口号：See the pattern. Find your path. / 看见规律，找到自己的打法。
+核心分析引擎：WoWAnalyzer；数据来自 Warcraft Logs（WCL）。
+页面信息架构分六大板块：Analyze（分析）/ Dungeons（大秘境）/ Raids（团本）/
+Classes（职业）/ Intel（版本情报）/ Library（资料库）。
 
 设计来源：`agent_flow/site-refactor/WowAnalyzerCN_UI_UX_IMPLEMENTATION_SPEC_v1.md`
 （配套两张 CHATGPT 视觉稿截图，同目录）。
