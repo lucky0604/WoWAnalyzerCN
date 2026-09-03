@@ -38,6 +38,14 @@ const useCharacterProfile = ({ report, player }: { report: Report; player: Playe
 
       const classic = wclGameVersionToBranch(report.gameVersion) === 'classic';
 
+      // CN fork: 非国服角色资料走 wowanalyzer.com `/i/` 后端，禁用社交/上游功能时跳过，
+      // 头像等按无资料降级。CN 角色走 CN armory 网关（同源代理，不受影响）。
+      if (import.meta.env.VITE_DISABLE_SOCIAL_FEATURES === 'true') {
+        setCharacterProfile(null);
+        setIsLoading(false);
+        return;
+      }
+
       try {
         const result = await fetch(makeCharacterApiUrl(player.guid, region, realm, name, classic));
 

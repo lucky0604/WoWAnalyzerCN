@@ -37,10 +37,17 @@ export interface Selection {
 // note: not naming it 'server-metrics' to avoid zealous adblock extensions blocking it as an ad tracking call (which it is not)
 const ENDPOINT = 'v1/server-data';
 
+// CN fork: server metrics 上传/汇总依赖 wowanalyzer.com `/i/` 后端，禁用社交/上游功能时
+// 上传静默跳过、加载返回空集，不发起任何请求。
+const SOCIAL_FEATURES_DISABLED = import.meta.env.VITE_DISABLE_SOCIAL_FEATURES === 'true';
+
 export async function uploadServerMetrics(
   selection: Selection,
   serverMetrics: ServerMetrics,
 ): Promise<void> {
+  if (SOCIAL_FEATURES_DISABLED) {
+    return;
+  }
   try {
     const response = await fetch(makeApiUrl(ENDPOINT), {
       body: JSON.stringify({
@@ -65,6 +72,9 @@ export async function uploadServerMetrics(
 export async function loadServerMetrics(): Promise<
   Array<[Spec, Partial<ServerMetrics<Aggregate>>]>
 > {
+  if (SOCIAL_FEATURES_DISABLED) {
+    return [];
+  }
   const response = await fetch(makeApiUrl(ENDPOINT));
   const data: RawServerMetricValue[] = await response.json();
 

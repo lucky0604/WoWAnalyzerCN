@@ -142,15 +142,21 @@ class ReportSelectionHeader extends PureComponent<Props, State> {
                         })}
                       </a>
                     </li>
-                    <li
-                      key="guild"
-                      className={this.state.searchType === StateSearch.Guild ? 'active' : undefined}
-                    >
-                      <a href="/" style={{ padding: '5px' }} onClick={this.handleGuildSearchClick}>
-                        <GuildIcon />
-                        {t({ id: 'interface.home.reportSelectionHeader.guild', message: 'Guild' })}
-                      </a>
-                    </li>
+                    {/* CN fork: 公会搜索的预检与报告列表依赖 wowanalyzer.com `/i/` 后端，
+                        禁用社交/上游功能时隐藏入口（公会页会显示禁用提示）。 */}
+                    {import.meta.env.VITE_DISABLE_SOCIAL_FEATURES !== 'true' && (
+                      <li
+                        key="guild"
+                        className={
+                          this.state.searchType === StateSearch.Guild ? 'active' : undefined
+                        }
+                      >
+                        <a href="/" style={{ padding: '5px' }} onClick={this.handleGuildSearchClick}>
+                          <GuildIcon />
+                          {t({ id: 'interface.home.reportSelectionHeader.guild', message: 'Guild' })}
+                        </a>
+                      </li>
+                    )}
                   </ul>
                 </nav>
                 {this.renderSearch()}
