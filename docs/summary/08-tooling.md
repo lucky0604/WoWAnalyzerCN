@@ -73,7 +73,7 @@
 ## 8. 部署（国服）
 
 - **Dockerfile + docker-compose.yml**：以 nginx 提供静态构建产物，并反代三个国服 API（`/wcl-api`、`/i/`、`/cn-armory`），见 [06-cn-localization.md](./06-cn-localization.md) §6。
-- nginx 配置 `default.conf` / `default.conf.template`：SPA `try_files` 回退 `index.html`。
+- nginx 配置 `default.conf.template`：SPA `try_files` 回退 `index.html`。
 - 部署要点详见 `docs/deployment-cn.md`。
 
 ## 9. 开发环境联网拓扑

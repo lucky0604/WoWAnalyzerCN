@@ -15,6 +15,18 @@ If you ever get stuck or want to have a chat, join us on our [Discord](https://w
 > [!IMPORTANT]
 > WoWAnalyzer does not accept AI-generated code from unknown contributors. See our [AI Policy](./AI_POLICY.md) for details.
 
+## CN fork: 本地开发需要先启动 WCL 代理
+
+本仓库不再向 `wowanalyzer.com` 发起任何 API 请求（原站已加入反爬虫措施）。本地开发
+（`pnpm run start`）默认通过同源 `/wcl-api/` 走本地 wcl-proxy-server：
+
+1. 先启动 wcl-proxy-server（监听 `localhost:9528`。该服务独立于本仓库、自带 WCL 凭据
+   不入库；dev 代理链路说明见 `docs/summary/06-cn-localization.md`）；
+2. 再执行 `pnpm run start`（`.env.development` 已设 `VITE_WCL_DIRECT=true`）。
+
+未配置任何 WCL API（`VITE_WCL_API_BASE` / `VITE_WCL_DIRECT`）时会直接报错，
+不会静默回退到原站。生产/部署形态见 `docs/deployment-cn.md`。
+
 ## Getting started
 
 First make sure you have the following:

@@ -92,16 +92,16 @@ Node ESM 脚本（无导出符号）。读取国服服务器表（来自 `wcl-mp
 - `/wcl-api` → `http://localhost:9528`（本地 `wcl-proxy-server`），重写 `/wcl-api → /v1`，`VITE_WCL_DIRECT=true` 时生效。
 - `/cn-armory` → `https://webapi.rpglogs.cn`，重写剥离 `/cn-armory`（消除拦截 `auth` 头的 CORS preflight）。
 
-### 6.2 生产（`default.conf` / `default.conf.template` / `Dockerfile`）
+### 6.2 生产（`default.conf.template` / `Dockerfile`）
 
 - `/wcl-api/` → `proxy_pass https://wcl-live-mp.rpglogs.cn/v1/`（国服 WCL API）。
-- `/i/` → `proxy_pass https://wowanalyzer.com/i/`（非 CN 角色/API 透传）。
+- `/i/` 代理已删除（CN fork：不再向 wowanalyzer.com 发任何请求）。
 - `/cn-armory/` → `rewrite ^/cn-armory/(.*)$ /$1 break; proxy_pass https://webapi.rpglogs.cn`（CN 网关）。
 - 另有 `/user` 401 stub、`/logout`、`/static`、SPA `try_files ... /index.html`。
 
 ### 6.3 `docker-compose.yml`
 
-单一 `nginx` 服务。构建参数：`NPM_CONFIG_REGISTRY`（默认 `https://registry.npmmirror.com`）、`VITE_WCL_API_BASE`（默认 `https://wcl-live-mp.rpglogs.cn`）、`VITE_WCL_DIRECT`（默认 `false`）、`VITE_SERVER_BASE`、`VITE_API_BASE`（默认 `i/`）、`VITE_ENABLE_GA`、`VITE_DISABLE_USER_FETCH`。运行时环境：`WCL_API_PROXY_TARGET`/`_HOST`、`WOWANALYZER_API_PROXY_TARGET`/`_HOST`、`CN_ARMORY_API_PROXY_TARGET`/`_HOST`（默认 `webapi.rpglogs.cn`）。暴露 `${NGINX_PORT:-9000}:80`，网络 `wowanalyzer`。
+单一 `nginx` 服务。构建参数：`NPM_CONFIG_REGISTRY`（默认 `https://registry.npmmirror.com`）、`VITE_WCL_API_BASE`（默认 `https://wcl-live-mp.rpglogs.cn`）、`VITE_WCL_DIRECT`（默认 `false`）、`VITE_SERVER_BASE`、`VITE_API_BASE`（默认 `i/`）、`VITE_ENABLE_GA`、`VITE_DISABLE_USER_FETCH`、`VITE_DISABLE_SOCIAL_FEATURES`。运行时环境：`WCL_API_PROXY_TARGET`/`_HOST`、`CN_ARMORY_API_PROXY_TARGET`/`_HOST`（默认 `webapi.rpglogs.cn`）；`WOWANALYZER_API_PROXY_*` 已随 `/i/` 代理删除。暴露 `${NGINX_PORT:-9000}:80`，网络 `wowanalyzer`。
 
 ## 7. 一图流：国服数据定制全景
 
@@ -115,7 +115,7 @@ Node ESM 脚本（无导出符号）。读取国服服务器表（来自 `wcl-mp
   slug 表      ── CN_SERVER_SLUG.ts ── 生成自 wcl-mp regions.ts
   中文名       ── CN_MAPPING/ ── 技能/首领/副本/NPC/区域
   Guide 定制   ── localization/overrides/ ── cn-overrides 插件重定向
-  部署         ── default.conf + docker-compose ── nginx 反代
+  部署         ── default.conf.template + docker-compose ── nginx 反代
 ```
 
 ## 8. 关键事实

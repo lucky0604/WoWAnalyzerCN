@@ -23,11 +23,11 @@
 
 1. **`VITE_WCL_API_BASE` 已设置** → 直连该完整 URL（如 `https://wcl-live-mp.rpglogs.cn`），拼 `/v1/{endpoint}`。这是国服直连模式。
 2. **`VITE_WCL_DIRECT === 'true'`** → 同源 `/wcl-api/{endpoint}`（dev 时 Vite 代理到本地 `wcl-proxy-server` 端口 9528，该代理自带认证）。
-3. **否则** → `makeApiUrl('v1/'+endpoint)` → 上游 `wowanalyzer.com/i/` 代理（原版默认）。
+3. **否则 → 直接抛错**（CN fork：原版的 `wowanalyzer.com/i/` 代理回退已删除，原站已加反爬，不允许任何静默回退）。
 
 ### 1.3 `makeApiUrl.ts` —— 上游应用代理
 
-- `makeApiUrl(endpoint, ...)` → `{VITE_SERVER_BASE}{VITE_API_BASE}i/{endpoint}`。
+- `makeApiUrl(endpoint, ...)` → `{VITE_SERVER_BASE}{VITE_API_BASE}i/{endpoint}`。CN fork：所有 `/i/` 消费方（玩家名册、spell 信息、角色/公会、server metrics）已全部改造或经 `VITE_DISABLE_SOCIAL_FEATURES` 关闭，不再构成对原站的请求。
 - `makeCharacterApiUrl(...)` → 构建 `i/character[/classic]/[id]/[region]/[realmSlug]/[name]`，realm slug 经 `game/REALMS` 解析。
 - `makeGuildApiUrl(...)` → 类似 `i/guild/...`。
 
@@ -117,7 +117,7 @@ const CN_ARMORY_BASE =
 
 ### 4.1 SWR
 
-`PlayerLoader.tsx`：`useSWR<PlayerDetailsResponse>(makeApiUrl('v2/report/{code}/fight/{id}/players'), { fetcher, isPaused })` —— Redux 之外的服务器数据缓存，专用于玩家名册。
+`PlayerLoader.tsx`：CN fork 改造 —— 原版 `useSWR(makeApiUrl('v2/report/{code}/fight/{id}/players'))` 依赖 wowanalyzer.com 后端（无法解析国服报告码），已替换为本地派生：`fetchCombatants`（combatantinfo 事件，提供 specID/ilvl）+ `report.friendlies`（name/guid/server/region），经 `SPECS` 映射为 `PlayerDetails[]`。
 
 ### 4.2 Redux 与角色缓存
 
@@ -143,10 +143,10 @@ const CN_ARMORY_BASE =
 
 ### 生产（nginx）
 
-`default.conf` / `default.conf.template` / `docker-compose.yml`：
+`default.conf.template` / `docker-compose.yml`：
 
 - `/wcl-api/` → `proxy_pass https://wcl-live-mp.rpglogs.cn/v1/`（国服 WCL API）
-- `/i/` → `proxy_pass https://wowanalyzer.com/i/`（非 CN 角色/API 透传）
+- ~~`/i/` → `proxy_pass https://wowanalyzer.com/i/`~~（CN fork：已删除，不再有任何 `/i/` 转发）
 - `/cn-armory/` → `rewrite ^/cn-armory/(.*)$ /$1 break; proxy_pass https://webapi.rpglogs.cn`（CN 网关）
 
 ### 关键环境变量（`.env.example`）

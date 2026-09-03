@@ -60,7 +60,7 @@
 ├── scripts/                                # 各类生成脚本（talent/enchant/slug/翻译检查）
 ├── vite-plugins/                           # cn-overrides 构建插件
 ├── vite.config.ts                          # Vite 配置（含 /wcl-api、/cn-armory 代理）
-├── default.conf / docker-compose.yml       # 国服部署
+├── default.conf.template / docker-compose.yml       # 国服部署
 └── docs/                                   # 项目文档
 ```
 

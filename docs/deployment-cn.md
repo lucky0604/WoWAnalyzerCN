@@ -5,7 +5,7 @@
 ## 前置要求
 
 - 服务器已安装 Docker 及 docker compose(v2)。
-- 已按仓库根目录 `default.conf` / `docker-compose.yml` 的现有结构执行过一次基础部署。
+- 已按仓库根目录 `default.conf.template` / `docker-compose.yml` 的现有结构执行过一次基础部署。
 
 ## 部署命令
 
@@ -54,8 +54,6 @@ NGINX_PORT=8080 docker compose up -d --build
 | `CN_ARMORY_API_PROXY_HOST`     | `webapi.rpglogs.cn`                  | 转发到目标时的 Host 头            |
 | `WCL_API_PROXY_TARGET`         | `https://wcl-live-mp.rpglogs.cn/v1/` | `/wcl-api` 代理目标               |
 | `WCL_API_PROXY_HOST`           | `wcl-live-mp.rpglogs.cn`             | ...                               |
-| `WOWANALYZER_API_PROXY_TARGET` | `https://wowanalyzer.com/i/`         | `/i/` 代理目标(上游角色/玩家 API) |
-| `WOWANALYZER_API_PROXY_HOST`   | `wowanalyzer.com`                    | ...                               |
 
 ## `/cn-armory` 代理与 CN 角色资料
 
@@ -85,7 +83,8 @@ curl -v -H "auth: <签名>" "http://<host>:<port>/cn-armory/wow-armory-server/ap
 
 # 3. 浏览器打开一个 CN 报告,Network 里角色请求应为
 #    http://<host>:<port>/cn-armory/wow-armory-server/api/index?...
-#    而非 wowanalyzer.com/i/character/...
+# 4. 全站不应出现任何对 wowanalyzer.com 的请求:原站已加反爬,本仓库所有
+#    构建/部署形态都只直连 CN WCL API 或走本地代理,`/i/` 代理已移除。
 ```
 
 ## 常见问题
