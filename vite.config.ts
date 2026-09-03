@@ -119,7 +119,7 @@ export default defineConfig((env) => ({
     proxy: {
       // CN fork: 通过本地 wcl-proxy-server（端口 9528）访问 CN WCL API
       // wcl-proxy-server 自带认证，无需前端传 API key
-      // 设 VITE_WCL_DIRECT=true 时生效，false 或删掉则切回原版 wowanalyzer.com
+      // 设 VITE_WCL_DIRECT=true 时生效；两个 WCL 变量都没配置时 makeWclApiUrl 会直接报错
       '/wcl-api': {
         target: 'http://localhost:9528',
         changeOrigin: true,
