@@ -4,22 +4,18 @@ import { useNavigate } from 'react-router-dom';
 
 import DocumentTitle from 'interface/DocumentTitle';
 import { InsightCard } from 'site/analysis/InsightCard';
-import { CombatRoute } from 'site/combat/CombatRoute';
+import { CombatRoute, ROUTE_LEGEND } from 'site/combat/CombatRoute';
 import { InstrumentStrip } from 'site/combat/InstrumentStrip';
 import { dossiers, insights } from 'site/demo/battle';
 import { DossierCard } from 'site/dossier/DossierCard';
 import { Button } from 'site/ui/Button';
 import { Panel } from 'site/ui/Panel';
+import { REPORT_DEMO_URL } from 'site/routes';
 
 const ANALYZE_STEPS = ['读取战报…', '识别副本与路线…', '分析战斗决策…'];
-const ANALYZE_MS = 2050;
-
-const LEGEND = [
-  { label: '经过', color: 'rgba(255,255,255,.28)' },
-  { label: '重点问题', color: 'var(--status-danger)' },
-  { label: '首领', color: 'var(--gold-300)' },
-  { label: '完美执行', color: 'var(--status-good)' },
-];
+const STEP_INTERVAL_MS = 640;
+/** 导航须晚于最后一步（(N-1)*INTERVAL），另留一拍缓冲 */
+const ANALYZE_MS = ANALYZE_STEPS.length * STEP_INTERVAL_MS + 130;
 
 export function Component() {
   const navigate = useNavigate();
@@ -44,21 +40,27 @@ export function Component() {
     clearTimers();
     ANALYZE_STEPS.forEach((_, i) => {
       if (i > 0) {
-        timers.current.push(window.setTimeout(() => setStep(i), i * 640));
+        timers.current.push(window.setTimeout(() => setStep(i), i * STEP_INTERVAL_MS));
       }
     });
-    timers.current.push(window.setTimeout(() => navigate('/report-demo'), ANALYZE_MS));
+    timers.current.push(window.setTimeout(() => navigate(REPORT_DEMO_URL), ANALYZE_MS));
   };
 
   useEffect(() => clearTimers, []);
 
   useEffect(() => {
     const onKey = (e: globalThis.KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement) {
+      if (
+        e.isComposing ||
+        e.metaKey ||
+        e.ctrlKey ||
+        e.altKey ||
+        e.target instanceof HTMLInputElement
+      ) {
         return;
       }
       const n = Number(e.key);
-      if (n >= 1 && n <= insights.length) {
+      if (Number.isInteger(n) && n >= 1 && n <= insights.length) {
         setFocusInsight(insights[n - 1].id);
       }
     };
@@ -67,7 +69,7 @@ export function Component() {
   }, []);
 
   const onInputKeyDown = (e: ReactKeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
       startAnalyze();
     }
   };
@@ -143,7 +145,7 @@ export function Component() {
               <CombatRoute progress={0.42} />
             </div>
             <div className="route-legend">
-              {LEGEND.map((item) => (
+              {ROUTE_LEGEND.map((item) => (
                 <span key={item.label} className="route-legend-item">
                   <span className="route-legend-dot" style={{ background: item.color }} />
                   {item.label}
@@ -186,8 +188,7 @@ export function Component() {
                 key={data.id}
                 data={data}
                 index={i}
-                focused={false}
-                onFocus={() => navigate('/report-demo')}
+                onFocus={() => navigate(REPORT_DEMO_URL)}
               />
             ))}
           </div>
