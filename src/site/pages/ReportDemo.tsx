@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import DocumentTitle from 'interface/DocumentTitle';
 import { EvidenceToolbox } from 'site/analysis/EvidenceToolbox';
 import { PriorityCard } from 'site/analysis/PriorityCard';
-import { CombatRoute } from 'site/combat/CombatRoute';
+import { CombatRoute, ROUTE_LEGEND } from 'site/combat/CombatRoute';
 import { Playback } from 'site/combat/Playback';
 import { DossierSpine } from 'site/dossier/DossierSpine';
 import {
@@ -20,17 +20,17 @@ import { catmullRomPath, type Point } from 'site/ui/curve';
 
 const TABS = ['法力曲线', '技能时序', '团队协同', '原始事件'];
 
-const LEGEND = [
-  { label: '经过', color: 'rgba(255,255,255,.28)' },
-  { label: '重点问题', color: 'var(--status-danger)' },
-  { label: '首领', color: 'var(--gold-300)' },
-  { label: '完美执行', color: 'var(--status-good)' },
-];
-
 const CHART_W = 720;
 const CHART_H = 210;
 const CHART_PAD = 26;
 const FIGHT_MIN = 32;
+/** 演示战斗时长 31:42，回放条时钟由 progress 推算 */
+const FIGHT_SECONDS = 31 * 60 + 42;
+
+const formatClock = (totalSeconds: number) =>
+  `${String(Math.floor(totalSeconds / 60)).padStart(2, '0')}:${String(
+    Math.floor(totalSeconds % 60),
+  ).padStart(2, '0')}`;
 
 export function Component() {
   const navigate = useNavigate();
@@ -44,9 +44,9 @@ export function Component() {
     <>
       <DocumentTitle title="战报 · 塞塔利斯神庙 M+ 12 · ARC" />
       <div className="report-topbar">
-        <button type="button" className="btn-ghost" onClick={() => navigate('/')}>
+        <Button variant="ghost" onClick={() => navigate('/')}>
           ← 战报档案
-        </button>
+        </Button>
         <span className="crumb-sep t-meta">/</span>
         <span className="crumb-here t-meta">塞塔利斯神庙 · M+ 12层 · 限时 31:42 · 09-02</span>
         <div className="report-topbar-actions">
@@ -76,14 +76,19 @@ export function Component() {
               <CombatRoute progress={progress} focusId={focusId} />
             </div>
             <div className="route-legend">
-              {LEGEND.map((item) => (
+              {ROUTE_LEGEND.map((item) => (
                 <span key={item.label} className="route-legend-item">
                   <span className="route-legend-dot" style={{ background: item.color }} />
                   {item.label}
                 </span>
               ))}
             </div>
-            <Playback current="15:26" duration="31:42" progress={progress} onSeek={setProgress} />
+            <Playback
+              current={formatClock(FIGHT_SECONDS * progress)}
+              duration={formatClock(FIGHT_SECONDS)}
+              progress={progress}
+              onSeek={setProgress}
+            />
           </Panel>
         </section>
 

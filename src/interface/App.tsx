@@ -10,7 +10,7 @@ import { dungeonLegacyRoutesEnabled, dungeonRoutesEnabled } from 'interface/dung
 import RouterErrorBoundary from 'interface/RouterErrorBoundary';
 import { AppLayout } from 'interface/layouts/AppLayout';
 import { HomeLayout } from 'interface/layouts/HomeLayout';
-import { SiteLayout } from 'site/layout/SiteLayout';
+import { REPORT_DEMO_PATH } from 'site/routes';
 
 const appRoutes = createRoutesFromElements(
   <Route path="/" element={<AppLayout />} errorElement={<RouterErrorBoundary />}>
@@ -56,10 +56,11 @@ const appRoutes = createRoutesFromElements(
     {dungeonRoutesEnabled && (
       <Route path="dungeons/:dungeonId" lazy={() => import('./routes/dungeons')} />
     )}
-    {/* 战斗观测台（site-refactor 视觉稿 v1）：接管首页 + 示例战报 */}
-    <Route element={<SiteLayout />}>
+    {/* 战斗观测台（site-refactor 视觉稿 v1）：接管首页 + 示例战报。
+        布局与站点 CSS 走路由级分包，旧页面不必下载这批样式。 */}
+    <Route lazy={() => import('site/layout/SiteLayout').then((m) => ({ Component: m.SiteLayout }))}>
       <Route index lazy={() => import('site/pages/Home')} />
-      <Route path="report-demo" lazy={() => import('site/pages/ReportDemo')} />
+      <Route path={REPORT_DEMO_PATH} lazy={() => import('site/pages/ReportDemo')} />
     </Route>
     <Route element={<HomeLayout />}>
       <Route path="news" lazy={() => import('./routes/news')} />

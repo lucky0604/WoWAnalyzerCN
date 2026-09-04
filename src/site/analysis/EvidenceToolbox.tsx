@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { guides, insights, snapshots, teamNotes } from 'site/demo/battle';
+import { guides, insights, snapshots, teamNotes, type Snapshot } from 'site/demo/battle';
 import { IconSlot } from 'site/ui/IconSlot';
 import { Panel } from 'site/ui/Panel';
 import sparkleUrl from 'site/ui/sparkle.svg';
 
-const TONE_COLOR: Record<string, string> = {
+const TONE_COLOR: Record<Snapshot['tone'], string> = {
   good: 'var(--status-good)',
   info: 'var(--status-info)',
   warning: 'var(--status-warning)',

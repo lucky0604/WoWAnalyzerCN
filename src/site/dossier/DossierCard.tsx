@@ -5,17 +5,16 @@ import type { Dossier } from 'site/demo/battle';
 interface DossierCardProps {
   data: Dossier;
   index: number;
-  focused: boolean;
   onFocus: () => void;
 }
 
 /** 档案卡 240×170：分位大数字 + 副本名 + 日期 */
-export function DossierCard({ data, index, focused, onFocus }: DossierCardProps) {
+export function DossierCard({ data, index, onFocus }: DossierCardProps) {
   return (
     <button
       type="button"
       onClick={onFocus}
-      className={`panel hoverable dossier-card enter ${focused ? 'is-focus' : ''}`}
+      className="panel hoverable dossier-card enter"
       style={{ '--i': index } as CSSProperties}
     >
       <div className="dossier-card-kind">

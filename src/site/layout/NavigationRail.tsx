@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
+import { REPORT_DEMO_URL } from 'site/routes';
+import { Button } from 'site/ui/Button';
 import logoUrl from 'site/ui/logo.svg';
 
 const STROKE = {
@@ -88,7 +90,8 @@ const NAV: NavItem[] = [
 /** 左侧导航轨：active = 左缘 2px 紫线 + 紫 6% 底 + icon 微光 */
 export function NavigationRail() {
   const { pathname } = useLocation();
-  const activeIndex = pathname.startsWith('/report') ? 0 : NAV.findIndex((n) => n.to === pathname);
+  const onAnalyze = pathname === '/' || pathname === REPORT_DEMO_URL;
+  const activeIndex = onAnalyze ? 0 : NAV.findIndex((n) => n.to === pathname);
 
   return (
     <nav className="rail" aria-label="ARC 主导航">
@@ -128,9 +131,9 @@ export function NavigationRail() {
         })}
       </div>
       <div className="rail-foot">
-        <button type="button" className="btn btn-secondary btn-sm">
+        <Button variant="secondary" small>
           升级专业版
-        </button>
+        </Button>
         <span className="t-meta">ARC v1 · 演示预览</span>
       </div>
     </nav>
