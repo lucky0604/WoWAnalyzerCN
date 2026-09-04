@@ -4,7 +4,8 @@ import { Panel } from 'site/ui/Panel';
 function Spark({ data }: { data: number[] }) {
   const w = 84;
   const h = 20;
-  const pts = data
+  // 单点没有可展开的区间，x 会除以 0 产生 NaN 坐标
+  const pts = (data.length < 2 ? [] : data)
     .map(
       (v, i) => `${((i / (data.length - 1)) * w).toFixed(1)},${(h - v * h * 0.85 - 2).toFixed(1)}`,
     )
