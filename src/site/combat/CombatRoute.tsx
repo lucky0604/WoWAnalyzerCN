@@ -1,8 +1,8 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { memo, useLayoutEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 
 import { iconUrl } from 'interface/Icon';
-import { ROUTE_VIEWBOX, routeNodes, type RouteNode } from 'site/demo/battle';
+import { ROUTE_VIEWBOX, routeNodes, type RouteNode, type RouteNodeStatus } from 'site/demo/battle';
 import { catmullRomPath, pathFractionAt, type Point } from 'site/ui/curve';
 
 interface CombatRouteProps {
@@ -10,23 +10,35 @@ interface CombatRouteProps {
   progress?: number;
   /** Focus Mode：当前聚焦问题 id（对应 node.issueId），其余节点降噪 */
   focusId?: string | null;
-  className?: string;
 }
 
-const STATUS_CLASS: Record<string, string> = {
+/** 图例（路线面板与战报页共用） */
+export const ROUTE_LEGEND = [
+  { label: '经过', color: 'rgba(255,255,255,.28)' },
+  { label: '重点问题', color: 'var(--status-danger)' },
+  { label: '首领', color: 'var(--gold-300)' },
+  { label: '完美执行', color: 'var(--status-good)' },
+];
+
+const STATUS_CLASS: Record<RouteNodeStatus, string> = {
   good: 'route-node--good',
   info: 'route-node--info',
   warning: 'route-node--warning',
   problem: 'route-node--problem',
 };
 
-export function CombatRoute({ progress, focusId, className }: CombatRouteProps) {
+/** 路线数据是静态模块数据，路径串只需算一次 */
+const ROUTE_D = catmullRomPath(routeNodes.map((n) => ({ x: n.x, y: n.y })));
+
+export function CombatRoute({ progress, focusId }: CombatRouteProps) {
   const pathRef = useRef<SVGPathElement>(null);
   const [head, setHead] = useState<Point | null>(null);
   /** 焦点段在 pathLength=1000 上的 [start, end]，Focus Mode 只叠亮问题区间 */
   const [segment, setSegment] = useState<[number, number] | null>(null);
 
-  const d = catmullRomPath(routeNodes.map((n) => ({ x: n.x, y: n.y })));
+  /** 传入的 focusId 必须命中某个节点，否则视为无焦点（P4 等无路线的问题只高亮卡片） */
+  const effectiveFocus =
+    focusId != null && routeNodes.some((n) => n.issueId === focusId) ? focusId : null;
 
   useLayoutEffect(() => {
     const path = pathRef.current;
@@ -40,11 +52,11 @@ export function CombatRoute({ progress, focusId, className }: CombatRouteProps) 
 
   useLayoutEffect(() => {
     const path = pathRef.current;
-    if (focusId == null || !path) {
+    if (effectiveFocus == null || !path) {
       setSegment(null);
       return;
     }
-    const issueIdx = routeNodes.findIndex((n) => n.issueId === focusId);
+    const issueIdx = routeNodes.findIndex((n) => n.issueId === effectiveFocus);
     if (issueIdx < 0) {
       setSegment(null);
       return;
@@ -57,30 +69,30 @@ export function CombatRoute({ progress, focusId, className }: CombatRouteProps) 
     const start = Math.max(0, Math.min(f1, f2) * 1000 - pad);
     const end = Math.min(1000, Math.max(f1, f2) * 1000 + pad);
     setSegment([start, end]);
-  }, [focusId]);
+  }, [effectiveFocus]);
 
   const segLen = segment ? segment[1] - segment[0] : 0;
 
   return (
     <svg
-      className={`route-svg ${className ?? ''}`}
+      className="route-svg"
       viewBox={`0 0 ${ROUTE_VIEWBOX.width} ${ROUTE_VIEWBOX.height}`}
       preserveAspectRatio="none"
       aria-hidden="true"
     >
-      <path ref={pathRef} d={d} pathLength={1000} className="route-path" />
+      <path ref={pathRef} d={ROUTE_D} pathLength={1000} className="route-path" />
       <path
-        d={d}
+        d={ROUTE_D}
         pathLength={1000}
         className="route-path-focus"
         style={{
-          opacity: focusId ? 1 : 0,
+          opacity: effectiveFocus ? 1 : 0,
           strokeDasharray: segment ? `${segLen} ${1000 - segLen}` : undefined,
           strokeDashoffset: segment ? -segment[0] : undefined,
         }}
       />
       {routeNodes.map((node, i) => (
-        <RouteNodeG key={node.id} node={node} index={i} focusId={focusId} />
+        <RouteNodeG key={node.id} node={node} index={i} focusId={effectiveFocus} />
       ))}
       {progress != null && head && (
         <g className="playhead" transform={`translate(${head.x} ${head.y})`}>
@@ -92,7 +104,7 @@ export function CombatRoute({ progress, focusId, className }: CombatRouteProps) 
   );
 }
 
-function RouteNodeG({
+const RouteNodeG = memo(function RouteNodeG({
   node,
   index,
   focusId,
@@ -110,7 +122,7 @@ function RouteNodeG({
   return (
     <g className={dimmed ? 'route-dim' : undefined}>
       <g
-        className={`route-node ${statusCls} ${active ? 'is-active' : ''}`}
+        className={`route-node route-node--${node.kind} ${statusCls} ${active ? 'is-active' : ''}`}
         style={{ '--i': index } as CSSProperties}
       >
         {node.status === 'problem' && (
@@ -138,7 +150,7 @@ function RouteNodeG({
       </g>
     </g>
   );
-}
+});
 
 /** 技能图标徽标：悬浮于问题节点上方（真实 WoW 素材，占位可换） */
 function IconBadge({ node, r }: { node: RouteNode; r: number }) {
