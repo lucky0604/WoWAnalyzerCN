@@ -19,8 +19,10 @@
 }
 
 /* ---- 7. 基础面板：渐变底 + 金 14% 线 + 顶缘内高光 ---- */
+/* 旧全局 Panel.scss 会给 .panel 塞 30px 下边距，观测台面板间距由网格控制，显式归零 */
 .site .panel {
   position: relative;
+  margin: 0;
   background: linear-gradient(180deg, rgba(18, 22, 29, 0.94), rgba(10, 13, 18, 0.96));
   border: 1px solid var(--gold-line);
   border-radius: var(--radius-panel);
@@ -137,7 +139,9 @@ body:has(.site) footer {
   .site *::before,
   .site *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
   }
 }

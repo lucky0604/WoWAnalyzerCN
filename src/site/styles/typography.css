@@ -13,26 +13,11 @@
   text-rendering: optimizeLegibility;
 }
 
-.site .t-display {
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: 0.01em;
-}
-
 /* Hero：48–60px / 1.18 / 500 */
 .site .t-hero {
   font-family: var(--font-display);
   font-size: clamp(40px, 3.4vw, 54px);
   line-height: 1.18;
-  font-weight: 500;
-  margin: 0;
-}
-
-/* 一级页面标题 32–40px */
-.site .t-page {
-  font-family: var(--font-display);
-  font-size: clamp(30px, 2.4vw, 36px);
-  line-height: 1.25;
   font-weight: 500;
   margin: 0;
 }
@@ -88,5 +73,4 @@
 .site :focus-visible {
   outline: 2px solid var(--gold-300);
   outline-offset: 2px;
-  border-radius: 2px;
 }

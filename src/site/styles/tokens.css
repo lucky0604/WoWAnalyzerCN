@@ -7,10 +7,7 @@
 
 .site {
   /* ---- 4.1 基础背景（黑曜石，禁纯黑/大面积紫渐变） ---- */
-  --bg-0: #080a0e;
   --bg-1: #0b0e13;
-  --bg-2: #10141b;
-  --bg-3: #151a22;
 
   /* 页面底：右上一点极弱的奥术晕 + 纵向黑曜石渐变 */
   --bg-page:
@@ -21,7 +18,6 @@
   --gold-100: #e1c88f;
   --gold-300: #c7a967;
   --gold-500: #a9884c;
-  --gold-700: #6e5730;
   --gold-line: rgba(205, 177, 112, 0.14); /* 普通面板描边 */
   --gold-line-strong: rgba(199, 169, 103, 0.28); /* 控制台 / 重要面板 */
   --gold-wash: rgba(199, 169, 103, 0.22); /* 次级按钮描边 */
@@ -63,7 +59,6 @@
   --outer-pad: 28px;
   --section-gap: 24px;
   --panel-gap: 14px;
-  --panel-pad: 20px;
 
   /* ---- 形状（§7：4–8px，禁 16px+ 大圆角） ---- */
   --radius-panel: 6px;
@@ -71,7 +66,6 @@
   --radius-icon: 4px;
 
   /* ---- 描边 / 分隔（§67） ---- */
-  --line-default: 1px;
   --divider: rgba(255, 255, 255, 0.08);
   --divider-soft: rgba(255, 255, 255, 0.06);
 
@@ -79,10 +73,8 @@
   --motion-fast: 120ms;
   --motion-base: 220ms;
   --motion-slow: 320ms;
-  --motion-analysis: 800ms;
   --ease-ui: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
 
   color-scheme: dark;
 }

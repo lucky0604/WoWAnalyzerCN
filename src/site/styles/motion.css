@@ -78,7 +78,7 @@
 
 /* ---- CTA Processing：金→紫的扫描态 ---- */
 .site .btn-primary.is-analyzing {
-  background: linear-gradient(180deg, #8d66df, #573892);
+  background: linear-gradient(180deg, var(--arcane-500), var(--arcane-700));
   border-color: rgba(160, 110, 235, 0.5);
   color: var(--arcane-100);
   cursor: progress;
