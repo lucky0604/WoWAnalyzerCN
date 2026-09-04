@@ -52,18 +52,18 @@ React 应用从 `src/index.tsx` 挂载，`Root` 组件按"由外到内"包裹所
 
 `configureStore` + `combineReducers`，共 10 个 slice：
 
-| slice | 文件 | 职责 |
-|---|---|---|
-| `internetExplorer` | `interface/reducers/internetExplorer` | 记录 IE 用户（触发全屏警告） |
-| `user` | `interface/reducers/user` | 当前登录用户 / Premium 状态 |
-| `navigation` | `interface/reducers/navigation` | 导航栏面包屑（报告/战斗/玩家标题） |
-| `reportHistory` | `interface/reducers/reportHistory` | 最近查看的报告历史 |
-| `language` | `interface/reducers/language` | 当前语言（cookie 持久化，默认 zh） |
-| `specsIgnoredNotSupportedWarning` | `interface/reducers/specsIgnoredNotSupportedWarning` | 用户选择忽略"不支持警告"的专精 |
-| `openModals` | `interface/reducers/openModals` | 打开的弹窗计数（控制 body `modal-open`） |
-| `tooltips` | `interface/reducers/tooltips` | 工具提示基址配置 |
-| `charactersById` | `interface/reducers/charactersById` | 角色资料缓存（`Record<guid, CharacterProfile>`） |
-| `reportCodesIgnoredPreviousPatchWarning` | `interface/reducers/reportCodesIgnoredPreviousPatchWarning` | 忽略旧补丁提示的报告码 |
+| slice                                    | 文件                                                        | 职责                                             |
+| ---------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------ |
+| `internetExplorer`                       | `interface/reducers/internetExplorer`                       | 记录 IE 用户（触发全屏警告）                     |
+| `user`                                   | `interface/reducers/user`                                   | 当前登录用户 / Premium 状态                      |
+| `navigation`                             | `interface/reducers/navigation`                             | 导航栏面包屑（报告/战斗/玩家标题）               |
+| `reportHistory`                          | `interface/reducers/reportHistory`                          | 最近查看的报告历史                               |
+| `language`                               | `interface/reducers/language`                               | 当前语言（cookie 持久化，默认 zh）               |
+| `specsIgnoredNotSupportedWarning`        | `interface/reducers/specsIgnoredNotSupportedWarning`        | 用户选择忽略"不支持警告"的专精                   |
+| `openModals`                             | `interface/reducers/openModals`                             | 打开的弹窗计数（控制 body `modal-open`）         |
+| `tooltips`                               | `interface/reducers/tooltips`                               | 工具提示基址配置                                 |
+| `charactersById`                         | `interface/reducers/charactersById`                         | 角色资料缓存（`Record<guid, CharacterProfile>`） |
+| `reportCodesIgnoredPreviousPatchWarning` | `interface/reducers/reportCodesIgnoredPreviousPatchWarning` | 忽略旧补丁提示的报告码                           |
 
 > ⚠️ 注意：`src/interface/reducers/report.ts` 定义了一个 `report` slice，但**并未注册到 store**，属于死代码。真正的"当前报告"存于 React Context（`ReportContext`），见 02。
 
@@ -71,12 +71,13 @@ Redux 通过 `useWaDispatch` / `useWaSelector`（`src/interface/utils/`）提供
 
 ### 2.4 页面布局系统
 
-两套布局，满足不同页面的 chrome 需求：
+三套布局，满足不同页面的 chrome 需求：
 
 - **`AppLayout`**（`src/interface/layouts/AppLayout.tsx`）—— 应用根布局：IE 检测、`<Outlet/>`、`Footer`、`PortalTarget`、`Hotkeys`、`ScrollRestoration`、`ProgressBar`。**不渲染导航栏**。
 - **`HomeLayout`**（`src/interface/layouts/HomeLayout.tsx`）—— 营销/站点外壳：导航栏 + 语言切换、报告快速选择器、广告位、左侧图标导航（News/Specs/About/Premium/Help wanted）、`<Outlet/>`。
+- **`SiteLayout`**（`src/site/layout/SiteLayout.tsx`，lazy 分包）—— ARC 战斗观测台外壳（site-refactor 视觉稿 v1）：接管 `/` 与 `/report-demo`，自带 `NavigationRail`，样式全部作用域在 `.site` 之下、与旧 `interface` 样式隔离（详见 `src/site/README.md`）。
 
-报告/角色/公会页面在 `AppLayout` 内自行渲染 `NavigationBar`；首页类页面走 `HomeLayout`。
+报告/角色/公会页面在 `AppLayout` 内自行渲染 `NavigationBar`；首页类旧页面（`/news` 等）走 `HomeLayout`；`/` 与 `/report-demo` 由 `SiteLayout` 接管。
 
 ## 3. 技术选型要点
 
@@ -100,14 +101,14 @@ Redux 通过 `useWaDispatch` / `useWaSelector`（`src/interface/utils/`）提供
 
 本项目相对上游的定制点，贯穿各层：
 
-| 层 | 定制 | 关键文件 |
-|---|---|---|
-| 数据源 | 直连国服 WCL API | `src/common/makeWclApiUrl.ts`、`vite.config.ts` `/wcl-api` 代理 |
-| 角色资料 | 新增 CN 英雄榜网关 | `src/common/fetchCnArmory.ts`、`/cn-armory` 代理 |
-| 服务器 slug | 生成国服服务器名→slug 表 | `src/common/CN_SERVER_SLUG.ts`、`scripts/cn-sn-slug/` |
-| 中文翻译 | 技能/首领/副本/NPC/区域 中文名映射 | `src/common/CN_MAPPING/` |
-| 构建 | `cn-overrides` 插件把 CN Guide 定向到覆盖文件 | `vite-plugins/cn-overrides.ts` |
-| 部署 | nginx 反代三个国服 API、Docker | `default.conf.template`、`docker-compose.yml` |
+| 层          | 定制                                          | 关键文件                                                        |
+| ----------- | --------------------------------------------- | --------------------------------------------------------------- |
+| 数据源      | 直连国服 WCL API                              | `src/common/makeWclApiUrl.ts`、`vite.config.ts` `/wcl-api` 代理 |
+| 角色资料    | 新增 CN 英雄榜网关                            | `src/common/fetchCnArmory.ts`、`/cn-armory` 代理                |
+| 服务器 slug | 生成国服服务器名→slug 表                      | `src/common/CN_SERVER_SLUG.ts`、`scripts/cn-sn-slug/`           |
+| 中文翻译    | 技能/首领/副本/NPC/区域 中文名映射            | `src/common/CN_MAPPING/`                                        |
+| 构建        | `cn-overrides` 插件把 CN Guide 定向到覆盖文件 | `vite-plugins/cn-overrides.ts`                                  |
+| 部署        | nginx 反代三个国服 API、Docker                | `default.conf.template`、`docker-compose.yml`                   |
 
 详见 [06-cn-localization.md](./06-cn-localization.md) 的完整梳理。
 

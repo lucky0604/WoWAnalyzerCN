@@ -20,6 +20,7 @@ A file for [guiding coding agents](https://agents.md/).
   - Spec-specific analysis: `src/analysis/`
   - Core infrastructure: `src/parser/`
   - Common UI code: `src/interface/`
+  - ARC combat observatory site UI: `src/site/` (own scoped CSS under `.site`; see `src/site/README.md`)
 - Utility scripts: `scripts/`
 
 Code in these folders may serve another purpose. Do not relocate existing code to better fit the directory structure.
