@@ -218,3 +218,15 @@ jobs:
       - run: git fetch --no-tags --depth=1 origin $GITHUB_BASE_REF:$GITHUB_BASE_REF
       - run: pnpm install --frozen-lockfile
       - run: node scripts/require-changelog-entry.cjs
+
+  i18n-override-drift:
+    name: 'i18n override drift'
+    runs-on: ubuntu-24.04
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.x'
+      - run: git fetch --no-tags --depth=1 origin $GITHUB_BASE_REF:$GITHUB_BASE_REF
+      - run: bash scripts/check-override-drift.sh "$GITHUB_BASE_REF"
