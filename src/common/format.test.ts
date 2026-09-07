@@ -1,4 +1,4 @@
-import { formatThousands, formatDuration } from './format';
+import { formatThousands, formatDuration, formatManaSaved } from './format';
 
 describe('formatThousands', () => {
   test('regular values', () => {
@@ -40,5 +40,21 @@ describe('formatDuration', () => {
     expect(formatDuration(9987, 2)).toBe('0:09.98');
     expect(formatDuration(9987, 3)).toBe('0:09.987');
     expect(formatDuration(9987, 0)).toBe('0:09');
+  });
+});
+
+describe('formatManaSaved', () => {
+  test('guards against invalid max mana', () => {
+    expect(formatManaSaved(1234, 0)).toBe('1,234');
+    expect(formatManaSaved(1234, -5)).toBe('1,234');
+  });
+  test('formats amount with percentage of total mana', () => {
+    expect(formatManaSaved(123456, 2500000)).toBe('123,456 (4.9% total mana)');
+  });
+  test('respects precision', () => {
+    expect(formatManaSaved(123456, 2500000, 2)).toBe('123,456 (4.94% total mana)');
+  });
+  test('zero mana saved', () => {
+    expect(formatManaSaved(0, 2500000)).toBe('0 (0.0% total mana)');
   });
 });
