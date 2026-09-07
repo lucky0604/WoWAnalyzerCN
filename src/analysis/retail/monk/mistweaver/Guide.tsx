@@ -11,11 +11,13 @@ import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import * as AplCheck from './modules/core/apl/AplCheck';
 import AplChoiceDescription from './modules/core/apl/AplChoiceDescription';
 import { AplSectionData } from 'interface/guide/components/Apl';
+import { TipBox } from 'interface/guide/components';
 import { defaultExplainers } from 'interface/guide/components/Apl/violations/claims';
 import { filterCelestial } from './modules/core/apl/ExplainCelestial';
 import { getCurrentCelestialTalent, getCurrentRSKTalent } from './constants';
 import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import DefensivesGuide from './modules/core/defensives/DefensivesGuide';
+import ActiveTimeGuide from './modules/features/ActiveTimeGuide';
 
 const explainers = {
   overcast: filterCelestial(defaultExplainers.overcastFillers),
@@ -29,7 +31,8 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
     <>
       <Section title={t({ id: 'monk.mistweaver.section.coreSpells', message: 'Core Spells and Buffs' })}>
         {modules.renewingMist.guideSubsection}
-        {info.combatant.hasTalent(TALENTS_MONK.RISING_MIST_TALENT) &&
+        {(info.combatant.hasTalent(TALENTS_MONK.RUSHING_WIND_KICK_MISTWEAVER_TALENT) ||
+          info.combatant.hasTalent(TALENTS_MONK.JADEFIRE_TEACHINGS_TALENT)) &&
           modules.risingSunKick.guideSubsection}
         {modules.thunderFocusTea.guideSubsection}
         {!info.combatant.hasTalent(TALENTS_MONK.SHEILUNS_GIFT_TALENT) &&
@@ -61,15 +64,12 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           })}
         </p>
         <AplChoiceDescription aplChoice={AplCheck.chooseApl(info)} />
-        <p>
-          <strong>
-            <>{t({ id: 'monk.mistweaver.coreRotation.description2.p1', message: 'It is important to note that using abilites like' })}
-              {' '}
-              <SpellLink spell={getCurrentCelestialTalent(info.combatant)} />
-              {t({ id: 'monk.mistweaver.coreRotation.description2.p2', message: 'have their own priority that supercedes the priority list below. This section omits all casts in those windows.' })}
-            </>
-          </strong>
-        </p>
+<TipBox type="info">
+          {t({ id: 'monk.mistweaver.coreRotation.description2.p1', message: 'It is important to note that using abilites like' })}
+          {' '}
+          <SpellLink spell={getCurrentCelestialTalent(info.combatant)} />
+          {t({ id: 'monk.mistweaver.coreRotation.description2.p2', message: 'have their own priority that supercedes the priority list below. This section omits all casts in those windows.' })}
+        </TipBox>
         <SubSection>
           <AplSectionData
             checker={AplCheck.check}
@@ -77,6 +77,8 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
             violationExplainers={explainers}
           />
         </SubSection>
+        <hr />
+        <ActiveTimeGuide />
       </Section>
       <Section title={t({ id: 'monk.mistweaver.section.otherCooldowns', message: 'Other cooldowns, buffs, and procs' })}>
         {info.combatant.hasTalent(TALENTS_MONK.LIFE_COCOON_TALENT) &&
@@ -92,6 +94,9 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         {info.combatant.hasTalent(TALENTS_MONK.DANCE_OF_CHI_JI_MISTWEAVER_TALENT) &&
           modules.danceOfChiJi.guideSubsection}
       </Section>
+
+      <DefensivesGuide />
+
       <PreparationSection />
     </>
   );

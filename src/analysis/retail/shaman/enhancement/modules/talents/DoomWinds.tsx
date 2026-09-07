@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { formatDurationMillisMinSec } from 'common/format';
 import Events, {
   ApplyBuffEvent,
   CastEvent,
@@ -11,6 +12,8 @@ import Events, {
   GlobalCooldownEvent,
   RefreshBuffEvent,
   RemoveBuffEvent,
+  UpdateSpellUsableEvent,
+  UpdateSpellUsableType,
 } from 'parser/core/Events';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import TALENTS from 'common/TALENTS/shaman';
@@ -28,7 +31,10 @@ import { EnhancementEventLinks, GCD_TOLERANCE } from '../../constants';
 import { addEnhancedCastReason, addInefficientCastReason } from 'parser/core/EventMetaLib';
 import { getApplicableRules, HighPriorityAbilities } from '../../common';
 import GuideSection from 'interface/guide/components/GuideSection';
-import CastDetail, { type PerCastData } from 'interface/guide/components/CastDetail';
+import CastDetail, {
+  type PerCastData,
+  type PerCastStat,
+} from 'interface/guide/components/CastDetail';
 import { SpellSequence, type CastInSequence } from 'interface/guide/components/CastSequence';
 import { t } from '@lingui/core/macro';
 
@@ -37,11 +43,13 @@ type WindowSource = 'cast' | 'proc';
 interface RecentWindowTrigger {
   spellId: number;
   timestamp: number;
+  heldDuration?: number;
 }
 
 interface WindowContext {
   source: WindowSource;
   primarySpellId: number;
+  ascendanceHeldDuration?: number;
 }
 
 interface ThorimsTriggerStats {
@@ -50,6 +58,8 @@ interface ThorimsTriggerStats {
   windstrike: number;
   stormstrike: number;
   crashLightning: number;
+  unavailablePrimary: number;
+  unavailableCrashLightning: number;
 }
 
 interface DoomWindsWindowCastCounts {
@@ -90,6 +100,7 @@ interface DoomWindsWindow {
   windowSource: WindowSource;
   primarySpellId: number;
   hotHandActiveRanges: { start: number; end: number }[];
+  ascendanceHeldDuration?: number;
   start: number;
   end?: number | null;
 }
@@ -115,6 +126,7 @@ class DoomWinds extends Analyzer.withDependencies({
   private hotHandActiveStart: number | null = null;
   private primaryOpportunityConsumed = false;
   private crashLightningOpportunityConsumed = false;
+  private ascendanceAvailableSince: number | null = null;
 
   constructor(options: Options) {
     super(options);
@@ -147,6 +159,10 @@ class DoomWinds extends Analyzer.withDependencies({
     });
 
     this.ascendanceCastRules.push(SPELLS.PRIMORDIAL_STORM_CAST.id);
+
+    if (this.selectedCombatant.hasTalent(TALENTS.VOLTAIC_BLAZE_TALENT)) {
+      this.ascendanceCastRules.push(SPELLS.VOLTAIC_BLAZE_CAST.id);
+    }
 
     if (this.isTotemic && this.hasHotHand) {
       this.ascendanceCastRules.push({
@@ -184,6 +200,29 @@ class DoomWinds extends Analyzer.withDependencies({
     this.addEventListener(Events.cast.by(SELECTED_PLAYER), this.onCast);
 
     this.addEventListener(Events.GlobalCooldown.by(SELECTED_PLAYER), this.onGlobalCooldown);
+
+    if (this.hasAscendance) {
+      this.ascendanceAvailableSince = this.owner.fight.start_time;
+      this.addEventListener(
+        Events.UpdateSpellUsable.by(SELECTED_PLAYER).spell(TALENTS.ASCENDANCE_ENHANCEMENT_TALENT),
+        this.onAscendanceUsableUpdate,
+      );
+    }
+
+    if (this.hasAscendance || this.hasDRE) {
+      this.addEventListener(
+        Events.applybuff.by(SELECTED_PLAYER).spell(TALENTS.ASCENDANCE_ENHANCEMENT_TALENT),
+        this.onAscendanceStart,
+      );
+      this.addEventListener(
+        Events.refreshbuff.by(SELECTED_PLAYER).spell(TALENTS.ASCENDANCE_ENHANCEMENT_TALENT),
+        this.onAscendanceStart,
+      );
+      this.addEventListener(
+        Events.removebuff.by(SELECTED_PLAYER).spell(TALENTS.ASCENDANCE_ENHANCEMENT_TALENT),
+        this.onCooldownEnd,
+      );
+    }
 
     if (this.hasHotHand) {
       this.addEventListener(
@@ -223,17 +262,45 @@ class DoomWinds extends Analyzer.withDependencies({
   }
 
   private onDirectWindowTrigger(event: CastEvent) {
+    const isAscendance = event.ability.guid === TALENTS.ASCENDANCE_ENHANCEMENT_TALENT.id;
+    const heldDuration =
+      isAscendance && !event.prepull && this.ascendanceAvailableSince !== null
+        ? event.timestamp - this.ascendanceAvailableSince
+        : undefined;
+
     this.recentWindowTrigger = {
       spellId: event.ability.guid,
       timestamp: event.timestamp,
+      heldDuration,
     };
+
+    if (isAscendance) {
+      this.ascendanceAvailableSince = null;
+    }
+
+    if (
+      this.activeWindow &&
+      event.timestamp - this.activeWindow.event.timestamp <= DoomWinds.WINDOW_TRIGGER_BUFFER_MS
+    ) {
+      this.activeWindow.windowSource = 'cast';
+
+      if (isAscendance) {
+        this.activeWindow.primarySpellId = SPELLS.WINDSTRIKE_CAST.id;
+        this.activeWindow.ascendanceHeldDuration = heldDuration;
+      } else if (
+        !this.selectedCombatant.hasBuff(TALENTS.ASCENDANCE_ENHANCEMENT_TALENT.id, event.timestamp)
+      ) {
+        this.activeWindow.primarySpellId = SPELLS.STORMSTRIKE.id;
+      }
+    }
   }
 
-  /**
-   * Records a cooldown usage window for Doom Winds / Ascendance.
-   * @remarks
-   * Deeply Rooted Elements appears as a fabricated cast (via apply/refresh buff).
-   */
+  private onAscendanceUsableUpdate(event: UpdateSpellUsableEvent) {
+    if (event.updateType === UpdateSpellUsableType.EndCooldown) {
+      this.ascendanceAvailableSince ??= event.timestamp;
+    }
+  }
+
   private onCooldownStart(event: ApplyBuffEvent | RefreshBuffEvent) {
     if (!this.activeWindow) {
       this.activeWindow = this.createWindow(event);
@@ -285,7 +352,30 @@ class DoomWinds extends Analyzer.withDependencies({
     this.activeWindow.castEvents.push(event);
   }
 
+  private onAscendanceStart(event: ApplyBuffEvent | RefreshBuffEvent) {
+    this.onCooldownStart(event);
+
+    // Windstrike replaces Stormstrike for the rest of the window.
+    if (this.activeWindow && this.activeWindow.primarySpellId === SPELLS.STORMSTRIKE.id) {
+      this.activeWindow.primarySpellId = SPELLS.WINDSTRIKE_CAST.id;
+      this.primaryOpportunityConsumed = false;
+    }
+  }
+
+  private isOtherWindowBuffActive(event: RemoveBuffEvent): boolean {
+    const otherSpellId =
+      event.ability.guid === SPELLS.DOOM_WINDS_BUFF.id
+        ? TALENTS.ASCENDANCE_ENHANCEMENT_TALENT.id
+        : SPELLS.DOOM_WINDS_BUFF.id;
+
+    return this.selectedCombatant.hasBuff(otherSpellId, event.timestamp);
+  }
+
   private onCooldownEnd(event: RemoveBuffEvent | FightEndEvent) {
+    if (event.type !== EventType.FightEnd && this.isOtherWindowBuffActive(event)) {
+      return;
+    }
+
     if (this.activeWindow) {
       const tailGapStart = Math.max(this.globalCooldownEnds, this.activeWindow.start);
       const tailIdleGap = event.timestamp - tailGapStart;
@@ -303,7 +393,9 @@ class DoomWinds extends Analyzer.withDependencies({
   }
 
   private createWindow(event: ApplyBuffEvent | RefreshBuffEvent): DoomWindsWindow {
-    const { source, primarySpellId } = this.getWindowContext(event.timestamp);
+    const { source, primarySpellId, ascendanceHeldDuration } = this.getWindowContext(
+      event.timestamp,
+    );
 
     return {
       event,
@@ -316,6 +408,7 @@ class DoomWinds extends Analyzer.withDependencies({
       globalCooldowns: [],
       idleGapDurations: [],
       hotHandActiveRanges: [],
+      ascendanceHeldDuration,
     };
   }
 
@@ -338,6 +431,7 @@ class DoomWinds extends Analyzer.withDependencies({
         return {
           source: 'cast',
           primarySpellId: SPELLS.WINDSTRIKE_CAST.id,
+          ascendanceHeldDuration: this.recentWindowTrigger.heldDuration,
         };
       }
       if (this.recentWindowTrigger.spellId === TALENTS.DOOM_WINDS_TALENT.id) {
@@ -476,16 +570,22 @@ class DoomWinds extends Analyzer.withDependencies({
   private getThorimsTriggerOpportunityBreakdown(
     cast: DoomWindsWindow,
     counts: DoomWindsWindowCastCounts,
+    triggerStats: ThorimsTriggerStats,
   ): ThorimsTriggerOpportunityBreakdown {
     const missedPrimaryCasts = cast.missedPrimaryOpportunities;
     const missedCrashLightningCasts = cast.missedCrashLightningOpportunities;
 
-    const maximumPrimaryCasts = counts.primaryCasts + missedPrimaryCasts;
+    const maximumPrimaryCasts =
+      counts.primaryCasts + missedPrimaryCasts - triggerStats.unavailablePrimary;
     // Unreduced: includes HH LL casts that displaced potential primary triggers
     const unreducedMaximumPrimaryCasts = maximumPrimaryCasts + counts.hotHandLavaLashCasts;
 
-    const estimatedMaximumTriggers =
-      maximumPrimaryCasts + counts.crashLightningCasts + missedCrashLightningCasts;
+    const maximumCrashLightningCasts =
+      counts.crashLightningCasts +
+      missedCrashLightningCasts -
+      triggerStats.unavailableCrashLightning;
+
+    const estimatedMaximumTriggers = maximumPrimaryCasts + maximumCrashLightningCasts;
 
     return {
       primaryCasts: counts.primaryCasts,
@@ -494,7 +594,7 @@ class DoomWinds extends Analyzer.withDependencies({
       unreducedMaximumPrimaryCasts,
       crashLightningCasts: counts.crashLightningCasts,
       missedCrashLightningCasts,
-      maximumCrashLightningCasts: counts.crashLightningCasts + missedCrashLightningCasts,
+      maximumCrashLightningCasts,
       hotHandLavaLashCasts: counts.hotHandLavaLashCasts,
       estimatedMaximumTriggers,
     };
@@ -507,6 +607,8 @@ class DoomWinds extends Analyzer.withDependencies({
       windstrike: 0,
       stormstrike: 0,
       crashLightning: 0,
+      unavailablePrimary: 0,
+      unavailableCrashLightning: 0,
     };
 
     for (const event of cast.castEvents) {
@@ -525,6 +627,18 @@ class DoomWinds extends Analyzer.withDependencies({
         (relatedEvent) => relatedEvent.type === EventType.FreeCast,
       );
       if (!freeCast) {
+        // Thorim's Invocation consumes Maelstrom Weapon, so a cast made at zero stacks was never
+        // able to trigger it and shouldn't count towards the window's potential triggers.
+        if (
+          this.selectedCombatant.getBuffStacks(SPELLS.MAELSTROM_WEAPON_BUFF.id, event.timestamp) ===
+          0
+        ) {
+          if (event.ability.guid === TALENTS.CRASH_LIGHTNING_TALENT.id) {
+            stats.unavailableCrashLightning += 1;
+          } else {
+            stats.unavailablePrimary += 1;
+          }
+        }
         continue;
       }
 
@@ -640,7 +754,11 @@ class DoomWinds extends Analyzer.withDependencies({
   private buildWindowBreakdown(cast: DoomWindsWindow): DoomWindsWindowBreakdown {
     const counts = this.collectWindowCastCounts(cast);
     const triggerStats = this.getThorimsTriggerStats(cast);
-    const triggerOpportunities = this.getThorimsTriggerOpportunityBreakdown(cast, counts);
+    const triggerOpportunities = this.getThorimsTriggerOpportunityBreakdown(
+      cast,
+      counts,
+      triggerStats,
+    );
     const unusedGlobalCooldowns = this.getUnusedGlobalCooldowns(cast);
     const gcdPerformance = this.getGcdPerformance(cast);
     const triggerPerformance = this.getTriggerPerformance(cast, triggerStats, triggerOpportunities);
@@ -666,34 +784,54 @@ class DoomWinds extends Analyzer.withDependencies({
           ? breakdown.triggerStats.stormstrike
           : breakdown.triggerStats.windstrike;
 
+      const stats: PerCastStat[] = [
+        {
+          value: cast.windowSource === 'cast' ? (
+            t({ id: 'shaman.enhancement.doomwinds.cast_label', message: 'Cast' })
+          ) : (
+            t({ id: 'shaman.enhancement.doomwinds.proc_label', message: 'Proc' })
+          ),
+          label: t({ id: 'shaman.enhancement.doomwinds.source_label', message: 'Source' }),
+          performance: QualitativePerformance.Perfect,
+        },
+        {
+          value: `${breakdown.triggerStats.total}/${breakdown.triggerOpportunities.estimatedMaximumTriggers}`,
+          label: t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_label', message: 'Thorim Triggers' }),
+          tooltip: (
+            <>
+              {t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_tooltip.p1', message: 'Estimated maximum ' })}
+              <SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />
+              {t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_tooltip.p2', message: ' triggers.' })}
+            </>
+          ),
+          performance: breakdown.triggerPerformance,
+        },
+        {
+          value: `${breakdown.unusedGlobalCooldowns}`,
+          label: t({ id: 'shaman.enhancement.doomwinds.unused_gcds_label', message: 'Unused GCDs' }),
+          tooltip: t({ id: 'shaman.enhancement.doomwinds.unused_gcds_tooltip', message: 'Estimated unused global cooldowns during this window.' }),
+          performance: breakdown.gcdPerformance,
+        },
+      ];
+
+      if (cast.ascendanceHeldDuration !== undefined) {
+        stats.push({
+          value: formatDurationMillisMinSec(cast.ascendanceHeldDuration, 1),
+          label: t({ id: 'shaman.enhancement.doomwinds.ascendance_held_label', message: 'Ascendance Held' }),
+          tooltip: (
+            <>
+              {t({ id: 'shaman.enhancement.doomwinds.ascendance_held_tooltip.p1', message: 'Time ' })}
+              <SpellLink spell={TALENTS.ASCENDANCE_ENHANCEMENT_TALENT} />
+              {t({ id: 'shaman.enhancement.doomwinds.ascendance_held_tooltip.p2', message: ' was available.' })}
+            </>
+          ),
+        });
+      }
+
       return {
         performance: breakdown.performance,
         timestamp: this.owner.formatTimestamp(cast.event.timestamp),
-        stats: [
-          {
-            value: cast.windowSource === 'cast' ? (
-              t({ id: 'shaman.enhancement.doomwinds.cast_label', message: 'Cast' })
-            ) : (
-              t({ id: 'shaman.enhancement.doomwinds.proc_label', message: 'Proc' })
-            ),
-            label: t({ id: 'shaman.enhancement.doomwinds.source_label', message: 'Source' }),
-            performance: QualitativePerformance.Perfect,
-          },
-          {
-            value: `${breakdown.triggerStats.total}/${breakdown.triggerOpportunities.estimatedMaximumTriggers}`,
-            label: t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_label', message: 'Thorim Triggers' }),
-            tooltip: (
-              <>{t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_tooltip.p1', message: 'Estimated maximum ' })}<SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.thorim_triggers_tooltip.p2', message: ' triggers.' })}</>
-            ),
-            performance: breakdown.triggerPerformance,
-          },
-          {
-            value: `${breakdown.unusedGlobalCooldowns}`,
-            label: t({ id: 'shaman.enhancement.doomwinds.unused_gcds_label', message: 'Unused GCDs' }),
-            tooltip: t({ id: 'shaman.enhancement.doomwinds.unused_gcds_tooltip', message: 'Estimated unused global cooldowns during this window.' }),
-            performance: breakdown.gcdPerformance,
-          },
-        ],
+        stats,
         details: (
           <>
             <><SpellLink spell={TALENTS.THORIMS_INVOCATION_TALENT} />{t({ id: 'shaman.enhancement.doomwinds.thorim_may_trigger.p1', message: ' may have been able to trigger from the following sources:' })}</>

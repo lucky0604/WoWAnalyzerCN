@@ -21,7 +21,8 @@ interface Props {
 interface State {
   showPlayers: boolean;
 }
-interface SpellStats extends Omit<InternalPlayerStats, 'combatant'> {
+
+export interface SpellStats extends Omit<InternalPlayerStats, 'combatant'> {
   spellId: number;
 }
 

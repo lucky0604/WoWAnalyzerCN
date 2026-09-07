@@ -2,8 +2,8 @@ import type { JSX } from 'react';
 import SPELLS from 'common/SPELLS';
 import talents from 'common/TALENTS/monk';
 import { SpellLink } from 'interface';
+import { TipBox } from 'interface/guide/components';
 import { MistweaverApl } from './AplCheck';
-import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 
 const aplTitle = (choice: MistweaverApl) => {
@@ -41,16 +41,15 @@ const aplTitle = (choice: MistweaverApl) => {
 
 const JadefireTeachingsDescription = () => {
   return (
-    <><SpellLink spell={talents.RISING_SUN_KICK_TALENT} />
-      {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p1', message: 'to extend hots and convert damage to healing through ' })}
+    <>
       <SpellLink spell={talents.RISING_SUN_KICK_TALENT} />
-      {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p2', message: ',' })}
-      {' '}
+      {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p1', message: ' to extend HoTs and convert damage to healing through ' })}
+      <SpellLink spell={talents.RISING_SUN_KICK_TALENT} />
+      {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p2', message: ', ' })}
       <SpellLink spell={SPELLS.BLACKOUT_KICK} />
       {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p3', message: ', ' })}
       <SpellLink spell={SPELLS.TIGER_PALM} />
-      {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p4', message: ', and' })}
-      {' '}
+      {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p4', message: ', and ' })}
       <SpellLink spell={SPELLS.CRACKLING_JADE_LIGHTNING} />
       {t({ id: 'monk.mistweaver.apl.jadefire_teachings_desc.p5', message: '.' })}
     </>
@@ -59,10 +58,17 @@ const JadefireTeachingsDescription = () => {
 
 const RushingWindKickDescription = () => {
   return (
-    <><SpellLink spell={talents.RUSHING_WIND_KICK_MISTWEAVER_TALENT} />
-      {t({ id: 'monk.mistweaver.apl.rushing_wind_kick_desc.p1', message: 'to extend hots to accrue high counts of ' })}
+    <>
+      <SpellLink spell={talents.RUSHING_WIND_KICK_MISTWEAVER_TALENT} />
+      {t({ id: 'monk.mistweaver.apl.rushing_wind_kick_desc.p1', message: ' to extend your active HoTs, building up high counts of ' })}
       <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-      {t({ id: 'monk.mistweaver.apl.rushing_wind_kick_desc.p2', message: 'and amplify their healing.' })}
+      {t({ id: 'monk.mistweaver.apl.rushing_wind_kick_desc.p2', message: '. This sets up ' })}
+      <SpellLink spell={SPELLS.VIVIFY} />
+      {t({ id: 'monk.mistweaver.apl.rushing_wind_kick_desc.p3', message: ' to deal increasingly stronger ' })}
+      <SpellLink spell={talents.INVIGORATING_MISTS_TALENT} />
+      {t({ id: 'monk.mistweaver.apl.rushing_wind_kick_desc.p4', message: ' healing the more ' })}
+      <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+      {t({ id: 'monk.mistweaver.apl.rushing_wind_kick_desc.p5', message: 's you have active.' })}
     </>
   );
 };
@@ -92,11 +98,11 @@ const ThunderFocusTeaRemRsk = () => {
   );
 };
 
-const RisingMistJadefireTeachingsShaohaosDescription = () => {
+const RisingMistJadefireTeachingsDescription = () => {
   return (
     <>
       <p>
-        The {aplTitle(MistweaverApl.RisingMistJadefireTeachings)} rotation uses{' '}
+        {t({ id: 'monk.mistweaver.apl.rotation_uses', message: 'This rotation uses ' })}
         <JadefireTeachingsDescription />
       </p>
       <p>
@@ -124,59 +130,46 @@ const RisingMistJadefireTeachingsShaohaosDescription = () => {
   );
 };
 
-const RisingMistRushingWindKickShaohaosDescription = () => {
+const RisingMistRushingWindKickDescription = () => {
   return (
     <>
       <p>
-        The {aplTitle(MistweaverApl.RisingMistRushingWindKick)} rotation uses{' '}
+        {t({ id: 'monk.mistweaver.apl.rotation_uses', message: 'This rotation uses ' })}
         <RushingWindKickDescription />
       </p>
-      <>{t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p1', message: 'When playing ' })}
+      <p>
+        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p1', message: 'When playing ' })}
         <SpellLink spell={talents.RISING_MIST_TALENT} />
-        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p2', message: 'with' })}
-        {' '}
+        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p2', message: ' with ' })}
         <SpellLink spell={talents.RUSHING_WIND_KICK_MISTWEAVER_TALENT} />
-        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p3', message: 'and' })}
-        {' '}
+        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p3', message: ', keep ' })}
         <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p4', message: 'on cooldown and cast' })}
-        {' '}
+        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p4', message: ' on cooldown and cast ' })}
         <SpellLink spell={talents.RUSHING_WIND_KICK_MISTWEAVER_TALENT} />
-        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p5', message: 'as often as possible.' })}
-        {' '}
-      </>
-      <ThunderFocusTeaRem />
+        {t({ id: 'monk.mistweaver.apl.rising_mist_rushing_wind_kick_shao_pan.p5', message: ' as often as possible.' })}
+        <ThunderFocusTeaRem />
+      </p>
     </>
   );
 };
 
 const CleaveBuildNotYetSupportedDescription = () => {
   return (
-    <>
-      <p>
-        <strong>
-          <>{t({ id: 'monk.mistweaver.apl.way_of_the_crane_not_supported.p1', message: 'The ' })}
-            <SpellLink spell={talents.WAY_OF_THE_CRANE_TALENT} />
-            {t({ id: 'monk.mistweaver.apl.way_of_the_crane_not_supported.p2', message: 'rotation is not currently supported.' })}
-          </>
-        </strong>
-      </p>
-    </>
+    <TipBox type="warning">
+      {t({ id: 'monk.mistweaver.apl.way_of_the_crane_not_supported.p1', message: 'The ' })}
+      <SpellLink spell={talents.WAY_OF_THE_CRANE_TALENT} />
+      {t({ id: 'monk.mistweaver.apl.way_of_the_crane_not_supported.p2', message: ' rotation is not currently supported.' })}
+    </TipBox>
   );
 };
 
 const TomDescription = () => {
   return (
-    <>
-      <p>
-        <strong>
-          <>{t({ id: 'monk.mistweaver.apl.tear_of_morning_not_supported.p1', message: 'The ' })}
-            <SpellLink spell={talents.TEAR_OF_MORNING_TALENT} />
-            {t({ id: 'monk.mistweaver.apl.tear_of_morning_not_supported.p2', message: 'rotation is not currently supported.' })}
-          </>
-        </strong>
-      </p>
-    </>
+    <TipBox type="warning">
+      {t({ id: 'monk.mistweaver.apl.tear_of_morning_not_supported.p1', message: 'The ' })}
+      <SpellLink spell={talents.TEAR_OF_MORNING_TALENT} />
+      {t({ id: 'monk.mistweaver.apl.tear_of_morning_not_supported.p2', message: ' rotation is not currently supported.' })}
+    </TipBox>
   );
 };
 
@@ -184,13 +177,9 @@ const FallbackDescription = () => {
   return (
     <>
       <p>
-        <Trans id="monk.mistweaver.apl.fallback">
-          The {aplTitle(MistweaverApl.Fallback)} rotation is used when you aren't using a
-          recommended raid build. Regardless of talent choices it is still important for you to
-          follow the core priority: high mana efficient spells and short cooldowns, then filler
-          damage spells. This is the simplest rotation, but practicing it will build good habits
-          that work with the other variations.
-        </Trans>
+        {t({ id: 'monk.mistweaver.apl.fallback.p1', message: 'The ' })}
+        {aplTitle(MistweaverApl.Fallback)}
+        {t({ id: 'monk.mistweaver.apl.fallback.p2', message: " rotation is used when you aren't using a recommended raid build. Regardless of talent choices it is still important for you to follow the core priority: high mana efficient spells and short cooldowns, then filler damage spells. This is the simplest rotation, but practicing it will build good habits that work with the other variations." })}
       </p>
     </>
   );
@@ -199,9 +188,9 @@ const FallbackDescription = () => {
 const Description = ({ aplChoice }: { aplChoice: MistweaverApl }) => {
   switch (aplChoice) {
     case MistweaverApl.RisingMistJadefireTeachings:
-      return <RisingMistJadefireTeachingsShaohaosDescription />;
+      return <RisingMistJadefireTeachingsDescription />;
     case MistweaverApl.RisingMistRushingWindKick:
-      return <RisingMistRushingWindKickShaohaosDescription />;
+      return <RisingMistRushingWindKickDescription />;
     case MistweaverApl.WayOfTheCrane:
       return <CleaveBuildNotYetSupportedDescription />;
     case MistweaverApl.TearOfMorning:
@@ -233,6 +222,7 @@ export default function AplChoiceDescription({
           {t({ id: 'monk.mistweaver.apl.mw_core_explanation.p5', message: 'always being the top priority abilities.' })}
         </>
       </p>
+      <hr />
       <p>
         <strong>
           {t({ id: 'monk.mistweaver.apl.selected_build', message: 'Selected Build:' })}

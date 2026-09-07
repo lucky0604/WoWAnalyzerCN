@@ -1,4 +1,4 @@
-import type { JSX } from 'react';
+import { Fragment, type JSX, type ReactNode } from 'react';
 import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellLink } from 'interface';
@@ -15,6 +15,21 @@ import { Talent } from 'common/TALENTS/types';
 
 import { t } from '@lingui/core/macro';
 const CAST_BUFFER_MS = 250;
+
+/** Renders a list of talents as SpellLinks joined by commas, with 'and' before the last one. */
+function spellLinkList(talents: Talent[]): ReactNode {
+  return talents.map((talent, index) => (
+    <Fragment key={talent.id}>
+      {index > 0 &&
+        (index === talents.length - 1
+          ? talents.length > 2
+            ? t({ id: 'monk.mistweaver.risingSunKick.list.oxfordComma', message: ', and ' })
+            : t({ id: 'monk.mistweaver.risingSunKick.list.and', message: ' and ' })
+          : t({ id: 'monk.mistweaver.risingSunKick.list.comma', message: ', ' }))}
+      <SpellLink spell={talent} />
+    </Fragment>
+  ));
+}
 
 class RisingSunKick extends Analyzer {
   static dependencies = {
@@ -75,26 +90,29 @@ class RisingSunKick extends Analyzer {
 
   /** Guide subsection describing the proper usage of RSK */
   get guideSubsection(): JSX.Element {
+    const synergyTalents = [
+      TALENTS_MONK.RISING_MIST_TALENT,
+      TALENTS_MONK.POOL_OF_MISTS_TALENT,
+      TALENTS_MONK.RAPID_DIFFUSION_TALENT,
+    ].filter((talent) => this.selectedCombatant.hasTalent(talent));
+
     const explanation = (
       <p>
         <b>
           <SpellLink spell={this.currentRskTalent} />
         </b>{' '}
-        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p1', message: "is one of your primary damaging spells but is also your highest priority healing spell (alongside " })}
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p1', message: 'is one of your primary damaging spells but is also your highest priority healing spell (alongside ' })}
         <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p2', message: ") due to its synergy with " })}
-        <SpellLink spell={TALENTS_MONK.RISING_MIST_TALENT} />
-        {this.selectedCombatant.hasTalent(TALENTS_MONK.POOL_OF_MISTS_TALENT) && (
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p2', message: '), both through its own healing' })}
+        {synergyTalents.length > 0 && (
           <>
-            {t({ id: 'monk.mistweaver.risingSunKick.explanation.p3', message: ", " })}
-            <SpellLink spell={TALENTS_MONK.POOL_OF_MISTS_TALENT} />
+            {t({ id: 'monk.mistweaver.risingSunKick.explanation.p3', message: ' and its synergy with talents such as ' })}
+            {spellLinkList(synergyTalents)}
           </>
         )}
-        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p4', message: ", and " })}
-        <SpellLink spell={TALENTS_MONK.RAPID_DIFFUSION_TALENT} />
-        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p5', message: ". Using it as much as possible is essential for maintaining high counts of " })}
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p4', message: '. Using it as much as possible is essential for maintaining high counts of ' })}
         <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p6', message: "." })}
+        {t({ id: 'monk.mistweaver.risingSunKick.explanation.p5', message: '.' })}
       </p>
     );
 

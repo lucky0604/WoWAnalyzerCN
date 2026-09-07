@@ -3,7 +3,7 @@ import SPELLS from 'common/SPELLS';
 import { TALENTS_MONK } from 'common/TALENTS';
 import Analyzer, { Options, SELECTED_PLAYER } from 'parser/core/Analyzer';
 import Events, { RefreshBuffEvent, RemoveBuffEvent } from 'parser/core/Events';
-import { isStrengthOfTheBlackOxConsumed } from '../../normalizers/CastLinkNormalizer';
+import { getStrengthOfTheBlackOxConsumingCast } from '../../normalizers/CastLinkNormalizer';
 import SpellLink from 'interface/SpellLink';
 import { GUIDE_CORE_EXPLANATION_PERCENT } from '../../Guide';
 import { t, defineMessage } from '@lingui/core/macro';
@@ -17,6 +17,7 @@ import CastDetail, { type PerCastData } from 'interface/guide/components/CastDet
 import CastOverview from 'interface/guide/components/CastOverview';
 import { CelestialHooks } from 'analysis/retail/monk/shared';
 import { getCurrentCelestialTalent } from '../../constants';
+import { addEnhancedCastReason } from 'parser/core/EventMetaLib';
 
 class StrengthOfTheBlackOx extends Analyzer {
   static dependencies = {
@@ -60,7 +61,8 @@ class StrengthOfTheBlackOx extends Analyzer {
   }
 
   private onRemoveBuff(event: RemoveBuffEvent) {
-    const isConsumed = isStrengthOfTheBlackOxConsumed(event);
+    const consumingCast = getStrengthOfTheBlackOxConsumingCast(event);
+    const isConsumed = consumingCast !== undefined;
     if (!isConsumed) {
       this.expiredBuffs += 1;
     }
@@ -96,6 +98,15 @@ class StrengthOfTheBlackOx extends Analyzer {
         })
       ),
     });
+
+    if (consumingCast) {
+      addEnhancedCastReason(
+        consumingCast,
+        <>
+          This cast consumed <SpellLink spell={SPELLS.STRENGTH_OF_THE_BLACK_OX_BUFF} />.
+        </>,
+      );
+    }
   }
 
   get guideSubsection(): JSX.Element {
