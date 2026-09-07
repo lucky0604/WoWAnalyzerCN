@@ -1,5 +1,3 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { TALENTS_MONK } from 'common/TALENTS';
 import { SpellIcon, SpellLink } from 'interface';
 import { GuideProps, Section, SubSection } from 'interface/guide';
@@ -13,9 +11,13 @@ import { RoundedPanel } from 'interface/guide/components/GuideDivs';
 import * as AplCheck from './modules/core/apl/AplCheck';
 import AplChoiceDescription from './modules/core/apl/AplChoiceDescription';
 import { AplSectionData } from 'interface/guide/components/Apl';
+import { TipBox } from 'interface/guide/components';
 import { defaultExplainers } from 'interface/guide/components/Apl/violations/claims';
 import { filterCelestial } from './modules/core/apl/ExplainCelestial';
 import { getCurrentCelestialTalent, getCurrentRSKTalent } from './constants';
+import { t } from '@lingui/core/macro';
+import DefensivesGuide from './modules/core/defensives/DefensivesGuide';
+import ActiveTimeGuide from './modules/features/ActiveTimeGuide';
 
 const explainers = {
   overcast: filterCelestial(defaultExplainers.overcastFillers),
@@ -27,11 +29,10 @@ export const GUIDE_CORE_EXPLANATION_PERCENT = 40;
 export default function Guide({ modules, events, info }: GuideProps<typeof CombatLogParser>) {
   return (
     <>
-      <Section
-        title={t({ id: 'monk.mistweaver.section.coreSpells', message: 'Core Spells and Buffs' })}
-      >
+      <Section title={t({ id: 'monk.mistweaver.section.coreSpells', message: 'Core Spells and Buffs' })}>
         {modules.renewingMist.guideSubsection}
-        {info.combatant.hasTalent(TALENTS_MONK.RISING_MIST_TALENT) &&
+        {(info.combatant.hasTalent(TALENTS_MONK.RUSHING_WIND_KICK_MISTWEAVER_TALENT) ||
+          info.combatant.hasTalent(TALENTS_MONK.JADEFIRE_TEACHINGS_TALENT)) &&
           modules.risingSunKick.guideSubsection}
         {modules.thunderFocusTea.guideSubsection}
         {!info.combatant.hasTalent(TALENTS_MONK.SHEILUNS_GIFT_TALENT) &&
@@ -43,9 +44,7 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
           modules.aspectOfHarmony.guideSubsection}
         <RemGraphSubsection modules={modules} events={events} info={info} />
       </Section>
-      <Section
-        title={t({ id: 'monk.mistweaver.section.healingCooldowns', message: 'Healing Cooldowns' })}
-      >
+      <Section title={t({ id: 'monk.mistweaver.section.healingCooldowns', message: 'Healing Cooldowns' })}>
         <CooldownGraphSubsection modules={modules} events={events} info={info} />
         {info.combatant.hasTalent(TALENTS_MONK.INVOKE_CHI_JI_THE_RED_CRANE_TALENT)
           ? modules.invokeChiJi.guideCastBreakdown
@@ -58,22 +57,19 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
       </Section>
       <Section title={t({ id: 'monk.mistweaver.section.coreRotation', message: 'Core Rotation' })}>
         <p>
-          <Trans id="monk.mistweaver.coreRotation.description1">
-            Healers do not have a static rotation, but Mistweaver gameplay is still driven by a
-            priority list that is valid in the majority of situations. When using an ability, aim to
-            use the abilities that are highest on the list.
-          </Trans>
+          {t({
+            id: 'monk.mistweaver.coreRotation.description1',
+            message:
+              'Healers do not have a static rotation, but Mistweaver gameplay is still driven by a priority list that is valid in the majority of situations. When using an ability, aim to use the abilities that are highest on the list.',
+          })}
         </p>
         <AplChoiceDescription aplChoice={AplCheck.chooseApl(info)} />
-        <p>
-          <strong>
-            <>{t({ id: 'monk.mistweaver.coreRotation.description2.p1', message: 'It is important to note that using abilites like' })}
-              {' '}
-              <SpellLink spell={getCurrentCelestialTalent(info.combatant)} />
-              {t({ id: 'monk.mistweaver.coreRotation.description2.p2', message: 'have their own priority that supercedes the priority list below. This section omits all casts in those windows.' })}
-            </>
-          </strong>
-        </p>
+<TipBox type="info">
+          {t({ id: 'monk.mistweaver.coreRotation.description2.p1', message: 'It is important to note that using abilites like' })}
+          {' '}
+          <SpellLink spell={getCurrentCelestialTalent(info.combatant)} />
+          {t({ id: 'monk.mistweaver.coreRotation.description2.p2', message: 'have their own priority that supercedes the priority list below. This section omits all casts in those windows.' })}
+        </TipBox>
         <SubSection>
           <AplSectionData
             checker={AplCheck.check}
@@ -81,13 +77,10 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
             violationExplainers={explainers}
           />
         </SubSection>
+        <hr />
+        <ActiveTimeGuide />
       </Section>
-      <Section
-        title={t({
-          id: 'monk.mistweaver.section.otherCooldowns',
-          message: 'Other cooldowns, buffs, and procs',
-        })}
-      >
+      <Section title={t({ id: 'monk.mistweaver.section.otherCooldowns', message: 'Other cooldowns, buffs, and procs' })}>
         {info.combatant.hasTalent(TALENTS_MONK.LIFE_COCOON_TALENT) &&
           modules.lifeCocoon.guideSubsection}
         {info.combatant.hasTalent(TALENTS_MONK.VIVACIOUS_VIVIFICATION_TALENT) &&
@@ -101,6 +94,9 @@ export default function Guide({ modules, events, info }: GuideProps<typeof Comba
         {info.combatant.hasTalent(TALENTS_MONK.DANCE_OF_CHI_JI_MISTWEAVER_TALENT) &&
           modules.danceOfChiJi.guideSubsection}
       </Section>
+
+      <DefensivesGuide />
+
       <PreparationSection />
     </>
   );
@@ -110,11 +106,12 @@ function HotGraphSubsection({ modules, events, info }: GuideProps<typeof CombatL
   return (
     <SubSection>
       <strong>{t({ id: 'monk.mistweaver.hotGraph.title', message: 'Healing Amp Graph' })}</strong>
-      <Trans id="monk.mistweaver.hotGraph.description">
-        - This graph shows the number of non-Renewing Mist healing amps you had active over the
-        course of the encounter. It can help you evaluate how effective you were at prepping and
-        executing your cooldowns.
-      </Trans>
+      {' '}-{' '}
+      {t({
+        id: 'monk.mistweaver.hotGraph.description',
+        message:
+          'This graph shows the number of non-Renewing Mist healing amps you had active over the course of the encounter. It can help you evaluate how effective you were at prepping and executing your cooldowns.',
+      })}
       {modules.hotCountGraph.plot}
     </SubSection>
   );
@@ -124,18 +121,15 @@ function RemGraphSubsection({ modules, events, info }: GuideProps<typeof CombatL
   return (
     <SubSection>
       <strong>
-        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
+        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />{' '}
+        {t({ id: 'monk.mistweaver.rem_graph.title', message: 'Renewing Mist Graph' })}
       </strong>{' '}
-      <>{t({ id: 'monk.mistweaver.remGraph.description.p1', message: '- this graph shows how many ' })}
-        <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-        {t({ id: 'monk.mistweaver.remGraph.description.p2', message: 'you have over the course of the fight in relation to your' })}
-        {' '}
-        <SpellLink spell={getCurrentRSKTalent(info.combatant)} />
-        {t({ id: 'monk.mistweaver.remGraph.description.p3', message: 'and' })}
-        {' '}
-        <SpellLink spell={SPELLS.VIVIFY} />
-        {t({ id: 'monk.mistweaver.remGraph.description.p4', message: 'casts.' })}
-      </>
+      -{' '}
+      {t({
+        id: 'monk.mistweaver.remGraph.description',
+        message:
+          'this graph shows how many Renewing Mists you have over the course of the fight in relation to your Rising Sun Kick and Vivify casts.',
+      })}
       {modules.remGraph.plot}
     </SubSection>
   );
@@ -151,10 +145,11 @@ function SheilunsGraph({ modules, events, info }: GuideProps<typeof CombatLogPar
   const explanation = (
     <>
       <p>
-        <b>
-          <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} />
-        </b>{' '}
-        <>{t({ id: 'monk.mistweaver.sheilunsGift.description.p1', message: 'is a potent AoE group heal. If talented into' })}
+        <><b>
+            <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} />
+          </b>
+          {' '}
+          {t({ id: 'monk.mistweaver.sheilunsGift.description.p1', message: 'is a potent AoE group heal. If talented into' })}
           {' '}
           <SpellLink spell={TALENTS_MONK.VEIL_OF_PRIDE_TALENT} />
           {t({ id: 'monk.mistweaver.sheilunsGift.description.p2', message: ', then try to cast' })}
@@ -172,7 +167,10 @@ function SheilunsGraph({ modules, events, info }: GuideProps<typeof CombatLogPar
         <RoundedPanel>
           <strong>
             <SpellLink spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} />{' '}
-            {t({ id: 'monk.mistweaver.sheilunsGift.cloudEfficiency', message: 'cloud efficiency' })}
+            {t({
+              id: 'monk.mistweaver.sheilunsGift.cloudEfficiency',
+              message: 'cloud efficiency',
+            })}
           </strong>
           {modules.sheilunsGiftCloudGraph.plot}
         </RoundedPanel>
@@ -182,7 +180,10 @@ function SheilunsGraph({ modules, events, info }: GuideProps<typeof CombatLogPar
           <SpellIcon spell={TALENTS_MONK.SHEILUNS_GIFT_TALENT} style={{ height: '28px' }} />{' '}
           <b>{modules.sheilunsGift.cloudsLost}</b>{' '}
           <small style={styleObjInner}>
-            {t({ id: 'monk.mistweaver.sheilunsGift.cloudsWasted', message: 'clouds wasted' })}
+            {t({
+              id: 'monk.mistweaver.sheilunsGift.cloudsWasted',
+              message: 'clouds wasted',
+            })}
           </small>
         </div>
       </RoundedPanel>
@@ -202,13 +203,15 @@ function CooldownGraphSubsection({ modules, events, info }: GuideProps<typeof Co
     : TALENTS_MONK.INVOKE_YULON_THE_JADE_SERPENT_TALENT;
   return (
     <SubSection>
-      <strong>{t({ id: 'monk.mistweaver.cooldownGraph.title', message: 'Cooldown Graph' })}</strong>
-      <Trans id="monk.mistweaver.cooldownGraph.description">
-        - this graph shows when you used your cooldowns and how long you waited to use them again.
-        Grey segments show when the spell was available, yellow segments show when the spell was
-        cooling down. Red segments highlight times when you could have fit a whole extra use of the
-        cooldown.
-      </Trans>
+      <strong>
+        {t({ id: 'monk.mistweaver.cooldownGraph.title', message: 'Cooldown Graph' })}
+      </strong>{' '}
+      -{' '}
+      {t({
+        id: 'monk.mistweaver.cooldownGraph.description',
+        message:
+          'This graph shows when you used your cooldowns and how long you waited to use them again. Grey segments show when the spell was available, yellow segments show when the spell was cooling down. Red segments highlight times when you could have fit a whole extra use of the cooldown.',
+      })}
       <CastEfficiencyBar
         spell={invokeSpell}
         gapHighlightMode={GapHighlight.FullCooldown}

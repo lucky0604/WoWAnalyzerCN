@@ -275,16 +275,10 @@ class Lifebloom extends Analyzer {
       }
     } else if (remainingMs <= LIFEBLOOM_PANDEMIC_MS) {
       value = QualitativePerformance.Good;
-      text = t(
-        { id: 'restoration.lifebloom.refreshed_in_pandemic', message: 'Refreshed in pandemic window ({seconds}s remaining)' },
-        { seconds: (remainingMs / 1000).toFixed(1) },
-      );
+      text = `${t({ id: 'restoration.lifebloom.refreshed_in_pandemic.p1', message: 'Refreshed in pandemic window (' })}${(remainingMs / 1000).toFixed(1)}${t({ id: 'restoration.lifebloom.refreshed_in_pandemic.p2', message: 's remaining)' })}`;
     } else {
       value = QualitativePerformance.Ok;
-      text = t(
-        { id: 'restoration.lifebloom.refreshed_before_pandemic', message: 'Refreshed earlier than pandemic ({seconds}s remaining)' },
-        { seconds: (remainingMs / 1000).toFixed(1) },
-      );
+      text = `${t({ id: 'restoration.lifebloom.refreshed_before_pandemic.p1', message: 'Refreshed earlier than pandemic (' })}${(remainingMs / 1000).toFixed(1)}${t({ id: 'restoration.lifebloom.refreshed_before_pandemic.p2', message: 's remaining)' })}`;
     }
 
     if (fromOvergrowth) {

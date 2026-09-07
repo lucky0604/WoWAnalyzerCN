@@ -1,6 +1,5 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
 import { GuideProps, Section } from 'interface/guide';
+import TALENTS from 'common/TALENTS/shaman';
 import CombatLogParser from './CombatLogParser';
 import PreparationSection from 'interface/guide/components/Preparation/PreparationSection';
 import MaelstromUsage from './modules/guide/MaelstromUsage';
@@ -9,13 +8,22 @@ import DefensiveAndUtility from '../shared/guide/DefensiveAndUtility';
 import { Seriousnes } from 'CONTRIBUTORS';
 import Contributor from 'interface/ContributorButton';
 import FoundationDowntimeSectionV2 from 'interface/guide/foundation/FoundationDowntimeSectionV2';
+import { TIERS } from 'game/TIERS';
+import ItemSetLink from 'interface/ItemSetLink';
+import { SHAMAN_MID2_ID } from 'common/ITEMS';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 export default function Guide(props: GuideProps<typeof CombatLogParser>) {
+  const combatant = props.info.combatant;
+  const isTotemic = combatant.hasTalent(TALENTS.SURGING_TOTEM_TALENT);
+  const isStormbringer = combatant.hasTalent(TALENTS.TEMPEST_TALENT);
+  const hasMid2TierSet =
+    combatant.has2PieceByTier(TIERS.MID2) || combatant.has4PieceByTier(TIERS.MID2);
+
   return (
     <>
-      <Section
-        title={t({ id: 'shaman.enhancement.section.preface', message: 'Preface & Disclaimers' })}
-      >
+      <Section title={t({ id: 'shaman.enhancement.section.preface', message: 'Preface & Disclaimers' })}>
         <>
           <p>
             <>{t({ id: 'shaman.enhancement.preface.analysis.p1', message: 'The analysis in this guide is provided by ' })}
@@ -44,13 +52,25 @@ export default function Guide(props: GuideProps<typeof CombatLogParser>) {
           </p>
         </>
       </Section>
+      <Section title="Hero Talent">
+        {isTotemic && props.modules.surgingTotem.guideSubsection}
+        {isStormbringer && props.modules.tempest.guideSubsection}
+      </Section>
+      {hasMid2TierSet && (
+        <Section
+          title={
+            <>
+              <ItemSetLink id={SHAMAN_MID2_ID}>
+                {t({ id: 'shaman.enhancement.section.mid2TierSet', message: "Midnight Season 2 Tier Set (Ophidian Oracle's Prophecy)" })}
+              </ItemSetLink>
+            </>
+          }
+        >
+          {props.modules.s2TierSet.guideSubsection}
+        </Section>
+      )}
       <Cooldowns {...props} />
-      <Section
-        title={t({
-          id: 'shaman.enhancement.section.alwaysBeCasting',
-          message: 'Always Be Casting',
-        })}
-      >
+      <Section title={t({ id: 'shaman.enhancement.section.alwaysBeCasting', message: 'Always Be Casting' })}>
         <FoundationDowntimeSectionV2 />
       </Section>
       <MaelstromUsage {...props} />
