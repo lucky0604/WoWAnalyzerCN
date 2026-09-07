@@ -9,10 +9,12 @@ Disallow: /report/
 Disallow: /character/
 
 User-agent: Baiduspider
-Disallow: *
+Disallow: /report/
+Disallow: /character/
 
 User-agent: Baiduspider-render
-Disallow: *
+Disallow: /report/
+Disallow: /character/
 
 User-agent: Yandex
 Disallow: *
