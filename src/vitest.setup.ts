@@ -1,6 +1,12 @@
 import { cleanup } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
+import { i18n } from '@lingui/core';
 import { afterEach, beforeEach, expect, vi } from 'vitest';
+
+// Modules call t() at import time, so the locale must be active before any
+// test module loads. No catalog is loaded here: the compiled zh catalog is
+// gitignored and absent in CI, so t() falls back to the message: source.
+i18n.activate('en');
 
 expect.extend(matchers);
 
