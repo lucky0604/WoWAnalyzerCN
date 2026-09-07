@@ -27,6 +27,7 @@ export const CN_OVERRIDE_SOURCE_PATHS = [
   "src/analysis/retail/rogue/outlaw/Guide.tsx",
   "src/analysis/retail/rogue/subtlety/Guide.tsx",
   "src/analysis/retail/shaman/enhancement/Guide.tsx",
+  "src/analysis/retail/shaman/enhancement/modules/midnight/S2TierSet.tsx",
   "src/analysis/retail/shaman/restoration/Guide.tsx",
   "src/analysis/retail/warlock/affliction/Guide.tsx",
   "src/analysis/retail/warlock/demonology/Guide.tsx",

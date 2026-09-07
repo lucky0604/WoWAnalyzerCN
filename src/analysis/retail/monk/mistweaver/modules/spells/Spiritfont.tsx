@@ -140,8 +140,7 @@ class Spiritfont extends Analyzer {
       performance: QualitativePerformance.Fail,
       reason: t({
         id: 'monk.mistweaver.spiritfont.refreshedAtStacks',
-        message: 'Refreshed at {stacks} stacks',
-        values: { stacks: SPIRITFONT_MAX_STACKS },
+        message: `Refreshed at ${SPIRITFONT_MAX_STACKS} stacks`,
       }),
     });
 
@@ -150,8 +149,14 @@ class Spiritfont extends Analyzer {
       addInefficientCastReason(
         overcapCast,
         <>
-          This cast procced <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} /> while
-          already at {SPIRITFONT_MAX_STACKS} stacks, wasting the proc.
+          {t({ id: 'monk.mistweaver.spiritfont.overcap.p1', message: 'This cast procced ' })}
+          <SpellLink spell={TALENTS_MONK.SPIRITFONT_1_MISTWEAVER_TALENT} />
+          {t({ id: 'monk.mistweaver.spiritfont.overcap.p2', message: ' while already at ' })}
+          {SPIRITFONT_MAX_STACKS}
+          {t({
+            id: 'monk.mistweaver.spiritfont.overcap.p3',
+            message: ' stacks, wasting the proc.',
+          })}
         </>,
       );
     }

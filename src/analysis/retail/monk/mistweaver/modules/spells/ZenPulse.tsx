@@ -138,8 +138,7 @@ class ZenPulse extends Analyzer {
         stats: [],
         details: t({
           id: 'monk.mistweaver.zenPulse.buffRefreshedAtStacks',
-          message: 'Buff refreshed at {stacks} stacks',
-          values: { stacks: MAX_STACKS },
+          message: `Buff refreshed at ${MAX_STACKS} stacks`,
         }),
       });
 
@@ -148,8 +147,14 @@ class ZenPulse extends Analyzer {
         addInefficientCastReason(
           overcapCast,
           <>
-            This cast procced <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} /> while already at{' '}
-            {MAX_STACKS} stacks, wasting the proc.
+            {t({ id: 'monk.mistweaver.zenPulse.overcap.p1', message: 'This cast procced ' })}
+            <SpellLink spell={TALENTS_MONK.ZEN_PULSE_TALENT} />
+            {t({ id: 'monk.mistweaver.zenPulse.overcap.p2', message: ' while already at ' })}
+            {MAX_STACKS}
+            {t({
+              id: 'monk.mistweaver.zenPulse.overcap.p3',
+              message: ' stacks, wasting the proc.',
+            })}
           </>,
         );
       }
@@ -370,32 +375,40 @@ class ZenPulse extends Analyzer {
           <>
             <ul>
               <li>
-                {t({
-                  id: 'monk.mistweaver.zenPulse.procsPerMinute',
-                  message: 'Procs per minute: {ppm}',
-                  values: { ppm: this.ppm },
-                })}
+                <>
+                  {t({
+                    id: 'monk.mistweaver.zenPulse.procsPerMinute.p1',
+                    message: 'Procs per minute: ',
+                  })}
+                  {this.ppm}
+                </>
               </li>
               <li>
-                {t({
-                  id: 'monk.mistweaver.zenPulse.effectiveHealing',
-                  message: 'Effective healing: {healing}',
-                  values: { healing: formatNumber(this.healing) },
-                })}
+                <>
+                  {t({
+                    id: 'monk.mistweaver.zenPulse.effectiveHealing.p1',
+                    message: 'Effective healing: ',
+                  })}
+                  {formatNumber(this.healing)}
+                </>
               </li>
               <li>
-                {t({
-                  id: 'monk.mistweaver.zenPulse.overhealing',
-                  message: 'Overhealing: {overhealing}',
-                  values: { overhealing: formatNumber(this.overhealing) },
-                })}
+                <>
+                  {t({
+                    id: 'monk.mistweaver.zenPulse.overhealing.p1',
+                    message: 'Overhealing: ',
+                  })}
+                  {formatNumber(this.overhealing)}
+                </>
               </li>
               <li>
-                {t({
-                  id: 'monk.mistweaver.zenPulse.averageIncrease',
-                  message: 'Average increase: {pct}%',
-                  values: { pct: formatPercentage(this.avgIncrease) },
-                })}
+                <>
+                  {t({
+                    id: 'monk.mistweaver.zenPulse.averageIncrease.p1',
+                    message: 'Average increase: ',
+                  })}
+                  {formatPercentage(this.avgIncrease)}%
+                </>
               </li>
               <li>
                 <>{t({ id: 'monk.mistweaver.zenPulse.buffsBelowThreshold.p1', message: 'Buffs used below ' })}
@@ -407,18 +420,22 @@ class ZenPulse extends Analyzer {
                 </>
               </li>
               <li>
-                {t({
-                  id: 'monk.mistweaver.zenPulse.expiredBuffs',
-                  message: 'Expired Buffs: {count}',
-                  values: { count: this.expiredBuffs },
-                })}
+                <>
+                  {t({
+                    id: 'monk.mistweaver.zenPulse.expiredBuffs.p1',
+                    message: 'Expired Buffs: ',
+                  })}
+                  {this.expiredBuffs}
+                </>
               </li>
               <li>
-                {t({
-                  id: 'monk.mistweaver.zenPulse.refreshedBuffs',
-                  message: 'Refreshed Buffs: {count}',
-                  values: { count: this.refreshedBuffs },
-                })}
+                <>
+                  {t({
+                    id: 'monk.mistweaver.zenPulse.refreshedBuffs.p1',
+                    message: 'Refreshed Buffs: ',
+                  })}
+                  {this.refreshedBuffs}
+                </>
               </li>
             </ul>
           </>

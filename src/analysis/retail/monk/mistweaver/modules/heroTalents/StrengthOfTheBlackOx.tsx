@@ -103,7 +103,9 @@ class StrengthOfTheBlackOx extends Analyzer {
       addEnhancedCastReason(
         consumingCast,
         <>
-          This cast consumed <SpellLink spell={SPELLS.STRENGTH_OF_THE_BLACK_OX_BUFF} />.
+          {t({ id: 'monk.mistweaver.sotbo.consumed.p1', message: 'This cast consumed ' })}
+          <SpellLink spell={SPELLS.STRENGTH_OF_THE_BLACK_OX_BUFF} />
+          {t({ id: 'monk.mistweaver.sotbo.consumed.p2', message: '.' })}
         </>,
       );
     }

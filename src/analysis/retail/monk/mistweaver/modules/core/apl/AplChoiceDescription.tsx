@@ -76,10 +76,10 @@ const RushingWindKickDescription = () => {
 const ThunderFocusTeaRem = () => {
   return (
     <><SpellLink spell={talents.THUNDER_FOCUS_TEA_TALENT} />
-      {t({ id: 'monk.mistweaver.apl.tft_rem.p1', message: 'is primarily used on' })}
+      {t({ id: 'monk.mistweaver.apl.tft_rem.p1', message: ' is primarily used on' })}
       {' '}
       <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-      {t({ id: 'monk.mistweaver.apl.tft_rem.p2', message: 'with this build.' })}
+      {t({ id: 'monk.mistweaver.apl.tft_rem.p2', message: ' with this build.' })}
     </>
   );
 };
@@ -87,13 +87,13 @@ const ThunderFocusTeaRem = () => {
 const ThunderFocusTeaRemRsk = () => {
   return (
     <><SpellLink spell={talents.THUNDER_FOCUS_TEA_TALENT} />
-      {t({ id: 'monk.mistweaver.apl.tft_rem_rsk.p1', message: 'can be used with both' })}
+      {t({ id: 'monk.mistweaver.apl.tft_rem_rsk.p1', message: ' can be used with both' })}
       {' '}
       <SpellLink spell={SPELLS.RENEWING_MIST_CAST} />
-      {t({ id: 'monk.mistweaver.apl.tft_rem_rsk.p2', message: 'and' })}
+      {t({ id: 'monk.mistweaver.apl.tft_rem_rsk.p2', message: ' and' })}
       {' '}
       <SpellLink spell={talents.RISING_SUN_KICK_TALENT} />
-      {t({ id: 'monk.mistweaver.apl.tft_rem_rsk.p3', message: 'with this build.' })}
+      {t({ id: 'monk.mistweaver.apl.tft_rem_rsk.p3', message: ' with this build.' })}
     </>
   );
 };
@@ -108,21 +108,21 @@ const RisingMistJadefireTeachingsDescription = () => {
       <p>
         <>{t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p1', message: 'When playing ' })}
           <SpellLink spell={talents.RISING_MIST_TALENT} />
-          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p2', message: 'and' })}
+          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p2', message: ' and' })}
           {' '}
           <SpellLink spell={talents.JADEFIRE_TEACHINGS_TALENT} />
-          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p3', message: 'with' })}
+          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p3', message: ' with' })}
           {' '}
           <SpellLink spell={talents.RISING_SUN_KICK_TALENT} />
-          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p4', message: 'as often as possible, and cast' })}
+          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p4', message: ' as often as possible, and cast' })}
           {' '}
           <SpellLink spell={talents.JADEFIRE_STOMP_TALENT} />
-          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p5', message: 'or' })}
+          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p5', message: ' or' })}
           {' '}
           <SpellLink spell={talents.THUNDER_FOCUS_TEA_TALENT} />
           {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p6', message: 'as often as necessary to maintain the ' })}
           <SpellLink spell={talents.JADEFIRE_TEACHINGS_TALENT} />
-          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p7', message: 'buff.' })}
+          {t({ id: 'monk.mistweaver.apl.rising_mist_jadefire_teachings_shao_pan.p7', message: ' buff.' })}
         </>
         <ThunderFocusTeaRemRsk />
       </p>
@@ -219,7 +219,7 @@ export default function AplChoiceDescription({
           {t({ id: 'monk.mistweaver.apl.mw_core_explanation.p4', message: ', and' })}
           {' '}
           <SpellLink spell={talents.THUNDER_FOCUS_TEA_TALENT} />
-          {t({ id: 'monk.mistweaver.apl.mw_core_explanation.p5', message: 'always being the top priority abilities.' })}
+          {t({ id: 'monk.mistweaver.apl.mw_core_explanation.p5', message: ' always being the top priority abilities.' })}
         </>
       </p>
       <hr />
